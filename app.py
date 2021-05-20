@@ -83,7 +83,8 @@ app.layout = html.Div(
             html.Div(
                 dcc.Loading(
                     html.Div(id='docs-content', style={'padding': '100px 100px 0 100px'}),
-                    fullscreen=True
+                    fullscreen=True,
+                    type='circle'
                 ),
                 style={
                     'width': '100%'
