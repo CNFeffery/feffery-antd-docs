@@ -72,7 +72,7 @@ docs_content = html.Div(
 
             ],
             style={
-                'marginBottom': '20px'
+                'marginBottom': '80px'
             }
         ),
 
@@ -94,7 +94,7 @@ docs_content = html.Div(
 
             ],
             style={
-                'marginBottom': '20px'
+                'marginBottom': '80px'
             }
         ),
 
@@ -116,7 +116,7 @@ docs_content = html.Div(
 
             ],
             style={
-                'marginBottom': '20px'
+                'marginBottom': '80px'
             }
         ),
 
@@ -150,7 +150,7 @@ docs_content = html.Div(
 
             ],
             style={
-                'marginBottom': '20px'
+                'marginBottom': '80px'
             }
         ),
 
@@ -184,7 +184,7 @@ docs_content = html.Div(
 
             ],
             style={
-                'marginBottom': '20px'
+                'marginBottom': '80px'
             }
         ),
 
@@ -214,7 +214,7 @@ docs_content = html.Div(
 
             ],
             style={
-                'marginBottom': '20px'
+                'marginBottom': '80px'
             }
         ),
 
@@ -240,7 +240,7 @@ docs_content = html.Div(
 
             ],
             style={
-                'marginBottom': '20px'
+                'marginBottom': '80px'
             }
         ),
 

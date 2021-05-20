@@ -59,7 +59,7 @@ docs_content = html.Div(
                 fac.AntdDivider(isDashed=True, style={'borderTopColor': 'black'}),
             ],
             style={
-                'marginBottom': '20px'
+                'marginBottom': '80px'
             }
         ),
 
@@ -90,7 +90,7 @@ docs_content = html.Div(
                 fac.AntdDivider('AntdDivider', innerTextOrientation='right', style={'fontStyle': 'oblique'}),
             ],
             style={
-                'marginBottom': '20px'
+                'marginBottom': '80px'
             }
         ),
 
@@ -123,7 +123,7 @@ docs_content = html.Div(
                 )
             ],
             style={
-                'marginBottom': '20px'
+                'marginBottom': '80px'
             }
         ),
 

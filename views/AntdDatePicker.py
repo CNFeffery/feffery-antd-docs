@@ -70,7 +70,7 @@ docs_content = html.Div(
                 ),
             ],
             style={
-                'marginBottom': '20px'
+                'marginBottom': '80px'
             }
         ),
 
@@ -103,7 +103,7 @@ docs_content = html.Div(
                 )
             ],
             style={
-                'marginBottom': '20px'
+                'marginBottom': '80px'
             }
         ),
 
@@ -156,7 +156,7 @@ docs_content = html.Div(
                 )
             ],
             style={
-                'marginBottom': '20px'
+                'marginBottom': '80px'
             }
         ),
 
@@ -209,7 +209,7 @@ docs_content = html.Div(
                 html.Em(id='date-picker-demo-output')
             ],
             style={
-                'marginBottom': '20px'
+                'marginBottom': '80px'
             }
         ),
 
