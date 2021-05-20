@@ -7,6 +7,6 @@ div {
     background-color: rgba(255, 255, 255, 0.2) !important;
 }
 
-#loader-wrapper > div {
+.loader-wrapper > div {
     visibility: visible !important;
 }
