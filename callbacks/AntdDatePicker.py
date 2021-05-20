@@ -10,7 +10,6 @@ from server import app
     prevent_initial_call=True
 )
 def date_picker_callback_demo(selectedDate):
-    print('启动！')
     if selectedDate:
         return selectedDate
 
