@@ -87,7 +87,8 @@ app.layout = html.Div(
                 ),
                 style={
                     'width': '100%'
-                }
+                },
+                id='loader-wrapper'
             ),
             fluid=True,
             style={

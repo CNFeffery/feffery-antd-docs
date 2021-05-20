@@ -10,6 +10,7 @@ from server import app
     prevent_initial_call=True
 )
 def date_picker_callback_demo(selectedDate):
+    import time;time.sleep(0.5)
     if selectedDate:
         return selectedDate
 
