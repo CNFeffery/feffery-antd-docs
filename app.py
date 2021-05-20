@@ -67,7 +67,10 @@ app.layout = html.Div(
 
         dbc.Container(
             html.Div(
-                html.Div(id='docs-content', style={'padding': '100px 100px 0 100px'}),
+                dcc.Loading(
+                    html.Div(id='docs-content', style={'padding': '100px 100px 0 100px'}),
+                    fullscreen=True
+                ),
                 style={
                     'width': '100%'
                 }
