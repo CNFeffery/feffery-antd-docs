@@ -56,8 +56,8 @@ app.layout = html.Div(
                     'borderRight': '1px solid #e0e0e0',
                     'width': '400px',
                     'position': 'sticky',
-                    'top': '20px',
-                    'height': 'calc(100% - 20px)'
+                    'top': '0',
+                    'height': '100vh'
                 }
             ),
             style={
@@ -74,16 +74,13 @@ app.layout = html.Div(
             ),
             fluid=True,
             style={
-                'width': 'calc(100% - 50px)',
-                'height': '100%',
-                'flex': 'auto',
+                'width': 'calc(100% - 20px)',
                 'overflowY': 'auto'
             }
         )
 
     ],
     style={
-        'width': '100vw',
         'display': 'flex'
     }
 )
