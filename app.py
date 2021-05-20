@@ -7,7 +7,11 @@ import feffery_antd_components as fac
 
 from server import app, server
 
-from views import AntdDatePicker
+from views import (
+    AntdDatePicker,
+    AntdDivider,
+    AntdButton
+)
 
 app.layout = html.Div(
     [
@@ -18,7 +22,7 @@ app.layout = html.Div(
                 [
                     html.P(
                         [html.Span('feffery-antd-components', style={'fontSize': '1.75rem'}),
-                         html.Em('v0.0.1a4',
+                         html.Em('v0.0.1a6',
                                  style={'fontFamily': 'Times New Romer', 'color': '#ff2c6d', 'fontSize': '0.4rem'}),
                          html.Br(),
                          html.Span('交互式说明文档', style={'fontSize': '2rem'})],
@@ -42,6 +46,16 @@ app.layout = html.Div(
                             dbc.NavLink(
                                 '日期选择框：AntdDatePicker',
                                 href='/feffery-antd-docs/AntdDatePicker',
+                                active='exact'
+                            ),
+                            dbc.NavLink(
+                                '分割线：AntdDivider',
+                                href='/feffery-antd-docs/AntdDivider',
+                                active='exact'
+                            ),
+                            dbc.NavLink(
+                                '按钮：AntdButton',
+                                href='/feffery-antd-docs/AntdButton',
                                 active='exact'
                             )
                         ],
@@ -95,7 +109,6 @@ app.layout = html.Div(
     Input('url', 'pathname')
 )
 def render_docs_content(pathname):
-
     if pathname == '/feffery-antd-docs/index':
 
         return dcc.Markdown(open('documents/index.md', encoding='utf-8').read(), className='markdown')
@@ -103,6 +116,15 @@ def render_docs_content(pathname):
     elif pathname == '/feffery-antd-docs/AntdDatePicker':
 
         return AntdDatePicker.docs_content
+
+
+    elif pathname == '/feffery-antd-docs/AntdDivider':
+
+        return AntdDivider.docs_content
+
+    elif pathname == '/feffery-antd-docs/AntdButton':
+
+        return AntdButton.docs_content
 
 
 if __name__ == '__main__':

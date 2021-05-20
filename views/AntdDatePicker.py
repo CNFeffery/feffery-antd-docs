@@ -183,7 +183,8 @@ docs_content = html.Div(
 
                 @app.callback(
                     Output('date-picker-demo-output', 'children'),
-                    Input('date-picker-demo', 'selectedDate')
+                    Input('date-picker-demo', 'selectedDate'),
+                    prevent_initial_call=True
                 )
                 def date_picker_callback_demo(selectedDate):
                     if selectedDate:
@@ -212,6 +213,6 @@ docs_content = html.Div(
             }
         ),
 
-        html.Div(style={'height': '50px'})
+        html.Div(style={'height': '100px'})
     ]
 )
