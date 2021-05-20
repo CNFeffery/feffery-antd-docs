@@ -5,7 +5,7 @@ from dash.dependencies import Input, Output
 
 import feffery_antd_components as fac
 
-from server import app
+from server import app, server
 
 from views import AntdDatePicker
 
