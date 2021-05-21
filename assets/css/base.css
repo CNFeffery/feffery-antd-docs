@@ -10,3 +10,8 @@ div {
 .loader-wrapper > div {
     visibility: visible !important;
 }
+
+/*修复bootstrap与antd同时导入时的部分图标位置偏移问题*/
+.anticon {
+    vertical-align: 0.125em!important;
+}

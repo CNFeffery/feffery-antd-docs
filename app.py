@@ -10,7 +10,8 @@ from server import app, server
 from views import (
     AntdDatePicker,
     AntdDivider,
-    AntdButton
+    AntdButton,
+    AntdSelect
 )
 
 app.layout = html.Div(
@@ -22,7 +23,7 @@ app.layout = html.Div(
                 [
                     html.P(
                         [html.Span('feffery-antd-components', style={'fontSize': '1.75rem'}),
-                         html.Em('v0.0.1a6',
+                         html.Em('v0.0.1a8',
                                  style={'fontFamily': 'Times New Romer', 'color': '#ff2c6d', 'fontSize': '0.4rem'}),
                          html.Br(),
                          html.Span('交互式说明文档', style={'fontSize': '2rem'})],
@@ -56,6 +57,11 @@ app.layout = html.Div(
                             dbc.NavLink(
                                 '按钮：AntdButton',
                                 href='/feffery-antd-docs/AntdButton',
+                                active='exact'
+                            ),
+                            dbc.NavLink(
+                                '下拉选择：AntdSelect',
+                                href='/feffery-antd-docs/AntdSelect',
                                 active='exact'
                             )
                         ],
@@ -127,6 +133,10 @@ def render_docs_content(pathname):
     elif pathname == '/feffery-antd-docs/AntdButton':
 
         return AntdButton.docs_content
+
+    elif pathname == '/feffery-antd-docs/AntdSelect':
+
+        return AntdSelect.docs_content
 
 
 if __name__ == '__main__':
