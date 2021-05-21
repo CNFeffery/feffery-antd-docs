@@ -1,7 +1,7 @@
 #### 最新版本安装方式
 
 ```bash
-pip install feffery-antd-components==0.0.1a8
+pip install feffery-antd-components==0.0.1a9
 ```
 
 #### 推荐导入方式

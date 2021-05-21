@@ -11,7 +11,8 @@ from views import (
     AntdDatePicker,
     AntdDivider,
     AntdButton,
-    AntdSelect
+    AntdSelect,
+    AntdTree
 )
 
 app.layout = html.Div(
@@ -62,6 +63,11 @@ app.layout = html.Div(
                             dbc.NavLink(
                                 '下拉选择：AntdSelect',
                                 href='/feffery-antd-docs/AntdSelect',
+                                active='exact'
+                            ),
+                            dbc.NavLink(
+                                '树形控件：AntdTree',
+                                href='/feffery-antd-docs/AntdTree',
                                 active='exact'
                             )
                         ],
@@ -138,6 +144,9 @@ def render_docs_content(pathname):
 
         return AntdSelect.docs_content
 
+    elif pathname == '/feffery-antd-docs/AntdTree':
+
+        return AntdTree.docs_content
 
 if __name__ == '__main__':
     app.run_server(debug=True)
