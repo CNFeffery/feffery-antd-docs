@@ -7,7 +7,7 @@ import callbacks.AntdButton
 docs_content = html.Div(
     [
         html.H2(
-            'AntdDivider(id, className, style, *args, **kwargs)',
+            'AntdButton(id, className, style, *args, **kwargs)',
             style={
                 'borderLeft': '4px solid grey',
                 'padding': '3px 0 3px 10px',
