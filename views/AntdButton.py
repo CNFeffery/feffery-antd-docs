@@ -224,13 +224,18 @@ docs_content = html.Div(
 
                 dcc.Markdown('''
                 ```Python
-                html.Div(
-                    [
-                        fac.AntdButton('默认'),
-                        fac.AntdButton('circle', shape='circle'),
-                        fac.AntdButton('round', shape='round')
-                    ]
+                fac.AntdButton('点我点我', type='primary', id='button-demo'),
+                html.Br(),
+                html.Em(id='button-demo-output')
+                ...
+                @app.callback(
+                    Output('button-demo-output', 'children'),
+                    Input('button-demo', 'nClicks'),
+                    prevent_initial_call=True
                 )
+                def button_callback_demo(nClicks):
+
+                    return nClicks
                 ```
                 '''),
 
