@@ -599,7 +599,12 @@ docs_content = html.Div(
 
                 dcc.Markdown('''
                 ```Python
+                html.Em('[]', id='tree-demo-output1'),
+                html.Br(),
+                html.Em('[]', id='tree-demo-output2'),
+
                 fac.AntdTree(
+                    id='tree-demo',
                     treeData=[
                         {
                             'title': '重庆市',
@@ -646,8 +651,21 @@ docs_content = html.Div(
                                 }
                             ]
                         }
-                    ]
+                    ],
+                    multiple=True,
+                    checkable=True
                 )
+                ...
+                @app.callback(
+                    [Output('tree-demo-output1', 'children'),
+                    Output('tree-demo-output2', 'children')],
+                    [Input('tree-demo', 'selectedKeys'),
+                     Input('tree-demo', 'checkedKeys')],
+                    prevent_initial_call=True
+                )
+                def button_callback_demo(selectedKeys, checkedKeys):
+                
+                    return str(selectedKeys), str(checkedKeys)
                 ```
                 '''),
 
