@@ -595,6 +595,95 @@ docs_content = html.Div(
 
         html.Div(
             [
+                html.Strong('大数据量时限制最大显示高度提升性能：', style={'paddingTop': '5px'}),
+
+                dcc.Markdown('''
+                ```Python
+                fac.AntdTree(
+                    treeData=[
+                        {
+                            'title': '重庆市',
+                            'key': '重庆市',
+                            'children': [
+                                {
+                                    'title': '渝北区',
+                                    'key': '渝北区'
+                                },
+                                {
+                                    'title': '江北区',
+                                    'key': '江北区'
+                                }
+                            ]
+                        },
+                        {
+                            'title': '北京市',
+                            'key': '北京市',
+                            'children': [
+                                {
+                                    'title': '西城区',
+                                    'key': '西城区'
+                                },
+                                {
+                                    'title': '东城区',
+                                    'key': '东城区'
+                                }
+                            ]
+                        },
+                        {
+                            'title': '四川省',
+                            'key': '四川省',
+                            'children': [
+                                {
+                                    'title': '成都市',
+                                    'key': '成都市',
+                                    'children': [
+                                        {
+                                            'title': '天府新区',
+                                            'key': '天府新区'
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    multiple=True,
+                    showLine=False,
+                    defaultExpandAll=True
+                )
+                ```
+                '''),
+
+                fac.AntdTree(
+                    treeData=[
+                        {
+                            'title': f'数仓{i}',
+                            'key': f'数仓{i}',
+                            'icon_name': 'database',
+                            'children': [
+                                {
+                                    'title': f'业务表{i}-{j}',
+                                    'key': f'业务表{i}-{j}',
+                                    'icon_name': 'table'
+                                }
+                                for j in range(10)
+                            ]
+                        }
+                        for i in range(100)
+                    ],
+                    defaultExpandAll=True,
+                    height=500,
+                    style={
+                        'border': '2px dashed #757575'
+                    }
+                ),
+            ],
+            style={
+                'marginBottom': '80px'
+            }
+        ),
+
+        html.Div(
+            [
                 html.Strong('回调示例：', style={'paddingTop': '5px'}),
 
                 dcc.Markdown('''
