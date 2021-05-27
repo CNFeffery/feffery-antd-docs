@@ -6,6 +6,7 @@ import callbacks.AntdDatePicker
 
 docs_content = html.Div(
     [
+
         html.H2(
             'AntdDatePicker(id, className, style, *args, **kwargs)',
             style={
@@ -14,9 +15,24 @@ docs_content = html.Div(
                 'backgroundColor': '#f5f5f5'
             }
         ),
-
+        fac.AntdAnchor(
+            linkDict=[
+                {'title': '主要参数说明', 'href': '#主要参数说明'},
+                {
+                    'title': '使用示例',
+                    'href': '#使用示例',
+                    'children': [
+                        {'title': '常规的日期选择', 'href': '#常规的日期选择'},
+                        {'title': '添加时间选择功能', 'href': '#添加时间选择功能'},
+                        {'title': '其他时间粒度选择', 'href': '#其他时间粒度选择'},
+                        {'title': '回调示例', 'href': '#回调示例'},
+                    ]
+                },
+            ]
+        ),
         html.Span(
             '主要参数说明：',
+            id='主要参数说明',
             style={
                 'borderLeft': '4px solid grey',
                 'padding': '3px 0 3px 10px',
@@ -31,6 +47,7 @@ docs_content = html.Div(
 
         html.Span(
             '使用示例：',
+            id='使用示例',
             style={
                 'borderLeft': '4px solid grey',
                 'padding': '3px 0 3px 10px',
@@ -44,7 +61,11 @@ docs_content = html.Div(
 
         html.Div(
             [
-                html.Strong('常规的日期选择：', style={'paddingTop': '5px'}),
+                html.Strong(
+                    '常规的日期选择：',
+                    id='常规的日期选择',
+                    style={'paddingTop': '5px'}
+                ),
 
                 dcc.Markdown('''
                 ```Python
@@ -76,7 +97,11 @@ docs_content = html.Div(
 
         html.Div(
             [
-                html.Strong('添加时间选择功能：', style={'paddingTop': '5px'}),
+                html.Strong(
+                    '添加时间选择功能：',
+                    id='添加时间选择功能',
+                    style={'paddingTop': '5px'}
+                ),
 
                 dcc.Markdown('''
                 ```Python
@@ -109,7 +134,11 @@ docs_content = html.Div(
 
         html.Div(
             [
-                html.Strong('其他时间粒度选择：', style={'paddingTop': '5px'}),
+                html.Strong(
+                    '其他时间粒度选择：',
+                    id='其他时间粒度选择',
+                    style={'paddingTop': '5px'}
+                ),
 
                 dcc.Markdown('''
                 ```Python
@@ -162,7 +191,11 @@ docs_content = html.Div(
 
         html.Div(
             [
-                html.Strong('回调示例：', style={'paddingTop': '5px'}),
+                html.Strong(
+                    '回调示例：',
+                    id='回调示例',
+                    style={'paddingTop': '5px'}
+                ),
 
                 dcc.Markdown('''
                 ```Python

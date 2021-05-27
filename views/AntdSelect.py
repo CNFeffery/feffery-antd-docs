@@ -15,8 +15,26 @@ docs_content = html.Div(
             }
         ),
 
+        fac.AntdAnchor(
+            linkDict=[
+                {'title': '主要参数说明', 'href': '#主要参数说明'},
+                {
+                    'title': '使用示例',
+                    'href': '#使用示例',
+                    'children': [
+                        {'title': '基础的下拉选择', 'href': '#基础的下拉选择'},
+                        {'title': '分组下拉选择', 'href': '#分组下拉选择'},
+                        {'title': '多选与自由新增模式', 'href': '#多选与自由新增模式'},
+                        {'title': '修改下拉选择最大高度', 'href': '#修改下拉选择最大高度'},
+                        {'title': '设置输入框已选择选项最大显示数量', 'href': '#设置输入框已选择选项最大显示数量'},
+                        {'title': '回调示例', 'href': '#回调示例'}
+                    ]
+                },
+            ]
+        ),
         html.Span(
             '主要参数说明：',
+            id='主要参数说明',
             style={
                 'borderLeft': '4px solid grey',
                 'padding': '3px 0 3px 10px',
@@ -31,6 +49,7 @@ docs_content = html.Div(
 
         html.Span(
             '使用示例：',
+            id='使用示例',
             style={
                 'borderLeft': '4px solid grey',
                 'padding': '3px 0 3px 10px',
@@ -44,7 +63,11 @@ docs_content = html.Div(
 
         html.Div(
             [
-                html.Strong('基础的下拉选择：', style={'paddingTop': '5px'}),
+                html.Strong(
+                    '基础的下拉选择：',
+                    id='基础的下拉选择',
+                    style={'paddingTop': '5px'}
+                ),
 
                 dcc.Markdown('''
                 ```Python
@@ -87,7 +110,11 @@ docs_content = html.Div(
 
         html.Div(
             [
-                html.Strong('分组下拉选择：', style={'paddingTop': '5px'}),
+                html.Strong(
+                    '分组下拉选择：',
+                    id='分组下拉选择',
+                    style={'paddingTop': '5px'}
+                ),
 
                 dcc.Markdown('''
                 ```Python
@@ -160,7 +187,11 @@ docs_content = html.Div(
 
         html.Div(
             [
-                html.Strong('多选与自由新增模式：', style={'paddingTop': '5px'}),
+                html.Strong(
+                    '多选与自由新增模式：',
+                    id='多选与自由新增模式',
+                    style={'paddingTop': '5px'}
+                ),
 
                 dcc.Markdown('''
                 ```Python
@@ -241,7 +272,11 @@ docs_content = html.Div(
 
         html.Div(
             [
-                html.Strong('设置默认选中值：', style={'paddingTop': '5px'}),
+                html.Strong(
+                    '设置默认选中值：',
+                    id='设置默认选中值',
+                    style={'paddingTop': '5px'}
+                ),
 
                 dcc.Markdown('''
                 ```Python
@@ -284,7 +319,11 @@ docs_content = html.Div(
 
         html.Div(
             [
-                html.Strong('修改下拉选择最大高度：', style={'paddingTop': '5px'}),
+                html.Strong(
+                    '修改下拉选择最大高度：',
+                    id='修改下拉选择最大高度',
+                    style={'paddingTop': '5px'}
+                ),
 
                 dcc.Markdown('''
                 ```Python
@@ -325,7 +364,11 @@ docs_content = html.Div(
 
         html.Div(
             [
-                html.Strong('设置输入框已选择选项最大显示数量：', style={'paddingTop': '5px'}),
+                html.Strong(
+                    '设置输入框已选择选项最大显示数量：',
+                    id='设置输入框已选择选项最大显示数量',
+                    style={'paddingTop': '5px'}
+                ),
 
                 dcc.Markdown('''
                 ```Python
@@ -368,7 +411,11 @@ docs_content = html.Div(
 
         html.Div(
             [
-                html.Strong('回调示例：', style={'paddingTop': '5px'}),
+                html.Strong(
+                    '回调示例：',
+                    id='回调示例',
+                    style={'paddingTop': '5px'}
+                ),
 
                 dcc.Markdown('''
                 ```Python

@@ -15,8 +15,27 @@ docs_content = html.Div(
             }
         ),
 
+        fac.AntdAnchor(
+            linkDict=[
+                {'title': '主要参数说明', 'href': '#主要参数说明'},
+                {
+                    'title': '使用示例',
+                    'href': '#使用示例',
+                    'children': [
+                        {'title': '基础的树形控件', 'href': '#基础的树形控件'},
+                        {'title': '可勾选的树形控件', 'href': '#可勾选的树形控件'},
+                        {'title': '可点击多选的树形控件', 'href': '#可点击多选的树形控件'},
+                        {'title': '为节点自定义前缀图标', 'href': '#为节点自定义前缀图标'},
+                        {'title': '关闭节点连接线', 'href': '#关闭节点连接线'},
+                        {'title': '大数据量时限制最大显示高度提升性能', 'href': '#大数据量时限制最大显示高度提升性能'},
+                        {'title': '回调示例', 'href': '#回调示例'},
+                    ]
+                },
+            ]
+        ),
         html.Span(
             '主要参数说明：',
+            id='主要参数说明',
             style={
                 'borderLeft': '4px solid grey',
                 'padding': '3px 0 3px 10px',
@@ -31,6 +50,7 @@ docs_content = html.Div(
 
         html.Span(
             '使用示例：',
+            id='使用示例',
             style={
                 'borderLeft': '4px solid grey',
                 'padding': '3px 0 3px 10px',
@@ -44,7 +64,11 @@ docs_content = html.Div(
 
         html.Div(
             [
-                html.Strong('基础的树形控件：', style={'paddingTop': '5px'}),
+                html.Strong(
+                    '基础的树形控件：',
+                    id='基础的树形控件',
+                    style={'paddingTop': '5px'}
+                ),
 
                 dcc.Markdown('''
                 ```Python
@@ -157,7 +181,11 @@ docs_content = html.Div(
 
         html.Div(
             [
-                html.Strong('可勾选的树形控件：', style={'paddingTop': '5px'}),
+                html.Strong(
+                    '可勾选的树形控件：',
+                    id='可勾选的树形控件',
+                    style={'paddingTop': '5px'}
+                ),
 
                 dcc.Markdown('''
                 ```Python
@@ -270,7 +298,11 @@ docs_content = html.Div(
 
         html.Div(
             [
-                html.Strong('可点击多选的树形控件：', style={'paddingTop': '5px'}),
+                html.Strong(
+                    '可点击多选的树形控件：',
+                    id='可点击多选的树形控件',
+                    style={'paddingTop': '5px'}
+                ),
 
                 dcc.Markdown('''
                 ```Python
@@ -383,7 +415,11 @@ docs_content = html.Div(
 
         html.Div(
             [
-                html.Strong('为节点自定义前缀图标：', style={'paddingTop': '5px'}),
+                html.Strong(
+                    '为节点自定义前缀图标：',
+                    id='为节点自定义前缀图标',
+                    style={'paddingTop': '5px'}
+                ),
 
                 dcc.Markdown('''
                 ```Python
@@ -478,7 +514,11 @@ docs_content = html.Div(
 
         html.Div(
             [
-                html.Strong('关闭节点连接线：', style={'paddingTop': '5px'}),
+                html.Strong(
+                    '关闭节点连接线：',
+                    id='关闭节点连接线',
+                    style={'paddingTop': '5px'}
+                ),
 
                 dcc.Markdown('''
                 ```Python
@@ -595,7 +635,11 @@ docs_content = html.Div(
 
         html.Div(
             [
-                html.Strong('大数据量时限制最大显示高度提升性能：', style={'paddingTop': '5px'}),
+                html.Strong(
+                    '大数据量时限制最大显示高度提升性能：',
+                    id='大数据量时限制最大显示高度提升性能',
+                    style={'paddingTop': '5px'}
+                ),
 
                 dcc.Markdown('''
                 ```Python
@@ -656,7 +700,11 @@ docs_content = html.Div(
 
         html.Div(
             [
-                html.Strong('回调示例：', style={'paddingTop': '5px'}),
+                html.Strong(
+                    '回调示例：',
+                    id='回调示例',
+                    style={'paddingTop': '5px'}
+                ),
 
                 dcc.Markdown('''
                 ```Python

@@ -3,14 +3,17 @@ import dash_core_components as dcc
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 
-from server import app, server
+from server import app
 
 from views import (
     AntdDatePicker,
+    AntdDateRangePicker,
     AntdDivider,
     AntdButton,
     AntdSelect,
-    AntdTree
+    AntdTree,
+    AntdTable,
+    AntdAnchor
 )
 
 app.layout = html.Div(
@@ -22,7 +25,7 @@ app.layout = html.Div(
                 [
                     html.P(
                         [html.Span('feffery-antd-components', style={'fontSize': '1.75rem'}),
-                         html.Em('0.0.1a11',
+                         html.Em('0.0.1a21',
                                  style={'fontFamily': 'Times New Romer', 'color': '#ff2c6d', 'fontSize': '0.4rem'}),
                          html.Br(),
                          html.Span('交互式说明文档', style={'fontSize': '2rem'})],
@@ -32,6 +35,13 @@ app.layout = html.Div(
                             'padding': '0 10px 0 10px'
                         }
                     ),
+
+                    dcc.Markdown('''
+                    本文档基于`Dash`编写，完整源码地址：
+                    [https://github.com/CNFeffery/feffery-antd-docs](https://github.com/CNFeffery/feffery-antd-docs)
+                    ''', style={
+                        'padding': '0 5px 0 5px'
+                    }),
 
                     html.Hr(),
                     dbc.Nav(
@@ -46,6 +56,11 @@ app.layout = html.Div(
                             dbc.NavLink(
                                 '日期选择框：AntdDatePicker',
                                 href='/feffery-antd-docs/AntdDatePicker',
+                                active='exact'
+                            ),
+                            dbc.NavLink(
+                                '日期范围选择框：AntdDateRangePicker',
+                                href='/feffery-antd-docs/AntdDateRangePicker',
                                 active='exact'
                             ),
                             dbc.NavLink(
@@ -67,7 +82,17 @@ app.layout = html.Div(
                                 '树形控件：AntdTree',
                                 href='/feffery-antd-docs/AntdTree',
                                 active='exact'
-                            )
+                            ),
+                            dbc.NavLink(
+                                '表格：AntdTable',
+                                href='/feffery-antd-docs/AntdTable',
+                                active='exact'
+                            ),
+                            dbc.NavLink(
+                                '锚点：AntdAnchor',
+                                href='/feffery-antd-docs/AntdAnchor',
+                                active='exact'
+                            ),
                         ],
                         vertical=True,
                         pills=True,
@@ -92,7 +117,7 @@ app.layout = html.Div(
         dbc.Container(
             html.Div(
                 dcc.Loading(
-                    html.Div(id='docs-content', style={'padding': '100px 100px 0 100px'}),
+                    html.Div(id='docs-content', style={'padding': '50px 50px 0 50px'}),
                     fullscreen=True,
                     type='circle'
                 ),
@@ -103,7 +128,7 @@ app.layout = html.Div(
             ),
             fluid=True,
             style={
-                'width': 'calc(100% - 20px)',
+                'width': '100%',
                 'overflowY': 'auto'
             }
         )
@@ -121,30 +146,44 @@ app.layout = html.Div(
     Input('url', 'pathname')
 )
 def render_docs_content(pathname):
-    if pathname == '/feffery-antd-docs/index':
+    if pathname.startswith('/feffery-antd-docs/index'):
 
         return dcc.Markdown(open('documents/index.md', encoding='utf-8').read(), className='markdown')
 
-    elif pathname == '/feffery-antd-docs/AntdDatePicker':
+    elif pathname.startswith('/feffery-antd-docs/AntdDatePicker'):
 
         return AntdDatePicker.docs_content
 
 
-    elif pathname == '/feffery-antd-docs/AntdDivider':
+    elif pathname.startswith('/feffery-antd-docs/AntdDateRangePicker'):
+
+        return AntdDateRangePicker.docs_content
+
+
+    elif pathname.startswith('/feffery-antd-docs/AntdDivider'):
 
         return AntdDivider.docs_content
 
-    elif pathname == '/feffery-antd-docs/AntdButton':
+    elif pathname.startswith('/feffery-antd-docs/AntdButton'):
 
         return AntdButton.docs_content
 
-    elif pathname == '/feffery-antd-docs/AntdSelect':
+    elif pathname.startswith('/feffery-antd-docs/AntdSelect'):
 
         return AntdSelect.docs_content
 
-    elif pathname == '/feffery-antd-docs/AntdTree':
+    elif pathname.startswith('/feffery-antd-docs/AntdTree'):
 
         return AntdTree.docs_content
+
+    elif pathname.startswith('/feffery-antd-docs/AntdTable'):
+
+        return AntdTable.docs_content
+
+    elif pathname.startswith('/feffery-antd-docs/AntdAnchor'):
+
+        return AntdAnchor.docs_content
+
 
 if __name__ == '__main__':
     app.run_server(debug=True)
