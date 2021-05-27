@@ -3,7 +3,7 @@ import dash_core_components as dcc
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 
-from server import app
+from server import app, server
 
 from views import (
     AntdDatePicker,
