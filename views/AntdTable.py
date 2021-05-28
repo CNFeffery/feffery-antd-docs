@@ -681,7 +681,8 @@ docs_content = html.Div(
                         {
                             'title': 'ellipsis内容省略示例',
                             'dataIndex': 'ellipsis内容省略示例',
-                            'renderOptions': {'renderType': 'ellipsis'}
+                            'renderOptions': {'renderType': 'ellipsis'},
+                            'width': 200
                         },
                         {
                             'title': '超链接示例',
@@ -730,7 +731,7 @@ docs_content = html.Div(
                             'mini-progress示例': np.random.rand(),
                             'mini-area示例': np.random.randint(1, 20, 10),
                         }
-                        for i in range(10)
+                        for i in range(5)
                     ],
                     bordered=True
                 )
@@ -742,7 +743,8 @@ docs_content = html.Div(
                         {
                             'title': 'ellipsis内容省略示例',
                             'dataIndex': 'ellipsis内容省略示例',
-                            'renderOptions': {'renderType': 'ellipsis'}
+                            'renderOptions': {'renderType': 'ellipsis'},
+                            'width': 200
                         },
                         {
                             'title': '超链接示例',
@@ -791,7 +793,7 @@ docs_content = html.Div(
                             'mini-progress示例': np.random.rand(),
                             'mini-area示例': np.random.randint(1, 20, 10),
                         }
-                        for i in range(10)
+                        for i in range(5)
                     ],
                     bordered=True
                 )
