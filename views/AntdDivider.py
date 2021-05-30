@@ -127,14 +127,15 @@ docs_content = html.Div(
 
                 dcc.Markdown('''
                 ```Python
-                # 默认居中
-                fac.AntdDivider('AntdDivider'),
-
-                # 左对齐
-                fac.AntdDivider('AntdDivider', innerTextOrientation='left'),
-
-                # 右对齐且设置内嵌文字样式
-                fac.AntdDivider('AntdDivider', innerTextOrientation='right', style={'fontStyle': 'oblique'})
+                html.Div(
+                    [
+                        '项目1',
+                        fac.AntdDivider(direction='vertical', style={'borderLeftColor': 'black'}),
+                        '项目2',
+                        fac.AntdDivider(direction='vertical', style={'borderLeftColor': 'red'}),
+                        '项目3'
+                    ]
+                )
                 ```
                 '''),
 
