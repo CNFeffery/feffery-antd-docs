@@ -25,7 +25,7 @@ app.layout = html.Div(
                 [
                     html.P(
                         [html.Span('feffery-antd-components', style={'fontSize': '1.75rem'}),
-                         html.Em('0.0.1a24',
+                         html.Em('0.0.1a25',
                                  style={'fontFamily': 'Times New Romer', 'color': '#ff2c6d', 'fontSize': '0.4rem'}),
                          html.Br(),
                          html.Span('交互式说明文档', style={'fontSize': '2rem'})],
