@@ -13,7 +13,9 @@ from views import (
     AntdSelect,
     AntdTree,
     AntdTable,
-    AntdAnchor
+    AntdAnchor,
+    AntdSlider,
+    AntdTransfer
 )
 
 app.layout = html.Div(
@@ -25,7 +27,7 @@ app.layout = html.Div(
                 [
                     html.P(
                         [html.Span('feffery-antd-components', style={'fontSize': '1.75rem'}),
-                         html.Em('0.0.1a25',
+                         html.Em('0.0.1a27',
                                  style={'fontFamily': 'Times New Romer', 'color': '#ff2c6d', 'fontSize': '0.4rem'}),
                          html.Br(),
                          html.Span('交互式说明文档', style={'fontSize': '2rem'})],
@@ -93,6 +95,18 @@ app.layout = html.Div(
                                 href='/feffery-antd-docs/AntdAnchor',
                                 active='exact'
                             ),
+
+                            dbc.NavLink(
+                                '滑杆输入：AntdSlider',
+                                href='/feffery-antd-docs/AntdSlider',
+                                active='exact'
+                            ),
+
+                            dbc.NavLink(
+                                '穿梭框：AntdTransfer',
+                                href='/feffery-antd-docs/AntdTransfer',
+                                active='exact'
+                            )
                         ],
                         vertical=True,
                         pills=True,
@@ -183,6 +197,17 @@ def render_docs_content(pathname):
     elif pathname.startswith('/feffery-antd-docs/AntdAnchor'):
 
         return AntdAnchor.docs_content
+
+    elif pathname.startswith('/feffery-antd-docs/AntdSlider'):
+
+        return AntdSlider.docs_content
+
+    elif pathname.startswith('/feffery-antd-docs/AntdTransfer'):
+
+        return AntdTransfer.docs_content
+
+    else:
+        return dcc.Location(id='redirect-url', href='/feffery-antd-docs/index')
 
 
 if __name__ == '__main__':

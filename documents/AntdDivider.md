@@ -10,3 +10,10 @@
 
 　　设置分割线方向，`'horizontal'`（水平线），`'vertical'`（竖直线）
 
+**lineColor：** *string*型，默认为`'lightgrey'`
+
+　　用于设置分割线颜色，接受`css`中合法的颜色值
+
+**fontStyle：** *string*型，默认为`'initial'`
+
+　　用于设置分割线内嵌文字风格，接受`css`中合法的`font-style`输入值，如`'oblique'`代表斜体

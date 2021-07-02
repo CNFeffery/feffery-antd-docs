@@ -22,6 +22,21 @@
 
 　　设置是否禁用*结束输入框*
 
+**defaultPickerValue：** *dict*型，必填，无默认值
+
+　　用于设置日期面板默认处于的日期位置，包含键值对`'value'`与`'format'`，均为*string*型，其中`'value'`用于设定日期值，`'format'`用于设置相对应的日期格式（[参考资料](https://momentjscom.readthedocs.io/en/latest/moment/04-displaying/01-format/)），例如：
+
+```Python
+defaultPickerValue = {
+    'value': '2020/01/01', 
+    'format': 'YYYY/MM/DD'
+}
+```
+
+**bordered：** *bool*型，默认为`True`
+
+　　用于设置是否显示部件外边框，`True`（显示），`False`（不显示）
+
 **selectedStartDate：** *string*型
 
 　　用于在回调中捕获用户选中的开始日期或开始日期时间字符串

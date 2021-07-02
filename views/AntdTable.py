@@ -707,6 +707,7 @@ docs_content = html.Div(
                             }
                         },
                         {
+                            # 注意，mini-progress模式接受的输入应当在0到1之间
                             'title': 'mini-progress示例',
                             'dataIndex': 'mini-progress示例',
                             'renderOptions': {
@@ -769,6 +770,7 @@ docs_content = html.Div(
                             }
                         },
                         {
+                            # 注意，mini-progress模式接受的输入应当在0到1之间
                             'title': 'mini-progress示例',
                             'dataIndex': 'mini-progress示例',
                             'renderOptions': {

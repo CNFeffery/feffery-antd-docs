@@ -5,7 +5,7 @@ import feffery_antd_components as fac
 docs_content = html.Div(
     [
         html.H2(
-            'AntdDivider(id, className, style, *args, **kwargs)',
+            'AntdDivider(id, className, *args, **kwargs)',
             style={
                 'borderLeft': '4px solid grey',
                 'padding': '3px 0 3px 10px',
@@ -65,17 +65,15 @@ docs_content = html.Div(
 
                 dcc.Markdown('''
                 ```Python
-                # 水平分割线使用border-top相关css属性自定义样式
-                fac.AntdDivider(style={'borderTopColor': 'black'}),
-                
-                fac.AntdDivider(isDashed=True, style={'borderTopColor': 'black'})
+                fac.AntdDivider(),
+
+                fac.AntdDivider(isDashed=True),
                 ```
                 '''),
 
-                # 水平分割线使用border-top相关css属性自定义样式
-                fac.AntdDivider(style={'borderTopColor': 'black'}),
+                fac.AntdDivider(),
 
-                fac.AntdDivider(isDashed=True, style={'borderTopColor': 'black'}),
+                fac.AntdDivider(isDashed=True),
             ],
             style={
                 'marginBottom': '80px'
@@ -99,7 +97,7 @@ docs_content = html.Div(
                 fac.AntdDivider('AntdDivider', innerTextOrientation='left'),
 
                 # 右对齐且设置内嵌文字样式
-                fac.AntdDivider('AntdDivider', innerTextOrientation='right', style={'fontStyle': 'oblique'})
+                fac.AntdDivider('AntdDivider', innerTextOrientation='right', fontStyle='oblique')
                 ```
                 '''),
 
@@ -110,7 +108,7 @@ docs_content = html.Div(
                 fac.AntdDivider('AntdDivider', innerTextOrientation='left'),
 
                 # 右对齐且设置内嵌文字样式
-                fac.AntdDivider('AntdDivider', innerTextOrientation='right', style={'fontStyle': 'oblique'}),
+                fac.AntdDivider('AntdDivider', innerTextOrientation='right', fontStyle='oblique'),
             ],
             style={
                 'marginBottom': '80px'
@@ -120,8 +118,8 @@ docs_content = html.Div(
         html.Div(
             [
                 html.Strong(
-                    '竖直分割线：',
-                    id='竖直分割线',
+                    '竖直分割线及分割线颜色设定：',
+                    id='竖直分割线及分割线颜色设定',
                     style={'paddingTop': '5px'},
                 ),
 
@@ -130,22 +128,21 @@ docs_content = html.Div(
                 html.Div(
                     [
                         '项目1',
-                        fac.AntdDivider(direction='vertical', style={'borderLeftColor': 'black'}),
+                        fac.AntdDivider(direction='vertical', lineColor='black'),
                         '项目2',
-                        fac.AntdDivider(direction='vertical', style={'borderLeftColor': 'red'}),
+                        fac.AntdDivider(direction='vertical', lineColor='red'),
                         '项目3'
                     ]
                 )
                 ```
                 '''),
 
-                # 竖直分割线使用border-left相关css属性自定义样式
                 html.Div(
                     [
                         '项目1',
-                        fac.AntdDivider(direction='vertical', style={'borderLeftColor': 'black'}),
+                        fac.AntdDivider(direction='vertical', lineColor='black'),
                         '项目2',
-                        fac.AntdDivider(direction='vertical', style={'borderLeftColor': 'red'}),
+                        fac.AntdDivider(direction='vertical', lineColor='red'),
                         '项目3'
                     ]
                 )
