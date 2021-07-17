@@ -15,7 +15,9 @@ from views import (
     AntdTable,
     AntdAnchor,
     AntdSlider,
-    AntdTransfer
+    AntdTransfer,
+    AntdSteps,
+    AntdMenu
 )
 
 app.layout = html.Div(
@@ -27,7 +29,7 @@ app.layout = html.Div(
                 [
                     html.P(
                         [html.Span('feffery-antd-components', style={'fontSize': '1.75rem'}),
-                         html.Em('0.0.1a27',
+                         html.Em('0.0.1a28',
                                  style={'fontFamily': 'Times New Romer', 'color': '#ff2c6d', 'fontSize': '0.4rem'}),
                          html.Br(),
                          html.Span('交互式说明文档', style={'fontSize': '2rem'})],
@@ -105,6 +107,18 @@ app.layout = html.Div(
                             dbc.NavLink(
                                 '穿梭框：AntdTransfer',
                                 href='/feffery-antd-docs/AntdTransfer',
+                                active='exact'
+                            ),
+
+                            dbc.NavLink(
+                                '步骤条：AntdSteps',
+                                href='/feffery-antd-docs/AntdSteps',
+                                active='exact'
+                            ),
+
+                            dbc.NavLink(
+                                '导航菜单：AntdMenu',
+                                href='/feffery-antd-docs/AntdMenu',
                                 active='exact'
                             )
                         ],
@@ -205,6 +219,14 @@ def render_docs_content(pathname):
     elif pathname.startswith('/feffery-antd-docs/AntdTransfer'):
 
         return AntdTransfer.docs_content
+
+    elif pathname.startswith('/feffery-antd-docs/AntdSteps'):
+
+        return AntdSteps.docs_content
+
+    elif pathname.startswith('/feffery-antd-docs/AntdMenu'):
+
+        return AntdMenu.docs_content
 
     else:
         return dcc.Location(id='redirect-url', href='/feffery-antd-docs/index')
