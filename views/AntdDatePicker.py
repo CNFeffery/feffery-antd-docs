@@ -67,7 +67,8 @@ docs_content = html.Div(
                     style={'paddingTop': '5px'}
                 ),
 
-                dcc.Markdown('''
+                fac.AntdCollapse(
+                    children=dcc.Markdown('''
                 ```Python
                 fac.AntdDatePicker(
                     picker='date',
@@ -80,6 +81,9 @@ docs_content = html.Div(
                 )
                 ```
                 '''),
+                    title='查看代码',
+                    ghost=True
+                ),
 
                 fac.AntdDatePicker(
                     picker='date',
@@ -103,7 +107,8 @@ docs_content = html.Div(
                     style={'paddingTop': '5px'}
                 ),
 
-                dcc.Markdown('''
+                fac.AntdCollapse(
+                    children=dcc.Markdown('''
                 ```Python
                 fac.AntdDatePicker(
                     picker='date',
@@ -116,6 +121,9 @@ docs_content = html.Div(
                 )
                 ```
                 '''),
+                    title='查看代码',
+                    ghost=True
+                ),
 
                 fac.AntdDatePicker(
                     picker='date',

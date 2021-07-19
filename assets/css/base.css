@@ -15,3 +15,7 @@ div {
 .anticon {
     vertical-align: 0.125em!important;
 }
+
+code {
+    font-size: 16px!important;
+}
