@@ -2,12 +2,9 @@ import dash
 
 app = dash.Dash(
     __name__,
-    external_stylesheets=[
-        'https://cdn.staticfile.org/twitter-bootstrap/4.5.2/css/bootstrap.min.css'
-    ],
     suppress_callback_exceptions=True
 )
 
-app.title = 'feffery-antd-components说明文档'
+app.title = 'feffery-antd-components在线文档'
 
 server = app.server
