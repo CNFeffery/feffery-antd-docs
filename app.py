@@ -42,7 +42,7 @@ app.layout = fac.AntdSpin(
                                         html.Img(
                                             src=app.get_asset_url('imgs/feffery-antd-components-logo-planB.svg'),
                                             style={
-                                                'height': '40px',
+                                                'height': '50px',
                                                 'paddingRight': '10px'
                                             }
                                         )
@@ -100,7 +100,7 @@ app.layout = fac.AntdSpin(
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/what-is-fac',
-                                                            'title': 'fac是什么'
+                                                            'title': 'fac是什么？'
                                                         }
                                                     },
                                                     {
@@ -544,7 +544,7 @@ app.layout = fac.AntdSpin(
                                             }
                                         ],
                                         mode='inline',
-                                        defaultSelectedKey='/what-is-fac',
+                                        defaultSelectedKey='/AntdButton',
                                         style={
                                             'height': '100%',
                                             'overflowX': 'hidden',
@@ -553,14 +553,16 @@ app.layout = fac.AntdSpin(
                                         }
                                     )
                                 ],
-                                width=350
+                                width=325
                             ),
 
                             fac.AntdContent(
                                 id='docs-content',
                                 style={
                                     'overflowY': 'auto',
-                                    'padding': '50px'
+                                    'padding': '50px 100px 50px 100px',
+                                    'backgroundColor': 'rgb(255, 255, 255)',
+                                    'position': 'relative'
                                 }
                             )
                         ]
@@ -590,6 +592,144 @@ def render_docs_content(currentKey):
 
     if currentKey == '/AntdButton':
         return AntdButton.docs_content
+
+    elif currentKey == '/AntdTypography':
+        return currentKey
+
+    elif currentKey == '/AntdParagraph':
+        return currentKey
+
+    elif currentKey == '/AntdText':
+        return currentKey
+
+    elif currentKey == '/AntdTitle':
+        return currentKey
+
+    elif currentKey == '/AntdDivider':
+        return AntdDivider.docs_content
+
+    elif currentKey == '/AntdSpace':
+        return currentKey
+
+    elif currentKey == '/AntdRow':
+        return currentKey
+
+    elif currentKey == '/AntdCol':
+        return currentKey
+
+    elif currentKey == '/AntdLayout':
+        return currentKey
+
+    elif currentKey == '/AntdHeader':
+        return currentKey
+
+    elif currentKey == '/AntdSider':
+        return currentKey
+
+    elif currentKey == '/AntdContent':
+        return currentKey
+
+    elif currentKey == '/AntdFooter':
+        return currentKey
+
+    elif currentKey == '/AntdMenu':
+        return AntdMenu.docs_content
+
+    elif currentKey == '/AntdPagination':
+        return currentKey
+
+    elif currentKey == '/AntdSteps':
+        return AntdSteps.docs_content
+
+    elif currentKey == '/AntdCascader':
+        return currentKey
+
+    elif currentKey == '/AntdCheckbox':
+        return currentKey
+
+    elif currentKey == '/AntdCheckboxGroup':
+        return currentKey
+
+    elif currentKey == '/AntdDatePicker':
+        return currentKey
+
+    elif currentKey == '/AntdDateRangePicker':
+        return currentKey
+
+    elif currentKey == '/AntdInput':
+        return currentKey
+
+    elif currentKey == '/AntdRadioGroup':
+        return currentKey
+
+    elif currentKey == '/AntdSelect':
+        return AntdSelect.docs_content
+
+    elif currentKey == '/AntdSlider':
+        return AntdSlider
+
+    elif currentKey == '/AntdSwitch':
+        return currentKey
+
+    elif currentKey == '/AntdTransfer':
+        return currentKey
+
+    elif currentKey == '/AntdTreeSelect':
+        return currentKey
+
+    elif currentKey == '/AntdCollapse':
+        return currentKey
+
+    elif currentKey == '/AntdEmpty':
+        return currentKey
+
+    elif currentKey == '/AntdPopover':
+        return currentKey
+
+    elif currentKey == '/AntdTable':
+        return AntdTable.docs_content
+
+    elif currentKey == '/AntdTag':
+        return currentKey
+
+    elif currentKey == '/AntdTooltip':
+        return currentKey
+
+    elif currentKey == '/AntdTree':
+        return AntdTree.docs_content
+
+    elif currentKey == '/AntdTabPane':
+        return currentKey
+
+    elif currentKey == '/AntdTabs':
+        return currentKey
+
+    elif currentKey == '/AntdAlert':
+        return currentKey
+
+    elif currentKey == '/AntdDrawer':
+        return currentKey
+
+    elif currentKey == '/AntdMessage':
+        return currentKey
+
+    elif currentKey == '/AntdModal':
+        return currentKey
+
+    elif currentKey == '/AntdNotification':
+        return currentKey
+
+    elif currentKey == '/AntdResult':
+        return currentKey
+
+    elif currentKey == '/AntdSkeleton':
+        return currentKey
+
+    elif currentKey == '/AntdSpin':
+        return currentKey
+
+    elif currentKey == '/AntdAnchor':
+        return AntdAnchor.docs_content
 
     return currentKey
 

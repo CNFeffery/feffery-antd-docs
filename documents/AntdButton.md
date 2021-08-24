@@ -1,3 +1,7 @@
+**children：** 
+
+　　用于设置按钮内部文字内容
+
 **type：** *string*型，默认为`'default'`
 
 　　用于设置按钮整体风格，可选项有`'primary'`、`'dashed'`、`'link'`、`'text'`、`'default'`

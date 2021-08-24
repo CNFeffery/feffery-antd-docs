@@ -6,3 +6,8 @@ div {
 code {
     font-size: 16px !important;
 }
+
+.div-highlight:target {
+    border: 1px solid #1890ff;
+    box-shadow: 0 2px 8px #f0f1f2;
+}
