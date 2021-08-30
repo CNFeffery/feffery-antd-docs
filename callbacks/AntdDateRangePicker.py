@@ -11,7 +11,7 @@ from server import app
     prevent_initial_call=True
 )
 def date_picker_callback_demo(selectedStartDate, selectedEndDate):
-    import time;time.sleep(0.5)
+    import time;time.sleep(1)
     if selectedStartDate and selectedEndDate:
         return f'{selectedStartDate} ~ {selectedEndDate}'
 

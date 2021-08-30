@@ -103,7 +103,7 @@ menuItems = [
 
 **renderCollapsedButton：** *bool*型，默认为`False`
 
-　　用于设置是否渲染动态折叠导航菜单的交换按钮
+　　用于设置是否渲染动态折叠导航菜单的交互按钮
 
 **currentKey：** *str*型
 

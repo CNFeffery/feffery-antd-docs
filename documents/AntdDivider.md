@@ -17,3 +17,11 @@
 **fontStyle：** *string*型，默认为`'initial'`
 
 　　用于设置分割线内嵌文字风格，接受`css`中合法的`font-style`输入值，如`'oblique'`代表斜体
+
+**fontWeight：** *string*型，默认为`'initial'`
+
+　　用于设置分割线内嵌文字粗细程度，接受`css`中合法的`font-weight`输入值，如`'bold'`代表加粗
+
+**fontFamily：** *string*型，默认为`'initial'`
+
+　　用于设置分割线内嵌文字字体族，接受`css`中合法的`font-family`输入值，如`'KaiTi'`代表楷体

@@ -12,6 +12,6 @@ from server import app
 )
 def date_picker_callback_demo(currentData, recentlyChangedRow):
     import time
-    time.sleep(0.5)
+    time.sleep(1)
 
     return str(currentData), str(recentlyChangedRow)

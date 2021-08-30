@@ -1,7 +1,7 @@
-import dash
-from dash.dependencies import Input, Output, State
+from dash.dependencies import Input, Output
 
 from server import app
+
 
 @app.callback(
     Output('menu-demo-output', 'children'),
@@ -9,6 +9,6 @@ from server import app
     prevent_initial_call=True
 )
 def menu_callback_demo(currentKey):
-    import time;time.sleep(0.5)
+    import time;time.sleep(1)
 
     return currentKey

@@ -6,6 +6,7 @@ import feffery_antd_components as fac
 from dash.dependencies import Input, Output
 
 from server import app, server
+from config import Config
 
 from views import (
     AntdDatePicker,
@@ -42,7 +43,7 @@ app.layout = fac.AntdSpin(
                                         html.Img(
                                             src=app.get_asset_url('imgs/feffery-antd-components-logo-planB.svg'),
                                             style={
-                                                'height': '50px',
+                                                'height': '45px',
                                                 'paddingRight': '10px'
                                             }
                                         )
@@ -137,28 +138,32 @@ app.layout = fac.AntdSpin(
                                                                 'component': 'Item',
                                                                 'props': {
                                                                     'key': '/AntdTypography',
-                                                                    'title': 'AntdTypography 排版'
+                                                                    'title': 'AntdTypography 排版',
+                                                                    'disabled': True
                                                                 }
                                                             },
                                                             {
                                                                 'component': 'Item',
                                                                 'props': {
                                                                     'key': '/AntdParagraph',
-                                                                    'title': 'AntdParagraph 段落'
+                                                                    'title': 'AntdParagraph 段落',
+                                                                    'disabled': True
                                                                 }
                                                             },
                                                             {
                                                                 'component': 'Item',
                                                                 'props': {
                                                                     'key': '/AntdText',
-                                                                    'title': 'AntdText 文字'
+                                                                    'title': 'AntdText 文字',
+                                                                    'disabled': True
                                                                 }
                                                             },
                                                             {
                                                                 'component': 'Item',
                                                                 'props': {
                                                                     'key': '/AntdTitle',
-                                                                    'title': 'AntdTitle 标题'
+                                                                    'title': 'AntdTitle 标题',
+                                                                    'disabled': True
                                                                 }
                                                             }
                                                         ]
@@ -183,7 +188,8 @@ app.layout = fac.AntdSpin(
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdSpace',
-                                                            'title': 'AntdSpace 间距'
+                                                            'title': 'AntdSpace 间距',
+                                                            'disabled': True
                                                         }
                                                     },
                                                     {
@@ -197,14 +203,16 @@ app.layout = fac.AntdSpin(
                                                                 'component': 'Item',
                                                                 'props': {
                                                                     'key': '/AntdRow',
-                                                                    'title': 'AntdRow 行'
+                                                                    'title': 'AntdRow 行',
+                                                                    'disabled': True
                                                                 }
                                                             },
                                                             {
                                                                 'component': 'Item',
                                                                 'props': {
                                                                     'key': '/AntdCol',
-                                                                    'title': 'AntdCol 列'
+                                                                    'title': 'AntdCol 列',
+                                                                    'disabled': True
                                                                 }
                                                             }
                                                         ]
@@ -220,35 +228,40 @@ app.layout = fac.AntdSpin(
                                                                 'component': 'Item',
                                                                 'props': {
                                                                     'key': '/AntdLayout',
-                                                                    'title': 'AntdLayout 布局'
+                                                                    'title': 'AntdLayout 布局',
+                                                                    'disabled': True
                                                                 }
                                                             },
                                                             {
                                                                 'component': 'Item',
                                                                 'props': {
                                                                     'key': '/AntdHeader',
-                                                                    'title': 'AntdHeader 页首'
+                                                                    'title': 'AntdHeader 页首',
+                                                                    'disabled': True
                                                                 }
                                                             },
                                                             {
                                                                 'component': 'Item',
                                                                 'props': {
                                                                     'key': '/AntdSider',
-                                                                    'title': 'AntdSider 侧边栏'
+                                                                    'title': 'AntdSider 侧边栏',
+                                                                    'disabled': True
                                                                 }
                                                             },
                                                             {
                                                                 'component': 'Item',
                                                                 'props': {
                                                                     'key': '/AntdContent',
-                                                                    'title': 'AntdContent 内容区'
+                                                                    'title': 'AntdContent 内容区',
+                                                                    'disabled': True
                                                                 }
                                                             },
                                                             {
                                                                 'component': 'Item',
                                                                 'props': {
                                                                     'key': '/AntdFooter',
-                                                                    'title': 'AntdFooter 页尾'
+                                                                    'title': 'AntdFooter 页尾',
+                                                                    'disabled': True
                                                                 }
                                                             }
                                                         ]
@@ -273,7 +286,8 @@ app.layout = fac.AntdSpin(
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdPagination',
-                                                            'title': 'AntdPagination 分页'
+                                                            'title': 'AntdPagination 分页',
+                                                            'disabled': True
                                                         }
                                                     },
                                                     {
@@ -296,21 +310,24 @@ app.layout = fac.AntdSpin(
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdCascader',
-                                                            'title': 'AntdCascader 级联选择'
+                                                            'title': 'AntdCascader 级联选择',
+                                                            'disabled': True
                                                         }
                                                     },
                                                     {
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdCheckbox',
-                                                            'title': 'AntdCheckbox 选择框'
+                                                            'title': 'AntdCheckbox 选择框',
+                                                            'disabled': True
                                                         }
                                                     },
                                                     {
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdCheckboxGroup',
-                                                            'title': 'AntdCheckboxGroup 组合选择框'
+                                                            'title': 'AntdCheckboxGroup 组合选择框',
+                                                            'disabled': True
                                                         }
                                                     },
                                                     {
@@ -331,49 +348,56 @@ app.layout = fac.AntdSpin(
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdInput',
-                                                            'title': 'AntdInput 输入框'
+                                                            'title': 'AntdInput 输入框',
+                                                            'disabled': True
                                                         }
                                                     },
                                                     {
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdRadioGroup',
-                                                            'title': 'AntdRadioGroup 单选框'
+                                                            'title': 'AntdRadioGroup 单选框',
+                                                            'disabled': True
                                                         }
                                                     },
                                                     {
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdSelect',
-                                                            'title': 'AntdSelect 下拉选择'
+                                                            'title': 'AntdSelect 下拉选择',
+                                                            'disabled': True
                                                         }
                                                     },
                                                     {
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdSlider',
-                                                            'title': 'AntdSlider 滑动输入条'
+                                                            'title': 'AntdSlider 滑动输入条',
+                                                            'disabled': True
                                                         }
                                                     },
                                                     {
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdSwitch',
-                                                            'title': 'AntdSwitch 开关'
+                                                            'title': 'AntdSwitch 开关',
+                                                            'disabled': True
                                                         }
                                                     },
                                                     {
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdTransfer',
-                                                            'title': 'AntdTransfer 穿梭框'
+                                                            'title': 'AntdTransfer 穿梭框',
+                                                            'disabled': True
                                                         }
                                                     },
                                                     {
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdTreeSelect',
-                                                            'title': 'AntdTreeSelect 树选择'
+                                                            'title': 'AntdTreeSelect 树选择',
+                                                            'disabled': True
                                                         }
                                                     }
                                                 ]
@@ -390,49 +414,56 @@ app.layout = fac.AntdSpin(
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdCollapse',
-                                                            'title': 'AntdCollapse 折叠面板'
+                                                            'title': 'AntdCollapse 折叠面板',
+                                                            'disabled': True
                                                         }
                                                     },
                                                     {
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdEmpty',
-                                                            'title': 'AntdEmpty 空状态'
+                                                            'title': 'AntdEmpty 空状态',
+                                                            'disabled': True
                                                         }
                                                     },
                                                     {
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdPopover',
-                                                            'title': 'AntdPopover 气泡卡片'
+                                                            'title': 'AntdPopover 气泡卡片',
+                                                            'disabled': True
                                                         }
                                                     },
                                                     {
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdTable',
-                                                            'title': 'AntdTable 表格'
+                                                            'title': 'AntdTable 表格',
+                                                            'disabled': True
                                                         }
                                                     },
                                                     {
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdTag',
-                                                            'title': 'AntdTag 标签'
+                                                            'title': 'AntdTag 标签',
+                                                            'disabled': True
                                                         }
                                                     },
                                                     {
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdTooltip',
-                                                            'title': 'AntdTooltip 文字提示'
+                                                            'title': 'AntdTooltip 文字提示',
+                                                            'disabled': True
                                                         }
                                                     },
                                                     {
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdTree',
-                                                            'title': 'AntdTree 树形控件'
+                                                            'title': 'AntdTree 树形控件',
+                                                            'disabled': True
                                                         }
                                                     },
                                                     {
@@ -446,14 +477,16 @@ app.layout = fac.AntdSpin(
                                                                 'component': 'Item',
                                                                 'props': {
                                                                     'key': '/AntdTabPane',
-                                                                    'title': 'AntdTabPane 标签页面板'
+                                                                    'title': 'AntdTabPane 标签页面板',
+                                                                    'disabled': True
                                                                 }
                                                             },
                                                             {
                                                                 'component': 'Item',
                                                                 'props': {
                                                                     'key': '/AntdTabs',
-                                                                    'title': 'AntdTabs 标签页'
+                                                                    'title': 'AntdTabs 标签页',
+                                                                    'disabled': True
                                                                 }
                                                             }
                                                         ]
@@ -472,56 +505,64 @@ app.layout = fac.AntdSpin(
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdAlert',
-                                                            'title': 'AntdAlert 警告提示'
+                                                            'title': 'AntdAlert 警告提示',
+                                                            'disabled': True
                                                         }
                                                     },
                                                     {
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdDrawer',
-                                                            'title': 'AntdDrawer 抽屉'
+                                                            'title': 'AntdDrawer 抽屉',
+                                                            'disabled': True
                                                         }
                                                     },
                                                     {
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdMessage',
-                                                            'title': 'AntdMessage 全局提示'
+                                                            'title': 'AntdMessage 全局提示',
+                                                            'disabled': True
                                                         }
                                                     },
                                                     {
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdModal',
-                                                            'title': 'AntdModal 对话框'
+                                                            'title': 'AntdModal 对话框',
+                                                            'disabled': True
                                                         }
                                                     },
                                                     {
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdNotification',
-                                                            'title': 'AntdNotification 通知提醒框'
+                                                            'title': 'AntdNotification 通知提醒框',
+                                                            'disabled': True
                                                         }
                                                     },
                                                     {
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdResult',
-                                                            'title': 'AntdResult 结果'
+                                                            'title': 'AntdResult 结果',
+                                                            'disabled': True
                                                         }
                                                     },
                                                     {
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdSkeleton',
-                                                            'title': 'AntdSkeleton 骨架屏'
+                                                            'title': 'AntdSkeleton 骨架屏',
+                                                            'disabled': True
                                                         }
                                                     },
                                                     {
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdSpin',
-                                                            'title': 'AntdSpin 加载动画'
+                                                            'title': 'AntdSpin 加载动画',
+                                                            'disabled': True
                                                         }
                                                     }
                                                 ]
@@ -537,14 +578,15 @@ app.layout = fac.AntdSpin(
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdAnchor',
-                                                            'title': 'AntdAnchor 锚点'
+                                                            'title': 'AntdAnchor 锚点',
+                                                            'disabled': True
                                                         }
                                                     }
                                                 ]
                                             }
                                         ],
                                         mode='inline',
-                                        defaultSelectedKey='/AntdButton',
+                                        defaultSelectedKey='/AntdDateRangePicker',
                                         style={
                                             'height': '100%',
                                             'overflowX': 'hidden',
@@ -577,7 +619,11 @@ app.layout = fac.AntdSpin(
             'width': '100vw',
             'height': '100vh'
         }
-    )
+    ),
+    listenPropsMode='exclude',
+    excludeProps=Config.exclude_props,
+    size='large',
+    text='文档加载中'
 )
 
 
@@ -651,10 +697,10 @@ def render_docs_content(currentKey):
         return currentKey
 
     elif currentKey == '/AntdDatePicker':
-        return currentKey
+        return AntdDatePicker.docs_content
 
     elif currentKey == '/AntdDateRangePicker':
-        return currentKey
+        return AntdDateRangePicker.docs_content
 
     elif currentKey == '/AntdInput':
         return currentKey
