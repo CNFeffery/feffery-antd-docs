@@ -364,16 +364,14 @@ app.layout = fac.AntdSpin(
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdSelect',
-                                                            'title': 'AntdSelect 下拉选择',
-                                                            'disabled': True
+                                                            'title': 'AntdSelect 下拉选择'
                                                         }
                                                     },
                                                     {
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdSlider',
-                                                            'title': 'AntdSlider 滑动输入条',
-                                                            'disabled': True
+                                                            'title': 'AntdSlider 滑动输入条'
                                                         }
                                                     },
                                                     {
@@ -586,7 +584,7 @@ app.layout = fac.AntdSpin(
                                             }
                                         ],
                                         mode='inline',
-                                        defaultSelectedKey='/AntdDateRangePicker',
+                                        defaultSelectedKey='/AntdSlider',
                                         style={
                                             'height': '100%',
                                             'overflowX': 'hidden',
@@ -712,7 +710,7 @@ def render_docs_content(currentKey):
         return AntdSelect.docs_content
 
     elif currentKey == '/AntdSlider':
-        return AntdSlider
+        return AntdSlider.docs_content
 
     elif currentKey == '/AntdSwitch':
         return currentKey

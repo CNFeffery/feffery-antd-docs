@@ -5,5 +5,7 @@ class Config:
         'steps-demo.current',
         'steps-demo-current.children',
         'date-picker-demo-output.children',
-        'date-range-picker-demo-output.children'
+        'date-range-picker-demo-output.children',
+        'select-demo-output.children',
+        'slider-demo-output.children'
     ]
