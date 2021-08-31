@@ -386,8 +386,7 @@ app.layout = fac.AntdSpin(
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdTransfer',
-                                                            'title': 'AntdTransfer 穿梭框',
-                                                            'disabled': True
+                                                            'title': 'AntdTransfer 穿梭框'
                                                         }
                                                     },
                                                     {
@@ -396,6 +395,13 @@ app.layout = fac.AntdSpin(
                                                             'key': '/AntdTreeSelect',
                                                             'title': 'AntdTreeSelect 树选择',
                                                             'disabled': True
+                                                        }
+                                                    },
+                                                    {
+                                                        'component': 'Item',
+                                                        'props': {
+                                                            'key': '/AntdUpload',
+                                                            'title': 'AntdUpload 上传'
                                                         }
                                                     }
                                                 ]
@@ -436,8 +442,7 @@ app.layout = fac.AntdSpin(
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdTable',
-                                                            'title': 'AntdTable 表格',
-                                                            'disabled': True
+                                                            'title': 'AntdTable 表格'
                                                         }
                                                     },
                                                     {
@@ -460,8 +465,7 @@ app.layout = fac.AntdSpin(
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdTree',
-                                                            'title': 'AntdTree 树形控件',
-                                                            'disabled': True
+                                                            'title': 'AntdTree 树形控件'
                                                         }
                                                     },
                                                     {
@@ -576,15 +580,14 @@ app.layout = fac.AntdSpin(
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdAnchor',
-                                                            'title': 'AntdAnchor 锚点',
-                                                            'disabled': True
+                                                            'title': 'AntdAnchor 锚点'
                                                         }
                                                     }
                                                 ]
                                             }
                                         ],
                                         mode='inline',
-                                        defaultSelectedKey='/AntdSlider',
+                                        defaultSelectedKey='/AntdUpload',
                                         style={
                                             'height': '100%',
                                             'overflowX': 'hidden',
@@ -625,15 +628,17 @@ app.layout = fac.AntdSpin(
 )
 
 
-# 路由
 @app.callback(
     Output('docs-content', 'children'),
     Input('router-menu', 'currentKey'),
     prevent_initial_call=True
 )
 def render_docs_content(currentKey):
-    time.sleep(0.5)
-
+    '''
+    路由回调
+    :param currentKey: 当前被点击的侧边栏菜单项
+    :return:
+    '''
     if currentKey == '/AntdButton':
         return AntdButton.docs_content
 
@@ -716,7 +721,7 @@ def render_docs_content(currentKey):
         return currentKey
 
     elif currentKey == '/AntdTransfer':
-        return currentKey
+        return AntdTransfer.docs_content
 
     elif currentKey == '/AntdTreeSelect':
         return currentKey

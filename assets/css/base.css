@@ -15,3 +15,7 @@ code {
     transition-delay: 300ms;
     position: relative;
 }
+
+.ant-anchor-wrapper {
+    transform: translateY(8px) !important;
+}
