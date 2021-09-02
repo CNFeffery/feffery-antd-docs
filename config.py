@@ -12,5 +12,9 @@ class Config:
         'table-demo-output.children',
         'table-server-side-demo.data',
         'table-server-side-demo.pagination',
-        'tree-demo-output.children'
+        'tree-demo-output.children',
+        'upload-demo-output.children',
+        'github-stars.children'
     ]
+
+    caches_path = './caches'
