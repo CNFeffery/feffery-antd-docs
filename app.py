@@ -617,7 +617,7 @@ app.layout = fac.AntdSpin(
                                                 }
                                             ],
                                             mode='inline',
-                                            defaultSelectedKey='/getting-started',
+                                            defaultSelectedKey='/what-is-fac',
                                             style={
                                                 'height': '100%',
                                                 'overflowX': 'hidden',
