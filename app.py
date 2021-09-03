@@ -123,7 +123,7 @@ app.layout = fac.AntdSpin(
                                                 {
                                                     'component': 'ItemGroup',
                                                     'props': {
-                                                        'key': 'getting-started',
+                                                        'key': '/getting-started',
                                                         'title': '快速入门'
                                                     },
                                                     'children': [
@@ -617,7 +617,7 @@ app.layout = fac.AntdSpin(
                                                 }
                                             ],
                                             mode='inline',
-                                            defaultSelectedKey='/AntdUpload',
+                                            defaultSelectedKey='/getting-started',
                                             style={
                                                 'height': '100%',
                                                 'overflowX': 'hidden',
