@@ -657,7 +657,8 @@ app.layout = fac.AntdSpin(
     listenPropsMode='exclude',
     excludeProps=Config.exclude_props,
     size='large',
-    text='文档加载中'
+    text='文档加载中',
+    delay=300
 )
 
 
