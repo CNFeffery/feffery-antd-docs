@@ -11,6 +11,7 @@ from server import app, server
 from config import Config
 
 from views import (
+    what_is_fac,
     AntdDatePicker,
     AntdDateRangePicker,
     AntdDivider,
@@ -93,7 +94,8 @@ app.layout = fac.AntdSpin(
                                                     )
                                                 ],
                                                 style={
-                                                    'float': 'right'
+                                                    'float': 'right',
+                                                    'paddingRight': '50px'
                                                 }
                                             ),
                                             flex='auto'
@@ -673,6 +675,10 @@ def render_docs_content(currentKey):
     :param currentKey: 当前被点击的侧边栏菜单项
     :return:
     '''
+
+    if currentKey == '/what-is-fac':
+        return what_is_fac.docs_content
+
     if currentKey == '/AntdButton':
         return AntdButton.docs_content
 
