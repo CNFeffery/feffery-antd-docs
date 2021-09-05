@@ -140,7 +140,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/getting-started',
-                                                                'title': '安装及基础使用'
+                                                                'title': '基础使用'
                                                             }
                                                         }
                                                     ]
@@ -653,14 +653,13 @@ app.layout = fac.AntdSpin(
                 'height': '100vh'
             }
         ),
-        content='0.0.1rc1-dev版本',
+        content='测试版本',
         fontSize=20
     ),
     listenPropsMode='exclude',
     excludeProps=Config.exclude_props,
     size='large',
-    text='文档加载中',
-    delay=300
+    text='文档加载中'
 )
 
 
@@ -824,16 +823,6 @@ def render_docs_content(currentKey):
         return AntdAnchor.docs_content
 
     return currentKey
-
-    # return dcc.Location(id='redirect-url', href=currentKey)
-
-    #
-    # if pathname.startswith('/feffery-antd-docs/index'):
-    #
-    #     return dcc.Markdown(open('documents/index.md', encoding='utf-8').read(), className='markdown')
-    #
-    # else:
-    #     return dcc.Location(id='redirect-url', href='/feffery-antd-docs/index')
 
 
 if __name__ == '__main__':

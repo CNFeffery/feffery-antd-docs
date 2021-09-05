@@ -100,7 +100,7 @@ docs_content = html.Div(
                     fac.AntdParagraph(
                         [
                             fac.AntdText('github仓库最新开发版本：'),
-                            fac.AntdTag(content='0.0.1rc1')
+                            fac.AntdTag(content='0.0.1rc2')
                         ]
                     ),
                     style={'listStyleType': 'circle'}
@@ -156,7 +156,7 @@ docs_content = html.Div(
                 html.Img(
                     src=app.get_asset_url('imgs/weixin-pay.png'),
                     style={
-                        'height': '300px'
+                        'height': '350px'
                     }
                 ),
                 style={
