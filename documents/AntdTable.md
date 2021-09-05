@@ -14,7 +14,7 @@
 - editable：可选，*bool*型，设置对应列单元格数据是否支持*编辑*，默认为`False`即不可编辑
 - fixed：可选，*string*型，用于设置对应列的冻结固定倚靠方式，可选项有`'left'`（靠左）、`'right'`（靠右）
 - renderOptions：可选，*dict*型，用于设置对应列所有单元格的*再渲染模式*，其中：
-  - renderType：*string*型，用于设置以何种方式进行*再渲染*，可选项有`'link'`（超链接）、`'ellipsis'`（超长内容省略模式）、`'mini-line'`（迷你折线图）、`'mini-bar'`（迷你柱状图）、`'mini-progress'`（迷你进度条）、`'mini-area'`（迷你面积图），其中*迷你图*模式需要**数据格式**满足要求，具体要求会在下面对应示例中进行演示
+  - renderType：*string*型，用于设置以何种方式进行*再渲染*，可选项有`'link'`（超链接）、`'ellipsis'`（超长内容省略模式）、`'mini-line'`（迷你折线图）、`'mini-bar'`（迷你柱状图）、`'mini-progress'`（迷你进度条）、`'mini-area'`（迷你面积图）及`'tags'`（标签模式），其中*迷你图*模式和*标签模式*需要**数据格式**满足要求，具体要求会在本页对应示例中进行演示
   - renderLinkText：可选，*string*型，用于在`renderType`设置为`'link'`时，指定超链接显示的文字内容，默认为`'链接🔗'`
 
 **data：** *list*型，必填，无默认值
@@ -38,16 +38,31 @@ data = [
 ]
 ```
 
+**mode：** *string*型，默认为`'client-side'`
+
+　　用于设置组件的整体*数据渲染方式*，`'client-side'`对应*前端渲染模式*，此模式下数据在初始化时一次性传入前端，涉及到的*翻页*、*排序*及*筛选*功能均在前端自动完成，适合数据量较小（小于10000行时）的情况；`'server-side'`对应*服务器端渲染模式*，此模式下*翻页*、*排序*及*筛选*功能均需由后端回调函数进行控制，前端任意时刻只会存放*翻页*、*排序*及*筛选*共同作用下对应的单页数据，极大程度上节省了内存和网络传输资源，适合数据量较大的情况，具体使用方式参考本页相应示例
+
 **sortOptions：** *dict*型，可选
 
-　　用于对指定若干列设置*排序*功能，其中：
+　　用于对指定若干列设置*排序*功能，可设定以下键值对参数：
 
 - multiple：*bool*型，用于设置是否开启组合排序模式，默认为`False`即不开启
 - sortDataIndexes：*list*型，用于传入需要添加排序功能的若干字段`dataIndex`组成的列表，注意，当`multiple`设置为`True`时，`sortDataIndexes`传入的列表`dataIndex`顺序即代表了组合排序模式下的*排序优先级*
 
+**filterOptions：** *dict*型，可选
+
+　　用于对指定若干列设置*筛选*功能，与**sortOptions**不同的是，**filterOptions**中的键应为所要设置筛选功能的*字段名*，值则为字典，可设定以下键值对参数：
+
+- filterMode：*string*型，用于设置筛选器模式，可选的有`'checkbox'`（勾选模式）和`'keyword'`（关键词搜索模式），默认为`'checkbox'`
+- filterCustomItems：*list*型，当filterMode为`'checkbox'`时生效，用于自定义设置选择框中可供勾选的选项，默认不设置此参数时，会自动计算出对应字段的所有唯一值
+
+**popupContainerId：** *string*型
+
+　　用于在*局部滚动条*模式下，以传入对应*id*的方式为表格绑定合适的参考容器，从而修正一些潜在的显示问题，具体使用场景参考本页对应示例
+
 **pagination：** *dict*型，可选
 
-　　用于配置表格自带的*翻页*组件的相关功能，其中：
+　　用于配置表格自带的*翻页*组件的相关功能，在*服务器端渲染*模式下用于返回最近一次翻页操作后的对应参数信息，其中涉及到的键值对有：
 
 - position：*string*型，用于设置分页部件的*位置*，可选项有`'topLeft'`（左上）、`'topCenter'`（上方居中）、`'topRight'`（右上）、`'bottomLeft'`（左下）、`'bottomCenter'`（下方居中）、`'bottomRight'`（右下），默认为`bottomRight`
 - pagesize：*int*型，用于设置初始状态下每页显示的纪录行数，默认为`20`条
@@ -56,6 +71,10 @@ data = [
 - showQuickJumper：*bool*型，用于设置是否渲染*快速页码跳转*控件
 - showTotalPrefix：*string*型，用于设置*总记录显示*内容，记录数值之前的文字内容，默认为`"共 "`
 - showTotalSuffix：*string*型，用于设置*总记录显示*内容，记录数值之后的文字内容，默认为`" 条记录"`
+
+**autoIgnorePagination：** *bool*型，默认为`False`
+
+　　用于设置是否在数据记录行数少于pageSize时隐藏分页组件
 
 **bordered：** *bool*型，可选，默认为`False`
 
@@ -69,9 +88,13 @@ data = [
 
 　　用于设置表格的最大像素高度，当本页所有记录行长度超出此上显时会以*冻结表头*滑轮滑动的方式进行浏览
 
-**autoIgnorePagination：** *bool*型，可选，默认为`False`
+**sorter：** *dict*型
 
-　　用于设置是否在数据记录行数少于pageSize时隐藏分页组件
+　　用于在回调中捕获最近一次排序操作后，返回对应的字段及排序方式等参数信息，主要用于在*服务器端渲染*模式下实现排序操作
+
+**filter：** *dict*型
+
+　　用于在回调中捕获最近一次筛选操作后，返回对应的字段及筛选条件等参数信息，主要用于在*服务器端渲染*模式下实现筛选操作
 
 **currentData：** *list*型
 

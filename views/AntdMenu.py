@@ -32,7 +32,9 @@ docs_content = html.Div(
                         {'title': '回调示例', 'href': '#回调示例'},
                     ]
                 },
-            ]
+            ],
+            containerId='docs-content',
+            targetOffset=200
         ),
         html.Span(
             '主要参数说明：',
@@ -49,123 +51,128 @@ docs_content = html.Div(
         dcc.Markdown(open('documents/AntdMenu.md', encoding='utf-8').read(),
                      dangerously_allow_html=True),
 
-        html.Span(
-            '使用示例：',
-            id='使用示例',
+        html.Div(
+            html.Span(
+                '使用示例',
+                id='使用示例',
+                style={
+                    'borderLeft': '4px solid grey',
+                    'padding': '3px 0 3px 10px',
+                    'backgroundColor': '#f5f5f5',
+                    'fontWeight': 'bold',
+                    'fontSize': '1.2rem'
+                }
+            ),
             style={
-                'borderLeft': '4px solid grey',
-                'padding': '3px 0 3px 10px',
-                'backgroundColor': '#f5f5f5',
-                'fontWeight': 'bold',
-                'fontSize': '1.2rem'
+                'marginBottom': '10px'
             }
         ),
 
-        html.Hr(),
-
         html.Div(
             [
-                html.Strong(
-                    '基础使用方式：',
-                    id='基础使用方式',
-                    style={'paddingTop': '5px'}
+                html.Div(
+                    fac.AntdMenu(
+                        menuItems=[
+                            {
+                                'component': 'SubMenu',
+                                'props': {
+                                    'key': f'{sub_menu}',
+                                    'title': f'子菜单{sub_menu}'
+                                },
+                                'children': [
+                                    {
+                                        'component': 'ItemGroup',
+                                        'props': {
+                                            'key': f'{sub_menu}-{item_group}',
+                                            'title': f'菜单项分组{sub_menu}-{item_group}'
+                                        },
+                                        'children': [
+                                            {
+                                                'component': 'Item',
+                                                'props': {
+                                                    'key': f'{sub_menu}-{item_group}-{item}',
+                                                    'title': f'菜单项{sub_menu}-{item_group}-{item}'
+                                                }
+                                            }
+                                            for item in range(1, 3)
+                                        ]
+                                    }
+                                    for item_group in range(1, 3)
+                                ]
+                            }
+                            for sub_menu in range(1, 5)
+                        ]
+                    ),
+                    style={
+                        'width': '250px'
+                    }
                 ),
 
-                dcc.Markdown('''
-                ```Python
-                html.Div(
-                    fac.AntdMenu(
-                        menuItems=[
-                            {
-                                'component': 'SubMenu',
-                                'props': {
-                                    'key': f'{sub_menu}',
-                                    'title': f'子菜单{sub_menu}'
-                                },
-                                'children': [
-                                    {
-                                        'component': 'ItemGroup',
-                                        'props': {
-                                            'key': f'{sub_menu}-{item_group}',
-                                            'title': f'菜单项分组{sub_menu}-{item_group}'
-                                        },
-                                        'children': [
-                                            {
-                                                'component': 'Item',
-                                                'props': {
-                                                    'key': f'{sub_menu}-{item_group}-{item}',
-                                                    'title': f'菜单项{sub_menu}-{item_group}-{item}'
-                                                }
-                                            }
-                                            for item in range(1, 3)
-                                        ]
-                                    }
-                                    for item_group in range(1, 3)
-                                ]
-                            }
-                            for sub_menu in range(1, 5)
-                        ]
-                    ),
-                    style={
-                        'width': '250px'
-                    }
-                )
-                ```
-                '''),
+                fac.AntdDivider(
+                    '基础使用方式',
+                    lineColor='#f0f0f0',
+                    innerTextOrientation='left'
+                ),
 
-                html.Div(
-                    fac.AntdMenu(
-                        menuItems=[
-                            {
-                                'component': 'SubMenu',
-                                'props': {
-                                    'key': f'{sub_menu}',
-                                    'title': f'子菜单{sub_menu}'
-                                },
-                                'children': [
-                                    {
-                                        'component': 'ItemGroup',
-                                        'props': {
-                                            'key': f'{sub_menu}-{item_group}',
-                                            'title': f'菜单项分组{sub_menu}-{item_group}'
-                                        },
-                                        'children': [
+                fac.AntdCollapse(
+                    dcc.Markdown('''
+                                ```Python
+                                html.Div(
+                                    fac.AntdMenu(
+                                        menuItems=[
                                             {
-                                                'component': 'Item',
+                                                'component': 'SubMenu',
                                                 'props': {
-                                                    'key': f'{sub_menu}-{item_group}-{item}',
-                                                    'title': f'菜单项{sub_menu}-{item_group}-{item}'
-                                                }
+                                                    'key': f'{sub_menu}',
+                                                    'title': f'子菜单{sub_menu}'
+                                                },
+                                                'children': [
+                                                    {
+                                                        'component': 'ItemGroup',
+                                                        'props': {
+                                                            'key': f'{sub_menu}-{item_group}',
+                                                            'title': f'菜单项分组{sub_menu}-{item_group}'
+                                                        },
+                                                        'children': [
+                                                            {
+                                                                'component': 'Item',
+                                                                'props': {
+                                                                    'key': f'{sub_menu}-{item_group}-{item}',
+                                                                    'title': f'菜单项{sub_menu}-{item_group}-{item}'
+                                                                }
+                                                            }
+                                                            for item in range(1, 3)
+                                                        ]
+                                                    }
+                                                    for item_group in range(1, 3)
+                                                ]
                                             }
-                                            for item in range(1, 3)
+                                            for sub_menu in range(1, 5)
                                         ]
+                                    ),
+                                    style={
+                                        'width': '250px'
                                     }
-                                    for item_group in range(1, 3)
-                                ]
-                            }
-                            for sub_menu in range(1, 5)
-                        ]
-                    ),
-                    style={
-                        'width': '250px'
-                    }
+                                )
+                                ```
+                                '''),
+                    title='点击查看代码',
+                    is_open=False,
+                    ghost=True
                 )
+
             ],
             style={
-                'marginBottom': '80px'
-            }
+                'marginBottom': '40px',
+                'padding': '10px 10px 20px 10px',
+                'border': '1px solid #f0f0f0'
+            },
+            id='基础使用方式',
+            className='div-highlight'
         ),
 
         html.Div(
             [
-                html.Strong(
-                    '不同的整体显示模式：',
-                    id='不同的整体显示模式',
-                    style={'paddingTop': '5px'}
-                ),
-
-                dcc.Markdown('''
-                ```Python
                 fac.AntdDivider(children='默认mode="vertical"', innerTextOrientation='left'),
 
                 html.Div(
@@ -286,234 +293,157 @@ docs_content = html.Div(
                     style={
                         'width': '250px'
                     }
-                )
-                ```
-                '''),
-
-                fac.AntdDivider(children='默认mode="vertical"', innerTextOrientation='left'),
-
-                html.Div(
-                    fac.AntdMenu(
-                        menuItems=[
-                            {
-                                'component': 'SubMenu',
-                                'props': {
-                                    'key': f'{sub_menu}',
-                                    'title': f'子菜单{sub_menu}'
-                                },
-                                'children': [
-                                    {
-                                        'component': 'ItemGroup',
-                                        'props': {
-                                            'key': f'{sub_menu}-{item_group}',
-                                            'title': f'菜单项分组{sub_menu}-{item_group}'
-                                        },
-                                        'children': [
-                                            {
-                                                'component': 'Item',
-                                                'props': {
-                                                    'key': f'{sub_menu}-{item_group}-{item}',
-                                                    'title': f'菜单项{sub_menu}-{item_group}-{item}'
-                                                }
-                                            }
-                                            for item in range(1, 3)
-                                        ]
-                                    }
-                                    for item_group in range(1, 3)
-                                ]
-                            }
-                            for sub_menu in range(1, 5)
-                        ]
-                    ),
-                    style={
-                        'width': '250px'
-                    }
                 ),
 
-                fac.AntdDivider(children='mode="inline"', innerTextOrientation='left'),
-
-                html.Div(
-                    fac.AntdMenu(
-                        menuItems=[
-                            {
-                                'component': 'SubMenu',
-                                'props': {
-                                    'key': f'{sub_menu}',
-                                    'title': f'子菜单{sub_menu}'
-                                },
-                                'children': [
-                                    {
-                                        'component': 'ItemGroup',
-                                        'props': {
-                                            'key': f'{sub_menu}-{item_group}',
-                                            'title': f'菜单项分组{sub_menu}-{item_group}'
-                                        },
-                                        'children': [
-                                            {
-                                                'component': 'Item',
-                                                'props': {
-                                                    'key': f'{sub_menu}-{item_group}-{item}',
-                                                    'title': f'菜单项{sub_menu}-{item_group}-{item}'
-                                                }
-                                            }
-                                            for item in range(1, 3)
-                                        ]
-                                    }
-                                    for item_group in range(1, 3)
-                                ]
-                            }
-                            for sub_menu in range(1, 5)
-                        ],
-                        mode='inline'
-                    ),
-                    style={
-                        'width': '250px'
-                    }
+                fac.AntdDivider(
+                    '不同的整体显示模式',
+                    lineColor='#f0f0f0',
+                    innerTextOrientation='left'
                 ),
 
-                fac.AntdDivider(children='mode="horizontal"', innerTextOrientation='left'),
+                fac.AntdCollapse(
+                    dcc.Markdown('''
+                                ```Python
+                                fac.AntdDivider(children='默认mode="vertical"', innerTextOrientation='left'),
 
-                html.Div(
-                    fac.AntdMenu(
-                        menuItems=[
-                            {
-                                'component': 'SubMenu',
-                                'props': {
-                                    'key': f'{sub_menu}',
-                                    'title': f'子菜单{sub_menu}'
-                                },
-                                'children': [
-                                    {
-                                        'component': 'ItemGroup',
-                                        'props': {
-                                            'key': f'{sub_menu}-{item_group}',
-                                            'title': f'菜单项分组{sub_menu}-{item_group}'
-                                        },
-                                        'children': [
+                                html.Div(
+                                    fac.AntdMenu(
+                                        menuItems=[
                                             {
-                                                'component': 'Item',
+                                                'component': 'SubMenu',
                                                 'props': {
-                                                    'key': f'{sub_menu}-{item_group}-{item}',
-                                                    'title': f'菜单项{sub_menu}-{item_group}-{item}'
-                                                }
+                                                    'key': f'{sub_menu}',
+                                                    'title': f'子菜单{sub_menu}'
+                                                },
+                                                'children': [
+                                                    {
+                                                        'component': 'ItemGroup',
+                                                        'props': {
+                                                            'key': f'{sub_menu}-{item_group}',
+                                                            'title': f'菜单项分组{sub_menu}-{item_group}'
+                                                        },
+                                                        'children': [
+                                                            {
+                                                                'component': 'Item',
+                                                                'props': {
+                                                                    'key': f'{sub_menu}-{item_group}-{item}',
+                                                                    'title': f'菜单项{sub_menu}-{item_group}-{item}'
+                                                                }
+                                                            }
+                                                            for item in range(1, 3)
+                                                        ]
+                                                    }
+                                                    for item_group in range(1, 3)
+                                                ]
                                             }
-                                            for item in range(1, 3)
+                                            for sub_menu in range(1, 5)
                                         ]
+                                    ),
+                                    style={
+                                        'width': '250px'
                                     }
-                                    for item_group in range(1, 3)
-                                ]
-                            }
-                            for sub_menu in range(1, 5)
-                        ],
-                        mode='horizontal'
-                    ),
-                    style={
-                        'width': '250px'
-                    }
+                                ),
+
+                                fac.AntdDivider(children='mode="inline"', innerTextOrientation='left'),
+
+                                html.Div(
+                                    fac.AntdMenu(
+                                        menuItems=[
+                                            {
+                                                'component': 'SubMenu',
+                                                'props': {
+                                                    'key': f'{sub_menu}',
+                                                    'title': f'子菜单{sub_menu}'
+                                                },
+                                                'children': [
+                                                    {
+                                                        'component': 'ItemGroup',
+                                                        'props': {
+                                                            'key': f'{sub_menu}-{item_group}',
+                                                            'title': f'菜单项分组{sub_menu}-{item_group}'
+                                                        },
+                                                        'children': [
+                                                            {
+                                                                'component': 'Item',
+                                                                'props': {
+                                                                    'key': f'{sub_menu}-{item_group}-{item}',
+                                                                    'title': f'菜单项{sub_menu}-{item_group}-{item}'
+                                                                }
+                                                            }
+                                                            for item in range(1, 3)
+                                                        ]
+                                                    }
+                                                    for item_group in range(1, 3)
+                                                ]
+                                            }
+                                            for sub_menu in range(1, 5)
+                                        ],
+                                        mode='inline'
+                                    ),
+                                    style={
+                                        'width': '250px'
+                                    }
+                                ),
+
+                                fac.AntdDivider(children='mode="horizontal"', innerTextOrientation='left'),
+
+                                html.Div(
+                                    fac.AntdMenu(
+                                        menuItems=[
+                                            {
+                                                'component': 'SubMenu',
+                                                'props': {
+                                                    'key': f'{sub_menu}',
+                                                    'title': f'子菜单{sub_menu}'
+                                                },
+                                                'children': [
+                                                    {
+                                                        'component': 'ItemGroup',
+                                                        'props': {
+                                                            'key': f'{sub_menu}-{item_group}',
+                                                            'title': f'菜单项分组{sub_menu}-{item_group}'
+                                                        },
+                                                        'children': [
+                                                            {
+                                                                'component': 'Item',
+                                                                'props': {
+                                                                    'key': f'{sub_menu}-{item_group}-{item}',
+                                                                    'title': f'菜单项{sub_menu}-{item_group}-{item}'
+                                                                }
+                                                            }
+                                                            for item in range(1, 3)
+                                                        ]
+                                                    }
+                                                    for item_group in range(1, 3)
+                                                ]
+                                            }
+                                            for sub_menu in range(1, 5)
+                                        ],
+                                        mode='horizontal'
+                                    ),
+                                    style={
+                                        'width': '250px'
+                                    }
+                                )
+                                ```
+                                '''),
+                    title='点击查看代码',
+                    is_open=False,
+                    ghost=True
                 )
+
             ],
             style={
-                'marginBottom': '80px'
-            }
+                'marginBottom': '40px',
+                'padding': '10px 10px 20px 10px',
+                'border': '1px solid #f0f0f0'
+            },
+            id='不同的整体显示模式',
+            className='div-highlight'
         ),
 
         html.Div(
             [
-                html.Strong(
-                    '切换色彩风格：',
-                    id='切换色彩风格',
-                    style={'paddingTop': '5px'}
-                ),
-
-                dcc.Markdown('''
-                ```Python
-                fac.AntdDivider(children='默认theme="light"', innerTextOrientation='left'),
-
-                html.Div(
-                    fac.AntdMenu(
-                        menuItems=[
-                            {
-                                'component': 'SubMenu',
-                                'props': {
-                                    'key': f'{sub_menu}',
-                                    'title': f'子菜单{sub_menu}'
-                                },
-                                'children': [
-                                    {
-                                        'component': 'ItemGroup',
-                                        'props': {
-                                            'key': f'{sub_menu}-{item_group}',
-                                            'title': f'菜单项分组{sub_menu}-{item_group}'
-                                        },
-                                        'children': [
-                                            {
-                                                'component': 'Item',
-                                                'props': {
-                                                    'key': f'{sub_menu}-{item_group}-{item}',
-                                                    'title': f'菜单项{sub_menu}-{item_group}-{item}'
-                                                }
-                                            }
-                                            for item in range(1, 3)
-                                        ]
-                                    }
-                                    for item_group in range(1, 3)
-                                ]
-                            }
-                            for sub_menu in range(1, 5)
-                        ],
-                        mode='inline'
-                    ),
-                    style={
-                        'width': '250px'
-                    }
-                ),
-
-                fac.AntdDivider(children='theme="dark"', innerTextOrientation='left'),
-
-                html.Div(
-                    fac.AntdMenu(
-                        menuItems=[
-                            {
-                                'component': 'SubMenu',
-                                'props': {
-                                    'key': f'{sub_menu}',
-                                    'title': f'子菜单{sub_menu}'
-                                },
-                                'children': [
-                                    {
-                                        'component': 'ItemGroup',
-                                        'props': {
-                                            'key': f'{sub_menu}-{item_group}',
-                                            'title': f'菜单项分组{sub_menu}-{item_group}'
-                                        },
-                                        'children': [
-                                            {
-                                                'component': 'Item',
-                                                'props': {
-                                                    'key': f'{sub_menu}-{item_group}-{item}',
-                                                    'title': f'菜单项{sub_menu}-{item_group}-{item}'
-                                                }
-                                            }
-                                            for item in range(1, 3)
-                                        ]
-                                    }
-                                    for item_group in range(1, 3)
-                                ]
-                            }
-                            for sub_menu in range(1, 5)
-                        ],
-                        mode='inline',
-                        theme='dark'
-                    ),
-                    style={
-                        'width': '250px'
-                    }
-                )
-                ```
-                '''),
-
-                fac.AntdDivider(children='默认theme="light"', innerTextOrientation='left'),
-
                 html.Div(
                     fac.AntdMenu(
                         menuItems=[
@@ -593,23 +523,118 @@ docs_content = html.Div(
                     style={
                         'width': '250px'
                     }
+                ),
+
+                fac.AntdDivider(
+                    '切换色彩风格',
+                    lineColor='#f0f0f0',
+                    innerTextOrientation='left'
+                ),
+
+                fac.AntdCollapse(
+                    dcc.Markdown('''
+                                ```Python
+                                fac.AntdDivider(children='默认theme="light"', innerTextOrientation='left'),
+
+                                html.Div(
+                                    fac.AntdMenu(
+                                        menuItems=[
+                                            {
+                                                'component': 'SubMenu',
+                                                'props': {
+                                                    'key': f'{sub_menu}',
+                                                    'title': f'子菜单{sub_menu}'
+                                                },
+                                                'children': [
+                                                    {
+                                                        'component': 'ItemGroup',
+                                                        'props': {
+                                                            'key': f'{sub_menu}-{item_group}',
+                                                            'title': f'菜单项分组{sub_menu}-{item_group}'
+                                                        },
+                                                        'children': [
+                                                            {
+                                                                'component': 'Item',
+                                                                'props': {
+                                                                    'key': f'{sub_menu}-{item_group}-{item}',
+                                                                    'title': f'菜单项{sub_menu}-{item_group}-{item}'
+                                                                }
+                                                            }
+                                                            for item in range(1, 3)
+                                                        ]
+                                                    }
+                                                    for item_group in range(1, 3)
+                                                ]
+                                            }
+                                            for sub_menu in range(1, 5)
+                                        ],
+                                        mode='inline'
+                                    ),
+                                    style={
+                                        'width': '250px'
+                                    }
+                                ),
+
+                                fac.AntdDivider(children='theme="dark"', innerTextOrientation='left'),
+
+                                html.Div(
+                                    fac.AntdMenu(
+                                        menuItems=[
+                                            {
+                                                'component': 'SubMenu',
+                                                'props': {
+                                                    'key': f'{sub_menu}',
+                                                    'title': f'子菜单{sub_menu}'
+                                                },
+                                                'children': [
+                                                    {
+                                                        'component': 'ItemGroup',
+                                                        'props': {
+                                                            'key': f'{sub_menu}-{item_group}',
+                                                            'title': f'菜单项分组{sub_menu}-{item_group}'
+                                                        },
+                                                        'children': [
+                                                            {
+                                                                'component': 'Item',
+                                                                'props': {
+                                                                    'key': f'{sub_menu}-{item_group}-{item}',
+                                                                    'title': f'菜单项{sub_menu}-{item_group}-{item}'
+                                                                }
+                                                            }
+                                                            for item in range(1, 3)
+                                                        ]
+                                                    }
+                                                    for item_group in range(1, 3)
+                                                ]
+                                            }
+                                            for sub_menu in range(1, 5)
+                                        ],
+                                        mode='inline',
+                                        theme='dark'
+                                    ),
+                                    style={
+                                        'width': '250px'
+                                    }
+                                )
+                                ```
+                                '''),
+                    title='点击查看代码',
+                    is_open=False,
+                    ghost=True
                 )
+
             ],
             style={
-                'marginBottom': '80px'
-            }
+                'marginBottom': '40px',
+                'padding': '10px 10px 20px 10px',
+                'border': '1px solid #f0f0f0'
+            },
+            id='切换色彩风格',
+            className='div-highlight'
         ),
 
         html.Div(
             [
-                html.Strong(
-                    '指定默认展开的SubMenu：',
-                    id='指定默认展开的SubMenu',
-                    style={'paddingTop': '5px'}
-                ),
-
-                dcc.Markdown('''
-                ```Python
                 html.Div(
                     fac.AntdMenu(
                         menuItems=[
@@ -649,66 +674,76 @@ docs_content = html.Div(
                     style={
                         'width': '250px'
                     }
-                )
-                ```
-                '''),
+                ),
 
-                html.Div(
-                    fac.AntdMenu(
-                        menuItems=[
-                            {
-                                'component': 'SubMenu',
-                                'props': {
-                                    'key': f'{sub_menu}',
-                                    'title': f'子菜单{sub_menu}'
-                                },
-                                'children': [
-                                    {
-                                        'component': 'ItemGroup',
-                                        'props': {
-                                            'key': f'{sub_menu}-{item_group}',
-                                            'title': f'菜单项分组{sub_menu}-{item_group}'
-                                        },
-                                        'children': [
+                fac.AntdDivider(
+                    '指定默认展开的SubMenu',
+                    lineColor='#f0f0f0',
+                    innerTextOrientation='left'
+                ),
+
+                fac.AntdCollapse(
+                    dcc.Markdown('''
+                                ```Python
+                                html.Div(
+                                    fac.AntdMenu(
+                                        menuItems=[
                                             {
-                                                'component': 'Item',
+                                                'component': 'SubMenu',
                                                 'props': {
-                                                    'key': f'{sub_menu}-{item_group}-{item}',
-                                                    'title': f'菜单项{sub_menu}-{item_group}-{item}'
-                                                }
+                                                    'key': f'{sub_menu}',
+                                                    'title': f'子菜单{sub_menu}'
+                                                },
+                                                'children': [
+                                                    {
+                                                        'component': 'ItemGroup',
+                                                        'props': {
+                                                            'key': f'{sub_menu}-{item_group}',
+                                                            'title': f'菜单项分组{sub_menu}-{item_group}'
+                                                        },
+                                                        'children': [
+                                                            {
+                                                                'component': 'Item',
+                                                                'props': {
+                                                                    'key': f'{sub_menu}-{item_group}-{item}',
+                                                                    'title': f'菜单项{sub_menu}-{item_group}-{item}'
+                                                                }
+                                                            }
+                                                            for item in range(1, 3)
+                                                        ]
+                                                    }
+                                                    for item_group in range(1, 3)
+                                                ]
                                             }
-                                            for item in range(1, 3)
-                                        ]
+                                            for sub_menu in range(1, 5)
+                                        ],
+                                        mode='inline',
+                                        theme='dark',
+                                        defaultOpenKeys=['1', '3']
+                                    ),
+                                    style={
+                                        'width': '250px'
                                     }
-                                    for item_group in range(1, 3)
-                                ]
-                            }
-                            for sub_menu in range(1, 5)
-                        ],
-                        mode='inline',
-                        theme='dark',
-                        defaultOpenKeys=['1', '3']
-                    ),
-                    style={
-                        'width': '250px'
-                    }
+                                )
+                                ```
+                                '''),
+                    title='点击查看代码',
+                    is_open=False,
+                    ghost=True
                 )
+
             ],
             style={
-                'marginBottom': '80px'
-            }
+                'marginBottom': '40px',
+                'padding': '10px 10px 20px 10px',
+                'border': '1px solid #f0f0f0'
+            },
+            id='指定默认展开的SubMenu',
+            className='div-highlight'
         ),
 
         html.Div(
             [
-                html.Strong(
-                    '设置默认选中的菜单项：',
-                    id='设置默认选中的菜单项',
-                    style={'paddingTop': '5px'}
-                ),
-
-                dcc.Markdown('''
-                ```Python
                 html.Div(
                     fac.AntdMenu(
                         menuItems=[
@@ -749,154 +784,174 @@ docs_content = html.Div(
                     style={
                         'width': '250px'
                     }
-                )
-                ```
-                '''),
+                ),
 
+                fac.AntdDivider(
+                    '设置默认选中的菜单项',
+                    lineColor='#f0f0f0',
+                    innerTextOrientation='left'
+                ),
+
+                fac.AntdCollapse(
+                    dcc.Markdown('''
+                                ```Python
+                                html.Div(
+                                    fac.AntdMenu(
+                                        menuItems=[
+                                            {
+                                                'component': 'SubMenu',
+                                                'props': {
+                                                    'key': f'{sub_menu}',
+                                                    'title': f'子菜单{sub_menu}'
+                                                },
+                                                'children': [
+                                                    {
+                                                        'component': 'ItemGroup',
+                                                        'props': {
+                                                            'key': f'{sub_menu}-{item_group}',
+                                                            'title': f'菜单项分组{sub_menu}-{item_group}'
+                                                        },
+                                                        'children': [
+                                                            {
+                                                                'component': 'Item',
+                                                                'props': {
+                                                                    'key': f'{sub_menu}-{item_group}-{item}',
+                                                                    'title': f'菜单项{sub_menu}-{item_group}-{item}'
+                                                                }
+                                                            }
+                                                            for item in range(1, 3)
+                                                        ]
+                                                    }
+                                                    for item_group in range(1, 3)
+                                                ]
+                                            }
+                                            for sub_menu in range(1, 5)
+                                        ],
+                                        mode='inline',
+                                        theme='dark',
+                                        defaultOpenKeys=['1'],
+                                        defaultSelectedKey='1-2-2'
+                                    ),
+                                    style={
+                                        'width': '250px'
+                                    }
+                                )
+                                ```
+                                '''),
+                    title='点击查看代码',
+                    is_open=False,
+                    ghost=True
+                )
+
+            ],
+            style={
+                'marginBottom': '40px',
+                'padding': '10px 10px 20px 10px',
+                'border': '1px solid #f0f0f0'
+            },
+            id='设置默认选中的菜单项',
+            className='div-highlight'
+        ),
+
+        html.Div(
+            [
                 html.Div(
                     fac.AntdMenu(
                         menuItems=[
                             {
-                                'component': 'SubMenu',
+                                'component': 'Item',
                                 'props': {
-                                    'key': f'{sub_menu}',
-                                    'title': f'子菜单{sub_menu}'
-                                },
-                                'children': [
-                                    {
-                                        'component': 'ItemGroup',
-                                        'props': {
-                                            'key': f'{sub_menu}-{item_group}',
-                                            'title': f'菜单项分组{sub_menu}-{item_group}'
-                                        },
-                                        'children': [
+                                    'key': f'图标{icon}',
+                                    'title': f'图标{icon}',
+                                    'icon': icon
+                                }
+                            }
+                            for icon in [
+                                'home',
+                                'upload',
+                                'bar-chart',
+                                'pie-chart',
+                                'dot-chart',
+                                'line-chart',
+                                'apartment',
+                                'app-store',
+                                'app-store-add',
+                                'bell',
+                                'calculator',
+                                'calendar',
+                                'database',
+                                'history'
+                            ]
+                        ],
+                        mode='inline'
+                    ),
+                    style={
+                        'width': '250px'
+                    }
+                ),
+
+                fac.AntdDivider(
+                    '使用前缀图标',
+                    lineColor='#f0f0f0',
+                    innerTextOrientation='left'
+                ),
+
+                fac.AntdCollapse(
+                    dcc.Markdown('''
+                                ```Python
+                                html.Div(
+                                    fac.AntdMenu(
+                                        menuItems=[
                                             {
                                                 'component': 'Item',
                                                 'props': {
-                                                    'key': f'{sub_menu}-{item_group}-{item}',
-                                                    'title': f'菜单项{sub_menu}-{item_group}-{item}'
+                                                    'key': f'图标{icon}',
+                                                    'title': f'图标{icon}',
+                                                    'icon': icon
                                                 }
                                             }
-                                            for item in range(1, 3)
-                                        ]
+                                            for icon in [
+                                                'home',
+                                                'upload',
+                                                'bar-chart',
+                                                'pie-chart',
+                                                'dot-chart',
+                                                'line-chart',
+                                                'apartment',
+                                                'app-store',
+                                                'app-store-add',
+                                                'bell',
+                                                'calculator',
+                                                'calendar',
+                                                'database',
+                                                'history'
+                                            ]
+                                        ],
+                                        mode='inline'
+                                    ),
+                                    style={
+                                        'width': '250px'
                                     }
-                                    for item_group in range(1, 3)
-                                ]
-                            }
-                            for sub_menu in range(1, 5)
-                        ],
-                        mode='inline',
-                        theme='dark',
-                        defaultOpenKeys=['1'],
-                        defaultSelectedKey='1-2-2'
-                    ),
-                    style={
-                        'width': '250px'
-                    }
+                                )
+                                ```
+                                '''),
+                    title='点击查看代码',
+                    is_open=False,
+                    ghost=True
                 )
+
             ],
             style={
-                'marginBottom': '80px'
-            }
+                'marginBottom': '40px',
+                'padding': '10px 10px 20px 10px',
+                'border': '1px solid #f0f0f0'
+            },
+            id='使用前缀图标',
+            className='div-highlight'
         ),
 
         html.Div(
             [
-                html.Strong(
-                    '使用前缀图标：',
-                    id='使用前缀图标',
-                    style={'paddingTop': '5px'}
-                ),
-
-                dcc.Markdown('''
-                ```Python
-                html.Div(
-                    fac.AntdMenu(
-                        menuItems=[
-                            {
-                                'component': 'Item',
-                                'props': {
-                                    'key': f'图标{icon}',
-                                    'title': f'图标{icon}',
-                                    'icon': icon
-                                }
-                            }
-                            for icon in [
-                                'home',
-                                'upload',
-                                'bar-chart',
-                                'pie-chart',
-                                'dot-chart',
-                                'line-chart',
-                                'apartment',
-                                'app-store',
-                                'app-store-add',
-                                'bell',
-                                'calculator',
-                                'calendar',
-                                'database',
-                                'history'
-                            ]
-                        ],
-                        mode='inline'
-                    ),
-                    style={
-                        'width': '250px'
-                    }
-                )
-                ```
-                '''),
-
-                html.Div(
-                    fac.AntdMenu(
-                        menuItems=[
-                            {
-                                'component': 'Item',
-                                'props': {
-                                    'key': f'图标{icon}',
-                                    'title': f'图标{icon}',
-                                    'icon': icon
-                                }
-                            }
-                            for icon in [
-                                'home',
-                                'upload',
-                                'bar-chart',
-                                'pie-chart',
-                                'dot-chart',
-                                'line-chart',
-                                'apartment',
-                                'app-store',
-                                'app-store-add',
-                                'bell',
-                                'calculator',
-                                'calendar',
-                                'database',
-                                'history'
-                            ]
-                        ],
-                        mode='inline'
-                    ),
-                    style={
-                        'width': '250px'
-                    }
-                )
-            ],
-            style={
-                'marginBottom': '80px'
-            }
-        ),
-
-        html.Div(
-            [
-                html.Strong(
-                    '添加导航菜单动态折叠/展开按钮：',
-                    id='添加导航菜单动态折叠/展开按钮',
-                    style={'paddingTop': '5px'}
-                ),
-
-                dcc.Markdown('''
-                ```Python
                 html.Div(
                     fac.AntdMenu(
                         menuItems=[
@@ -939,68 +994,152 @@ docs_content = html.Div(
                     style={
                         'width': '250px'
                     }
-                )
-                ```
-                '''),
+                ),
 
-                html.Div(
-                    fac.AntdMenu(
-                        menuItems=[
-                                      {
-                                          'component': 'Item',
-                                          'props': {
-                                              'key': f'图标{icon}',
-                                              'title': f'图标{icon}',
-                                              'icon': icon
-                                          }
-                                      }
-                                      for icon in [
-                                'home',
-                                'upload',
-                                'bar-chart',
-                                'pie-chart',
-                                'dot-chart',
-                                'line-chart',
-                                'apartment',
-                                'app-store',
-                                'app-store-add',
-                                'bell',
-                                'calculator',
-                                'calendar',
-                                'database',
-                                'history'
-                            ]
-                                  ] + [
-                                      {
-                                          'component': 'Item',
-                                          'props': {
-                                              'key': '菜单项测试',
-                                              'title': '菜单项测试'
-                                          }
-                                      }
-                                  ],
-                        mode='inline',
-                        renderCollapsedButton=True
-                    ),
-                    style={
-                        'width': '250px'
-                    }
+                fac.AntdDivider(
+                    '添加导航菜单动态折叠/展开按钮',
+                    lineColor='#f0f0f0',
+                    innerTextOrientation='left'
+                ),
+
+                fac.AntdCollapse(
+                    dcc.Markdown('''
+                                ```Python
+                                html.Div(
+                                    fac.AntdMenu(
+                                        menuItems=[
+                                                      {
+                                                          'component': 'Item',
+                                                          'props': {
+                                                              'key': f'图标{icon}',
+                                                              'title': f'图标{icon}',
+                                                              'icon': icon
+                                                          }
+                                                      }
+                                                      for icon in [
+                                                'home',
+                                                'upload',
+                                                'bar-chart',
+                                                'pie-chart',
+                                                'dot-chart',
+                                                'line-chart',
+                                                'apartment',
+                                                'app-store',
+                                                'app-store-add',
+                                                'bell',
+                                                'calculator',
+                                                'calendar',
+                                                'database',
+                                                'history'
+                                            ]
+                                                  ] + [
+                                                      {
+                                                          'component': 'Item',
+                                                          'props': {
+                                                              'key': '菜单项测试',
+                                                              'title': '菜单项测试'
+                                                          }
+                                                      }
+                                                  ],
+                                        mode='inline',
+                                        renderCollapsedButton=True
+                                    ),
+                                    style={
+                                        'width': '250px'
+                                    }
+                                )
+                                ```
+                                '''),
+                    title='点击查看代码',
+                    is_open=False,
+                    ghost=True
                 )
+
             ],
             style={
-                'marginBottom': '80px'
-            }
+                'marginBottom': '40px',
+                'padding': '10px 10px 20px 10px',
+                'border': '1px solid #f0f0f0'
+            },
+            id='添加导航菜单动态折叠/展开按钮',
+            className='div-highlight'
         ),
 
         html.Div(
             [
-                html.Strong(
-                    '回调示例：',
-                    id='回调示例',
-                    style={'paddingTop': '5px'}
+                html.Div(
+                    [
+                        html.Div(
+                            fac.AntdMenu(
+                                id='menu-demo',
+                                menuItems=[
+                                              {
+                                                  'component': 'Item',
+                                                  'props': {
+                                                      'key': f'图标{icon}',
+                                                      'title': f'图标{icon}',
+                                                      'icon': icon
+                                                  }
+                                              }
+                                              for icon in [
+                                        'home',
+                                        'upload',
+                                        'bar-chart',
+                                        'pie-chart',
+                                        'dot-chart',
+                                        'line-chart',
+                                        'apartment',
+                                        'app-store',
+                                        'app-store-add',
+                                        'bell',
+                                        'calculator',
+                                        'calendar',
+                                        'database',
+                                        'history'
+                                    ]
+                                          ] + [
+                                              {
+                                                  'component': 'Item',
+                                                  'props': {
+                                                      'key': '菜单项测试',
+                                                      'title': '菜单项测试'
+                                                  }
+                                              }
+                                          ],
+                                defaultSelectedKey='图标home',
+                                mode='inline'
+                            ),
+                            style={
+                                'flex': 'none',
+                                'width': '250px'
+                            }
+                        ),
+
+                        html.Div(
+                            fac.AntdSpin(
+                                html.Em('图标home', id='menu-demo-output'),
+                                text='回调中'
+                            ),
+                            style={
+                                'flex': 'auto'
+                            }
+                        ),
+                    ],
+                    style={
+                        'width': '100%',
+                        'height': '800px',
+                        'display': 'flex'
+                    }
                 ),
 
-                dcc.Markdown('''
+                fac.AntdDivider(
+                    '回调示例',
+                    lineColor='#f0f0f0',
+                    innerTextOrientation='left'
+                ),
+
+                fac.AntdCollapse(
+                    dcc.Markdown('''
                 ```Python
                 html.Div(
                     [
@@ -1042,8 +1181,7 @@ docs_content = html.Div(
                                               }
                                           ],
                                 defaultSelectedKey='图标home',
-                                mode='inline',
-                                renderCollapsedButton=True
+                                mode='inline'
                             ),
                             style={
                                 'flex': 'none',
@@ -1052,19 +1190,22 @@ docs_content = html.Div(
                         ),
 
                         html.Div(
-                            html.Em('图标home', id='menu-demo-output'),
+                            fac.AntdSpin(
+                                html.Em('图标home', id='menu-demo-output'),
+                                text='回调中'
+                            ),
                             style={
                                 'flex': 'auto'
                             }
-                        )
+                        ),
                     ],
                     style={
                         'width': '100%',
                         'height': '800px',
                         'display': 'flex'
                     }
-                )
-                ...               
+                ),
+                ...
                 @app.callback(
                     Output('menu-demo-output', 'children'),
                     Input('menu-demo', 'currentKey'),
@@ -1073,76 +1214,21 @@ docs_content = html.Div(
                 def menu_callback_demo(currentKey):
                 
                     return currentKey
-
                 ```
                 '''),
-
-                html.Div(
-                    [
-                        html.Div(
-                            fac.AntdMenu(
-                                id='menu-demo',
-                                menuItems=[
-                                              {
-                                                  'component': 'Item',
-                                                  'props': {
-                                                      'key': f'图标{icon}',
-                                                      'title': f'图标{icon}',
-                                                      'icon': icon
-                                                  }
-                                              }
-                                              for icon in [
-                                        'home',
-                                        'upload',
-                                        'bar-chart',
-                                        'pie-chart',
-                                        'dot-chart',
-                                        'line-chart',
-                                        'apartment',
-                                        'app-store',
-                                        'app-store-add',
-                                        'bell',
-                                        'calculator',
-                                        'calendar',
-                                        'database',
-                                        'history'
-                                    ]
-                                          ] + [
-                                              {
-                                                  'component': 'Item',
-                                                  'props': {
-                                                      'key': '菜单项测试',
-                                                      'title': '菜单项测试'
-                                                  }
-                                              }
-                                          ],
-                                defaultSelectedKey='图标home',
-                                mode='inline',
-                                renderCollapsedButton=True
-                            ),
-                            style={
-                                'flex': 'none',
-                                'width': '250px'
-                            }
-                        ),
-
-                        html.Div(
-                            html.Em('图标home', id='menu-demo-output'),
-                            style={
-                                'flex': 'auto'
-                            }
-                        )
-                    ],
-                    style={
-                        'width': '100%',
-                        'height': '800px',
-                        'display': 'flex'
-                    }
+                    title='点击查看代码',
+                    is_open=False,
+                    ghost=True
                 )
+
             ],
             style={
-                'marginBottom': '80px'
-            }
+                'marginBottom': '40px',
+                'padding': '10px 10px 20px 10px',
+                'border': '1px solid #f0f0f0'
+            },
+            id='回调示例',
+            className='div-highlight'
         ),
 
         html.Div(style={'height': '100px'})

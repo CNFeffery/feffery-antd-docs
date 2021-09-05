@@ -1,3 +1,7 @@
+**children：** 
+
+　　用于设置按钮内部文字内容
+
 **type：** *string*型，默认为`'default'`
 
 　　用于设置按钮整体风格，可选项有`'primary'`、`'dashed'`、`'link'`、`'text'`、`'default'`
@@ -25,6 +29,10 @@
 **shape：** *string*型或*None*，默认为`None`
 
 　　用于设置按钮形状，可选项有`'circle'`（原型）、`'round'`（圆角矩形）
+
+**size：** *string*型，默认为`'middle'`
+
+　　用于设置按钮的尺寸规格，可选项有`'small'`、`'middle'`和`'large'`
 
 **nClicks：** *int*型
 

@@ -9,5 +9,5 @@ from server import app
     prevent_initial_call=True
 )
 def button_callback_demo(nClicks):
-    import time;time.sleep(0.5)
+    import time;time.sleep(1)
     return nClicks

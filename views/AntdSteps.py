@@ -34,7 +34,9 @@ docs_content = html.Div(
                         {'title': '回调示例', 'href': '#回调示例'},
                     ]
                 },
-            ]
+            ],
+            containerId='docs-content',
+            targetOffset=200
         ),
         html.Span(
             '主要参数说明：',
@@ -51,65 +53,70 @@ docs_content = html.Div(
         dcc.Markdown(open('documents/AntdSteps.md', encoding='utf-8').read(),
                      dangerously_allow_html=True),
 
-        html.Span(
-            '使用示例：',
-            id='使用示例',
+        html.Div(
+            html.Span(
+                '使用示例',
+                id='使用示例',
+                style={
+                    'borderLeft': '4px solid grey',
+                    'padding': '3px 0 3px 10px',
+                    'backgroundColor': '#f5f5f5',
+                    'fontWeight': 'bold',
+                    'fontSize': '1.2rem'
+                }
+            ),
             style={
-                'borderLeft': '4px solid grey',
-                'padding': '3px 0 3px 10px',
-                'backgroundColor': '#f5f5f5',
-                'fontWeight': 'bold',
-                'fontSize': '1.2rem'
+                'marginBottom': '10px'
             }
         ),
 
-        html.Hr(),
-
         html.Div(
             [
-                html.Strong(
-                    '基础使用方式：',
-                    id='基础使用方式',
-                    style={'paddingTop': '5px'}
+                fac.AntdSteps(
+                    steps=[
+                        {
+                            'title': f'步骤{i + 1}'
+                        }
+                        for i in range(5)
+                    ]
                 ),
 
-                dcc.Markdown('''
-                ```Python
-                fac.AntdSteps(
-                    steps=[
-                        {
-                            'title': f'步骤{i + 1}'
-                        }
-                        for i in range(5)
-                    ]
-                )
-                ```
-                '''),
+                fac.AntdDivider(
+                    '基础使用方式',
+                    lineColor='#f0f0f0',
+                    innerTextOrientation='left'
+                ),
 
-                fac.AntdSteps(
-                    steps=[
-                        {
-                            'title': f'步骤{i + 1}'
-                        }
-                        for i in range(5)
-                    ]
+                fac.AntdCollapse(
+                    dcc.Markdown('''
+                                ```Python
+                                fac.AntdSteps(
+                                    steps=[
+                                        {
+                                            'title': f'步骤{i + 1}'
+                                        }
+                                        for i in range(5)
+                                    ]
+                                )
+                                ```
+                                '''),
+                    title='点击查看代码',
+                    is_open=False,
+                    ghost=True
                 )
+
             ],
             style={
-                'marginBottom': '80px'
-            }
+                'marginBottom': '40px',
+                'padding': '10px 10px 20px 10px',
+                'border': '1px solid #f0f0f0'
+            },
+            id='基础使用方式',
+            className='div-highlight'
         ),
 
         html.Div(
             [
-                html.Strong(
-                    '步骤条中的说明信息：',
-                    id='步骤条中的说明信息',
-                    style={'paddingTop': '5px'}
-                ),
-
-                dcc.Markdown('''
-                ```Python
                 fac.AntdSteps(
                     steps=[
                         {
@@ -119,36 +126,46 @@ docs_content = html.Div(
                         }
                         for i in range(5)
                     ]
-                )
-                ```
-                '''),
+                ),
 
-                fac.AntdSteps(
-                    steps=[
-                        {
-                            'title': f'步骤{i + 1}的title',
-                            'subTitle': f'步骤{i + 1}的subTitle',
-                            'description': f'步骤{i + 1}的description',
-                        }
-                        for i in range(5)
-                    ]
+                fac.AntdDivider(
+                    '步骤条中的说明信息',
+                    lineColor='#f0f0f0',
+                    innerTextOrientation='left'
+                ),
+
+                fac.AntdCollapse(
+                    dcc.Markdown('''
+                                ```Python
+                                fac.AntdSteps(
+                                    steps=[
+                                        {
+                                            'title': f'步骤{i + 1}的title',
+                                            'subTitle': f'步骤{i + 1}的subTitle',
+                                            'description': f'步骤{i + 1}的description',
+                                        }
+                                        for i in range(5)
+                                    ]
+                                )
+                                ```
+                                '''),
+                    title='点击查看代码',
+                    is_open=False,
+                    ghost=True
                 )
+
             ],
             style={
-                'marginBottom': '80px'
-            }
+                'marginBottom': '40px',
+                'padding': '10px 10px 20px 10px',
+                'border': '1px solid #f0f0f0'
+            },
+            id='步骤条中的说明信息',
+            className='div-highlight'
         ),
 
         html.Div(
             [
-                html.Strong(
-                    '设置当前停留的步骤序号：',
-                    id='设置当前停留的步骤序号',
-                    style={'paddingTop': '5px'}
-                ),
-
-                dcc.Markdown('''
-                ```Python
                 fac.AntdSteps(
                     steps=[
                         {
@@ -159,37 +176,47 @@ docs_content = html.Div(
                         for i in range(5)
                     ],
                     current=2
-                )
-                ```
-                '''),
+                ),
 
-                fac.AntdSteps(
-                    steps=[
-                        {
-                            'title': f'步骤{i + 1}的title',
-                            'subTitle': f'步骤{i + 1}的subTitle',
-                            'description': f'步骤{i + 1}的description',
-                        }
-                        for i in range(5)
-                    ],
-                    current=2
+                fac.AntdDivider(
+                    '设置当前停留的步骤序号',
+                    lineColor='#f0f0f0',
+                    innerTextOrientation='left'
+                ),
+
+                fac.AntdCollapse(
+                    dcc.Markdown('''
+                                ```Python
+                                fac.AntdSteps(
+                                    steps=[
+                                        {
+                                            'title': f'步骤{i + 1}的title',
+                                            'subTitle': f'步骤{i + 1}的subTitle',
+                                            'description': f'步骤{i + 1}的description',
+                                        }
+                                        for i in range(5)
+                                    ],
+                                    current=2
+                                )
+                                ```
+                                '''),
+                    title='点击查看代码',
+                    is_open=False,
+                    ghost=True
                 )
+
             ],
             style={
-                'marginBottom': '80px'
-            }
+                'marginBottom': '40px',
+                'padding': '10px 10px 20px 10px',
+                'border': '1px solid #f0f0f0'
+            },
+            id='设置当前停留的步骤序号',
+            className='div-highlight'
         ),
 
         html.Div(
             [
-                html.Strong(
-                    '设置步骤条的显示方向：',
-                    id='设置步骤条的显示方向',
-                    style={'paddingTop': '5px'}
-                ),
-
-                dcc.Markdown('''
-                ```Python
                 fac.AntdSteps(
                     steps=[
                         {
@@ -200,37 +227,47 @@ docs_content = html.Div(
                         for i in range(5)
                     ],
                     direction='vertical'
-                )
-                ```
-                '''),
+                ),
 
-                fac.AntdSteps(
-                    steps=[
-                        {
-                            'title': f'步骤{i + 1}的title',
-                            'subTitle': f'步骤{i + 1}的subTitle',
-                            'description': f'步骤{i + 1}的description',
-                        }
-                        for i in range(5)
-                    ],
-                    direction='vertical'
+                fac.AntdDivider(
+                    '设置步骤条的显示方向',
+                    lineColor='#f0f0f0',
+                    innerTextOrientation='left'
+                ),
+
+                fac.AntdCollapse(
+                    dcc.Markdown('''
+                                ```Python
+                                fac.AntdSteps(
+                                    steps=[
+                                        {
+                                            'title': f'步骤{i + 1}的title',
+                                            'subTitle': f'步骤{i + 1}的subTitle',
+                                            'description': f'步骤{i + 1}的description',
+                                        }
+                                        for i in range(5)
+                                    ],
+                                    direction='vertical'
+                                )
+                                ```
+                                '''),
+                    title='点击查看代码',
+                    is_open=False,
+                    ghost=True
                 )
+
             ],
             style={
-                'marginBottom': '80px'
-            }
+                'marginBottom': '40px',
+                'padding': '10px 10px 20px 10px',
+                'border': '1px solid #f0f0f0'
+            },
+            id='设置步骤条的显示方向',
+            className='div-highlight'
         ),
 
         html.Div(
             [
-                html.Strong(
-                    '设置步骤条说明文字的放置位置：',
-                    id='设置步骤条说明文字的放置位置',
-                    style={'paddingTop': '5px'}
-                ),
-
-                dcc.Markdown('''
-                ```Python
                 fac.AntdSteps(
                     steps=[
                         {
@@ -241,37 +278,47 @@ docs_content = html.Div(
                         for i in range(5)
                     ],
                     labelPlacement='vertical'
-                )
-                ```
-                '''),
+                ),
 
-                fac.AntdSteps(
-                    steps=[
-                        {
-                            'title': f'步骤{i + 1}的title',
-                            'subTitle': f'步骤{i + 1}的subTitle',
-                            'description': f'步骤{i + 1}的description',
-                        }
-                        for i in range(5)
-                    ],
-                    labelPlacement='vertical'
+                fac.AntdDivider(
+                    '设置步骤条说明文字的放置位置',
+                    lineColor='#f0f0f0',
+                    innerTextOrientation='left'
+                ),
+
+                fac.AntdCollapse(
+                    dcc.Markdown('''
+                                ```Python
+                                fac.AntdSteps(
+                                    steps=[
+                                        {
+                                            'title': f'步骤{i + 1}的title',
+                                            'subTitle': f'步骤{i + 1}的subTitle',
+                                            'description': f'步骤{i + 1}的description',
+                                        }
+                                        for i in range(5)
+                                    ],
+                                    labelPlacement='vertical'
+                                )
+                                ```
+                                '''),
+                    title='点击查看代码',
+                    is_open=False,
+                    ghost=True
                 )
+
             ],
             style={
-                'marginBottom': '80px'
-            }
+                'marginBottom': '40px',
+                'padding': '10px 10px 20px 10px',
+                'border': '1px solid #f0f0f0'
+            },
+            id='设置步骤条说明文字的放置位置',
+            className='div-highlight'
         ),
 
         html.Div(
             [
-                html.Strong(
-                    '点状步骤条模式：',
-                    id='点状步骤条模式',
-                    style={'paddingTop': '5px'}
-                ),
-
-                dcc.Markdown('''
-                ```Python
                 fac.AntdSteps(
                     steps=[
                         {
@@ -282,37 +329,47 @@ docs_content = html.Div(
                         for i in range(5)
                     ],
                     progressDot=True
-                )
-                ```
-                '''),
+                ),
 
-                fac.AntdSteps(
-                    steps=[
-                        {
-                            'title': f'步骤{i + 1}的title',
-                            'subTitle': f'步骤{i + 1}的subTitle',
-                            'description': f'步骤{i + 1}的description',
-                        }
-                        for i in range(5)
-                    ],
-                    progressDot=True
+                fac.AntdDivider(
+                    '点状步骤条模式',
+                    lineColor='#f0f0f0',
+                    innerTextOrientation='left'
+                ),
+
+                fac.AntdCollapse(
+                    dcc.Markdown('''
+                                ```Python
+                                fac.AntdSteps(
+                                    steps=[
+                                        {
+                                            'title': f'步骤{i + 1}的title',
+                                            'subTitle': f'步骤{i + 1}的subTitle',
+                                            'description': f'步骤{i + 1}的description',
+                                        }
+                                        for i in range(5)
+                                    ],
+                                    progressDot=True
+                                )
+                                ```
+                                '''),
+                    title='点击查看代码',
+                    is_open=False,
+                    ghost=True
                 )
+
             ],
             style={
-                'marginBottom': '80px'
-            }
+                'marginBottom': '40px',
+                'padding': '10px 10px 20px 10px',
+                'border': '1px solid #f0f0f0'
+            },
+            id='点状步骤条模式',
+            className='div-highlight'
         ),
 
         html.Div(
             [
-                html.Strong(
-                    '设置不同的步骤条尺寸模式：',
-                    id='设置不同的步骤条尺寸模式',
-                    style={'paddingTop': '5px'}
-                ),
-
-                dcc.Markdown('''
-                ```Python
                 fac.AntdSteps(
                     steps=[
                         {
@@ -334,48 +391,58 @@ docs_content = html.Div(
                         for i in range(5)
                     ],
                     size='small'
-                )
-                ```
-                '''),
-
-                fac.AntdSteps(
-                    steps=[
-                        {
-                            'title': f'步骤{i + 1}的title',
-                            'subTitle': f'步骤{i + 1}的subTitle',
-                            'description': f'步骤{i + 1}的description',
-                        }
-                        for i in range(5)
-                    ]
                 ),
-                fac.AntdDivider(),
-                fac.AntdSteps(
-                    steps=[
-                        {
-                            'title': f'步骤{i + 1}的title',
-                            'subTitle': f'步骤{i + 1}的subTitle',
-                            'description': f'步骤{i + 1}的description',
-                        }
-                        for i in range(5)
-                    ],
-                    size='small'
+
+                fac.AntdDivider(
+                    '设置不同的步骤条尺寸模式',
+                    lineColor='#f0f0f0',
+                    innerTextOrientation='left'
+                ),
+
+                fac.AntdCollapse(
+                    dcc.Markdown('''
+                                ```Python
+                                fac.AntdSteps(
+                                    steps=[
+                                        {
+                                            'title': f'步骤{i + 1}的title',
+                                            'subTitle': f'步骤{i + 1}的subTitle',
+                                            'description': f'步骤{i + 1}的description',
+                                        }
+                                        for i in range(5)
+                                    ]
+                                ),
+                                fac.AntdDivider(),
+                                fac.AntdSteps(
+                                    steps=[
+                                        {
+                                            'title': f'步骤{i + 1}的title',
+                                            'subTitle': f'步骤{i + 1}的subTitle',
+                                            'description': f'步骤{i + 1}的description',
+                                        }
+                                        for i in range(5)
+                                    ],
+                                    size='small'
+                                )
+                                ```
+                                '''),
+                    title='点击查看代码',
+                    is_open=False,
+                    ghost=True
                 )
+
             ],
             style={
-                'marginBottom': '80px'
-            }
+                'marginBottom': '40px',
+                'padding': '10px 10px 20px 10px',
+                'border': '1px solid #f0f0f0'
+            },
+            id='设置不同的步骤条尺寸模式',
+            className='div-highlight'
         ),
 
         html.Div(
             [
-                html.Strong(
-                    '自定义当前步骤的显示状态：',
-                    id='自定义当前步骤的显示状态',
-                    style={'paddingTop': '5px'}
-                ),
-
-                dcc.Markdown('''
-                ```Python
                 fac.AntdSteps(
                     steps=[
                         {
@@ -422,72 +489,83 @@ docs_content = html.Div(
                     ],
                     status='error',
                     current=2
+                ),
+
+                fac.AntdDivider(
+                    '自定义当前步骤的显示状态',
+                    lineColor='#f0f0f0',
+                    innerTextOrientation='left'
+                ),
+
+                fac.AntdCollapse(
+                    dcc.Markdown('''
+                                ```Python
+                                fac.AntdSteps(
+                                    steps=[
+                                        {
+                                            'title': f'步骤{i + 1}的title',
+                                            'subTitle': f'步骤{i + 1}的subTitle',
+                                            'description': f'步骤{i + 1}的description',
+                                        }
+                                        for i in range(5)
+                                    ],
+                                    current=2
+                                ),
+                                fac.AntdSteps(
+                                    steps=[
+                                        {
+                                            'title': f'步骤{i + 1}的title',
+                                            'subTitle': f'步骤{i + 1}的subTitle',
+                                            'description': f'步骤{i + 1}的description',
+                                        }
+                                        for i in range(5)
+                                    ],
+                                    status='wait',
+                                    current=2
+                                ),
+                                fac.AntdSteps(
+                                    steps=[
+                                        {
+                                            'title': f'步骤{i + 1}的title',
+                                            'subTitle': f'步骤{i + 1}的subTitle',
+                                            'description': f'步骤{i + 1}的description',
+                                        }
+                                        for i in range(5)
+                                    ],
+                                    status='finish',
+                                    current=2
+                                ),
+                                fac.AntdSteps(
+                                    steps=[
+                                        {
+                                            'title': f'步骤{i + 1}的title',
+                                            'subTitle': f'步骤{i + 1}的subTitle',
+                                            'description': f'步骤{i + 1}的description',
+                                        }
+                                        for i in range(5)
+                                    ],
+                                    status='error',
+                                    current=2
+                                )
+                                ```
+                                '''),
+                    title='点击查看代码',
+                    is_open=False,
+                    ghost=True
                 )
-                ```
-                '''),
-                fac.AntdSteps(
-                    steps=[
-                        {
-                            'title': f'步骤{i + 1}的title',
-                            'subTitle': f'步骤{i + 1}的subTitle',
-                            'description': f'步骤{i + 1}的description',
-                        }
-                        for i in range(5)
-                    ],
-                    current=2
-                ),
-                fac.AntdSteps(
-                    steps=[
-                        {
-                            'title': f'步骤{i + 1}的title',
-                            'subTitle': f'步骤{i + 1}的subTitle',
-                            'description': f'步骤{i + 1}的description',
-                        }
-                        for i in range(5)
-                    ],
-                    status='wait',
-                    current=2
-                ),
-                fac.AntdSteps(
-                    steps=[
-                        {
-                            'title': f'步骤{i + 1}的title',
-                            'subTitle': f'步骤{i + 1}的subTitle',
-                            'description': f'步骤{i + 1}的description',
-                        }
-                        for i in range(5)
-                    ],
-                    status='finish',
-                    current=2
-                ),
-                fac.AntdSteps(
-                    steps=[
-                        {
-                            'title': f'步骤{i + 1}的title',
-                            'subTitle': f'步骤{i + 1}的subTitle',
-                            'description': f'步骤{i + 1}的description',
-                        }
-                        for i in range(5)
-                    ],
-                    status='error',
-                    current=2
-                )
+
             ],
             style={
-                'marginBottom': '80px'
-            }
+                'marginBottom': '40px',
+                'padding': '10px 10px 20px 10px',
+                'border': '1px solid #f0f0f0'
+            },
+            id='自定义当前步骤的显示状态',
+            className='div-highlight'
         ),
 
         html.Div(
             [
-                html.Strong(
-                    '设置步骤条整体渲染形式：',
-                    id='设置步骤条整体渲染形式',
-                    style={'paddingTop': '5px'}
-                ),
-
-                dcc.Markdown('''
-                ```Python
                 fac.AntdSteps(
                     steps=[
                         {
@@ -510,48 +588,59 @@ docs_content = html.Div(
                     ],
                     type='navigation',
                     current=2
-                )
-                ```
-                '''),
-                fac.AntdSteps(
-                    steps=[
-                        {
-                            'title': f'步骤{i + 1}的title',
-                            'subTitle': f'步骤{i + 1}的subTitle',
-                            'description': f'步骤{i + 1}的description',
-                        }
-                        for i in range(5)
-                    ],
-                    current=2
                 ),
-                fac.AntdSteps(
-                    steps=[
-                        {
-                            'title': f'步骤{i + 1}的title',
-                            'subTitle': f'步骤{i + 1}的subTitle',
-                            'description': f'步骤{i + 1}的description',
-                        }
-                        for i in range(5)
-                    ],
-                    type='navigation',
-                    current=2
+
+                fac.AntdDivider(
+                    '设置步骤条整体渲染形式',
+                    lineColor='#f0f0f0',
+                    innerTextOrientation='left'
+                ),
+
+                fac.AntdCollapse(
+                    dcc.Markdown('''
+                                ```Python
+                                fac.AntdSteps(
+                                    steps=[
+                                        {
+                                            'title': f'步骤{i + 1}的title',
+                                            'subTitle': f'步骤{i + 1}的subTitle',
+                                            'description': f'步骤{i + 1}的description',
+                                        }
+                                        for i in range(5)
+                                    ],
+                                    current=2
+                                ),
+                                fac.AntdSteps(
+                                    steps=[
+                                        {
+                                            'title': f'步骤{i + 1}的title',
+                                            'subTitle': f'步骤{i + 1}的subTitle',
+                                            'description': f'步骤{i + 1}的description',
+                                        }
+                                        for i in range(5)
+                                    ],
+                                    type='navigation',
+                                    current=2
+                                )
+                                ```
+                                '''),
+                    title='点击查看代码',
+                    is_open=False,
+                    ghost=True
                 )
+
             ],
             style={
-                'marginBottom': '80px'
-            }
+                'marginBottom': '40px',
+                'padding': '10px 10px 20px 10px',
+                'border': '1px solid #f0f0f0'
+            },
+            id='设置步骤条整体渲染形式',
+            className='div-highlight'
         ),
 
         html.Div(
             [
-                html.Strong(
-                    '回调示例：',
-                    id='回调示例',
-                    style={'paddingTop': '5px'}
-                ),
-
-                dcc.Markdown('''
-                ```Python
                 fac.AntdSteps(
                     id='steps-demo',
                     steps=[
@@ -582,75 +671,106 @@ docs_content = html.Div(
                     type='primary'
                 ),
                 fac.AntdDivider(),
-                html.Em(id='steps-demo-current')
-                ...
-                @app.callback(
-                    Output('steps-demo', 'current'),
-                    [Input('steps-demo-go-next', 'nClicks'),
-                     Input('steps-demo-go-last', 'nClicks'),
-                     Input('steps-demo-restart', 'nClicks')],
-                    State('steps-demo', 'current'),
-                    prevent_initial_call=True
-                )
-                def steps_callback_demo_part1(go_next, go_last, restart, current):
+                fac.AntdSpin(
+                    html.Em(id='steps-demo-current'),
+                    text='回调中'
+                ),
 
-                    ctx = dash.callback_context
+                fac.AntdDivider(
+                    '回调示例',
+                    lineColor='#f0f0f0',
+                    innerTextOrientation='left'
+                ),
+
+                fac.AntdCollapse(
+                    dcc.Markdown('''
+                                ```Python
+                                fac.AntdSteps(
+                                    id='steps-demo',
+                                    steps=[
+                                        {
+                                            'title': f'步骤{i}'
+                                        }
+                                        for i in range(5)
+                                    ],
+                                    direction='horizontal',
+                                    type='navigation'
+                                ),
+                                fac.AntdDivider(),
+                                fac.AntdButton(
+                                    '下一步',
+                                    id='steps-demo-go-next',
+                                    type='primary'
+                                ),
+                                fac.AntdDivider(direction='vertical'),
+                                fac.AntdButton(
+                                    '上一步',
+                                    id='steps-demo-go-last',
+                                    type='primary'
+                                ),
+                                fac.AntdDivider(direction='vertical'),
+                                fac.AntdButton(
+                                    '重置',
+                                    id='steps-demo-restart',
+                                    type='primary'
+                                ),
+                                fac.AntdDivider(),
+                                fac.AntdSpin(
+                                    html.Em(id='steps-demo-current'),
+                                    text='回调中'
+                                ),
                 
-                    if ctx.triggered[0]['prop_id'].startswith('steps-demo-go-next'):
-                        return current + 1
-                
-                    elif ctx.triggered[0]['prop_id'].startswith('steps-demo-go-last'):
-                        return max(current - 1, 0)
-                
-                    else:
-                        return 0
-                
-                
-                @app.callback(
-                    Output('steps-demo-current', 'children'),
-                    Input('steps-demo', 'current'),
-                    prevent_initial_call=True
+                                fac.AntdDivider(
+                                    '回调示例',
+                                    lineColor='#f0f0f0',
+                                    innerTextOrientation='left'
+                                ),
+                                ...                     
+                                @app.callback(
+                                    Output('steps-demo', 'current'),
+                                    [Input('steps-demo-go-next', 'nClicks'),
+                                     Input('steps-demo-go-last', 'nClicks'),
+                                     Input('steps-demo-restart', 'nClicks')],
+                                    State('steps-demo', 'current'),
+                                    prevent_initial_call=True
+                                )
+                                def steps_callback_demo_part1(go_next, go_last, restart, current):
+                                    ctx = dash.callback_context
+                                
+                                    if ctx.triggered[0]['prop_id'].startswith('steps-demo-go-next'):
+                                        return current + 1
+                                
+                                    elif ctx.triggered[0]['prop_id'].startswith('steps-demo-go-last'):
+                                        return max(current - 1, 0)
+                                
+                                    else:
+                                        return 0
+                                
+                                
+                                @app.callback(
+                                    Output('steps-demo-current', 'children'),
+                                    Input('steps-demo', 'current'),
+                                    prevent_initial_call=True
+                                )
+                                def steps_callback_demo_part2(current):
+                                
+                                    return f'当前步骤为：步骤{current}'
+
+                                ```
+                                '''),
+                    title='点击查看代码',
+                    is_open=False,
+                    ghost=True
                 )
-                def steps_callback_demo_part2(current):
-                
-                    return f'当前步骤为：步骤{current}'
-                ```
-                '''),
-                fac.AntdSteps(
-                    id='steps-demo',
-                    steps=[
-                        {
-                            'title': f'步骤{i}'
-                        }
-                        for i in range(5)
-                    ],
-                    direction='horizontal',
-                    type='navigation'
-                ),
-                fac.AntdDivider(),
-                fac.AntdButton(
-                    '下一步',
-                    id='steps-demo-go-next',
-                    type='primary'
-                ),
-                fac.AntdDivider(direction='vertical'),
-                fac.AntdButton(
-                    '上一步',
-                    id='steps-demo-go-last',
-                    type='primary'
-                ),
-                fac.AntdDivider(direction='vertical'),
-                fac.AntdButton(
-                    '重置',
-                    id='steps-demo-restart',
-                    type='primary'
-                ),
-                fac.AntdDivider(),
-                html.Em(id='steps-demo-current')
+
             ],
             style={
-                'marginBottom': '80px'
-            }
+                'marginBottom': '40px',
+                'padding': '10px 10px 20px 10px',
+                'border': '1px solid #f0f0f0'
+            },
+            id='回调示例',
+            className='div-highlight'
         ),
 
         html.Div(style={'height': '100px'})
