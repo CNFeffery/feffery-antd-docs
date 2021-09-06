@@ -24,7 +24,8 @@ from views import (
     AntdTransfer,
     AntdSteps,
     AntdMenu,
-    AntdUpload
+    AntdUpload,
+    AntdSpin
 )
 
 app.layout = fac.AntdSpin(
@@ -827,7 +828,7 @@ def render_docs_content(currentKey):
         return currentKey
 
     elif currentKey == '/AntdSpin':
-        return currentKey
+        return AntdSpin.docs_content
 
     elif currentKey == '/AntdAnchor':
         return AntdAnchor.docs_content
