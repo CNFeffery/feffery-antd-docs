@@ -15,6 +15,7 @@ import callbacks.AntdTable
 
 faker = Faker(locale='zh_CN')
 
+np.random.seed(42)
 server_side_df = pd.DataFrame({
     '组合排序示例1': np.random.randint(0, 100, 1000),
     '组合排序示例2': np.random.randint(0, 100, 1000),
