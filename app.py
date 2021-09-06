@@ -606,8 +606,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdSpin',
-                                                                'title': 'AntdSpin 加载动画',
-                                                                'disabled': True
+                                                                'title': 'AntdSpin 加载动画'
                                                             }
                                                         }
                                                     ]
