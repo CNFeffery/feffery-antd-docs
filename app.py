@@ -653,7 +653,7 @@ app.layout = fac.AntdSpin(
                 'height': '100vh'
             }
         ),
-        content='测试版本',
+        content='最新稳定版本（内容待补全）',
         fontSize=20
     ),
     listenPropsMode='exclude',
