@@ -65,7 +65,7 @@ app.layout = fac.AntdSpin(
                                                         }
                                                     ),
                                                     fac.AntdText(
-                                                        'v0.0.1rc1-dev',
+                                                        'v0.0.1rc1稳定版',
                                                         style={
                                                             'fontSize': '10px',
                                                             'paddingLeft': '2px'
@@ -91,11 +91,22 @@ app.layout = fac.AntdSpin(
                                                         style={
                                                             'cursor': 'pointer'
                                                         }
+                                                    ),
+
+                                                    html.A(
+                                                        '皖ICP备2021012734号-1',
+                                                        href='https://beian.miit.gov.cn/',
+                                                        target='_blank',
+                                                        style={
+                                                            'fontSize': '10px',
+                                                            'paddingLeft': '50px',
+                                                            'color': '#494f54'
+                                                        }
                                                     )
                                                 ],
                                                 style={
                                                     'float': 'right',
-                                                    'paddingRight': '50px'
+                                                    'paddingRight': '20px'
                                                 }
                                             ),
                                             flex='auto'
@@ -653,8 +664,8 @@ app.layout = fac.AntdSpin(
                 'height': '100vh'
             }
         ),
-        content='最新稳定版本（内容待补全）',
-        fontSize=20
+        content='最新稳定版本（内容补全中）',
+        fontSize=18
     ),
     listenPropsMode='exclude',
     excludeProps=Config.exclude_props,
