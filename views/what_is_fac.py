@@ -114,18 +114,6 @@ docs_content = html.Div(
 
         fac.AntdText('pip install feffery-antd-components', keyboard=True),
 
-        fac.AntdTitle('最新开发版本：', level=5),
-
-        fac.AntdText('pip install git+https://github.com/CNFeffery/feffery-antd-components.git', keyboard=True),
-
-        html.Br(),
-
-        fac.AntdText('国内github镜像加速下载方式：'),
-
-        html.Br(),
-
-        fac.AntdText('pip install git+https://hub.fastgit.org/CNFeffery/feffery-antd-components.git', keyboard=True),
-
         fac.AntdTitle('赞助支持', level=3),
 
         fac.AntdParagraph(
