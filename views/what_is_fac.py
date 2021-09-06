@@ -83,7 +83,7 @@ docs_content = html.Div(
                 html.Li(
                     fac.AntdParagraph(
                         [
-                            fac.AntdText('pip最新可安装版本：'),
+                            fac.AntdText('pypi最新稳定版本：'),
                             html.Img(
                                 src='https://img.shields.io/pypi/v/feffery-antd-components.svg?color=dark-green',
                                 style={
@@ -91,16 +91,6 @@ docs_content = html.Div(
                                     'transform': 'translateY(-1px)'
                                 }
                             )
-                        ]
-                    ),
-                    style={'listStyleType': 'circle'}
-                ),
-
-                html.Li(
-                    fac.AntdParagraph(
-                        [
-                            fac.AntdText('github仓库最新开发版本：'),
-                            fac.AntdTag(content='0.0.1rc2')
                         ]
                     ),
                     style={'listStyleType': 'circle'}
