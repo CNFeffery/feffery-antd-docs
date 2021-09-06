@@ -14,7 +14,14 @@ class Config:
         'table-server-side-demo.pagination',
         'tree-demo-output.children',
         'upload-demo-output.children',
-        'github-stars.children'
+        'github-stars.children',
+        'spin-basic-demo-output.children',
+        'spin-delay-demo-output1.children',
+        'spin-delay-demo-output2.children',
+        'spin-include-demo-output1.children',
+        'spin-include-demo-output2.children',
+        'spin-exclude-demo-output1.children',
+        'spin-exclude-demo-output2.children',
     ]
 
     caches_path = './caches'
