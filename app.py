@@ -63,7 +63,7 @@ app.layout = fac.AntdSpin(
                                                         }
                                                     ),
                                                     fac.AntdText(
-                                                        'v0.0.1rc2开发版',
+                                                        'v0.0.1rc2',
                                                         style={
                                                             'fontSize': '10px',
                                                             'paddingLeft': '2px'
@@ -711,7 +711,7 @@ app.layout = fac.AntdSpin(
                 'height': '100vh'
             }
         ),
-        content='最新开发版本',
+        content='内容补全中',
         fontSize=20
     ),
     listenPropsMode='exclude',
