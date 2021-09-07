@@ -84,6 +84,7 @@ docs_content = html.Div(
                     fac.AntdParagraph(
                         [
                             fac.AntdText('pypi最新稳定版本：'),
+                            fac.AntdTag(content='0.0.1rc2'),
                             html.Img(
                                 src='https://img.shields.io/pypi/v/feffery-antd-components.svg?color=dark-green',
                                 style={
@@ -102,7 +103,19 @@ docs_content = html.Div(
 
         fac.AntdTitle('最新稳定版本：', level=5),
 
-        fac.AntdText('pip install feffery-antd-components', keyboard=True),
+        fac.AntdText('pip install feffery-antd-components==0.0.1rc2', keyboard=True),
+
+        fac.AntdTitle('最新开发版本：', level=5),
+
+        fac.AntdText('pip install git+https://github.com/CNFeffery/feffery-antd-components.git', keyboard=True),
+
+        html.Br(),
+
+        fac.AntdText('国内github镜像加速下载方式：'),
+
+        html.Br(),
+
+        fac.AntdText('pip install git+https://hub.fastgit.org/CNFeffery/feffery-antd-components.git', keyboard=True),
 
         fac.AntdTitle('赞助支持', level=3),
 

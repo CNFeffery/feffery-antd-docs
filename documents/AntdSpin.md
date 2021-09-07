@@ -12,7 +12,7 @@
 
 **debug：** *bool*型，默认为`False`
 
-　　用于设置是否开启*debug模式*，开启后，每当对应`AntdSpin`组件加载动画渲染时，**浏览器开发者工具-console**中会打印触发本次加载动画的子节点**id**信息
+　　用于设置是否开启*debug模式*，开启后，每当对应`AntdSpin`组件加载动画渲染时，`浏览器开发者工具-console`中会打印触发本次加载动画的子节点**id**信息
 
 **listenPropsMode：** *string*型，默认为`'default'`
 

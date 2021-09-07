@@ -35,9 +35,6 @@ app.layout = fac.AntdSpin(
                 # 注入路由
                 dcc.Location(id='url'),
 
-                # 注入重定向容器
-                html.Div(id='redirect-url-container'),
-
                 # 页面结构
                 fac.AntdLayout(
                     [
@@ -66,7 +63,7 @@ app.layout = fac.AntdSpin(
                                                         }
                                                     ),
                                                     fac.AntdText(
-                                                        'v0.0.1rc1稳定版',
+                                                        'v0.0.1rc2开发版',
                                                         style={
                                                             'fontSize': '10px',
                                                             'paddingLeft': '2px'
@@ -123,6 +120,7 @@ app.layout = fac.AntdSpin(
                                 'boxShadow': '0 2px 14px #f0f1f2',
                                 'zIndex': '999',
                                 'paddingLeft': '10px',
+                                'paddingRight': '10px',
                                 'height': '65px'
                             }
                         ),
@@ -137,7 +135,7 @@ app.layout = fac.AntdSpin(
                                                 {
                                                     'component': 'ItemGroup',
                                                     'props': {
-                                                        'key': '/getting-started',
+                                                        'key': '/',
                                                         'title': '快速入门'
                                                     },
                                                     'children': [
@@ -145,6 +143,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/what-is-fac',
+                                                                'href': '/what-is-fac',
                                                                 'title': 'fac是什么？'
                                                             }
                                                         },
@@ -152,6 +151,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/getting-started',
+                                                                'href': '/getting-started',
                                                                 'title': '基础使用'
                                                             }
                                                         }
@@ -168,6 +168,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdButton',
+                                                                'href': '/AntdButton',
                                                                 'title': 'AntdButton 按钮'
                                                             }
                                                         },
@@ -182,6 +183,7 @@ app.layout = fac.AntdSpin(
                                                                     'component': 'Item',
                                                                     'props': {
                                                                         'key': '/AntdTypography',
+                                                                        'href': '/AntdTypography',
                                                                         'title': 'AntdTypography 排版',
                                                                         'disabled': True
                                                                     }
@@ -190,6 +192,7 @@ app.layout = fac.AntdSpin(
                                                                     'component': 'Item',
                                                                     'props': {
                                                                         'key': '/AntdParagraph',
+                                                                        'href': '/AntdParagraph',
                                                                         'title': 'AntdParagraph 段落',
                                                                         'disabled': True
                                                                     }
@@ -198,6 +201,7 @@ app.layout = fac.AntdSpin(
                                                                     'component': 'Item',
                                                                     'props': {
                                                                         'key': '/AntdText',
+                                                                        'href': '/AntdText',
                                                                         'title': 'AntdText 文字',
                                                                         'disabled': True
                                                                     }
@@ -206,6 +210,7 @@ app.layout = fac.AntdSpin(
                                                                     'component': 'Item',
                                                                     'props': {
                                                                         'key': '/AntdTitle',
+                                                                        'href': '/AntdTitle',
                                                                         'title': 'AntdTitle 标题',
                                                                         'disabled': True
                                                                     }
@@ -225,6 +230,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdDivider',
+                                                                'href': '/AntdDivider',
                                                                 'title': 'AntdDivider 分割线'
                                                             }
                                                         },
@@ -232,6 +238,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdSpace',
+                                                                'href': '/AntdSpace',
                                                                 'title': 'AntdSpace 间距',
                                                                 'disabled': True
                                                             }
@@ -247,6 +254,7 @@ app.layout = fac.AntdSpin(
                                                                     'component': 'Item',
                                                                     'props': {
                                                                         'key': '/AntdRow',
+                                                                        'href': '/AntdRow',
                                                                         'title': 'AntdRow 行',
                                                                         'disabled': True
                                                                     }
@@ -255,6 +263,7 @@ app.layout = fac.AntdSpin(
                                                                     'component': 'Item',
                                                                     'props': {
                                                                         'key': '/AntdCol',
+                                                                        'href': '/AntdCol',
                                                                         'title': 'AntdCol 列',
                                                                         'disabled': True
                                                                     }
@@ -272,6 +281,7 @@ app.layout = fac.AntdSpin(
                                                                     'component': 'Item',
                                                                     'props': {
                                                                         'key': '/AntdLayout',
+                                                                        'href': '/AntdLayout',
                                                                         'title': 'AntdLayout 布局',
                                                                         'disabled': True
                                                                     }
@@ -280,6 +290,7 @@ app.layout = fac.AntdSpin(
                                                                     'component': 'Item',
                                                                     'props': {
                                                                         'key': '/AntdHeader',
+                                                                        'href': '/AntdHeader',
                                                                         'title': 'AntdHeader 页首',
                                                                         'disabled': True
                                                                     }
@@ -288,6 +299,7 @@ app.layout = fac.AntdSpin(
                                                                     'component': 'Item',
                                                                     'props': {
                                                                         'key': '/AntdSider',
+                                                                        'href': '/AntdSider',
                                                                         'title': 'AntdSider 侧边栏',
                                                                         'disabled': True
                                                                     }
@@ -296,6 +308,7 @@ app.layout = fac.AntdSpin(
                                                                     'component': 'Item',
                                                                     'props': {
                                                                         'key': '/AntdContent',
+                                                                        'href': '/AntdContent',
                                                                         'title': 'AntdContent 内容区',
                                                                         'disabled': True
                                                                     }
@@ -304,6 +317,7 @@ app.layout = fac.AntdSpin(
                                                                     'component': 'Item',
                                                                     'props': {
                                                                         'key': '/AntdFooter',
+                                                                        'href': '/AntdFooter',
                                                                         'title': 'AntdFooter 页尾',
                                                                         'disabled': True
                                                                     }
@@ -323,6 +337,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdMenu',
+                                                                'href': '/AntdMenu',
                                                                 'title': 'AntdMenu 导航菜单'
                                                             }
                                                         },
@@ -330,6 +345,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdPagination',
+                                                                'href': '/AntdPagination',
                                                                 'title': 'AntdPagination 分页',
                                                                 'disabled': True
                                                             }
@@ -338,6 +354,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdSteps',
+                                                                'href': '/AntdSteps',
                                                                 'title': 'AntdSteps 步骤条'
                                                             }
                                                         }
@@ -354,6 +371,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdCascader',
+                                                                'href': '/AntdCascader',
                                                                 'title': 'AntdCascader 级联选择',
                                                                 'disabled': True
                                                             }
@@ -362,6 +380,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdCheckbox',
+                                                                'href': '/AntdCheckbox',
                                                                 'title': 'AntdCheckbox 选择框',
                                                                 'disabled': True
                                                             }
@@ -370,6 +389,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdCheckboxGroup',
+                                                                'href': '/AntdCheckboxGroup',
                                                                 'title': 'AntdCheckboxGroup 组合选择框',
                                                                 'disabled': True
                                                             }
@@ -378,6 +398,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdDatePicker',
+                                                                'href': '/AntdDatePicker',
                                                                 'title': 'AntdDatePicker 日期选择'
                                                             }
                                                         },
@@ -385,6 +406,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdDateRangePicker',
+                                                                'href': '/AntdDateRangePicker',
                                                                 'title': 'AntdDateRangePicker 日期范围选择'
                                                             }
                                                         },
@@ -392,6 +414,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdInput',
+                                                                'href': '/AntdInput',
                                                                 'title': 'AntdInput 输入框',
                                                                 'disabled': True
                                                             }
@@ -400,6 +423,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdRadioGroup',
+                                                                'href': '/AntdRadioGroup',
                                                                 'title': 'AntdRadioGroup 单选框',
                                                                 'disabled': True
                                                             }
@@ -408,6 +432,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdSelect',
+                                                                'href': '/AntdSelect',
                                                                 'title': 'AntdSelect 下拉选择'
                                                             }
                                                         },
@@ -415,6 +440,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdSlider',
+                                                                'href': '/AntdSlider',
                                                                 'title': 'AntdSlider 滑动输入条'
                                                             }
                                                         },
@@ -422,6 +448,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdSwitch',
+                                                                'href': '/AntdSwitch',
                                                                 'title': 'AntdSwitch 开关',
                                                                 'disabled': True
                                                             }
@@ -430,6 +457,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdTransfer',
+                                                                'href': '/AntdTransfer',
                                                                 'title': 'AntdTransfer 穿梭框'
                                                             }
                                                         },
@@ -437,6 +465,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdTreeSelect',
+                                                                'href': '/AntdTreeSelect',
                                                                 'title': 'AntdTreeSelect 树选择',
                                                                 'disabled': True
                                                             }
@@ -445,6 +474,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdUpload',
+                                                                'href': '/AntdUpload',
                                                                 'title': 'AntdUpload 上传'
                                                             }
                                                         }
@@ -462,6 +492,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdCollapse',
+                                                                'href': '/AntdCollapse',
                                                                 'title': 'AntdCollapse 折叠面板',
                                                                 'disabled': True
                                                             }
@@ -470,6 +501,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdEmpty',
+                                                                'href': '/AntdEmpty',
                                                                 'title': 'AntdEmpty 空状态',
                                                                 'disabled': True
                                                             }
@@ -478,6 +510,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdPopover',
+                                                                'href': '/AntdPopover',
                                                                 'title': 'AntdPopover 气泡卡片',
                                                                 'disabled': True
                                                             }
@@ -486,6 +519,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdTable',
+                                                                'href': '/AntdTable',
                                                                 'title': 'AntdTable 表格'
                                                             }
                                                         },
@@ -493,6 +527,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdTag',
+                                                                'href': '/AntdTag',
                                                                 'title': 'AntdTag 标签',
                                                                 'disabled': True
                                                             }
@@ -501,6 +536,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdTooltip',
+                                                                'href': '/AntdTooltip',
                                                                 'title': 'AntdTooltip 文字提示',
                                                                 'disabled': True
                                                             }
@@ -509,6 +545,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdTree',
+                                                                'href': '/AntdTree',
                                                                 'title': 'AntdTree 树形控件'
                                                             }
                                                         },
@@ -523,6 +560,7 @@ app.layout = fac.AntdSpin(
                                                                     'component': 'Item',
                                                                     'props': {
                                                                         'key': '/AntdTabPane',
+                                                                        'href': '/AntdTabPane',
                                                                         'title': 'AntdTabPane 标签页面板',
                                                                         'disabled': True
                                                                     }
@@ -531,6 +569,7 @@ app.layout = fac.AntdSpin(
                                                                     'component': 'Item',
                                                                     'props': {
                                                                         'key': '/AntdTabs',
+                                                                        'href': '/AntdTabs',
                                                                         'title': 'AntdTabs 标签页',
                                                                         'disabled': True
                                                                     }
@@ -551,6 +590,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdAlert',
+                                                                'href': '/AntdAlert',
                                                                 'title': 'AntdAlert 警告提示',
                                                                 'disabled': True
                                                             }
@@ -559,6 +599,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdDrawer',
+                                                                'href': '/AntdDrawer',
                                                                 'title': 'AntdDrawer 抽屉',
                                                                 'disabled': True
                                                             }
@@ -567,6 +608,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdMessage',
+                                                                'href': '/AntdMessage',
                                                                 'title': 'AntdMessage 全局提示',
                                                                 'disabled': True
                                                             }
@@ -575,6 +617,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdModal',
+                                                                'href': '/AntdModal',
                                                                 'title': 'AntdModal 对话框',
                                                                 'disabled': True
                                                             }
@@ -583,6 +626,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdNotification',
+                                                                'href': '/AntdNotification',
                                                                 'title': 'AntdNotification 通知提醒框',
                                                                 'disabled': True
                                                             }
@@ -591,6 +635,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdResult',
+                                                                'href': '/AntdResult',
                                                                 'title': 'AntdResult 结果',
                                                                 'disabled': True
                                                             }
@@ -599,6 +644,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdSkeleton',
+                                                                'href': '/AntdSkeleton',
                                                                 'title': 'AntdSkeleton 骨架屏',
                                                                 'disabled': True
                                                             }
@@ -607,6 +653,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdSpin',
+                                                                'href': '/AntdSpin',
                                                                 'title': 'AntdSpin 加载动画'
                                                             }
                                                         }
@@ -623,6 +670,7 @@ app.layout = fac.AntdSpin(
                                                             'component': 'Item',
                                                             'props': {
                                                                 'key': '/AntdAnchor',
+                                                                'href': '/AntdAnchor',
                                                                 'title': 'AntdAnchor 锚点'
                                                             }
                                                         }
@@ -630,7 +678,6 @@ app.layout = fac.AntdSpin(
                                                 }
                                             ],
                                             mode='inline',
-                                            defaultSelectedKey='/what-is-fac',
                                             style={
                                                 'height': '100%',
                                                 'overflowX': 'hidden',
@@ -664,8 +711,8 @@ app.layout = fac.AntdSpin(
                 'height': '100vh'
             }
         ),
-        content='最新稳定版本（内容补全中）',
-        fontSize=18
+        content='最新开发版本',
+        fontSize=20
     ),
     listenPropsMode='exclude',
     excludeProps=Config.exclude_props,
@@ -675,165 +722,165 @@ app.layout = fac.AntdSpin(
 
 
 @app.callback(
-    Output('docs-content', 'children'),
-    Input('router-menu', 'currentKey'),
+    [Output('docs-content', 'children'),
+     Output('router-menu', 'currentKey')],
+    Input('url', 'pathname'),
     prevent_initial_call=True
 )
-def render_docs_content(currentKey):
+def render_docs_content(pathname):
     '''
     路由回调
-    :param currentKey: 当前被点击的侧边栏菜单项
-    :return:
     '''
 
-    if currentKey == '/what-is-fac':
-        return what_is_fac.docs_content
+    if pathname == '/what-is-fac' or pathname == '/':
+        pathname = '/what-is-fac'
+        return what_is_fac.docs_content, pathname
 
-    if currentKey == '/AntdButton':
-        return AntdButton.docs_content
+    if pathname == '/AntdButton':
+        return AntdButton.docs_content, pathname
 
-    elif currentKey == '/AntdTypography':
-        return currentKey
+    elif pathname == '/AntdTypography':
+        return pathname, pathname
 
-    elif currentKey == '/AntdParagraph':
-        return currentKey
+    elif pathname == '/AntdParagraph':
+        return pathname, pathname
 
-    elif currentKey == '/AntdText':
-        return currentKey
+    elif pathname == '/AntdText':
+        return pathname, pathname
 
-    elif currentKey == '/AntdTitle':
-        return currentKey
+    elif pathname == '/AntdTitle':
+        return pathname, pathname
 
-    elif currentKey == '/AntdDivider':
-        return AntdDivider.docs_content
+    elif pathname == '/AntdDivider':
+        return AntdDivider.docs_content, pathname
 
-    elif currentKey == '/AntdSpace':
-        return currentKey
+    elif pathname == '/AntdSpace':
+        return pathname, pathname
 
-    elif currentKey == '/AntdRow':
-        return currentKey
+    elif pathname == '/AntdRow':
+        return pathname, pathname
 
-    elif currentKey == '/AntdCol':
-        return currentKey
+    elif pathname == '/AntdCol':
+        return pathname, pathname
 
-    elif currentKey == '/AntdLayout':
-        return currentKey
+    elif pathname == '/AntdLayout':
+        return pathname, pathname
 
-    elif currentKey == '/AntdHeader':
-        return currentKey
+    elif pathname == '/AntdHeader':
+        return pathname, pathname
 
-    elif currentKey == '/AntdSider':
-        return currentKey
+    elif pathname == '/AntdSider':
+        return pathname, pathname
 
-    elif currentKey == '/AntdContent':
-        return currentKey
+    elif pathname == '/AntdContent':
+        return pathname, pathname
 
-    elif currentKey == '/AntdFooter':
-        return currentKey
+    elif pathname == '/AntdFooter':
+        return pathname, pathname
 
-    elif currentKey == '/AntdMenu':
-        return AntdMenu.docs_content
+    elif pathname == '/AntdMenu':
+        return AntdMenu.docs_content, pathname
 
-    elif currentKey == '/AntdPagination':
-        return currentKey
+    elif pathname == '/AntdPagination':
+        return pathname, pathname
 
-    elif currentKey == '/AntdSteps':
-        return AntdSteps.docs_content
+    elif pathname == '/AntdSteps':
+        return AntdSteps.docs_content, pathname
 
-    elif currentKey == '/AntdCascader':
-        return currentKey
+    elif pathname == '/AntdCascader':
+        return pathname, pathname
 
-    elif currentKey == '/AntdCheckbox':
-        return currentKey
+    elif pathname == '/AntdCheckbox':
+        return pathname, pathname
 
-    elif currentKey == '/AntdCheckboxGroup':
-        return currentKey
+    elif pathname == '/AntdCheckboxGroup':
+        return pathname, pathname
 
-    elif currentKey == '/AntdDatePicker':
-        return AntdDatePicker.docs_content
+    elif pathname == '/AntdDatePicker':
+        return AntdDatePicker.docs_content, pathname
 
-    elif currentKey == '/AntdDateRangePicker':
-        return AntdDateRangePicker.docs_content
+    elif pathname == '/AntdDateRangePicker':
+        return AntdDateRangePicker.docs_content, pathname
 
-    elif currentKey == '/AntdInput':
-        return currentKey
+    elif pathname == '/AntdInput':
+        return pathname, pathname
 
-    elif currentKey == '/AntdRadioGroup':
-        return currentKey
+    elif pathname == '/AntdRadioGroup':
+        return pathname, pathname
 
-    elif currentKey == '/AntdSelect':
-        return AntdSelect.docs_content
+    elif pathname == '/AntdSelect':
+        return AntdSelect.docs_content, pathname
 
-    elif currentKey == '/AntdSlider':
-        return AntdSlider.docs_content
+    elif pathname == '/AntdSlider':
+        return AntdSlider.docs_content, pathname
 
-    elif currentKey == '/AntdSwitch':
-        return currentKey
+    elif pathname == '/AntdSwitch':
+        return pathname, pathname
 
-    elif currentKey == '/AntdTransfer':
-        return AntdTransfer.docs_content
+    elif pathname == '/AntdTransfer':
+        return AntdTransfer.docs_content, pathname
 
-    elif currentKey == '/AntdTreeSelect':
-        return currentKey
+    elif pathname == '/AntdTreeSelect':
+        return pathname, pathname
 
-    elif currentKey == '/AntdUpload':
-        return AntdUpload.docs_content
+    elif pathname == '/AntdUpload':
+        return AntdUpload.docs_content, pathname
 
-    elif currentKey == '/AntdCollapse':
-        return currentKey
+    elif pathname == '/AntdCollapse':
+        return pathname, pathname
 
-    elif currentKey == '/AntdEmpty':
-        return currentKey
+    elif pathname == '/AntdEmpty':
+        return pathname, pathname
 
-    elif currentKey == '/AntdPopover':
-        return currentKey
+    elif pathname == '/AntdPopover':
+        return pathname, pathname
 
-    elif currentKey == '/AntdTable':
-        return AntdTable.docs_content
+    elif pathname == '/AntdTable':
+        return AntdTable.docs_content, pathname
 
-    elif currentKey == '/AntdTag':
-        return currentKey
+    elif pathname == '/AntdTag':
+        return pathname, pathname
 
-    elif currentKey == '/AntdTooltip':
-        return currentKey
+    elif pathname == '/AntdTooltip':
+        return pathname, pathname
 
-    elif currentKey == '/AntdTree':
-        return AntdTree.docs_content
+    elif pathname == '/AntdTree':
+        return AntdTree.docs_content, pathname
 
-    elif currentKey == '/AntdTabPane':
-        return currentKey
+    elif pathname == '/AntdTabPane':
+        return pathname, pathname
 
-    elif currentKey == '/AntdTabs':
-        return currentKey
+    elif pathname == '/AntdTabs':
+        return pathname, pathname
 
-    elif currentKey == '/AntdAlert':
-        return currentKey
+    elif pathname == '/AntdAlert':
+        return pathname, pathname
 
-    elif currentKey == '/AntdDrawer':
-        return currentKey
+    elif pathname == '/AntdDrawer':
+        return pathname, pathname
 
-    elif currentKey == '/AntdMessage':
-        return currentKey
+    elif pathname == '/AntdMessage':
+        return pathname, pathname
 
-    elif currentKey == '/AntdModal':
-        return currentKey
+    elif pathname == '/AntdModal':
+        return pathname, pathname
 
-    elif currentKey == '/AntdNotification':
-        return currentKey
+    elif pathname == '/AntdNotification':
+        return pathname, pathname
 
-    elif currentKey == '/AntdResult':
-        return currentKey
+    elif pathname == '/AntdResult':
+        return pathname, pathname
 
-    elif currentKey == '/AntdSkeleton':
-        return currentKey
+    elif pathname == '/AntdSkeleton':
+        return pathname, pathname
 
-    elif currentKey == '/AntdSpin':
-        return AntdSpin.docs_content
+    elif pathname == '/AntdSpin':
+        return AntdSpin.docs_content, pathname
 
-    elif currentKey == '/AntdAnchor':
-        return AntdAnchor.docs_content
+    elif pathname == '/AntdAnchor':
+        return AntdAnchor.docs_content, pathname
 
-    return currentKey
+    return pathname, pathname
 
 
 if __name__ == '__main__':
