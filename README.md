@@ -1,3 +1,3 @@
 # feffery-antd-docs
 
-[feffery-antd-components](https://github.com/CNFeffery/feffery-antd-components)在线文档源码
+<a href='https://github.com/CNFeffery/feffery-antd-components' target='_blank'>feffery-antd-components</a>在线文档源码
