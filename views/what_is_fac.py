@@ -103,11 +103,13 @@ docs_content = html.Div(
 
         fac.AntdTitle('最新稳定版本：', level=5),
 
-        fac.AntdText('pip install feffery-antd-components==0.0.1rc2', keyboard=True),
+        fac.AntdText('pip install feffery-antd-components==0.0.1rc2', keyboard=True, copyable=True),
 
         fac.AntdTitle('最新开发版本：', level=5),
 
-        fac.AntdText('pip install git+https://github.com/CNFeffery/feffery-antd-components.git', keyboard=True),
+        fac.AntdText('pip install git+https://github.com/CNFeffery/feffery-antd-components.git',
+                     keyboard=True,
+                     copyable=True),
 
         html.Br(),
 
@@ -115,7 +117,9 @@ docs_content = html.Div(
 
         html.Br(),
 
-        fac.AntdText('pip install git+https://hub.fastgit.org/CNFeffery/feffery-antd-components.git', keyboard=True),
+        fac.AntdText('pip install git+https://hub.fastgit.org/CNFeffery/feffery-antd-components.git',
+                     keyboard=True,
+                     copyable=True),
 
         fac.AntdTitle('赞助支持', level=3),
 
@@ -147,7 +151,7 @@ docs_content = html.Div(
                 html.Img(
                     src=app.get_asset_url('imgs/weixin-pay.png'),
                     style={
-                        'height': '350px'
+                        'height': '400px'
                     }
                 ),
                 style={

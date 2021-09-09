@@ -26,7 +26,9 @@ from views import (
     AntdMenu,
     AntdUpload,
     AntdSpin,
-    AntdInput
+    AntdInput,
+    AntdTabPane,
+    AntdTabs
 )
 
 app.layout = fac.AntdSpin(
@@ -561,8 +563,7 @@ app.layout = fac.AntdSpin(
                                                                     'props': {
                                                                         'key': '/AntdTabPane',
                                                                         'href': '/AntdTabPane',
-                                                                        'title': 'AntdTabPane 标签页面板',
-                                                                        'disabled': True
+                                                                        'title': 'AntdTabPane 标签页面板'
                                                                     }
                                                                 },
                                                                 {
@@ -570,8 +571,7 @@ app.layout = fac.AntdSpin(
                                                                     'props': {
                                                                         'key': '/AntdTabs',
                                                                         'href': '/AntdTabs',
-                                                                        'title': 'AntdTabs 标签页',
-                                                                        'disabled': True
+                                                                        'title': 'AntdTabs 标签页'
                                                                     }
                                                                 }
                                                             ]
@@ -678,6 +678,7 @@ app.layout = fac.AntdSpin(
                                                 }
                                             ],
                                             mode='inline',
+                                            defaultOpenKeys=['tabs'],
                                             style={
                                                 'height': '100%',
                                                 'overflowX': 'hidden',
@@ -848,10 +849,10 @@ def render_docs_content(pathname):
         return AntdTree.docs_content, pathname
 
     elif pathname == '/AntdTabPane':
-        return pathname, pathname
+        return AntdTabPane.docs_content, pathname
 
     elif pathname == '/AntdTabs':
-        return pathname, pathname
+        return AntdTabs.docs_content, pathname
 
     elif pathname == '/AntdAlert':
         return pathname, pathname

@@ -24,7 +24,9 @@ class Config:
         'spin-exclude-demo-output2.children',
         'input-value-demo-output.children',
         'input-nSubmit-demo-output.children',
-        'input-nClicksSearch-demo-output.children'
+        'input-nClicksSearch-demo-output.children',
+        'tabs-demo.children',
+        'tabs-demo.activeKey',
     ]
 
     caches_path = './caches'

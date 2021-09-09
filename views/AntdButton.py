@@ -37,7 +37,7 @@ docs_content = html.Div(
         ),
         html.Span(
             '主要参数说明',
-            id='#主要参数说明',
+            id='主要参数说明',
             style={
                 'borderLeft': '4px solid grey',
                 'padding': '3px 0 3px 10px',
