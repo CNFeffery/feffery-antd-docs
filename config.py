@@ -22,6 +22,9 @@ class Config:
         'spin-include-demo-output2.children',
         'spin-exclude-demo-output1.children',
         'spin-exclude-demo-output2.children',
+        'input-value-demo-output.children',
+        'input-nSubmit-demo-output.children',
+        'input-nClicksSearch-demo-output.children'
     ]
 
     caches_path = './caches'

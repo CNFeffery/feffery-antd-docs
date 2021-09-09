@@ -25,7 +25,8 @@ from views import (
     AntdSteps,
     AntdMenu,
     AntdUpload,
-    AntdSpin
+    AntdSpin,
+    AntdInput
 )
 
 app.layout = fac.AntdSpin(
@@ -415,8 +416,7 @@ app.layout = fac.AntdSpin(
                                                             'props': {
                                                                 'key': '/AntdInput',
                                                                 'href': '/AntdInput',
-                                                                'title': 'AntdInput 输入框',
-                                                                'disabled': True
+                                                                'title': 'AntdInput 输入框'
                                                             }
                                                         },
                                                         {
@@ -803,7 +803,7 @@ def render_docs_content(pathname):
         return AntdDateRangePicker.docs_content, pathname
 
     elif pathname == '/AntdInput':
-        return pathname, pathname
+        return AntdInput.docs_content, pathname
 
     elif pathname == '/AntdRadioGroup':
         return pathname, pathname
