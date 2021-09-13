@@ -1,174 +1,325 @@
 import dash_html_components as html
 import feffery_antd_components as fac
+import dash_core_components as dcc
+from dash.dependencies import Input, Output, State
 
 from server import app
 
+code_demo = '''
+import dash
+import dash_html_components as html
+import feffery_antd_components as fac
+from dash.dependencies import Input, Output, State
+
+app = dash.Dash(__name__)
+
+app.layout = html.Div(
+    [
+        fac.AntdRow(
+            [
+                fac.AntdCol(
+                    fac.AntdDatePicker(
+                        id='getting-started-date-picker-demo',
+                        placeholder='选择日期'
+                    )
+                ),
+                fac.AntdCol(
+                    fac.AntdSelect(
+                        id='getting-started-select-demo',
+                        placeholder='选择你所熟悉的编程语言',
+                        options=[
+                            {
+                                'label': 'Python',
+                                'value': 'Python'
+                            },
+                            {
+                                'label': 'R',
+                                'value': 'R'
+                            },
+                            {
+                                'label': 'Julia',
+                                'value': 'Julia'
+                            },
+                            {
+                                'label': 'JavaScript',
+                                'value': 'JavaScript'
+                            },
+                            {
+                                'label': 'Java',
+                                'value': 'Java'
+                            },
+                            {
+                                'label': 'Scala',
+                                'value': 'Scala'
+                            }
+                        ],
+                        maxTagCount=2,
+                        mode='multiple',
+                        style={
+                            'width': '17rem'
+                        }
+                    )
+                ),
+                fac.AntdCol(
+                    fac.AntdButton(
+                        '提交内容',
+                        id='getting-started-button-demo',
+                        type='primary'
+                    )
+                ),
+            ],
+            gutter=15,
+            justify='center'
+        ),
+
+        html.Div(id='getting-started-notification-demo')
+    ],
+    style={
+        'height': '500px',
+        'display': 'flex',
+        'alignItems': 'center',
+        'justifyContent': 'center',
+        'backgroundColor': 'rgba(241, 241, 241, 0.4)'
+    }
+)
+
+
+@app.callback(
+    Output('getting-started-notification-demo', 'children'),
+    Input('getting-started-button-demo', 'nClicks'),
+    [State('getting-started-date-picker-demo', 'selectedDate'),
+     State('getting-started-select-demo', 'value')],
+    prevent_initial_call=True
+)
+def getting_started_callback_demo(nClicks, selectedDate, select_value):
+    # 若按钮被点击
+    if nClicks:
+        # 若两个输入组件均有值输入
+        if selectedDate and select_value:
+            return fac.AntdNotification(
+                message='提交成功',
+                description='已提交日期：{}，已提交选项值：{}'.format(
+                    selectedDate,
+                    '、'.join(select_value)
+                ),
+                type='success',
+                duration=3
+            )
+
+        return fac.AntdNotification(
+            message='提交失败',
+            description='信息提交不完整！',
+            type='error',
+            duration=3
+        )
+
+
+if __name__ == '__main__':
+    app.run_server(debug=True)
+
+'''
+
 docs_content = html.Div(
     [
-        fac.AntdTitle('feffery-antd-components: Ant Design在Dash中的最佳实现', level=2),
+        fac.AntdTitle('😋用fac开发一个简单的Dash应用', level=2),
 
         fac.AntdParagraph(
             [
-                fac.AntdText('　　feffery-antd-components', strong=True),
-                fac.AntdText('（简称'),
-                fac.AntdText('fac', strong=True),
-                fac.AntdText('），基于著名的React UI组件库'),
-                fac.AntdText('antd', strong=True),
-                fac.AntdText('进行二次开发，将'),
-                fac.AntdText('antd', strong=True),
-                fac.AntdText('中的诸多实用组件及特性引入'),
+                fac.AntdText('　　作为基于'),
                 fac.AntdText('Dash', italic=True),
-                fac.AntdText('，开发者使用'),
-                fac.AntdText('极低', strong=True),
-                fac.AntdText('的纯'),
-                fac.AntdText('Python', strong=True),
-                fac.AntdText('代码量，即可快速开发出现代化的web应用，将你有关web应用的创意想法✨高效地实现。'),
+                fac.AntdText('的UI组件库，'),
+                fac.AntdText('要想顺畅地使用'),
+                fac.AntdText('fac', strong=True),
+                fac.AntdText('来构建你的web应用，你需要对'),
+                fac.AntdText('Dash', italic=True),
+                fac.AntdText('有一定的知识储备，零基础的开发者可以移步我撰写的'),
+                html.A('Dash基础教程',
+                       target='_blank',
+                       href='https://www.cnblogs.com/feffery/tag/Dash/'),
+                fac.AntdText('进行学习。')
+            ]
+        ),
+
+        fac.AntdDivider(),
+
+        fac.AntdParagraph(
+            [
+                fac.AntdText('　　在完成对'),
+                fac.AntdText('fac', strong=True),
+                fac.AntdText('的安装之后，推荐按照'),
+                fac.AntdText('import feffery_antd_components as fac',
+                             keyboard=True,
+                             copyable=True),
+                fac.AntdText('的方式进行'),
+                fac.AntdText('fac', strong=True),
+                fac.AntdText('的导入，'),
+                fac.AntdText('之后使用'),
+                fac.AntdText('fac.组件名称', strong=True),
+                fac.AntdText('的方式调用各种功能丰富的组件即可，'),
+                fac.AntdText('下面是基于'),
+                fac.AntdText('fac', strong=True),
+                fac.AntdText('的一些组件构建一个简单表单提交应用的例子：'),
             ]
         ),
 
         html.Div(
             [
-                html.Img(
-                    src=app.get_asset_url('imgs/react-logo.svg'),
-                    style={'height': '150px'}
+                fac.AntdRow(
+                    [
+                        fac.AntdCol(
+                            fac.AntdDatePicker(
+                                id='getting-started-date-picker-demo',
+                                placeholder='选择日期'
+                            )
+                        ),
+                        fac.AntdCol(
+                            fac.AntdSelect(
+                                id='getting-started-select-demo',
+                                placeholder='选择你所熟悉的编程语言',
+                                options=[
+                                    {
+                                        'label': 'Python',
+                                        'value': 'Python'
+                                    },
+                                    {
+                                        'label': 'R',
+                                        'value': 'R'
+                                    },
+                                    {
+                                        'label': 'Julia',
+                                        'value': 'Julia'
+                                    },
+                                    {
+                                        'label': 'JavaScript',
+                                        'value': 'JavaScript'
+                                    },
+                                    {
+                                        'label': 'Java',
+                                        'value': 'Java'
+                                    },
+                                    {
+                                        'label': 'Scala',
+                                        'value': 'Scala'
+                                    }
+                                ],
+                                maxTagCount=2,
+                                mode='multiple',
+                                style={
+                                    'width': '17rem'
+                                }
+                            )
+                        ),
+                        fac.AntdCol(
+                            fac.AntdButton(
+                                '提交内容',
+                                id='getting-started-button-demo',
+                                type='primary'
+                            )
+                        ),
+                    ],
+                    gutter=15,
+                    justify='center'
                 ),
-                fac.AntdText(
-                    '+',
-                    style={'fontSize': '30px', 'color': 'rgba(170, 170, 170, 1)', 'padding': '0 15px 0 15px'}
-                ),
-                html.Img(
-                    src=app.get_asset_url('imgs/antd-logo.svg'),
-                    style={'height': '150px'}
-                ),
-                fac.AntdText(
-                    '+',
-                    style={'fontSize': '30px', 'color': 'rgba(170, 170, 170, 1)', 'padding': '0 15px 0 15px'}
-                ),
-                html.Img(
-                    src=app.get_asset_url('imgs/dash-logo.png'),
-                    style={'height': '150px'}
-                ),
-                fac.AntdText(
-                    '=',
-                    style={'fontSize': '30px', 'color': 'rgba(170, 170, 170, 1)', 'padding': '0 15px 0 15px'}
-                ),
-                html.Img(
-                    src=app.get_asset_url('imgs/feffery-antd-components-logo-planB.svg'),
-                    style={'height': '190px'}
+
+                html.Div(id='getting-started-notification-demo')
+            ],
+            style={
+                'height': '500px',
+                'display': 'flex',
+                'alignItems': 'center',
+                'justifyContent': 'center',
+                'backgroundColor': 'rgba(241, 241, 241, 0.4)'
+            }
+        ),
+
+        html.Div(
+            html.Span(
+                '源码',
+                id='源码',
+                style={
+                    'borderLeft': '4px solid grey',
+                    'padding': '3px 0 3px 10px',
+                    'backgroundColor': '#f5f5f5',
+                    'fontWeight': 'bold',
+                    'fontSize': '1rem'
+                }
+            ),
+            style={
+                'marginBottom': '10px',
+                'marginTop': '10px'
+            }
+        ),
+
+        fac.AntdTooltip(
+            dcc.Clipboard(
+                content=code_demo,
+                style={
+                    'cursor': 'pointer',
+                    'color': '#1890ff'
+                }
+            ),
+            title='点击复制源码',
+            placement='right'
+        ),
+
+        html.Div(
+            [
+                dcc.Markdown(
+                    '```python\n' + code_demo + '\n```'
                 )
             ],
             style={
-                'display': 'flex',
-                'justifyContent': 'center',
-                'alignItems': 'center'
+                'height': '500px',
+                'overflowY': 'auto',
+                'backgroundColor': 'rgba(250, 250, 250, 1)'
             }
         ),
 
         fac.AntdDivider(),
 
-        fac.AntdTitle('🤩特性', level=3),
-
-        html.Ul(
-            [
-                html.Li('🎁 功能丰富，在antd的基础上设计出更多增广功能', style={'listStyleType': 'circle'}),
-                html.Li('😋 使用简单，开发者上手难度低，无需javascript代码即可实现复杂交互', style={'listStyleType': 'circle'}),
-                html.Li('💎 文档详实，针对每个组件的主要功能及用法予以丰富案例介绍', style={'listStyleType': 'circle'})
-            ]
-        ),
-
-        fac.AntdTitle('版本', level=3),
-
-        html.Ul(
-            [
-                html.Li(
-                    fac.AntdParagraph(
-                        [
-                            fac.AntdText('pypi最新稳定版本：'),
-                            fac.AntdTag(content='0.0.1rc2'),
-                            html.Img(
-                                src='https://img.shields.io/pypi/v/feffery-antd-components.svg?color=dark-green',
-                                style={
-                                    'height': '19px',
-                                    'transform': 'translateY(-1px)'
-                                }
-                            )
-                        ]
-                    ),
-                    style={'listStyleType': 'circle'}
-                )
-            ]
-        ),
-
-        fac.AntdTitle('安装', level=3),
-
-        fac.AntdTitle('最新稳定版本：', level=5),
-
-        fac.AntdText('pip install feffery-antd-components==0.0.1rc2', keyboard=True, copyable=True),
-
-        fac.AntdTitle('最新开发版本：', level=5),
-
-        fac.AntdText('pip install git+https://github.com/CNFeffery/feffery-antd-components.git',
-                     keyboard=True,
-                     copyable=True),
-
-        html.Br(),
-
-        fac.AntdText('国内github镜像加速下载方式：'),
-
-        html.Br(),
-
-        fac.AntdText('pip install git+https://hub.fastgit.org/CNFeffery/feffery-antd-components.git',
-                     keyboard=True,
-                     copyable=True),
-
-        fac.AntdTitle('赞助支持', level=3),
-
         fac.AntdParagraph(
             [
-                fac.AntdText('　　fac', strong=True),
-                fac.AntdText(
-                    '是我为了方便日常工作需要而在业余时间渐渐开发出的开源项目，'
-                    '它给予了我很多工作上的便捷，帮助我完成了很多以前难以实现的想法，'
-                    '希望也可以帮助到你。'
-                )
-            ]
-        ),
-
-        fac.AntdParagraph(
-            [
-                fac.AntdText(
-                    '　　作为一个开源项目，'
-                    '任何人都可以以任何形式，免费使用它，来打造你心中理想的'
-                    'web应用，如果你有意愿为我分担有关服务器等开销，亦或是赞助鼓励我对于'
-                ),
+                fac.AntdText('　　阅读你感兴趣的其他组件文档页，充分运用'),
                 fac.AntdText('fac', strong=True),
-                fac.AntdText('过去已做出以及未来将要做出的贡献，可以点击下方“显示赞助二维码”随意赞助，感谢支持。')
+                fac.AntdText('的能力吧！'),
             ]
-        ),
-
-        fac.AntdCollapse(
-            html.Div(
-                html.Img(
-                    src=app.get_asset_url('imgs/weixin-pay.png'),
-                    style={
-                        'height': '400px'
-                    }
-                ),
-                style={
-                    'display': 'flex',
-                    'justifyContent': 'center'
-                }
-            ),
-            title='显示赞助二维码',
-            is_open=False,
-            ghost=True
         ),
 
         html.Div(
             style={
-                'height': '200px'
+                'height': '100px'
             }
         )
 
     ]
 )
+
+
+@app.callback(
+    Output('getting-started-notification-demo', 'children'),
+    Input('getting-started-button-demo', 'nClicks'),
+    [State('getting-started-date-picker-demo', 'selectedDate'),
+     State('getting-started-select-demo', 'value')],
+    prevent_initial_call=True
+)
+def getting_started_callback_demo(nClicks, selectedDate, select_value):
+    # 若按钮被点击
+    if nClicks:
+        # 若两个输入组件均有值输入
+        if selectedDate and select_value:
+            return fac.AntdNotification(
+                message='提交成功',
+                description='已提交日期：{}，已提交选项值：{}'.format(
+                    selectedDate,
+                    '、'.join(select_value)
+                ),
+                type='success',
+                duration=3
+            )
+
+        return fac.AntdNotification(
+            message='提交失败',
+            description='信息提交不完整！',
+            type='error',
+            duration=3
+        )

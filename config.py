@@ -27,6 +27,7 @@ class Config:
         'input-nClicksSearch-demo-output.children',
         'tabs-demo.children',
         'tabs-demo.activeKey',
+        'getting-started-notification-demo.children'
     ]
 
     caches_path = './caches'

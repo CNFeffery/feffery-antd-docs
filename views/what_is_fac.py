@@ -76,7 +76,7 @@ docs_content = html.Div(
             ]
         ),
 
-        fac.AntdTitle('版本', level=3),
+        fac.AntdTitle('🛫版本', level=3),
 
         html.Ul(
             [
@@ -99,7 +99,7 @@ docs_content = html.Div(
             ]
         ),
 
-        fac.AntdTitle('安装', level=3),
+        fac.AntdTitle('📦安装', level=3),
 
         fac.AntdTitle('最新稳定版本：', level=5),
 
@@ -120,6 +120,8 @@ docs_content = html.Div(
         fac.AntdText('pip install git+https://hub.fastgit.org/CNFeffery/feffery-antd-components.git',
                      keyboard=True,
                      copyable=True),
+
+        fac.AntdDivider(),
 
         fac.AntdTitle('赞助支持', level=3),
 

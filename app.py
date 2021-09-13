@@ -1,6 +1,3 @@
-import dash
-import time
-import requests
 import dash_html_components as html
 import dash_core_components as dcc
 import feffery_antd_components as fac
@@ -12,6 +9,7 @@ from config import Config
 
 from views import (
     what_is_fac,
+    getting_started,
     AntdDatePicker,
     AntdDateRangePicker,
     AntdDivider,
@@ -30,7 +28,10 @@ from views import (
     AntdTabPane,
     AntdTabs,
     AntdRow,
-    AntdCol
+    AntdCol,
+    AntdParagraph,
+    AntdText,
+    AntdTitle
 )
 
 app.layout = fac.AntdSpin(
@@ -187,19 +188,9 @@ app.layout = fac.AntdSpin(
                                                                 {
                                                                     'component': 'Item',
                                                                     'props': {
-                                                                        'key': '/AntdTypography',
-                                                                        'href': '/AntdTypography',
-                                                                        'title': 'AntdTypography 排版',
-                                                                        'disabled': True
-                                                                    }
-                                                                },
-                                                                {
-                                                                    'component': 'Item',
-                                                                    'props': {
                                                                         'key': '/AntdParagraph',
                                                                         'href': '/AntdParagraph',
-                                                                        'title': 'AntdParagraph 段落',
-                                                                        'disabled': True
+                                                                        'title': 'AntdParagraph 段落'
                                                                     }
                                                                 },
                                                                 {
@@ -207,8 +198,7 @@ app.layout = fac.AntdSpin(
                                                                     'props': {
                                                                         'key': '/AntdText',
                                                                         'href': '/AntdText',
-                                                                        'title': 'AntdText 文字',
-                                                                        'disabled': True
+                                                                        'title': 'AntdText 文字'
                                                                     }
                                                                 },
                                                                 {
@@ -216,8 +206,7 @@ app.layout = fac.AntdSpin(
                                                                     'props': {
                                                                         'key': '/AntdTitle',
                                                                         'href': '/AntdTitle',
-                                                                        'title': 'AntdTitle 标题',
-                                                                        'disabled': True
+                                                                        'title': 'AntdTitle 标题'
                                                                     }
                                                                 }
                                                             ]
@@ -737,20 +726,20 @@ def render_docs_content(pathname):
         pathname = '/what-is-fac'
         return what_is_fac.docs_content, pathname
 
-    if pathname == '/AntdButton':
+    elif pathname == '/getting-started':
+        return getting_started.docs_content, pathname
+
+    elif pathname == '/AntdButton':
         return AntdButton.docs_content, pathname
 
-    elif pathname == '/AntdTypography':
-        return pathname, pathname
-
     elif pathname == '/AntdParagraph':
-        return pathname, pathname
+        return AntdParagraph.docs_content, pathname
 
     elif pathname == '/AntdText':
-        return pathname, pathname
+        return AntdText.docs_content, pathname
 
     elif pathname == '/AntdTitle':
-        return pathname, pathname
+        return AntdTitle.docs_content, pathname
 
     elif pathname == '/AntdDivider':
         return AntdDivider.docs_content, pathname

@@ -5,7 +5,7 @@ import feffery_antd_components as fac
 docs_content = html.Div(
     [
         html.H2(
-            'AntdDivider(id, className, *args, **kwargs)',
+            'AntdDivider(children, id, className, *args, **kwargs)',
             style={
                 'borderLeft': '4px solid grey',
                 'padding': '3px 0 3px 10px',
