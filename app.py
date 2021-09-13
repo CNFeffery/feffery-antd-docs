@@ -28,7 +28,9 @@ from views import (
     AntdSpin,
     AntdInput,
     AntdTabPane,
-    AntdTabs
+    AntdTabs,
+    AntdRow,
+    AntdCol
 )
 
 app.layout = fac.AntdSpin(
@@ -256,19 +258,17 @@ app.layout = fac.AntdSpin(
                                                                 {
                                                                     'component': 'Item',
                                                                     'props': {
-                                                                        'key': '/AntdRow',
-                                                                        'href': '/AntdRow',
-                                                                        'title': 'AntdRow 行',
-                                                                        'disabled': True
+                                                                        'key': '/AntdCol',
+                                                                        'href': '/AntdCol',
+                                                                        'title': 'AntdCol 列'
                                                                     }
                                                                 },
                                                                 {
                                                                     'component': 'Item',
                                                                     'props': {
-                                                                        'key': '/AntdCol',
-                                                                        'href': '/AntdCol',
-                                                                        'title': 'AntdCol 列',
-                                                                        'disabled': True
+                                                                        'key': '/AntdRow',
+                                                                        'href': '/AntdRow',
+                                                                        'title': 'AntdRow 行'
                                                                     }
                                                                 }
                                                             ]
@@ -678,7 +678,7 @@ app.layout = fac.AntdSpin(
                                                 }
                                             ],
                                             mode='inline',
-                                            defaultOpenKeys=['tabs'],
+                                            defaultOpenKeys=['tabs', 'Grid', 'Typography', 'Layout'],
                                             style={
                                                 'height': '100%',
                                                 'overflowX': 'hidden',
@@ -759,10 +759,10 @@ def render_docs_content(pathname):
         return pathname, pathname
 
     elif pathname == '/AntdRow':
-        return pathname, pathname
+        return AntdRow.docs_content, pathname
 
     elif pathname == '/AntdCol':
-        return pathname, pathname
+        return AntdCol.docs_content, pathname
 
     elif pathname == '/AntdLayout':
         return pathname, pathname

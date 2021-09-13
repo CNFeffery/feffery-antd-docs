@@ -2,8 +2,6 @@ import dash_core_components as dcc
 import dash_html_components as html
 import feffery_antd_components as fac
 
-import callbacks.AntdTable
-
 docs_content = html.Div(
     [
         html.H2(

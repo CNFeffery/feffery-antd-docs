@@ -46,7 +46,7 @@ docs_content = html.Div(
                 ),
                 html.Img(
                     src=app.get_asset_url('imgs/dash-logo.png'),
-                    style={'height': '140px'}
+                    style={'height': '150px'}
                 ),
                 fac.AntdText(
                     '=',
@@ -54,7 +54,7 @@ docs_content = html.Div(
                 ),
                 html.Img(
                     src=app.get_asset_url('imgs/feffery-antd-components-logo-planB.svg'),
-                    style={'height': '180px'}
+                    style={'height': '190px'}
                 )
             ],
             style={

@@ -5,7 +5,7 @@ import feffery_antd_components as fac
 docs_content = html.Div(
     [
         html.H2(
-            'AntdTabPane(children, id, className, style, *args, **kwargs)',
+            'AntdCol(id, className, style, *args, **kwargs)',
             style={
                 'borderLeft': '4px solid grey',
                 'padding': '3px 0 3px 10px',
@@ -25,7 +25,7 @@ docs_content = html.Div(
             }
         ),
 
-        dcc.Markdown(open('documents/AntdTabPane.md', encoding='utf-8').read(),
+        dcc.Markdown(open('documents/AntdCol.md', encoding='utf-8').read(),
                      dangerously_allow_html=True),
 
         html.Ul(
@@ -34,9 +34,9 @@ docs_content = html.Div(
                     fac.AntdParagraph(
                         [
                             fac.AntdText('有关'),
-                            fac.AntdText('AntdTabPane', strong=True),
+                            fac.AntdText('AntdCol', strong=True),
                             fac.AntdText('的使用示例请移步'),
-                            fac.AntdText('AntdTabs', strong=True),
+                            fac.AntdText('AntdRow', strong=True),
                             fac.AntdText('对应的文档'),
                         ],
                         style={
