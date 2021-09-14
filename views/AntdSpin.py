@@ -1,5 +1,5 @@
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import dcc
+from dash import html
 import feffery_antd_components as fac
 
 import callbacks.AntdSpin

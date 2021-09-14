@@ -1,5 +1,5 @@
-import dash_html_components as html
-import dash_core_components as dcc
+from dash import html
+from dash import dcc
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
 from dash.dependencies import Input, Output
@@ -31,7 +31,11 @@ from views import (
     AntdCol,
     AntdParagraph,
     AntdText,
-    AntdTitle
+    AntdTitle,
+    AntdSpace,
+    AntdAlert,
+    AntdNotification,
+    AntdMessage
 )
 
 app.layout = fac.AntdSpin(
@@ -233,8 +237,7 @@ app.layout = fac.AntdSpin(
                                                             'props': {
                                                                 'key': '/AntdSpace',
                                                                 'href': '/AntdSpace',
-                                                                'title': 'AntdSpace 间距',
-                                                                'disabled': True
+                                                                'title': 'AntdSpace 间距'
                                                             }
                                                         },
                                                         {
@@ -581,7 +584,6 @@ app.layout = fac.AntdSpin(
                                                                 'key': '/AntdAlert',
                                                                 'href': '/AntdAlert',
                                                                 'title': 'AntdAlert 警告提示',
-                                                                'disabled': True
                                                             }
                                                         },
                                                         {
@@ -598,8 +600,7 @@ app.layout = fac.AntdSpin(
                                                             'props': {
                                                                 'key': '/AntdMessage',
                                                                 'href': '/AntdMessage',
-                                                                'title': 'AntdMessage 全局提示',
-                                                                'disabled': True
+                                                                'title': 'AntdMessage 全局提示'
                                                             }
                                                         },
                                                         {
@@ -616,8 +617,7 @@ app.layout = fac.AntdSpin(
                                                             'props': {
                                                                 'key': '/AntdNotification',
                                                                 'href': '/AntdNotification',
-                                                                'title': 'AntdNotification 通知提醒框',
-                                                                'disabled': True
+                                                                'title': 'AntdNotification 通知提醒框'
                                                             }
                                                         },
                                                         {
@@ -745,7 +745,7 @@ def render_docs_content(pathname):
         return AntdDivider.docs_content, pathname
 
     elif pathname == '/AntdSpace':
-        return pathname, pathname
+        return AntdSpace.docs_content, pathname
 
     elif pathname == '/AntdRow':
         return AntdRow.docs_content, pathname
@@ -844,19 +844,19 @@ def render_docs_content(pathname):
         return AntdTabs.docs_content, pathname
 
     elif pathname == '/AntdAlert':
-        return pathname, pathname
+        return AntdAlert.docs_content, pathname
 
     elif pathname == '/AntdDrawer':
         return pathname, pathname
 
     elif pathname == '/AntdMessage':
-        return pathname, pathname
+        return AntdMessage.docs_content, pathname
 
     elif pathname == '/AntdModal':
         return pathname, pathname
 
     elif pathname == '/AntdNotification':
-        return pathname, pathname
+        return AntdNotification.docs_content, pathname
 
     elif pathname == '/AntdResult':
         return pathname, pathname

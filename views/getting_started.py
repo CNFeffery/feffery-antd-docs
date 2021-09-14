@@ -1,13 +1,13 @@
-import dash_html_components as html
+from dash import html
 import feffery_antd_components as fac
-import dash_core_components as dcc
+from dash import dcc
 from dash.dependencies import Input, Output, State
 
 from server import app
 
 code_demo = '''
 import dash
-import dash_html_components as html
+from dash import html
 import feffery_antd_components as fac
 from dash.dependencies import Input, Output, State
 

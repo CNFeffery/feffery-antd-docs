@@ -1,5 +1,5 @@
 import dash
-import dash_html_components as html
+from dash import html
 import feffery_antd_components as fac
 from dash.dependencies import Input, Output
 

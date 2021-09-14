@@ -1,4 +1,4 @@
-import dash_html_components as html
+from dash import html
 import feffery_antd_components as fac
 
 from server import app
