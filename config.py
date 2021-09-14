@@ -31,6 +31,7 @@ class Config:
         'notification-container-demo1.children',
         'notification-container-demo2.children',
         'notification-container-demo3.children',
+        'notification-container-demo4.children',
         'message-container-demo1.children',
         'message-container-demo2.children'
     ]
