@@ -84,13 +84,13 @@ app.layout = fac.AntdSpin(
                                                 [
                                                     html.A(
                                                         html.Img(
-                                                            alt='GitHub Repo stars',
+                                                            alt='fac源码仓库，欢迎star',
                                                             src='https://img.shields.io/github/stars/CNFeffery/feffery-antd-components?style=social',
                                                             style={
                                                                 'transform': 'scale(1.25)'
                                                             }
                                                         ),
-                                                        href='https://github.com/CNFeffery/feffery-antd-components/stargazers/',
+                                                        href='https://github.com/CNFeffery/feffery-antd-components',
                                                         target='_blank',
                                                         style={
                                                             'cursor': 'pointer'
@@ -103,7 +103,7 @@ app.layout = fac.AntdSpin(
                                                         target='_blank',
                                                         style={
                                                             'fontSize': '10px',
-                                                            'paddingLeft': '50px',
+                                                            'marginLeft': '50px',
                                                             'color': '#494f54'
                                                         }
                                                     )
