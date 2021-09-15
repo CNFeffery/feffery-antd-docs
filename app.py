@@ -35,7 +35,12 @@ from views import (
     AntdSpace,
     AntdAlert,
     AntdNotification,
-    AntdMessage
+    AntdMessage,
+    AntdLayout,
+    AntdHeader,
+    AntdSider,
+    AntdContent,
+    AntdFooter
 )
 
 app.layout = fac.AntdSpin(
@@ -277,8 +282,7 @@ app.layout = fac.AntdSpin(
                                                                     'props': {
                                                                         'key': '/AntdLayout',
                                                                         'href': '/AntdLayout',
-                                                                        'title': 'AntdLayout 布局',
-                                                                        'disabled': True
+                                                                        'title': 'AntdLayout 布局'
                                                                     }
                                                                 },
                                                                 {
@@ -286,8 +290,7 @@ app.layout = fac.AntdSpin(
                                                                     'props': {
                                                                         'key': '/AntdHeader',
                                                                         'href': '/AntdHeader',
-                                                                        'title': 'AntdHeader 页首',
-                                                                        'disabled': True
+                                                                        'title': 'AntdHeader 页首'
                                                                     }
                                                                 },
                                                                 {
@@ -295,8 +298,7 @@ app.layout = fac.AntdSpin(
                                                                     'props': {
                                                                         'key': '/AntdSider',
                                                                         'href': '/AntdSider',
-                                                                        'title': 'AntdSider 侧边栏',
-                                                                        'disabled': True
+                                                                        'title': 'AntdSider 侧边栏'
                                                                     }
                                                                 },
                                                                 {
@@ -304,8 +306,7 @@ app.layout = fac.AntdSpin(
                                                                     'props': {
                                                                         'key': '/AntdContent',
                                                                         'href': '/AntdContent',
-                                                                        'title': 'AntdContent 内容区',
-                                                                        'disabled': True
+                                                                        'title': 'AntdContent 内容区'
                                                                     }
                                                                 },
                                                                 {
@@ -313,8 +314,7 @@ app.layout = fac.AntdSpin(
                                                                     'props': {
                                                                         'key': '/AntdFooter',
                                                                         'href': '/AntdFooter',
-                                                                        'title': 'AntdFooter 页尾',
-                                                                        'disabled': True
+                                                                        'title': 'AntdFooter 页尾'
                                                                     }
                                                                 }
                                                             ]
@@ -754,19 +754,19 @@ def render_docs_content(pathname):
         return AntdCol.docs_content, pathname
 
     elif pathname == '/AntdLayout':
-        return pathname, pathname
+        return AntdLayout.docs_content, pathname
 
     elif pathname == '/AntdHeader':
-        return pathname, pathname
+        return AntdHeader.docs_content, pathname
 
     elif pathname == '/AntdSider':
-        return pathname, pathname
+        return AntdSider.docs_content, pathname
 
     elif pathname == '/AntdContent':
-        return pathname, pathname
+        return AntdContent.docs_content, pathname
 
     elif pathname == '/AntdFooter':
-        return pathname, pathname
+        return AntdFooter.docs_content, pathname
 
     elif pathname == '/AntdMenu':
         return AntdMenu.docs_content, pathname

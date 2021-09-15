@@ -33,7 +33,8 @@ class Config:
         'notification-container-demo3.children',
         'notification-container-demo4.children',
         'message-container-demo1.children',
-        'message-container-demo2.children'
+        'message-container-demo2.children',
+        'sider-custom-trigger-demo.collapsed'
     ]
 
     caches_path = './caches'

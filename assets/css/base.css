@@ -19,3 +19,8 @@ code .language-Python .hljs {
 .ant-anchor-wrapper {
     transform: translateY(8px) !important;
 }
+
+
+#sider-demo .ant-layout-sider-trigger {
+    position: absolute !important;
+}
