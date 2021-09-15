@@ -669,7 +669,94 @@ docs_content = html.Div(
                 fac.AntdCollapse(
                     dcc.Markdown('''
                 ```Python
-                
+                html.Div(
+                    [
+                        fac.AntdLayout(
+                            [
+                                fac.AntdSider(
+                                    [
+                                        html.Div(
+                                            fac.AntdInput(placeholder='输入搜索内容', mode='search'),
+                                            style={
+                                                'padding': '5px'
+                                            }
+                                        ),
+                                        html.Div(
+                                            [
+                                                fac.AntdMenu(
+                                                    menuItems=[
+                                                        {
+                                                            'component': 'Item',
+                                                            'props': {
+                                                                'key': f'图标{icon}',
+                                                                'title': f'图标{icon}',
+                                                                'icon': icon
+                                                            }
+                                                        }
+                                                        for icon in [
+                                                            'home',
+                                                            'upload',
+                                                            'bar-chart',
+                                                            'pie-chart',
+                                                            'dot-chart',
+                                                            'line-chart',
+                                                            'apartment',
+                                                            'app-store',
+                                                            'app-store-add',
+                                                            'bell',
+                                                            'calculator',
+                                                            'calendar',
+                                                            'database',
+                                                            'history'
+                                                        ]
+                                                    ],
+                                                    mode='inline'
+                                                )
+                                            ],
+                                            style={
+                                                'height': '100%',
+                                                'overflowY': 'auto'
+                                            }
+                                        )
+                                    ],
+                                    collapsible=True,
+                                    style={
+                                        'backgroundColor': 'rgb(240, 242, 245)'
+                                    }
+                                ),
+
+                                fac.AntdContent(
+                                    html.Div(
+                                        fac.AntdTitle(
+                                            '内容区示例',
+                                            level=2,
+                                            style={
+                                                'margin': '0'
+                                            }
+                                        ),
+                                        style={
+                                            'display': 'flex',
+                                            'height': '100%',
+                                            'justifyContent': 'center',
+                                            'alignItems': 'center'
+                                        }
+                                    ),
+                                    style={
+                                        'backgroundColor': 'white'
+                                    }
+                                )
+                            ],
+                            style={
+                                'height': '600px'
+                            }
+                        )
+                    ],
+                    id='sider-demo',
+                    style={
+                        'height': '600px',
+                        'border': '1px solid rgb(241, 241, 241)'
+                    }
+                )
                 '''),
                     title='点击查看代码',
                     is_open=False,
