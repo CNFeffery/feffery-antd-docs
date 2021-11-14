@@ -34,7 +34,28 @@ class Config:
         'notification-container-demo4.children',
         'message-container-demo1.children',
         'message-container-demo2.children',
-        'sider-custom-trigger-demo.collapsed'
+        'sider-custom-trigger-demo.collapsed',
+        'pagination-demo-output.children',
+        'cascader-demo-output.children',
+        'cascader-multiple-demo-output.children',
+        'checkbox-demo-output.children',
+        'checkbox-group-demo-output.children',
+        'checkbox-demo-client-side.checked',
+        'checkbox-group-demo-client-side.value',
+        'radio-group-demo-output.children',
+        'switch-demo-output.children',
+        'tree-select-demo-output.children',
+        'drawer-demo-1.visible',
+        'drawer-demo-2-top.visible',
+        'drawer-demo-2-left.visible',
+        'drawer-demo-2-bottom.visible',
+        'modal-demo-1.visible',
+        'modal-demo-2.visible',
+        'modal-demo-2-output-1.children',
+        'modal-demo-2-output-2.children',
+        'modal-demo-2-output-3.children',
+        'popconfirm-demo-output-1.children',
+        'popconfirm-demo-output-2.children'
     ]
 
     caches_path = './caches'

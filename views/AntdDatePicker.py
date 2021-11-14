@@ -1,6 +1,7 @@
 from dash import html
 from dash import dcc
 import feffery_antd_components as fac
+import feffery_utils_components as fuc
 
 import callbacks.AntdDatePicker
 
@@ -15,6 +16,12 @@ docs_content = html.Div(
                 'backgroundColor': '#f5f5f5'
             }
         ),
+
+        fac.AntdBackTop(
+            containerId='docs-content',
+            duration=0.6
+        ),
+
         fac.AntdAnchor(
             linkDict=[
                 {'title': '主要参数说明', 'href': '#主要参数说明'},
@@ -44,8 +51,9 @@ docs_content = html.Div(
             }
         ),
 
-        dcc.Markdown(open('documents/AntdDatePicker.md', encoding='utf-8').read(),
-                     dangerously_allow_html=True),
+        fuc.FefferyMarkdown(
+            markdownStr=open('documents/AntdDatePicker.md', encoding='utf-8').read()
+        ),
 
         html.Div(
             html.Span(
@@ -82,19 +90,22 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                fac.AntdDatePicker(
-                                    picker='date',
-                                    placeholder='请选择日期',
-                                    defaultPickerValue={
-                                        'value': '2020/01/01',
-                                        'format': 'YYYY/MM/DD'
-                                    },
-                                    showTime=False
-                                )
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdDatePicker(
+    picker='date',
+    placeholder='请选择日期',
+    defaultPickerValue={
+        'value': '2020/01/01',
+        'format': 'YYYY/MM/DD'
+    },
+    showTime=False
+)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -129,19 +140,22 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                fac.AntdDatePicker(
-                                    picker='date',
-                                    placeholder='请选择日期+时间',
-                                    defaultPickerValue={
-                                        'value': '2020/01/01',
-                                        'format': 'YYYY/MM/DD'
-                                    },
-                                    showTime=True
-                                )
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdDatePicker(
+    picker='date',
+    placeholder='请选择日期+时间',
+    defaultPickerValue={
+        'value': '2020/01/01',
+        'format': 'YYYY/MM/DD'
+    },
+    showTime=True
+)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -186,29 +200,32 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                fac.AntdDatePicker(
-                                    picker='month',
-                                    placeholder='请选择月份：',
-                                    defaultPickerValue={
-                                        'value': '2020/01',
-                                        'format': 'YYYY/MM'
-                                    }
-                                ),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdDatePicker(
+    picker='month',
+    placeholder='请选择月份：',
+    defaultPickerValue={
+        'value': '2020/01',
+        'format': 'YYYY/MM'
+    }
+),
 
-                                html.Div(style={'height': '25px'}),
+html.Div(style={'height': '25px'}),
 
-                                fac.AntdDatePicker(
-                                    picker='year',
-                                    placeholder='请选择年份',
-                                    defaultPickerValue={
-                                        'value': '2020',
-                                        'format': 'YYYY'
-                                    }
-                                )
-                                ```
-                                '''),
+fac.AntdDatePicker(
+    picker='year',
+    placeholder='请选择年份',
+    defaultPickerValue={
+        'value': '2020',
+        'format': 'YYYY'
+    }
+)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -249,37 +266,39 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                fac.AntdDatePicker(
-                                    id='date-picker-demo',
-                                    picker='date',
-                                    placeholder='请选择日期+时间',
-                                    defaultPickerValue={
-                                        'value': '2020/01/01',
-                                        'format': 'YYYY/MM/DD'
-                                    },
-                                    showTime=True
-                                ),
-                                html.Br(),
-                                fac.AntdSpin(
-                                    html.Em(id='date-picker-demo-output'),
-                                    text='回调中'
-                                )
-                                ...
-                                @app.callback(
-                                    Output('date-picker-demo-output', 'children'),
-                                    Input('date-picker-demo', 'selectedDate'),
-                                    prevent_initial_call=True
-                                )
-                                def date_picker_callback_demo(selectedDate):
-                                    if selectedDate:
-                                        return selectedDate
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+                        fac.AntdDatePicker(
+                            id='date-picker-demo',
+                            picker='date',
+                            placeholder='请选择日期+时间',
+                            defaultPickerValue={
+                                'value': '2020/01/01',
+                                'format': 'YYYY/MM/DD'
+                            },
+                            showTime=True
+                        ),
+                        html.Br(),
+                        fac.AntdSpin(
+                            html.Em(id='date-picker-demo-output'),
+                            text='回调中'
+                        )
+                        ...
+                        @app.callback(
+                            Output('date-picker-demo-output', 'children'),
+                            Input('date-picker-demo', 'selectedDate'),
+                            prevent_initial_call=True
+                        )
+                        def date_picker_callback_demo(selectedDate):
+                            if selectedDate:
+                                return selectedDate
 
-                                    return ''
-
-                                ```
-                                '''),
+                            return '''''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True

@@ -1,6 +1,7 @@
 from dash import dcc
 from dash import html
 import feffery_antd_components as fac
+import feffery_utils_components as fuc
 
 docs_content = html.Div(
     [
@@ -11,6 +12,11 @@ docs_content = html.Div(
                 'padding': '3px 0 3px 10px',
                 'backgroundColor': '#f5f5f5'
             }
+        ),
+
+        fac.AntdBackTop(
+            containerId='docs-content',
+            duration=0.6
         ),
 
         fac.AntdAnchor(
@@ -40,8 +46,9 @@ docs_content = html.Div(
             }
         ),
 
-        dcc.Markdown(open('documents/AntdTitle.md', encoding='utf-8').read(),
-                     dangerously_allow_html=True),
+        fuc.FefferyMarkdown(
+            markdownStr=open('documents/AntdTitle.md', encoding='utf-8').read()
+        ),
 
         html.Div(
             html.Span(
@@ -90,19 +97,22 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                ```Python
-                fac.AntdParagraph(
-                    [
-                        fac.AntdTitle('一级标题', level=1),
-                        fac.AntdTitle('二级标题', level=2),
-                        fac.AntdTitle('三级标题', level=3),
-                        fac.AntdTitle('四级标题', level=4),
-                        fac.AntdTitle('五级标题', level=5)
-                    ]
-                )
-                ```
-                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdParagraph(
+    [
+        fac.AntdTitle('一级标题', level=1),
+        fac.AntdTitle('二级标题', level=2),
+        fac.AntdTitle('三级标题', level=3),
+        fac.AntdTitle('四级标题', level=4),
+        fac.AntdTitle('五级标题', level=5)
+    ]
+)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True

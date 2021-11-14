@@ -7,10 +7,11 @@ from config import Config
 
 app = dash.Dash(
     __name__,
-    suppress_callback_exceptions=True
+    suppress_callback_exceptions=True,
+    update_title=None
 )
 
-CORS(app.server, supports_credentials=True)
+CORS(app.server, supports_credentials=False)
 
 app.title = 'feffery-antd-components在线文档'
 

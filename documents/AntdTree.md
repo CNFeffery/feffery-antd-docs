@@ -2,10 +2,10 @@
 
 　　用于*构建树形结构*的必要参数，元素为单个或多个字典，每个字典的**键值对**有：
 
-- title：必填，*string*型，用于设置此节点显示的文字标签
-- key：必填，*string*型，相当于此节点的id，需在整棵树内保持唯一性
+- title：必填，*str*型，用于设置此节点显示的文字标签
+- key：必填，*str*型，相当于此节点的id，需在整棵树内保持唯一性
 - disabled：可选，*bool*型，用于设置是否禁用此节点的交互性，默认为`False`即不禁用
-- icon_name：可选，*string*型或*None*，用于在参数`showIcon=True`时设置节点的前缀图标，目前内置的可选项有`'table'`（表格图标）、`'user'`（用户图标）、`'database'`（数据库图标）、`'file'`（普通文件图标）、`'file-text'`（文本文件图标）、`'schedule'`（计划表图标），默认为`None`即无图标。
+- icon：可选，*str*型，用于在参数`showIcon=True`时设置节点的前缀图标，对应`AntdIcon`中的所有内置图标
 - checkable：可选，*bool*型，用于在参数`checkable=True`时设置是否在节点前渲染勾选框，默认为`True`即渲染
 - disableCheckbox：可选，*bool*型，用于在参数`checkable=True`时设置是否禁用此节点的勾选框，默认为`False`即不禁用
 - selectable：可选，*bool*型，用于在参数`selectable=True`时设置此节点是否可点击选中，默认为`True`即可点击选中
@@ -13,7 +13,7 @@
 
 　　下面是示例：
 
-```Python
+```py
 treeData = [
     {
         'title': '世界',
@@ -77,6 +77,14 @@ treeData = [
 
 　　当参数`defaultExpandedKeys`指定节点的上层节点未被展开时，通过设置此参数为`True`可强制其展开，保证了`defaultExpandedKeys`的展开效果
 
+**defaultCheckedKeys：** *list*型
+
+　　设置默认被勾选上的*节点key值列表*
+
+**defaultSelectedKeys：** *list*型
+
+　　设置默认被选择的*节点key值列表*
+
 **multiple：** *bool*型，默认为`False`
 
 　　用于设置节点被点击选中是否允许多选，`True`（允许），`False`（不允许）
@@ -88,6 +96,10 @@ treeData = [
 **height：** *int*型
 
 　　用于设定树形控件的最大高度，超出部分将以滑轮滚动形式进行加载，且采用了*虚拟化*技术，适合在节点树较为庞大时使用以提升性能
+
+**checkStrictly：** *bool*型，默认为`False`
+
+　　用于设置先辈节点与后代节点之间的选择行为*是否彼此独立*，譬如设置为`True`时，父节点的选择行为不会使得其下所有子节点自动被选中
 
 **selectedKeys：** *list*型
 

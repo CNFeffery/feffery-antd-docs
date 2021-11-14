@@ -1,6 +1,6 @@
 from dash import html
 import feffery_antd_components as fac
-from dash import dcc
+import feffery_utils_components as fuc
 from dash.dependencies import Input, Output, State
 
 from server import app
@@ -250,27 +250,17 @@ docs_content = html.Div(
             }
         ),
 
-        fac.AntdTooltip(
-            dcc.Clipboard(
-                content=code_demo,
-                style={
-                    'cursor': 'pointer',
-                    'color': '#1890ff'
-                }
-            ),
-            title='点击复制源码',
-            placement='right'
-        ),
-
         html.Div(
             [
-                dcc.Markdown(
-                    '```python\n' + code_demo + '\n```'
+                fuc.FefferySyntaxHighlighter(
+                    showLineNumbers=True,
+                    showInlineLineNumbers=True,
+                    language='python',
+                    codeStyle='coy-without-shadows',
+                    codeString=code_demo
                 )
             ],
             style={
-                'height': '500px',
-                'overflowY': 'auto',
                 'backgroundColor': 'rgba(250, 250, 250, 1)'
             }
         ),

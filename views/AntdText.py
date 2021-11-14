@@ -1,6 +1,7 @@
 from dash import dcc
 from dash import html
 import feffery_antd_components as fac
+import feffery_utils_components as fuc
 
 docs_content = html.Div(
     [
@@ -11,6 +12,11 @@ docs_content = html.Div(
                 'padding': '3px 0 3px 10px',
                 'backgroundColor': '#f5f5f5'
             }
+        ),
+
+        fac.AntdBackTop(
+            containerId='docs-content',
+            duration=0.6
         ),
 
         fac.AntdAnchor(
@@ -40,8 +46,9 @@ docs_content = html.Div(
             }
         ),
 
-        dcc.Markdown(open('documents/AntdText.md', encoding='utf-8').read(),
-                     dangerously_allow_html=True),
+        fuc.FefferyMarkdown(
+            markdownStr=open('documents/AntdText.md', encoding='utf-8').read()
+        ),
 
         html.Div(
             html.Span(
@@ -86,26 +93,29 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                ```Python
-                fac.AntdParagraph(
-                    [
-                        fac.AntdText('code示例', code=True),
-                        fac.AntdText('copyable示例', copyable=True),
-                        fac.AntdText('strikethrough示例', strikethrough=True),
-                        fac.AntdText('disabled示例', disabled=True),
-                        fac.AntdText('mark示例', mark=True),
-                        fac.AntdText('strong示例', strong=True),
-                        fac.AntdText('underline示例', underline=True),
-                        fac.AntdText('keyboard示例', keyboard=True),
-                        fac.AntdText('secondary示例', type='secondary'),
-                        fac.AntdText('success示例', type='success'),
-                        fac.AntdText('warning示例', type='warning'),
-                        fac.AntdText('danger示例', type='danger'),
-                    ]
-                )
-                ```
-                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdParagraph(
+    [
+        fac.AntdText('code示例', code=True),
+        fac.AntdText('copyable示例', copyable=True),
+        fac.AntdText('strikethrough示例', strikethrough=True),
+        fac.AntdText('disabled示例', disabled=True),
+        fac.AntdText('mark示例', mark=True),
+        fac.AntdText('strong示例', strong=True),
+        fac.AntdText('underline示例', underline=True),
+        fac.AntdText('keyboard示例', keyboard=True),
+        fac.AntdText('secondary示例', type='secondary'),
+        fac.AntdText('success示例', type='success'),
+        fac.AntdText('warning示例', type='warning'),
+        fac.AntdText('danger示例', type='danger'),
+    ]
+)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True

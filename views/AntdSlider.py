@@ -1,6 +1,7 @@
 from dash import html
 from dash import dcc
 import feffery_antd_components as fac
+import feffery_utils_components as fuc
 
 import callbacks.AntdSlider
 
@@ -13,6 +14,11 @@ docs_content = html.Div(
                 'padding': '3px 0 3px 10px',
                 'backgroundColor': '#f5f5f5'
             }
+        ),
+
+        fac.AntdBackTop(
+            containerId='docs-content',
+            duration=0.6
         ),
 
         fac.AntdAnchor(
@@ -48,8 +54,9 @@ docs_content = html.Div(
             }
         ),
 
-        dcc.Markdown(open('documents/AntdSlider.md', encoding='utf-8').read(),
-                     dangerously_allow_html=True),
+        fuc.FefferyMarkdown(
+            markdownStr=open('documents/AntdSlider.md', encoding='utf-8').read()
+        ),
 
         html.Div(
             html.Span(
@@ -87,19 +94,22 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                html.Div(
-                                    [
-                                        fac.AntdSlider(min=-100, max=100),
-                                        fac.AntdSlider(range=True, min=-100, max=100)
-                                    ],
-                                    style={
-                                        'width': '400px'
-                                    }
-                                )
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+html.Div(
+    [
+        fac.AntdSlider(min=-100, max=100),
+        fac.AntdSlider(range=True, min=-100, max=100)
+    ],
+    style={
+        'width': '400px'
+    }
+)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -134,19 +144,22 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                html.Div(
-                                    [
-                                        fac.AntdSlider(defaultValue=66, min=-100, max=100),
-                                        fac.AntdSlider(defaultValue=[-10, 66], range=True, min=-100, max=100)
-                                    ],
-                                    style={
-                                        'width': '400px'
-                                    }
-                                )
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+                        html.Div(
+                            [
+                                fac.AntdSlider(defaultValue=66, min=-100, max=100),
+                                fac.AntdSlider(defaultValue=[-10, 66], range=True, min=-100, max=100)
+                            ],
+                            style={
+                                'width': '400px'
+                            }
+                        )'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -181,19 +194,22 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                html.Div(
-                                    [
-                                        fac.AntdSlider(step=20, min=-100, max=100),
-                                        fac.AntdSlider(step=0.1, range=True, min=-100, max=100)
-                                    ],
-                                    style={
-                                        'width': '400px'
-                                    }
-                                )
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+html.Div(
+    [
+        fac.AntdSlider(step=20, min=-100, max=100),
+        fac.AntdSlider(step=0.1, range=True, min=-100, max=100)
+    ],
+    style={
+        'width': '400px'
+    }
+)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -232,23 +248,26 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                html.Div(
-                                    [
-                                        fac.AntdSlider(step=20, min=-100, max=100,
-                                                       marks={
-                                                           -50: '点1',
-                                                           0: '点2',
-                                                           50: '点3'
-                                                       })
-                                    ],
-                                    style={
-                                        'width': '400px'
-                                    }
-                                )
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+html.Div(
+    [
+        fac.AntdSlider(step=20, min=-100, max=100,
+                       marks={
+                           -50: '点1',
+                           0: '点2',
+                           50: '点3'
+                       })
+    ],
+    style={
+        'width': '400px'
+    }
+)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -283,19 +302,22 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                html.Div(
-                                    [
-                                        fac.AntdSlider(tooltipVisible=True, min=-100, max=100),
-                                        fac.AntdSlider(tooltipVisible=False, range=True, min=-100, max=100)
-                                    ],
-                                    style={
-                                        'width': '400px'
-                                    }
-                                )
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+html.Div(
+    [
+        fac.AntdSlider(tooltipVisible=True, min=-100, max=100),
+        fac.AntdSlider(tooltipVisible=False, range=True, min=-100, max=100)
+    ],
+    style={
+        'width': '400px'
+    }
+)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -330,19 +352,22 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                html.Div(
-                                    [
-                                        fac.AntdSlider(tooltipVisible=True, min=-100, max=100),
-                                        fac.AntdSlider(tooltipVisible=False, range=True, min=-100, max=100)
-                                    ],
-                                    style={
-                                        'width': '400px'
-                                    }
-                                )
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+html.Div(
+    [
+        fac.AntdSlider(tooltipPrefix='指标值：', min=-100, max=100),
+        fac.AntdSlider(tooltipSuffix='°C', range=True, min=-100, max=100)
+    ],
+    style={
+        'width': '400px'
+    }
+)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -382,31 +407,33 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                html.Div(
-                                    [
-                                        fac.AntdSlider(id='slider-demo-1', min=-100, max=100),
-                                        fac.AntdSlider(id='slider-demo-2', range=True, min=-100, max=100)
-                                    ],
-                                    style={
-                                        'width': '400px'
-                                    }
-                                ),
-                                html.Br(),
-                                html.Em(id='slider-demo-output')
-                                ...
-                                @app.callback(
-                                    Output('slider-demo-output', 'children'),
-                                    [Input('slider-demo-1', 'value'),
-                                     Input('slider-demo-2', 'value')],
-                                    prevent_initial_call=True
-                                )
-                                def transfer_callback_demo(value, range_value):
-                                    return f'单值选择当前值：{value}   范围选择当前值：{range_value}'
-
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+html.Div(
+    [
+        fac.AntdSlider(id='slider-demo-1', min=-100, max=100),
+        fac.AntdSlider(id='slider-demo-2', range=True, min=-100, max=100)
+    ],
+    style={
+        'width': '400px'
+    }
+),
+html.Br(),
+html.Em(id='slider-demo-output')
+...
+@app.callback(
+    Output('slider-demo-output', 'children'),
+    [Input('slider-demo-1', 'value'),
+     Input('slider-demo-2', 'value')],
+    prevent_initial_call=True
+)
+def transfer_callback_demo(value, range_value):
+    return f'单值选择当前值：{value}   范围选择当前值：{range_value}'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True

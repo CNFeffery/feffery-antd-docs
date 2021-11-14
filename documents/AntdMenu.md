@@ -9,14 +9,16 @@
   - 键值对`key`：`str`型，用于传入当前元素*唯一id*
   - 键值对`title`：`str`型，用于传入当前元素在导航菜单中*显示的文字标题*
   - 键值对`disabled`：`bool`型，用于设置是否*禁用当前元素*（禁用效果会覆盖其内部嵌套的所有元素），默认为`False`
-  - 键值对`icon`：`str`型，用于为对应元素添加*前缀图标*，目前版本支持的图标有`'home'`、`'upload'`、`'bar-chart'`、`'pie-chart'`、`'dot-chart'`、`'line-chart'`、`'apartment'`、`'app-store'`、`'app-store-add'`、`'bell'`、`'calculator'`、`'calendar'`、`'database'`、`'history'`，具体效果见后面的例子
+  - 键值对`icon`：`str`型，用于为对应元素添加*前缀图标*，同`AntdIcon`中所有可用的`icon`参数
   - 键值对`danger`：`bool`型，用于设置是否以*危险状态*显示当前元素（**注意**，此参数仅`Item`可用）
+  - 键值对`href`：`str`型，可选，用于为`Item`节点设置跳转链接url地址
+  - 键值对`target`：`str`型，可选，配合`href`，用于为`Item`节点设置跳转行为，如`'_blank'`
 
 - 键值对`children`：`list`型，**注意**，此参数仅`SubMenu`和`ItemGroup`可用，用于传入内部嵌套的其它元素
 
 　　用户可以在上述参数结构体系下自由组合出需要的复杂导航菜单结构，下面是一个示例：
 
-```Python
+```py
 menuItems = [
     {
         'component': 'Item',

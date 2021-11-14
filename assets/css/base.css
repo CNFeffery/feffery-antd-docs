@@ -3,10 +3,6 @@ div {
     margin: 0;
 }
 
-code .language-Python .hljs {
-    font-size: 16px;
-}
-
 .div-highlight:target {
     border: 1px solid #1890ff;
     box-shadow: 8px 0px 8px rgba(0, 0, 0, 0.05), -8px 0px 8px rgba(0, 0, 0, 0.05), 0px 8px 8px rgba(0, 0, 0, 0.05), 0px -8px 8px rgba(0, 0, 0, 0.05);

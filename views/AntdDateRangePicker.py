@@ -1,6 +1,7 @@
 from dash import html
 from dash import dcc
 import feffery_antd_components as fac
+import feffery_utils_components as fuc
 
 import callbacks.AntdDateRangePicker
 
@@ -13,6 +14,11 @@ docs_content = html.Div(
                 'padding': '3px 0 3px 10px',
                 'backgroundColor': '#f5f5f5'
             }
+        ),
+
+        fac.AntdBackTop(
+            containerId='docs-content',
+            duration=0.6
         ),
 
         fac.AntdAnchor(
@@ -46,8 +52,9 @@ docs_content = html.Div(
             }
         ),
 
-        dcc.Markdown(open('documents/AntdDateRangePicker.md', encoding='utf-8').read(),
-                     dangerously_allow_html=True),
+        fuc.FefferyMarkdown(
+            markdownStr=open('documents/AntdDateRangePicker.md', encoding='utf-8').read()
+        ),
 
         html.Div(
             html.Span(
@@ -77,11 +84,13 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                fac.AntdDateRangePicker()
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''fac.AntdDateRangePicker()'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -101,26 +110,20 @@ docs_content = html.Div(
             [
                 fac.AntdDateRangePicker(showTime=True),
 
-                dcc.Markdown('''
-                                ```Python
-                                fac.AntdDateRangePicker(showTime=True)
-                                ```
-                                '''),
+                fac.AntdDivider(
+                    '添加时间选择',
+                    lineColor='#f0f0f0',
+                    innerTextOrientation='left'
+                ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                ```Python
-                html.Div(
-                    [
-                        fac.AntdButton('default'),
-                        fac.AntdButton('primary', type='primary'),
-                        fac.AntdButton('dashed', type='dashed'),
-                        fac.AntdButton('link', type='link'),
-                        fac.AntdButton('text', type='text')
-                    ]
-                )
-                ```
-                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''fac.AntdDateRangePicker(showTime=True)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -147,11 +150,13 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                fac.AntdDateRangePicker(placeholderStart='日期起点', placeholderEnd='日期终点')
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''fac.AntdDateRangePicker(placeholderStart='日期起点', placeholderEnd='日期终点')'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -181,14 +186,17 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                fac.AntdDateRangePicker(picker='week'),
-                                fac.AntdDateRangePicker(picker='month'),
-                                fac.AntdDateRangePicker(picker='quarter', placeholderStart='开始季度', placeholderEnd='结束季度'),
-                                fac.AntdDateRangePicker(picker='year')
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdDateRangePicker(picker='week'),
+fac.AntdDateRangePicker(picker='month'),
+fac.AntdDateRangePicker(picker='quarter', placeholderStart='开始季度', placeholderEnd='结束季度'),
+fac.AntdDateRangePicker(picker='year')'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -216,12 +224,15 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                fac.AntdDateRangePicker(disabledStart=True),
-                                fac.AntdDateRangePicker(disabledEnd=True)
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdDateRangePicker(disabledStart=True),
+fac.AntdDateRangePicker(disabledEnd=True)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -253,25 +264,28 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                fac.AntdDateRangePicker(id='date-range-picker-demo'),
-                                html.Br(),
-                                html.Em(id='date-range-picker-demo-output')
-                                ...
-                                @app.callback(
-                                    Output('date-range-picker-demo-output', 'children'),
-                                    [Input('date-range-picker-demo', 'selectedStartDate'),
-                                    Input('date-range-picker-demo', 'selectedEndDate')],
-                                    prevent_initial_call=True
-                                )
-                                def date_picker_callback_demo(selectedStartDate, selectedEndDate):
-                                    if selectedStartDate and selectedEndDate:
-                                        return f'{selectedStartDate} ~ {selectedEndDate}'
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdDateRangePicker(id='date-range-picker-demo'),
+html.Br(),
+html.Em(id='date-range-picker-demo-output')
+...
+@app.callback(
+    Output('date-range-picker-demo-output', 'children'),
+    [Input('date-range-picker-demo', 'selectedStartDate'),
+    Input('date-range-picker-demo', 'selectedEndDate')],
+    prevent_initial_call=True
+)
+def date_picker_callback_demo(selectedStartDate, selectedEndDate):
+    if selectedStartDate and selectedEndDate:
+        return f'{selectedStartDate} ~ {selectedEndDate}'
 
-                                    return dash.no_update
-                                ```
-                                '''),
+    return dash.no_update'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True

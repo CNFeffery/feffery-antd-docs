@@ -5,6 +5,12 @@ from server import app
 
 docs_content = html.Div(
     [
+
+        fac.AntdBackTop(
+            containerId='docs-content',
+            duration=0.6
+        ),
+
         fac.AntdTitle('feffery-antd-components: Ant Design在Dash中的最佳实现', level=2),
 
         fac.AntdParagraph(
@@ -84,7 +90,7 @@ docs_content = html.Div(
                     fac.AntdParagraph(
                         [
                             fac.AntdText('pypi最新稳定版本：'),
-                            fac.AntdTag(content='0.0.1rc2'),
+                            fac.AntdTag(content='0.0.1rc7'),
                             html.Img(
                                 src='https://img.shields.io/pypi/v/feffery-antd-components.svg?color=dark-green',
                                 style={
@@ -103,7 +109,7 @@ docs_content = html.Div(
 
         fac.AntdTitle('最新稳定版本：', level=5),
 
-        fac.AntdText('pip install feffery-antd-components==0.0.1rc2', keyboard=True, copyable=True),
+        fac.AntdText('pip install feffery-antd-components==0.0.1rc7', keyboard=True, copyable=True),
 
         fac.AntdTitle('最新开发版本：', level=5),
 

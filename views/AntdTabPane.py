@@ -1,6 +1,7 @@
 from dash import dcc
 from dash import html
 import feffery_antd_components as fac
+import feffery_utils_components as fuc
 
 docs_content = html.Div(
     [
@@ -25,8 +26,9 @@ docs_content = html.Div(
             }
         ),
 
-        dcc.Markdown(open('documents/AntdTabPane.md', encoding='utf-8').read(),
-                     dangerously_allow_html=True),
+        fuc.FefferyMarkdown(
+            markdownStr=open('documents/AntdTabPane.md', encoding='utf-8').read()
+        ),
 
         html.Ul(
             [

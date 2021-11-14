@@ -1,6 +1,7 @@
 from dash import html
 from dash import dcc
 import feffery_antd_components as fac
+import feffery_utils_components as fuc
 
 docs_content = html.Div(
     [
@@ -12,6 +13,12 @@ docs_content = html.Div(
                 'backgroundColor': '#f5f5f5'
             }
         ),
+
+        fac.AntdBackTop(
+            containerId='docs-content',
+            duration=0.6
+        ),
+
         fac.AntdAnchor(
             linkDict=[
                 {'title': '主要参数说明', 'href': '#主要参数说明'},
@@ -40,8 +47,9 @@ docs_content = html.Div(
             }
         ),
 
-        dcc.Markdown(open('documents/AntdDivider.md', encoding='utf-8').read(),
-                     dangerously_allow_html=True),
+        fuc.FefferyMarkdown(
+            markdownStr=open('documents/AntdDivider.md', encoding='utf-8').read()
+        ),
 
         html.Div(
             html.Span(
@@ -73,13 +81,15 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                fac.AntdDivider(),
-
-                                fac.AntdDivider(isDashed=True)
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdDivider(),
+fac.AntdDivider(isDashed=True)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -113,18 +123,21 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                # 默认居中
-                                fac.AntdDivider('AntdDivider'),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+# 默认居中
+fac.AntdDivider('AntdDivider'),
 
-                                # 左对齐
-                                fac.AntdDivider('AntdDivider', innerTextOrientation='left'),
+# 左对齐
+fac.AntdDivider('AntdDivider', innerTextOrientation='left'),
 
-                                # 右对齐且设置内嵌文字样式
-                                fac.AntdDivider('AntdDivider', innerTextOrientation='right', fontStyle='oblique')
-                                ```
-                                '''),
+# 右对齐且设置内嵌文字样式
+fac.AntdDivider('AntdDivider', innerTextOrientation='right', fontStyle='oblique')'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -158,19 +171,22 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                html.Div(
-                                    [
-                                        '项目1',
-                                        fac.AntdDivider(direction='vertical', lineColor='black'),
-                                        '项目2',
-                                        fac.AntdDivider(direction='vertical', lineColor='red'),
-                                        '项目3'
-                                    ]
-                                )
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+html.Div(
+    [
+        '项目1',
+        fac.AntdDivider(direction='vertical', lineColor='black'),
+        '项目2',
+        fac.AntdDivider(direction='vertical', lineColor='red'),
+        '项目3'
+    ]
+)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True

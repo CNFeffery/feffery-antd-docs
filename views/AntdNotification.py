@@ -1,6 +1,7 @@
 from dash import html
 from dash import dcc
 import feffery_antd_components as fac
+import feffery_utils_components as fuc
 from dash.dependencies import Input, Output, State
 
 from server import app
@@ -14,6 +15,11 @@ docs_content = html.Div(
                 'padding': '3px 0 3px 10px',
                 'backgroundColor': '#f5f5f5'
             }
+        ),
+
+        fac.AntdBackTop(
+            containerId='docs-content',
+            duration=0.6
         ),
 
         fac.AntdAnchor(
@@ -45,8 +51,9 @@ docs_content = html.Div(
             }
         ),
 
-        dcc.Markdown(open('documents/AntdNotification.md', encoding='utf-8').read(),
-                     dangerously_allow_html=True),
+        fuc.FefferyMarkdown(
+            markdownStr=open('documents/AntdNotification.md', encoding='utf-8').read()
+        ),
 
         html.Div(
             html.Span(
@@ -97,23 +104,26 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                ```Python
-                fac.AntdButton('触发通知提示框', id='notification-trigger-button-demo1', type='primary'),
-                html.Div(id='notification-container-demo1')
-                ...
-                @app.callback(
-                    Output('notification-container-demo1', 'children'),
-                    Input('notification-trigger-button-demo1', 'nClicks'),
-                    prevent_initial_call=True
-                )
-                def notification_demo1(nClicks):
-                    return fac.AntdNotification(
-                        message='通知提示框测试',
-                        description='这是一段辅助说明文字内容'
-                    )
-                ```
-                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdButton('触发通知提示框', id='notification-trigger-button-demo1', type='primary'),
+html.Div(id='notification-container-demo1')
+...
+@app.callback(
+    Output('notification-container-demo1', 'children'),
+    Input('notification-trigger-button-demo1', 'nClicks'),
+    prevent_initial_call=True
+)
+def notification_demo1(nClicks):
+    return fac.AntdNotification(
+        message='通知提示框测试',
+        description='这是一段辅助说明文字内容'
+    )'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -176,55 +186,58 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                ```Python
-                fac.AntdSelect(
-                    placeholder='选择不同的状态',
-                    options=[
-                        {
-                            'label': 'default',
-                            'value': 'default'
-                        },
-                        {
-                            'label': 'success',
-                            'value': 'success'
-                        },
-                        {
-                            'label': 'error',
-                            'value': 'error'
-                        },
-                        {
-                            'label': 'info',
-                            'value': 'info'
-                        },
-                        {
-                            'label': 'warning',
-                            'value': 'warning'
-                        }
-                    ],
-                    id='notification-type-select-demo2',
-                    style={
-                        'width': '200px'
-                    }
-                ),
-                fac.AntdButton('触发通知提示框', id='notification-trigger-button-demo2', type='primary'),
-                html.Div(id='notification-container-demo2')
-                ...
-                @app.callback(
-                    Output('notification-container-demo2', 'children'),
-                    Input('notification-trigger-button-demo2', 'nClicks'),
-                    State('notification-type-select-demo2', 'value'),
-                    prevent_initial_call=True
-                )
-                def notification_demo2(nClicks, value):
-                    if value:
-                        return fac.AntdNotification(
-                            message='通知提示框测试',
-                            description='这是一段辅助说明文字内容',
-                            type=value
-                        )
-                ```
-                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdSelect(
+    placeholder='选择不同的状态',
+    options=[
+        {
+            'label': 'default',
+            'value': 'default'
+        },
+        {
+            'label': 'success',
+            'value': 'success'
+        },
+        {
+            'label': 'error',
+            'value': 'error'
+        },
+        {
+            'label': 'info',
+            'value': 'info'
+        },
+        {
+            'label': 'warning',
+            'value': 'warning'
+        }
+    ],
+    id='notification-type-select-demo2',
+    style={
+        'width': '200px'
+    }
+),
+fac.AntdButton('触发通知提示框', id='notification-trigger-button-demo2', type='primary'),
+html.Div(id='notification-container-demo2')
+...
+@app.callback(
+    Output('notification-container-demo2', 'children'),
+    Input('notification-trigger-button-demo2', 'nClicks'),
+    State('notification-type-select-demo2', 'value'),
+    prevent_initial_call=True
+)
+def notification_demo2(nClicks, value):
+    if value:
+        return fac.AntdNotification(
+            message='通知提示框测试',
+            description='这是一段辅助说明文字内容',
+            type=value
+        )'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -283,51 +296,54 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                ```Python
-                fac.AntdSelect(
-                    placeholder='选择不同的弹出位置',
-                    options=[
-                        {
-                            'label': 'topLeft',
-                            'value': 'topLeft'
-                        },
-                        {
-                            'label': 'topRight',
-                            'value': 'topRight'
-                        },
-                        {
-                            'label': 'bottomLeft',
-                            'value': 'bottomLeft'
-                        },
-                        {
-                            'label': 'bottomRight',
-                            'value': 'bottomRight'
-                        }
-                    ],
-                    id='notification-placement-select-demo3',
-                    style={
-                        'width': '200px'
-                    }
-                ),
-                fac.AntdButton('触发通知提示框', id='notification-trigger-button-demo3', type='primary'),
-                html.Div(id='notification-container-demo3')
-                ...
-                @app.callback(
-                    Output('notification-container-demo3', 'children'),
-                    Input('notification-trigger-button-demo3', 'nClicks'),
-                    State('notification-placement-select-demo3', 'value'),
-                    prevent_initial_call=True
-                )
-                def notification_demo3(nClicks, value):
-                    if value:
-                        return fac.AntdNotification(
-                            message='通知提示框测试',
-                            description='这是一段辅助说明文字内容',
-                            placement=value
-                        )
-                ```
-                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdSelect(
+    placeholder='选择不同的弹出位置',
+    options=[
+        {
+            'label': 'topLeft',
+            'value': 'topLeft'
+        },
+        {
+            'label': 'topRight',
+            'value': 'topRight'
+        },
+        {
+            'label': 'bottomLeft',
+            'value': 'bottomLeft'
+        },
+        {
+            'label': 'bottomRight',
+            'value': 'bottomRight'
+        }
+    ],
+    id='notification-placement-select-demo3',
+    style={
+        'width': '200px'
+    }
+),
+fac.AntdButton('触发通知提示框', id='notification-trigger-button-demo3', type='primary'),
+html.Div(id='notification-container-demo3')
+...
+@app.callback(
+    Output('notification-container-demo3', 'children'),
+    Input('notification-trigger-button-demo3', 'nClicks'),
+    State('notification-placement-select-demo3', 'value'),
+    prevent_initial_call=True
+)
+def notification_demo3(nClicks, value):
+    if value:
+        return fac.AntdNotification(
+            message='通知提示框测试',
+            description='这是一段辅助说明文字内容',
+            placement=value
+        )'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -386,51 +402,54 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                ```Python
-                fac.AntdSpace(
-                    [
-                        fac.AntdSlider(
-                            id='notification-slider-demo4',
-                            tooltipVisible=False,
-                            min=1,
-                            max=10,
-                            step=1,
-                            defaultValue=5,
-                            marks={
-                                **{
-                                    i: f'{i}秒'
-                                    for i in range(1, 10)
-                                },
-                                **{
-                                    10: 'None'
-                                }
-                            },
-                            style={
-                                'width': '400px'
-                            }
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+                        fac.AntdSpace(
+                            [
+                                fac.AntdSlider(
+                                    id='notification-slider-demo4',
+                                    tooltipVisible=False,
+                                    min=1,
+                                    max=10,
+                                    step=1,
+                                    defaultValue=5,
+                                    marks={
+                                        **{
+                                            i: f'{i}秒'
+                                            for i in range(1, 10)
+                                        },
+                                        **{
+                                            10: 'None'
+                                        }
+                                    },
+                                    style={
+                                        'width': '400px'
+                                    }
+                                ),
+                                fac.AntdButton('触发通知提示框', id='notification-trigger-button-demo4', type='primary')
+                            ],
+                            size='large'
                         ),
-                        fac.AntdButton('触发通知提示框', id='notification-trigger-button-demo4', type='primary')
-                    ],
-                    size='large'
-                ),
-                html.Div(id='notification-container-demo4')
-                ...
-                @app.callback(
-                    Output('notification-container-demo4', 'children'),
-                    Input('notification-trigger-button-demo4', 'nClicks'),
-                    State('notification-slider-demo4', 'value'),
-                    prevent_initial_call=True
-                )
-                def notification_demo4(nClicks, value):
-                    if value:
-                        return fac.AntdNotification(
-                            message=f'持续时长{value}秒' if value != 10 else '持续时长∞秒',
-                            description='这是一段辅助说明文字内容',
-                            duration=value if value != 10 else None
+                        html.Div(id='notification-container-demo4')
+                        ...
+                        @app.callback(
+                            Output('notification-container-demo4', 'children'),
+                            Input('notification-trigger-button-demo4', 'nClicks'),
+                            State('notification-slider-demo4', 'value'),
+                            prevent_initial_call=True
                         )
-                ```
-                '''),
+                        def notification_demo4(nClicks, value):
+                            if value:
+                                return fac.AntdNotification(
+                                    message=f'持续时长{value}秒' if value != 10 else '持续时长∞秒',
+                                    description='这是一段辅助说明文字内容',
+                                    duration=value if value != 10 else None
+                                )'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True

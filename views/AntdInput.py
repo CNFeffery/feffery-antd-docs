@@ -1,6 +1,7 @@
 from dash import html
 from dash import dcc
 import feffery_antd_components as fac
+import feffery_utils_components as fuc
 
 import callbacks.AntdInput
 
@@ -13,6 +14,11 @@ docs_content = html.Div(
                 'padding': '3px 0 3px 10px',
                 'backgroundColor': '#f5f5f5'
             }
+        ),
+
+        fac.AntdBackTop(
+            containerId='docs-content',
+            duration=0.6
         ),
 
         fac.AntdAnchor(
@@ -46,8 +52,9 @@ docs_content = html.Div(
             }
         ),
 
-        dcc.Markdown(open('documents/AntdInput.md', encoding='utf-8').read(),
-                     dangerously_allow_html=True),
+        fuc.FefferyMarkdown(
+            markdownStr=open('documents/AntdInput.md', encoding='utf-8').read()
+        ),
 
         html.Div(
             html.Span(
@@ -102,36 +109,39 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                fac.AntdInput(
-                                    size='small',
-                                    placeholder='基础的输入框',
-                                    style={
-                                        'width': '200px',
-                                        'marginBottom': '5px'
-                                    }
-                                ),
-                                html.Br(),
-                                fac.AntdInput(
-                                    size='middle',
-                                    placeholder='基础的输入框',
-                                    style={
-                                        'width': '200px',
-                                        'marginBottom': '5px'
-                                    }
-                                ),
-                                html.Br(),
-                                fac.AntdInput(
-                                    size='large',
-                                    placeholder='基础的输入框',
-                                    style={
-                                        'width': '200px',
-                                        'marginBottom': '5px'
-                                    }
-                                ),
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdInput(
+    size='small',
+    placeholder='基础的输入框',
+    style={
+        'width': '200px',
+        'marginBottom': '5px'
+    }
+),
+html.Br(),
+fac.AntdInput(
+    size='middle',
+    placeholder='基础的输入框',
+    style={
+        'width': '200px',
+        'marginBottom': '5px'
+    }
+),
+html.Br(),
+fac.AntdInput(
+    size='large',
+    placeholder='基础的输入框',
+    style={
+        'width': '200px',
+        'marginBottom': '5px'
+    }
+)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -166,19 +176,22 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                fac.AntdInput(
-                                    placeholder='default输入框示例',
-                                    addonBefore='前缀示例',
-                                    addonAfter='后缀示例',
-                                    style={
-                                        'width': '300px',
-                                        'marginBottom': '5px'
-                                    }
-                                )
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdInput(
+    placeholder='default输入框示例',
+    addonBefore='前缀示例',
+    addonAfter='后缀示例',
+    style={
+        'width': '300px',
+        'marginBottom': '5px'
+    }
+)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -231,37 +244,40 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                fac.AntdInput(
-                                    mode='search',
-                                    placeholder='search输入框示例',
-                                    style={
-                                        'width': '200px',
-                                        'marginBottom': '5px'
-                                    }
-                                ),
-                
-                                fac.AntdInput(
-                                    mode='text-area',
-                                    placeholder='text-area输入框示例',
-                                    style={
-                                        'width': '200px',
-                                        'marginBottom': '5px',
-                                        'height': '80px'
-                                    }
-                                ),
-                
-                                fac.AntdInput(
-                                    mode='password',
-                                    placeholder='password输入框示例',
-                                    style={
-                                        'width': '200px',
-                                        'marginBottom': '5px'
-                                    }
-                                )
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdInput(
+    mode='search',
+    placeholder='search输入框示例',
+    style={
+        'width': '200px',
+        'marginBottom': '5px'
+    }
+),
+
+fac.AntdInput(
+    mode='text-area',
+    placeholder='text-area输入框示例',
+    style={
+        'width': '200px',
+        'marginBottom': '5px',
+        'height': '80px'
+    }
+),
+
+fac.AntdInput(
+    mode='password',
+    placeholder='password输入框示例',
+    style={
+        'width': '200px',
+        'marginBottom': '5px'
+    }
+)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -314,36 +330,39 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                fac.AntdInput(
-                                    defaultValue='预填充文字',
-                                    style={
-                                        'width': '200px',
-                                        'marginBottom': '5px'
-                                    }
-                                ),
-                
-                                fac.AntdInput(
-                                    mode='search',
-                                    defaultValue='预填充文字',
-                                    style={
-                                        'width': '200px',
-                                        'marginBottom': '5px'
-                                    }
-                                ),
-                
-                                fac.AntdInput(
-                                    mode='text-area',
-                                    defaultValue='预填充文字',
-                                    style={
-                                        'width': '200px',
-                                        'marginBottom': '5px',
-                                        'height': '80px'
-                                    }
-                                )
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdInput(
+    defaultValue='预填充文字',
+    style={
+        'width': '200px',
+        'marginBottom': '5px'
+    }
+),
+
+fac.AntdInput(
+    mode='search',
+    defaultValue='预填充文字',
+    style={
+        'width': '200px',
+        'marginBottom': '5px'
+    }
+),
+
+fac.AntdInput(
+    mode='text-area',
+    defaultValue='预填充文字',
+    style={
+        'width': '200px',
+        'marginBottom': '5px',
+        'height': '80px'
+    }
+)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -379,20 +398,23 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                fac.AntdInput(
-                                    mode='text-area',
-                                    defaultValue='0123456789',
-                                    allowClear=True,
-                                    maxLength=10,
-                                    showCount=True,
-                                    style={
-                                        'width': '400px'
-                                    }
-                                )
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdInput(
+    mode='text-area',
+    defaultValue='0123456789',
+    allowClear=True,
+    maxLength=10,
+    showCount=True,
+    style={
+        'width': '400px'
+    }
+)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -468,89 +490,91 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                fac.AntdSpace(
-                                    [
-                                        fac.AntdInput(
-                                            id='input-value-demo',
-                                            placeholder='value直接作为Input',
-                                            style={
-                                                'width': '250px',
-                                                'marginBottom': '5px'
-                                            }
-                                        ),
-                                        html.Span(id='input-value-demo-output')
-                                    ]
-                                ),
-        
-                                html.Br(),
-        
-                                fac.AntdSpace(
-                                    [
-                                        fac.AntdInput(
-                                            id='input-nSubmit-demo',
-                                            placeholder='nSubmit作为Input，value作为State',
-                                            style={
-                                                'width': '250px',
-                                                'marginBottom': '5px'
-                                            }
-                                        ),
-                                        html.Span(id='input-nSubmit-demo-output')
-                                    ]
-                                ),
-                                html.Br(),
-        
-                                fac.AntdSpace(
-                                    [
-                                        fac.AntdInput(
-                                            id='input-nClicksSearch-demo',
-                                            mode='search',
-                                            placeholder='nClicksSearch作为Input，value作为State',
-                                            style={
-                                                'width': '320px',
-                                                'marginBottom': '5px'
-                                            }
-                                        ),
-                                        html.Span(id='input-nClicksSearch-demo-output')
-                                    ]
-                                )
-                                ...
-                                @app.callback(
-                                    Output('input-value-demo-output', 'children'),
-                                    Input('input-value-demo', 'value'),
-                                    prevent_initial_call=True
-                                )
-                                def input_value_callback_demo(value):
-                                
-                                    return fac.AntdText(f'value: {value}', italic=True)
-                                
-                                
-                                @app.callback(
-                                    Output('input-nSubmit-demo-output', 'children'),
-                                    Input('input-nSubmit-demo', 'nSubmit'),
-                                    State('input-nSubmit-demo', 'value'),
-                                    prevent_initial_call=True
-                                )
-                                def input_nSubmit_callback_demo(nSubmit, value):
-                                
-                                    if nSubmit and value:
-                                        return fac.AntdText(f'nSubmit: {nSubmit}   value: {value}', italic=True)
-                                
-                                
-                                @app.callback(
-                                    Output('input-nClicksSearch-demo-output', 'children'),
-                                    Input('input-nClicksSearch-demo', 'nClicksSearch'),
-                                    State('input-nClicksSearch-demo', 'value'),
-                                    prevent_initial_call=True
-                                )
-                                def input_nClicksSearch_callback_demo(nClicksSearch, value):
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdInput(
+            id='input-value-demo',
+            placeholder='value直接作为Input',
+            style={
+                'width': '250px',
+                'marginBottom': '5px'
+            }
+        ),
+        html.Span(id='input-value-demo-output')
+    ]
+),
 
-                                    if nClicksSearch and value:
-                                        return fac.AntdText(f'nClicksSearch: {nClicksSearch}   value: {value}', italic=True)
+html.Br(),
 
-                                ```
-                                '''),
+fac.AntdSpace(
+    [
+        fac.AntdInput(
+            id='input-nSubmit-demo',
+            placeholder='nSubmit作为Input，value作为State',
+            style={
+                'width': '250px',
+                'marginBottom': '5px'
+            }
+        ),
+        html.Span(id='input-nSubmit-demo-output')
+    ]
+),
+html.Br(),
+
+fac.AntdSpace(
+    [
+        fac.AntdInput(
+            id='input-nClicksSearch-demo',
+            mode='search',
+            placeholder='nClicksSearch作为Input，value作为State',
+            style={
+                'width': '320px',
+                'marginBottom': '5px'
+            }
+        ),
+        html.Span(id='input-nClicksSearch-demo-output')
+    ]
+)
+...
+@app.callback(
+    Output('input-value-demo-output', 'children'),
+    Input('input-value-demo', 'value'),
+    prevent_initial_call=True
+)
+def input_value_callback_demo(value):
+
+    return fac.AntdText(f'value: {value}', italic=True)
+
+
+@app.callback(
+    Output('input-nSubmit-demo-output', 'children'),
+    Input('input-nSubmit-demo', 'nSubmit'),
+    State('input-nSubmit-demo', 'value'),
+    prevent_initial_call=True
+)
+def input_nSubmit_callback_demo(nSubmit, value):
+
+    if nSubmit and value:
+        return fac.AntdText(f'nSubmit: {nSubmit}   value: {value}', italic=True)
+
+
+@app.callback(
+    Output('input-nClicksSearch-demo-output', 'children'),
+    Input('input-nClicksSearch-demo', 'nClicksSearch'),
+    State('input-nClicksSearch-demo', 'value'),
+    prevent_initial_call=True
+)
+def input_nClicksSearch_callback_demo(nClicksSearch, value):
+
+    if nClicksSearch and value:
+        return fac.AntdText(f'nClicksSearch: {nClicksSearch}   value: {value}', italic=True)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True

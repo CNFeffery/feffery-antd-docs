@@ -1,5 +1,6 @@
 from dash import dcc, html
 import feffery_antd_components as fac
+import feffery_utils_components as fuc
 
 docs_content = html.Div(
     [
@@ -10,6 +11,11 @@ docs_content = html.Div(
                 'padding': '3px 0 3px 10px',
                 'backgroundColor': '#f5f5f5'
             }
+        ),
+
+        fac.AntdBackTop(
+            containerId='docs-content',
+            duration=0.6
         ),
 
         fac.AntdAnchor(
@@ -41,8 +47,9 @@ docs_content = html.Div(
             }
         ),
 
-        dcc.Markdown(open('documents/AntdSpace.md', encoding='utf-8').read(),
-                     dangerously_allow_html=True),
+        fuc.FefferyMarkdown(
+            markdownStr=open('documents/AntdSpace.md', encoding='utf-8').read()
+        ),
 
         html.Div(
             html.Span(
@@ -138,66 +145,69 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                fac.AntdDivider('默认水平方向', innerTextOrientation='left'),
-                
-                                fac.AntdSpace(
-                                    [
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                'height': '50px',
-                                                'width': '50px'
-                                            }
-                                        ),
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(0, 146, 255, 1)',
-                                                'height': '50px',
-                                                'width': '50px'
-                                            }
-                                        ),
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                'height': '50px',
-                                                'width': '50px'
-                                            }
-                                        )
-                                    ]
-                                ),
-                
-                                fac.AntdDivider('竖直方向', innerTextOrientation='left'),
-                
-                                fac.AntdSpace(
-                                    [
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                'height': '50px',
-                                                'width': '50px'
-                                            }
-                                        ),
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(0, 146, 255, 1)',
-                                                'height': '50px',
-                                                'width': '50px'
-                                            }
-                                        ),
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                'height': '50px',
-                                                'width': '50px'
-                                            }
-                                        )
-                                    ],
-                                    direction='vertical'
-                                )
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdDivider('默认水平方向', innerTextOrientation='left'),
+
+fac.AntdSpace(
+    [
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(64, 173, 255, 1)',
+                'height': '50px',
+                'width': '50px'
+            }
+        ),
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(0, 146, 255, 1)',
+                'height': '50px',
+                'width': '50px'
+            }
+        ),
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(64, 173, 255, 1)',
+                'height': '50px',
+                'width': '50px'
+            }
+        )
+    ]
+),
+
+fac.AntdDivider('竖直方向', innerTextOrientation='left'),
+
+fac.AntdSpace(
+    [
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(64, 173, 255, 1)',
+                'height': '50px',
+                'width': '50px'
+            }
+        ),
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(0, 146, 255, 1)',
+                'height': '50px',
+                'width': '50px'
+            }
+        ),
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(64, 173, 255, 1)',
+                'height': '50px',
+                'width': '50px'
+            }
+        )
+    ],
+    direction='vertical'
+)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -498,285 +508,288 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                fac.AntdDivider('start对齐方式', innerTextOrientation='left'),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdDivider('start对齐方式', innerTextOrientation='left'),
 
-                                fac.AntdParagraph('水平方向：', strong=True),
-                
-                                fac.AntdSpace(
-                                    [
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                'height': '50px',
-                                                'width': '50px'
-                                            }
-                                        ),
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(0, 146, 255, 1)',
-                                                'height': '25px',
-                                                'width': '50px'
-                                            }
-                                        ),
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                'height': '10px',
-                                                'width': '50px'
-                                            }
-                                        )
-                                    ],
-                                    align='start',
-                                    style={
-                                        'backgroundColor': 'rgba(241, 241, 241, 0.6)',
-                                        'padding': '10px'
-                                    }
-                                ),
-                
-                                fac.AntdParagraph('竖直方向：', strong=True),
-                
-                                fac.AntdSpace(
-                                    [
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                'height': '50px',
-                                                'width': '50px'
-                                            }
-                                        ),
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(0, 146, 255, 1)',
-                                                'height': '50px',
-                                                'width': '25px'
-                                            }
-                                        ),
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                'height': '50px',
-                                                'width': '50px'
-                                            }
-                                        )
-                                    ],
-                                    align='start',
-                                    direction='vertical',
-                                    style={
-                                        'backgroundColor': 'rgba(241, 241, 241, 0.6)',
-                                        'padding': '10px'
-                                    }
-                                ),
-                
-                                fac.AntdDivider('end对齐方式', innerTextOrientation='left'),
-                
-                                fac.AntdParagraph('水平方向：', strong=True),
-                
-                                fac.AntdSpace(
-                                    [
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                'height': '50px',
-                                                'width': '50px'
-                                            }
-                                        ),
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(0, 146, 255, 1)',
-                                                'height': '25px',
-                                                'width': '50px'
-                                            }
-                                        ),
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                'height': '10px',
-                                                'width': '50px'
-                                            }
-                                        )
-                                    ],
-                                    align='end',
-                                    style={
-                                        'backgroundColor': 'rgba(241, 241, 241, 0.6)',
-                                        'padding': '10px'
-                                    }
-                                ),
-                
-                                fac.AntdParagraph('竖直方向：', strong=True),
-                
-                                fac.AntdSpace(
-                                    [
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                'height': '50px',
-                                                'width': '50px'
-                                            }
-                                        ),
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(0, 146, 255, 1)',
-                                                'height': '50px',
-                                                'width': '25px'
-                                            }
-                                        ),
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                'height': '50px',
-                                                'width': '50px'
-                                            }
-                                        )
-                                    ],
-                                    align='end',
-                                    direction='vertical',
-                                    style={
-                                        'backgroundColor': 'rgba(241, 241, 241, 0.6)',
-                                        'padding': '10px'
-                                    }
-                                ),
-                
-                                fac.AntdDivider('center对齐方式', innerTextOrientation='left'),
-                
-                                fac.AntdParagraph('水平方向：', strong=True),
-                
-                                fac.AntdSpace(
-                                    [
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                'height': '50px',
-                                                'width': '50px'
-                                            }
-                                        ),
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(0, 146, 255, 1)',
-                                                'height': '25px',
-                                                'width': '50px'
-                                            }
-                                        ),
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                'height': '10px',
-                                                'width': '50px'
-                                            }
-                                        )
-                                    ],
-                                    align='center',
-                                    style={
-                                        'backgroundColor': 'rgba(241, 241, 241, 0.6)',
-                                        'padding': '10px'
-                                    }
-                                ),
-                
-                                fac.AntdParagraph('竖直方向：', strong=True),
-                
-                                fac.AntdSpace(
-                                    [
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                'height': '50px',
-                                                'width': '50px'
-                                            }
-                                        ),
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(0, 146, 255, 1)',
-                                                'height': '50px',
-                                                'width': '25px'
-                                            }
-                                        ),
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                'height': '50px',
-                                                'width': '50px'
-                                            }
-                                        )
-                                    ],
-                                    align='center',
-                                    direction='vertical',
-                                    style={
-                                        'backgroundColor': 'rgba(241, 241, 241, 0.6)',
-                                        'padding': '10px'
-                                    }
-                                ),
-                
-                                fac.AntdDivider('baseline对齐方式', innerTextOrientation='left'),
-                
-                                fac.AntdParagraph('水平方向：', strong=True),
-                
-                                fac.AntdSpace(
-                                    [
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                'height': '50px',
-                                                'width': '50px'
-                                            }
-                                        ),
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(0, 146, 255, 1)',
-                                                'height': '25px',
-                                                'width': '50px'
-                                            }
-                                        ),
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                'height': '10px',
-                                                'width': '50px'
-                                            }
-                                        )
-                                    ],
-                                    align='baseline',
-                                    style={
-                                        'backgroundColor': 'rgba(241, 241, 241, 0.6)',
-                                        'padding': '10px'
-                                    }
-                                ),
-                
-                                fac.AntdParagraph('竖直方向：', strong=True),
-                
-                                fac.AntdSpace(
-                                    [
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                'height': '50px',
-                                                'width': '50px'
-                                            }
-                                        ),
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(0, 146, 255, 1)',
-                                                'height': '50px',
-                                                'width': '25px'
-                                            }
-                                        ),
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                'height': '50px',
-                                                'width': '50px'
-                                            }
-                                        )
-                                    ],
-                                    align='baseline',
-                                    direction='vertical',
-                                    style={
-                                        'backgroundColor': 'rgba(241, 241, 241, 0.6)',
-                                        'padding': '10px'
-                                    }
-                                )
-                                ```
-                                '''),
+fac.AntdParagraph('水平方向：', strong=True),
+
+fac.AntdSpace(
+    [
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(64, 173, 255, 1)',
+                'height': '50px',
+                'width': '50px'
+            }
+        ),
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(0, 146, 255, 1)',
+                'height': '25px',
+                'width': '50px'
+            }
+        ),
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(64, 173, 255, 1)',
+                'height': '10px',
+                'width': '50px'
+            }
+        )
+    ],
+    align='start',
+    style={
+        'backgroundColor': 'rgba(241, 241, 241, 0.6)',
+        'padding': '10px'
+    }
+),
+
+fac.AntdParagraph('竖直方向：', strong=True),
+
+fac.AntdSpace(
+    [
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(64, 173, 255, 1)',
+                'height': '50px',
+                'width': '50px'
+            }
+        ),
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(0, 146, 255, 1)',
+                'height': '50px',
+                'width': '25px'
+            }
+        ),
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(64, 173, 255, 1)',
+                'height': '50px',
+                'width': '50px'
+            }
+        )
+    ],
+    align='start',
+    direction='vertical',
+    style={
+        'backgroundColor': 'rgba(241, 241, 241, 0.6)',
+        'padding': '10px'
+    }
+),
+
+fac.AntdDivider('end对齐方式', innerTextOrientation='left'),
+
+fac.AntdParagraph('水平方向：', strong=True),
+
+fac.AntdSpace(
+    [
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(64, 173, 255, 1)',
+                'height': '50px',
+                'width': '50px'
+            }
+        ),
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(0, 146, 255, 1)',
+                'height': '25px',
+                'width': '50px'
+            }
+        ),
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(64, 173, 255, 1)',
+                'height': '10px',
+                'width': '50px'
+            }
+        )
+    ],
+    align='end',
+    style={
+        'backgroundColor': 'rgba(241, 241, 241, 0.6)',
+        'padding': '10px'
+    }
+),
+
+fac.AntdParagraph('竖直方向：', strong=True),
+
+fac.AntdSpace(
+    [
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(64, 173, 255, 1)',
+                'height': '50px',
+                'width': '50px'
+            }
+        ),
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(0, 146, 255, 1)',
+                'height': '50px',
+                'width': '25px'
+            }
+        ),
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(64, 173, 255, 1)',
+                'height': '50px',
+                'width': '50px'
+            }
+        )
+    ],
+    align='end',
+    direction='vertical',
+    style={
+        'backgroundColor': 'rgba(241, 241, 241, 0.6)',
+        'padding': '10px'
+    }
+),
+
+fac.AntdDivider('center对齐方式', innerTextOrientation='left'),
+
+fac.AntdParagraph('水平方向：', strong=True),
+
+fac.AntdSpace(
+    [
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(64, 173, 255, 1)',
+                'height': '50px',
+                'width': '50px'
+            }
+        ),
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(0, 146, 255, 1)',
+                'height': '25px',
+                'width': '50px'
+            }
+        ),
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(64, 173, 255, 1)',
+                'height': '10px',
+                'width': '50px'
+            }
+        )
+    ],
+    align='center',
+    style={
+        'backgroundColor': 'rgba(241, 241, 241, 0.6)',
+        'padding': '10px'
+    }
+),
+
+fac.AntdParagraph('竖直方向：', strong=True),
+
+fac.AntdSpace(
+    [
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(64, 173, 255, 1)',
+                'height': '50px',
+                'width': '50px'
+            }
+        ),
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(0, 146, 255, 1)',
+                'height': '50px',
+                'width': '25px'
+            }
+        ),
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(64, 173, 255, 1)',
+                'height': '50px',
+                'width': '50px'
+            }
+        )
+    ],
+    align='center',
+    direction='vertical',
+    style={
+        'backgroundColor': 'rgba(241, 241, 241, 0.6)',
+        'padding': '10px'
+    }
+),
+
+fac.AntdDivider('baseline对齐方式', innerTextOrientation='left'),
+
+fac.AntdParagraph('水平方向：', strong=True),
+
+fac.AntdSpace(
+    [
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(64, 173, 255, 1)',
+                'height': '50px',
+                'width': '50px'
+            }
+        ),
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(0, 146, 255, 1)',
+                'height': '25px',
+                'width': '50px'
+            }
+        ),
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(64, 173, 255, 1)',
+                'height': '10px',
+                'width': '50px'
+            }
+        )
+    ],
+    align='baseline',
+    style={
+        'backgroundColor': 'rgba(241, 241, 241, 0.6)',
+        'padding': '10px'
+    }
+),
+
+fac.AntdParagraph('竖直方向：', strong=True),
+
+fac.AntdSpace(
+    [
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(64, 173, 255, 1)',
+                'height': '50px',
+                'width': '50px'
+            }
+        ),
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(0, 146, 255, 1)',
+                'height': '50px',
+                'width': '25px'
+            }
+        ),
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(64, 173, 255, 1)',
+                'height': '50px',
+                'width': '50px'
+            }
+        )
+    ],
+    align='baseline',
+    direction='vertical',
+    style={
+        'backgroundColor': 'rgba(241, 241, 241, 0.6)',
+        'padding': '10px'
+    }
+)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -895,104 +908,107 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                fac.AntdDivider('size="middle"', innerTextOrientation='left'),
-                                fac.AntdSpace(
-                                    [
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                'height': '50px',
-                                                'width': '50px'
-                                            }
-                                        ),
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(0, 146, 255, 1)',
-                                                'height': '50px',
-                                                'width': '50px'
-                                            }
-                                        ),
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                'height': '50px',
-                                                'width': '50px'
-                                            }
-                                        )
-                                    ],
-                                    size='middle',
-                                    style={
-                                        'backgroundColor': 'rgba(241, 241, 241, 0.6)',
-                                        'padding': '10px'
-                                    }
-                                ),
-                                fac.AntdDivider('size="large"', innerTextOrientation='left'),
-                                fac.AntdSpace(
-                                    [
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                'height': '50px',
-                                                'width': '50px'
-                                            }
-                                        ),
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(0, 146, 255, 1)',
-                                                'height': '50px',
-                                                'width': '50px'
-                                            }
-                                        ),
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                'height': '50px',
-                                                'width': '50px'
-                                            }
-                                        )
-                                    ],
-                                    size='large',
-                                    style={
-                                        'backgroundColor': 'rgba(241, 241, 241, 0.6)',
-                                        'padding': '10px'
-                                    }
-                                ),
-                
-                                fac.AntdDivider('size=50', innerTextOrientation='left'),
-                                fac.AntdSpace(
-                                    [
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                'height': '50px',
-                                                'width': '50px'
-                                            }
-                                        ),
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(0, 146, 255, 1)',
-                                                'height': '50px',
-                                                'width': '50px'
-                                            }
-                                        ),
-                                        html.Div(
-                                            style={
-                                                'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                'height': '50px',
-                                                'width': '50px'
-                                            }
-                                        )
-                                    ],
-                                    size=50,
-                                    style={
-                                        'backgroundColor': 'rgba(241, 241, 241, 0.6)',
-                                        'padding': '10px'
-                                    }
-                                )
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdDivider('size="middle"', innerTextOrientation='left'),
+fac.AntdSpace(
+    [
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(64, 173, 255, 1)',
+                'height': '50px',
+                'width': '50px'
+            }
+        ),
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(0, 146, 255, 1)',
+                'height': '50px',
+                'width': '50px'
+            }
+        ),
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(64, 173, 255, 1)',
+                'height': '50px',
+                'width': '50px'
+            }
+        )
+    ],
+    size='middle',
+    style={
+        'backgroundColor': 'rgba(241, 241, 241, 0.6)',
+        'padding': '10px'
+    }
+),
+fac.AntdDivider('size="large"', innerTextOrientation='left'),
+fac.AntdSpace(
+    [
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(64, 173, 255, 1)',
+                'height': '50px',
+                'width': '50px'
+            }
+        ),
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(0, 146, 255, 1)',
+                'height': '50px',
+                'width': '50px'
+            }
+        ),
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(64, 173, 255, 1)',
+                'height': '50px',
+                'width': '50px'
+            }
+        )
+    ],
+    size='large',
+    style={
+        'backgroundColor': 'rgba(241, 241, 241, 0.6)',
+        'padding': '10px'
+    }
+),
+
+fac.AntdDivider('size=50', innerTextOrientation='left'),
+fac.AntdSpace(
+    [
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(64, 173, 255, 1)',
+                'height': '50px',
+                'width': '50px'
+            }
+        ),
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(0, 146, 255, 1)',
+                'height': '50px',
+                'width': '50px'
+            }
+        ),
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(64, 173, 255, 1)',
+                'height': '50px',
+                'width': '50px'
+            }
+        )
+    ],
+    size=50,
+    style={
+        'backgroundColor': 'rgba(241, 241, 241, 0.6)',
+        'padding': '10px'
+    }
+)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -1028,21 +1044,24 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                fac.AntdSpace(
-                                    [
-                                        html.Div('子组件1'),
-                                        html.Div('子组件2'),
-                                        html.Div('子组件3')
-                                    ],
-                                    addSplitLine=True,
-                                    style={
-                                        'padding': '10px'
-                                    }
-                                )
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdSpace(
+    [
+        html.Div('子组件1'),
+        html.Div('子组件2'),
+        html.Div('子组件3')
+    ],
+    addSplitLine=True,
+    style={
+        'padding': '10px'
+    }
+)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True

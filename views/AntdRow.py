@@ -1,6 +1,7 @@
 from dash import dcc
 from dash import html
 import feffery_antd_components as fac
+import feffery_utils_components as fuc
 
 docs_content = html.Div(
     [
@@ -11,6 +12,11 @@ docs_content = html.Div(
                 'padding': '3px 0 3px 10px',
                 'backgroundColor': '#f5f5f5'
             }
+        ),
+
+        fac.AntdBackTop(
+            containerId='docs-content',
+            duration=0.6
         ),
 
         fac.AntdAnchor(
@@ -43,8 +49,9 @@ docs_content = html.Div(
             }
         ),
 
-        dcc.Markdown(open('documents/AntdRow.md', encoding='utf-8').read(),
-                     dangerously_allow_html=True),
+        fuc.FefferyMarkdown(
+            markdownStr=open('documents/AntdRow.md', encoding='utf-8').read()
+        ),
 
         html.Div(
             html.Span(
@@ -134,71 +141,74 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                fac.AntdRow(
-                                    [
-                                        fac.AntdCol(
-                                            html.Div(
-                                                'col1',
-                                                style={
-                                                    'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '100px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            span=6
-                                        ),
-                                        fac.AntdCol(
-                                            html.Div(
-                                                'col2',
-                                                style={
-                                                    'backgroundColor': 'rgba(0, 146, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '100px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            span=6
-                                        ),
-                                        fac.AntdCol(
-                                            html.Div(
-                                                'col3',
-                                                style={
-                                                    'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '100px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            span=6
-                                        ),
-                                        fac.AntdCol(
-                                            html.Div(
-                                                'col4',
-                                                style={
-                                                    'backgroundColor': 'rgba(0, 146, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '100px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            span=6
-                                        ),
-                                    ],
-                                    gutter=10
-                                )
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdRow(
+    [
+        fac.AntdCol(
+            html.Div(
+                'col1',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '100px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            span=6
+        ),
+        fac.AntdCol(
+            html.Div(
+                'col2',
+                style={
+                    'backgroundColor': 'rgba(0, 146, 255, 1)',
+                    'color': 'white',
+                    'height': '100px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            span=6
+        ),
+        fac.AntdCol(
+            html.Div(
+                'col3',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '100px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            span=6
+        ),
+        fac.AntdCol(
+            html.Div(
+                'col4',
+                style={
+                    'backgroundColor': 'rgba(0, 146, 255, 1)',
+                    'color': 'white',
+                    'height': '100px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            span=6
+        ),
+    ],
+    gutter=10
+)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -258,45 +268,48 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                fac.AntdRow(
-                                    [
-                                        fac.AntdCol(
-                                            html.Div(
-                                                f'col{col + 1}',
-                                                style={
-                                                    'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '100px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            span=2
-                                        )
-                                        if col % 2 == 0
-                                        else fac.AntdCol(
-                                            html.Div(
-                                                f'col{col + 1}',
-                                                style={
-                                                    'backgroundColor': 'rgba(0, 146, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '100px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            span=2
-                                        )
-                                        for col in range(14)
-                                    ],
-                                    gutter=[5, 5]
-                                )
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdRow(
+    [
+        fac.AntdCol(
+            html.Div(
+                f'col{col + 1}',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '100px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            span=2
+        )
+        if col % 2 == 0
+        else fac.AntdCol(
+            html.Div(
+                f'col{col + 1}',
+                style={
+                    'backgroundColor': 'rgba(0, 146, 255, 1)',
+                    'color': 'white',
+                    'height': '100px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            span=2
+        )
+        for col in range(14)
+    ],
+    gutter=[5, 5]
+)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -569,258 +582,261 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                fac.AntdDivider('justify="start"', innerTextOrientation='left'),
-                                fac.AntdRow(
-                                    [
-                                        fac.AntdCol(
-                                            html.Div(
-                                                'col1',
-                                                style={
-                                                    'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '25px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            span=4
-                                        ),
-                                        fac.AntdCol(
-                                            html.Div(
-                                                'col2',
-                                                style={
-                                                    'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '25px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            span=4
-                                        ),
-                                        fac.AntdCol(
-                                            html.Div(
-                                                'col3',
-                                                style={
-                                                    'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '25px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            span=4
-                                        )
-                                    ],
-                                    gutter=10
-                                ),
-                
-                                fac.AntdDivider('justify="end"', innerTextOrientation='left'),
-                                fac.AntdRow(
-                                    [
-                                        fac.AntdCol(
-                                            html.Div(
-                                                'col1',
-                                                style={
-                                                    'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '25px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            span=4
-                                        ),
-                                        fac.AntdCol(
-                                            html.Div(
-                                                'col2',
-                                                style={
-                                                    'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '25px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            span=4
-                                        ),
-                                        fac.AntdCol(
-                                            html.Div(
-                                                'col3',
-                                                style={
-                                                    'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '25px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            span=4
-                                        )
-                                    ],
-                                    gutter=10,
-                                    justify='end'
-                                ),
-                
-                                fac.AntdDivider('justify="center"', innerTextOrientation='left'),
-                                fac.AntdRow(
-                                    [
-                                        fac.AntdCol(
-                                            html.Div(
-                                                'col1',
-                                                style={
-                                                    'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '25px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            span=4
-                                        ),
-                                        fac.AntdCol(
-                                            html.Div(
-                                                'col2',
-                                                style={
-                                                    'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '25px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            span=4
-                                        ),
-                                        fac.AntdCol(
-                                            html.Div(
-                                                'col3',
-                                                style={
-                                                    'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '25px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            span=4
-                                        )
-                                    ],
-                                    gutter=10,
-                                    justify='center'
-                                ),
-                
-                                fac.AntdDivider('justify="space-around"', innerTextOrientation='left'),
-                                fac.AntdRow(
-                                    [
-                                        fac.AntdCol(
-                                            html.Div(
-                                                'col1',
-                                                style={
-                                                    'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '25px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            span=4
-                                        ),
-                                        fac.AntdCol(
-                                            html.Div(
-                                                'col2',
-                                                style={
-                                                    'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '25px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            span=4
-                                        ),
-                                        fac.AntdCol(
-                                            html.Div(
-                                                'col3',
-                                                style={
-                                                    'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '25px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            span=4
-                                        )
-                                    ],
-                                    gutter=10,
-                                    justify='space-around'
-                                ),
-                
-                                fac.AntdDivider('justify="space-between"', innerTextOrientation='left'),
-                                fac.AntdRow(
-                                    [
-                                        fac.AntdCol(
-                                            html.Div(
-                                                'col1',
-                                                style={
-                                                    'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '25px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            span=4
-                                        ),
-                                        fac.AntdCol(
-                                            html.Div(
-                                                'col2',
-                                                style={
-                                                    'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '25px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            span=4
-                                        ),
-                                        fac.AntdCol(
-                                            html.Div(
-                                                'col3',
-                                                style={
-                                                    'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '25px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            span=4
-                                        )
-                                    ],
-                                    gutter=10,
-                                    justify='space-between'
-                                )
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdDivider('justify="start"', innerTextOrientation='left'),
+fac.AntdRow(
+    [
+        fac.AntdCol(
+            html.Div(
+                'col1',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '25px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            span=4
+        ),
+        fac.AntdCol(
+            html.Div(
+                'col2',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '25px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            span=4
+        ),
+        fac.AntdCol(
+            html.Div(
+                'col3',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '25px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            span=4
+        )
+    ],
+    gutter=10
+),
+
+fac.AntdDivider('justify="end"', innerTextOrientation='left'),
+fac.AntdRow(
+    [
+        fac.AntdCol(
+            html.Div(
+                'col1',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '25px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            span=4
+        ),
+        fac.AntdCol(
+            html.Div(
+                'col2',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '25px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            span=4
+        ),
+        fac.AntdCol(
+            html.Div(
+                'col3',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '25px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            span=4
+        )
+    ],
+    gutter=10,
+    justify='end'
+),
+
+fac.AntdDivider('justify="center"', innerTextOrientation='left'),
+fac.AntdRow(
+    [
+        fac.AntdCol(
+            html.Div(
+                'col1',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '25px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            span=4
+        ),
+        fac.AntdCol(
+            html.Div(
+                'col2',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '25px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            span=4
+        ),
+        fac.AntdCol(
+            html.Div(
+                'col3',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '25px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            span=4
+        )
+    ],
+    gutter=10,
+    justify='center'
+),
+
+fac.AntdDivider('justify="space-around"', innerTextOrientation='left'),
+fac.AntdRow(
+    [
+        fac.AntdCol(
+            html.Div(
+                'col1',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '25px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            span=4
+        ),
+        fac.AntdCol(
+            html.Div(
+                'col2',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '25px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            span=4
+        ),
+        fac.AntdCol(
+            html.Div(
+                'col3',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '25px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            span=4
+        )
+    ],
+    gutter=10,
+    justify='space-around'
+),
+
+fac.AntdDivider('justify="space-between"', innerTextOrientation='left'),
+fac.AntdRow(
+    [
+        fac.AntdCol(
+            html.Div(
+                'col1',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '25px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            span=4
+        ),
+        fac.AntdCol(
+            html.Div(
+                'col2',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '25px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            span=4
+        ),
+        fac.AntdCol(
+            html.Div(
+                'col3',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '25px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            span=4
+        )
+    ],
+    gutter=10,
+    justify='space-between'
+)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -993,158 +1009,161 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                fac.AntdDivider('align="top"', innerTextOrientation='left'),
-                                fac.AntdRow(
-                                    [
-                                        fac.AntdCol(
-                                            html.Div(
-                                                'col1',
-                                                style={
-                                                    'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '50px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            span=4
-                                        ),
-                                        fac.AntdCol(
-                                            html.Div(
-                                                'col2',
-                                                style={
-                                                    'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '25px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            span=4
-                                        ),
-                                        fac.AntdCol(
-                                            html.Div(
-                                                'col3',
-                                                style={
-                                                    'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '100px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            span=4
-                                        )
-                                    ],
-                                    gutter=10
-                                ),
-                
-                                fac.AntdDivider('align="middle"', innerTextOrientation='left'),
-                                fac.AntdRow(
-                                    [
-                                        fac.AntdCol(
-                                            html.Div(
-                                                'col1',
-                                                style={
-                                                    'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '50px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            span=4
-                                        ),
-                                        fac.AntdCol(
-                                            html.Div(
-                                                'col2',
-                                                style={
-                                                    'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '25px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            span=4
-                                        ),
-                                        fac.AntdCol(
-                                            html.Div(
-                                                'col3',
-                                                style={
-                                                    'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '100px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            span=4
-                                        )
-                                    ],
-                                    gutter=10,
-                                    align='middle'
-                                ),
-                
-                                fac.AntdDivider('align="bottom"', innerTextOrientation='left'),
-                                fac.AntdRow(
-                                    [
-                                        fac.AntdCol(
-                                            html.Div(
-                                                'col1',
-                                                style={
-                                                    'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '50px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            span=4
-                                        ),
-                                        fac.AntdCol(
-                                            html.Div(
-                                                'col2',
-                                                style={
-                                                    'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '25px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            span=4
-                                        ),
-                                        fac.AntdCol(
-                                            html.Div(
-                                                'col3',
-                                                style={
-                                                    'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '100px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            span=4
-                                        )
-                                    ],
-                                    gutter=10,
-                                    align='bottom'
-                                )
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdDivider('align="top"', innerTextOrientation='left'),
+fac.AntdRow(
+    [
+        fac.AntdCol(
+            html.Div(
+                'col1',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '50px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            span=4
+        ),
+        fac.AntdCol(
+            html.Div(
+                'col2',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '25px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            span=4
+        ),
+        fac.AntdCol(
+            html.Div(
+                'col3',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '100px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            span=4
+        )
+    ],
+    gutter=10
+),
+
+fac.AntdDivider('align="middle"', innerTextOrientation='left'),
+fac.AntdRow(
+    [
+        fac.AntdCol(
+            html.Div(
+                'col1',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '50px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            span=4
+        ),
+        fac.AntdCol(
+            html.Div(
+                'col2',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '25px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            span=4
+        ),
+        fac.AntdCol(
+            html.Div(
+                'col3',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '100px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            span=4
+        )
+    ],
+    gutter=10,
+    align='middle'
+),
+
+fac.AntdDivider('align="bottom"', innerTextOrientation='left'),
+fac.AntdRow(
+    [
+        fac.AntdCol(
+            html.Div(
+                'col1',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '50px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            span=4
+        ),
+        fac.AntdCol(
+            html.Div(
+                'col2',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '25px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            span=4
+        ),
+        fac.AntdCol(
+            html.Div(
+                'col3',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '100px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            span=4
+        )
+    ],
+    gutter=10,
+    align='bottom'
+)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -1216,57 +1235,60 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                fac.AntdRow(
-                                    [
-                                        fac.AntdCol(
-                                            html.Div(
-                                                '1/7',
-                                                style={
-                                                    'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '50px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            flex='1'
-                                        ),
-                                        fac.AntdCol(
-                                            html.Div(
-                                                '2/7',
-                                                style={
-                                                    'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '50px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            flex='2'
-                                        ),
-                                        fac.AntdCol(
-                                            html.Div(
-                                                '4/7',
-                                                style={
-                                                    'backgroundColor': 'rgba(64, 173, 255, 1)',
-                                                    'color': 'white',
-                                                    'height': '50px',
-                                                    'display': 'flex',
-                                                    'justifyContent': 'center',
-                                                    'alignItems': 'center'
-                                                }
-                                            ),
-                                            flex='4'
-                                        )
-                                    ],
-                                    gutter=10
-                                )
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdRow(
+    [
+        fac.AntdCol(
+            html.Div(
+                '1/7',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '50px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            flex='1'
+        ),
+        fac.AntdCol(
+            html.Div(
+                '2/7',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '50px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            flex='2'
+        ),
+        fac.AntdCol(
+            html.Div(
+                '4/7',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '50px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            flex='4'
+        )
+    ],
+    gutter=10
+)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True

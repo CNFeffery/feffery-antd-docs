@@ -1,5 +1,6 @@
 from dash import dcc
 from dash import html
+import feffery_utils_components as fuc
 import feffery_antd_components as fac
 
 docs_content = html.Div(
@@ -11,6 +12,11 @@ docs_content = html.Div(
                 'padding': '3px 0 3px 10px',
                 'backgroundColor': '#f5f5f5'
             }
+        ),
+
+        fac.AntdBackTop(
+            containerId='docs-content',
+            duration=0.6
         ),
 
         fac.AntdAnchor(
@@ -43,8 +49,9 @@ docs_content = html.Div(
             }
         ),
 
-        dcc.Markdown(open('documents/AntdAlert.md', encoding='utf-8').read(),
-                     dangerously_allow_html=True),
+        fuc.FefferyMarkdown(
+            markdownStr=open('documents/AntdAlert.md', encoding='utf-8').read()
+        ),
 
         html.Div(
             html.Span(
@@ -78,15 +85,18 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                html.Div(
-                                    [
-                                        fac.AntdAlert(message='这是一条alert测试')
-                                    ]
-                                )
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+html.Div(
+    [
+        fac.AntdAlert(message='这是一条alert测试')
+    ]
+)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -122,21 +132,24 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                html.Div(
-                                    [
-                                        fac.AntdAlert(message='默认info状态'),
-                                        html.Br(),
-                                        fac.AntdAlert(message='success状态', type='success'),
-                                        html.Br(),
-                                        fac.AntdAlert(message='warning状态', type='warning'),
-                                        html.Br(),
-                                        fac.AntdAlert(message='error状态', type='error'),
-                                    ]
-                                )
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+html.Div(
+    [
+        fac.AntdAlert(message='默认info状态'),
+        html.Br(),
+        fac.AntdAlert(message='success状态', type='success'),
+        html.Br(),
+        fac.AntdAlert(message='warning状态', type='warning'),
+        html.Br(),
+        fac.AntdAlert(message='error状态', type='error'),
+    ]
+)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -172,21 +185,24 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                html.Div(
-                                    [
-                                        fac.AntdAlert(message='默认info状态', showIcon=True),
-                                        html.Br(),
-                                        fac.AntdAlert(message='success状态', type='success', showIcon=True),
-                                        html.Br(),
-                                        fac.AntdAlert(message='warning状态', type='warning', showIcon=True),
-                                        html.Br(),
-                                        fac.AntdAlert(message='error状态', type='error', showIcon=True),
-                                    ]
-                                )
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+html.Div(
+    [
+        fac.AntdAlert(message='默认info状态', showIcon=True),
+        html.Br(),
+        fac.AntdAlert(message='success状态', type='success', showIcon=True),
+        html.Br(),
+        fac.AntdAlert(message='warning状态', type='warning', showIcon=True),
+        html.Br(),
+        fac.AntdAlert(message='error状态', type='error', showIcon=True),
+    ]
+)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -216,15 +232,18 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                html.Div(
-                                    [
-                                        fac.AntdAlert(message='默认info状态', showIcon=True, closable=True)
-                                    ]
-                                )
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+html.Div(
+    [
+        fac.AntdAlert(message='默认info状态', showIcon=True, closable=True)
+    ]
+)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
@@ -244,6 +263,7 @@ docs_content = html.Div(
                 html.Div(
                     [
                         fac.AntdAlert(
+                            '这是一段辅助说明文字',
                             message=[
                                 '君不见黄河之水天上来',
                                 '奔流到海不复回',
@@ -254,7 +274,6 @@ docs_content = html.Div(
                                 '天生我材必有用',
                                 '千金散尽还复来'
                             ],
-                            description='这是一段辅助说明文字',
                             showIcon=True,
                             renderLoopText=True
                         )
@@ -268,29 +287,32 @@ docs_content = html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                html.Div(
-                                    [
-                                        fac.AntdAlert(
-                                            message=[
-                                                '君不见黄河之水天上来',
-                                                '奔流到海不复回',
-                                                '君不见高堂明镜悲白发',
-                                                '朝如青丝暮成雪',
-                                                '人生得意须尽欢',
-                                                '莫使金樽空对月',
-                                                '天生我材必有用',
-                                                '千金散尽还复来'
-                                            ],
-                                            description='这是一段辅助说明文字',
-                                            showIcon=True,
-                                            renderLoopText=True
-                                        )
-                                    ]
-                                )
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+html.Div(
+    [
+        fac.AntdAlert(
+            '这是一段辅助说明文字',
+            message=[
+                '君不见黄河之水天上来',
+                '奔流到海不复回',
+                '君不见高堂明镜悲白发',
+                '朝如青丝暮成雪',
+                '人生得意须尽欢',
+                '莫使金樽空对月',
+                '天生我材必有用',
+                '千金散尽还复来'
+            ],
+            showIcon=True,
+            renderLoopText=True
+        )
+    ]
+)'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
