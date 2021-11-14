@@ -8,7 +8,11 @@ from config import Config
 app = dash.Dash(
     __name__,
     suppress_callback_exceptions=True,
-    update_title=None
+    update_title=None,
+    serve_locally=False,
+    external_scripts=[
+        'https://unpkg.zhimg.com/feffery_antd_components@0.0.1-rc7/feffery_antd_components/feffery_antd_components.min.js'
+    ]
 )
 
 CORS(app.server, supports_credentials=False)
