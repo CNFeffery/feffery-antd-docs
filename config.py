@@ -55,7 +55,12 @@ class Config:
         'modal-demo-2-output-2.children',
         'modal-demo-2-output-3.children',
         'popconfirm-demo-output-1.children',
-        'popconfirm-demo-output-2.children'
+        'popconfirm-demo-output-2.children',
+        'table-button-click-demo-recentlyButtonClickedRow-output.children',
+        'table-button-click-demo-nClicksButton-output.children',
+        'table-button-click-demo-clickedContent-output.children',
+        'table-row-select-demo-selectedRowKeys-output.children',
+        'table-row-select-demo-selectedRows-output.children'
     ]
 
     caches_path = './caches'

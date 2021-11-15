@@ -96,7 +96,7 @@ fac.AntdEmpty()'''
                 'padding': '10px 10px 20px 10px',
                 'border': '1px solid #f0f0f0'
             },
-            id='自定义描述文字',
+            id='基础使用',
             className='div-highlight'
         ),
 

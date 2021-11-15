@@ -1,10 +1,10 @@
 from dash import html
-from dash import dcc
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
 from dash.dependencies import Input, Output, State
 
 import time
+import json
 import dash
 import pandas as pd
 import numpy as np
@@ -53,14 +53,22 @@ docs_content = html.Div(
                         {'title': '限定maxHeight以固定表头', 'href': '#限定maxHeight以固定表头'},
                         {'title': '宽度溢出时固定左侧或右侧指定列', 'href': '#宽度溢出时固定左侧或右侧指定列'},
                         {'title': '指定部分列可编辑', 'href': '#指定部分列可编辑'},
-                        {'title': '几种不同的再渲染模式', 'href': '#几种不同的再渲染模式'},
+                        {'title': '超长内容省略模式', 'href': '#超长内容省略模式'},
+                        {'title': '超链接模式', 'href': '#超链接模式'},
+                        {'title': '迷你图模式', 'href': '#迷你图模式'},
+                        {'title': '标签模式', 'href': '#标签模式'},
+                        {'title': '按钮模式', 'href': '#按钮模式'},
                         {'title': '分页相关设置', 'href': '#分页相关设置'},
                         {'title': '常规单列排序', 'href': '#常规单列排序'},
                         {'title': '多列组合排序', 'href': '#多列组合排序'},
                         {'title': '使用字段筛选功能', 'href': '#使用字段筛选功能'},
+                        {'title': '为表头添加字段说明信息', 'href': '#为表头添加字段说明信息'},
+                        {'title': '添加行选择功能', 'href': '#添加行选择功能'},
                         {'title': '妥善使用popupContainerId参数', 'href': '#妥善使用popupContainerId参数'},
-                        {'title': '回调示例', 'href': '#回调示例'},
+                        {'title': '监听翻页、筛选及单元格内容编辑变动', 'href': '#监听翻页、筛选及单元格内容编辑变动'},
                         {'title': '服务端数据渲染模式示例', 'href': '#服务端数据渲染模式示例'},
+                        {'title': '监听按钮模式下的按钮点击事件', 'href': '#监听按钮模式下的按钮点击事件'},
+                        {'title': '监听行选择事件', 'href': '#监听行选择事件'},
                     ]
                 },
             ],
@@ -778,9 +786,86 @@ fac.AntdTable(
                         {
                             'title': 'ellipsis内容省略示例',
                             'dataIndex': 'ellipsis内容省略示例',
-                            'renderOptions': {'renderType': 'ellipsis'},
-                            'width': 200
-                        },
+                            'renderOptions': {'renderType': 'ellipsis'}
+                        }
+                    ],
+                    data=[
+                        {
+                            'key': i,
+                            'ellipsis内容省略示例': '这是一段废话，用来演示超长内容再渲染巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉'
+                        }
+                        for i in range(5)
+                    ],
+                    bordered=True,
+                    style={
+                        'width': '250px'
+                    }
+                ),
+
+                fac.AntdDivider(
+                    '超长内容省略模式',
+                    lineColor='#f0f0f0',
+                    innerTextOrientation='left'
+                ),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　设置'),
+                        fac.AntdText("'renderOptions': {'renderType': 'ellipsis'}", code=True),
+                        fac.AntdText('后，会开启'),
+                        fac.AntdText('超长内容省略模式', strong=True),
+                        fac.AntdText('，超出单元格默认宽度的文本内容会被省略截断，当鼠标悬浮在单元格上会出现记录完整内容的提示框')
+                    ]
+                ),
+
+                fac.AntdCollapse(
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdTable(
+    columns=[
+        {
+            'title': 'ellipsis内容省略示例',
+            'dataIndex': 'ellipsis内容省略示例',
+            'renderOptions': {'renderType': 'ellipsis'}
+        }
+    ],
+    data=[
+        {
+            'key': i,
+            'ellipsis内容省略示例': '这是一段废话，用来演示超长内容再渲染巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉'
+        }
+        for i in range(5)
+    ],
+    bordered=True,
+    style={
+        'width': '250px'
+    }
+)
+'''
+                    ),
+                    title='点击查看代码',
+                    is_open=False,
+                    ghost=True
+                )
+
+            ],
+            style={
+                'marginBottom': '40px',
+                'padding': '10px 10px 20px 10px',
+                'border': '1px solid #f0f0f0'
+            },
+            id='超长内容省略模式',
+            className='div-highlight'
+        ),
+
+        html.Div(
+            [
+                fac.AntdTable(
+                    columns=[
                         {
                             'title': '超链接示例',
                             'dataIndex': '超链接示例',
@@ -788,7 +873,82 @@ fac.AntdTable(
                                 'renderType': 'link',
                                 'renderLinkText': '点击跳转'
                             }
-                        },
+                        }
+                    ],
+                    data=[
+                        {
+                            'key': i,
+                            '超链接示例': {
+                                'href': 'https://github.com/CNFeffery/feffery-antd-components'
+                            }
+                        }
+                        for i in range(5)
+                    ],
+                    bordered=True,
+                    style={
+                        'width': '250px'
+                    }
+                ),
+
+                fac.AntdDivider(
+                    '超链接模式',
+                    lineColor='#f0f0f0',
+                    innerTextOrientation='left'
+                ),
+
+                fac.AntdCollapse(
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdTable(
+    columns=[
+        {
+            'title': '超链接示例',
+            'dataIndex': '超链接示例',
+            'renderOptions': {
+                'renderType': 'link',
+                'renderLinkText': '点击跳转'
+            }
+        }
+    ],
+    data=[
+        {
+            'key': i,
+            '超链接示例': {
+                'href': 'https://github.com/CNFeffery/feffery-antd-components'
+            }
+        }
+        for i in range(5)
+    ],
+    bordered=True,
+    style={
+        'width': '250px'
+    }
+)
+'''
+                    ),
+                    title='点击查看代码',
+                    is_open=False,
+                    ghost=True
+                )
+
+            ],
+            style={
+                'marginBottom': '40px',
+                'padding': '10px 10px 20px 10px',
+                'border': '1px solid #f0f0f0'
+            },
+            id='超链接模式',
+            className='div-highlight'
+        ),
+
+        html.Div(
+            [
+                fac.AntdTable(
+                    columns=[
                         {
                             'title': 'mini-line示例',
                             'dataIndex': 'mini-line示例',
@@ -817,32 +977,15 @@ fac.AntdTable(
                             'renderOptions': {
                                 'renderType': 'mini-area'
                             }
-                        },
-                        {
-                            'title': '标签模式示例',
-                            'dataIndex': '标签模式示例',
-                            'renderOptions': {
-                                'renderType': 'tags'
-                            }
                         }
                     ],
                     data=[
                         {
                             'key': i,
-                            'ellipsis内容省略示例': '这是一段废话，用来演示超长内容再渲染巴拉巴拉巴拉巴拉',
-                            '超链接示例': 'https://github.com/CNFeffery/feffery-antd-components',
                             'mini-line示例': np.random.randint(1, 20, 10),
                             'mini-bar示例': np.random.randint(1, 20, 10),
                             'mini-progress示例': np.random.rand(),
-                            'mini-area示例': np.random.randint(1, 20, 10),
-                            '标签模式示例': [
-                                {
-                                    'tag': f'标签{i}示例1'
-                                },
-                                {
-                                    'tag': f'标签{i}示例2', 'color': f'rgba(77, 182, 172, {0.5 + i * 0.1})'
-                                }
-                            ],
+                            'mini-area示例': np.random.randint(1, 20, 10)
                         }
                         for i in range(5)
                     ],
@@ -850,7 +993,7 @@ fac.AntdTable(
                 ),
 
                 fac.AntdDivider(
-                    '几种不同的再渲染模式',
+                    '迷你图模式',
                     lineColor='#f0f0f0',
                     innerTextOrientation='left'
                 ),
@@ -864,20 +1007,6 @@ fac.AntdTable(
                         codeString='''
 fac.AntdTable(
     columns=[
-        {
-            'title': 'ellipsis内容省略示例',
-            'dataIndex': 'ellipsis内容省略示例',
-            'renderOptions': {'renderType': 'ellipsis'},
-            'width': 200
-        },
-        {
-            'title': '超链接示例',
-            'dataIndex': '超链接示例',
-            'renderOptions': {
-                'renderType': 'link',
-                'renderLinkText': '点击跳转'
-            }
-        },
         {
             'title': 'mini-line示例',
             'dataIndex': 'mini-line示例',
@@ -906,37 +1035,21 @@ fac.AntdTable(
             'renderOptions': {
                 'renderType': 'mini-area'
             }
-        },
-        {
-            'title': '标签模式示例',
-            'dataIndex': '标签模式示例',
-            'renderOptions': {
-                'renderType': 'tags'
-            }
         }
     ],
     data=[
         {
             'key': i,
-            'ellipsis内容省略示例': '这是一段废话，用来演示超长内容再渲染巴拉巴拉巴拉巴拉',
-            '超链接示例': 'https://github.com/CNFeffery/feffery-antd-components',
             'mini-line示例': np.random.randint(1, 20, 10),
             'mini-bar示例': np.random.randint(1, 20, 10),
             'mini-progress示例': np.random.rand(),
-            'mini-area示例': np.random.randint(1, 20, 10),
-            '标签模式示例': [
-                {
-                    'tag': f'标签{i}示例1'
-                },
-                {
-                    'tag': f'标签{i}示例2', 'color': f'rgba(77, 182, 172, {0.5 + i * 0.1})'
-                }
-            ],
+            'mini-area示例': np.random.randint(1, 20, 10)
         }
         for i in range(5)
     ],
     bordered=True
-)'''
+)
+'''
                     ),
                     title='点击查看代码',
                     is_open=False,
@@ -949,7 +1062,241 @@ fac.AntdTable(
                 'padding': '10px 10px 20px 10px',
                 'border': '1px solid #f0f0f0'
             },
-            id='几种不同的再渲染模式',
+            id='迷你图模式',
+            className='div-highlight'
+        ),
+
+        html.Div(
+            [
+                fac.AntdTable(
+                    columns=[
+                        {
+                            'title': '标签模式示例',
+                            'dataIndex': '标签模式示例',
+                            'renderOptions': {
+                                'renderType': 'tags'
+                            }
+                        }
+                    ],
+                    data=[
+                        {
+                            'key': i,
+                            '标签模式示例': [
+                                {
+                                    'tag': f'标签{i}示例1'
+                                },
+                                {
+                                    'tag': f'标签{i}示例2', 'color': f'rgba(77, 182, 172, {0.5 + i * 0.1})'
+                                }
+                            ],
+                        }
+                        for i in range(5)
+                    ],
+                    bordered=True,
+                    style={
+                        'width': '300px'
+                    }
+                ),
+
+                fac.AntdDivider(
+                    '标签模式',
+                    lineColor='#f0f0f0',
+                    innerTextOrientation='left'
+                ),
+
+                fac.AntdCollapse(
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdTable(
+    columns=[
+        {
+            'title': '标签模式示例',
+            'dataIndex': '标签模式示例',
+            'renderOptions': {
+                'renderType': 'tags'
+            }
+        }
+    ],
+    data=[
+        {
+            'key': i,
+            '标签模式示例': [
+                {
+                    'tag': f'标签{i}示例1'
+                },
+                {
+                    'tag': f'标签{i}示例2', 'color': f'rgba(77, 182, 172, {0.5 + i * 0.1})'
+                }
+            ],
+        }
+        for i in range(5)
+    ],
+    bordered=True,
+    style={
+        'width': '300px'
+    }
+)
+'''
+                    ),
+                    title='点击查看代码',
+                    is_open=False,
+                    ghost=True
+                )
+
+            ],
+            style={
+                'marginBottom': '40px',
+                'padding': '10px 10px 20px 10px',
+                'border': '1px solid #f0f0f0'
+            },
+            id='标签模式',
+            className='div-highlight'
+        ),
+
+        html.Div(
+            [
+                fac.AntdTable(
+                    columns=[
+                        {
+                            'title': '单按钮示例',
+                            'dataIndex': '单按钮示例',
+                            'renderOptions': {'renderType': 'button'},
+                            'width': '25%'
+                        },
+                        {
+                            'title': '多按钮示例',
+                            'dataIndex': '多按钮示例',
+                            'renderOptions': {'renderType': 'button'},
+                            'width': '50%'
+                        },
+                        {
+                            'title': '气泡确认按钮示例',
+                            'dataIndex': '气泡确认按钮示例',
+                            'renderOptions': {
+                                'renderType': 'button',
+                                'renderButtonPopConfirmProps': {
+                                    'title': '确认操作',
+                                    'okText': '继续',
+                                    'cancelText': '再想想'
+                                }
+                            },
+                            'width': '25%'
+                        }
+                    ],
+                    data=[
+                        {
+                            'key': i,
+                            '单按钮示例': {
+                                'content': '按钮示例',
+                                'type': 'primary'
+                            },
+                            '多按钮示例': [
+                                {
+                                    'content': '按钮示例1',
+                                    'type': 'primary'
+                                },
+                                {
+                                    'content': '按钮示例2',
+                                    'danger': True
+                                }
+                            ],
+                            '气泡确认按钮示例': {
+                                'content': '气泡确认按钮示例',
+                                'type': 'primary'
+                            }
+                        }
+                        for i in range(5)
+                    ],
+                    bordered=True,
+                    popupContainerId='docs-content'
+                ),
+
+                fac.AntdDivider(
+                    '按钮模式',
+                    lineColor='#f0f0f0',
+                    innerTextOrientation='left'
+                ),
+
+                fac.AntdCollapse(
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdTable(
+    columns=[
+        {
+            'title': '单按钮示例',
+            'dataIndex': '单按钮示例',
+            'renderOptions': {'renderType': 'button'},
+            'width': '25%'
+        },
+        {
+            'title': '多按钮示例',
+            'dataIndex': '多按钮示例',
+            'renderOptions': {'renderType': 'button'},
+            'width': '50%'
+        },
+        {
+            'title': '气泡确认按钮示例',
+            'dataIndex': '气泡确认按钮示例',
+            'renderOptions': {
+                'renderType': 'button',
+                'renderButtonPopConfirmProps': {
+                    'title': '确认操作',
+                    'okText': '继续',
+                    'cancelText': '再想想'
+                }
+            },
+            'width': '25%'
+        }
+    ],
+    data=[
+        {
+            'key': i,
+            '单按钮示例': {
+                'content': '按钮示例',
+                'type': 'primary'
+            },
+            '多按钮示例': [
+                {
+                    'content': '按钮示例1',
+                    'type': 'primary'
+                },
+                {
+                    'content': '按钮示例2',
+                    'danger': True
+                }
+            ],
+            '气泡确认按钮示例': {
+                'content': '气泡确认按钮示例',
+                'type': 'primary'
+            }
+        }
+        for i in range(5)
+    ],
+    bordered=True,
+    popupContainerId='docs-content'
+)
+'''
+                    ),
+                    title='点击查看代码',
+                    is_open=False,
+                    ghost=True
+                )
+
+            ],
+            style={
+                'marginBottom': '40px',
+                'padding': '10px 10px 20px 10px',
+                'border': '1px solid #f0f0f0'
+            },
+            id='按钮模式',
             className='div-highlight'
         ),
 
@@ -1315,6 +1662,246 @@ fac.AntdTable(
 
         html.Div(
             [
+                fac.AntdTable(
+                    columns=[
+                        {
+                            'title': '字段示例1',
+                            'dataIndex': '字段示例1'
+                        },
+                        {
+                            'title': '字段示例2',
+                            'dataIndex': '字段示例2'
+                        },
+                        {
+                            'title': '字段示例3',
+                            'dataIndex': '字段示例3'
+                        }
+                    ],
+                    data=[
+                        {
+                            '字段示例1': i,
+                            '字段示例2': i,
+                            '字段示例3': i
+                        }
+                        for i in range(5)
+                    ],
+                    titlePopoverInfo={
+                        '字段示例1': {
+                            'title': '字段说明',
+                            'content': '这是字段示例1的字段说明'
+                        },
+                        '字段示例3': {
+                            'title': '字段说明',
+                            'content': '这是字段示例3的字段说明'
+                        }
+                    }
+                ),
+
+                fac.AntdDivider(
+                    '为表头添加字段说明信息',
+                    lineColor='#f0f0f0',
+                    innerTextOrientation='left'
+                ),
+
+                fac.AntdCollapse(
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdTable(
+    columns=[
+        {
+            'title': '字段示例1',
+            'dataIndex': '字段示例1'
+        },
+        {
+            'title': '字段示例2',
+            'dataIndex': '字段示例2'
+        },
+        {
+            'title': '字段示例3',
+            'dataIndex': '字段示例3'
+        }
+    ],
+    data=[
+        {
+            '字段示例1': i,
+            '字段示例2': i,
+            '字段示例3': i
+        }
+        for i in range(5)
+    ],
+    titlePopoverInfo={
+        '字段示例1': {
+            'title': '字段说明',
+            'content': '这是字段示例1的字段说明'
+        },
+        '字段示例3': {
+            'title': '字段说明',
+            'content': '这是字段示例3的字段说明'
+        }
+    }
+)
+'''
+                    ),
+                    title='点击查看代码',
+                    is_open=False,
+                    ghost=True
+                )
+
+            ],
+            style={
+                'marginBottom': '40px',
+                'padding': '10px 10px 20px 10px',
+                'border': '1px solid #f0f0f0'
+            },
+            id='为表头添加字段说明信息',
+            className='div-highlight'
+        ),
+
+        html.Div(
+            [
+                fac.AntdDivider("rowSelectionType='checkbox'", innerTextOrientation='left'),
+                fac.AntdTable(
+                    columns=[
+                        {
+                            'title': '字段示例1',
+                            'dataIndex': '字段示例1'
+                        },
+                        {
+                            'title': '字段示例2',
+                            'dataIndex': '字段示例2'
+                        },
+                        {
+                            'title': '字段示例3',
+                            'dataIndex': '字段示例3'
+                        }
+                    ],
+                    data=[
+                        {
+                            '字段示例1': i,
+                            '字段示例2': i,
+                            '字段示例3': i
+                        }
+                        for i in range(5)
+                    ],
+                    rowSelectionType='checkbox'
+                ),
+
+                fac.AntdDivider("rowSelectionType='radio'", innerTextOrientation='left'),
+                fac.AntdTable(
+                    columns=[
+                        {
+                            'title': '字段示例1',
+                            'dataIndex': '字段示例1'
+                        },
+                        {
+                            'title': '字段示例2',
+                            'dataIndex': '字段示例2'
+                        },
+                        {
+                            'title': '字段示例3',
+                            'dataIndex': '字段示例3'
+                        }
+                    ],
+                    data=[
+                        {
+                            '字段示例1': i,
+                            '字段示例2': i,
+                            '字段示例3': i
+                        }
+                        for i in range(5)
+                    ],
+                    rowSelectionType='radio'
+                ),
+
+                fac.AntdDivider(
+                    '添加行选择功能',
+                    lineColor='#f0f0f0',
+                    innerTextOrientation='left'
+                ),
+
+                fac.AntdCollapse(
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdDivider("rowSelectionType='checkbox'", innerTextOrientation='left'),
+fac.AntdTable(
+    columns=[
+        {
+            'title': '字段示例1',
+            'dataIndex': '字段示例1'
+        },
+        {
+            'title': '字段示例2',
+            'dataIndex': '字段示例2'
+        },
+        {
+            'title': '字段示例3',
+            'dataIndex': '字段示例3'
+        }
+    ],
+    data=[
+        {
+            '字段示例1': i,
+            '字段示例2': i,
+            '字段示例3': i
+        }
+        for i in range(5)
+    ],
+    rowSelectionType='checkbox'
+),
+
+fac.AntdDivider("rowSelectionType='radio'", innerTextOrientation='left'),
+fac.AntdTable(
+    columns=[
+        {
+            'title': '字段示例1',
+            'dataIndex': '字段示例1'
+        },
+        {
+            'title': '字段示例2',
+            'dataIndex': '字段示例2'
+        },
+        {
+            'title': '字段示例3',
+            'dataIndex': '字段示例3'
+        }
+    ],
+    data=[
+        {
+            '字段示例1': i,
+            '字段示例2': i,
+            '字段示例3': i
+        }
+        for i in range(5)
+    ],
+    rowSelectionType='radio'
+)
+'''
+                    ),
+                    title='点击查看代码',
+                    is_open=False,
+                    ghost=True
+                )
+
+            ],
+            style={
+                'marginBottom': '40px',
+                'padding': '10px 10px 20px 10px',
+                'border': '1px solid #f0f0f0'
+            },
+            id='添加行选择功能',
+            className='div-highlight'
+        ),
+
+        html.Div(
+            [
                 fac.AntdTitle('左例（未设置） 右例（设置popupContainerId参数）', level=5),
                 html.Div(
                     [
@@ -1598,7 +2185,7 @@ html.Div(
                 ),
 
                 fac.AntdDivider(
-                    '回调示例',
+                    '监听翻页、筛选及单元格内容编辑变动',
                     lineColor='#f0f0f0',
                     innerTextOrientation='left'
                 ),
@@ -1707,7 +2294,7 @@ def table_callback_demo(currentData,
                 'padding': '10px 10px 20px 10px',
                 'border': '1px solid #f0f0f0'
             },
-            id='回调示例',
+            id='监听翻页、筛选及单元格内容编辑变动',
             className='div-highlight'
         ),
 
@@ -1955,6 +2542,404 @@ def table_server_side_callback_demo(pagination,
             className='div-highlight'
         ),
 
+        html.Div(
+            [
+
+                fac.AntdSpin(
+                    [
+                        fac.AntdTable(
+                            id='table-button-click-demo',
+                            columns=[
+                                {
+                                    'title': '单按钮示例',
+                                    'dataIndex': '单按钮示例',
+                                    'renderOptions': {'renderType': 'button'},
+                                    'width': '25%'
+                                },
+                                {
+                                    'title': '多按钮示例',
+                                    'dataIndex': '多按钮示例',
+                                    'renderOptions': {'renderType': 'button'},
+                                    'width': '50%'
+                                },
+                                {
+                                    'title': '气泡确认按钮示例',
+                                    'dataIndex': '气泡确认按钮示例',
+                                    'renderOptions': {
+                                        'renderType': 'button',
+                                        'renderButtonPopConfirmProps': {
+                                            'title': '确认操作',
+                                            'okText': '继续',
+                                            'cancelText': '再想想'
+                                        }
+                                    },
+                                    'width': '25%'
+                                }
+                            ],
+                            data=[
+                                {
+                                    'key': i,
+                                    '单按钮示例': {
+                                        'content': '按钮示例',
+                                        'type': 'primary'
+                                    },
+                                    '多按钮示例': [
+                                        {
+                                            'content': '按钮示例1',
+                                            'type': 'primary'
+                                        },
+                                        {
+                                            'content': '按钮示例2',
+                                            'danger': True
+                                        }
+                                    ],
+                                    '气泡确认按钮示例': {
+                                        'content': '气泡确认按钮示例',
+                                        'type': 'primary'
+                                    }
+                                }
+                                for i in range(5)
+                            ],
+                            bordered=True,
+                            popupContainerId='docs-content'
+                        ),
+
+                        fac.AntdSpace(
+                            [
+                                html.Div(
+                                    [
+                                        fac.AntdText('recentlyButtonClickedRow：', strong=True),
+                                        fac.AntdText(id='table-button-click-demo-recentlyButtonClickedRow-output')
+                                    ]
+                                ),
+                                html.Div(
+                                    [
+                                        fac.AntdText('nClicksButton：', strong=True),
+                                        html.Pre(
+                                            id='table-button-click-demo-nClicksButton-output',
+                                            style={
+                                                'backgroundColor': 'rgb(250, 250, 250)'
+                                            }
+                                        )
+                                    ]
+                                ),
+                                html.Div(
+                                    [
+                                        fac.AntdText('clickedContent：', strong=True),
+                                        fac.AntdText(id='table-button-click-demo-clickedContent-output')
+                                    ]
+                                )
+                            ],
+                            direction='vertical',
+                            style={
+                                'width': '100%'
+                            }
+                        )
+                    ],
+                    text='回调中'
+                ),
+
+                fac.AntdDivider(
+                    '监听按钮模式下的按钮点击事件',
+                    lineColor='#f0f0f0',
+                    innerTextOrientation='left'
+                ),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　nClicksButton', strong=True),
+                        fac.AntdText('适合作为监听表格按钮点击事件的'),
+                        fac.AntdText('Input()触发器', strong=True)
+                    ]
+                ),
+
+                fac.AntdCollapse(
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdSpin(
+    [
+        fac.AntdTable(
+            id='table-button-click-demo',
+            columns=[
+                {
+                    'title': '单按钮示例',
+                    'dataIndex': '单按钮示例',
+                    'renderOptions': {'renderType': 'button'},
+                    'width': '25%'
+                },
+                {
+                    'title': '多按钮示例',
+                    'dataIndex': '多按钮示例',
+                    'renderOptions': {'renderType': 'button'},
+                    'width': '50%'
+                },
+                {
+                    'title': '气泡确认按钮示例',
+                    'dataIndex': '气泡确认按钮示例',
+                    'renderOptions': {
+                        'renderType': 'button',
+                        'renderButtonPopConfirmProps': {
+                            'title': '确认操作',
+                            'okText': '继续',
+                            'cancelText': '再想想'
+                        }
+                    },
+                    'width': '25%'
+                }
+            ],
+            data=[
+                {
+                    'key': i,
+                    '单按钮示例': {
+                        'content': '按钮示例',
+                        'type': 'primary'
+                    },
+                    '多按钮示例': [
+                        {
+                            'content': '按钮示例1',
+                            'type': 'primary'
+                        },
+                        {
+                            'content': '按钮示例2',
+                            'danger': True
+                        }
+                    ],
+                    '气泡确认按钮示例': {
+                        'content': '气泡确认按钮示例',
+                        'type': 'primary'
+                    }
+                }
+                for i in range(5)
+            ],
+            bordered=True,
+            popupContainerId='docs-content'
+        ),
+
+        fac.AntdSpace(
+            [
+                html.Div(
+                    [
+                        fac.AntdText('recentlyButtonClickedRow：', strong=True),
+                        fac.AntdText(id='table-button-click-demo-recentlyButtonClickedRow-output')
+                    ]
+                ),
+                html.Div(
+                    [
+                        fac.AntdText('nClicksButton：', strong=True),
+                        html.Pre(
+                            id='table-button-click-demo-nClicksButton-output',
+                            style={
+                                'backgroundColor': 'rgb(250, 250, 250)'
+                            }
+                        )
+                    ]
+                ),
+                html.Div(
+                    [
+                        fac.AntdText('clickedContent：', strong=True),
+                        fac.AntdText(id='table-button-click-demo-clickedContent-output')
+                    ]
+                )
+            ],
+            direction='vertical',
+            style={
+                'width': '100%'
+            }
+        )
+    ],
+    text='回调中'
+)
+...
+@app.callback(
+    [Output('table-button-click-demo-recentlyButtonClickedRow-output', 'children'),
+     Output('table-button-click-demo-nClicksButton-output', 'children'),
+     Output('table-button-click-demo-clickedContent-output', 'children')],
+    Input('table-button-click-demo', 'nClicksButton'),
+    [State('table-button-click-demo', 'recentlyButtonClickedRow'),
+     State('table-button-click-demo', 'clickedContent')],
+    prevent_initial_call=True
+)
+def table_button_click_demo_callback(nClicksButton, recentlyButtonClickedRow, clickedContent):
+    return str(nClicksButton), json.dumps(recentlyButtonClickedRow, ensure_ascii=False, indent=4), str(clickedContent)
+'''
+                    ),
+                    title='点击查看代码',
+                    is_open=False,
+                    ghost=True
+                )
+
+            ],
+            style={
+                'marginBottom': '40px',
+                'padding': '10px 10px 20px 10px',
+                'border': '1px solid #f0f0f0'
+            },
+            id='监听按钮模式下的按钮点击事件',
+            className='div-highlight'
+        ),
+
+        html.Div(
+            [
+
+                fac.AntdSpin(
+                    [
+                        fac.AntdTable(
+                            id='table-row-select-demo',
+                            columns=[
+                                {
+                                    'title': '字段示例1',
+                                    'dataIndex': '字段示例1'
+                                },
+                                {
+                                    'title': '字段示例2',
+                                    'dataIndex': '字段示例2'
+                                },
+                                {
+                                    'title': '字段示例3',
+                                    'dataIndex': '字段示例3'
+                                }
+                            ],
+                            data=[
+                                {
+                                    '字段示例1': i,
+                                    '字段示例2': i,
+                                    '字段示例3': i
+                                }
+                                for i in range(5)
+                            ],
+                            rowSelectionType='checkbox'
+                        ),
+
+                        fac.AntdSpace(
+                            [
+                                html.Div(
+                                    [
+                                        fac.AntdText('selectedRowKeys：', strong=True),
+                                        fac.AntdText(id='table-row-select-demo-selectedRowKeys-output')
+                                    ]
+                                ),
+                                html.Div(
+                                    [
+                                        fac.AntdText('selectedRows：', strong=True),
+                                        html.Pre(
+                                            id='table-row-select-demo-selectedRows-output',
+                                            style={
+                                                'backgroundColor': 'rgb(250, 250, 250)'
+                                            }
+                                        )
+                                    ]
+                                )
+                            ],
+                            direction='vertical',
+                            style={
+                                'width': '100%'
+                            }
+                        )
+                    ],
+                    text='回调中'
+                ),
+
+                fac.AntdDivider(
+                    '监听行选择事件',
+                    lineColor='#f0f0f0',
+                    innerTextOrientation='left'
+                ),
+
+                fac.AntdCollapse(
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdSpin(
+    [
+        fac.AntdTable(
+            id='table-row-select-demo',
+            columns=[
+                {
+                    'title': '字段示例1',
+                    'dataIndex': '字段示例1'
+                },
+                {
+                    'title': '字段示例2',
+                    'dataIndex': '字段示例2'
+                },
+                {
+                    'title': '字段示例3',
+                    'dataIndex': '字段示例3'
+                }
+            ],
+            data=[
+                {
+                    '字段示例1': i,
+                    '字段示例2': i,
+                    '字段示例3': i
+                }
+                for i in range(5)
+            ],
+            rowSelectionType='checkbox'
+        ),
+
+        fac.AntdSpace(
+            [
+                html.Div(
+                    [
+                        fac.AntdText('selectedRowKeys：', strong=True),
+                        fac.AntdText(id='table-row-select-demo-selectedRowKeys-output')
+                    ]
+                ),
+                html.Div(
+                    [
+                        fac.AntdText('selectedRows：', strong=True),
+                        html.Pre(
+                            id='table-row-select-demo-selectedRows-output',
+                            style={
+                                'backgroundColor': 'rgb(250, 250, 250)'
+                            }
+                        )
+                    ]
+                )
+            ],
+            direction='vertical',
+            style={
+                'width': '100%'
+            }
+        )
+    ],
+    text='回调中'
+)
+...
+@app.callback(
+    [Output('table-row-select-demo-selectedRowKeys-output', 'children'),
+     Output('table-row-select-demo-selectedRows-output', 'children')],
+    [Input('table-row-select-demo', 'selectedRowKeys'),
+     Input('table-row-select-demo', 'selectedRows')],
+    prevent_initial_call=True
+)
+def table_row_select_demo_callback(selectedRowKeys, selectedRows):
+    return str(selectedRowKeys), json.dumps(selectedRows, ensure_ascii=False, indent=4)
+'''
+                    ),
+                    title='点击查看代码',
+                    is_open=False,
+                    ghost=True
+                )
+
+            ],
+            style={
+                'marginBottom': '40px',
+                'padding': '10px 10px 20px 10px',
+                'border': '1px solid #f0f0f0'
+            },
+            id='监听行选择事件',
+            className='div-highlight'
+        ),
+
         html.Div(style={'height': '100px'})
     ]
 )
@@ -2061,3 +3046,29 @@ def table_server_side_callback_demo(pagination,
         )
 
     return dash.no_update
+
+
+@app.callback(
+    [Output('table-button-click-demo-recentlyButtonClickedRow-output', 'children'),
+     Output('table-button-click-demo-nClicksButton-output', 'children'),
+     Output('table-button-click-demo-clickedContent-output', 'children')],
+    Input('table-button-click-demo', 'nClicksButton'),
+    [State('table-button-click-demo', 'recentlyButtonClickedRow'),
+     State('table-button-click-demo', 'clickedContent')],
+    prevent_initial_call=True
+)
+def table_button_click_demo_callback(nClicksButton, recentlyButtonClickedRow, clickedContent):
+    time.sleep(0.5)
+    return str(nClicksButton), json.dumps(recentlyButtonClickedRow, ensure_ascii=False, indent=4), str(clickedContent)
+
+
+@app.callback(
+    [Output('table-row-select-demo-selectedRowKeys-output', 'children'),
+     Output('table-row-select-demo-selectedRows-output', 'children')],
+    [Input('table-row-select-demo', 'selectedRowKeys'),
+     Input('table-row-select-demo', 'selectedRows')],
+    prevent_initial_call=True
+)
+def table_row_select_demo_callback(selectedRowKeys, selectedRows):
+    time.sleep(0.5)
+    return str(selectedRowKeys), json.dumps(selectedRows, ensure_ascii=False, indent=4)

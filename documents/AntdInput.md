@@ -12,15 +12,15 @@
 
 **addonBefore：** *string*型
 
-　　仅在**mode='default'**情况下可用，用于为常规输入框设置*前缀文字说明*
+　　仅在`mode='default'`情况下可用，用于为常规输入框设置*前缀文字说明*
 
 **addonAfter：** *string*型
 
-　　仅在**mode='default'**情况下可用，用于为常规输入框设置*后缀文字说明*
+　　仅在`mode='default'`情况下可用，用于为常规输入框设置*后缀文字说明*
 
 **allowClear：** *string*型，默认为`False`
 
-　　在**mode='default'**、**mode='search'**及**mode='text-area'**情况下可用，用于设置是否在输入框内渲染*内容快速清空图标*
+　　在`mode='default'`、`mode='search'`及`mode='text-area'`情况下可用，用于设置是否在输入框内渲染*内容快速清空图标*
 
 **bordered：** *string*型，默认为`True`
 
@@ -28,7 +28,7 @@
 
 **defaultValue：** *string*型
 
-　　在**mode='default'**、**mode='search'**及**mode='text-area'**情况下可用，用于为输入框设置初始化时*预填充的文字内容*
+　　在`mode='default'`、`mode='search'`及`mode='text-area'`情况下可用，用于为输入框设置初始化时*预填充的文字内容*
 
 **disabled：** *string*型，默认为`False`
 
@@ -40,7 +40,7 @@
 
 **showCount：** *string*型，默认为`False`
 
-　　仅在**mode='text-area'**情况下可用，用于设置是否显示*当前已输入字符数量*提示
+　　仅在`mode='text-area'`情况下可用，用于设置是否显示*当前已输入字符数量*提示
 
 **value：** *string*型
 
@@ -52,7 +52,7 @@
 
 **nClicksSearch：** *int*型
 
-　　仅在**mode='search'**情况下可用，用于记录*搜索按钮被点击次数*
+　　仅在`mode='search'`情况下可用，用于记录*搜索按钮被点击次数*
 
 
 
