@@ -139,12 +139,15 @@ html.Div(
                 ),
 
                 fac.AntdCollapse(
-                    dcc.Markdown('''
-                                ```Python
-                                fac.AntdButton(href='https://github.com/CNFeffery/feffery-antd-components',
-                                               target='_blank')
-                                ```
-                                '''),
+                    fuc.FefferySyntaxHighlighter(
+                        showLineNumbers=True,
+                        showInlineLineNumbers=True,
+                        language='python',
+                        codeStyle='coy-without-shadows',
+                        codeString='''
+fac.AntdButton(href='https://github.com/CNFeffery/feffery-antd-components',
+   target='_blank')'''
+                    ),
                     title='点击查看代码',
                     is_open=False,
                     ghost=True
