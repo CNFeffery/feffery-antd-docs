@@ -146,7 +146,7 @@ html.Div(
                         codeStyle='coy-without-shadows',
                         codeString='''
 fac.AntdButton(href='https://github.com/CNFeffery/feffery-antd-components',
-   target='_blank')'''
+               target='_blank')'''
                     ),
                     title='点击查看代码',
                     is_open=False,
