@@ -16,4 +16,4 @@
 
 **closable：** *bool*型，默认为`True`
 
-　　设置在外层对应的`AntdTabs`设置参数**type='editable-card'**时，是否为当前标签页面板渲染*关闭按钮*
+　　设置在外层对应的`AntdTabs`设置参数`type='editable-card'`时，是否为当前标签页面板渲染*关闭按钮*

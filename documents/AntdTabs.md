@@ -24,4 +24,4 @@
 
 **latestDeletePane：** *string*型
 
-　　配合**type='editable-card'**情况使用，用于记录最近一次*被点击的关闭按钮*对应的**AntdTabPane**组件*key值*
+　　配合`type='editable-card'`情况使用，用于记录最近一次*被点击的关闭按钮*对应的**AntdTabPane**组件*key值*
