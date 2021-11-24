@@ -159,7 +159,6 @@ app.layout = fac.AntdSpin(
                         [
                             fac.AntdSider(
                                 [
-
                                     fac.AntdMenu(
                                         id='router-menu',
                                         menuItems=[
@@ -699,7 +698,7 @@ app.layout = fac.AntdSpin(
                                 id='docs-content',
                                 style={
                                     'overflowY': 'auto',
-                                    'padding': '50px 100px 50px 100px',
+                                    'padding': '25px 0 25px 25px',
                                     'backgroundColor': 'rgb(255, 255, 255)',
                                     'position': 'relative'
                                 }
