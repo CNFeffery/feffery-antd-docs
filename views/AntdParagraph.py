@@ -250,5 +250,8 @@ html.Div(
                 'margin': '20px'
             }
         )
-    ]
+    ],
+    style={
+        'display': 'flex'
+    }
 )

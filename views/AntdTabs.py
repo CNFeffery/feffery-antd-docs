@@ -766,7 +766,8 @@ def tabs_callback_demo(nClicks, latestDeletePane, children):
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'width': 'calc(100vw - 625px)'
             }
         ),
         html.Div(
