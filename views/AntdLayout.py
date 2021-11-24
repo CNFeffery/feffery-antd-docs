@@ -928,7 +928,7 @@ def sider_custom_trigger_demo(nClicks, collapsed):
         )
     ],
     style={
-        'display': '20px'
+        'display': 'flex'
     }
 )
 
