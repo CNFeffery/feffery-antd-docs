@@ -20,3 +20,7 @@ div {
 #sider-demo .ant-layout-sider-trigger {
     position: absolute !important;
 }
+
+.ant-back-top {
+    z-index: 999;
+}

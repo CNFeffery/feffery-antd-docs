@@ -487,6 +487,54 @@ fac.AntdSelect(
 
                 html.Div(
                     [
+                        fac.AntdSelect(
+                            placeholder='请选择项目：',
+                            options=[],
+                            style={
+                                # 使用css样式固定宽度
+                                'width': '350px'
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '自主控制显示空状态',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+fac.AntdSelect(
+    placeholder='请选择项目：',
+    options=[],
+    style={
+        # 使用css样式固定宽度
+        'width': '350px'
+    }
+)'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='自主控制显示空状态',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
                         fac.AntdSpin(
                             html.Pre('[]', id='select-demo-output'),
                             text='回调中'
@@ -583,6 +631,7 @@ def button_callback_demo(value):
                             {'title': '设置默认选中值', 'href': '#设置默认选中值'},
                             {'title': '修改下拉选择最大高度', 'href': '#修改下拉选择最大高度'},
                             {'title': '设置输入框已选择选项最大显示数量', 'href': '#设置输入框已选择选项最大显示数量'},
+                            {'title': '自主控制显示空状态', 'href': '#自主控制显示空状态'},
                             {'title': '回调示例', 'href': '#回调示例'}
                         ]
                     },
