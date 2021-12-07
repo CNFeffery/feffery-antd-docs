@@ -497,7 +497,7 @@ fac.AntdSelect(
                         ),
 
                         fac.AntdDivider(
-                            '自主控制显示空状态',
+                            '自主控制显示空状态示例',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
@@ -529,7 +529,7 @@ fac.AntdSelect(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='自主控制显示空状态',
+                    id='自主控制显示空状态示例',
                     className='div-highlight'
                 ),
 
@@ -631,7 +631,7 @@ def button_callback_demo(value):
                             {'title': '设置默认选中值', 'href': '#设置默认选中值'},
                             {'title': '修改下拉选择最大高度', 'href': '#修改下拉选择最大高度'},
                             {'title': '设置输入框已选择选项最大显示数量', 'href': '#设置输入框已选择选项最大显示数量'},
-                            {'title': '自主控制显示空状态', 'href': '#自主控制显示空状态'},
+                            {'title': '自主控制显示空状态示例', 'href': '#自主控制显示空状态示例'},
                             {'title': '回调示例', 'href': '#回调示例'}
                         ]
                     },
