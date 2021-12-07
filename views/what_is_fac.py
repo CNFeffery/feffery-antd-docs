@@ -210,7 +210,7 @@ docs_content = html.Div(
                         }
                     ),
                     title='显示赞助二维码',
-                    is_open=False,
+                    is_open=True,
                     ghost=True
                 ),
 
