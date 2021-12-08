@@ -29,16 +29,16 @@ docs_content = html.Div(
                         fac.AntdText('（简称'),
                         fac.AntdText('fac', strong=True),
                         fac.AntdText('），基于著名的React UI组件库'),
-                        fac.AntdText('antd', strong=True),
+                        fac.AntdText('ant design', strong=True),
                         fac.AntdText('进行二次开发，将'),
-                        fac.AntdText('antd', strong=True),
+                        fac.AntdText('ant design', strong=True),
                         fac.AntdText('中的诸多实用组件及特性引入'),
                         fac.AntdText('Dash', italic=True),
-                        fac.AntdText('，开发者使用'),
+                        fac.AntdText('，帮助开发者使用'),
                         fac.AntdText('极低', strong=True),
                         fac.AntdText('的纯'),
                         fac.AntdText('Python', strong=True),
-                        fac.AntdText('代码量，即可快速开发出现代化的web应用，将你有关web应用的创意想法✨高效地实现。'),
+                        fac.AntdText('代码量，即可快速开发出现代化的交互式web应用，将你有关web应用的美好憧憬✨高效地实现。'),
                     ]
                 ),
 
@@ -177,8 +177,8 @@ docs_content = html.Div(
                     [
                         fac.AntdText('　　fac', strong=True),
                         fac.AntdText(
-                            '是我为了方便日常工作需要而在业余时间渐渐开发出的开源项目，'
-                            '它给予了我很多工作上的便捷，帮助我完成了很多以前难以实现的想法，'
+                            '是我为了方便日常工作需要，逐渐积累优化从而开发并开源出的一个完整的框架，'
+                            '它给予了我很多工作上的便捷，帮助我完成了很多以前无法实现，或实现起来较麻烦的功能和想法，'
                             '希望也可以帮助到你。'
                         )
                     ]
@@ -192,7 +192,7 @@ docs_content = html.Div(
                             'web应用，如果你有意愿为我分担有关服务器等开销，亦或是赞助鼓励我对于'
                         ),
                         fac.AntdText('fac', strong=True),
-                        fac.AntdText('过去已做出以及未来将要做出的贡献，可以点击下方“显示赞助二维码”随意赞助，感谢支持。')
+                        fac.AntdText('过去已做出以及未来将要做出的贡献，可以微信扫一扫下方“赞助二维码”随意赞助，感谢支持。')
                     ]
                 ),
 
@@ -209,7 +209,7 @@ docs_content = html.Div(
                             'justifyContent': 'center'
                         }
                     ),
-                    title='显示赞助二维码',
+                    title='赞助二维码',
                     is_open=True,
                     ghost=True
                 ),

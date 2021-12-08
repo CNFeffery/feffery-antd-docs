@@ -121,7 +121,14 @@ if __name__ == '__main__':
 
 docs_content = html.Div(
     [
-        fac.AntdTitle('😋用fac开发一个简单的Dash应用', level=2),
+        fac.AntdParagraph(
+            [
+                fac.AntdText('用fac开发一个简单的Dash应用',
+                             strong=True,
+                             style={'fontSize': '30px'}),
+                fac.AntdText('😋', style={'fontSize': '30px'})
+            ]
+        ),
 
         fac.AntdParagraph(
             [
