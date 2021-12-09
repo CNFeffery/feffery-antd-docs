@@ -5,24 +5,44 @@ from flask_cors import CORS
 
 from config import Config
 
-app = dash.Dash(
+
+class CustomDash(dash.Dash):
+    def interpolate_index(self, **kwargs):
+        print(kwargs['scripts'])
+        return '''
+        <!DOCTYPE html>
+        <html>
+            <head>
+                {metas}
+                <title>{title}</title>
+                {favicon}
+                {css}
+            </head>
+            <body>
+                {app_entry}
+                <footer>
+                    {config}
+                    {scripts}
+                    {renderer}
+                </footer>
+            </body>
+        </html>
+        '''.format(
+            metas=kwargs['metas'],
+            css=kwargs['css'],
+            favicon=kwargs['favicon'],
+            title=kwargs['title'],
+            app_entry=kwargs['app_entry'],
+            config=kwargs['config'],
+            scripts=kwargs['scripts'].replace('https://unpkg.com/', 'https://unpkg.zhimg.com/'),
+            renderer=kwargs['renderer'])
+
+
+app = CustomDash(
     __name__,
     suppress_callback_exceptions=True,
     update_title=None,
     serve_locally=False,
-    external_scripts=[
-        'https://unpkg.zhimg.com/feffery_antd_components@0.0.1-rc7/feffery_antd_components/feffery_antd_components.min.js',
-        'https://unpkg.zhimg.com/@babel/polyfill@7.12.1/dist/polyfill.min.js',
-        'https://unpkg.zhimg.com/react@16.14.0/umd/react.production.min.js',
-        'https://unpkg.zhimg.com/react-dom@16.14.0/umd/react-dom.production.min.js',
-        'https://unpkg.zhimg.com/prop-types@15.7.2/prop-types.min.js',
-        'https://unpkg.zhimg.com/feffery_utils_components@0.0.4/feffery_utils_components/feffery_utils_components.min.js',
-        'https://unpkg.zhimg.com/dash-renderer@1.10.0/build/dash_renderer.min.js',
-        'https://unpkg.zhimg.com/dash-core-components@2.0.0/dash_core_components/dash_core_components.js',
-        'https://unpkg.zhimg.com/dash-core-components@2.0.0/dash_core_components/dash_core_components-shared.js',
-        'https://unpkg.zhimg.com/dash-html-components@2.0.0/dash_html_components/dash_html_components.min.js',
-        'https://unpkg.zhimg.com/dash-table@5.0.0/dash_table/bundle.js',
-    ]
 )
 
 CORS(app.server, supports_credentials=False)
