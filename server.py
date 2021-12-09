@@ -8,7 +8,6 @@ from config import Config
 
 class CustomDash(dash.Dash):
     def interpolate_index(self, **kwargs):
-        print(kwargs['scripts'])
         return '''
         <!DOCTYPE html>
         <html>
