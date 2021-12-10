@@ -152,10 +152,7 @@ titlePopoverInfo = {
 - showQuickJumper：*bool*型，用于设置是否渲染*快速页码跳转*控件
 - showTotalPrefix：*string*型，用于设置*总记录显示*内容，记录数值之前的文字内容，默认为`"共 "`
 - showTotalSuffix：*string*型，用于设置*总记录显示*内容，记录数值之后的文字内容，默认为`" 条记录"`
-
-**autoIgnorePagination：** *bool*型，默认为`False`
-
-　　用于设置是否在数据记录行数少于pageSize时隐藏分页组件
+- hideOnSinglePage：*bool*型，用于设置是否在数据记录行数少于pageSize时隐藏分页组件，默认为`False`
 
 **bordered：** *bool*型，可选，默认为`False`
 
