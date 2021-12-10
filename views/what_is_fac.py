@@ -1,4 +1,5 @@
 from dash import html
+from datetime import datetime
 import feffery_antd_components as fac
 
 from server import app
@@ -22,6 +23,15 @@ docs_content = html.Div(
                     ],
                     id='🐣'
                 ),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('文档最近更新：', strong=True),
+                        fac.AntdText(datetime.today().strftime('%Y-%m-%d'), code=True)
+                    ]
+                ),
+
+                fac.AntdDivider(),
 
                 fac.AntdParagraph(
                     [
