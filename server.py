@@ -7,34 +7,39 @@ from config import Config
 
 
 class CustomDash(dash.Dash):
+
     def interpolate_index(self, **kwargs):
-        return '''
-        <!DOCTYPE html>
-        <html>
-            <head>
-                {metas}
-                <title>{title}</title>
-                {favicon}
-                {css}
-            </head>
-            <body>
-                {app_entry}
-                <footer>
-                    {config}
-                    {scripts}
-                    {renderer}
-                </footer>
-            </body>
-        </html>
-        '''.format(
-            metas=kwargs['metas'],
-            css=kwargs['css'],
-            favicon=kwargs['favicon'],
-            title=kwargs['title'],
-            app_entry=kwargs['app_entry'],
-            config=kwargs['config'],
-            scripts=kwargs['scripts'].replace('https://unpkg.com/', 'https://unpkg.zhimg.com/'),
-            renderer=kwargs['renderer'])
+        scripts = kwargs.pop('scripts').replace('https://unpkg.com/', 'https://unpkg.zhimg.com/')
+        return super(CustomDash, self).interpolate_index(scripts=scripts, **kwargs)
+
+    # def interpolate_index(self, **kwargs):
+    #     return '''
+    #     <!DOCTYPE html>
+    #     <html>
+    #         <head>
+    #             {metas}
+    #             <title>{title}</title>
+    #             {favicon}
+    #             {css}
+    #         </head>
+    #         <body>
+    #             {app_entry}
+    #             <footer>
+    #                 {config}
+    #                 {scripts}
+    #                 {renderer}
+    #             </footer>
+    #         </body>
+    #     </html>
+    #     '''.format(
+    #         metas=kwargs['metas'],
+    #         css=kwargs['css'],
+    #         favicon=kwargs['favicon'],
+    #         title=kwargs['title'],
+    #         app_entry=kwargs['app_entry'],
+    #         config=kwargs['config'],
+    #         scripts=kwargs['scripts'].replace('https://unpkg.com/', 'https://unpkg.zhimg.com/'),
+    #         renderer=kwargs['renderer'])
 
 
 app = CustomDash(
