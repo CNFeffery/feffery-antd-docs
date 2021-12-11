@@ -5,7 +5,7 @@ from flask_cors import CORS
 
 from config import Config
 
-app = Dash(
+app = dash.Dash(
     __name__,
     suppress_callback_exceptions=True,
     update_title=None,
