@@ -157,7 +157,7 @@ docs_content = html.Div(
 
                 fac.AntdTitle('最新开发版本：', level=5),
 
-                fac.AntdText('pip install git+https://github.com/CNFeffery/feffery-antd-components.git',
+                fac.AntdText('pip install git+https://github.com/CNFeffery/feffery-antd-components.git@0.0.1rc8dev',
                              keyboard=True,
                              copyable=True),
 
@@ -167,7 +167,7 @@ docs_content = html.Div(
 
                 html.Br(),
 
-                fac.AntdText('pip install git+https://hub.fastgit.org/CNFeffery/feffery-antd-components.git',
+                fac.AntdText('pip install git+https://hub.fastgit.org/CNFeffery/feffery-antd-components.git@0.0.1rc8dev',
                              keyboard=True,
                              copyable=True),
 
