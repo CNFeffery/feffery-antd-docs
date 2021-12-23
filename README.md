@@ -9,7 +9,7 @@
 ```bash
 git clone https://github.com/CNFeffery/feffery-antd-docs.git
 cd feffery-antd-docs
-pip install requirements.txt
+pip install -r requirements.txt
 python app.py
 ```
 
