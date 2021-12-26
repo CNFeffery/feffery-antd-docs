@@ -79,8 +79,8 @@ docs_content = html.Div(
                             style={'fontSize': '30px', 'color': 'rgba(170, 170, 170, 1)', 'padding': '0 15px 0 15px'}
                         ),
                         html.Img(
-                            src=app.get_asset_url('imgs/feffery-antd-components-logo-planB.svg'),
-                            style={'height': '180px'}
+                            src=app.get_asset_url('imgs/fac-logo.svg'),
+                            style={'height': '155px'}
                         )
                     ],
                     style={

@@ -76,7 +76,7 @@ app.layout = fac.AntdSpin(
                                     fac.AntdCol(
                                         html.Img(
                                             src=app.get_asset_url(
-                                                'imgs/feffery-antd-components-logo-planB.svg'),
+                                                'imgs/fac-logo.svg'),
                                             style={
                                                 'height': '50px',
                                                 'paddingRight': '10px'
@@ -892,4 +892,4 @@ def render_docs_content(pathname):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=False)
+    app.run_server(debug=True)
