@@ -966,7 +966,7 @@ app.layout = fac.AntdSpin(
                                         ],
                                         style={
                                             'height': '100%',
-                                            'overflow': 'hidden',
+                                            'overflow': 'hidden auto',
                                             'paddingBottom': '50px'
                                         }
                                     )
