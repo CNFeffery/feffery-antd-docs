@@ -4,7 +4,7 @@ from dash import html
 from dash.dependencies import Input, Output
 
 from config import Config
-from server import app
+from server import app, server
 from views import (
     what_is_fac,
     getting_started,
