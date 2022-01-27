@@ -42,7 +42,7 @@ class CustomDash(dash.Dash):
     #         renderer=kwargs['renderer'])
 
 
-app = CustomDash(
+app = dash.Dash(
     __name__,
     suppress_callback_exceptions=True,
     update_title=None,
