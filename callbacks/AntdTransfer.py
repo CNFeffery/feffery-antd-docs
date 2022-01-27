@@ -12,7 +12,7 @@ from server import app
     prevent_initial_call=True
 )
 def transfer_callback_demo(targetKeys, moveDirection, moveKeys):
-    import time;time.sleep(1)
+     
     return [
         f'targetKeys: {targetKeys}',
         html.Br(),

@@ -2,6 +2,7 @@ from dash import html
 from dash import dcc
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
+import feffery_markdown_components as fmc
 
 import callbacks.AntdSteps
 
@@ -34,7 +35,7 @@ docs_content = html.Div(
                     }
                 ),
 
-                fuc.FefferyMarkdown(
+                fmc.FefferyMarkdown(
                     markdownStr=open('documents/AntdSteps.md', encoding='utf-8').read()
                 ),
 
@@ -655,6 +656,57 @@ fac.AntdSteps(
                 html.Div(
                     [
                         fac.AntdSteps(
+                            steps=[
+                                {
+                                    'title': f'步骤{i + 1}'
+                                }
+                                for i in range(5)
+                            ],
+                            allowClick=True
+                        ),
+
+                        fac.AntdDivider(
+                            '直接点击步骤进行切换',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+fac.AntdSteps(
+    steps=[
+        {
+            'title': f'步骤{i + 1}'
+        }
+        for i in range(5)
+    ],
+    allowClick=True
+)
+                        '''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='直接点击步骤进行切换',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSteps(
                             id='steps-demo',
                             steps=[
                                 {
@@ -812,6 +864,7 @@ def steps_callback_demo_part2(current):
                             {'title': '设置不同的步骤条尺寸模式', 'href': '#设置不同的步骤条尺寸模式'},
                             {'title': '自定义当前步骤的显示状态', 'href': '#自定义当前步骤的显示状态'},
                             {'title': '设置步骤条整体渲染形式', 'href': '#设置步骤条整体渲染形式'},
+                            {'title': '直接点击步骤进行切换', 'href': '#直接点击步骤进行切换'},
                             {'title': '回调示例', 'href': '#回调示例'},
                         ]
                     },

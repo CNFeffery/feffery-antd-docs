@@ -1,6 +1,7 @@
 from dash import html
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
+import feffery_markdown_components as fmc
 
 import callbacks.AntdSelect
 
@@ -34,7 +35,7 @@ docs_content = html.Div(
                     }
                 ),
 
-                fuc.FefferyMarkdown(
+                fmc.FefferyMarkdown(
                     markdownStr=open('documents/AntdSelect.md', encoding='utf-8').read()
                 ),
 
@@ -202,6 +203,138 @@ fac.AntdSelect(
                         'border': '1px solid #f0f0f0'
                     },
                     id='分组下拉选择',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSelect(
+                            placeholder='请选择离散色彩：',
+                            colorsMode='diverging',
+                            colorsNameWidth=50,
+                            options=[
+                                {
+                                    'label': 'Balance_5',
+                                    'value': 'Balance_5',
+                                    'colors': ['#181c43', '#3888ba', '#f1eceb', '#c05a3c', '#3c0912']
+                                },
+                                {
+                                    'label': 'Curl_6',
+                                    'value': 'Curl_6',
+                                    'colors': ['#151d44', '#117d79', '#b6cbaf', '#e6b7a2', '#ae4060', '#340d35']
+                                },
+                                {
+                                    'label': '钴蓝',
+                                    'value': '钴蓝',
+                                    'colors': ['#6b9bb8']
+                                }
+                            ],
+                            style={
+                                # 使用css样式固定宽度
+                                'width': '200px'
+                            }
+                        ),
+
+                        fac.AntdSelect(
+                            placeholder='请选择连续色彩：',
+                            colorsNameWidth=50,
+                            options=[
+                                {
+                                    'label': 'Amp',
+                                    'value': 'Amp',
+                                    'colors': ['#f1edec', '#d7a291', '#c0583b', '#901029', '#3c0912']
+                                },
+                                {
+                                    'label': 'Deep',
+                                    'value': 'Deep',
+                                    'colors': ['#fdfecc', '#78cea3', '#488e9e', '#404d8c', '#281a2c']
+                                }
+                            ],
+                            style={
+                                # 使用css样式固定宽度
+                                'width': '200px'
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '色带渲染模式',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdParagraph(
+                            [
+                                fac.AntdText('　　色带模式下展示预设的色彩型输入更加形象直观')
+                            ]
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+fac.AntdSelect(
+    placeholder='请选择离散色彩：',
+    colorsMode='diverging',
+    colorsNameWidth=50,
+    options=[
+        {
+            'label': 'Balance_5',
+            'value': 'Balance_5',
+            'colors': ['#181c43', '#3888ba', '#f1eceb', '#c05a3c', '#3c0912']
+        },
+        {
+            'label': 'Curl_6',
+            'value': 'Curl_6',
+            'colors': ['#151d44', '#117d79', '#b6cbaf', '#e6b7a2', '#ae4060', '#340d35']
+        },
+        {
+            'label': '钴蓝',
+            'value': '钴蓝',
+            'colors': ['#6b9bb8']
+        }
+    ],
+    style={
+        # 使用css样式固定宽度
+        'width': '200px'
+    }
+),
+
+fac.AntdSelect(
+    placeholder='请选择连续色彩：',
+    colorsNameWidth=50,
+    options=[
+        {
+            'label': 'Amp',
+            'value': 'Amp',
+            'colors': ['#f1edec', '#d7a291', '#c0583b', '#901029', '#3c0912']
+        },
+        {
+            'label': 'Deep',
+            'value': 'Deep',
+            'colors': ['#fdfecc', '#78cea3', '#488e9e', '#404d8c', '#281a2c']
+        }
+    ],
+    style={
+        # 使用css样式固定宽度
+        'width': '200px'
+    }
+)'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='色带渲染模式',
                     className='div-highlight'
                 ),
 
@@ -627,6 +760,7 @@ def button_callback_demo(value):
                         'children': [
                             {'title': '基础的下拉选择', 'href': '#基础的下拉选择'},
                             {'title': '分组下拉选择', 'href': '#分组下拉选择'},
+                            {'title': '色带渲染模式', 'href': '#色带渲染模式'},
                             {'title': '多选与自由新增模式', 'href': '#多选与自由新增模式'},
                             {'title': '设置默认选中值', 'href': '#设置默认选中值'},
                             {'title': '修改下拉选择最大高度', 'href': '#修改下拉选择最大高度'},

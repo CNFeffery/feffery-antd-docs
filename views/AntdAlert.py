@@ -1,6 +1,7 @@
 from dash import html
-import feffery_utils_components as fuc
+import feffery_markdown_components as fmc
 import feffery_antd_components as fac
+import feffery_utils_components as fuc
 
 docs_content = html.Div(
     [
@@ -32,7 +33,7 @@ docs_content = html.Div(
                     }
                 ),
 
-                fuc.FefferyMarkdown(
+                fmc.FefferyMarkdown(
                     markdownStr=open('documents/AntdAlert.md', encoding='utf-8').read()
                 ),
 
@@ -258,7 +259,7 @@ html.Div(
                                         '千金散尽还复来'
                                     ],
                                     showIcon=True,
-                                    renderLoopText=True
+                                    messageRenderMode='loop-text'
                                 )
                             ]
                         ),
@@ -291,7 +292,7 @@ html.Div(
                 '千金散尽还复来'
             ],
             showIcon=True,
-            renderLoopText=True
+            messageRenderMode='loop-text'
         )
     ]
 )'''
@@ -310,12 +311,84 @@ html.Div(
                     className='div-highlight'
                 ),
 
+                html.Div(
+                    [
+                        html.Div(
+                            [
+                                fac.AntdAlert(
+                                    '这是一段辅助说明文字',
+                                    message='，'.join([
+                                        '君不见黄河之水天上来',
+                                        '奔流到海不复回',
+                                        '君不见高堂明镜悲白发',
+                                        '朝如青丝暮成雪',
+                                        '人生得意须尽欢',
+                                        '莫使金樽空对月',
+                                        '天生我材必有用',
+                                        '千金散尽还复来'
+                                    ]) + '。',
+                                    description='这是跑马灯模式示例',
+                                    showIcon=True,
+                                    messageRenderMode='marquee'
+                                )
+                            ]
+                        ),
+
+                        fac.AntdDivider(
+                            '跑马灯模式示例',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+html.Div(
+    [
+        fac.AntdAlert(
+            '这是一段辅助说明文字',
+            message='，'.join([
+                '君不见黄河之水天上来',
+                '奔流到海不复回',
+                '君不见高堂明镜悲白发',
+                '朝如青丝暮成雪',
+                '人生得意须尽欢',
+                '莫使金樽空对月',
+                '天生我材必有用',
+                '千金散尽还复来'
+            ]) + '。',
+            description='这是跑马灯模式示例',
+            showIcon=True,
+            messageRenderMode='marquee'
+        )
+    ]
+)'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='跑马灯模式示例',
+                    className='div-highlight'
+                ),
+
                 html.Div(style={'height': '100px'})
             ],
             style={
                 'flex': 'auto'
             }
         ),
+
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
@@ -329,6 +402,7 @@ html.Div(
                             {'title': '添加状态图标', 'href': '#添加状态图标'},
                             {'title': '添加关闭按钮', 'href': '#添加关闭按钮'},
                             {'title': '轮播模式示例', 'href': '#轮播模式示例'},
+                            {'title': '跑马灯模式示例', 'href': '#跑马灯模式示例'},
                         ]
                     },
                 ],

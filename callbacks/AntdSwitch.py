@@ -9,5 +9,4 @@ from server import app
     Input('switch-demo', 'checked')
 )
 def switch_demo_callback(checked):
-    time.sleep(0.5)
     return str(checked)

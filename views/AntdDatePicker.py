@@ -2,6 +2,7 @@ from dash import html
 from dash import dcc
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
+import feffery_markdown_components as fmc
 
 import callbacks.AntdDatePicker
 
@@ -36,7 +37,7 @@ docs_content = html.Div(
                     }
                 ),
 
-                fuc.FefferyMarkdown(
+                fmc.FefferyMarkdown(
                     markdownStr=open('documents/AntdDatePicker.md', encoding='utf-8').read()
                 ),
 
@@ -62,10 +63,7 @@ docs_content = html.Div(
                         fac.AntdDatePicker(
                             picker='date',
                             placeholder='请选择日期',
-                            defaultPickerValue={
-                                'value': '2020/01/01',
-                                'format': 'YYYY/MM/DD'
-                            }
+                            defaultPickerValue='2020/01/01'
                         ),
 
                         fac.AntdDivider(
@@ -84,11 +82,7 @@ docs_content = html.Div(
 fac.AntdDatePicker(
     picker='date',
     placeholder='请选择日期',
-    defaultPickerValue={
-        'value': '2020/01/01',
-        'format': 'YYYY/MM/DD'
-    },
-    showTime=False
+    defaultPickerValue='2020/01/01'
 )'''
                             ),
                             title='点击查看代码',
@@ -111,10 +105,7 @@ fac.AntdDatePicker(
                         fac.AntdDatePicker(
                             picker='date',
                             placeholder='请选择日期+时间',
-                            defaultPickerValue={
-                                'value': '2020/01/01',
-                                'format': 'YYYY/MM/DD'
-                            },
+                            defaultPickerValue='2020/01/01',
                             showTime=True
                         ),
 
@@ -134,10 +125,7 @@ fac.AntdDatePicker(
 fac.AntdDatePicker(
     picker='date',
     placeholder='请选择日期+时间',
-    defaultPickerValue={
-        'value': '2020/01/01',
-        'format': 'YYYY/MM/DD'
-    },
+    defaultPickerValue='2020/01/01',
     showTime=True
 )'''
                             ),
@@ -161,10 +149,7 @@ fac.AntdDatePicker(
                         fac.AntdDatePicker(
                             picker='month',
                             placeholder='请选择月份：',
-                            defaultPickerValue={
-                                'value': '2020/01',
-                                'format': 'YYYY/MM'
-                            }
+                            defaultPickerValue='2020/01'
                         ),
 
                         html.Div(style={'height': '25px'}),
@@ -172,10 +157,7 @@ fac.AntdDatePicker(
                         fac.AntdDatePicker(
                             picker='year',
                             placeholder='请选择年份',
-                            defaultPickerValue={
-                                'value': '2020',
-                                'format': 'YYYY'
-                            }
+                            defaultPickerValue='2020'
                         ),
 
                         fac.AntdDivider(
@@ -194,10 +176,7 @@ fac.AntdDatePicker(
 fac.AntdDatePicker(
     picker='month',
     placeholder='请选择月份：',
-    defaultPickerValue={
-        'value': '2020/01',
-        'format': 'YYYY/MM'
-    }
+    defaultPickerValue='2020/01'
 ),
 
 html.Div(style={'height': '25px'}),
@@ -205,17 +184,13 @@ html.Div(style={'height': '25px'}),
 fac.AntdDatePicker(
     picker='year',
     placeholder='请选择年份',
-    defaultPickerValue={
-        'value': '2020',
-        'format': 'YYYY'
-    }
+    defaultPickerValue='2020'
 )'''
                             ),
                             title='点击查看代码',
                             is_open=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
@@ -232,10 +207,7 @@ fac.AntdDatePicker(
                             id='date-picker-demo',
                             picker='date',
                             placeholder='请选择日期+时间',
-                            defaultPickerValue={
-                                'value': '2020/01/01',
-                                'format': 'YYYY/MM/DD'
-                            },
+                            defaultPickerValue='2020/01/01',
                             showTime=True
                         ),
                         html.Br(),
@@ -257,32 +229,30 @@ fac.AntdDatePicker(
                                 language='python',
                                 codeStyle='coy-without-shadows',
                                 codeString='''
-                        fac.AntdDatePicker(
-                            id='date-picker-demo',
-                            picker='date',
-                            placeholder='请选择日期+时间',
-                            defaultPickerValue={
-                                'value': '2020/01/01',
-                                'format': 'YYYY/MM/DD'
-                            },
-                            showTime=True
-                        ),
-                        html.Br(),
-                        fac.AntdSpin(
-                            html.Em(id='date-picker-demo-output'),
-                            text='回调中'
-                        )
-                        ...
-                        @app.callback(
-                            Output('date-picker-demo-output', 'children'),
-                            Input('date-picker-demo', 'selectedDate'),
-                            prevent_initial_call=True
-                        )
-                        def date_picker_callback_demo(selectedDate):
-                            if selectedDate:
-                                return selectedDate
+fac.AntdDatePicker(
+    id='date-picker-demo',
+    picker='date',
+    placeholder='请选择日期+时间',
+    defaultPickerValue='2020/01/01',
+    showTime=True
+),
+html.Br(),
+fac.AntdSpin(
+    html.Em(id='date-picker-demo-output'),
+    text='回调中'
+)
+...
+@app.callback(
+    Output('date-picker-demo-output', 'children'),
+    Input('date-picker-demo', 'value'),
+    prevent_initial_call=True
+)
+def date_picker_callback_demo(value):
+    if value:
+        return value
 
-                            return '''''
+    return dash.no_update
+'''
                             ),
                             title='点击查看代码',
                             is_open=False,

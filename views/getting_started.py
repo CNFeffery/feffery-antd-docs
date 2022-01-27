@@ -87,19 +87,19 @@ app.layout = html.Div(
 @app.callback(
     Output('getting-started-notification-demo', 'children'),
     Input('getting-started-button-demo', 'nClicks'),
-    [State('getting-started-date-picker-demo', 'selectedDate'),
+    [State('getting-started-date-picker-demo', 'value'),
      State('getting-started-select-demo', 'value')],
     prevent_initial_call=True
 )
-def getting_started_callback_demo(nClicks, selectedDate, select_value):
+def getting_started_callback_demo(nClicks, date_value, select_value):
     # 若按钮被点击
     if nClicks:
         # 若两个输入组件均有值输入
-        if selectedDate and select_value:
+        if date_value and select_value:
             return fac.AntdNotification(
                 message='提交成功',
                 description='已提交日期：{}，已提交选项值：{}'.format(
-                    selectedDate,
+                    date_value,
                     '、'.join(select_value)
                 ),
                 type='success',
@@ -112,7 +112,6 @@ def getting_started_callback_demo(nClicks, selectedDate, select_value):
             type='error',
             duration=3
         )
-
 
 if __name__ == '__main__':
     app.run_server(debug=True)
@@ -295,19 +294,19 @@ docs_content = html.Div(
 @app.callback(
     Output('getting-started-notification-demo', 'children'),
     Input('getting-started-button-demo', 'nClicks'),
-    [State('getting-started-date-picker-demo', 'selectedDate'),
+    [State('getting-started-date-picker-demo', 'value'),
      State('getting-started-select-demo', 'value')],
     prevent_initial_call=True
 )
-def getting_started_callback_demo(nClicks, selectedDate, select_value):
+def getting_started_callback_demo(nClicks, date_value, select_value):
     # 若按钮被点击
     if nClicks:
         # 若两个输入组件均有值输入
-        if selectedDate and select_value:
+        if date_value and select_value:
             return fac.AntdNotification(
                 message='提交成功',
                 description='已提交日期：{}，已提交选项值：{}'.format(
-                    selectedDate,
+                    date_value,
                     '、'.join(select_value)
                 ),
                 type='success',

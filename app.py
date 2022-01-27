@@ -1,11 +1,10 @@
-from dash import html
-from dash import dcc
 import feffery_antd_components as fac
+from dash import dcc
+from dash import html
 from dash.dependencies import Input, Output
 
-from server import app, server
 from config import Config
-
+from server import app
 from views import (
     what_is_fac,
     getting_started,
@@ -16,6 +15,7 @@ from views import (
     AntdBackTop,
     AntdButton,
     AntdSelect,
+    AntdRate,
     AntdTree,
     AntdTable,
     AntdAnchor,
@@ -24,6 +24,7 @@ from views import (
     AntdSteps,
     AntdMenu,
     AntdUpload,
+    AntdDraggerUpload,
     AntdSpin,
     AntdInput,
     AntdTabPane,
@@ -53,11 +54,37 @@ from views import (
     AntdEmpty,
     AntdTooltip,
     AntdPopover,
+    AntdStatistic,
+    AntdCountdown,
     AntdTag,
     AntdDrawer,
     AntdModal,
     AntdPopconfirm,
-    AntdResult
+    AntdResult,
+    AntdSkeleton,
+    AntdAffix,
+    AntdBreadcrumb,
+    AntdDropdown,
+    AntdInputNumber,
+    AntdTimeline,
+    AntdProgress,
+    AntdAvatar,
+    AntdBadge,
+    AntdRibbon,
+    AntdTimePicker,
+    AntdTimeRangePicker,
+    AntdCarousel,
+    AntdForm,
+    AntdFormItem,
+    AntdCardGrid,
+    AntdCard,
+    AntdMentions,
+    AntdImage,
+    AntdPageHeader,
+    AntdCalendar,
+    AntdComment,
+    AntdDescriptions,
+    AntdDescriptionItem
 )
 
 app.layout = fac.AntdSpin(
@@ -94,7 +121,7 @@ app.layout = fac.AntdSpin(
                                                     }
                                                 ),
                                                 fac.AntdText(
-                                                    'v0.0.1rc7',
+                                                    'v0.0.1rc8',
                                                     style={
                                                         'fontSize': '10px',
                                                         'paddingLeft': '2px'
@@ -108,11 +135,12 @@ app.layout = fac.AntdSpin(
                                         html.Div(
                                             [
                                                 html.A(
-                                                    html.Img(
+                                                    fac.AntdImage(
                                                         alt='fac源码仓库，欢迎star',
                                                         src='https://img.shields.io/github/stars/CNFeffery/feffery-antd-components?style=social',
+                                                        preview=False,
                                                         style={
-                                                            'transform': 'scale(1.25)'
+                                                            'transform': 'translateY(5px) scale(1.25)'
                                                         }
                                                     ),
                                                     href='https://github.com/CNFeffery/feffery-antd-components',
@@ -354,9 +382,41 @@ app.layout = fac.AntdSpin(
                                                     {
                                                         'component': 'Item',
                                                         'props': {
+                                                            'key': '/AntdAffix',
+                                                            'href': '/AntdAffix',
+                                                            'title': 'AntdAffix 固钉'
+                                                        }
+                                                    },
+                                                    {
+                                                        'component': 'Item',
+                                                        'props': {
+                                                            'key': '/AntdBreadcrumb',
+                                                            'href': '/AntdBreadcrumb',
+                                                            'title': 'AntdBreadcrumb 面包屑'
+                                                        }
+                                                    },
+                                                    {
+                                                        'component': 'Item',
+                                                        'props': {
+                                                            'key': '/AntdDropdown',
+                                                            'href': '/AntdDropdown',
+                                                            'title': 'AntdDropdown 下拉菜单'
+                                                        }
+                                                    },
+                                                    {
+                                                        'component': 'Item',
+                                                        'props': {
                                                             'key': '/AntdMenu',
                                                             'href': '/AntdMenu',
                                                             'title': 'AntdMenu 导航菜单'
+                                                        }
+                                                    },
+                                                    {
+                                                        'component': 'Item',
+                                                        'props': {
+                                                            'key': '/AntdPageHeader',
+                                                            'href': '/AntdPageHeader',
+                                                            'title': 'AntdPageHeader 页头'
                                                         }
                                                     },
                                                     {
@@ -413,15 +473,40 @@ app.layout = fac.AntdSpin(
                                                         'props': {
                                                             'key': '/AntdDatePicker',
                                                             'href': '/AntdDatePicker',
-                                                            'title': 'AntdDatePicker 日期选择'
+                                                            'title': 'AntdDatePicker 日期选择框'
                                                         }
+                                                    },
+                                                    {
+                                                        'component': 'SubMenu',
+                                                        'props': {
+                                                            'key': 'Form',
+                                                            'title': '表单'
+                                                        },
+                                                        'children': [
+                                                            {
+                                                                'component': 'Item',
+                                                                'props': {
+                                                                    'key': '/AntdFormItem',
+                                                                    'href': '/AntdFormItem',
+                                                                    'title': 'AntdFormItem 表单项'
+                                                                }
+                                                            },
+                                                            {
+                                                                'component': 'Item',
+                                                                'props': {
+                                                                    'key': '/AntdForm',
+                                                                    'href': '/AntdForm',
+                                                                    'title': 'AntdForm 表单'
+                                                                }
+                                                            },
+                                                        ]
                                                     },
                                                     {
                                                         'component': 'Item',
                                                         'props': {
                                                             'key': '/AntdDateRangePicker',
                                                             'href': '/AntdDateRangePicker',
-                                                            'title': 'AntdDateRangePicker 日期范围选择'
+                                                            'title': 'AntdDateRangePicker 日期范围选择框'
                                                         }
                                                     },
                                                     {
@@ -435,9 +520,33 @@ app.layout = fac.AntdSpin(
                                                     {
                                                         'component': 'Item',
                                                         'props': {
+                                                            'key': '/AntdInputNumber',
+                                                            'href': '/AntdInputNumber',
+                                                            'title': 'AntdInputNumber 数字输入框'
+                                                        }
+                                                    },
+                                                    {
+                                                        'component': 'Item',
+                                                        'props': {
+                                                            'key': '/AntdMentions',
+                                                            'href': '/AntdMentions',
+                                                            'title': 'AntdMentions 提及'
+                                                        }
+                                                    },
+                                                    {
+                                                        'component': 'Item',
+                                                        'props': {
                                                             'key': '/AntdRadioGroup',
                                                             'href': '/AntdRadioGroup',
                                                             'title': 'AntdRadioGroup 单选框'
+                                                        }
+                                                    },
+                                                    {
+                                                        'component': 'Item',
+                                                        'props': {
+                                                            'key': '/AntdRate',
+                                                            'href': '/AntdRate',
+                                                            'title': 'AntdRate 评分'
                                                         }
                                                     },
                                                     {
@@ -467,6 +576,22 @@ app.layout = fac.AntdSpin(
                                                     {
                                                         'component': 'Item',
                                                         'props': {
+                                                            'key': '/AntdTimePicker',
+                                                            'href': '/AntdTimePicker',
+                                                            'title': 'AntdTimePicker 时间选择框'
+                                                        }
+                                                    },
+                                                    {
+                                                        'component': 'Item',
+                                                        'props': {
+                                                            'key': '/AntdTimeRangePicker',
+                                                            'href': '/AntdTimeRangePicker',
+                                                            'title': 'AntdTimeRangePicker 时间范围选择框'
+                                                        }
+                                                    },
+                                                    {
+                                                        'component': 'Item',
+                                                        'props': {
                                                             'key': '/AntdTransfer',
                                                             'href': '/AntdTransfer',
                                                             'title': 'AntdTransfer 穿梭框'
@@ -487,6 +612,14 @@ app.layout = fac.AntdSpin(
                                                             'href': '/AntdUpload',
                                                             'title': 'AntdUpload 上传'
                                                         }
+                                                    },
+                                                    {
+                                                        'component': 'Item',
+                                                        'props': {
+                                                            'key': '/AntdDraggerUpload',
+                                                            'href': '/AntdDraggerUpload',
+                                                            'title': 'AntdDraggerUpload 拖拽上传'
+                                                        }
                                                     }
                                                 ]
                                             },
@@ -501,10 +634,108 @@ app.layout = fac.AntdSpin(
                                                     {
                                                         'component': 'Item',
                                                         'props': {
+                                                            'key': '/AntdAvatar',
+                                                            'href': '/AntdAvatar',
+                                                            'title': 'AntdAvatar 头像'
+                                                        }
+                                                    },
+                                                    {
+                                                        'component': 'Item',
+                                                        'props': {
+                                                            'key': '/AntdBadge',
+                                                            'href': '/AntdBadge',
+                                                            'title': 'AntdBadge 徽标数'
+                                                        }
+                                                    },
+                                                    {
+                                                        'component': 'Item',
+                                                        'props': {
+                                                            'key': '/AntdCalendar',
+                                                            'href': '/AntdCalendar',
+                                                            'title': 'AntdCalendar 日历'
+                                                        }
+                                                    },
+                                                    {
+                                                        'component': 'Item',
+                                                        'props': {
+                                                            'key': '/AntdRibbon',
+                                                            'href': '/AntdRibbon',
+                                                            'title': 'AntdRibbon 缎带'
+                                                        }
+                                                    },
+                                                    {
+                                                        'component': 'SubMenu',
+                                                        'props': {
+                                                            'key': 'Card',
+                                                            'title': '卡片'
+                                                        },
+                                                        'children': [
+                                                            {
+                                                                'component': 'Item',
+                                                                'props': {
+                                                                    'key': '/AntdCardGrid',
+                                                                    'href': '/AntdCardGrid',
+                                                                    'title': 'AntdCardGrid 卡片网格'
+                                                                }
+                                                            },
+                                                            {
+                                                                'component': 'Item',
+                                                                'props': {
+                                                                    'key': '/AntdCard',
+                                                                    'href': '/AntdCard',
+                                                                    'title': 'AntdCard 卡片'
+                                                                }
+                                                            },
+                                                        ]
+                                                    },
+                                                    {
+                                                        'component': 'Item',
+                                                        'props': {
+                                                            'key': '/AntdCarousel',
+                                                            'href': '/AntdCarousel',
+                                                            'title': 'AntdCarousel 走马灯'
+                                                        }
+                                                    },
+                                                    {
+                                                        'component': 'Item',
+                                                        'props': {
                                                             'key': '/AntdCollapse',
                                                             'href': '/AntdCollapse',
                                                             'title': 'AntdCollapse 折叠面板'
                                                         }
+                                                    },
+                                                    {
+                                                        'component': 'Item',
+                                                        'props': {
+                                                            'key': '/AntdComment',
+                                                            'href': '/AntdComment',
+                                                            'title': 'AntdComment 评论'
+                                                        }
+                                                    },
+                                                    {
+                                                        'component': 'SubMenu',
+                                                        'props': {
+                                                            'key': 'Descriptions',
+                                                            'title': '描述列表'
+                                                        },
+                                                        'children': [
+                                                            {
+                                                                'component': 'Item',
+                                                                'props': {
+                                                                    'key': '/AntdDescriptions',
+                                                                    'href': '/AntdDescriptions',
+                                                                    'title': 'AntdDescriptions 描述列表'
+                                                                }
+                                                            },
+                                                            {
+                                                                'component': 'Item',
+                                                                'props': {
+                                                                    'key': '/AntdDescriptionItem',
+                                                                    'href': '/AntdDescriptionItem',
+                                                                    'title': 'AntdDescriptionItem 描述列表子项'
+                                                                }
+                                                            },
+                                                        ]
                                                     },
                                                     {
                                                         'component': 'Item',
@@ -517,9 +748,33 @@ app.layout = fac.AntdSpin(
                                                     {
                                                         'component': 'Item',
                                                         'props': {
+                                                            'key': '/AntdImage',
+                                                            'href': '/AntdImage',
+                                                            'title': 'AntdImage 图片'
+                                                        }
+                                                    },
+                                                    {
+                                                        'component': 'Item',
+                                                        'props': {
                                                             'key': '/AntdPopover',
                                                             'href': '/AntdPopover',
                                                             'title': 'AntdPopover 气泡卡片'
+                                                        }
+                                                    },
+                                                    {
+                                                        'component': 'Item',
+                                                        'props': {
+                                                            'key': '/AntdStatistic',
+                                                            'href': '/AntdStatistic',
+                                                            'title': 'AntdStatistic 统计数值'
+                                                        }
+                                                    },
+                                                    {
+                                                        'component': 'Item',
+                                                        'props': {
+                                                            'key': '/AntdCountdown',
+                                                            'href': '/AntdCountdown',
+                                                            'title': 'AntdCountdown 倒计时'
                                                         }
                                                     },
                                                     {
@@ -541,6 +796,14 @@ app.layout = fac.AntdSpin(
                                                     {
                                                         'component': 'Item',
                                                         'props': {
+                                                            'key': '/AntdTimeline',
+                                                            'href': '/AntdTimeline',
+                                                            'title': 'AntdTimeline 时间轴'
+                                                        }
+                                                    },
+                                                    {
+                                                        'component': 'Item',
+                                                        'props': {
                                                             'key': '/AntdTooltip',
                                                             'href': '/AntdTooltip',
                                                             'title': 'AntdTooltip 文字提示'
@@ -557,7 +820,7 @@ app.layout = fac.AntdSpin(
                                                     {
                                                         'component': 'SubMenu',
                                                         'props': {
-                                                            'key': 'tabs',
+                                                            'key': 'Tabs',
                                                             'title': '标签页'
                                                         },
                                                         'children': [
@@ -640,9 +903,25 @@ app.layout = fac.AntdSpin(
                                                     {
                                                         'component': 'Item',
                                                         'props': {
+                                                            'key': '/AntdProgress',
+                                                            'href': '/AntdProgress',
+                                                            'title': 'AntdProgress 进度条'
+                                                        }
+                                                    },
+                                                    {
+                                                        'component': 'Item',
+                                                        'props': {
                                                             'key': '/AntdResult',
                                                             'href': '/AntdResult',
                                                             'title': 'AntdResult 结果'
+                                                        }
+                                                    },
+                                                    {
+                                                        'component': 'Item',
+                                                        'props': {
+                                                            'key': '/AntdSkeleton',
+                                                            'href': '/AntdSkeleton',
+                                                            'title': 'AntdSkeleton 骨骼屏'
                                                         }
                                                     },
                                                     {
@@ -682,23 +961,27 @@ app.layout = fac.AntdSpin(
                                             }
                                         ],
                                         mode='inline',
-                                        defaultOpenKeys=['tabs', 'Grid', 'Typography', 'Layout'],
+                                        defaultOpenKeys=[
+                                            'Card', 'Descriptions', 'Form', 'Tabs', 'Grid', 'Typography', 'Layout'
+                                        ],
                                         style={
                                             'height': '100%',
-                                            'overflowX': 'hidden',
-                                            'overflowY': 'auto',
+                                            'overflow': 'hidden',
                                             'paddingBottom': '50px'
                                         }
                                     )
                                 ],
-                                width=280
+                                width=300,
+                                breakpoint='xxl',
+                                collapsedWidth=0,
+                                theme='light'
                             ),
 
                             fac.AntdContent(
                                 id='docs-content',
                                 style={
                                     'overflowY': 'auto',
-                                    'padding': '25px 0 25px 25px',
+                                    'padding': '25px',
                                     'backgroundColor': 'rgb(255, 255, 255)',
                                     'position': 'relative'
                                 }
@@ -719,7 +1002,8 @@ app.layout = fac.AntdSpin(
     listenPropsMode='exclude',
     excludeProps=Config.exclude_props,
     size='large',
-    text='文档加载中，请稍候'
+    text='文档加载中，请稍候',
+    debug=True
 )
 
 
@@ -783,6 +1067,15 @@ def render_docs_content(pathname):
     elif pathname == '/AntdFooter':
         return AntdFooter.docs_content, pathname
 
+    elif pathname == '/AntdAffix':
+        return AntdAffix.docs_content, pathname
+
+    elif pathname == '/AntdBreadcrumb':
+        return AntdBreadcrumb.docs_content, pathname
+
+    elif pathname == '/AntdDropdown':
+        return AntdDropdown.docs_content, pathname
+
     elif pathname == '/AntdMenu':
         return AntdMenu.docs_content, pathname
 
@@ -810,11 +1103,17 @@ def render_docs_content(pathname):
     elif pathname == '/AntdInput':
         return AntdInput.docs_content, pathname
 
+    elif pathname == '/AntdInputNumber':
+        return AntdInputNumber.docs_content, pathname
+
     elif pathname == '/AntdRadioGroup':
         return AntdRadioGroup.docs_content, pathname
 
     elif pathname == '/AntdSelect':
         return AntdSelect.docs_content, pathname
+
+    elif pathname == '/AntdRate':
+        return AntdRate.docs_content, pathname
 
     elif pathname == '/AntdSlider':
         return AntdSlider.docs_content, pathname
@@ -831,6 +1130,9 @@ def render_docs_content(pathname):
     elif pathname == '/AntdUpload':
         return AntdUpload.docs_content, pathname
 
+    elif pathname == '/AntdDraggerUpload':
+        return AntdDraggerUpload.docs_content, pathname
+
     elif pathname == '/AntdCollapse':
         return AntdCollapse.docs_content, pathname
 
@@ -840,11 +1142,20 @@ def render_docs_content(pathname):
     elif pathname == '/AntdPopover':
         return AntdPopover.docs_content, pathname
 
+    elif pathname == '/AntdStatistic':
+        return AntdStatistic.docs_content, pathname
+
+    elif pathname == '/AntdCountdown':
+        return AntdCountdown.docs_content, pathname
+
     elif pathname == '/AntdTable':
         return AntdTable.docs_content, pathname
 
     elif pathname == '/AntdTag':
         return AntdTag.docs_content, pathname
+
+    elif pathname == '/AntdTimeline':
+        return AntdTimeline.docs_content, pathname
 
     elif pathname == '/AntdTooltip':
         return AntdTooltip.docs_content, pathname
@@ -876,6 +1187,9 @@ def render_docs_content(pathname):
     elif pathname == '/AntdResult':
         return AntdResult.docs_content, pathname
 
+    elif pathname == '/AntdSkeleton':
+        return AntdSkeleton.docs_content, pathname
+
     elif pathname == '/AntdSpin':
         return AntdSpin.docs_content, pathname
 
@@ -888,8 +1202,62 @@ def render_docs_content(pathname):
     elif pathname == '/AntdPopconfirm':
         return AntdPopconfirm.docs_content, pathname
 
+    elif pathname == '/AntdProgress':
+        return AntdProgress.docs_content, pathname
+
+    elif pathname == '/AntdAvatar':
+        return AntdAvatar.docs_content, pathname
+
+    elif pathname == '/AntdBadge':
+        return AntdBadge.docs_content, pathname
+
+    elif pathname == '/AntdRibbon':
+        return AntdRibbon.docs_content, pathname
+
+    elif pathname == '/AntdTimePicker':
+        return AntdTimePicker.docs_content, pathname
+
+    elif pathname == '/AntdTimeRangePicker':
+        return AntdTimeRangePicker.docs_content, pathname
+
+    elif pathname == '/AntdCarousel':
+        return AntdCarousel.docs_content, pathname
+
+    elif pathname == '/AntdForm':
+        return AntdForm.docs_content, pathname
+
+    elif pathname == '/AntdFormItem':
+        return AntdFormItem.docs_content, pathname
+
+    elif pathname == '/AntdCardGrid':
+        return AntdCardGrid.docs_content, pathname
+
+    elif pathname == '/AntdCard':
+        return AntdCard.docs_content, pathname
+
+    elif pathname == '/AntdMentions':
+        return AntdMentions.docs_content, pathname
+
+    elif pathname == '/AntdImage':
+        return AntdImage.docs_content, pathname
+
+    elif pathname == '/AntdPageHeader':
+        return AntdPageHeader.docs_content, pathname
+
+    elif pathname == '/AntdCalendar':
+        return AntdCalendar.docs_content, pathname
+
+    elif pathname == '/AntdComment':
+        return AntdComment.docs_content, pathname
+
+    elif pathname == '/AntdDescriptions':
+        return AntdDescriptions.docs_content, pathname
+
+    elif pathname == '/AntdDescriptionItem':
+        return AntdDescriptionItem.docs_content, pathname
+
     return pathname, pathname
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=True, port=8050)

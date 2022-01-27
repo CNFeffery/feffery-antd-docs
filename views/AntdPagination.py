@@ -1,6 +1,7 @@
 from dash import html
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
+import feffery_markdown_components as fmc
 
 import callbacks.AntdPagination
 
@@ -34,7 +35,7 @@ docs_content = html.Div(
                     }
                 ),
 
-                fuc.FefferyMarkdown(
+                fmc.FefferyMarkdown(
                     markdownStr=open('documents/AntdPagination.md', encoding='utf-8').read()
                 ),
 
@@ -358,6 +359,6 @@ def pagination_callback_demo(current, pageSize):
         )
     ],
     style={
-        'display': '20px'
+        'display': 'flex'
     }
 )

@@ -1,8 +1,8 @@
 import dash
 from dash import html
-from dash import dcc
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
+import feffery_markdown_components as fmc
 
 from dash.dependencies import Input, Output, State
 
@@ -38,7 +38,7 @@ docs_content = html.Div(
                     }
                 ),
 
-                fuc.FefferyMarkdown(
+                fmc.FefferyMarkdown(
                     markdownStr=open('documents/AntdLayout.md', encoding='utf-8').read()
                 ),
 
@@ -570,6 +570,124 @@ html.Div(
                                 fac.AntdLayout(
                                     [
                                         fac.AntdSider(
+                                            breakpoint='xl',
+                                            collapsedWidth=0,
+                                            style={
+                                                'backgroundColor': 'rgb(240, 242, 245)'
+                                            }
+                                        ),
+
+                                        fac.AntdContent(
+                                            html.Div(
+                                                fac.AntdTitle(
+                                                    '内容区示例',
+                                                    level=2,
+                                                    style={
+                                                        'margin': '0'
+                                                    }
+                                                ),
+                                                style={
+                                                    'display': 'flex',
+                                                    'height': '100%',
+                                                    'justifyContent': 'center',
+                                                    'alignItems': 'center'
+                                                }
+                                            ),
+                                            style={
+                                                'backgroundColor': 'white'
+                                            }
+                                        )
+                                    ],
+                                    style={
+                                        'height': '600px'
+                                    }
+                                )
+                            ],
+                            style={
+                                'height': '600px',
+                                'border': '1px solid rgb(241, 241, 241)'
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '响应式菜单栏折叠',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+html.Div(
+    [
+        fac.AntdLayout(
+            [
+                fac.AntdSider(
+                    breakpoint='xl',
+                    collapsedWidth=0,
+                    style={
+                        'backgroundColor': 'rgb(240, 242, 245)'
+                    }
+                ),
+
+                fac.AntdContent(
+                    html.Div(
+                        fac.AntdTitle(
+                            '内容区示例',
+                            level=2,
+                            style={
+                                'margin': '0'
+                            }
+                        ),
+                        style={
+                            'display': 'flex',
+                            'height': '100%',
+                            'justifyContent': 'center',
+                            'alignItems': 'center'
+                        }
+                    ),
+                    style={
+                        'backgroundColor': 'white'
+                    }
+                )
+            ],
+            style={
+                'height': '600px'
+            }
+        )
+    ],
+    style={
+        'height': '600px',
+        'border': '1px solid rgb(241, 241, 241)'
+    }
+)'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='响应式菜单栏折叠',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        html.Div(
+                            [
+                                fac.AntdLayout(
+                                    [
+                                        fac.AntdSider(
                                             [
                                                 html.Div(
                                                     fac.AntdInput(placeholder='输入搜索内容', mode='search'),
@@ -913,6 +1031,7 @@ def sider_custom_trigger_demo(nClicks, collapsed):
                             {'title': '经典布局', 'href': '#经典布局'},
                             {'title': '不同的侧边栏位置', 'href': '#不同的侧边栏位置'},
                             {'title': '可折叠的侧边栏', 'href': '#可折叠的侧边栏'},
+                            {'title': '响应式菜单栏折叠', 'href': '#响应式菜单栏折叠'},
                             {'title': '将其他组件整合入侧边栏', 'href': '#将其他组件整合入侧边栏'},
                             {'title': '自定义侧边栏折叠触发器', 'href': '#自定义侧边栏折叠触发器'},
                         ]

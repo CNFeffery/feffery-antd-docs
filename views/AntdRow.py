@@ -1,7 +1,7 @@
-from dash import dcc
 from dash import html
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
+import feffery_markdown_components as fmc
 
 docs_content = html.Div(
     [
@@ -33,7 +33,7 @@ docs_content = html.Div(
                     }
                 ),
 
-                fuc.FefferyMarkdown(
+                fmc.FefferyMarkdown(
                     markdownStr=open('documents/AntdRow.md', encoding='utf-8').read()
                 ),
 
@@ -204,6 +204,200 @@ fac.AntdRow(
                         'border': '1px solid #f0f0f0'
                     },
                     id='基础使用',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdRow(
+                            [
+                                fac.AntdCol(
+                                    html.Div(
+                                        'col1',
+                                        style={
+                                            'backgroundColor': 'rgba(64, 173, 255, 1)',
+                                            'color': 'white',
+                                            'height': '100px',
+                                            'display': 'flex',
+                                            'justifyContent': 'center',
+                                            'alignItems': 'center'
+                                        }
+                                    ),
+                                    xs=12,
+                                    sm=12,
+                                    md=8,
+                                    lg=8,
+                                    xl=6,
+                                    xxl=6
+                                ),
+                                fac.AntdCol(
+                                    html.Div(
+                                        'col2',
+                                        style={
+                                            'backgroundColor': 'rgba(0, 146, 255, 1)',
+                                            'color': 'white',
+                                            'height': '100px',
+                                            'display': 'flex',
+                                            'justifyContent': 'center',
+                                            'alignItems': 'center'
+                                        }
+                                    ),
+                                    xs=12,
+                                    sm=12,
+                                    md=8,
+                                    lg=8,
+                                    xl=6,
+                                    xxl=6
+                                ),
+                                fac.AntdCol(
+                                    html.Div(
+                                        'col3',
+                                        style={
+                                            'backgroundColor': 'rgba(64, 173, 255, 1)',
+                                            'color': 'white',
+                                            'height': '100px',
+                                            'display': 'flex',
+                                            'justifyContent': 'center',
+                                            'alignItems': 'center'
+                                        }
+                                    ),
+                                    xs=12,
+                                    sm=12,
+                                    md=8,
+                                    lg=8,
+                                    xl=6,
+                                    xxl=6
+                                ),
+                                fac.AntdCol(
+                                    html.Div(
+                                        'col4',
+                                        style={
+                                            'backgroundColor': 'rgba(0, 146, 255, 1)',
+                                            'color': 'white',
+                                            'height': '100px',
+                                            'display': 'flex',
+                                            'justifyContent': 'center',
+                                            'alignItems': 'center'
+                                        }
+                                    ),
+                                    xs=12,
+                                    sm=12,
+                                    md=8,
+                                    lg=8,
+                                    xl=6,
+                                    xxl=6
+                                ),
+                            ],
+                            gutter=[10, 10]
+                        ),
+
+                        fac.AntdDivider(
+                            '响应式示例',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+fac.AntdRow(
+    [
+        fac.AntdCol(
+            html.Div(
+                'col1',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '100px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            xs=12,
+            sm=12,
+            md=8,
+            lg=8,
+            xl=6,
+            xxl=6
+        ),
+        fac.AntdCol(
+            html.Div(
+                'col2',
+                style={
+                    'backgroundColor': 'rgba(0, 146, 255, 1)',
+                    'color': 'white',
+                    'height': '100px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            xs=12,
+            sm=12,
+            md=8,
+            lg=8,
+            xl=6,
+            xxl=6
+        ),
+        fac.AntdCol(
+            html.Div(
+                'col3',
+                style={
+                    'backgroundColor': 'rgba(64, 173, 255, 1)',
+                    'color': 'white',
+                    'height': '100px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            xs=12,
+            sm=12,
+            md=8,
+            lg=8,
+            xl=6,
+            xxl=6
+        ),
+        fac.AntdCol(
+            html.Div(
+                'col4',
+                style={
+                    'backgroundColor': 'rgba(0, 146, 255, 1)',
+                    'color': 'white',
+                    'height': '100px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            xs=12,
+            sm=12,
+            md=8,
+            lg=8,
+            xl=6,
+            xxl=6
+        ),
+    ],
+    gutter=[10, 10]
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='响应式示例',
                     className='div-highlight'
                 ),
 
@@ -1302,6 +1496,7 @@ fac.AntdRow(
                         'href': '#使用示例',
                         'children': [
                             {'title': '基础使用', 'href': '#基础使用'},
+                            {'title': '响应式示例', 'href': '#响应式示例'},
                             {'title': '行组件内部列组件的span之和大于24时自动换行', 'href': '#行组件内部列组件的span之和大于24时自动换行'},
                             {'title': '不同的水平对齐方式', 'href': '#不同的水平对齐方式'},
                             {'title': '不同的垂直对齐方式', 'href': '#不同的垂直对齐方式'},

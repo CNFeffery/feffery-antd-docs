@@ -1,6 +1,7 @@
 from dash import html
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
+import feffery_markdown_components as fmc
 from dash.dependencies import Input, Output, State
 
 from server import app
@@ -35,7 +36,7 @@ docs_content = html.Div(
                     }
                 ),
 
-                fuc.FefferyMarkdown(
+                fmc.FefferyMarkdown(
                     markdownStr=open('documents/AntdNotification.md', encoding='utf-8').read()
                 ),
 

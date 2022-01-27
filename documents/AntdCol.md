@@ -25,3 +25,10 @@
 **flex：** *string*或*int*型
 
 　　对于熟悉**css**中**flex**布局的开发者，此参数等效于**flex**布局中的*flex参数*，可对列的宽度进行更精细的自定义设置
+
+**xs、sm、md、lg、xl、xxl：** *int*或*dict*型
+
+　　用于添加`响应式`功能，当传入*int*型时，表示对应断点下的`span`值，当传入*dict*型时，可以键值对的形式为对应断点设置**span**、**offset**、**order**、**pull**及**push**参数
+
+
+

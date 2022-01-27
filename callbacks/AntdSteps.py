@@ -31,7 +31,5 @@ def steps_callback_demo_part1(go_next, go_last, restart, current):
     prevent_initial_call=True
 )
 def steps_callback_demo_part2(current):
-    import time;
-    time.sleep(1)
 
     return f'当前步骤为：步骤{current}'

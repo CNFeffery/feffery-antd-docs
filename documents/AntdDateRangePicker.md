@@ -6,42 +6,35 @@
 
 　　用于设置是否显示额外的时间选择界面，`True`（显示），`False`（不显示）
 
-**placeholderStart：** *string*型
+**format：** *string*型
 
-　　空白输入下开始输入框的填充说明文字
+　　用于设置*日期格式*（[参考资料](https://momentjscom.readthedocs.io/en/latest/moment/04-displaying/01-format/)），当`showTime=False`时默认值为`'YYYY-MM-DD'`，当`showTime=True`时默认值为`'YYYY-MM-DD hh:mm:ss'`
 
-**placeholderEnd：** *string*型
+**placeholder：** `list[string, string]`型
 
-　　空白输入下结束输入框的填充说明文字
+　　用于设置空白输入下开始与结束输入框的*填充说明文字*
 
-**disabledStart：** *bool*型，默认为`False`
+**defaultPickerValue：** *string*型
 
-　　设置是否禁用*开始输入框*
-
-**disabledEnd：** *bool*型，默认为`False`
-
-　　设置是否禁用*结束输入框*
-
-**defaultPickerValue：** *dict*型，必填，无默认值
-
-　　用于设置日期面板默认处于的日期位置，包含键值对`'value'`与`'format'`，均为*string*型，其中`'value'`用于设定日期值，`'format'`用于设置相对应的日期格式（[参考资料](https://momentjscom.readthedocs.io/en/latest/moment/04-displaying/01-format/)），例如：
-
-```py
-defaultPickerValue = {
-    'value': '2020/01/01', 
-    'format': 'YYYY/MM/DD'
-}
-```
+　　用于设置日期面板默认处于的*日期位置*，需要与`format`参数一致
 
 **bordered：** *bool*型，默认为`True`
 
 　　用于设置是否显示部件外边框，`True`（显示），`False`（不显示）
 
-**selectedStartDate：** *string*型
+**value：** `list[string, string]`型
 
-　　用于在回调中捕获用户选中的开始日期或开始日期时间字符串
+　　用于在回调中捕获用户选中的开始及结束*日期或日期时间字符串*
 
-**selectedEndDate：** *string*型
+**defaultValue：** `list[string, string]`型
 
-　　用于在回调中捕获用户选中的结束日期或结束日期时间字符串
+　　用于设置初始化时默认选中的开始及结束*日期或日期时间字符串*
+
+**size：** *string*型，默认为`'middle'`
+
+　　用于设置组件尺寸规格大小，可选的有`'small'`、`'middle'`与`'large'`
+
+**disabled：** `list[bool, bool]`型，默认为`False`
+
+　　设置是否禁用*输入框*
 

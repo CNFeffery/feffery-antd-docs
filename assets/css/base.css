@@ -24,3 +24,7 @@ div {
 .ant-back-top {
     z-index: 999;
 }
+
+#router-menu:hover {
+    overflow: hidden auto !important;
+}

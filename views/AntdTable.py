@@ -1,6 +1,7 @@
 from dash import html
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
+import feffery_markdown_components as fmc
 from dash.dependencies import Input, Output, State
 
 import time
@@ -54,7 +55,7 @@ docs_content = html.Div(
                     }
                 ),
 
-                fuc.FefferyMarkdown(
+                fmc.FefferyMarkdown(
                     markdownStr=open('documents/AntdTable.md', encoding='utf-8').read()
                 ),
 
@@ -1869,6 +1870,108 @@ fac.AntdTable(
 
                 html.Div(
                     [
+                        fac.AntdTable(
+                            columns=[
+                                {
+                                    'title': '日期示例',
+                                    'dataIndex': '日期示例',
+                                    'editable': True
+                                },
+                                {
+                                    'title': '邮编示例',
+                                    'dataIndex': '邮编示例',
+                                    'editable': True
+                                }
+                            ],
+                            data=[
+                                {
+                                    'key': i,
+                                    '日期示例': faker.date(pattern="%Y-%m-%d", end_datetime=None),
+                                    '邮编示例': faker.postcode()
+                                }
+                                for i in range(10)
+                            ],
+                            columnsFormatConstraint={
+                                '日期示例': {
+                                    'rule': '^\d{4}\-\d{2}\-\d{2}$',
+                                    'content': '不符合日期输入格式要求！'
+                                },
+                                '邮编示例': {
+                                    'rule': '^\d{6}$',
+                                    'content': '不符合邮编输入格式要求！'
+                                }
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '添加编辑内容格式校验功能',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdParagraph(
+                            [
+                                fac.AntdText('　　利用正则表达式来校验可编辑单元格的内容输入过程，可自定义校验失败提示文字')
+                            ]
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+fac.AntdTable(
+    columns=[
+        {
+            'title': '日期示例',
+            'dataIndex': '日期示例',
+            'editable': True
+        },
+        {
+            'title': '邮编示例',
+            'dataIndex': '邮编示例',
+            'editable': True
+        }
+    ],
+    data=[
+        {
+            'key': i,
+            '日期示例': faker.date(pattern="%Y-%m-%d", end_datetime=None),
+            '邮编示例': faker.postcode()
+        }
+        for i in range(10)
+    ],
+    columnsFormatConstraint={
+        '日期示例': {
+            'rule': '^\d{4}\-\d{2}\-\d{2}$',
+            'content': '不符合日期输入格式要求！'
+        },
+        '邮编示例': {
+            'rule': '^\d{6}$',
+            'content': '不符合邮编输入格式要求！'
+        }
+    }
+)'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='添加编辑内容格式校验功能',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
                         fac.AntdTitle('左例（未设置） 右例（设置popupContainerId参数）', level=5),
                         html.Div(
                             [
@@ -2511,7 +2614,6 @@ def table_server_side_callback_demo(pagination,
 
                 html.Div(
                     [
-
                         fac.AntdSpin(
                             [
                                 fac.AntdTable(
@@ -2752,6 +2854,142 @@ def table_button_click_demo_callback(nClicksButton, recentlyButtonClickedRow, cl
 
                 html.Div(
                     [
+                        fac.AntdSpin(
+                            [
+                                fac.AntdTable(
+                                    id='table-mouse-event-demo',
+                                    bordered=True,
+                                    columns=[
+                                        {
+                                            'title': '字段1',
+                                            'dataIndex': '字段1'
+                                        },
+                                        {
+                                            'title': '字段2',
+                                            'dataIndex': '字段2'
+                                        },
+                                        {
+                                            'title': '字段3',
+                                            'dataIndex': '字段3'
+                                        }
+                                    ],
+                                    data=[
+                                        {
+                                            'key': str(i),
+                                            '字段1': i,
+                                            '字段2': i,
+                                            '字段3': i
+                                        }
+                                        for i in range(5)
+                                    ]
+                                ),
+
+                                fac.AntdSpace(
+                                    id='table-mouse-event-demo-output',
+                                    direction='vertical',
+                                    style={
+                                        'width': '100%'
+                                    }
+                                )
+                            ],
+                            text='回调中'
+                        ),
+
+                        fac.AntdDivider(
+                            '监听表头/数据行的鼠标移入事件',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+fac.AntdSpin(
+    [
+        fac.AntdTable(
+            id='table-mouse-event-demo',
+            bordered=True,
+            columns=[
+                {
+                    'title': '字段1',
+                    'dataIndex': '字段1'
+                },
+                {
+                    'title': '字段2',
+                    'dataIndex': '字段2'
+                },
+                {
+                    'title': '字段3',
+                    'dataIndex': '字段3'
+                }
+            ],
+            data=[
+                {
+                    'key': str(i),
+                    '字段1': i,
+                    '字段2': i,
+                    '字段3': i
+                }
+                for i in range(5)
+            ]
+        ),
+
+        fac.AntdSpace(
+            id='table-mouse-event-demo-output',
+            direction='vertical',
+            style={
+                'width': '100%'
+            }
+        )
+    ],
+    text='回调中'
+)
+...
+
+@app.callback(
+    Output('table-mouse-event-demo-output', 'children'),
+    [Input('table-mouse-event-demo', 'recentlyMouseEnterColumn'),
+     Input('table-mouse-event-demo', 'recentlyMouseEnterRow')],
+    prevent_initial_call=True
+)
+def table_mouse_event_demo_callback(recentlyMouseEnterColumn,
+                                    recentlyMouseEnterRow):
+    return [
+        html.Div(
+            [
+                fac.AntdText('recentlyMouseEnterColumn：', strong=True),
+                fac.AntdText(recentlyMouseEnterColumn)
+            ]
+        ),
+        html.Div(
+            [
+                fac.AntdText('recentlyMouseEnterRow：', strong=True),
+                fac.AntdText(recentlyMouseEnterRow)
+            ]
+        )
+    ]
+'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='监听表头/数据行的鼠标移入事件',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
 
                         fac.AntdSpin(
                             [
@@ -2940,10 +3178,12 @@ def table_row_select_demo_callback(selectedRowKeys, selectedRows):
                             {'title': '使用字段筛选功能', 'href': '#使用字段筛选功能'},
                             {'title': '为表头添加字段说明信息', 'href': '#为表头添加字段说明信息'},
                             {'title': '添加行选择功能', 'href': '#添加行选择功能'},
+                            {'title': '添加编辑内容格式校验功能', 'href': '#添加编辑内容格式校验功能'},
                             {'title': '妥善使用popupContainerId参数', 'href': '#妥善使用popupContainerId参数'},
                             {'title': '监听翻页、筛选及单元格内容编辑变动', 'href': '#监听翻页、筛选及单元格内容编辑变动'},
                             {'title': '服务端数据渲染模式示例', 'href': '#服务端数据渲染模式示例'},
                             {'title': '监听按钮模式下的按钮点击事件', 'href': '#监听按钮模式下的按钮点击事件'},
+                            {'title': '监听表头/数据行的鼠标移入事件', 'href': '#监听表头/数据行的鼠标移入事件'},
                             {'title': '监听行选择事件', 'href': '#监听行选择事件'},
                         ]
                     },
@@ -2984,8 +3224,6 @@ def table_server_side_callback_demo(pagination,
     :param filterOptions: 筛选配置参数
     :return: 对应输入组合条件下的数据帧及更新后的pagination参数
     '''
-
-    time.sleep(0.5)
 
     ctx = dash.callback_context
 
@@ -3076,7 +3314,7 @@ def table_server_side_callback_demo(pagination,
     prevent_initial_call=True
 )
 def table_button_click_demo_callback(nClicksButton, recentlyButtonClickedRow, clickedContent):
-    time.sleep(0.5)
+
     return str(nClicksButton), json.dumps(recentlyButtonClickedRow, ensure_ascii=False, indent=4), str(clickedContent)
 
 
@@ -3088,5 +3326,29 @@ def table_button_click_demo_callback(nClicksButton, recentlyButtonClickedRow, cl
     prevent_initial_call=True
 )
 def table_row_select_demo_callback(selectedRowKeys, selectedRows):
-    time.sleep(0.5)
+
     return str(selectedRowKeys), json.dumps(selectedRows, ensure_ascii=False, indent=4)
+
+
+@app.callback(
+    Output('table-mouse-event-demo-output', 'children'),
+    [Input('table-mouse-event-demo', 'recentlyMouseEnterColumn'),
+     Input('table-mouse-event-demo', 'recentlyMouseEnterRow')],
+    prevent_initial_call=True
+)
+def table_mouse_event_demo_callback(recentlyMouseEnterColumn,
+                                    recentlyMouseEnterRow):
+    return [
+        html.Div(
+            [
+                fac.AntdText('recentlyMouseEnterColumn：', strong=True),
+                fac.AntdText(recentlyMouseEnterColumn)
+            ]
+        ),
+        html.Div(
+            [
+                fac.AntdText('recentlyMouseEnterRow：', strong=True),
+                fac.AntdText(recentlyMouseEnterRow)
+            ]
+        )
+    ]

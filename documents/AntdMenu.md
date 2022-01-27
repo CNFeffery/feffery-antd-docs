@@ -109,4 +109,8 @@ menuItems = [
 
 **currentKey：** *str*型
 
-　　用于在回调中捕获当前被选中的`Item`元素对应的`key`值
+　　用于在回调中捕获当前*被选中*的`Item`元素对应的`key`值
+
+**openKeys：** *str*型
+
+　　用于在回调中捕获当前*被展开*的`SubMenu`元素对应的`key`值列表

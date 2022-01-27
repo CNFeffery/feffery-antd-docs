@@ -1,7 +1,7 @@
 from dash import html
-from dash import dcc
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
+import feffery_markdown_components as fmc
 
 import callbacks.AntdMenu
 
@@ -35,7 +35,7 @@ docs_content = html.Div(
                     }
                 ),
 
-                fuc.FefferyMarkdown(
+                fmc.FefferyMarkdown(
                     markdownStr=open('documents/AntdMenu.md', encoding='utf-8').read()
                 ),
 
@@ -978,6 +978,96 @@ html.Div(
                                     {
                                         'component': 'Item',
                                         'props': {
+                                            'key': 'fac仓库',
+                                            'title': 'fac仓库',
+                                            'href': 'https://github.com/CNFeffery/feffery-antd-components',
+                                            'target': '_blank'
+                                        }
+                                    },
+                                    {
+                                        'component': 'Item',
+                                        'props': {
+                                            'key': 'feffery博客园',
+                                            'title': 'feffery博客园',
+                                            'href': 'https://www.cnblogs.com/feffery/',
+                                            'target': '_blank'
+                                        }
+                                    }
+                                ],
+                                mode='inline',
+                                theme='dark'
+                            ),
+                            style={
+                                'width': '250px'
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '使用链接跳转功能',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+html.Div(
+    fac.AntdMenu(
+        menuItems=[
+            {
+                'component': 'Item',
+                'props': {
+                    'key': 'fac仓库',
+                    'title': 'fac仓库',
+                    'href': 'https://github.com/CNFeffery/feffery-antd-components',
+                    'target': '_blank'
+                }
+            },
+            {
+                'component': 'Item',
+                'props': {
+                    'key': 'feffery博客园',
+                    'title': 'feffery博客园',
+                    'href': 'https://www.cnblogs.com/feffery/',
+                    'target': '_blank'
+                }
+            }
+        ],
+        mode='inline',
+        theme='dark'
+    ),
+    style={
+        'width': '250px'
+    }
+)'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='使用链接跳转功能',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        html.Div(
+                            fac.AntdMenu(
+                                menuItems=[
+                                    {
+                                        'component': 'Item',
+                                        'props': {
                                             'key': f'图标{icon}',
                                             'title': f'图标{icon}',
                                             'icon': icon
@@ -1099,24 +1189,40 @@ html.Div(
                                                 'upload',
                                                 'bar-chart',
                                                 'pie-chart',
-                                                'dot-chart',
-                                                'line-chart',
-                                                'apartment',
-                                                'app-store',
-                                                'app-store-add',
-                                                'bell',
-                                                'calculator',
-                                                'calendar',
-                                                'database',
-                                                'history'
+                                                'dot-chart'
                                             ]
                                                   ] + [
                                                       {
-                                                          'component': 'Item',
+                                                          'component': 'SubMenu',
                                                           'props': {
-                                                              'key': '菜单项测试',
-                                                              'title': '菜单项测试'
-                                                          }
+                                                              'key': '子菜单1',
+                                                              'title': '子菜单1'
+                                                          },
+                                                          'children': [
+                                                              {
+                                                                  'component': 'Item',
+                                                                  'props': {
+                                                                      'key': '菜单项1-1',
+                                                                      'title': '菜单项1-1'
+                                                                  }
+                                                              }
+                                                          ]
+                                                      },
+                                                      {
+                                                          'component': 'SubMenu',
+                                                          'props': {
+                                                              'key': '子菜单2',
+                                                              'title': '子菜单2'
+                                                          },
+                                                          'children': [
+                                                              {
+                                                                  'component': 'Item',
+                                                                  'props': {
+                                                                      'key': '菜单项1-1',
+                                                                      'title': '菜单项1-1'
+                                                                  }
+                                                              }
+                                                          ]
                                                       }
                                                   ],
                                         defaultSelectedKey='图标home',
@@ -1130,7 +1236,7 @@ html.Div(
 
                                 html.Div(
                                     fac.AntdSpin(
-                                        html.Em('图标home', id='menu-demo-output'),
+                                        html.Em(id='menu-demo-output'),
                                         text='回调中'
                                     ),
                                     style={
@@ -1177,24 +1283,40 @@ html.Div(
                         'upload',
                         'bar-chart',
                         'pie-chart',
-                        'dot-chart',
-                        'line-chart',
-                        'apartment',
-                        'app-store',
-                        'app-store-add',
-                        'bell',
-                        'calculator',
-                        'calendar',
-                        'database',
-                        'history'
+                        'dot-chart'
                     ]
                           ] + [
                               {
-                                  'component': 'Item',
+                                  'component': 'SubMenu',
                                   'props': {
-                                      'key': '菜单项测试',
-                                      'title': '菜单项测试'
-                                  }
+                                      'key': '子菜单1',
+                                      'title': '子菜单1'
+                                  },
+                                  'children': [
+                                      {
+                                          'component': 'Item',
+                                          'props': {
+                                              'key': '菜单项1-1',
+                                              'title': '菜单项1-1'
+                                          }
+                                      }
+                                  ]
+                              },
+                              {
+                                  'component': 'SubMenu',
+                                  'props': {
+                                      'key': '子菜单2',
+                                      'title': '子菜单2'
+                                  },
+                                  'children': [
+                                      {
+                                          'component': 'Item',
+                                          'props': {
+                                              'key': '菜单项1-1',
+                                              'title': '菜单项1-1'
+                                          }
+                                      }
+                                  ]
                               }
                           ],
                 defaultSelectedKey='图标home',
@@ -1208,7 +1330,7 @@ html.Div(
 
         html.Div(
             fac.AntdSpin(
-                html.Em('图标home', id='menu-demo-output'),
+                html.Em(id='menu-demo-output'),
                 text='回调中'
             ),
             style={
@@ -1221,16 +1343,17 @@ html.Div(
         'height': '800px',
         'display': 'flex'
     }
-),
+)
 ...
 @app.callback(
     Output('menu-demo-output', 'children'),
-    Input('menu-demo', 'currentKey'),
-    prevent_initial_call=True
+    [Input('menu-demo', 'currentKey'),
+     Input('menu-demo', 'openKeys')]
 )
-def menu_callback_demo(currentKey):
+def menu_callback_demo(currentKey, openKeys):
+     
 
-    return currentKey'''
+    return f"已选中菜单项：{currentKey}  已展开菜单项：{openKeys}"'''
                             ),
                             title='点击查看代码',
                             is_open=False,
@@ -1267,6 +1390,7 @@ def menu_callback_demo(currentKey):
                             {'title': '指定默认展开的SubMenu', 'href': '#指定默认展开的SubMenu'},
                             {'title': '设置默认选中的菜单项', 'href': '#设置默认选中的菜单项'},
                             {'title': '使用前缀图标', 'href': '#使用前缀图标'},
+                            {'title': '使用链接跳转功能', 'href': '#使用链接跳转功能'},
                             {'title': '添加导航菜单动态折叠/展开按钮', 'href': '#添加导航菜单动态折叠/展开按钮'},
                             {'title': '回调示例', 'href': '#回调示例'},
                         ]

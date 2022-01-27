@@ -12,7 +12,7 @@ from server import app
     prevent_initial_call=True
 )
 def tree_callback_demo(selectedKeys, checkedKeys):
-    import time;time.sleep(1)
+     
 
     return [
         fac.AntdTitle('selectedKeys：', level=5),

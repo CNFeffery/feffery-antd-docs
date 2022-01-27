@@ -20,8 +20,6 @@ def table_callback_demo(currentData,
                         sorter,
                         filter,
                         pagination):
-    import time
-    time.sleep(1)
 
     ctx = dash.callback_context
 

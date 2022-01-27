@@ -1,6 +1,6 @@
-**message：** *string*型
+**message：** *string*或*list*型
 
-　　用于设置警告提示的*主要文字内容*，当传入由字符串组成的列表时，可配合参数**renderLoopText**开启*文字轮播模式*
+　　用于设置警告提示的*主要文字内容*
 
 **description：** *string*或*list*型
 
@@ -18,7 +18,7 @@
 
 　　用于设置是否为当前警告提示渲染*关闭按钮*
 
-**renderLoopText：** *bool*型，默认为`False`
+**messageRenderMode：** *string*型，默认为`'default'`
 
-　　用于设置是否开启*文字轮播模式*，开启后会以*轮播*的方式展示参数**message**中所传入的字符串列表
+　　用于设置针对`message`的*渲染模式*，可选的有`'default'`、`'loop-text'`（轮播文字模式）以及`'marquee'`（跑马灯模式），其中`'loop-text'`模式需要`message`参数传入列表类型的多条字符串
 

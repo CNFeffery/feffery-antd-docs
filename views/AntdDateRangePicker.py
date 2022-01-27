@@ -1,7 +1,7 @@
 from dash import html
-from dash import dcc
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
+import feffery_markdown_components as fmc
 
 import callbacks.AntdDateRangePicker
 
@@ -35,7 +35,7 @@ docs_content = html.Div(
                     }
                 ),
 
-                fuc.FefferyMarkdown(
+                fmc.FefferyMarkdown(
                     markdownStr=open('documents/AntdDateRangePicker.md', encoding='utf-8').read()
                 ),
 
@@ -124,7 +124,7 @@ docs_content = html.Div(
 
                 html.Div(
                     [
-                        fac.AntdDateRangePicker(placeholderStart='日期起点', placeholderEnd='日期终点'),
+                        fac.AntdDateRangePicker(placeholder=['日期起点', '日期终点']),
 
                         fac.AntdDivider(
                             '自定义空白填充文字',
@@ -138,7 +138,7 @@ docs_content = html.Div(
                                 showInlineLineNumbers=True,
                                 language='python',
                                 codeStyle='coy-without-shadows',
-                                codeString='''fac.AntdDateRangePicker(placeholderStart='日期起点', placeholderEnd='日期终点')'''
+                                codeString='''fac.AntdDateRangePicker(placeholder=['日期起点', '日期终点'])'''
                             ),
                             title='点击查看代码',
                             is_open=False,
@@ -159,7 +159,7 @@ docs_content = html.Div(
                     [
                         fac.AntdDateRangePicker(picker='week'),
                         fac.AntdDateRangePicker(picker='month'),
-                        fac.AntdDateRangePicker(picker='quarter', placeholderStart='开始季度', placeholderEnd='结束季度'),
+                        fac.AntdDateRangePicker(picker='quarter', placeholder=['开始季度', '结束季度']),
                         fac.AntdDateRangePicker(picker='year'),
 
                         fac.AntdDivider(
@@ -177,7 +177,7 @@ docs_content = html.Div(
                                 codeString='''
 fac.AntdDateRangePicker(picker='week'),
 fac.AntdDateRangePicker(picker='month'),
-fac.AntdDateRangePicker(picker='quarter', placeholderStart='开始季度', placeholderEnd='结束季度'),
+fac.AntdDateRangePicker(picker='quarter', placeholder=['开始季度', '结束季度']),
 fac.AntdDateRangePicker(picker='year')'''
                             ),
                             title='点击查看代码',
@@ -197,8 +197,8 @@ fac.AntdDateRangePicker(picker='year')'''
 
                 html.Div(
                     [
-                        fac.AntdDateRangePicker(disabledStart=True),
-                        fac.AntdDateRangePicker(disabledEnd=True),
+                        fac.AntdDateRangePicker(disabled=[True, False]),
+                        fac.AntdDateRangePicker(disabled=[False, True]),
 
                         fac.AntdDivider(
                             '禁用开始或结束输入框',
@@ -213,8 +213,8 @@ fac.AntdDateRangePicker(picker='year')'''
                                 language='python',
                                 codeStyle='coy-without-shadows',
                                 codeString='''
-fac.AntdDateRangePicker(disabledStart=True),
-fac.AntdDateRangePicker(disabledEnd=True)'''
+fac.AntdDateRangePicker(disabled=[True, False]),
+fac.AntdDateRangePicker(disabled=[False, True])'''
                             ),
                             title='点击查看代码',
                             is_open=False,
@@ -259,13 +259,12 @@ html.Em(id='date-range-picker-demo-output')
 ...
 @app.callback(
     Output('date-range-picker-demo-output', 'children'),
-    [Input('date-range-picker-demo', 'selectedStartDate'),
-    Input('date-range-picker-demo', 'selectedEndDate')],
+    Input('date-range-picker-demo', 'value'),
     prevent_initial_call=True
 )
-def date_picker_callback_demo(selectedStartDate, selectedEndDate):
-    if selectedStartDate and selectedEndDate:
-        return f'{selectedStartDate} ~ {selectedEndDate}'
+def date_picker_callback_demo(value):
+    if value:
+        return f'{value[0]} ~ {value[1]}'
 
     return dash.no_update'''
                             ),

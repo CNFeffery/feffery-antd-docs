@@ -1,6 +1,7 @@
 from dash import html
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
+import feffery_markdown_components as fmc
 
 import callbacks.AntdSlider
 
@@ -34,7 +35,7 @@ docs_content = html.Div(
                     }
                 ),
 
-                fuc.FefferyMarkdown(
+                fmc.FefferyMarkdown(
                     markdownStr=open('documents/AntdSlider.md', encoding='utf-8').read()
                 ),
 
@@ -408,8 +409,7 @@ html.Em(id='slider-demo-output')
 @app.callback(
     Output('slider-demo-output', 'children'),
     [Input('slider-demo-1', 'value'),
-     Input('slider-demo-2', 'value')],
-    prevent_initial_call=True
+     Input('slider-demo-2', 'value')]
 )
 def transfer_callback_demo(value, range_value):
     return f'单值选择当前值：{value}   范围选择当前值：{range_value}'''
@@ -463,6 +463,6 @@ def transfer_callback_demo(value, range_value):
         )
     ],
     style={
-        'display': '20px'
+        'display': 'flex'
     }
 )

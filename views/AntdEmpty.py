@@ -1,5 +1,6 @@
 from dash import html
 import feffery_utils_components as fuc
+import feffery_markdown_components as fmc
 import feffery_antd_components as fac
 
 docs_content = html.Div(
@@ -32,7 +33,7 @@ docs_content = html.Div(
                     }
                 ),
 
-                fuc.FefferyMarkdown(
+                fmc.FefferyMarkdown(
                     markdownStr=open('documents/AntdEmpty.md', encoding='utf-8').read()
                 ),
 
@@ -126,7 +127,7 @@ fac.AntdEmpty(
                 html.Div(
                     [
                         fac.AntdEmpty(
-                            image='/assets/imgs/feffery-antd-components-logo-planB.svg'
+                            image='/assets/imgs/fac-logo.svg'
                         ),
 
                         fac.AntdDivider(
@@ -143,7 +144,7 @@ fac.AntdEmpty(
                                 codeStyle='coy-without-shadows',
                                 codeString='''
 fac.AntdEmpty(
-    image='/assets/imgs/feffery-antd-components-logo-planB.svg'
+    image='/assets/imgs/fac-logo.svg'
 )'''
                             ),
                             title='点击查看代码',

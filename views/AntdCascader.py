@@ -1,5 +1,6 @@
 from dash import html
 import feffery_antd_components as fac
+import feffery_markdown_components as fmc
 import feffery_utils_components as fuc
 
 import callbacks.AntdCascader
@@ -34,7 +35,7 @@ docs_content = html.Div(
                     }
                 ),
 
-                fuc.FefferyMarkdown(
+                fmc.FefferyMarkdown(
                     markdownStr=open('documents/AntdCascader.md', encoding='utf-8').read()
                 ),
 

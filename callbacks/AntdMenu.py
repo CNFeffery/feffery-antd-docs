@@ -5,10 +5,10 @@ from server import app
 
 @app.callback(
     Output('menu-demo-output', 'children'),
-    Input('menu-demo', 'currentKey'),
-    prevent_initial_call=True
+    [Input('menu-demo', 'currentKey'),
+     Input('menu-demo', 'openKeys')]
 )
-def menu_callback_demo(currentKey):
-    import time;time.sleep(1)
+def menu_callback_demo(currentKey, openKeys):
+     
 
-    return currentKey
+    return f"已选中菜单项：{currentKey}  已展开菜单项：{openKeys}"

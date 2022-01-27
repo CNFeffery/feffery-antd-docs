@@ -1,4 +1,3 @@
-import time
 from dash.dependencies import Input, Output, State
 
 from server import app
@@ -9,7 +8,6 @@ from server import app
     Input('checkbox-group-demo', 'value')
 )
 def checkbox_group_demo_callback(value):
-    time.sleep(0.5)
     return str(value)
 
 

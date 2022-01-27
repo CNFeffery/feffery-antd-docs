@@ -1,6 +1,7 @@
 from dash import html
 from dash import dcc
 import feffery_antd_components as fac
+import feffery_markdown_components as fmc
 import feffery_utils_components as fuc
 
 import callbacks.AntdButton
@@ -35,7 +36,7 @@ docs_content = html.Div(
                     }
                 ),
 
-                fuc.FefferyMarkdown(
+                fmc.FefferyMarkdown(
                     markdownStr=open('documents/AntdButton.md', encoding='utf-8').read()
                 ),
 

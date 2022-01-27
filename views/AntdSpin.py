@@ -1,6 +1,7 @@
 from dash import html
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
+import feffery_markdown_components as fmc
 
 import callbacks.AntdSpin
 
@@ -34,7 +35,7 @@ docs_content = html.Div(
                     }
                 ),
 
-                fuc.FefferyMarkdown(
+                fmc.FefferyMarkdown(
                     markdownStr=open('documents/AntdSpin.md', encoding='utf-8').read()
                 ),
 
@@ -137,6 +138,7 @@ def spin_basic_callback_demo(nClicks):
 
                         fac.AntdSpin(
                             fac.AntdText('2s回调 nClicks: 0', id='spin-delay-demo-output2', strong=True),
+                            delay=1000,
                             text='回调中'
                         ),
 
@@ -176,6 +178,7 @@ fac.AntdSpin(
 
 fac.AntdSpin(
     fac.AntdText('2s回调 nClicks: 0', id='spin-delay-demo-output2', strong=True),
+    delay=1000,
     text='回调中'
 )
 ...

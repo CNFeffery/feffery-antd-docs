@@ -14,8 +14,6 @@ from server import app
     prevent_initial_call=True
 )
 def tabs_callback_demo(nClicks, latestDeletePane, children):
-    import time
-    time.sleep(1)
 
     ctx = dash.callback_context
 

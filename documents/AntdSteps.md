@@ -49,3 +49,7 @@ steps = [
 **type：** *str*型，默认为`'default'`
 
 　　用于设置步骤条*整体的渲染形式*，`'default'`表示常规形式，`'navigation'`表示带引导的导航形式
+
+**allowClick：** *bool*型，默认为`False`
+
+　　用于设置*是否允许直接点击步骤进行切换*

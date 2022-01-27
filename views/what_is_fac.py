@@ -126,7 +126,7 @@ docs_content = html.Div(
                             fac.AntdParagraph(
                                 [
                                     fac.AntdText('pypi最新稳定版本：'),
-                                    fac.AntdTag(content='0.0.1rc7'),
+                                    fac.AntdTag(content='0.0.1rc8'),
                                     html.Img(
                                         src='https://img.shields.io/pypi/v/feffery-antd-components.svg?color=dark-green',
                                         style={
@@ -153,7 +153,7 @@ docs_content = html.Div(
 
                 fac.AntdTitle('最新稳定版本：', level=5),
 
-                fac.AntdText('pip install feffery-antd-components==0.0.1rc7', keyboard=True, copyable=True),
+                fac.AntdText('pip install feffery-antd-components==0.0.1rc8', keyboard=True, copyable=True),
 
                 fac.AntdTitle('最新开发版本：', level=5),
 
@@ -208,7 +208,7 @@ docs_content = html.Div(
 
                 fac.AntdCollapse(
                     html.Div(
-                        html.Img(
+                        fac.AntdImage(
                             src=app.get_asset_url('imgs/weixin-pay.png'),
                             style={
                                 'height': '400px'
