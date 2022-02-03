@@ -1,4 +1,5 @@
 import feffery_antd_components as fac
+import feffery_utils_components as fuc
 from dash import dcc
 from dash import html
 from dash.dependencies import Input, Output
@@ -87,7 +88,7 @@ from views import (
     AntdDescriptionItem
 )
 
-app.layout = fac.AntdSpin(
+app.layout = fuc.FefferyTopProgress(
     html.Div(
         [
             # 注入路由
@@ -1001,8 +1002,7 @@ app.layout = fac.AntdSpin(
     ),
     listenPropsMode='exclude',
     excludeProps=Config.exclude_props,
-    size='large',
-    text='文档加载中，请稍候',
+    minimum=0.6,
     debug=True
 )
 
@@ -1260,4 +1260,4 @@ def render_docs_content(pathname):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True, port=8050)
+    app.run_server(debug=True, port=8051)
