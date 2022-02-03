@@ -193,23 +193,6 @@ fac.AntdRate(
                 ),
 
                 html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
-                        }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
-                ),
-
-                html.Div(
                     [
                         fac.AntdSpin(
                             [

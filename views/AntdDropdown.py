@@ -169,6 +169,7 @@ fac.AntdDropdown(
                                 codeString='''
 fac.AntdDropdown(
     title='触发点',
+    buttonMode=True,
     menuItems=[
         {
             'title': '子页面1'
