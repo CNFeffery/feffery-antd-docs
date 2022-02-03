@@ -1002,7 +1002,8 @@ app.layout = fuc.FefferyTopProgress(
     ),
     listenPropsMode='exclude',
     excludeProps=Config.exclude_props,
-    minimum=0.6,
+    minimum=0.33,
+    speed=800,
     debug=True
 )
 
