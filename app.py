@@ -1,3 +1,4 @@
+import os
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
 from dash import dcc
@@ -94,6 +95,19 @@ app.layout = fuc.FefferyTopProgress(
             # 注入路由
             dcc.Location(id='url'),
 
+            # 注入快捷指令面板
+            fuc.FefferyShortcutPanel(
+                placeholder='输入你想要搜索的内容...',
+                data=[
+                    {
+                        'id': c.split('.')[0],
+                        'title': c.split('.')[0],
+                        'handler': '() => window.open("/%s")' % c.split('.')[0]
+                    }
+                    for c in os.listdir('documents')
+                ]
+            ),
+
             # 页面结构
             fac.AntdLayout(
                 [
@@ -133,6 +147,37 @@ app.layout = fuc.FefferyTopProgress(
                                     ),
 
                                     fac.AntdCol(
+                                        fac.AntdParagraph(
+                                            [
+                                                fac.AntdText(
+                                                    'Ctrl',
+                                                    keyboard=True,
+                                                    style={
+                                                        'color': '#ced4d9'
+                                                    }
+                                                ),
+                                                fac.AntdText(
+                                                    'K',
+                                                    keyboard=True,
+                                                    style={
+                                                        'color': '#ced4d9'
+                                                    }
+                                                ),
+                                                fac.AntdText(
+                                                    '唤出搜索面板',
+                                                    style={
+                                                        'color': '#ced4d9'
+                                                    }
+                                                )
+                                            ],
+                                            style={
+                                                'marginLeft': '50px'
+                                            }
+                                        ),
+                                        flex='auto'
+                                    ),
+
+                                    fac.AntdCol(
                                         html.Div(
                                             [
                                                 html.A(
@@ -140,6 +185,7 @@ app.layout = fuc.FefferyTopProgress(
                                                         alt='fac源码仓库，欢迎star',
                                                         src='https://img.shields.io/github/stars/CNFeffery/feffery-antd-components?style=social',
                                                         preview=False,
+                                                        fallback=None,
                                                         style={
                                                             'transform': 'translateY(5px) scale(1.25)'
                                                         }
