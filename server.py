@@ -9,7 +9,8 @@ from config import Config
 class CustomDash(dash.Dash):
 
     def interpolate_index(self, **kwargs):
-        scripts = kwargs.pop('scripts').replace('https://unpkg.com/', 'https://unpkg.zhimg.com/')
+        # scripts = kwargs.pop('scripts').replace('https://unpkg.com/', 'https://unpkg.zhimg.com/')
+        scripts = kwargs.pop('scripts').replace('https://unpkg.com/', 'http://npm.elemecdn.com/')
         return super(CustomDash, self).interpolate_index(scripts=scripts, **kwargs)
 
     # def interpolate_index(self, **kwargs):
@@ -42,7 +43,7 @@ class CustomDash(dash.Dash):
     #         renderer=kwargs['renderer'])
 
 
-app = dash.Dash(
+app = CustomDash(
     __name__,
     suppress_callback_exceptions=True,
     update_title=None,
