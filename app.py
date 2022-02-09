@@ -301,8 +301,7 @@ app.layout = fuc.FefferyTopProgress(
 @app.callback(
     [Output('docs-content', 'children'),
      Output('router-menu', 'currentKey')],
-    Input('url', 'pathname'),
-    prevent_initial_call=True
+    Input('url', 'pathname')
 )
 def render_docs_content(pathname):
     '''
