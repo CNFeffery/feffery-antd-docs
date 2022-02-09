@@ -382,6 +382,14 @@ class Config:
                     }
                 },
                 {
+                    'component': 'Item',
+                    'props': {
+                        'key': '/AntdDateRangePicker',
+                        'href': '/AntdDateRangePicker',
+                        'title': 'AntdDateRangePicker 日期范围选择框'
+                    }
+                },
+                {
                     'component': 'SubMenu',
                     'props': {
                         'key': 'Form',
@@ -405,14 +413,6 @@ class Config:
                             }
                         },
                     ]
-                },
-                {
-                    'component': 'Item',
-                    'props': {
-                        'key': '/AntdDateRangePicker',
-                        'href': '/AntdDateRangePicker',
-                        'title': 'AntdDateRangePicker 日期范围选择框'
-                    }
                 },
                 {
                     'component': 'Item',

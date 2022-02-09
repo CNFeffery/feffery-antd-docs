@@ -120,15 +120,6 @@ app.layout = fuc.FefferyTopProgress(
                          if item['component'] == 'SubMenu'
                          for sub_item in item['children']
                      ]
-                ,
-                # data=[
-                #     {
-                #         'id': c.split('.')[0],
-                #         'title': c.split('.')[0],
-                #         'handler': '() => window.open("/%s")' % c.split('.')[0]
-                #     }
-                #     for c in os.listdir('documents')
-                # ]
             ),
 
             # 页面结构
@@ -272,8 +263,8 @@ app.layout = fuc.FefferyTopProgress(
                                     )
                                 ],
                                 width=300,
-                                breakpoint='xxl',
-                                collapsedWidth=0,
+                                # breakpoint='md',
+                                # collapsedWidth=0,
                                 theme='light'
                             ),
 
@@ -560,4 +551,4 @@ def render_docs_content(pathname):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=False, port=8051)
+    app.run_server(debug=True, port=8051)
