@@ -419,6 +419,16 @@ fac.AntdComment(
                             innerTextOrientation='left'
                         ),
 
+                        fac.AntdParagraph(
+                            [
+                                fac.AntdText('　　在这个例子中，充分展示了'),
+                                fac.AntdText('AntdComment', strong=True),
+                                fac.AntdText('配合'),
+                                fac.AntdText('Dash', strong=True),
+                                fac.AntdText('中的模式匹配回调，所实现的高度自由的评论功能')
+                            ]
+                        ),
+
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
@@ -466,36 +476,58 @@ fac.AntdSpace(
 )
 ...
 @app.callback(
-    Output('comment-demo', 'children'),
-    Input('comment-demo-submit', 'nClicks'),
+    [Output('comment-demo', 'children'),
+     Output('comment-demo-input', 'value')],
+    [Input('comment-demo-submit', 'nClicks'),
+     Input({'type': 'comment-demo-children', 'index': ALL}, 'deleteClicks')],
     [State('comment-demo-input', 'value'),
      State('comment-demo', 'children')],
     prevent_initial_call=True
 )
-def comment_demo_add_children_callback(nClicks, value, children):
+def comment_demo_add_children_callback(nClicks, deleteClicks, value, children):
+    # 本次回调由子回复删除功能触发
+    if 'deleteClicks' in dash.callback_context.triggered[0]['prop_id']:
+        triggerIndex = eval(dash.callback_context.triggered[0]['prop_id'].replace('.deleteClicks', ''))['index']
+
+        return [
+                   child for child in children if child['props']['id']['index'] != triggerIndex
+               ], dash.no_update
+
     if value:
         return children + [
             fac.AntdComment(
-                authorName=request.remote_addr,
+                id={
+                    'type': 'comment-demo-children',
+                    'index': str(uuid.uuid4())
+                },
+                authorName='dash学习者',
                 publishTime={
                     'value': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
                     'format': 'YYYY-MM-DD hh:mm:ss'
                 },
-                commentContent=value
+                commentContent=value,
+                showReply=False,
+                showDelete=True
             )
         ] if children else [
             fac.AntdComment(
-                authorName=request.remote_addr,
+                id={
+                    'type': 'comment-demo-children',
+                    'index': str(uuid.uuid4())
+                },
+                authorName='dash学习者',
                 publishTime={
                     'value': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
                     'format': 'YYYY-MM-DD hh:mm:ss'
                 },
-                commentContent=value
+                commentContent=value,
+                showReply=False,
+                showDelete=True
             )
-        ]
+        ], None
 
     else:
-        return children
+        return children, None
 '''
                             ),
                             title='点击查看代码',

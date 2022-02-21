@@ -193,13 +193,13 @@ fac.AntdBreadcrumb(
                                     'title': 'feffery-components仓库主页',
                                     'href': 'https://github.com/CNFeffery/feffery-dash-components',
                                     'target': '_blank',
-                                    'icon': 'github'
+                                    'icon': 'antd-github'
                                 },
                                 {
                                     'title': 'feffery-antd-components文档首页',
                                     'href': '/',
                                     'target': '_blank',
-                                    'icon': 'home'
+                                    'icon': 'antd-home'
                                 },
                                 {
                                     'title': 'AntdBreadcrumb文档页',
@@ -229,13 +229,13 @@ fac.AntdBreadcrumb(
             'title': 'feffery-components仓库主页',
             'href': 'https://github.com/CNFeffery/feffery-dash-components',
             'target': '_blank',
-            'icon': 'github'
+            'icon': 'antd-github'
         },
         {
             'title': 'feffery-antd-components文档首页',
             'href': '/',
             'target': '_blank',
-            'icon': 'home'
+            'icon': 'antd-home'
         },
         {
             'title': 'AntdBreadcrumb文档页',
@@ -270,13 +270,13 @@ fac.AntdBreadcrumb(
                                     'title': 'feffery-components仓库主页',
                                     'href': 'https://github.com/CNFeffery/feffery-dash-components',
                                     'target': '_blank',
-                                    'icon': 'github'
+                                    'icon': 'antd-github'
                                 },
                                 {
                                     'title': 'feffery-antd-components文档首页',
                                     'href': '/',
                                     'target': '_blank',
-                                    'icon': 'home',
+                                    'icon': 'antd-home',
                                     'menuItems': [
                                         {
                                             'title': 'feffery-utils-components',
@@ -323,13 +323,13 @@ fac.AntdBreadcrumb(
             'title': 'feffery-components仓库主页',
             'href': 'https://github.com/CNFeffery/feffery-dash-components',
             'target': '_blank',
-            'icon': 'github'
+            'icon': 'antd-github'
         },
         {
             'title': 'feffery-antd-components文档首页',
             'href': '/',
             'target': '_blank',
-            'icon': 'home',
+            'icon': 'antd-home',
             'menuItems': [
                 {
                     'title': 'feffery-utils-components',

@@ -203,7 +203,7 @@ fac.AntdTimeline(
                                 },
                                 {
                                     'content': '模型训练',
-                                    'icon': 'clock-circle',
+                                    'icon': 'antd-clock-circle',
                                     'iconStyle': {
                                         'fontSize': '18px'
                                     }
@@ -252,7 +252,7 @@ fac.AntdTimeline(
         },
         {
             'content': '模型训练',
-            'icon': 'clock-circle',
+            'icon': 'antd-clock-circle',
             'iconStyle': {
                 'fontSize': '18px'
             }
@@ -302,7 +302,7 @@ fac.AntdTimeline(
                                 },
                                 {
                                     'content': '模型训练',
-                                    'icon': 'clock-circle'
+                                    'icon': 'antd-clock-circle'
                                 },
                                 {
                                     'content': '模型持久化',
@@ -344,7 +344,7 @@ fac.AntdTimeline(
         },
         {
             'content': '模型训练',
-            'icon': 'clock-circle'
+            'icon': 'antd-clock-circle'
         },
         {
             'content': '模型持久化',
@@ -382,7 +382,7 @@ fac.AntdTimeline(
                                 },
                                 {
                                     'content': '模型训练',
-                                    'icon': 'clock-circle'
+                                    'icon': 'antd-clock-circle'
                                 },
                                 {
                                     'content': '模型持久化',
@@ -428,7 +428,7 @@ fac.AntdTimeline(
         },
         {
             'content': '模型训练',
-            'icon': 'clock-circle'
+            'icon': 'antd-clock-circle'
         },
         {
             'content': '模型持久化',

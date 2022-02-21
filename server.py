@@ -48,6 +48,9 @@ app = CustomDash(
     suppress_callback_exceptions=True,
     update_title=None,
     serve_locally=False,
+    extra_hot_reload_paths=[
+        './documents'
+    ]
 )
 
 CORS(app.server, supports_credentials=False)

@@ -26,13 +26,13 @@
 
 　　用于设置是否为输入框渲染边框线
 
-**defaultValue：** *string*型
-
-　　在`mode='default'`、`mode='search'`及`mode='text-area'`情况下可用，用于为输入框设置初始化时*预填充的文字内容*
-
 **disabled：** *string*型，默认为`False`
 
 　　用于设置是否*禁用*当前输入框
+
+**autoComplete：** *string*型，默认为`'on'`
+
+　　用于设置*输入框的自动填充历史信息功能*，`'on'`表示开启自动填充，`'off'`表示关闭自动填充
 
 **maxLength：** *string*型
 
@@ -42,9 +42,21 @@
 
 　　仅在`mode='text-area'`情况下可用，用于设置是否显示*当前已输入字符数量*提示
 
+**passwordUseMd5：** *bool*型，默认为`False`
+
+　　当`mode='password'`时，用于设置*是否开启md5加密传输模式*，开启后请使用`md5Value`代替`value`在回调中捕获被通用`md5`算法加密后的输入值
+
 **value：** *string*型
 
 　　对应当前输入框内部已输入的内容
+
+**md5Value：** *string*型
+
+　　当`mode='password'`且`passwordUseMd5=True`时生效，用于*记录被通用md5算法加密后的输入值*
+
+**defaultValue：** *string*型
+
+　　在`mode='default'`、`mode='search'`及`mode='text-area'`情况下可用，用于为输入框设置初始化时*预填充的文字内容*
 
 **nSubmit：** *int*型
 

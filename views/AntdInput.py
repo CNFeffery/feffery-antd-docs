@@ -422,6 +422,7 @@ fac.AntdInput(
                                         fac.AntdInput(
                                             id='input-value-demo',
                                             placeholder='value直接作为Input',
+                                            maxLength=100,
                                             style={
                                                 'width': '250px',
                                                 'marginBottom': '5px'
@@ -438,6 +439,7 @@ fac.AntdInput(
                                         fac.AntdInput(
                                             id='input-nSubmit-demo',
                                             placeholder='nSubmit作为Input，value作为State',
+                                            maxLength=100,
                                             style={
                                                 'width': '250px',
                                                 'marginBottom': '5px'
@@ -454,6 +456,7 @@ fac.AntdInput(
                                             id='input-nClicksSearch-demo',
                                             mode='search',
                                             placeholder='nClicksSearch作为Input，value作为State',
+                                            maxLength=100,
                                             style={
                                                 'width': '320px',
                                                 'marginBottom': '5px'
@@ -484,6 +487,7 @@ fac.AntdSpace(
         fac.AntdInput(
             id='input-value-demo',
             placeholder='value直接作为Input',
+            maxLength=100,
             style={
                 'width': '250px',
                 'marginBottom': '5px'
@@ -500,6 +504,7 @@ fac.AntdSpace(
         fac.AntdInput(
             id='input-nSubmit-demo',
             placeholder='nSubmit作为Input，value作为State',
+            maxLength=100,
             style={
                 'width': '250px',
                 'marginBottom': '5px'
@@ -516,6 +521,7 @@ fac.AntdSpace(
             id='input-nClicksSearch-demo',
             mode='search',
             placeholder='nClicksSearch作为Input，value作为State',
+            maxLength=100,
             style={
                 'width': '320px',
                 'marginBottom': '5px'
@@ -573,6 +579,87 @@ def input_nClicksSearch_callback_demo(nClicksSearch, value):
                     className='div-highlight'
                 ),
 
+                html.Div(
+                    [
+                        fac.AntdInput(
+                            id='input-md5-demo',
+                            mode='password',
+                            passwordUseMd5=True,
+                            style={
+                                'width': '200px'
+                            }
+                        ),
+                        html.Div(id='input-md5-demo-output'),
+
+                        fac.AntdDivider(
+                            'password模式加密传输示例',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdParagraph(
+                            [
+                                fac.AntdText('　　设置'),
+                                fac.AntdText('mode="password"', code=True),
+                                fac.AntdText('且'),
+                                fac.AntdText('passwordUseMd5=True', code=True),
+                                fac.AntdText('后，可在回调中利用md5加密后的输入值'),
+                                fac.AntdText('md5Value', strong=True),
+                                fac.AntdText('代替'),
+                                fac.AntdText('value', strong=True),
+                                fac.AntdText('，从而避免网络传输明文密码')
+                            ]
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+fac.AntdInput(
+    id='input-md5-demo',
+    mode='password',
+    passwordUseMd5=True,
+    style={
+        'width': '200px'
+    }
+),
+html.Div(id='input-md5-demo-output')
+...
+@app.callback(
+    Output('input-md5-demo-output', 'children'),
+    [Input('input-md5-demo', 'value'),
+     Input('input-md5-demo', 'md5Value')],
+    prevent_initial_call=True
+)
+def input_md5_demo(value, md5Value):
+    if value:
+        return [
+            fac.AntdText('value: ', strong=True),
+            value,
+            html.Br(),
+            fac.AntdText('md5Value: ', strong=True),
+            md5Value
+        ]
+'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='password模式加密传输示例',
+                    className='div-highlight'
+                ),
+
                 html.Div(style={'height': '100px'})
             ],
             style={
@@ -593,6 +680,7 @@ def input_nClicksSearch_callback_demo(nClicksSearch, value):
                             {'title': '设置初始状态填充值', 'href': '#设置初始状态填充值'},
                             {'title': '文本域模式下显示已输入内容字数', 'href': '#文本域模式下显示已输入内容字数'},
                             {'title': '回调示例', 'href': '#回调示例'},
+                            {'title': 'password模式加密传输示例', 'href': '#password模式加密传输示例'},
                         ]
                     },
                 ],

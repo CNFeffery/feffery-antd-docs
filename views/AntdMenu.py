@@ -870,20 +870,20 @@ html.Div(
                                         }
                                     }
                                     for icon in [
-                                        'home',
-                                        'cloud-upload',
-                                        'bar-chart',
-                                        'pie-chart',
-                                        'dot-chart',
-                                        'line-chart',
-                                        'apartment',
-                                        'app-store',
-                                        'app-store-add',
-                                        'bell',
-                                        'calculator',
-                                        'calendar',
-                                        'database',
-                                        'history',
+                                        'antd-home',
+                                        'antd-cloud-upload',
+                                        'antd-bar-chart',
+                                        'antd-pie-chart',
+                                        'antd-dot-chart',
+                                        'antd-line-chart',
+                                        'antd-apartment',
+                                        'antd-app-store',
+                                        'antd-app-store-add',
+                                        'antd-bell',
+                                        'antd-calculator',
+                                        'antd-calendar',
+                                        'antd-database',
+                                        'antd-history',
                                         'fc-services',
                                         'fc-questions',
                                         'fc-organization'
@@ -929,20 +929,20 @@ html.Div(
                 }
             }
             for icon in [
-                'home',
-                'cloud-upload',
-                'bar-chart',
-                'pie-chart',
-                'dot-chart',
-                'line-chart',
-                'apartment',
-                'app-store',
-                'app-store-add',
-                'bell',
-                'calculator',
-                'calendar',
-                'database',
-                'history',
+                'antd-home',
+                'antd-cloud-upload',
+                'antd-bar-chart',
+                'antd-pie-chart',
+                'antd-dot-chart',
+                'antd-line-chart',
+                'antd-apartment',
+                'antd-app-store',
+                'antd-app-store-add',
+                'antd-bell',
+                'antd-calculator',
+                'antd-calendar',
+                'antd-database',
+                'antd-history',
                 'fc-services',
                 'fc-questions',
                 'fc-organization'
@@ -1074,20 +1074,20 @@ html.Div(
                                         }
                                     }
                                     for icon in [
-                                        'home',
-                                        'cloud-upload',
-                                        'bar-chart',
-                                        'pie-chart',
-                                        'dot-chart',
-                                        'line-chart',
-                                        'apartment',
-                                        'app-store',
-                                        'app-store-add',
-                                        'bell',
-                                        'calculator',
-                                        'calendar',
-                                        'database',
-                                        'history',
+                                        'antd-home',
+                                        'antd-cloud-upload',
+                                        'antd-bar-chart',
+                                        'antd-pie-chart',
+                                        'antd-dot-chart',
+                                        'antd-line-chart',
+                                        'antd-apartment',
+                                        'antd-app-store',
+                                        'antd-app-store-add',
+                                        'antd-bell',
+                                        'antd-calculator',
+                                        'antd-calendar',
+                                        'antd-database',
+                                        'antd-history',
                                         'fc-services',
                                         'fc-questions',
                                         'fc-organization'
@@ -1126,20 +1126,20 @@ html.Div(
                 }
             }
             for icon in [
-                'home',
-                'cloud-upload',
-                'bar-chart',
-                'pie-chart',
-                'dot-chart',
-                'line-chart',
-                'apartment',
-                'app-store',
-                'app-store-add',
-                'bell',
-                'calculator',
-                'calendar',
-                'database',
-                'history',
+                'antd-home',
+                'antd-cloud-upload',
+                'antd-bar-chart',
+                'antd-pie-chart',
+                'antd-dot-chart',
+                'antd-line-chart',
+                'antd-apartment',
+                'antd-app-store',
+                'antd-app-store-add',
+                'antd-bell',
+                'antd-calculator',
+                'antd-calendar',
+                'antd-database',
+                'antd-history',
                 'fc-services',
                 'fc-questions',
                 'fc-organization'
@@ -1185,11 +1185,11 @@ html.Div(
                                                           }
                                                       }
                                                       for icon in [
-                                                'home',
-                                                'upload',
-                                                'bar-chart',
-                                                'pie-chart',
-                                                'dot-chart'
+                                                'antd-home',
+                                                'antd-cloud-upload',
+                                                'antd-bar-chart',
+                                                'antd-pie-chart',
+                                                'antd-dot-chart'
                                             ]
                                                   ] + [
                                                       {
@@ -1246,7 +1246,6 @@ html.Div(
                             ],
                             style={
                                 'width': '100%',
-                                'height': '800px',
                                 'display': 'flex'
                             }
                         ),
@@ -1279,11 +1278,11 @@ html.Div(
                                   }
                               }
                               for icon in [
-                        'home',
-                        'upload',
-                        'bar-chart',
-                        'pie-chart',
-                        'dot-chart'
+                        'antd-home',
+                        'antd-cloud-upload',
+                        'antd-bar-chart',
+                        'antd-pie-chart',
+                        'antd-dot-chart'
                     ]
                           ] + [
                               {
@@ -1340,7 +1339,6 @@ html.Div(
     ],
     style={
         'width': '100%',
-        'height': '800px',
         'display': 'flex'
     }
 )

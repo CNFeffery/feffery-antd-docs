@@ -92,7 +92,7 @@ from views import (
 app.layout = fuc.FefferyTopProgress(
     html.Div(
         [
-            # 注入路由
+            # 注入url监听
             dcc.Location(id='url'),
 
             # 注入快捷指令面板
@@ -150,7 +150,7 @@ app.layout = fuc.FefferyTopProgress(
                                                     }
                                                 ),
                                                 fac.AntdText(
-                                                    'v0.0.1rc8',
+                                                    f'v{fac.__version__}',
                                                     style={
                                                         'fontSize': '10px',
                                                         'paddingLeft': '2px'
@@ -263,8 +263,6 @@ app.layout = fuc.FefferyTopProgress(
                                     )
                                 ],
                                 width=300,
-                                # breakpoint='md',
-                                # collapsedWidth=0,
                                 theme='light'
                             ),
 

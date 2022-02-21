@@ -14,14 +14,18 @@
 
 　　用于设置分割线颜色，接受`css`中合法的颜色值
 
-**fontStyle：** *string*型，默认为`'initial'`
+**fontSize：** *string*型
+
+　　用于设置*分割线内嵌文字字体大小*，接受`css`中合法的`font-size`输入值，如`'16px'`
+
+**fontStyle：** *string*型
 
 　　用于设置分割线内嵌文字风格，接受`css`中合法的`font-style`输入值，如`'oblique'`代表斜体
 
-**fontWeight：** *string*型，默认为`'initial'`
+**fontWeight：** *string*型
 
 　　用于设置分割线内嵌文字粗细程度，接受`css`中合法的`font-weight`输入值，如`'bold'`代表加粗
 
-**fontFamily：** *string*型，默认为`'initial'`
+**fontFamily：** *string*型
 
 　　用于设置分割线内嵌文字字体族，接受`css`中合法的`font-family`输入值，如`'KaiTi'`代表楷体

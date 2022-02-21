@@ -19,7 +19,7 @@ def statistic_demo_callback(n_intervals, value):
             new_value,
             {
                 'mode': 'icon',
-                'content': 'rise'
+                'content': 'antd-rise'
             },
             {
                 'color': '#cf1322'
@@ -31,7 +31,7 @@ def statistic_demo_callback(n_intervals, value):
             new_value,
             {
                 'mode': 'icon',
-                'content': 'fall'
+                'content': 'antd-fall'
             },
             {
                 'color': '#3f8600'

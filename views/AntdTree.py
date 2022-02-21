@@ -453,17 +453,17 @@ fac.AntdTree(
                                 {
                                     'title': '负责人A',
                                     'key': '负责人A',
-                                    'icon': 'user',
+                                    'icon': 'antd-user',
                                     'children': [
                                         {
                                             'title': '数仓1',
                                             'key': '数仓1',
-                                            'icon': 'database',
+                                            'icon': 'antd-database',
                                             'children': [
                                                 {
                                                     'title': f'业务表1-{i}',
                                                     'key': f'业务表1-{i}',
-                                                    'icon': 'table'
+                                                    'icon': 'antd-table'
                                                 }
                                                 for i in range(5)
                                             ]
@@ -471,12 +471,12 @@ fac.AntdTree(
                                         {
                                             'title': '数仓2',
                                             'key': '数仓2',
-                                            'icon': 'database',
+                                            'icon': 'antd-database',
                                             'children': [
                                                 {
                                                     'title': f'业务表2-{i}',
                                                     'key': f'业务表2-{i}',
-                                                    'icon': 'table'
+                                                    'icon': 'antd-table'
                                                 }
                                                 for i in range(5)
                                             ]
@@ -507,17 +507,17 @@ fac.AntdTree(
         {
             'title': '负责人A',
             'key': '负责人A',
-            'icon': 'user',
+            'icon': 'antd-user',
             'children': [
                 {
                     'title': '数仓1',
                     'key': '数仓1',
-                    'icon': 'database',
+                    'icon': 'antd-database',
                     'children': [
                         {
                             'title': f'业务表1-{i}',
                             'key': f'业务表1-{i}',
-                            'icon': 'table'
+                            'icon': 'antd-table'
                         }
                         for i in range(5)
                     ]
@@ -525,12 +525,12 @@ fac.AntdTree(
                 {
                     'title': '数仓2',
                     'key': '数仓2',
-                    'icon': 'database',
+                    'icon': 'antd-database',
                     'children': [
                         {
                             'title': f'业务表2-{i}',
                             'key': f'业务表2-{i}',
-                            'icon': 'table'
+                            'icon': 'antd-table'
                         }
                         for i in range(5)
                     ]
@@ -699,12 +699,12 @@ fac.AntdTree(
                                 {
                                     'title': f'数仓{i}',
                                     'key': f'数仓{i}',
-                                    'icon': 'database',
+                                    'icon': 'antd-database',
                                     'children': [
                                         {
                                             'title': f'业务表{i}-{j}',
                                             'key': f'业务表{i}-{j}',
-                                            'icon': 'table'
+                                            'icon': 'antd-table'
                                         }
                                         for j in range(10)
                                     ]
@@ -736,12 +736,12 @@ fac.AntdTree(
         {
             'title': f'数仓{i}',
             'key': f'数仓{i}',
-            'icon': 'database',
+            'icon': 'antd-database',
             'children': [
                 {
                     'title': f'业务表{i}-{j}',
                     'key': f'业务表{i}-{j}',
-                    'icon': 'table'
+                    'icon': 'antd-table'
                 }
                 for j in range(10)
             ]

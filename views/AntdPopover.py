@@ -57,25 +57,24 @@ docs_content = html.Div(
                 html.Div(
                     [
                         fac.AntdPopover(
-                            [
-                                fac.AntdButton(
-                                    '请将鼠标悬浮于此',
-                                    type='primary'
-                                ),
+                            fac.AntdButton(
+                                '请将鼠标悬浮于此',
+                                type='primary'
+                            ),
+                            title='这是一段AntdTooltip提示示例',
+                            content=[
                                 fac.AntdParagraph(
                                     [
                                         fac.AntdText('　　配合'),
                                         fac.AntdText('AntdPopover', strong=True),
                                         fac.AntdText('的'),
-                                        fac.AntdText('contentChildrenIndexes', code=True),
+                                        fac.AntdText('content', code=True),
                                         fac.AntdText('参数，可实现比'),
                                         fac.AntdText('AntdTooltip', strong=True),
-                                        fac.AntdText('更加丰富自由的提示框内容定制')
+                                        fac.AntdText('更加丰富自由的提示框内容渲染')
                                     ]
                                 )
                             ],
-                            title='这是一段AntdTooltip提示示例',
-                            contentChildrenIndexes=[1],
                             overlayStyle={
                                 'maxWidth': '350px'
                             }
@@ -87,6 +86,16 @@ docs_content = html.Div(
                             innerTextOrientation='left'
                         ),
 
+                        fac.AntdParagraph(
+                            [
+                                fac.AntdText('　　AntdPopover', strong=True),
+                                fac.AntdText('中可通过'),
+                                fac.AntdText('content', strong=True),
+                                fac.AntdText('参数传入列表格式的'),
+                                fac.AntdText('其他组件元素，作为气泡卡片中内容区元素进行渲染')
+                            ]
+                        ),
+
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
@@ -95,25 +104,24 @@ docs_content = html.Div(
                                 codeStyle='coy-without-shadows',
                                 codeString='''
 fac.AntdPopover(
-    [
-        fac.AntdButton(
-            '请将鼠标悬浮于此',
-            type='primary'
-        ),
+    fac.AntdButton(
+        '请将鼠标悬浮于此',
+        type='primary'
+    ),
+    title='这是一段AntdTooltip提示示例',
+    content=[
         fac.AntdParagraph(
             [
                 fac.AntdText('　　配合'),
                 fac.AntdText('AntdPopover', strong=True),
                 fac.AntdText('的'),
-                fac.AntdText('contentChildrenIndexes', code=True),
+                fac.AntdText('content', code=True),
                 fac.AntdText('参数，可实现比'),
                 fac.AntdText('AntdTooltip', strong=True),
-                fac.AntdText('更加丰富自由的提示框内容定制')
+                fac.AntdText('更加丰富自由的提示框内容渲染')
             ]
         )
     ],
-    title='这是一段AntdTooltip提示示例',
-    contentChildrenIndexes=[1],
     overlayStyle={
         'maxWidth': '350px'
     }
@@ -237,7 +245,7 @@ fac.AntdSpace(
                             ),
                             title={
                                 'content': '标题前缀图标测试',
-                                'prefixIcon': 'search'
+                                'prefixIcon': 'antd-search'
                             }
                         ),
 
@@ -261,7 +269,7 @@ fac.AntdPopover(
     ),
     title={
         'content': '标题前缀图标测试',
-        'prefixIcon': 'search'
+        'prefixIcon': 'antd-search'
     }
 )'''
                             ),

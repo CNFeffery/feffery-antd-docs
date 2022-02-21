@@ -92,6 +92,10 @@ docs_content = html.Div(
                                 {
                                     'label': 'Game Icons精选',
                                     'value': 'gi'
+                                },
+                                {
+                                    'label': 'IcoMoon Free精选',
+                                    'value': 'im'
                                 }
                             ],
                             optionType='button',
@@ -161,6 +165,10 @@ fac.AntdRadioGroup(
         {
             'label': 'Game Icons精选',
             'value': 'gi'
+        },
+        {
+            'label': 'IcoMoon Free精选',
+            'value': 'im'
         }
     ],
     optionType='button',
@@ -181,53 +189,32 @@ fac.AntdSpin(
     Input('icon-category', 'value')
 )
 def icon_demo_render_callback(value):
-    # 注：Config.all_icons来自config.py
-    if value == 'antd':
-        return [
-            fac.AntdCol(
-                html.Div(
-                    [
-                        fac.AntdIcon(
-                            icon=icon,
-                            style={
-                                'fontSize': '28px',
-                                'marginRight': '5px'
-                            }
-                        ),
-                        fac.AntdText(
-                            icon,
-                            copyable=True
-                        )
-                    ]
-                ),
-                span=6
-            )
-            for icon in Config.all_icons if re.findall('^md|^fc|^di|^bi|^bs|^gi', icon) == []
-        ]
+    return [
+        fac.AntdCol(
+            html.Div(
+                [
+                    fac.AntdIcon(
+                        icon=icon,
+                        style={
+                            'fontSize': '28px',
+                            'marginRight': '5px'
+                        }
+                    ),
+                    fac.AntdText(
+                        icon,
+                        copyable=True
+                    )
+                ],
+                style={
+                    'display': 'flex',
+                    'alignItems': 'center'
+                }
+            ),
+            span=6
+        )
+        for icon in Config.all_icons if re.findall(f'^{value}-', icon) == [value + '-']
+    ]
 
-    else:
-
-        return [
-            fac.AntdCol(
-                html.Div(
-                    [
-                        fac.AntdIcon(
-                            icon=icon,
-                            style={
-                                'fontSize': '28px',
-                                'marginRight': '5px'
-                            }
-                        ),
-                        fac.AntdText(
-                            icon,
-                            copyable=True
-                        )
-                    ]
-                ),
-                span=6
-            )
-            for icon in Config.all_icons if re.findall(f'^{value}', icon) == [value]
-        ]
 '''),
                             title='点击查看代码',
                             is_open=False,
@@ -282,49 +269,28 @@ def icon_demo_render_callback(value):
     Input('icon-category', 'value')
 )
 def icon_demo_render_callback(value):
-    if value == 'antd':
-        return [
-            fac.AntdCol(
-                html.Div(
-                    [
-                        fac.AntdIcon(
-                            icon=icon,
-                            style={
-                                'fontSize': '28px',
-                                'marginRight': '5px'
-                            }
-                        ),
-                        fac.AntdText(
-                            icon,
-                            copyable=True
-                        )
-                    ]
-                ),
-                span=6
-            )
-            for icon in Config.all_icons if re.findall('^md|^fc|^di|^bi|^bs|^gi', icon) == []
-        ]
-
-    else:
-
-        return [
-            fac.AntdCol(
-                html.Div(
-                    [
-                        fac.AntdIcon(
-                            icon=icon,
-                            style={
-                                'fontSize': '28px',
-                                'marginRight': '5px'
-                            }
-                        ),
-                        fac.AntdText(
-                            icon,
-                            copyable=True
-                        )
-                    ]
-                ),
-                span=6
-            )
-            for icon in Config.all_icons if re.findall(f'^{value}', icon) == [value]
-        ]
+    return [
+        fac.AntdCol(
+            html.Div(
+                [
+                    fac.AntdIcon(
+                        icon=icon,
+                        style={
+                            'fontSize': '28px',
+                            'marginRight': '5px'
+                        }
+                    ),
+                    fac.AntdText(
+                        icon,
+                        copyable=True
+                    )
+                ],
+                style={
+                    'display': 'flex',
+                    'alignItems': 'center'
+                }
+            ),
+            span=6
+        )
+        for icon in Config.all_icons if re.findall(f'^{value}-', icon) == [value + '-']
+    ]

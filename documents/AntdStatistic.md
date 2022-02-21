@@ -31,3 +31,7 @@
 
 - mode：*string*型，可选的有`'text'`（文字模式）和`'icon'`（图标模式）
 - content：*string*型，**文字模式**下用于设置*后缀文字内容*；**图标模式**下用于传入适用于`AntdIcon`的所有`icon`参数值用于设置*后缀图标*
+
+**titleTooltip：** *string*型
+
+　　用于*为标题添加后缀悬浮提示文字*

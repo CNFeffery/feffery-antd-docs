@@ -25,9 +25,25 @@
 
 　　用于设置*是否以相对时间模式显示评论发表时间距今多长时间*
 
+**showLikeDislike：** *bool*型，默认为`True`
+
+　　用于设置*是否为当前评论渲染支持/反对按钮*
+
+**showReply：** *bool*型，默认为`True`
+
+　　用于设置*是否为当前评论渲染添加回复按钮*
+
+**showDelete：** *bool*型，默认为`False`
+
+　　用于设置*是否为当前评论渲染删除按钮*
+
 **replyCounts：** *int*型，默认为`0`
 
 　　用于*监听“添加回复”按钮被点击的次数*
+
+**deleteClicks：** *int*型，默认为`0`
+
+　　用于*监听“删除”按钮被点击的次数*
 
 **commentContent：** *string*型
 

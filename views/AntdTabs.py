@@ -90,7 +90,7 @@ docs_content = html.Div(
                                 ),
                                 fac.AntdTabPane(
                                     html.Div(
-                                        fac.AntdButton('标签页2测试', type='dashed'),
+                                        fac.AntdButton('标签页3测试', type='dashed'),
                                         style={
                                             'backgroundColor': 'rgba(241, 241, 241, 0.4)',
                                             'height': '200px',
@@ -150,7 +150,7 @@ fac.AntdTabs(
         ),
         fac.AntdTabPane(
             html.Div(
-                fac.AntdButton('标签页2测试', type='dashed'),
+                fac.AntdButton('标签页3测试', type='dashed'),
                 style={
                     'backgroundColor': 'rgba(241, 241, 241, 0.4)',
                     'height': '200px',
@@ -214,7 +214,7 @@ fac.AntdTabs(
                                 ),
                                 fac.AntdTabPane(
                                     html.Div(
-                                        fac.AntdButton('标签页2测试', type='dashed'),
+                                        fac.AntdButton('标签页3测试', type='dashed'),
                                         style={
                                             'backgroundColor': 'rgba(241, 241, 241, 0.4)',
                                             'height': '200px',
@@ -275,7 +275,7 @@ fac.AntdTabs(
         ),
         fac.AntdTabPane(
             html.Div(
-                fac.AntdButton('标签页2测试', type='dashed'),
+                fac.AntdButton('标签页3测试', type='dashed'),
                 style={
                     'backgroundColor': 'rgba(241, 241, 241, 0.4)',
                     'height': '200px',

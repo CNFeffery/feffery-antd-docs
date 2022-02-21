@@ -63,8 +63,7 @@ docs_content = html.Div(
                                 '点击触发',
                                 type='primary'
                             ),
-                            title='气泡确认测试',
-                            containerId='docs-content'
+                            title='气泡确认测试'
                         ),
 
                         fac.AntdDivider(
@@ -85,8 +84,7 @@ fac.AntdPopconfirm(
         '点击触发',
         type='primary'
     ),
-    title='气泡确认测试',
-    containerId='docs-content'
+    title='气泡确认测试'
 )'''
                             ),
                             title='点击查看代码',
@@ -112,8 +110,7 @@ fac.AntdPopconfirm(
                                 type='primary'
                             ),
                             id='popconfirm-demo',
-                            title='气泡确认测试',
-                            containerId='docs-content'
+                            title='气泡确认测试'
                         ),
 
                         html.Br(),
@@ -155,8 +152,7 @@ fac.AntdPopconfirm(
         type='primary'
     ),
     id='popconfirm-demo',
-    title='气泡确认测试',
-    containerId='docs-content'
+    title='气泡确认测试'
 ),
 
 html.Br(),

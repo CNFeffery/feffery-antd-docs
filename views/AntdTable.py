@@ -767,7 +767,8 @@ fac.AntdTable(
                             bordered=True,
                             style={
                                 'width': '250px'
-                            }
+                            },
+                            containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
                         ),
 
                         fac.AntdDivider(
@@ -811,7 +812,8 @@ fac.AntdTable(
     bordered=True,
     style={
         'width': '250px'
-    }
+    },
+    containerId='docs-content' # 绑定局部滚动容器以确保悬浮层正常显示
 )
 '''
                             ),
@@ -957,7 +959,8 @@ fac.AntdTable(
                                 }
                                 for i in range(5)
                             ],
-                            bordered=True
+                            bordered=True,
+                            containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
                         ),
 
                         fac.AntdDivider(
@@ -1015,7 +1018,8 @@ fac.AntdTable(
         }
         for i in range(5)
     ],
-    bordered=True
+    bordered=True,
+    containerId='docs-content' # 绑定局部滚动容器以确保悬浮层正常显示
 )
 '''
                             ),
@@ -1180,7 +1184,7 @@ fac.AntdTable(
                                 for i in range(5)
                             ],
                             bordered=True,
-                            popupContainerId='docs-content'
+                            containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
                         ),
 
                         fac.AntdDivider(
@@ -1249,7 +1253,7 @@ fac.AntdTable(
         for i in range(5)
     ],
     bordered=True,
-    popupContainerId='docs-content'
+    containerId='docs-content' # 绑定局部滚动容器以确保悬浮层正常显示
 )
 '''
                             ),
@@ -1265,6 +1269,81 @@ fac.AntdTable(
                         'border': '1px solid #f0f0f0'
                     },
                     id='按钮模式',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdTable(
+                            columns=[
+                                {
+                                    'title': '可复制内容示例',
+                                    'dataIndex': '可复制内容示例',
+                                    'renderOptions': {'renderType': 'copyable'}
+                                }
+                            ],
+                            data=[
+                                {
+                                    'key': i,
+                                    '可复制内容示例': '可复制内容示例'
+                                }
+                                for i in range(5)
+                            ],
+                            bordered=True,
+                            style={
+                                'width': '250px'
+                            },
+                            containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
+                        ),
+
+                        fac.AntdDivider(
+                            '可复制模式',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+fac.AntdTable(
+    columns=[
+        {
+            'title': '可复制内容示例',
+            'dataIndex': '可复制内容示例',
+            'renderOptions': {'renderType': 'copyable'}
+        }
+    ],
+    data=[
+        {
+            'key': i,
+            '可复制内容示例': '可复制内容示例'
+        }
+        for i in range(5)
+    ],
+    bordered=True,
+    style={
+        'width': '250px'
+    },
+    containerId='docs-content' # 绑定局部滚动容器以确保悬浮层正常显示
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='可复制模式',
                     className='div-highlight'
                 ),
 
@@ -1403,7 +1482,8 @@ fac.AntdTable(
                             ],
                             sortOptions={
                                 'sortDataIndexes': ['字段1', '字段2', '字段4', '字段5']
-                            }
+                            },
+                            containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
                         ),
 
                         fac.AntdDivider(
@@ -1436,7 +1516,8 @@ fac.AntdTable(
     ],
     sortOptions={
         'sortDataIndexes': ['字段1', '字段2', '字段4', '字段5']
-    }
+    },
+    containerId='docs-content' # 绑定局部滚动容器以确保悬浮层正常显示
 )'''
                             ),
                             title='点击查看代码',
@@ -1474,7 +1555,8 @@ fac.AntdTable(
                             sortOptions={
                                 'sortDataIndexes': ['字段1', '字段2', '字段4', '字段5'],
                                 'multiple': True
-                            }
+                            },
+                            containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
                         ),
 
                         fac.AntdDivider(
@@ -1508,7 +1590,8 @@ fac.AntdTable(
     sortOptions={
         'sortDataIndexes': ['字段1', '字段2', '字段4', '字段5'],
         'multiple': True
-    }
+    },
+    containerId='docs-content' # 绑定局部滚动容器以确保悬浮层正常显示
 )'''
                             ),
                             title='点击查看代码',
@@ -1561,7 +1644,7 @@ fac.AntdTable(
                                     'filterMode': 'keyword'
                                 }
                             },
-                            popupContainerId='docs-content'
+                            containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
                         ),
 
                         fac.AntdDivider(
@@ -1610,7 +1693,7 @@ fac.AntdTable(
             'filterMode': 'keyword'
         }
     },
-    popupContainerId='docs-content'
+    containerId='docs-content' # 绑定局部滚动容器以确保悬浮层正常显示
 )'''
                             ),
                             title='点击查看代码',
@@ -1662,7 +1745,8 @@ fac.AntdTable(
                                     'title': '字段说明',
                                     'content': '这是字段示例3的字段说明'
                                 }
-                            }
+                            },
+                            containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
                         ),
 
                         fac.AntdDivider(
@@ -1710,7 +1794,8 @@ fac.AntdTable(
             'title': '字段说明',
             'content': '这是字段示例3的字段说明'
         }
-    }
+    },
+    containerId='docs-content' # 绑定局部滚动容器以确保悬浮层正常显示
 )
 '''
                             ),
@@ -1755,7 +1840,8 @@ fac.AntdTable(
                                 }
                                 for i in range(5)
                             ],
-                            rowSelectionType='checkbox'
+                            rowSelectionType='checkbox',
+                            containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
                         ),
 
                         fac.AntdDivider("rowSelectionType='radio'", innerTextOrientation='left'),
@@ -1822,7 +1908,8 @@ fac.AntdTable(
         }
         for i in range(5)
     ],
-    rowSelectionType='checkbox'
+    rowSelectionType='checkbox',
+    containerId='docs-content' # 绑定局部滚动容器以确保悬浮层正常显示
 ),
 
 fac.AntdDivider("rowSelectionType='radio'", innerTextOrientation='left'),
@@ -1972,7 +2059,7 @@ fac.AntdTable(
 
                 html.Div(
                     [
-                        fac.AntdTitle('左例（未设置） 右例（设置popupContainerId参数）', level=5),
+                        fac.AntdTitle('左例（未设置） 右例（设置containerId参数）', level=5),
                         html.Div(
                             [
                                 html.Div(
@@ -2011,7 +2098,7 @@ fac.AntdTable(
                                     style={
                                         'flex': '1',
                                         'padding': '20px',
-                                        'maxHeight': '200px',
+                                        'maxHeight': '400px',
                                         'overflowY': 'auto'
                                     }
                                 ),
@@ -2041,7 +2128,7 @@ fac.AntdTable(
                                                     'filterCustomItems': [1, 2, 3]
                                                 }
                                             },
-                                            popupContainerId='popupContainerId-container-demo'
+                                            containerId='containerId-container-demo'
                                         ),
                                         html.Div(
                                             style={
@@ -2049,11 +2136,11 @@ fac.AntdTable(
                                             }
                                         )
                                     ],
-                                    id='popupContainerId-container-demo',
+                                    id='containerId-container-demo',
                                     style={
                                         'flex': '1',
                                         'padding': '20px',
-                                        'maxHeight': '200px',
+                                        'maxHeight': '400px',
                                         'overflowY': 'auto',
                                         'position': 'relative'
                                     }
@@ -2065,7 +2152,7 @@ fac.AntdTable(
                         ),
 
                         fac.AntdDivider(
-                            '妥善使用popupContainerId参数',
+                            '妥善使用containerId参数',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
@@ -2087,7 +2174,7 @@ fac.AntdTable(
                                     strong=True
                                 ),
                                 fac.AntdText(
-                                    '组件位于具有局部滚动条的容器中时，点击展开悬浮层后滚动页面会出现悬浮层不跟随移动的情况，因此需要参考本例，利用popupContainerId参数为'
+                                    '组件位于具有局部滚动条的容器中时，点击展开悬浮层后滚动页面会出现悬浮层不跟随移动的情况，因此需要参考本例，利用containerId参数为'
                                 ),
                                 fac.AntdText(
                                     'AntdTable',
@@ -2106,7 +2193,7 @@ fac.AntdTable(
                                 language='python',
                                 codeStyle='coy-without-shadows',
                                 codeString='''
-fac.AntdTitle('左例（未设置） 右例（设置popupContainerId参数）', level=5),
+fac.AntdTitle('左例（未设置） 右例（设置containerId参数）', level=5),
 html.Div(
     [
         html.Div(
@@ -2175,7 +2262,7 @@ html.Div(
                             'filterCustomItems': [1, 2, 3]
                         }
                     },
-                    popupContainerId='popupContainerId-container-demo'
+                    containerId='containerId-container-demo'
                 ),
                 html.Div(
                     style={
@@ -2183,7 +2270,7 @@ html.Div(
                     }
                 )
             ],
-            id='popupContainerId-container-demo',
+            id='containerId-container-demo',
             style={
                 'flex': '1',
                 'padding': '20px',
@@ -2209,7 +2296,7 @@ html.Div(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='妥善使用popupContainerId参数',
+                    id='妥善使用containerId参数',
                     className='div-highlight'
                 ),
 
@@ -2247,7 +2334,7 @@ html.Div(
                             pagination={
                                 'pageSize': 5
                             },
-                            popupContainerId='docs-content'
+                            containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
                         ),
                         fac.AntdSpin(
                             html.Div(id='table-demo-output'),
@@ -2309,7 +2396,7 @@ fac.AntdTable(
     pagination={
         'pageSize': 5
     },
-    popupContainerId='docs-content'
+    containerId='docs-content' # 绑定局部滚动容器以确保悬浮层正常显示
 ),
 fac.AntdSpin(
     html.Div(id='table-demo-output'),
@@ -2412,7 +2499,7 @@ def table_callback_demo(currentData,
                                     'pageSize': 5,
                                     'pageSizeOptions': [5, 10]
                                 },
-                                popupContainerId='docs-content'
+                                containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
                             ),
                             text='回调中'
                         ),
@@ -2500,7 +2587,7 @@ fac.AntdSpin(
             'pageSize': 5,
             'pageSizeOptions': [5, 10]
         },
-        popupContainerId='docs-content'
+        containerId='docs-content' # 绑定局部滚动容器以确保悬浮层正常显示
     ),
     text='回调中'
 )
@@ -2670,7 +2757,7 @@ def table_server_side_callback_demo(pagination,
                                         for i in range(5)
                                     ],
                                     bordered=True,
-                                    popupContainerId='docs-content'
+                                    containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
                                 ),
 
                                 fac.AntdSpace(
@@ -2786,7 +2873,7 @@ fac.AntdSpin(
                 for i in range(5)
             ],
             bordered=True,
-            popupContainerId='docs-content'
+            containerId='docs-content' # 绑定局部滚动容器以确保悬浮层正常显示
         ),
 
         fac.AntdSpace(
@@ -2858,6 +2945,7 @@ def table_button_click_demo_callback(nClicksButton, recentlyButtonClickedRow, cl
                             [
                                 fac.AntdTable(
                                     id='table-mouse-event-demo',
+                                    enableHoverListen=True,
                                     bordered=True,
                                     columns=[
                                         {
@@ -2901,6 +2989,15 @@ def table_button_click_demo_callback(nClicksButton, recentlyButtonClickedRow, cl
                             innerTextOrientation='left'
                         ),
 
+                        fac.AntdParagraph(
+                            [
+                                fac.AntdText('　　AntdTable', strong=True),
+                                fac.AntdText('的表头/数据行鼠标移入事件监听默认不开启，设置参数'),
+                                fac.AntdText('enableHoverListen=True', code=True),
+                                fac.AntdText('后会启用相关功能，但同时会与一些其他涉及到鼠标悬浮触发的其他功能相冲突，请慎用！')
+                            ]
+                        ),
+
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
@@ -2912,6 +3009,7 @@ fac.AntdSpin(
     [
         fac.AntdTable(
             id='table-mouse-event-demo',
+            enableHoverListen=True,
             bordered=True,
             columns=[
                 {
@@ -3017,7 +3115,8 @@ def table_mouse_event_demo_callback(recentlyMouseEnterColumn,
                                         }
                                         for i in range(5)
                                     ],
-                                    rowSelectionType='checkbox'
+                                    rowSelectionType='checkbox',
+                                    containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
                                 ),
 
                                 fac.AntdSpace(
@@ -3088,7 +3187,8 @@ fac.AntdSpin(
                 }
                 for i in range(5)
             ],
-            rowSelectionType='checkbox'
+            rowSelectionType='checkbox',
+            containerId='docs-content' # 绑定局部滚动容器以确保悬浮层正常显示
         ),
 
         fac.AntdSpace(
@@ -3150,7 +3250,7 @@ def table_row_select_demo_callback(selectedRowKeys, selectedRows):
             ],
             style={
                 'flex': 'auto',
-                'width': 'calc(100vw - 625px)'
+                'width': 'calc(100vw - 650px)'
             }
         ),
         html.Div(
@@ -3172,6 +3272,7 @@ def table_row_select_demo_callback(selectedRowKeys, selectedRows):
                             {'title': '迷你图模式', 'href': '#迷你图模式'},
                             {'title': '标签模式', 'href': '#标签模式'},
                             {'title': '按钮模式', 'href': '#按钮模式'},
+                            {'title': '可复制模式', 'href': '#可复制模式'},
                             {'title': '分页相关设置', 'href': '#分页相关设置'},
                             {'title': '常规单列排序', 'href': '#常规单列排序'},
                             {'title': '多列组合排序', 'href': '#多列组合排序'},
@@ -3179,7 +3280,7 @@ def table_row_select_demo_callback(selectedRowKeys, selectedRows):
                             {'title': '为表头添加字段说明信息', 'href': '#为表头添加字段说明信息'},
                             {'title': '添加行选择功能', 'href': '#添加行选择功能'},
                             {'title': '添加编辑内容格式校验功能', 'href': '#添加编辑内容格式校验功能'},
-                            {'title': '妥善使用popupContainerId参数', 'href': '#妥善使用popupContainerId参数'},
+                            {'title': '妥善使用containerId参数', 'href': '#妥善使用containerId参数'},
                             {'title': '监听翻页、筛选及单元格内容编辑变动', 'href': '#监听翻页、筛选及单元格内容编辑变动'},
                             {'title': '服务端数据渲染模式示例', 'href': '#服务端数据渲染模式示例'},
                             {'title': '监听按钮模式下的按钮点击事件', 'href': '#监听按钮模式下的按钮点击事件'},
@@ -3314,7 +3415,6 @@ def table_server_side_callback_demo(pagination,
     prevent_initial_call=True
 )
 def table_button_click_demo_callback(nClicksButton, recentlyButtonClickedRow, clickedContent):
-
     return str(nClicksButton), json.dumps(recentlyButtonClickedRow, ensure_ascii=False, indent=4), str(clickedContent)
 
 
@@ -3326,7 +3426,6 @@ def table_button_click_demo_callback(nClicksButton, recentlyButtonClickedRow, cl
     prevent_initial_call=True
 )
 def table_row_select_demo_callback(selectedRowKeys, selectedRows):
-
     return str(selectedRowKeys), json.dumps(selectedRows, ensure_ascii=False, indent=4)
 
 

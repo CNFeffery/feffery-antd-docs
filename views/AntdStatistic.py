@@ -247,6 +247,48 @@ fac.AntdStatistic(
                 html.Div(
                     [
                         fac.AntdStatistic(
+                            title='统计数值示例',
+                            value=1332971,
+                            titleTooltip='这是标题提示框示例'
+                        ),
+
+                        fac.AntdDivider(
+                            '添加标题提示框',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+fac.AntdStatistic(
+    title='统计数值示例',
+    value=1332971,
+    titleTooltip='这是标题提示框示例'
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='添加标题提示框',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdStatistic(
                             id='statistic-demo',
                             precision=2,
                             title='XX股份实时股价',
@@ -256,7 +298,7 @@ fac.AntdStatistic(
                             },
                             prefix={
                                 'mode': 'icon',
-                                'content': 'rise'
+                                'content': 'antd-rise'
                             }
                         ),
 
@@ -288,7 +330,7 @@ fac.AntdStatistic(
     },
     prefix={
         'mode': 'icon',
-        'content': 'rise'
+        'content': 'antd-rise'
     }
 ),
 
@@ -312,7 +354,7 @@ def statistic_demo_callback(n_intervals, value):
             new_value,
             {
                 'mode': 'icon',
-                'content': 'rise'
+                'content': 'antd-rise'
             },
             {
                 'color': '#cf1322'
@@ -324,7 +366,7 @@ def statistic_demo_callback(n_intervals, value):
             new_value,
             {
                 'mode': 'icon',
-                'content': 'fall'
+                'content': 'antd-fall'
             },
             {
                 'color': '#3f8600'
@@ -363,6 +405,7 @@ def statistic_demo_callback(n_intervals, value):
                             {'title': '基础使用', 'href': '#基础使用'},
                             {'title': '添加前后缀额外内容', 'href': '#添加前后缀额外内容'},
                             {'title': '自定义数值样式', 'href': '#自定义数值样式'},
+                            {'title': '添加标题提示框', 'href': '#添加标题提示框'},
                             {'title': '回调示例', 'href': '#回调示例'},
                         ]
                     },
