@@ -90,7 +90,8 @@ class Config:
                         'page-header-demo.children',
                         'calendar-demo-output.children',
                         'comment-demo.children',
-                        'icon-demo.children'
+                        'icon-demo.children',
+                        'input-md5-demo-output.children'
                     ]
 
     caches_path = './caches'
