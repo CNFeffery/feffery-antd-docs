@@ -708,20 +708,20 @@ html.Div(
                                                                     }
                                                                 }
                                                                 for icon in [
-                                                                    'home',
-                                                                    'upload',
-                                                                    'bar-chart',
-                                                                    'pie-chart',
-                                                                    'dot-chart',
-                                                                    'line-chart',
-                                                                    'apartment',
-                                                                    'app-store',
-                                                                    'app-store-add',
-                                                                    'bell',
-                                                                    'calculator',
-                                                                    'calendar',
-                                                                    'database',
-                                                                    'history'
+                                                                    'antd-home',
+                                                                    'antd-upload',
+                                                                    'antd-bar-chart',
+                                                                    'antd-pie-chart',
+                                                                    'antd-dot-chart',
+                                                                    'antd-line-chart',
+                                                                    'antd-apartment',
+                                                                    'antd-app-store',
+                                                                    'antd-app-store-add',
+                                                                    'antd-bell',
+                                                                    'antd-calculator',
+                                                                    'antd-calendar',
+                                                                    'antd-database',
+                                                                    'antd-history'
                                                                 ]
                                                             ],
                                                             mode='inline'
@@ -817,20 +817,20 @@ html.Div(
                                             }
                                         }
                                         for icon in [
-                                            'home',
-                                            'upload',
-                                            'bar-chart',
-                                            'pie-chart',
-                                            'dot-chart',
-                                            'line-chart',
-                                            'apartment',
-                                            'app-store',
-                                            'app-store-add',
-                                            'bell',
-                                            'calculator',
-                                            'calendar',
-                                            'database',
-                                            'history'
+                                            'antd-home',
+                                            'antd-upload',
+                                            'antd-bar-chart',
+                                            'antd-pie-chart',
+                                            'antd-dot-chart',
+                                            'antd-line-chart',
+                                            'antd-apartment',
+                                            'antd-app-store',
+                                            'antd-app-store-add',
+                                            'antd-bell',
+                                            'antd-calculator',
+                                            'antd-calendar',
+                                            'antd-database',
+                                            'antd-history'
                                         ]
                                     ],
                                     mode='inline'
