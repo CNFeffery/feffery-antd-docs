@@ -709,7 +709,7 @@ html.Div(
                                                                 }
                                                                 for icon in [
                                                                     'antd-home',
-                                                                    'antd-upload',
+                                                                    'antd-cloud-upload',
                                                                     'antd-bar-chart',
                                                                     'antd-pie-chart',
                                                                     'antd-dot-chart',
@@ -818,7 +818,7 @@ html.Div(
                                         }
                                         for icon in [
                                             'antd-home',
-                                            'antd-upload',
+                                            'antd-cloud-upload',
                                             'antd-bar-chart',
                                             'antd-pie-chart',
                                             'antd-dot-chart',
