@@ -585,6 +585,7 @@ def input_nClicksSearch_callback_demo(nClicksSearch, value):
                             id='input-md5-demo',
                             mode='password',
                             passwordUseMd5=True,
+                            maxLength=100,
                             style={
                                 'width': '200px'
                             }
@@ -622,6 +623,7 @@ fac.AntdInput(
     id='input-md5-demo',
     mode='password',
     passwordUseMd5=True,
+    maxLength=100,
     style={
         'width': '200px'
     }
