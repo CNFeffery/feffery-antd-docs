@@ -95,6 +95,9 @@ app.layout = fuc.FefferyTopProgress(
             # 注入url监听
             dcc.Location(id='url'),
 
+            # 注入滚动条复位脚本
+            fuc.FefferyExecuteJs(id='docs-content-scroll-reset'),
+
             # 注入快捷指令面板
             fuc.FefferyShortcutPanel(
                 placeholder='输入你想要搜索的内容...',
@@ -294,6 +297,14 @@ app.layout = fuc.FefferyTopProgress(
     speed=800,
     debug=True
 )
+
+
+@app.callback(
+    Output('docs-content-scroll-reset', 'jsString'),
+    Input('router-menu', 'currentKey')
+)
+def docs_content_scroll_reset(currentKey):
+    return 'document.getElementById("docs-content").scrollTop = 0'
 
 
 @app.callback(
