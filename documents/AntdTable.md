@@ -42,7 +42,7 @@ data = [
 ]
 ```
 
-- 不同的再渲染模式下，`data`字段特殊输入格式要求说明
+- 某些再渲染模式下，`data`字段特殊输入格式要求说明
 
   - link模式
 
@@ -146,9 +146,9 @@ titlePopoverInfo = {
 　　用于配置表格自带的*翻页*组件的相关功能，在*服务器端渲染*模式下用于返回最近一次翻页操作后的对应参数信息，其中涉及到的键值对有：
 
 - position：*string*型，用于设置分页部件的*位置*，可选项有`'topLeft'`（左上）、`'topCenter'`（上方居中）、`'topRight'`（右上）、`'bottomLeft'`（左下）、`'bottomCenter'`（下方居中）、`'bottomRight'`（右下），默认为`bottomRight`
-- pageSize：*int*型，用于设置初始状态下每页显示的纪录行数，默认为`20`条
+- pageSize：*int*型，用于设置初始状态下每页显示的纪录行数，默认为`10`条
 - current：*int*型，用于设置初始状态下停留在的*页码*，默认为`1`
-- pageSizeOptions：*list*型，用于设置*单页尺寸*切换选项中的可选项，默认为`[20, 50, 100]`
+- pageSizeOptions：*list*型，用于设置*单页尺寸*切换选项中的可选项
 - showQuickJumper：*bool*型，用于设置是否渲染*快速页码跳转*控件
 - showTotalPrefix：*string*型，用于设置*总记录显示*内容，记录数值之前的文字内容，默认为`"共 "`
 - showTotalSuffix：*string*型，用于设置*总记录显示*内容，记录数值之后的文字内容，默认为`" 条记录"`
