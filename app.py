@@ -137,7 +137,7 @@ app.layout = fuc.FefferyTopProgress(
                                 'boxShadow': '0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d'
                             }
                         ),
-                        placement='leftTop',
+                        placement='left',
                         content=[
                             fac.AntdText(
                                 '微信扫码加我好友，备注【dash学习】加入学习交流群，更多灵感更快进步',
@@ -150,14 +150,15 @@ app.layout = fuc.FefferyTopProgress(
                             )
                         ],
                         overlayStyle={
-                            'width': '300px'
+                            'width': '300px',
+                            'height': '408px'
                         }
                     )
                 ],
                 style={
                     'position': 'fixed',
                     'right': '100px',
-                    'bottom': '150px',
+                    'bottom': '200px',
                     'zIndex': '99999'
                 }
             ),
