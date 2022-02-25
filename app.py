@@ -125,6 +125,43 @@ app.layout = fuc.FefferyTopProgress(
                      ]
             ),
 
+            # 注入快捷添加好友悬浮卡片
+            html.Div(
+                [
+                    fac.AntdPopover(
+                        fac.AntdButton(
+                            fac.AntdIcon(icon='antd-bulb'),
+                            shape='circle',
+                            style={
+                                'zoom': '1.25',
+                                'boxShadow': '0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d'
+                            }
+                        ),
+                        placement='leftTop',
+                        content=[
+                            fac.AntdText(
+                                '微信扫码加我好友，备注【dash学习】加入学习交流群，更多灵感更快进步',
+                                strong=True
+                            ),
+                            fac.AntdImage(
+                                src=app.get_asset_url('imgs/feffery-添加好友二维码.jpg'),
+                                width=250,
+                                preview=False
+                            )
+                        ],
+                        overlayStyle={
+                            'width': '300px'
+                        }
+                    )
+                ],
+                style={
+                    'position': 'fixed',
+                    'right': '100px',
+                    'bottom': '150px',
+                    'zIndex': '99999'
+                }
+            ),
+
             # 页面结构
             fac.AntdLayout(
                 [
