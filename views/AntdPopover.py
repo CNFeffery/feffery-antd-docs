@@ -76,7 +76,7 @@ docs_content = html.Div(
                                 )
                             ],
                             overlayStyle={
-                                'maxWidth': '350px'
+                                'width': '350px'
                             }
                         ),
 
@@ -123,7 +123,7 @@ fac.AntdPopover(
         )
     ],
     overlayStyle={
-        'maxWidth': '350px'
+        'width': '350px'
     }
 )'''
                             ),
