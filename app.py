@@ -1,4 +1,5 @@
 import os
+import feffery_markdown_components as fmc
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
 from dash import dcc
@@ -355,6 +356,16 @@ def render_docs_content(pathname):
     路由回调
     '''
 
+    if pathname.startswith('/change-log') and pathname[1:] + '.md' in os.listdir('./change logs'):
+        return html.Div(
+            fmc.FefferyMarkdown(
+                markdownStr=open(f'./change logs/{pathname[1:]}.md', encoding='utf-8').read()
+            ),
+            style={
+                'padding': '25px'
+            }
+        ), pathname
+
     if pathname == '/what-is-fac' or pathname == '/':
         pathname = '/what-is-fac'
         return what_is_fac.docs_content, pathname
@@ -593,7 +604,7 @@ def render_docs_content(pathname):
     elif pathname == '/AntdDescriptionItem':
         return AntdDescriptionItem.docs_content, pathname
 
-    return pathname, pathname
+    return fac.AntdResult(status='404', title='您访问的页面不存在！'), pathname
 
 
 if __name__ == '__main__':

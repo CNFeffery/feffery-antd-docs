@@ -49,7 +49,8 @@ app = CustomDash(
     update_title=None,
     serve_locally=False,
     extra_hot_reload_paths=[
-        './documents'
+        './documents',
+        './change logs'
     ]
 )
 

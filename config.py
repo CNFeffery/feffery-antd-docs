@@ -865,6 +865,23 @@ class Config:
                     }
                 }
             ]
+        },
+        {
+            'component': 'ItemGroup',
+            'props': {
+                'key': 'change log',
+                'title': '更新日志'
+            },
+            'children': [
+                {
+                    'component': 'Item',
+                    'props': {
+                        'key': 'v0.1.2',
+                        'title': 'v0.1.2',
+                        'href': '/change-log-v0.1.2'
+                    }
+                }
+            ]
         }
     ]
 

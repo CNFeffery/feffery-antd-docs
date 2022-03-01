@@ -29,7 +29,7 @@
 
 　　设置*取消按钮的常用参数属性*，同`AntdButton`参数体系
 
-**renderFooter：** *bool*型，默认为`True`
+**renderFooter：** *bool*型，默认为`False`
 
 　　设置是否*渲染对话框底部按钮区域*
 
