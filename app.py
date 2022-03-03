@@ -243,7 +243,7 @@ app.layout = fuc.FefferyTopProgress(
                                                         preview=False,
                                                         fallback=None,
                                                         style={
-                                                            'transform': 'translateY(5px) scale(1.25)'
+                                                            'transform': 'translateY(0px) scale(1.25)'
                                                         }
                                                     ),
                                                     href='https://github.com/CNFeffery/feffery-antd-components',
