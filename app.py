@@ -356,7 +356,7 @@ def render_docs_content(pathname):
     路由回调
     '''
 
-    if pathname.startswith('/change-log') and pathname[1:] + '.md' in os.listdir('./change logs'):
+    if pathname.startswith('/change-log-') and pathname[1:] + '.md' in os.listdir('./change logs'):
         return html.Div(
             fmc.FefferyMarkdown(
                 markdownStr=open(f'./change logs/{pathname[1:]}.md', encoding='utf-8').read()
@@ -364,7 +364,7 @@ def render_docs_content(pathname):
             style={
                 'padding': '25px'
             }
-        ), pathname[1:]
+        ), pathname.replace('/change-log-', '')
 
     if pathname == '/what-is-fac' or pathname == '/':
         pathname = '/what-is-fac'
