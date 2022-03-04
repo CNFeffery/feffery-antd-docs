@@ -364,7 +364,7 @@ def render_docs_content(pathname):
             style={
                 'padding': '25px'
             }
-        ), pathname
+        ), pathname[1:]
 
     if pathname == '/what-is-fac' or pathname == '/':
         pathname = '/what-is-fac'
