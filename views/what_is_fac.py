@@ -188,7 +188,7 @@ docs_content = html.Div(
                         fac.AntdImage(
                             src=app.get_asset_url('imgs/feffery-添加好友二维码.jpg'),
                             style={
-                                'height': '400px',
+                                'width': '300px',
                                 'boxShadow': '0 6px 16px rgb(107 147 224 / 14%)',
                                 'borderRadius': '5px'
                             }
@@ -199,6 +199,67 @@ docs_content = html.Div(
                         }
                     ),
                     title='微信扫码加我好友，备注【dash学习】',
+                    is_open=True,
+                    ghost=True
+                ),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('👉', style={'fontSize': '26px'}),
+                        fac.AntdText('玩转dash公众号',
+                                     strong=True,
+                                     style={'fontSize': '26px'}),
+                    ],
+                    id='玩转dash公众号'
+                ),
+
+                fac.AntdCollapse(
+                    html.Div(
+                        fac.AntdImage(
+                            src=app.get_asset_url('imgs/玩转dash公众号.jpg'),
+                            style={
+                                'height': '300px',
+                                'width': '300px',
+                                'boxShadow': '0 6px 16px rgb(107 147 224 / 14%)',
+                                'borderRadius': '5px'
+                            }
+                        ),
+                        style={
+                            'display': 'flex',
+                            'justifyContent': 'center'
+                        }
+                    ),
+                    title='扫码关注我的知识分享公众号【玩转dash】',
+                    is_open=True,
+                    ghost=True
+                ),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('🌏', style={'fontSize': '26px'}),
+                        fac.AntdText('玩转dash知识星球',
+                                     strong=True,
+                                     style={'fontSize': '26px'}),
+                    ],
+                    id='玩转dash知识星球'
+                ),
+
+                fac.AntdCollapse(
+                    html.Div(
+                        fac.AntdImage(
+                            src=app.get_asset_url('imgs/玩转dash星球二维码.jpg'),
+                            style={
+                                'width': '300px',
+                                'boxShadow': '0 6px 16px rgb(107 147 224 / 14%)',
+                                'borderRadius': '5px'
+                            }
+                        ),
+                        style={
+                            'display': 'flex',
+                            'justifyContent': 'center'
+                        }
+                    ),
+                    title='更多高级知识及案例欢迎加入知识星球【玩转dash】',
                     is_open=True,
                     ghost=True
                 ),
@@ -276,6 +337,8 @@ docs_content = html.Div(
                     {'title': '🛫版本', 'href': '#版本'},
                     {'title': '📦安装', 'href': '#安装'},
                     {'title': '🎩加入交流群', 'href': '#加入交流群'},
+                    {'title': '👉玩转dash公众号', 'href': '#玩转dash公众号'},
+                    {'title': '🌏玩转dash知识星球', 'href': '#玩转dash知识星球'},
                     {'title': '💪赞助支持', 'href': '#赞助支持'},
                 ],
                 containerId='docs-content',
