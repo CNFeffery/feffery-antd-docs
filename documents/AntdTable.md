@@ -95,11 +95,19 @@ data = [
 
 **selectedRowKeys：** *list*型
 
-　　对应*已被选择行key值列表*
+　　对应*已被选择行key值列表*，可用于自主控制表格中的已选择行
 
 **selectedRows：** *list*型
 
 　　对应*已被选择行数据字段字典列表*
+
+**rowSelectionWidth：** *int*或*string*型，默认为`'32px'`
+
+　　用于设置*行选择控件列的宽度*
+
+**sticky：** *bool*型，默认为`False`
+
+ 　　用于设置*是否开启粘性表头功能*
 
 **titlePopoverInfo：** *dict*型
 

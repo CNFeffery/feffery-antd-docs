@@ -880,6 +880,14 @@ class Config:
                         'title': 'v0.1.2',
                         'href': '/change-log-v0.1.2'
                     }
+                },
+                {
+                    'component': 'Item',
+                    'props': {
+                        'key': 'v0.1.3',
+                        'title': 'v0.1.3',
+                        'href': '/change-log-v0.1.3'
+                    }
                 }
             ]
         }
