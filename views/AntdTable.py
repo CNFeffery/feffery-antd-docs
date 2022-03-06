@@ -2621,6 +2621,9 @@ def table_server_side_callback_demo(pagination,
 
                     if filterOptions[key]['filterMode'] == 'checkbox':
                         batch_df = batch_df.loc[batch_df[key].isin(value), :]
+                    elif filterOptions[key]['filterMode'] == 'keyword':
+                        batch_df = batch_df.loc[batch_df[key].astype('str').str.contains(value[0]), :]
+
                 else:
                     batch_df = batch_df.loc[batch_df[key].isin(value), :]
 
@@ -2647,7 +2650,6 @@ def table_server_side_callback_demo(pagination,
 
     # 若本次回调由筛选或排序操作触发，按照当前的条件组合更新pagination参数
     if ctx.triggered[0]['prop_id'] in ['table-server-side-demo.sorter', 'table-server-side-demo.filter']:
-        print('测试')
         pagination = {
             **pagination,
             **{
@@ -2680,8 +2682,7 @@ def table_server_side_callback_demo(pagination,
             dash.no_update
         )
 
-    return dash.no_update
-'''
+    return dash.no_update'''
                             ),
                             title='点击查看代码',
                             is_open=False,
@@ -3332,7 +3333,6 @@ def table_server_side_callback_demo(pagination,
 
     # 检查是否存在未清除的筛选操作，若有，则进行离线筛选操作
     if filter:
-
         for key, value in filter.items():
             # 若对应字段当前存在筛选条件
             if value:
@@ -3340,6 +3340,9 @@ def table_server_side_callback_demo(pagination,
 
                     if filterOptions[key]['filterMode'] == 'checkbox':
                         batch_df = batch_df.loc[batch_df[key].isin(value), :]
+                    elif filterOptions[key]['filterMode'] == 'keyword':
+                        batch_df = batch_df.loc[batch_df[key].astype('str').str.contains(value[0]), :]
+
                 else:
                     batch_df = batch_df.loc[batch_df[key].isin(value), :]
 
@@ -3350,9 +3353,19 @@ def table_server_side_callback_demo(pagination,
 
         # 若没有字段参与排序，则直接返回batch_df的对应页数据帧，从而结束本次回调
         if ascending.__len__() == 0:
-            return batch_df.iloc[(pagination['current'] - 1) * pagination['pageSize']
-                                 :
-                                 pagination['current'] * pagination['pageSize'], :].to_dict('records')
+            return [
+                batch_df.iloc[(pagination['current'] - 1) * pagination['pageSize']
+                              :
+                              pagination['current'] * pagination['pageSize'], :].to_dict('records'),
+                {
+                    **pagination,
+                    **{
+                        'current': 1,
+                        'pageSize': 5,
+                        'total': batch_df.shape[0]
+                    }
+                }
+            ]
 
         # 对batch_df按照抽取出的条件进行排序
         (
@@ -3366,7 +3379,6 @@ def table_server_side_callback_demo(pagination,
 
     # 若本次回调由筛选或排序操作触发，按照当前的条件组合更新pagination参数
     if ctx.triggered[0]['prop_id'] in ['table-server-side-demo.sorter', 'table-server-side-demo.filter']:
-        print('测试')
         pagination = {
             **pagination,
             **{
@@ -3383,7 +3395,10 @@ def table_server_side_callback_demo(pagination,
         # 更新data与pagination参数
         return (
             batch_df.iloc[start_index:end_index, :].to_dict('records'),
-            pagination
+            {
+                **pagination,
+                'pageSizeOptions': [5]
+            }
         )
 
     # 若本次回调由翻页操作触发，则只返回data，pagination返回dash.no_update（因为pagination在前端用户操作时已修改，这里避免产生环形回调）
