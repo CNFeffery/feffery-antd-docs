@@ -2621,9 +2621,6 @@ def table_server_side_callback_demo(pagination,
 
                     if filterOptions[key]['filterMode'] == 'checkbox':
                         batch_df = batch_df.loc[batch_df[key].isin(value), :]
-                    elif filterOptions[key]['filterMode'] == 'keyword':
-                        batch_df = batch_df.loc[batch_df[key].astype('str').str.contains(value[0]), :]
-
                 else:
                     batch_df = batch_df.loc[batch_df[key].isin(value), :]
 
@@ -2650,6 +2647,7 @@ def table_server_side_callback_demo(pagination,
 
     # 若本次回调由筛选或排序操作触发，按照当前的条件组合更新pagination参数
     if ctx.triggered[0]['prop_id'] in ['table-server-side-demo.sorter', 'table-server-side-demo.filter']:
+        print('测试')
         pagination = {
             **pagination,
             **{
@@ -2682,7 +2680,8 @@ def table_server_side_callback_demo(pagination,
             dash.no_update
         )
 
-    return dash.no_update'''
+    return dash.no_update
+'''
                             ),
                             title='点击查看代码',
                             is_open=False,
@@ -3341,9 +3340,6 @@ def table_server_side_callback_demo(pagination,
 
                     if filterOptions[key]['filterMode'] == 'checkbox':
                         batch_df = batch_df.loc[batch_df[key].isin(value), :]
-                    elif filterOptions[key]['filterMode'] == 'keyword':
-                        batch_df = batch_df.loc[batch_df[key].astype('str').str.contains(value[0]), :]
-
                 else:
                     batch_df = batch_df.loc[batch_df[key].isin(value), :]
 
@@ -3370,6 +3366,7 @@ def table_server_side_callback_demo(pagination,
 
     # 若本次回调由筛选或排序操作触发，按照当前的条件组合更新pagination参数
     if ctx.triggered[0]['prop_id'] in ['table-server-side-demo.sorter', 'table-server-side-demo.filter']:
+        print('测试')
         pagination = {
             **pagination,
             **{
