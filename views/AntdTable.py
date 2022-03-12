@@ -1486,6 +1486,105 @@ fac.AntdTable(
                         fac.AntdTable(
                             columns=[
                                 {
+                                    'title': f'字段{i}',
+                                    'dataIndex': f'字段{i}'
+                                }
+                                for i in range(5)
+                            ],
+                            data=[
+                                {
+                                    f'字段{j}': i
+                                    for j in range(5)
+                                }
+                                for i in range(10)
+                            ],
+                            bordered=True,
+                            maxHeight=200,
+                            summaryRowContents=[
+                                {
+                                    'content': '总结栏示例'
+                                },
+                                {
+                                    'content': '总结栏示例',
+                                    'align': 'center'
+                                },
+                                {
+                                    'content': '总结栏示例',
+                                    'align': 'center',
+                                    'colSpan': 3
+                                }
+                            ],
+                            summaryRowFixed=True
+                        ),
+
+                        fac.AntdDivider(
+                            '添加总结栏',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+fac.AntdTable(
+    columns=[
+        {
+            'title': f'字段{i}',
+            'dataIndex': f'字段{i}'
+        }
+        for i in range(5)
+    ],
+    data=[
+        {
+            f'字段{j}': i
+            for j in range(5)
+        }
+        for i in range(10)
+    ],
+    bordered=True,
+    maxHeight=200,
+    summaryRowContents=[
+        {
+            'content': '总结栏示例'
+        },
+        {
+            'content': '总结栏示例',
+            'align': 'center'
+        },
+        {
+            'content': '总结栏示例',
+            'align': 'center',
+            'colSpan': 3
+        }
+    ],
+    summaryRowFixed=True
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='添加总结栏',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdTable(
+                            columns=[
+                                {
                                     'title': '国家名示例',
                                     'dataIndex': '国家名示例',
                                     'width': '20%'
@@ -3441,6 +3540,7 @@ def table_row_select_demo_callback(selectedRowKeys, selectedRows):
                             {'title': '按钮模式', 'href': '#按钮模式'},
                             {'title': '可复制模式', 'href': '#可复制模式'},
                             {'title': '状态徽标模式', 'href': '#状态徽标模式'},
+                            {'title': '添加总结栏', 'href': '#添加总结栏'},
                             {'title': '分页相关设置', 'href': '#分页相关设置'},
                             {'title': '常规单列排序', 'href': '#常规单列排序'},
                             {'title': '多列组合排序', 'href': '#多列组合排序'},
@@ -3460,7 +3560,7 @@ def table_row_select_demo_callback(selectedRowKeys, selectedRows):
                 containerId='docs-content',
                 targetOffset=200,
                 style={
-                    'maxHeight': '750px'
+                    'maxHeight': '800px'
                 }
             ),
             style={

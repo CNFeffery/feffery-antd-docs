@@ -3,6 +3,8 @@ import feffery_markdown_components as fmc
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
 
+import callbacks.AntdCollapse
+
 docs_content = html.Div(
     [
         html.Div(
@@ -138,6 +140,75 @@ fac.AntdCollapse(
                     className='div-highlight'
                 ),
 
+                html.Div(
+                    [
+                        fac.AntdSwitch(
+                            id='collapse-switch-demo',
+                            checked=False,
+                            checkedChildren='打开',
+                            unCheckedChildren='关闭'
+                        ),
+
+                        fac.AntdCollapse(
+                            id='collapse-demo',
+                            title='折叠面板回调示例',
+                            is_open=False,
+                            ghost=True
+                        ),
+
+                        fac.AntdDivider(
+                            '回调示例',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+fac.AntdSwitch(
+    id='collapse-switch-demo',
+    checked=False,
+    checkedChildren='打开',
+    unCheckedChildren='关闭'
+),
+
+fac.AntdCollapse(
+    id='collapse-demo',
+    title='折叠面板回调示例',
+    is_open=False,
+    ghost=True
+)
+...
+@app.callback(
+    [Output('collapse-demo', 'children'),
+     Output('collapse-demo', 'is_open')],
+    Input('collapse-switch-demo', 'checked')
+)
+def collapse_demo_callback(checked):
+    if checked:
+        return datetime.now().strftime('%Y-%m-%d %H:%M:%S'), checked
+
+    return dash.no_update, checked
+'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='回调示例',
+                    className='div-highlight'
+                ),
+
                 html.Div(style={'height': '100px'})
             ],
             style={
@@ -154,6 +225,7 @@ fac.AntdCollapse(
                         'children': [
                             {'title': '基础使用', 'href': '#基础使用'},
                             {'title': '透明面板模式', 'href': '#透明面板模式'},
+                            {'title': '回调示例', 'href': '#回调示例'},
                         ]
                     },
                 ],

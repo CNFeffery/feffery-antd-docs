@@ -91,7 +91,9 @@ class Config:
                         'calendar-demo-output.children',
                         'comment-demo.children',
                         'icon-demo.children',
-                        'input-md5-demo-output.children'
+                        'input-md5-demo-output.children',
+                        'collapse-demo.children',
+                        'collapse-demo.is_open',
                     ]
 
     caches_path = './caches'
