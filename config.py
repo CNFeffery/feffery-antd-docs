@@ -876,9 +876,17 @@ class Config:
                 {
                     'component': 'Item',
                     'props': {
-                        'key': 'v0.1.2',
-                        'title': 'v0.1.2',
-                        'href': '/change-log-v0.1.2'
+                        'key': 'v0.1.5',
+                        'title': 'v0.1.5',
+                        'href': '/change-log-v0.1.5'
+                    }
+                },
+                {
+                    'component': 'Item',
+                    'props': {
+                        'key': 'v0.1.4',
+                        'title': 'v0.1.4',
+                        'href': '/change-log-v0.1.4'
                     }
                 },
                 {
@@ -887,6 +895,14 @@ class Config:
                         'key': 'v0.1.3',
                         'title': 'v0.1.3',
                         'href': '/change-log-v0.1.3'
+                    }
+                },
+                {
+                    'component': 'Item',
+                    'props': {
+                        'key': 'v0.1.2',
+                        'title': 'v0.1.2',
+                        'href': '/change-log-v0.1.2'
                     }
                 }
             ]

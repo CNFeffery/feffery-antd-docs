@@ -4,7 +4,6 @@ import feffery_utils_components as fuc
 import feffery_markdown_components as fmc
 from dash.dependencies import Input, Output, State
 
-import time
 import json
 import dash
 import pandas as pd
@@ -110,7 +109,7 @@ docs_content = html.Div(
                                     '日期示例': faker.date(pattern="%Y-%m-%d", end_datetime=None),
                                     '邮编示例': faker.postcode()
                                 }
-                                for i in range(10)
+                                for i in range(3)
                             ]
                         ),
 
@@ -159,7 +158,7 @@ fac.AntdTable(
             '日期示例': faker.date(pattern="%Y-%m-%d", end_datetime=None),
             '邮编示例': faker.postcode()
         }
-        for i in range(10)
+        for i in range(3)
     ]
 )'''
                             ),
@@ -217,7 +216,7 @@ fac.AntdTable(
                                     '日期示例': faker.date(pattern="%Y-%m-%d", end_datetime=None),
                                     '邮编示例': faker.postcode()
                                 }
-                                for i in range(10)
+                                for i in range(3)
                             ],
                             bordered=True
                         ),
@@ -272,7 +271,7 @@ fac.AntdTable(
             '日期示例': faker.date(pattern="%Y-%m-%d", end_datetime=None),
             '邮编示例': faker.postcode()
         }
-        for i in range(10)
+        for i in range(3)
     ],
     bordered=True
 )'''
@@ -330,15 +329,24 @@ fac.AntdTable(
                                     '日期示例': faker.date(pattern="%Y-%m-%d", end_datetime=None),
                                     '邮编示例': faker.postcode()
                                 }
-                                for i in range(10)
+                                for i in range(3)
                             ],
+                            maxWidth=2000,
                             bordered=True
                         ),
 
                         fac.AntdDivider(
-                            '绝对像素宽度溢出的情况',
+                            '限定maxHeight开启横向滚动模式',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
+                        ),
+
+                        fac.AntdParagraph(
+                            [
+                                fac.AntdText('　　当表格中各个字段设定的宽度值超出当前表格实际的宽度值时，可通过设置参数'),
+                                fac.AntdText('maxWidth', code=True),
+                                fac.AntdText('，从而实现当表格实际宽度小于这个设定值时自动开启横向滚动模式以保证各字段设定的宽度值生效')
+                            ]
                         ),
 
                         fac.AntdCollapse(
@@ -385,9 +393,16 @@ fac.AntdTable(
             '日期示例': faker.date(pattern="%Y-%m-%d", end_datetime=None),
             '邮编示例': faker.postcode()
         }
-        for i in range(10)
+        for i in range(3)
     ],
+    maxWidth=2000,
     bordered=True
+),
+
+fac.AntdDivider(
+    '限定maxHeight开启横向滚动模式',
+    lineColor='#f0f0f0',
+    innerTextOrientation='left'
 )'''
                             ),
                             title='点击查看代码',
@@ -401,7 +416,7 @@ fac.AntdTable(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='绝对像素宽度溢出的情况',
+                    id='限定maxHeight开启横向滚动模式',
                     className='div-highlight'
                 ),
 
@@ -562,10 +577,10 @@ fac.AntdTable(
                                     '日期示例': faker.date(pattern="%Y-%m-%d", end_datetime=None),
                                     '邮编示例': faker.postcode()
                                 }
-                                for i in range(10)
+                                for i in range(3)
                             ],
                             bordered=True,
-                            maxHeight=200
+                            maxWidth=2000
                         ),
 
                         fac.AntdDivider(
@@ -620,17 +635,16 @@ fac.AntdTable(
             '日期示例': faker.date(pattern="%Y-%m-%d", end_datetime=None),
             '邮编示例': faker.postcode()
         }
-        for i in range(10)
+        for i in range(3)
     ],
     bordered=True,
-    maxHeight=200
+    maxWidth=2000
 )'''
                             ),
                             title='点击查看代码',
                             is_open=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
@@ -647,25 +661,30 @@ fac.AntdTable(
                             columns=[
                                 {
                                     'title': '国家名示例',
-                                    'dataIndex': '国家名示例'
+                                    'dataIndex': '国家名示例',
+                                    'width': '20%'
                                 },
                                 {
                                     'title': '省份名示例',
                                     'dataIndex': '省份名示例',
-                                    'editable': True
+                                    'editable': True,
+                                    'width': '20%'
                                 },
                                 {
                                     'title': '城市名示例',
-                                    'dataIndex': '城市名示例'
+                                    'dataIndex': '城市名示例',
+                                    'width': '20%'
                                 },
                                 {
                                     'title': '日期示例',
-                                    'dataIndex': '日期示例'
+                                    'dataIndex': '日期示例',
+                                    'width': '20%'
                                 },
                                 {
                                     'title': '邮编示例',
                                     'dataIndex': '邮编示例',
-                                    'editable': True
+                                    'editable': True,
+                                    'width': '20%'
                                 }
                             ],
                             data=[
@@ -677,8 +696,9 @@ fac.AntdTable(
                                     '日期示例': faker.date(pattern="%Y-%m-%d", end_datetime=None),
                                     '邮编示例': faker.postcode()
                                 }
-                                for i in range(10)
-                            ]
+                                for i in range(3)
+                            ],
+                            bordered=True
                         ),
 
                         fac.AntdDivider(
@@ -698,25 +718,30 @@ fac.AntdTable(
     columns=[
         {
             'title': '国家名示例',
-            'dataIndex': '国家名示例'
+            'dataIndex': '国家名示例',
+            'width': '20%'
         },
         {
             'title': '省份名示例',
             'dataIndex': '省份名示例',
-            'editable': True
+            'editable': True,
+            'width': '20%'
         },
         {
             'title': '城市名示例',
-            'dataIndex': '城市名示例'
+            'dataIndex': '城市名示例',
+            'width': '20%'
         },
         {
             'title': '日期示例',
-            'dataIndex': '日期示例'
+            'dataIndex': '日期示例',
+            'width': '20%'
         },
         {
             'title': '邮编示例',
             'dataIndex': '邮编示例',
-            'editable': True
+            'editable': True,
+            'width': '20%'
         }
     ],
     data=[
@@ -728,8 +753,9 @@ fac.AntdTable(
             '日期示例': faker.date(pattern="%Y-%m-%d", end_datetime=None),
             '邮编示例': faker.postcode()
         }
-        for i in range(10)
-    ]
+        for i in range(3)
+    ],
+    bordered=True
 )'''
                             ),
                             title='点击查看代码',
@@ -762,7 +788,7 @@ fac.AntdTable(
                                     'key': i,
                                     'ellipsis内容省略示例': '这是一段废话，用来演示超长内容再渲染巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉'
                                 }
-                                for i in range(5)
+                                for i in range(3)
                             ],
                             bordered=True,
                             style={
@@ -807,15 +833,14 @@ fac.AntdTable(
             'key': i,
             'ellipsis内容省略示例': '这是一段废话，用来演示超长内容再渲染巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉'
         }
-        for i in range(5)
+        for i in range(3)
     ],
     bordered=True,
     style={
         'width': '250px'
     },
-    containerId='docs-content' # 绑定局部滚动容器以确保悬浮层正常显示
-)
-'''
+    containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
+)'''
                             ),
                             title='点击查看代码',
                             is_open=False,
@@ -852,7 +877,7 @@ fac.AntdTable(
                                         'href': 'https://github.com/CNFeffery/feffery-antd-components'
                                     }
                                 }
-                                for i in range(5)
+                                for i in range(3)
                             ],
                             bordered=True,
                             style={
@@ -891,14 +916,13 @@ fac.AntdTable(
                 'href': 'https://github.com/CNFeffery/feffery-antd-components'
             }
         }
-        for i in range(5)
+        for i in range(3)
     ],
     bordered=True,
     style={
         'width': '250px'
     }
-)
-'''
+)'''
                             ),
                             title='点击查看代码',
                             is_open=False,
@@ -922,6 +946,7 @@ fac.AntdTable(
                                 {
                                     'title': 'mini-line示例',
                                     'dataIndex': 'mini-line示例',
+                                    'width': '20%',
                                     'renderOptions': {
                                         'renderType': 'mini-line'
                                     }
@@ -929,6 +954,7 @@ fac.AntdTable(
                                 {
                                     'title': 'mini-bar示例',
                                     'dataIndex': 'mini-bar示例',
+                                    'width': '20%',
                                     'renderOptions': {
                                         'renderType': 'mini-bar'
                                     }
@@ -937,13 +963,24 @@ fac.AntdTable(
                                     # 注意，mini-progress模式接受的输入应当在0到1之间
                                     'title': 'mini-progress示例',
                                     'dataIndex': 'mini-progress示例',
+                                    'width': '20%',
                                     'renderOptions': {
                                         'renderType': 'mini-progress'
                                     }
                                 },
                                 {
+                                    # 注意，mini-ring-progress模式接受的输入应当在0到1之间
+                                    'title': 'mini-ring-progress示例',
+                                    'dataIndex': 'mini-ring-progress示例',
+                                    'width': '20%',
+                                    'renderOptions': {
+                                        'renderType': 'mini-ring-progress'
+                                    }
+                                },
+                                {
                                     'title': 'mini-area示例',
                                     'dataIndex': 'mini-area示例',
+                                    'width': '20%',
                                     'renderOptions': {
                                         'renderType': 'mini-area'
                                     }
@@ -955,10 +992,12 @@ fac.AntdTable(
                                     'mini-line示例': np.random.randint(1, 20, 10),
                                     'mini-bar示例': np.random.randint(1, 20, 10),
                                     'mini-progress示例': np.random.rand(),
+                                    'mini-ring-progress示例': np.random.rand(),
                                     'mini-area示例': np.random.randint(1, 20, 10)
                                 }
-                                for i in range(5)
+                                for i in range(3)
                             ],
+                            miniChartHeight=60,
                             bordered=True,
                             containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
                         ),
@@ -967,6 +1006,16 @@ fac.AntdTable(
                             '迷你图模式',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
+                        ),
+
+                        fac.AntdParagraph(
+                            [
+                                fac.AntdText('　　在这个例子中，为了保证'),
+                                fac.AntdText('"mini-ring-progress"', code=True),
+                                fac.AntdText('的显示正常，使用到参数'),
+                                fac.AntdText('miniChartHeight', code=True),
+                                fac.AntdText('人为抬高了迷你图单元格的像素高度，实际使用时请根据需要自行设置')
+                            ]
                         ),
 
                         fac.AntdCollapse(
@@ -981,6 +1030,7 @@ fac.AntdTable(
         {
             'title': 'mini-line示例',
             'dataIndex': 'mini-line示例',
+            'width': '20%',
             'renderOptions': {
                 'renderType': 'mini-line'
             }
@@ -988,6 +1038,7 @@ fac.AntdTable(
         {
             'title': 'mini-bar示例',
             'dataIndex': 'mini-bar示例',
+            'width': '20%',
             'renderOptions': {
                 'renderType': 'mini-bar'
             }
@@ -996,13 +1047,24 @@ fac.AntdTable(
             # 注意，mini-progress模式接受的输入应当在0到1之间
             'title': 'mini-progress示例',
             'dataIndex': 'mini-progress示例',
+            'width': '20%',
             'renderOptions': {
                 'renderType': 'mini-progress'
             }
         },
         {
+            # 注意，mini-ring-progress模式接受的输入应当在0到1之间
+            'title': 'mini-ring-progress示例',
+            'dataIndex': 'mini-ring-progress示例',
+            'width': '20%',
+            'renderOptions': {
+                'renderType': 'mini-ring-progress'
+            }
+        },
+        {
             'title': 'mini-area示例',
             'dataIndex': 'mini-area示例',
+            'width': '20%',
             'renderOptions': {
                 'renderType': 'mini-area'
             }
@@ -1014,14 +1076,15 @@ fac.AntdTable(
             'mini-line示例': np.random.randint(1, 20, 10),
             'mini-bar示例': np.random.randint(1, 20, 10),
             'mini-progress示例': np.random.rand(),
+            'mini-ring-progress示例': np.random.rand(),
             'mini-area示例': np.random.randint(1, 20, 10)
         }
-        for i in range(5)
+        for i in range(3)
     ],
+    miniChartHeight=60,
     bordered=True,
-    containerId='docs-content' # 绑定局部滚动容器以确保悬浮层正常显示
-)
-'''
+    containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
+)'''
                             ),
                             title='点击查看代码',
                             is_open=False,
@@ -1062,7 +1125,7 @@ fac.AntdTable(
                                         }
                                     ],
                                 }
-                                for i in range(5)
+                                for i in range(3)
                             ],
                             bordered=True,
                             style={
@@ -1105,14 +1168,13 @@ fac.AntdTable(
                 }
             ],
         }
-        for i in range(5)
+        for i in range(3)
     ],
     bordered=True,
     style={
         'width': '300px'
     }
-)
-'''
+)'''
                             ),
                             title='点击查看代码',
                             is_open=False,
@@ -1181,7 +1243,7 @@ fac.AntdTable(
                                         'type': 'primary'
                                     }
                                 }
-                                for i in range(5)
+                                for i in range(3)
                             ],
                             bordered=True,
                             containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
@@ -1250,12 +1312,11 @@ fac.AntdTable(
                 'type': 'primary'
             }
         }
-        for i in range(5)
+        for i in range(3)
     ],
     bordered=True,
-    containerId='docs-content' # 绑定局部滚动容器以确保悬浮层正常显示
-)
-'''
+    containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
+)'''
                             ),
                             title='点击查看代码',
                             is_open=False,
@@ -1287,9 +1348,8 @@ fac.AntdTable(
                                     'key': i,
                                     '可复制内容示例': '可复制内容示例'
                                 }
-                                for i in range(5)
+                                for i in range(3)
                             ],
-                            bordered=True,
                             style={
                                 'width': '250px'
                             },
@@ -1322,15 +1382,13 @@ fac.AntdTable(
             'key': i,
             '可复制内容示例': '可复制内容示例'
         }
-        for i in range(5)
+        for i in range(3)
     ],
-    bordered=True,
     style={
         'width': '250px'
     },
-    containerId='docs-content' # 绑定局部滚动容器以确保悬浮层正常显示
-)
-'''
+    containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
+)'''
                             ),
                             title='点击查看代码',
                             is_open=False,
@@ -1352,24 +1410,105 @@ fac.AntdTable(
                         fac.AntdTable(
                             columns=[
                                 {
+                                    'title': '状态徽标示例',
+                                    'dataIndex': '状态徽标示例',
+                                    'renderOptions': {'renderType': 'status-badge'}
+                                }
+                            ],
+                            data=[
+                                {
+                                    'key': i,
+                                    '状态徽标示例': {
+                                        'status': status,
+                                        'text': status + '状态示例'
+                                    }
+                                }
+                                for i, status in enumerate(['success', 'processing', 'default', 'error', 'warning'])
+                            ],
+                            style={
+                                'width': '250px'
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '状态徽标模式',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+fac.AntdTable(
+    columns=[
+        {
+            'title': '状态徽标示例',
+            'dataIndex': '状态徽标示例',
+            'renderOptions': {'renderType': 'status-badge'}
+        }
+    ],
+    data=[
+        {
+            'key': i,
+            '状态徽标示例': {
+                'status': status,
+                'text': status + '状态示例'
+            }
+        }
+        for i, status in enumerate(['success', 'processing', 'default', 'error', 'warning'])
+    ],
+    style={
+        'width': '250px'
+    }
+)'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='状态徽标模式',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdTable(
+                            columns=[
+                                {
                                     'title': '国家名示例',
-                                    'dataIndex': '国家名示例'
+                                    'dataIndex': '国家名示例',
+                                    'width': '20%'
                                 },
                                 {
                                     'title': '省份名示例',
-                                    'dataIndex': '省份名示例'
+                                    'dataIndex': '省份名示例',
+                                    'width': '20%'
                                 },
                                 {
                                     'title': '城市名示例',
-                                    'dataIndex': '城市名示例'
+                                    'dataIndex': '城市名示例',
+                                    'width': '20%'
                                 },
                                 {
                                     'title': '日期示例',
-                                    'dataIndex': '日期示例'
+                                    'dataIndex': '日期示例',
+                                    'width': '20%'
                                 },
                                 {
                                     'title': '邮编示例',
-                                    'dataIndex': '邮编示例'
+                                    'dataIndex': '邮编示例',
+                                    'width': '20%'
                                 }
                             ],
                             data=[
@@ -1383,11 +1522,12 @@ fac.AntdTable(
                                 }
                                 for i in range(100)
                             ],
+                            bordered=True,
                             pagination={
                                 'pageSize': 10,
                                 'current': 5,
                                 'pageSizeOptions': [5, 10, 15, 20, 25],
-                                'showTotalPrefix': '本次共取得伪造数据 ',
+                                'showTotalPrefix': '本次共取得示例数据 ',
                                 'showTotalSuffix': ' 条！😋'
                             }
                         ),
@@ -1409,23 +1549,28 @@ fac.AntdTable(
     columns=[
         {
             'title': '国家名示例',
-            'dataIndex': '国家名示例'
+            'dataIndex': '国家名示例',
+            'width': '20%'
         },
         {
             'title': '省份名示例',
-            'dataIndex': '省份名示例'
+            'dataIndex': '省份名示例',
+            'width': '20%'
         },
         {
             'title': '城市名示例',
-            'dataIndex': '城市名示例'
+            'dataIndex': '城市名示例',
+            'width': '20%'
         },
         {
             'title': '日期示例',
-            'dataIndex': '日期示例'
+            'dataIndex': '日期示例',
+            'width': '20%'
         },
         {
             'title': '邮编示例',
-            'dataIndex': '邮编示例'
+            'dataIndex': '邮编示例',
+            'width': '20%'
         }
     ],
     data=[
@@ -1439,11 +1584,12 @@ fac.AntdTable(
         }
         for i in range(100)
     ],
+    bordered=True,
     pagination={
         'pageSize': 10,
         'current': 5,
         'pageSizeOptions': [5, 10, 15, 20, 25],
-        'showTotalPrefix': '本次共取得伪造数据 ',
+        'showTotalPrefix': '本次共取得示例数据 ',
         'showTotalSuffix': ' 条！😋'
     }
 )'''
@@ -1478,8 +1624,9 @@ fac.AntdTable(
                                     f'字段{i}': np.random.randint(1, 5)
                                     for i in range(1, 6)
                                 }
-                                for _ in range(10)
+                                for _ in range(3)
                             ],
+                            bordered=True,
                             sortOptions={
                                 'sortDataIndexes': ['字段1', '字段2', '字段4', '字段5']
                             },
@@ -1512,12 +1659,13 @@ fac.AntdTable(
             f'字段{i}': np.random.randint(1, 5)
             for i in range(1, 6)
         }
-        for _ in range(10)
+        for _ in range(3)
     ],
+    bordered=True,
     sortOptions={
         'sortDataIndexes': ['字段1', '字段2', '字段4', '字段5']
     },
-    containerId='docs-content' # 绑定局部滚动容器以确保悬浮层正常显示
+    containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
 )'''
                             ),
                             title='点击查看代码',
@@ -1552,6 +1700,7 @@ fac.AntdTable(
                                 }
                                 for _ in range(10)
                             ],
+                            bordered=True,
                             sortOptions={
                                 'sortDataIndexes': ['字段1', '字段2', '字段4', '字段5'],
                                 'multiple': True
@@ -1587,6 +1736,7 @@ fac.AntdTable(
         }
         for _ in range(10)
     ],
+    bordered=True,
     sortOptions={
         'sortDataIndexes': ['字段1', '字段2', '字段4', '字段5'],
         'multiple': True
@@ -1634,6 +1784,7 @@ fac.AntdTable(
                                 }
                                 for i in range(5)
                             ],
+                            bordered=True,
                             filterOptions={
                                 '默认的checkbox模式': {},
                                 '自定义选项的checkbox模式': {
@@ -1683,6 +1834,7 @@ fac.AntdTable(
         }
         for i in range(5)
     ],
+    bordered=True,
     filterOptions={
         '默认的checkbox模式': {},
         '自定义选项的checkbox模式': {
@@ -1728,6 +1880,7 @@ fac.AntdTable(
                                     'dataIndex': '字段示例3'
                                 }
                             ],
+                            bordered=True,
                             data=[
                                 {
                                     '字段示例1': i,
@@ -1777,6 +1930,7 @@ fac.AntdTable(
             'dataIndex': '字段示例3'
         }
     ],
+    bordered=True,
     data=[
         {
             '字段示例1': i,
@@ -1840,6 +1994,7 @@ fac.AntdTable(
                                 }
                                 for i in range(5)
                             ],
+                            bordered=True,
                             rowSelectionType='checkbox',
                             containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
                         ),
@@ -1868,6 +2023,7 @@ fac.AntdTable(
                                 }
                                 for i in range(5)
                             ],
+                            bordered=True,
                             rowSelectionType='radio'
                         ),
 
@@ -1908,6 +2064,7 @@ fac.AntdTable(
         }
         for i in range(5)
     ],
+    bordered=True,
     rowSelectionType='checkbox',
     containerId='docs-content' # 绑定局部滚动容器以确保悬浮层正常显示
 ),
@@ -1936,6 +2093,7 @@ fac.AntdTable(
         }
         for i in range(5)
     ],
+    bordered=True,
     rowSelectionType='radio'
 )
 '''
@@ -1962,12 +2120,14 @@ fac.AntdTable(
                                 {
                                     'title': '日期示例',
                                     'dataIndex': '日期示例',
-                                    'editable': True
+                                    'editable': True,
+                                    'width': '50%'
                                 },
                                 {
                                     'title': '邮编示例',
                                     'dataIndex': '邮编示例',
-                                    'editable': True
+                                    'editable': True,
+                                    'width': '50%'
                                 }
                             ],
                             data=[
@@ -1978,6 +2138,7 @@ fac.AntdTable(
                                 }
                                 for i in range(10)
                             ],
+                            bordered=True,
                             columnsFormatConstraint={
                                 '日期示例': {
                                     'rule': '^\d{4}\-\d{2}\-\d{2}$',
@@ -2014,12 +2175,14 @@ fac.AntdTable(
         {
             'title': '日期示例',
             'dataIndex': '日期示例',
-            'editable': True
+            'editable': True,
+            'width': '50%'
         },
         {
             'title': '邮编示例',
             'dataIndex': '邮编示例',
-            'editable': True
+            'editable': True,
+            'width': '50%'
         }
     ],
     data=[
@@ -2030,6 +2193,7 @@ fac.AntdTable(
         }
         for i in range(10)
     ],
+    bordered=True,
     columnsFormatConstraint={
         '日期示例': {
             'rule': '^\d{4}\-\d{2}\-\d{2}$',
@@ -2331,6 +2495,7 @@ html.Div(
                                     'filterMode': 'keyword'
                                 }
                             },
+                            bordered=True,
                             pagination={
                                 'pageSize': 5
                             },
@@ -2349,9 +2514,7 @@ html.Div(
 
                         fac.AntdParagraph(
                             [
-                                fac.AntdText(
-                                    '　　这个例子中展示了'
-                                ),
+                                fac.AntdText('　　这个例子中展示了'),
                                 fac.AntdText('AntdTable', strong=True),
                                 fac.AntdText('中所有的交互事件被用户触发时所记录的参数变化情况')
                             ]
@@ -2393,6 +2556,7 @@ fac.AntdTable(
             'filterMode': 'keyword'
         }
     },
+    bordered=True,
     pagination={
         'pageSize': 5
     },
@@ -2493,6 +2657,7 @@ def table_callback_demo(currentData,
                                         'filterMode': 'keyword'
                                     }
                                 },
+                                bordered=True,
                                 pagination={
                                     'current': 1,
                                     'total': server_side_df.shape[0],
@@ -2581,6 +2746,7 @@ fac.AntdSpin(
                 'filterMode': 'keyword'
             }
         },
+        bordered=True,
         pagination={
             'current': 1,
             'total': server_side_df.shape[0],
@@ -2764,14 +2930,14 @@ def table_server_side_callback_demo(pagination,
                                     [
                                         html.Div(
                                             [
-                                                fac.AntdText('recentlyButtonClickedRow：', strong=True),
+                                                fac.AntdText('nClicksButton：', strong=True),
                                                 fac.AntdText(
                                                     id='table-button-click-demo-recentlyButtonClickedRow-output')
                                             ]
                                         ),
                                         html.Div(
                                             [
-                                                fac.AntdText('nClicksButton：', strong=True),
+                                                fac.AntdText('recentlyButtonClickedRow：', strong=True),
                                                 html.Pre(
                                                     id='table-button-click-demo-nClicksButton-output',
                                                     style={
@@ -2873,20 +3039,21 @@ fac.AntdSpin(
                 for i in range(5)
             ],
             bordered=True,
-            containerId='docs-content' # 绑定局部滚动容器以确保悬浮层正常显示
+            containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
         ),
 
         fac.AntdSpace(
             [
                 html.Div(
                     [
-                        fac.AntdText('recentlyButtonClickedRow：', strong=True),
-                        fac.AntdText(id='table-button-click-demo-recentlyButtonClickedRow-output')
+                        fac.AntdText('nClicksButton：', strong=True),
+                        fac.AntdText(
+                            id='table-button-click-demo-recentlyButtonClickedRow-output')
                     ]
                 ),
                 html.Div(
                     [
-                        fac.AntdText('nClicksButton：', strong=True),
+                        fac.AntdText('recentlyButtonClickedRow：', strong=True),
                         html.Pre(
                             id='table-button-click-demo-nClicksButton-output',
                             style={
@@ -3263,7 +3430,7 @@ def table_row_select_demo_callback(selectedRowKeys, selectedRows):
                         'children': [
                             {'title': '基础的表格', 'href': '#基础的表格'},
                             {'title': '手动分配百分比宽度', 'href': '#手动分配百分比宽度'},
-                            {'title': '绝对像素宽度溢出的情况', 'href': '#绝对像素宽度溢出的情况'},
+                            {'title': '限定maxHeight开启横向滚动模式', 'href': '#限定maxHeight开启横向滚动模式'},
                             {'title': '限定maxHeight以固定表头', 'href': '#限定maxHeight以固定表头'},
                             {'title': '宽度溢出时固定左侧或右侧指定列', 'href': '#宽度溢出时固定左侧或右侧指定列'},
                             {'title': '指定部分列可编辑', 'href': '#指定部分列可编辑'},
@@ -3273,6 +3440,7 @@ def table_row_select_demo_callback(selectedRowKeys, selectedRows):
                             {'title': '标签模式', 'href': '#标签模式'},
                             {'title': '按钮模式', 'href': '#按钮模式'},
                             {'title': '可复制模式', 'href': '#可复制模式'},
+                            {'title': '状态徽标模式', 'href': '#状态徽标模式'},
                             {'title': '分页相关设置', 'href': '#分页相关设置'},
                             {'title': '常规单列排序', 'href': '#常规单列排序'},
                             {'title': '多列组合排序', 'href': '#多列组合排序'},
@@ -3290,7 +3458,10 @@ def table_row_select_demo_callback(selectedRowKeys, selectedRows):
                     },
                 ],
                 containerId='docs-content',
-                targetOffset=200
+                targetOffset=200,
+                style={
+                    'maxHeight': '750px'
+                }
             ),
             style={
                 'flex': 'none',
