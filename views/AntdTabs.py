@@ -196,6 +196,155 @@ fac.AntdTabs(
                                         }
                                     ),
                                     tab='标签页1',
+                                    key='标签页1',
+                                    titleSideInfoPopover={
+                                        'title': '标签页1说明',
+                                        'content': '这是标签页1的说明文字内容示例'
+                                    }
+                                ),
+                                fac.AntdTabPane(
+                                    html.Div(
+                                        fac.AntdButton('标签页2测试', type='primary'),
+                                        style={
+                                            'backgroundColor': 'rgba(241, 241, 241, 0.4)',
+                                            'height': '200px',
+                                            'display': 'flex',
+                                            'justifyContent': 'center',
+                                            'alignItems': 'center'
+                                        }
+                                    ),
+                                    tab='标签页2',
+                                    key='标签页2',
+                                    titleSideInfoPopover={
+                                        'title': '标签页2说明',
+                                        'content': '这是标签页2的说明文字内容示例'
+                                    }
+                                ),
+                                fac.AntdTabPane(
+                                    html.Div(
+                                        fac.AntdButton('标签页3测试', type='dashed'),
+                                        style={
+                                            'backgroundColor': 'rgba(241, 241, 241, 0.4)',
+                                            'height': '200px',
+                                            'display': 'flex',
+                                            'justifyContent': 'center',
+                                            'alignItems': 'center'
+                                        }
+                                    ),
+                                    tab='标签页3',
+                                    key='标签页3',
+                                    titleSideInfoPopover={
+                                        'title': '标签页3说明',
+                                        'content': '这是标签页3的说明文字内容示例'
+                                    }
+                                )
+                            ]
+                        ),
+
+                        fac.AntdDivider(
+                            '添加额外悬浮提示信息卡片',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+fac.AntdTabs(
+    [
+        fac.AntdTabPane(
+            html.Div(
+                '标签页1测试',
+                style={
+                    'backgroundColor': 'rgba(241, 241, 241, 0.4)',
+                    'height': '200px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            tab='标签页1',
+            key='标签页1',
+            titleSideInfoPopover={
+                'title': '标签页1说明',
+                'content': '这是标签页1的说明文字内容示例'
+            }
+        ),
+        fac.AntdTabPane(
+            html.Div(
+                fac.AntdButton('标签页2测试', type='primary'),
+                style={
+                    'backgroundColor': 'rgba(241, 241, 241, 0.4)',
+                    'height': '200px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            tab='标签页2',
+            key='标签页2',
+            titleSideInfoPopover={
+                'title': '标签页2说明',
+                'content': '这是标签页2的说明文字内容示例'
+            }
+        ),
+        fac.AntdTabPane(
+            html.Div(
+                fac.AntdButton('标签页3测试', type='dashed'),
+                style={
+                    'backgroundColor': 'rgba(241, 241, 241, 0.4)',
+                    'height': '200px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            tab='标签页3',
+            key='标签页3',
+            titleSideInfoPopover={
+                'title': '标签页3说明',
+                'content': '这是标签页3的说明文字内容示例'
+            }
+        )
+    ]
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='添加额外悬浮提示信息卡片',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdTabs(
+                            [
+                                fac.AntdTabPane(
+                                    html.Div(
+                                        '标签页1测试',
+                                        style={
+                                            'backgroundColor': 'rgba(241, 241, 241, 0.4)',
+                                            'height': '200px',
+                                            'display': 'flex',
+                                            'justifyContent': 'center',
+                                            'alignItems': 'center'
+                                        }
+                                    ),
+                                    tab='标签页1',
                                     key='标签页1'
                                 ),
                                 fac.AntdTabPane(
@@ -780,6 +929,7 @@ def tabs_callback_demo(nClicks, latestDeletePane, children):
                         'href': '#使用示例',
                         'children': [
                             {'title': '基础使用', 'href': '#基础使用'},
+                            {'title': '添加额外悬浮提示信息卡片', 'href': '#添加额外悬浮提示信息卡片'},
                             {'title': '手动设置默认激活的标签页', 'href': '#手动设置默认激活的标签页'},
                             {'title': '不同的标签页吸附位置', 'href': '#不同的标签页吸附位置'},
                             {'title': '不同的标签页渲染类型', 'href': '#不同的标签页渲染类型'},

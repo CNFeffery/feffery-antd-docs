@@ -17,3 +17,10 @@
 **closable：** *bool*型，默认为`True`
 
 　　设置在外层对应的`AntdTabs`设置参数`type='editable-card'`时，是否为当前标签页面板渲染*关闭按钮*
+
+**titleSideInfoPopover：** *dict*型
+
+　　用于*在标签页标题右侧设置悬浮提示信息卡片*，可用的键有：
+
+- title：*str*型，用于设置*提示信息卡片的标题*
+- content：*str*型，用于设置*提示信息卡片的正文内容*
