@@ -120,7 +120,13 @@ treeData = [
 
 　　设置是否以*虚拟滚动*的形式渲染节点树，节点众多时可显著提升性能表现
 
+**placement：** *str*型，默认为`'bottomLeft'`
 
+　　用于设置*悬浮层展开方位*，可选的有`'bottomLeft'`、`'bottomRight'`、`'topLeft'`及`'topRight'`
+
+**status：** *str型*
+
+　　用于*手动设置组件的校验状态*，可选的有`'error'`和`'warning'`
 
 
 

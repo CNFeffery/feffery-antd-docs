@@ -1,4 +1,6 @@
 import os
+
+import dash
 import feffery_markdown_components as fmc
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
@@ -87,7 +89,9 @@ from views import (
     AntdCalendar,
     AntdComment,
     AntdDescriptions,
-    AntdDescriptionItem
+    AntdDescriptionItem,
+    AntdWatermark,
+    AntdPasteImage
 )
 
 app.layout = fuc.FefferyTopProgress(
@@ -95,9 +99,6 @@ app.layout = fuc.FefferyTopProgress(
         [
             # 注入url监听
             dcc.Location(id='url'),
-
-            # 注入滚动条复位脚本
-            fuc.FefferyExecuteJs(id='docs-content-scroll-reset'),
 
             # 注入快捷指令面板
             fuc.FefferyShortcutPanel(
@@ -160,175 +161,175 @@ app.layout = fuc.FefferyTopProgress(
                     'position': 'fixed',
                     'right': '100px',
                     'bottom': '200px',
-                    'zIndex': '99999'
+                    'zIndex': 99999
                 }
             ),
 
             # 页面结构
-            fac.AntdLayout(
+            fac.AntdRow(
                 [
-                    fac.AntdHeader(
-                        [
-                            fac.AntdRow(
-                                [
-                                    fac.AntdCol(
-                                        html.Img(
-                                            src=app.get_asset_url(
-                                                'imgs/fac-logo.svg'),
-                                            style={
-                                                'height': '50px',
-                                                'paddingRight': '10px'
-                                            }
-                                        ),
-                                    ),
-                                    fac.AntdCol(
-                                        fac.AntdParagraph(
-                                            [
-                                                fac.AntdText(
-                                                    'feffery-antd-components',
-                                                    strong=True,
-                                                    style={
-                                                        'fontSize': '35px'
-                                                    }
-                                                ),
-                                                fac.AntdText(
-                                                    f'v{fac.__version__}',
-                                                    style={
-                                                        'fontSize': '10px',
-                                                        'paddingLeft': '2px'
-                                                    }
-                                                )
-                                            ]
-                                        )
-                                    ),
-
-                                    fac.AntdCol(
-                                        fac.AntdParagraph(
-                                            [
-                                                fac.AntdText(
-                                                    'Ctrl',
-                                                    keyboard=True,
-                                                    style={
-                                                        'color': '#8c8c8c'
-                                                    }
-                                                ),
-                                                fac.AntdText(
-                                                    'K',
-                                                    keyboard=True,
-                                                    style={
-                                                        'color': '#8c8c8c'
-                                                    }
-                                                ),
-                                                fac.AntdText(
-                                                    '唤出搜索面板',
-                                                    style={
-                                                        'color': '#8c8c8c'
-                                                    }
-                                                )
-                                            ],
-                                            style={
-                                                'marginLeft': '50px'
-                                            }
-                                        ),
-                                        flex='auto'
-                                    ),
-
-                                    fac.AntdCol(
-                                        html.Div(
-                                            [
-                                                html.A(
-                                                    fac.AntdImage(
-                                                        alt='fac源码仓库，欢迎star',
-                                                        src='https://img.shields.io/github/stars/CNFeffery/feffery-antd-components?style=social',
-                                                        preview=False,
-                                                        fallback=None,
-                                                        style={
-                                                            'transform': 'translateY(0px) scale(1.25)'
-                                                        }
-                                                    ),
-                                                    href='https://github.com/CNFeffery/feffery-antd-components',
-                                                    target='_blank',
-                                                    style={
-                                                        'cursor': 'pointer'
-                                                    }
-                                                ),
-
-                                                html.A(
-                                                    '皖ICP备2021012734号-1',
-                                                    href='https://beian.miit.gov.cn/',
-                                                    target='_blank',
-                                                    style={
-                                                        'fontSize': '10px',
-                                                        'marginLeft': '50px',
-                                                        'color': '#494f54'
-                                                    }
-                                                )
-                                            ],
-                                            style={
-                                                'float': 'right',
-                                                'paddingRight': '20px'
-                                            }
-                                        ),
-                                        flex='auto'
-                                    )
-                                ],
-                                style={
-                                    'paddingLeft': '30px'
-                                }
-                            )
-                        ],
-                        style={
-                            'backgroundColor': 'rgb(255, 255, 255)',
-                            'boxShadow': '0 2px 14px #f0f1f2',
-                            'zIndex': '999',
-                            'paddingLeft': '10px',
-                            'paddingRight': '10px',
-                            'height': '65px'
-                        }
+                    fac.AntdCol(
+                        html.Img(
+                            src=app.get_asset_url(
+                                'imgs/fac-logo.svg'),
+                            style={
+                                'height': '50px',
+                                'padding': '0 10px',
+                                'marginTop': '7px'
+                            }
+                        ),
                     ),
-                    fac.AntdLayout(
-                        [
-                            fac.AntdSider(
-                                [
-                                    fac.AntdMenu(
-                                        id='router-menu',
-                                        menuItems=Config.menuItems,
-                                        mode='inline',
-                                        defaultOpenKeys=[
-                                            'Card', 'Descriptions', 'Form', 'Tabs', 'Grid', 'Typography', 'Layout'
-                                        ],
-                                        style={
-                                            'height': '100%',
-                                            'overflow': 'hidden auto',
-                                            'paddingBottom': '50px'
-                                        }
-                                    )
-                                ],
-                                width=300,
-                                theme='light'
-                            ),
+                    fac.AntdCol(
+                        fac.AntdParagraph(
+                            [
+                                fac.AntdText(
+                                    'feffery-antd-components',
+                                    strong=True,
+                                    style={
+                                        'fontSize': '35px'
+                                    }
+                                ),
+                                fac.AntdText(
+                                    f'v{fac.__version__}',
+                                    style={
+                                        'fontSize': '10px',
+                                        'paddingLeft': '2px'
+                                    }
+                                )
+                            ]
+                        )
+                    ),
 
-                            fac.AntdContent(
-                                id='docs-content',
-                                style={
-                                    'overflowY': 'auto',
-                                    'padding': '25px',
-                                    'backgroundColor': 'rgb(255, 255, 255)',
-                                    'position': 'relative'
-                                }
-                            )
-                        ]
+                    fac.AntdCol(
+                        fac.AntdParagraph(
+                            [
+                                fac.AntdText(
+                                    'Ctrl',
+                                    keyboard=True,
+                                    style={
+                                        'color': '#8c8c8c'
+                                    }
+                                ),
+                                fac.AntdText(
+                                    'K',
+                                    keyboard=True,
+                                    style={
+                                        'color': '#8c8c8c'
+                                    }
+                                ),
+                                fac.AntdText(
+                                    '唤出搜索面板',
+                                    style={
+                                        'color': '#8c8c8c'
+                                    }
+                                )
+                            ],
+                            style={
+                                'marginLeft': '50px',
+                                'marginTop': '21px'
+                            }
+                        ),
+                        flex='auto'
+                    ),
+
+                    fac.AntdCol(
+                        html.Div(
+                            [
+                                html.A(
+                                    fac.AntdImage(
+                                        alt='fac源码仓库，欢迎star',
+                                        src='https://img.shields.io/github/stars/CNFeffery/feffery-antd-components?style=social',
+                                        preview=False,
+                                        fallback=None,
+                                        style={
+                                            'transform': 'translateY(0px) scale(1.25)'
+                                        }
+                                    ),
+                                    href='https://github.com/CNFeffery/feffery-antd-components',
+                                    target='_blank',
+                                    style={
+                                        'cursor': 'pointer'
+                                    }
+                                ),
+
+                                html.A(
+                                    '皖ICP备2021012734号-1',
+                                    href='https://beian.miit.gov.cn/',
+                                    target='_blank',
+                                    style={
+                                        'fontSize': '10px',
+                                        'marginLeft': '50px',
+                                        'color': '#494f54'
+                                    }
+                                )
+                            ],
+                            style={
+                                'float': 'right',
+                                'paddingRight': '20px',
+                                'marginTop': '20.5px'
+                            }
+                        ),
+                        flex='auto'
                     )
                 ],
+                align="middle",
                 style={
-                    'height': '100%'
+                    'height': '64px',
+                    'boxShadow': 'rgb(240 241 242) 0px 2px 14px',
+                    'background': 'white',
+                    'marginBottom': '5px'
                 }
+            ),
+
+            fac.AntdRow(
+                [
+                    fac.AntdCol(
+                        fac.AntdAffix(
+                            html.Div(
+                                fac.AntdMenu(
+                                    id='router-menu',
+                                    menuItems=Config.menuItems,
+                                    mode='inline',
+                                    defaultOpenKeys=[
+                                        'Card', 'Descriptions', 'Form', 'Tabs', 'Grid', 'Typography', 'Layout'
+                                    ],
+                                    style={
+                                        'height': '100%',
+                                        'overflow': 'hidden auto',
+                                        'paddingBottom': '50px'
+                                    }
+                                ),
+                                style={
+                                    'width': '300px',
+                                    'height': '100vh',
+                                    'overflowY': 'auto'
+                                }
+                            ),
+                            offsetTop=0
+                        ),
+                        flex='none'
+                    ),
+
+                    fac.AntdCol(
+                        html.Div(
+                            id='docs-content',
+                            style={
+                                'backgroundColor': 'rgb(255, 255, 255)'
+                            }
+                        ),
+                        flex='auto',
+                        style={
+                            'padding': '25px'
+                        }
+                    ),
+
+                    fac.AntdBackTop(
+                        duration=0.5
+                    )
+                ],
+                wrap=False
             )
-        ],
-        style={
-            'width': '100vw',
-            'height': '100vh'
-        }
+        ]
     ),
     listenPropsMode='exclude',
     excludeProps=Config.exclude_props,
@@ -336,14 +337,6 @@ app.layout = fuc.FefferyTopProgress(
     speed=800,
     debug=True
 )
-
-
-@app.callback(
-    Output('docs-content-scroll-reset', 'jsString'),
-    Input('router-menu', 'currentKey')
-)
-def docs_content_scroll_reset(currentKey):
-    return 'document.getElementById("docs-content").scrollTop = 0'
 
 
 @app.callback(
@@ -603,6 +596,12 @@ def render_docs_content(pathname):
 
     elif pathname == '/AntdDescriptionItem':
         return AntdDescriptionItem.docs_content, pathname
+
+    elif pathname == '/AntdWatermark':
+        return AntdWatermark.docs_content, pathname
+
+    elif pathname == '/AntdPasteImage':
+        return AntdPasteImage.docs_content, pathname
 
     return fac.AntdResult(status='404', title='您访问的页面不存在！'), pathname
 

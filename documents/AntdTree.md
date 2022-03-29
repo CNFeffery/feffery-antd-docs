@@ -103,8 +103,12 @@ treeData = [
 
 **selectedKeys：** *list*型
 
-　　用于在回调中捕获已被点击选中的节点`key`列表
+　　用于在回调中捕获*已被点击选中的节点`key`列表*
 
 **checkedKeys：** *list*型
 
-　　用于在回调中捕获已被勾选选中的节点`key`列表
+　　用于在回调中捕获*已被勾选选中的节点`key`列表*
+
+**halfCheckedKeys：** *list*型
+
+　　用于再回调中捕获*处于半勾选状态下的节点`key`列表*

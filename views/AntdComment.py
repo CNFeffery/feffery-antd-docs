@@ -568,8 +568,7 @@ def comment_demo_add_children_callback(nClicks, deleteClicks, value, children):
                         ]
                     },
                 ],
-                containerId='docs-content',
-                targetOffset=200
+                offsetTop=0
             ),
             style={
                 'flex': 'none',

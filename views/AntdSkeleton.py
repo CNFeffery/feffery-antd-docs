@@ -219,8 +219,7 @@ def skeleton_custom_callback_demo(nClicks):
                         ]
                     },
                 ],
-                containerId='docs-content',
-                targetOffset=200
+                offsetTop=0
             ),
             style={
                 'flex': 'none',

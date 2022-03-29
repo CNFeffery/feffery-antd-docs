@@ -1000,8 +1000,7 @@ def form_demo_2_callback(nClicks, username, password):
                         ]
                     },
                 ],
-                containerId='docs-content',
-                targetOffset=200
+                offsetTop=0
             ),
             style={
                 'flex': 'none',

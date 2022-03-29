@@ -287,8 +287,7 @@ def modal_demo_callback3(okCounts, cancelCounts, closeCounts):
                         ]
                     },
                 ],
-                containerId='docs-content',
-                targetOffset=200
+                offsetTop=0
             ),
             style={
                 'flex': 'none',

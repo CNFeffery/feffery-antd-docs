@@ -596,8 +596,7 @@ def dropdown_demo_callback(clickedKey):
                         ]
                     },
                 ],
-                containerId='docs-content',
-                targetOffset=200
+                offsetTop=0
             ),
             style={
                 'flex': 'none',

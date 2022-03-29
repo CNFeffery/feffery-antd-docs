@@ -47,6 +47,6 @@ div {
     background-color: transparent !important;
 }
 
-/*#router-menu:hover {*/
-/*    overflow: hidden auto !important;*/
-/*}*/
+.ant-scrolling-effect {
+    /*display: none;*/
+}

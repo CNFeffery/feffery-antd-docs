@@ -538,8 +538,7 @@ def input_number_callback(nSubmit1, nSubmit2, value1, value2):
                         ]
                     },
                 ],
-                containerId='docs-content',
-                targetOffset=200
+                offsetTop=0
             ),
             style={
                 'flex': 'none',

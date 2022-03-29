@@ -453,8 +453,7 @@ def spin_exclude_callback_demo2(nClicks):
                         ]
                     },
                 ],
-                containerId='docs-content',
-                targetOffset=200
+                offsetTop=0
             ),
             style={
                 'flex': 'none',

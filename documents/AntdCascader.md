@@ -84,6 +84,10 @@ options = [
 
 　　用于子菜单展开的交互触发方式，可选的有`'click'`与`'hover'`
 
+**status：** *str型*
+
+　　用于*手动设置组件的校验状态*，可选的有`'error'`和`'warning'`
+
 **changeOnSelect：** *bool*型，默认为`False`
 
 　　对于参数`options`构造出的可供选择的树，将每条分支的末端节点称为**叶节点**，`changeOnSelect`参数即用于设置是否只有**叶节点**被选中时才会更新组件的`value`参数

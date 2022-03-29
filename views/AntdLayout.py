@@ -1037,8 +1037,7 @@ def sider_custom_trigger_demo(nClicks, collapsed):
                         ]
                     },
                 ],
-                containerId='docs-content',
-                targetOffset=200
+                offsetTop=0
             ),
             style={
                 'flex': 'none',

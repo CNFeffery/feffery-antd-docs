@@ -1048,17 +1048,20 @@ fac.AntdSpin(
 @app.callback(
     Output('tree-demo-output', 'children'),
     [Input('tree-demo', 'selectedKeys'),
-     Input('tree-demo', 'checkedKeys')],
+     Input('tree-demo', 'checkedKeys'),
+     Input('tree-demo', 'halfCheckedKeys')],
     prevent_initial_call=True
 )
-def tree_callback_demo(selectedKeys, checkedKeys):
-
+def tree_callback_demo(selectedKeys, checkedKeys, halfCheckedKeys):
     return [
         fac.AntdTitle('selectedKeys：', level=5),
         html.Pre(str(selectedKeys)),
 
         fac.AntdTitle('checkedKeys：', level=5),
-        html.Pre(str(checkedKeys))
+        html.Pre(str(checkedKeys)),
+
+        fac.AntdTitle('halfCheckedKeys：', level=5),
+        html.Pre(str(halfCheckedKeys))
     ]'''
                             ),
                             title='点击查看代码',
@@ -1101,8 +1104,7 @@ def tree_callback_demo(selectedKeys, checkedKeys):
                         ]
                     },
                 ],
-                containerId='docs-content',
-                targetOffset=200
+                offsetTop=0
             ),
             style={
                 'flex': 'none',

@@ -469,7 +469,7 @@ fac.AntdTimeline(
                                 },
                                 {
                                     'content': '模型训练',
-                                    'icon': 'clock-circle',
+                                    'icon': 'antd-clock-circle',
                                     'label': '58分钟前'
                                 },
                                 {
@@ -495,7 +495,7 @@ fac.AntdTimeline(
                                 },
                                 {
                                     'content': '模型训练',
-                                    'icon': 'clock-circle',
+                                    'icon': 'antd-clock-circle',
                                     'label': '58分钟前'
                                 },
                                 {
@@ -522,7 +522,7 @@ fac.AntdTimeline(
                                 },
                                 {
                                     'content': '模型训练',
-                                    'icon': 'clock-circle',
+                                    'icon': 'antd-clock-circle',
                                     'label': '58分钟前'
                                 },
                                 {
@@ -562,7 +562,7 @@ fac.AntdTimeline(
         },
         {
             'content': '模型训练',
-            'icon': 'clock-circle',
+            'icon': 'antd-clock-circle',
             'label': '58分钟前'
         },
         {
@@ -588,7 +588,7 @@ fac.AntdTimeline(
         },
         {
             'content': '模型训练',
-            'icon': 'clock-circle',
+            'icon': 'antd-clock-circle',
             'label': '58分钟前'
         },
         {
@@ -615,7 +615,7 @@ fac.AntdTimeline(
         },
         {
             'content': '模型训练',
-            'icon': 'clock-circle',
+            'icon': 'antd-clock-circle',
             'label': '58分钟前'
         },
         {
@@ -671,8 +671,7 @@ fac.AntdTimeline(
                         ]
                     },
                 ],
-                containerId='docs-content',
-                targetOffset=200
+                offsetTop=0
             ),
             style={
                 'flex': 'none',

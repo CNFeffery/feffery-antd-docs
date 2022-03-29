@@ -66,7 +66,10 @@ docs_content = html.Div(
 
                         fac.AntdDrawer(
                             fac.AntdText('抽屉内容测试' * 200),
-                            id='drawer-demo-1'
+                            id='drawer-demo-1',
+                            style={
+                                'zIndex': 99999
+                            }
                         ),
 
                         fac.AntdDivider(
@@ -90,7 +93,10 @@ fac.AntdButton(
 
 fac.AntdDrawer(
     fac.AntdText('抽屉内容测试' * 200),
-    id='drawer-demo-1'
+    id='drawer-demo-1',
+    style={
+        'zIndex': 99999
+    }
 )
 ...
 @app.callback(
@@ -143,21 +149,30 @@ def drawer_demo_callback1(nClicks):
                             fac.AntdText('抽屉内容测试' * 100),
                             id='drawer-demo-2-top',
                             placement='top',
-                            mask=False
+                            mask=False,
+                            style={
+                                'zIndex': 99999
+                            }
                         ),
 
                         fac.AntdDrawer(
                             fac.AntdText('抽屉内容测试' * 100),
                             id='drawer-demo-2-left',
                             placement='left',
-                            mask=False
+                            mask=False,
+                            style={
+                                'zIndex': 99999
+                            }
                         ),
 
                         fac.AntdDrawer(
                             fac.AntdText('抽屉内容测试' * 100),
                             id='drawer-demo-2-bottom',
                             placement='bottom',
-                            mask=False
+                            mask=False,
+                            style={
+                                'zIndex': 99999
+                            }
                         ),
 
                         fac.AntdDivider(
@@ -197,21 +212,30 @@ fac.AntdDrawer(
     fac.AntdText('抽屉内容测试' * 100),
     id='drawer-demo-2-top',
     placement='top',
-    mask=False
+    mask=False,
+    style={
+        'zIndex': 99999
+    }
 ),
 
 fac.AntdDrawer(
     fac.AntdText('抽屉内容测试' * 100),
     id='drawer-demo-2-left',
     placement='left',
-    mask=False
+    mask=False,
+    style={
+        'zIndex': 99999
+    }
 ),
 
 fac.AntdDrawer(
     fac.AntdText('抽屉内容测试' * 100),
     id='drawer-demo-2-bottom',
     placement='bottom',
-    mask=False
+    mask=False,
+    style={
+        'zIndex': 99999
+    }
 )
 ...
 @app.callback(
@@ -273,8 +297,7 @@ def drawer_demo_callback2(_, __, ___):
                         ]
                     },
                 ],
-                containerId='docs-content',
-                targetOffset=200
+                offsetTop=0
             ),
             style={
                 'flex': 'none',

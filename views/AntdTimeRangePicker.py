@@ -324,8 +324,7 @@ def time_range_picker_demo_callback(value):
                         ]
                     },
                 ],
-                containerId='docs-content',
-                targetOffset=200
+                offsetTop=0
             ),
             style={
                 'flex': 'none',

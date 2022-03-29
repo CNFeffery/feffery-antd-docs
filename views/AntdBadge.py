@@ -777,8 +777,7 @@ def badge_click_demo_callback3(counts, start_time):
                         ]
                     },
                 ],
-                containerId='docs-content',
-                targetOffset=200
+                offsetTop=0
             ),
             style={
                 'flex': 'none',

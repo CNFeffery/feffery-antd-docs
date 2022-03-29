@@ -221,8 +221,7 @@ def popconfirm_demo_callback(confirmCounts, cancelCounts):
                         ]
                     },
                 ],
-                containerId='docs-content',
-                targetOffset=200
+                offsetTop=0
             ),
             style={
                 'flex': 'none',

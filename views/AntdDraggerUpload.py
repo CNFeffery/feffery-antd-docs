@@ -430,8 +430,7 @@ def upload_callback_demo(lastUploadTaskRecord):
                         ]
                     }
                 ],
-                containerId='docs-content',
-                targetOffset=200
+                offsetTop=0
             ),
             style={
                 'flex': 'none',

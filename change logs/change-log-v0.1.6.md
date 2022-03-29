@@ -1,12 +1,44 @@
-更新时间：`2022-03-XX`
+更新时间：`2022-03-29`
 
 ---
 
 - `0.1.6`版本
-- **已修复问题**🔧
-  - `AntdTables`
-  
-    - 修复了**多按钮模式**参数格式检查不通过的问题
-- **新特性**✨
+  - **新特性**✨
+    - 🥳新增水印组件`AntdWatermark`，用于为其`children`传入的组件添加自定义水印
+    - 🥳新增图片粘贴组件`AntdPasteImage`，用于帮助捕获网页中的图片粘贴内容
+    - `AntdTable`
+      - 为粘性表头参数`sticky`新增额外字典型参数方式，可通过设置键值对参数`offsetHeader`来自定义粘性表头距离页面顶端的像素距离
+    - `AntdAnchor`
+      - 新增参数`affix`设置是否开启*固定模式*，默认为`True`
+      - 新增参数`bounds`设置`AntdAnchor`区域的边界像素宽度，默认为`5`
+      - 新增参数`offsetTop`设置当`AntdAnchor`距离顶部多少像素距离时触发固定模式
     - `AntdMessage`
-      - 新增参数`top`用于设置消息距离顶部的像素距离
+      - 新增参数`top`用于设置弹出的消息提示距离页面顶端的像素距离
+    - `AntdTree`
+      - 新增参数`halfCheckedKeys`用于记录处于*半勾选*状态下的节点`key`值数组
+    - `AntdButton`
+      - 新增参数`loading`用于设置是否以*加载中*动态效果渲染按钮
+    - `AntdSelect`
+      - 新增参数`placement`用于设置悬浮层弹出的方位
+      - 新增参数`status`用于自主设置组件的校验状态
+    - `AntdTreeSelect`
+      - 新增参数`placement`用于设置悬浮层弹出的方位
+      - 新增参数`status`用于自主设置组件的校验状态
+    - `AntdTransfer`
+      - 新增参数`status`用于自主设置组件的校验状态
+    - `AntdCascader`
+      - 新增参数`status`用于自主设置组件的校验状态
+    - `AntdDatePicker`
+      - 新增参数`status`用于自主设置组件的校验状态
+    - `AntdDateRangePicker`
+      - 新增参数`status`用于自主设置组件的校验状态
+    - `AntdTimePicker`
+      - 新增参数`status`用于自主设置组件的校验状态
+    - `AntdTimeRangePicker`
+      - 新增参数`status`用于自主设置组件的校验状态
+    - `AntdMentions`
+      - 新增参数`status`用于自主设置组件的校验状态
+    - `AntdInput`
+      - 新增参数`status`用于自主设置组件的校验状态
+    - `AntdInputNumber`
+      - 新增参数`status`用于自主设置组件的校验状态

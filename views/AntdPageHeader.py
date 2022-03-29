@@ -241,8 +241,7 @@ def page_header_demo_callback(backClicks):
                         ]
                     },
                 ],
-                containerId='docs-content',
-                targetOffset=200
+                offsetTop=0
             ),
             style={
                 'flex': 'none',

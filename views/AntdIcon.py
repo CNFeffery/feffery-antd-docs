@@ -249,8 +249,7 @@ def icon_demo_render_callback(value):
                         ]
                     },
                 ],
-                containerId='docs-content',
-                targetOffset=200
+                offsetTop=0
             ),
             style={
                 'flex': 'none',

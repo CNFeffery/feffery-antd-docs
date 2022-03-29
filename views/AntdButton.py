@@ -1,5 +1,4 @@
 from dash import html
-from dash import dcc
 import feffery_antd_components as fac
 import feffery_markdown_components as fmc
 import feffery_utils_components as fuc
@@ -497,8 +496,7 @@ def button_callback_demo(nClicks):
                         ]
                     },
                 ],
-                containerId='docs-content',
-                targetOffset=200
+                offsetTop=0
             ),
             style={
                 'flex': 'none',

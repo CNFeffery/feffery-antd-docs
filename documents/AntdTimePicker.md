@@ -45,3 +45,7 @@
 **disabled：** *bool*型，默认为`False`
 
 　　设置是否*禁用当前组件*
+
+**status：** *str型*
+
+　　用于*手动设置组件的校验状态*，可选的有`'error'`和`'warning'`

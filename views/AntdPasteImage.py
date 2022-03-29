@@ -8,7 +8,7 @@ docs_content = html.Div(
         html.Div(
             [
                 html.H2(
-                    'AntdAffix(id, className, style, *args, **kwargs)',
+                    'AntdPasteImage(id, className, style, *args, **kwargs)',
                     style={
                         'borderLeft': '4px solid grey',
                         'padding': '3px 0 3px 10px',
@@ -34,7 +34,7 @@ docs_content = html.Div(
                 ),
 
                 fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdAffix.md', encoding='utf-8').read()
+                    markdownStr=open('documents/AntdPasteImage.md', encoding='utf-8').read()
                 ),
 
                 html.Div(
@@ -56,24 +56,30 @@ docs_content = html.Div(
 
                 html.Div(
                     [
-
-                        html.Div(
-                            fac.AntdAffix(
-                                fac.AntdButton(
-                                    '向下滑动页面体验固钉效果',
-                                    type='primary'
-                                ),
-                                offsetTop=100
-                            ),
+                        fac.AntdPasteImage(
                             style={
-                                'marginBottom': '1000px'
+                                'height': '500px'
                             }
                         ),
 
                         fac.AntdDivider(
-                            '下滑固钉示例',
+                            '基础使用',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
+                        ),
+
+                        fac.AntdParagraph(
+                            [
+                                fac.AntdText('　　当粘贴板内存在图片时，在具有'),
+                                fac.AntdText('AntdPasteImage', strong=True),
+                                fac.AntdText('的页面内按下'),
+                                fac.AntdText('ctrl+v', keyboard=True),
+                                fac.AntdText('快捷键会捕获到图片内容，你可以在你的回调函数中利用'),
+                                fac.AntdText('AntdPasteImage', strong=True),
+                                fac.AntdText('的'),
+                                fac.AntdText('currentPastedImages', code=True),
+                                fac.AntdText('完成已粘贴图片向服务器的传输')
+                            ]
                         ),
 
                         fac.AntdCollapse(
@@ -83,16 +89,9 @@ docs_content = html.Div(
                                 language='python',
                                 codeStyle='coy-without-shadows',
                                 codeString='''
-html.Div(
-    fac.AntdAffix(
-        fac.AntdButton(
-            '向下滑动页面体验固钉效果',
-            type='primary'
-        ),
-        offsetTop=100
-    ),
+fac.AntdPasteImage(
     style={
-        'marginBottom': '1000px'
+        'height': '500px'
     }
 )
 '''
@@ -107,70 +106,7 @@ html.Div(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='下滑固钉示例',
-                    className='div-highlight'
-                ),
-
-                html.Div(
-                    [
-
-                        html.Div(
-                            fac.AntdAffix(
-                                fac.AntdButton(
-                                    '向上滑动页面体验固钉效果',
-                                    type='dashed'
-                                ),
-                                offsetBottom=100,
-                                style={
-                                    'float': 'right'
-                                }
-                            ),
-                            style={
-                                'marginTop': '1000px'
-                            }
-                        ),
-
-                        fac.AntdDivider(
-                            '上滑固钉示例',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
-
-                        fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True,
-                                showInlineLineNumbers=True,
-                                language='python',
-                                codeStyle='coy-without-shadows',
-                                codeString='''
-html.Div(
-    fac.AntdAffix(
-        fac.AntdButton(
-            '向上滑动页面体验固钉效果',
-            type='dashed'
-        ),
-        offsetBottom=100,
-        style={
-            'float': 'right'
-        }
-    ),
-    style={
-        'marginTop': '1000px'
-    }
-)
-'''
-                            ),
-                            title='点击查看代码',
-                            is_open=False,
-                            ghost=True
-                        )
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='上滑固钉示例',
+                    id='基础使用',
                     className='div-highlight'
                 ),
 
@@ -180,6 +116,7 @@ html.Div(
                 'flex': 'auto'
             }
         ),
+
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
@@ -188,8 +125,7 @@ html.Div(
                         'title': '使用示例',
                         'href': '#使用示例',
                         'children': [
-                            {'title': '下滑固钉示例', 'href': '#下滑固钉示例'},
-                            {'title': '上滑固钉示例', 'href': '#上滑固钉示例'},
+                            {'title': '基础使用', 'href': '#基础使用'},
                         ]
                     },
                 ],
@@ -197,7 +133,7 @@ html.Div(
             ),
             style={
                 'flex': 'none',
-                'padding': '20px'
+                'margin': '20px'
             }
         )
     ],

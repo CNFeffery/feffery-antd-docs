@@ -15,14 +15,12 @@ pip install dash feffery-antd-components -i https://pypi.douban.com/simple/
 ```python
 >>> import dash
 >>> print('Dash版本：%s' % dash.__version__)
-Dash版本：2.1.0
 ```
 
 ```python
 >>> # 我们按照规范以fac为别名导入feffery-antd-components
 >>> import feffery_antd_components as fac
 >>> print('fac版本：%s' % fac.__version__)
-fac版本：0.1.0
 ```
 
 　　至此我们就完成了`Dash`+`fac`基础开发环境的搭建😋！

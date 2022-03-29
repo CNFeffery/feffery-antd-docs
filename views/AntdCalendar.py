@@ -250,8 +250,7 @@ def calendar_demo_callback(value):
                         ]
                     },
                 ],
-                containerId='docs-content',
-                targetOffset=200
+                offsetTop=0
             ),
             style={
                 'flex': 'none',

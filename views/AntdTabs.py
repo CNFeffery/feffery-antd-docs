@@ -938,8 +938,7 @@ def tabs_callback_demo(nClicks, latestDeletePane, children):
                         ]
                     },
                 ],
-                containerId='docs-content',
-                targetOffset=200
+                offsetTop=0
             ),
             style={
                 'flex': 'none',

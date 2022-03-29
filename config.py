@@ -865,6 +865,22 @@ class Config:
                         'href': '/AntdBackTop',
                         'title': 'AntdBackTop 回到顶部'
                     }
+                },
+                {
+                    'component': 'Item',
+                    'props': {
+                        'key': '/AntdWatermark',
+                        'href': '/AntdWatermark',
+                        'title': 'AntdWatermark 水印'
+                    }
+                },
+                {
+                    'component': 'Item',
+                    'props': {
+                        'key': '/AntdPasteImage',
+                        'href': '/AntdPasteImage',
+                        'title': 'AntdPasteImage 图片粘贴'
+                    }
                 }
             ]
         },
@@ -875,6 +891,14 @@ class Config:
                 'title': '更新日志'
             },
             'children': [
+                {
+                    'component': 'Item',
+                    'props': {
+                        'key': 'v0.1.6',
+                        'title': 'v0.1.6',
+                        'href': '/change-log-v0.1.6'
+                    }
+                },
                 {
                     'component': 'Item',
                     'props': {

@@ -65,6 +65,14 @@ options = [
 
 　　用于设置下拉选择框的最大*像素高度*，超出部分则需使用滑轮滑动浏览
 
+**placement：** *str*型，默认为`'bottomLeft'`
+
+　　用于设置*悬浮层展开方位*，可选的有`'bottomLeft'`、`'bottomRight'`、`'topLeft'`及`'topRight'`
+
+**status：** *str型*
+
+　　用于*手动设置组件的校验状态*，可选的有`'error'`和`'warning'`
+
 **value：** *list*型、string型或*list*型
 
 　　用于在回调中捕获用户选的单个选项的`'value'`值，或多个选项的`'value'`值构成的列表

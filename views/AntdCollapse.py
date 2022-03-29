@@ -229,8 +229,7 @@ def collapse_demo_callback(checked):
                         ]
                     },
                 ],
-                containerId='docs-content',
-                targetOffset=200
+                offsetTop=0
             ),
             style={
                 'flex': 'none',

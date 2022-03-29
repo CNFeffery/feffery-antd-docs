@@ -100,6 +100,7 @@ docs_content = html.Div(
                                     'dataIndex': '邮编示例'
                                 }
                             ],
+                            bordered=True,
                             data=[
                                 {
                                     'key': i,
@@ -126,6 +127,12 @@ docs_content = html.Div(
                                 language='python',
                                 codeStyle='coy-without-shadows',
                                 codeString='''
+from faker import Faker
+
+faker = Faker(locale='zh_CN')
+
+...
+
 fac.AntdTable(
     columns=[
         {
@@ -149,6 +156,7 @@ fac.AntdTable(
             'dataIndex': '邮编示例'
         }
     ],
+    bordered=True,
     data=[
         {
             'key': i,
@@ -234,6 +242,12 @@ fac.AntdTable(
                                 language='python',
                                 codeStyle='coy-without-shadows',
                                 codeString='''
+from faker import Faker
+
+faker = Faker(locale='zh_CN')
+
+...
+
 fac.AntdTable(
     columns=[
         {
@@ -356,6 +370,12 @@ fac.AntdTable(
                                 language='python',
                                 codeStyle='coy-without-shadows',
                                 codeString='''
+from faker import Faker
+
+faker = Faker(locale='zh_CN')
+
+...
+
 fac.AntdTable(
     columns=[
         {
@@ -397,12 +417,6 @@ fac.AntdTable(
     ],
     maxWidth=2000,
     bordered=True
-),
-
-fac.AntdDivider(
-    '限定maxHeight开启横向滚动模式',
-    lineColor='#f0f0f0',
-    innerTextOrientation='left'
 )'''
                             ),
                             title='点击查看代码',
@@ -478,6 +492,12 @@ fac.AntdDivider(
                                 language='python',
                                 codeStyle='coy-without-shadows',
                                 codeString='''
+from faker import Faker
+
+faker = Faker(locale='zh_CN')
+
+...
+
 fac.AntdTable(
     columns=[
         {
@@ -596,6 +616,12 @@ fac.AntdTable(
                                 language='python',
                                 codeStyle='coy-without-shadows',
                                 codeString='''
+from faker import Faker
+
+faker = Faker(locale='zh_CN')
+
+...
+
 fac.AntdTable(
     columns=[
         {
@@ -714,6 +740,12 @@ fac.AntdTable(
                                 language='python',
                                 codeStyle='coy-without-shadows',
                                 codeString='''
+from faker import Faker
+
+faker = Faker(locale='zh_CN')
+
+...
+
 fac.AntdTable(
     columns=[
         {
@@ -780,7 +812,9 @@ fac.AntdTable(
                                 {
                                     'title': 'ellipsis内容省略示例',
                                     'dataIndex': 'ellipsis内容省略示例',
-                                    'renderOptions': {'renderType': 'ellipsis'}
+                                    'renderOptions': {
+                                        'renderType': 'ellipsis'
+                                    }
                                 }
                             ],
                             data=[
@@ -793,8 +827,7 @@ fac.AntdTable(
                             bordered=True,
                             style={
                                 'width': '250px'
-                            },
-                            containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
+                            }
                         ),
 
                         fac.AntdDivider(
@@ -825,7 +858,9 @@ fac.AntdTable(
         {
             'title': 'ellipsis内容省略示例',
             'dataIndex': 'ellipsis内容省略示例',
-            'renderOptions': {'renderType': 'ellipsis'}
+            'renderOptions': {
+                'renderType': 'ellipsis'
+            }
         }
     ],
     data=[
@@ -838,8 +873,7 @@ fac.AntdTable(
     bordered=True,
     style={
         'width': '250px'
-    },
-    containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
+    }
 )'''
                             ),
                             title='点击查看代码',
@@ -998,8 +1032,7 @@ fac.AntdTable(
                                 for i in range(3)
                             ],
                             miniChartHeight=60,
-                            bordered=True,
-                            containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
+                            bordered=True
                         ),
 
                         fac.AntdDivider(
@@ -1025,6 +1058,10 @@ fac.AntdTable(
                                 language='python',
                                 codeStyle='coy-without-shadows',
                                 codeString='''
+import numpy as np
+
+...
+
 fac.AntdTable(
     columns=[
         {
@@ -1082,8 +1119,7 @@ fac.AntdTable(
         for i in range(3)
     ],
     miniChartHeight=60,
-    bordered=True,
-    containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
+    bordered=True
 )'''
                             ),
                             title='点击查看代码',
@@ -1204,7 +1240,9 @@ fac.AntdTable(
                                 {
                                     'title': '多按钮示例',
                                     'dataIndex': '多按钮示例',
-                                    'renderOptions': {'renderType': 'button'},
+                                    'renderOptions': {
+                                        'renderType': 'button'
+                                    },
                                     'width': '50%'
                                 },
                                 {
@@ -1245,8 +1283,7 @@ fac.AntdTable(
                                 }
                                 for i in range(3)
                             ],
-                            bordered=True,
-                            containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
+                            bordered=True
                         ),
 
                         fac.AntdDivider(
@@ -1273,7 +1310,9 @@ fac.AntdTable(
         {
             'title': '多按钮示例',
             'dataIndex': '多按钮示例',
-            'renderOptions': {'renderType': 'button'},
+            'renderOptions': {
+                'renderType': 'button'
+            },
             'width': '50%'
         },
         {
@@ -1314,15 +1353,13 @@ fac.AntdTable(
         }
         for i in range(3)
     ],
-    bordered=True,
-    containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
+    bordered=True
 )'''
                             ),
                             title='点击查看代码',
                             is_open=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
@@ -1340,7 +1377,9 @@ fac.AntdTable(
                                 {
                                     'title': '可复制内容示例',
                                     'dataIndex': '可复制内容示例',
-                                    'renderOptions': {'renderType': 'copyable'}
+                                    'renderOptions': {
+                                        'renderType': 'copyable'
+                                    }
                                 }
                             ],
                             data=[
@@ -1352,8 +1391,7 @@ fac.AntdTable(
                             ],
                             style={
                                 'width': '250px'
-                            },
-                            containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
+                            }
                         ),
 
                         fac.AntdDivider(
@@ -1374,7 +1412,9 @@ fac.AntdTable(
         {
             'title': '可复制内容示例',
             'dataIndex': '可复制内容示例',
-            'renderOptions': {'renderType': 'copyable'}
+            'renderOptions': {
+                'renderType': 'copyable'
+            }
         }
     ],
     data=[
@@ -1386,15 +1426,13 @@ fac.AntdTable(
     ],
     style={
         'width': '250px'
-    },
-    containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
+    }
 )'''
                             ),
                             title='点击查看代码',
                             is_open=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
@@ -1412,7 +1450,9 @@ fac.AntdTable(
                                 {
                                     'title': '状态徽标示例',
                                     'dataIndex': '状态徽标示例',
-                                    'renderOptions': {'renderType': 'status-badge'}
+                                    'renderOptions': {
+                                        'renderType': 'status-badge'
+                                    }
                                 }
                             ],
                             data=[
@@ -1448,7 +1488,9 @@ fac.AntdTable(
         {
             'title': '状态徽标示例',
             'dataIndex': '状态徽标示例',
-            'renderOptions': {'renderType': 'status-badge'}
+            'renderOptions': {
+                'renderType': 'status-badge'
+            }
         }
     ],
     data=[
@@ -1562,6 +1604,86 @@ fac.AntdTable(
         }
     ],
     summaryRowFixed=True
+)'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='添加总结栏',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdTable(
+                            columns=[
+                                {
+                                    'title': f'字段{i}',
+                                    'dataIndex': f'字段{i}',
+                                    'width': 400
+                                }
+                                for i in range(5)
+                            ],
+                            data=[
+                                {
+                                    f'字段{j}': i
+                                    for j in range(5)
+                                }
+                                for i in range(100)
+                            ],
+                            bordered=True,
+                            sticky=True,
+                            maxWidth=2000,
+                            pagination={
+                                'pageSize': 100,
+                                'hideOnSinglePage': True
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '粘性表头示例',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+fac.AntdTable(
+    columns=[
+        {
+            'title': f'字段{i}',
+            'dataIndex': f'字段{i}',
+            'width': 400
+        }
+        for i in range(5)
+    ],
+    data=[
+        {
+            f'字段{j}': i
+            for j in range(5)
+        }
+        for i in range(100)
+    ],
+    bordered=True,
+    sticky=True,
+    maxWidth=2000,
+    pagination={
+        'pageSize': 100,
+        'hideOnSinglePage': True
+    }
 )
 '''
                             ),
@@ -1576,7 +1698,7 @@ fac.AntdTable(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='添加总结栏',
+                    id='粘性表头示例',
                     className='div-highlight'
                 ),
 
@@ -1644,6 +1766,12 @@ fac.AntdTable(
                                 language='python',
                                 codeStyle='coy-without-shadows',
                                 codeString='''
+from faker import Faker
+
+faker = Faker(locale='zh_CN')
+
+...
+
 fac.AntdTable(
     columns=[
         {
@@ -1720,16 +1848,15 @@ fac.AntdTable(
                             ],
                             data=[
                                 {
-                                    f'字段{i}': np.random.randint(1, 5)
-                                    for i in range(1, 6)
+                                    f'字段{j}': np.random.randint(1, 5)
+                                    for j in range(1, 6)
                                 }
-                                for _ in range(3)
+                                for i in range(3)
                             ],
                             bordered=True,
                             sortOptions={
                                 'sortDataIndexes': ['字段1', '字段2', '字段4', '字段5']
-                            },
-                            containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
+                            }
                         ),
 
                         fac.AntdDivider(
@@ -1745,6 +1872,10 @@ fac.AntdTable(
                                 language='python',
                                 codeStyle='coy-without-shadows',
                                 codeString='''
+import numpy as np
+
+...
+
 fac.AntdTable(
     columns=[
         {
@@ -1755,16 +1886,15 @@ fac.AntdTable(
     ],
     data=[
         {
-            f'字段{i}': np.random.randint(1, 5)
-            for i in range(1, 6)
+            f'字段{j}': np.random.randint(1, 5)
+            for j in range(1, 6)
         }
-        for _ in range(3)
+        for i in range(3)
     ],
     bordered=True,
     sortOptions={
         'sortDataIndexes': ['字段1', '字段2', '字段4', '字段5']
-    },
-    containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
+    }
 )'''
                             ),
                             title='点击查看代码',
@@ -1794,17 +1924,16 @@ fac.AntdTable(
                             ],
                             data=[
                                 {
-                                    f'字段{i}': np.random.randint(1, 5)
-                                    for i in range(1, 6)
+                                    f'字段{j}': np.random.randint(1, 5)
+                                    for j in range(1, 6)
                                 }
-                                for _ in range(10)
+                                for i in range(10)
                             ],
                             bordered=True,
                             sortOptions={
                                 'sortDataIndexes': ['字段1', '字段2', '字段4', '字段5'],
                                 'multiple': True
-                            },
-                            containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
+                            }
                         ),
 
                         fac.AntdDivider(
@@ -1820,6 +1949,10 @@ fac.AntdTable(
                                 language='python',
                                 codeStyle='coy-without-shadows',
                                 codeString='''
+import numpy as np
+
+...
+
 fac.AntdTable(
     columns=[
         {
@@ -1830,17 +1963,16 @@ fac.AntdTable(
     ],
     data=[
         {
-            f'字段{i}': np.random.randint(1, 5)
-            for i in range(1, 6)
+            f'字段{j}': np.random.randint(1, 5)
+            for j in range(1, 6)
         }
-        for _ in range(10)
+        for i in range(10)
     ],
     bordered=True,
     sortOptions={
         'sortDataIndexes': ['字段1', '字段2', '字段4', '字段5'],
         'multiple': True
-    },
-    containerId='docs-content' # 绑定局部滚动容器以确保悬浮层正常显示
+    }
 )'''
                             ),
                             title='点击查看代码',
@@ -1893,8 +2025,7 @@ fac.AntdTable(
                                 'keyword模式': {
                                     'filterMode': 'keyword'
                                 }
-                            },
-                            containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
+                            }
                         ),
 
                         fac.AntdDivider(
@@ -1943,8 +2074,7 @@ fac.AntdTable(
         'keyword模式': {
             'filterMode': 'keyword'
         }
-    },
-    containerId='docs-content' # 绑定局部滚动容器以确保悬浮层正常显示
+    }
 )'''
                             ),
                             title='点击查看代码',
@@ -1997,8 +2127,7 @@ fac.AntdTable(
                                     'title': '字段说明',
                                     'content': '这是字段示例3的字段说明'
                                 }
-                            },
-                            containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
+                            }
                         ),
 
                         fac.AntdDivider(
@@ -2047,10 +2176,8 @@ fac.AntdTable(
             'title': '字段说明',
             'content': '这是字段示例3的字段说明'
         }
-    },
-    containerId='docs-content' # 绑定局部滚动容器以确保悬浮层正常显示
-)
-'''
+    }
+)'''
                             ),
                             title='点击查看代码',
                             is_open=False,
@@ -2069,7 +2196,10 @@ fac.AntdTable(
 
                 html.Div(
                     [
-                        fac.AntdDivider("rowSelectionType='checkbox'", innerTextOrientation='left'),
+                        fac.AntdDivider(
+                            "rowSelectionType='checkbox'",
+                            innerTextOrientation='left'
+                        ),
                         fac.AntdTable(
                             columns=[
                                 {
@@ -2094,11 +2224,13 @@ fac.AntdTable(
                                 for i in range(5)
                             ],
                             bordered=True,
-                            rowSelectionType='checkbox',
-                            containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
+                            rowSelectionType='checkbox'
                         ),
 
-                        fac.AntdDivider("rowSelectionType='radio'", innerTextOrientation='left'),
+                        fac.AntdDivider(
+                            "rowSelectionType='radio'",
+                            innerTextOrientation='left'
+                        ),
                         fac.AntdTable(
                             columns=[
                                 {
@@ -2139,7 +2271,10 @@ fac.AntdTable(
                                 language='python',
                                 codeStyle='coy-without-shadows',
                                 codeString='''
-fac.AntdDivider("rowSelectionType='checkbox'", innerTextOrientation='left'),
+fac.AntdDivider(
+    "rowSelectionType='checkbox'",
+    innerTextOrientation='left'
+),
 fac.AntdTable(
     columns=[
         {
@@ -2164,11 +2299,13 @@ fac.AntdTable(
         for i in range(5)
     ],
     bordered=True,
-    rowSelectionType='checkbox',
-    containerId='docs-content' # 绑定局部滚动容器以确保悬浮层正常显示
+    rowSelectionType='checkbox'
 ),
 
-fac.AntdDivider("rowSelectionType='radio'", innerTextOrientation='left'),
+fac.AntdDivider(
+    "rowSelectionType='radio'", 
+    innerTextOrientation='left'
+),
 fac.AntdTable(
     columns=[
         {
@@ -2194,8 +2331,7 @@ fac.AntdTable(
     ],
     bordered=True,
     rowSelectionType='radio'
-)
-'''
+)'''
                             ),
                             title='点击查看代码',
                             is_open=False,
@@ -2269,6 +2405,12 @@ fac.AntdTable(
                                 language='python',
                                 codeStyle='coy-without-shadows',
                                 codeString='''
+from faker import Faker
+
+faker = Faker(locale='zh_CN')
+
+...
+
 fac.AntdTable(
     columns=[
         {
@@ -2337,10 +2479,10 @@ fac.AntdTable(
                                             ],
                                             data=[
                                                 {
-                                                    f'字段{i}': np.random.randint(1, 5)
-                                                    for i in range(1, 6)
+                                                    f'字段{j}': np.random.randint(1, 5)
+                                                    for j in range(1, 6)
                                                 }
-                                                for _ in range(10)
+                                                for i in range(10)
                                             ],
                                             filterOptions={
                                                 '字段1': {
@@ -2377,10 +2519,10 @@ fac.AntdTable(
                                             ],
                                             data=[
                                                 {
-                                                    f'字段{i}': np.random.randint(1, 5)
-                                                    for i in range(1, 6)
+                                                    f'字段{j}': np.random.randint(1, 5)
+                                                    for j in range(1, 6)
                                                 }
-                                                for _ in range(10)
+                                                for i in range(10)
                                             ],
                                             filterOptions={
                                                 '字段1': {
@@ -2456,6 +2598,10 @@ fac.AntdTable(
                                 language='python',
                                 codeStyle='coy-without-shadows',
                                 codeString='''
+import numpy as np
+
+...
+
 fac.AntdTitle('左例（未设置） 右例（设置containerId参数）', level=5),
 html.Div(
     [
@@ -2471,10 +2617,10 @@ html.Div(
                     ],
                     data=[
                         {
-                            f'字段{i}': np.random.randint(1, 5)
-                            for i in range(1, 6)
+                            f'字段{j}': np.random.randint(1, 5)
+                            for j in range(1, 6)
                         }
-                        for _ in range(10)
+                        for i in range(10)
                     ],
                     filterOptions={
                         '字段1': {
@@ -2495,7 +2641,7 @@ html.Div(
             style={
                 'flex': '1',
                 'padding': '20px',
-                'maxHeight': '200px',
+                'maxHeight': '400px',
                 'overflowY': 'auto'
             }
         ),
@@ -2511,10 +2657,10 @@ html.Div(
                     ],
                     data=[
                         {
-                            f'字段{i}': np.random.randint(1, 5)
-                            for i in range(1, 6)
+                            f'字段{j}': np.random.randint(1, 5)
+                            for j in range(1, 6)
                         }
-                        for _ in range(10)
+                        for i in range(10)
                     ],
                     filterOptions={
                         '字段1': {
@@ -2537,7 +2683,7 @@ html.Div(
             style={
                 'flex': '1',
                 'padding': '20px',
-                'maxHeight': '200px',
+                'maxHeight': '400px',
                 'overflowY': 'auto',
                 'position': 'relative'
             }
@@ -2571,6 +2717,7 @@ html.Div(
                                 {
                                     'title': f'字段{i}',
                                     'dataIndex': f'字段{i}',
+                                    'width': '20%',
                                     'editable': True
                                 }
                                 for i in range(1, 6)
@@ -2597,8 +2744,7 @@ html.Div(
                             bordered=True,
                             pagination={
                                 'pageSize': 5
-                            },
-                            containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
+                            }
                         ),
                         fac.AntdSpin(
                             html.Div(id='table-demo-output'),
@@ -2626,12 +2772,17 @@ html.Div(
                                 language='python',
                                 codeStyle='coy-without-shadows',
                                 codeString='''
+import numpy as np
+
+...
+
 fac.AntdTable(
     id='table-demo',
     columns=[
         {
             'title': f'字段{i}',
             'dataIndex': f'字段{i}',
+            'width': '20%',
             'editable': True
         }
         for i in range(1, 6)
@@ -2658,8 +2809,7 @@ fac.AntdTable(
     bordered=True,
     pagination={
         'pageSize': 5
-    },
-    containerId='docs-content' # 绑定局部滚动容器以确保悬浮层正常显示
+    }
 ),
 fac.AntdSpin(
     html.Div(id='table-demo-output'),
@@ -2762,8 +2912,7 @@ def table_callback_demo(currentData,
                                     'total': server_side_df.shape[0],
                                     'pageSize': 5,
                                     'pageSizeOptions': [5, 10]
-                                },
-                                containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
+                                }
                             ),
                             text='回调中'
                         ),
@@ -2802,12 +2951,17 @@ def table_callback_demo(currentData,
                                 language='python',
                                 codeStyle='coy-without-shadows',
                                 codeString='''
+import numpy as np
+import pandas as pd
+
+np.random.seed(42)
 server_side_df = pd.DataFrame({
     '组合排序示例1': np.random.randint(0, 100, 1000),
     '组合排序示例2': np.random.randint(0, 100, 1000),
     'checkbox筛选示例': np.random.permutation(list('abcde' * 200)),
     'keyword筛选示例': np.random.permutation(list('uvwxy' * 200))
-})
+})                             
+...
 
 fac.AntdSpin(
     fac.AntdTable(
@@ -2851,8 +3005,7 @@ fac.AntdSpin(
             'total': server_side_df.shape[0],
             'pageSize': 5,
             'pageSizeOptions': [5, 10]
-        },
-        containerId='docs-content' # 绑定局部滚动容器以确保悬浮层正常显示
+        }
     ),
     text='回调中'
 )
@@ -3021,8 +3174,7 @@ def table_server_side_callback_demo(pagination,
                                         }
                                         for i in range(5)
                                     ],
-                                    bordered=True,
-                                    containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
+                                    bordered=True
                                 ),
 
                                 fac.AntdSpace(
@@ -3137,8 +3289,7 @@ fac.AntdSpin(
                 }
                 for i in range(5)
             ],
-            bordered=True,
-            containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
+            bordered=True
         ),
 
         fac.AntdSpace(
@@ -3381,8 +3532,7 @@ def table_mouse_event_demo_callback(recentlyMouseEnterColumn,
                                         }
                                         for i in range(5)
                                     ],
-                                    rowSelectionType='checkbox',
-                                    containerId='docs-content'  # 绑定局部滚动容器以确保悬浮层正常显示
+                                    rowSelectionType='checkbox'
                                 ),
 
                                 fac.AntdSpace(
@@ -3453,8 +3603,7 @@ fac.AntdSpin(
                 }
                 for i in range(5)
             ],
-            rowSelectionType='checkbox',
-            containerId='docs-content' # 绑定局部滚动容器以确保悬浮层正常显示
+            rowSelectionType='checkbox'
         ),
 
         fac.AntdSpace(
@@ -3541,6 +3690,7 @@ def table_row_select_demo_callback(selectedRowKeys, selectedRows):
                             {'title': '可复制模式', 'href': '#可复制模式'},
                             {'title': '状态徽标模式', 'href': '#状态徽标模式'},
                             {'title': '添加总结栏', 'href': '#添加总结栏'},
+                            {'title': '粘性表头示例', 'href': '#粘性表头示例'},
                             {'title': '分页相关设置', 'href': '#分页相关设置'},
                             {'title': '常规单列排序', 'href': '#常规单列排序'},
                             {'title': '多列组合排序', 'href': '#多列组合排序'},
@@ -3557,8 +3707,7 @@ def table_row_select_demo_callback(selectedRowKeys, selectedRows):
                         ]
                     },
                 ],
-                containerId='docs-content',
-                targetOffset=200,
+                offsetTop=0,
                 style={
                     'maxHeight': '800px'
                 }

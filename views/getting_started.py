@@ -70,8 +70,7 @@ docs_content = html.Div(
                     {'title': '2 用Dash开发静态页面', 'href': '#2 用Dash开发静态页面'},
                     {'title': '3 用Dash开发交互应用', 'href': '#3 用Dash开发交互应用'},
                 ],
-                containerId='docs-content',
-                targetOffset=25
+                offsetTop=0
             ),
             style={
                 'flex': 'none',

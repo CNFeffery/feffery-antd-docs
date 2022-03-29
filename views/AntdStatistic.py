@@ -410,8 +410,7 @@ def statistic_demo_callback(n_intervals, value):
                         ]
                     },
                 ],
-                containerId='docs-content',
-                targetOffset=200
+                offsetTop=0
             ),
             style={
                 'flex': 'none',

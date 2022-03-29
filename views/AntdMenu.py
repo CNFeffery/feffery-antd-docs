@@ -1218,8 +1218,8 @@ html.Div(
                                                               {
                                                                   'component': 'Item',
                                                                   'props': {
-                                                                      'key': '菜单项1-1',
-                                                                      'title': '菜单项1-1'
+                                                                      'key': '菜单项2-1',
+                                                                      'title': '菜单项2-1'
                                                                   }
                                                               }
                                                           ]
@@ -1311,8 +1311,8 @@ html.Div(
                                       {
                                           'component': 'Item',
                                           'props': {
-                                              'key': '菜单项1-1',
-                                              'title': '菜单项1-1'
+                                              'key': '菜单项2-1',
+                                              'title': '菜单项2-1'
                                           }
                                       }
                                   ]
@@ -1394,8 +1394,7 @@ def menu_callback_demo(currentKey, openKeys):
                         ]
                     },
                 ],
-                containerId='docs-content',
-                targetOffset=200
+                offsetTop=0
             ),
             style={
                 'flex': 'none',

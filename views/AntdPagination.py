@@ -349,8 +349,7 @@ def pagination_callback_demo(current, pageSize):
                         ]
                     },
                 ],
-                containerId='docs-content',
-                targetOffset=200
+                offsetTop=0
             ),
             style={
                 'flex': 'none',

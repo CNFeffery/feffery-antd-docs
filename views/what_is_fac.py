@@ -10,7 +10,6 @@ docs_content = html.Div(
             [
 
                 fac.AntdBackTop(
-                    containerId='docs-content',
                     duration=0.6
                 ),
 
@@ -341,14 +340,10 @@ docs_content = html.Div(
                     {'title': '🌏玩转dash知识星球', 'href': '#玩转dash知识星球'},
                     {'title': '💪赞助支持', 'href': '#赞助支持'},
                 ],
-                containerId='docs-content',
-                targetOffset=200,
-                align='left'
+                offsetTop=0
             ),
             style={
-                'flex': 'none',
-                'margin': '20px',
-                'width': '120px'
+                'flex': 'none'
             }
         )
     ],

@@ -607,8 +607,7 @@ def transfer_callback_demo(targetKeys, moveDirection, moveKeys):
                         ]
                     },
                 ],
-                containerId='docs-content',
-                targetOffset=200
+                offsetTop=0
             ),
             style={
                 'flex': 'none',

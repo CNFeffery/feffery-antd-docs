@@ -157,9 +157,11 @@ data = [
 
 　　用于设置*行选择控件列的宽度*
 
-**sticky：** *bool*型，默认为`False`
+**sticky：** *bool*或*dict*型，默认为`False`
 
- 　　用于设置*是否开启粘性表头功能*
+ 　　用于设置*是否开启粘性表头功能*，当传入*dict*型参数时，可设置以下键值对参数：
+
+- **offsetHeader：** *int*型，用于*设置粘性表头距离顶端的像素距离*
 
 **titlePopoverInfo：** *dict*型
 
