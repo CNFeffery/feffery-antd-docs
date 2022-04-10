@@ -5,6 +5,9 @@
 - **flask**
 
 ```python
+import os
+from flask import request
+
 # 这里的app即为Dash实例
 @app.server.route('/upload/', methods=['POST'])
 def upload():
@@ -90,9 +93,9 @@ if __name__ == '__main__':
 
 　　用于设置*上传区域次要文字说明内容*
 
-**fileListMaxLength：** *int*型，默认为`3`
+**fileListMaxLength：** *int*型，默认为`None`
 
-　　用于设置上传组件显示的已上传文件列表项目数量，默认为`3`
+　　用于设置上传组件显示的已上传文件列表项目数量，默认为`None`即无限制
 
 **fileTypes：** *list*型，默认为`[]`
 
@@ -118,9 +121,9 @@ if __name__ == '__main__':
 
 　　用于自定义鼠标悬浮在上传列表中的*失败*任务上时显示的提示信息内容
 
-**lastUploadTaskRecord：** *dict*型
+**lastUploadTaskRecord：** *dict*或*list*型
 
-　　用于在回调中记录最近一次成功或失败上传状态下的相关参数信息，主要包含以下键值对：
+　　用于在回调中记录最近一次成功或失败上传状态下的相关参数信息，主要包含以下键值对（`multiple=True`或`directory=True`时为由下列格式字典组成的列表）：
 
 - fileName：记录本次任务的上传文件名
 - fileSize：记录本次任务的文件体积

@@ -334,8 +334,16 @@ fac.AntdUpload(
                         fac.AntdParagraph(
                             [
                                 fac.AntdText(
-                                    '　　这个例子展示了在满足文件体积限制的前提下，每次上传任务执行后，对成功或失败状态进行记录的相关参数信息'
-                                )
+                                    '　　这个例子展示了在满足文件体积限制的前提下，每次上传任务执行后，对成功或失败状态进行记录的相关参数信息，'
+                                ),
+                                fac.AntdText('注意！', strong=True),
+                                fac.AntdText('当'),
+                                fac.AntdText('multiple=True', code=True),
+                                fac.AntdText('或'),
+                                fac.AntdText('directory=True', code=True),
+                                fac.AntdText('时，'),
+                                fac.AntdText('lastUploadTaskRecord', code=True),
+                                fac.AntdText('参数会返回列表格式以记录每个文件的信息')
                             ]
                         ),
 
