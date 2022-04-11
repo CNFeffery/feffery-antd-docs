@@ -51,7 +51,8 @@ app = CustomDash(
     extra_hot_reload_paths=[
         './documents',
         './change logs'
-    ]
+    ],
+    compress=True
 )
 
 CORS(app.server, supports_credentials=False)
