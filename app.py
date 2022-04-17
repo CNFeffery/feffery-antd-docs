@@ -1,12 +1,11 @@
 import os
 
-import dash
 import feffery_markdown_components as fmc
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
 from dash import dcc
 from dash import html
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, State
 
 from config import Config
 from server import app, server
@@ -165,6 +164,27 @@ app.layout = fuc.FefferyTopProgress(
                 }
             ),
 
+            # 侧边栏折叠按钮
+            fac.AntdButton(
+                fac.AntdIcon(
+                    id='fold-side-menu-icon',
+                    icon='antd-menu-fold'
+                ),
+                id='fold-side-menu',
+                size='large',
+                type='text',
+                style={
+                    'position': 'fixed',
+                    'top': '400px',
+                    'left': 0,
+                    'zIndex': 99999,
+                    'padding': '5px 8px',
+                    'boxShadow': '2px 0 8px #00000026',
+                    'borderRadius': '0 4px 4px 0',
+                    'backgroundColor': 'white'
+                }
+            ),
+
             # 页面结构
             fac.AntdRow(
                 [
@@ -299,10 +319,12 @@ app.layout = fuc.FefferyTopProgress(
                                         'paddingBottom': '50px'
                                     }
                                 ),
+                                id='side-menu',
                                 style={
                                     'width': '300px',
                                     'height': '100vh',
-                                    'overflowY': 'auto'
+                                    'overflowY': 'auto',
+                                    'transition': 'width 0.2s'
                                 }
                             ),
                             offsetTop=0
@@ -311,12 +333,14 @@ app.layout = fuc.FefferyTopProgress(
                     ),
 
                     fac.AntdCol(
-                        html.Div(
-                            id='docs-content',
-                            style={
-                                'backgroundColor': 'rgb(255, 255, 255)'
-                            }
-                        ),
+                        [
+                            html.Div(
+                                id='docs-content',
+                                style={
+                                    'backgroundColor': 'rgb(255, 255, 255)'
+                                }
+                            )
+                        ],
                         flex='auto',
                         style={
                             'padding': '25px'
@@ -605,6 +629,40 @@ def render_docs_content(pathname):
 
     return fac.AntdResult(status='404', title='您访问的页面不存在！'), pathname
 
+
+app.clientside_callback(
+    '''
+    (nClicks, oldStyle) => {
+        if (nClicks) {
+            if (oldStyle.width === '300px') {
+                return [
+                    {
+                        'width': 0,
+                        'height': '100vh',
+                        'overflowY': 'auto',
+                        'transition': 'width 0.2s'
+                    },
+                    'antd-menu-unfold'
+                ]
+            }
+            return [
+                {
+                    'width': '300px',
+                    'height': '100vh',
+                    'overflowY': 'auto',
+                    'transition': 'width 0.2s'
+                },
+                'antd-menu-fold'
+            ]
+        }
+        return window.dash_clientside.no_update;
+    }
+    ''',
+    [Output('side-menu', 'style'),
+     Output('fold-side-menu-icon', 'icon')],
+    Input('fold-side-menu', 'nClicks'),
+    State('side-menu', 'style')
+)
 
 if __name__ == '__main__':
     app.run_server(debug=True, port=8051)

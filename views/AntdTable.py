@@ -1528,6 +1528,234 @@ fac.AntdTable(
                         fac.AntdTable(
                             columns=[
                                 {
+                                    'title': '交互式图片',
+                                    'dataIndex': '交互式图片',
+                                    'renderOptions': {
+                                        'renderType': 'image'
+                                    }
+                                },
+                                {
+                                    'title': '静态图片',
+                                    'dataIndex': '静态图片',
+                                    'renderOptions': {
+                                        'renderType': 'image'
+                                    }
+                                }
+                            ],
+                            data=[
+                                {
+                                    '交互式图片': {
+                                        'src': '/assets/imgs/fac-logo.svg',
+                                        'height': '75px'
+                                    },
+                                    '静态图片': {
+                                        'src': '/assets/imgs/fac-logo.svg',
+                                        'height': '75px',
+                                        'preview': False
+                                    }
+                                }
+                                for i in range(5)
+                            ],
+                            bordered=True,
+                            style={
+                                'width': '300px'
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '图片模式',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+fac.AntdTable(
+    columns=[
+        {
+            'title': '交互式图片',
+            'dataIndex': '交互式图片',
+            'renderOptions': {
+                'renderType': 'image'
+            }
+        },
+        {
+            'title': '静态图片',
+            'dataIndex': '静态图片',
+            'renderOptions': {
+                'renderType': 'image'
+            }
+        }
+    ],
+    data=[
+        {
+            '交互式图片': {
+                'src': '/assets/imgs/fac-logo.svg',
+                'height': '75px'
+            },
+            '静态图片': {
+                'src': '/assets/imgs/fac-logo.svg',
+                'height': '75px',
+                'preview': False
+            }
+        }
+        for i in range(5)
+    ],
+    bordered=True,
+    style={
+        'width': '300px'
+    }
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='图片模式',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdTable(
+                            columns=[
+                                {
+                                    'title': '数值测试1',
+                                    'dataIndex': '数值测试1',
+                                    'width': '50%',
+                                    'renderOptions': {
+                                        'renderType': 'custom-format'
+                                    }
+                                },
+                                {
+                                    'title': '数值测试2',
+                                    'dataIndex': '数值测试2',
+                                    'width': '50%',
+                                    'renderOptions': {
+                                        'renderType': 'custom-format'
+                                    }
+                                }
+                            ],
+                            data=[
+                                {
+                                    '数值测试1': np.random.rand(),
+                                    '数值测试2': np.random.rand()
+                                }
+                                for i in range(10)
+                            ],
+                            sortOptions={
+                                'sortDataIndexes': ['数值测试1', '数值测试2']
+                            },
+                            bordered=True,
+                            customFormatFuncs={
+                                '数值测试1': '(x) => `${(x*100).toFixed(2)}%`',
+                                '数值测试2': '(x) => x <= 0.5 ? `低水平：${x.toFixed(2)}` : `高水平：${x.toFixed(2)}`',
+                            },
+                            style={
+                                'width': '500px'
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '自定义格式化模式',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdParagraph(
+                            [
+                                fac.AntdText('　　在这个例子中，'),
+                                fac.AntdText('数值测试1', strong=True),
+                                fac.AntdText('与'),
+                                fac.AntdText('数值测试2', strong=True),
+                                fac.AntdText('字段本质上都是数值型，但在'),
+                                fac.AntdText("'custom-format'", code=True),
+                                fac.AntdText('模式下，可通过'),
+                                fac.AntdText('customFormatFuncs', code=True),
+                                fac.AntdText('参数自定义js函数来自由处理单元格中实际所渲染的文字内容')
+                            ]
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+fac.AntdTable(
+    columns=[
+        {
+            'title': '数值测试1',
+            'dataIndex': '数值测试1',
+            'width': '50%',
+            'renderOptions': {
+                'renderType': 'custom-format'
+            }
+        },
+        {
+            'title': '数值测试2',
+            'dataIndex': '数值测试2',
+            'width': '50%',
+            'renderOptions': {
+                'renderType': 'custom-format'
+            }
+        }
+    ],
+    data=[
+        {
+            '数值测试1': np.random.rand(),
+            '数值测试2': np.random.rand()
+        }
+        for i in range(10)
+    ],
+    sortOptions={
+        'sortDataIndexes': ['数值测试1', '数值测试2']
+    },
+    bordered=True,
+    customFormatFuncs={
+        '数值测试1': '(x) => `${(x*100).toFixed(2)}%`',
+        '数值测试2': '(x) => x <= 0.5 ? `低水平：${x.toFixed(2)}` : `高水平：${x.toFixed(2)}`',
+    },
+    style={
+        'width': '500px'
+    }
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='自定义格式化模式',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdTable(
+                            columns=[
+                                {
                                     'title': f'字段{i}',
                                     'dataIndex': f'字段{i}'
                                 }
@@ -2017,7 +2245,9 @@ fac.AntdTable(
                             ],
                             bordered=True,
                             filterOptions={
-                                '默认的checkbox模式': {},
+                                '默认的checkbox模式': {
+                                    'filterSearch': True
+                                },
                                 '自定义选项的checkbox模式': {
                                     'filterMode': 'checkbox',
                                     'filterCustomItems': [1, 2, 3]
@@ -2066,7 +2296,9 @@ fac.AntdTable(
     ],
     bordered=True,
     filterOptions={
-        '默认的checkbox模式': {},
+        '默认的checkbox模式': {
+            'filterSearch': True
+        },
         '自定义选项的checkbox模式': {
             'filterMode': 'checkbox',
             'filterCustomItems': [1, 2, 3]
@@ -2191,6 +2423,175 @@ fac.AntdTable(
                         'border': '1px solid #f0f0f0'
                     },
                     id='为表头添加字段说明信息',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdTable(
+                            columns=[
+                                {
+                                    'title': '示例字段1',
+                                    'dataIndex': '示例字段1',
+                                    'width': '100'
+                                },
+                                {
+                                    'title': '示例字段2',
+                                    'dataIndex': '示例字段2',
+                                    'width': '100'
+                                },
+                                {
+                                    'title': '示例字段3',
+                                    'dataIndex': '示例字段3',
+                                    'width': '100'
+                                }
+                            ],
+                            data=[
+                                {
+                                    '示例字段1': i,
+                                    '示例字段2': i,
+                                    '示例字段3': round(np.random.rand(), 3)
+                                }
+                                for i in range(10)
+                            ],
+                            bordered=True,
+                            conditionalStyleFuncs={
+                                '示例字段1': '''
+                                    (record, index) => {
+                                        if ( index % 2 === 1 ) {
+                                            return {
+                                                style: {
+                                                    backgroundColor: "rgb(250, 250, 250)"
+                                                }
+                                            }
+                                        }
+                                    }
+                                ''',
+                                '示例字段2': '''
+                                    (record, index) => {
+                                        if ( index % 2 === 1 ) {
+                                            return {
+                                                style: {
+                                                    color: "red"
+                                                }
+                                            }
+                                        }
+                                    }
+                                ''',
+                                '示例字段3': '''
+                                    (record, index) => {
+                                        if ( record['示例字段3'] <= 0.5 ) {
+                                            return {
+                                                    style: {
+                                                        background: `linear-gradient(90deg, rgb(61, 153, 112) 0%, rgb(61, 153, 112) ${record['示例字段3']*100}%, white ${record['示例字段3']*100}%, white 100%)`
+                                                }
+                                            };
+                                        }
+                                        return {
+                                            style: {
+                                                background: `linear-gradient(90deg, rgb(255, 65, 54) 0%, rgb(255, 65, 54) ${record['示例字段3']*100}%, white ${record['示例字段3']*100}%, white 100%)`
+                                            }
+                                        };
+                                    }
+                                '''
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '单元格条件样式',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString="""
+fac.AntdTable(
+    columns=[
+        {
+            'title': '示例字段1',
+            'dataIndex': '示例字段1',
+            'width': '100'
+        },
+        {
+            'title': '示例字段2',
+            'dataIndex': '示例字段2',
+            'width': '100'
+        },
+        {
+            'title': '示例字段3',
+            'dataIndex': '示例字段3',
+            'width': '100'
+        }
+    ],
+    data=[
+        {
+            '示例字段1': i,
+            '示例字段2': i,
+            '示例字段3': round(np.random.rand(), 3)
+        }
+        for i in range(10)
+    ],
+    bordered=True,
+    conditionalStyleFuncs={
+        '示例字段1': '''
+            (record, index) => {
+                if ( index % 2 === 1 ) {
+                    return {
+                        style: {
+                            backgroundColor: "rgb(250, 250, 250)"
+                        }
+                    }
+                }
+            }
+        ''',
+        '示例字段2': '''
+            (record, index) => {
+                if ( index % 2 === 1 ) {
+                    return {
+                        style: {
+                            color: "red"
+                        }
+                    }
+                }
+            }
+        ''',
+        '示例字段3': '''
+            (record, index) => {
+                if ( record['示例字段3'] <= 0.5 ) {
+                    return {
+                            style: {
+                                background: `linear-gradient(90deg, rgb(61, 153, 112) 0%, rgb(61, 153, 112) ${record['示例字段3']*100}%, white ${record['示例字段3']*100}%, white 100%)`
+                        }
+                    };
+                }
+                return {
+                    style: {
+                        background: `linear-gradient(90deg, rgb(255, 65, 54) 0%, rgb(255, 65, 54) ${record['示例字段3']*100}%, white ${record['示例字段3']*100}%, white 100%)`
+                    }
+                };
+            }
+        '''
+    }
+)
+"""
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='单元格条件样式',
                     className='div-highlight'
                 ),
 
@@ -3689,6 +4090,8 @@ def table_row_select_demo_callback(selectedRowKeys, selectedRows):
                             {'title': '按钮模式', 'href': '#按钮模式'},
                             {'title': '可复制模式', 'href': '#可复制模式'},
                             {'title': '状态徽标模式', 'href': '#状态徽标模式'},
+                            {'title': '图片模式', 'href': '#图片模式'},
+                            {'title': '自定义格式化模式', 'href': '#自定义格式化模式'},
                             {'title': '添加总结栏', 'href': '#添加总结栏'},
                             {'title': '粘性表头示例', 'href': '#粘性表头示例'},
                             {'title': '分页相关设置', 'href': '#分页相关设置'},
@@ -3696,6 +4099,7 @@ def table_row_select_demo_callback(selectedRowKeys, selectedRows):
                             {'title': '多列组合排序', 'href': '#多列组合排序'},
                             {'title': '使用字段筛选功能', 'href': '#使用字段筛选功能'},
                             {'title': '为表头添加字段说明信息', 'href': '#为表头添加字段说明信息'},
+                            {'title': '单元格条件样式', 'href': '#单元格条件样式'},
                             {'title': '添加行选择功能', 'href': '#添加行选择功能'},
                             {'title': '添加编辑内容格式校验功能', 'href': '#添加编辑内容格式校验功能'},
                             {'title': '妥善使用containerId参数', 'href': '#妥善使用containerId参数'},
@@ -3709,12 +4113,11 @@ def table_row_select_demo_callback(selectedRowKeys, selectedRows):
                 ],
                 offsetTop=0,
                 style={
-                    'maxHeight': '800px'
+                    'maxHeight': 'calc(100vh - 80px)'
                 }
             ),
             style={
-                'flex': 'none',
-                'margin': '20px'
+                'flex': 'none'
             }
         )
     ],

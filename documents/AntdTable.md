@@ -22,7 +22,7 @@
 
 - renderOptions：可选，*dict*型，用于设置对应列所有单元格的*再渲染模式*，其中：
 
-  - renderType：*string*型，用于设置以何种方式进行*再渲染*，可选项有`'link'`（超链接）、`'ellipsis'`（超长内容省略模式）、`'mini-line'`（迷你折线图）、`'mini-bar'`（迷你柱状图）、`'mini-progress'`（迷你进度条）、`'mini-area'`（迷你面积图）、`'tags'`（标签模式）、`'button'`（按钮模式）、`'copyable'`（可复制模式）、`mini-ring-progress`（迷你环形进度条模式）及`'status-badge'`（状态徽标模式），其中*超链接模式*、各种*迷你图模式*、*标签模式*、*按钮模式*、*状态徽标模式*均需要数据输入的格式满足要求，具体要求见下文中`data`参数说明部分
+  - renderType：*string*型，用于设置以何种方式进行*再渲染*，可选项有`'link'`（超链接）、`'ellipsis'`（超长内容省略模式）、`'mini-line'`（迷你折线图）、`'mini-bar'`（迷你柱状图）、`'mini-progress'`（迷你进度条）、`'mini-area'`（迷你面积图）、`'tags'`（标签模式）、`'button'`（按钮模式）、`'copyable'`（可复制模式）、`mini-ring-progress`（迷你环形进度条模式）、`'status-badge'`（状态徽标模式）、`'image'`（图片模式）、`'custom-format'`（自定义格式化模式），其中*超链接模式*、各种*迷你图模式*、*标签模式*、*按钮模式*、*状态徽标模式*均需要数据输入的格式满足要求，具体要求见下文中`data`参数说明部分
 
   - renderLinkText：可选，*string*型，用于在`renderType`设置为`'link'`时，指定超链接显示的文字内容，默认为`'链接🔗'`
 
@@ -116,8 +116,15 @@ data = [
     状态徽标模式下，接受的数据输入格式为*dict*，可用的键有：
   
     - status：*str*型，用于*指定徽标的模式*，可选的有`'success'`、` 'processing'`、` 'default'`、` 'error'`及`'warning'`
-
-    - text：*str*型，用于*设置状态徽标的后置文字内容*
+- text：*str*型，用于*设置状态徽标的后置文字内容*
+    
+  - image模式
+  
+    图片模式下，接受的数据输入格式为*dict*，可用的键有：
+  
+    - src：*str*型，用于*设置图片资源的地址*
+    - height：*str*或*int*型，用于*设置图片的高度*
+    - preview：*bool*型，用于*设置是允许交互式预览图片*，默认为`True`
 
 **miniChartAnimation：** *bool*型，默认为`false`
 
@@ -190,7 +197,7 @@ titlePopoverInfo = {
 
 　　用于对指定若干列设置*排序*功能，可设定以下键值对参数：
 
-- multiple：*bool*型，用于设置是否开启组合排序模式，默认为`False`即不开启
+- multiple：*bool*或*str*型，用于设置是否开启组合排序模式，默认为`False`即不开启，当设置为`'auto'`时，组合排序的优先级将自动根据用户点击字段排序的顺序而定，先点击进行排序的字段具有更高的优先级
 
 - sortDataIndexes：*list*型，用于传入需要添加排序功能的若干字段`dataIndex`组成的列表，注意，当`multiple`设置为`True`时，`sortDataIndexes`传入的列表`dataIndex`顺序即代表了组合排序模式下的*排序优先级*
 
@@ -199,8 +206,9 @@ titlePopoverInfo = {
 　　用于对指定若干列设置*筛选*功能，与**sortOptions**不同的是，**filterOptions**中的键应为所要设置筛选功能的*字段名*，值则为字典，可设定以下键值对参数：
 
 - filterMode：*string*型，用于设置筛选器模式，可选的有`'checkbox'`（勾选模式）和`'keyword'`（关键词搜索模式），默认为`'checkbox'`
-
 - filterCustomItems：*list*型，当filterMode为`'checkbox'`时生效，用于自定义设置选择框中可供勾选的选项，默认不设置此参数时，会自动计算出对应字段的所有唯一值
+- filterMultiple：*bool*型，当filterMode为`'checkbox'`时生效，用于设置是否开启多选模式，默认为`True`
+- filterSearch：*bool*型，当filterMode为`'checkbox'`时生效，用于设置是否开启搜索框，默认为`False`
 
 **containerId：** *string*型
 

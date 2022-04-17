@@ -94,6 +94,10 @@ class Config:
                         'input-md5-demo-output.children',
                         'collapse-demo.children',
                         'collapse-demo.is_open',
+                        'upload-demo.multiple',
+                        'dragger-upload-demo.multiple',
+                        'side-menu.style',
+                        'fold-side-menu-icon.icon'
                     ]
 
     caches_path = './caches'
@@ -891,6 +895,14 @@ class Config:
                 'title': '更新日志'
             },
             'children': [
+                {
+                    'component': 'Item',
+                    'props': {
+                        'key': 'v0.1.8',
+                        'title': 'v0.1.8',
+                        'href': '/change-log-v0.1.8'
+                    }
+                },
                 {
                     'component': 'Item',
                     'props': {

@@ -314,6 +314,21 @@ fac.AntdUpload(
 
                 html.Div(
                     [
+                        fac.AntdSpace(
+                            [
+                                'multiple:',
+                                fac.AntdSwitch(
+                                    id='upload-demo-is-multiple',
+                                    checked=False,
+                                    checkedChildren='True',
+                                    unCheckedChildren='False'
+                                )
+                            ],
+                            style={
+                                'marginBottom': '5px'
+                            }
+                        ),
+                        html.Br(),
                         fac.AntdUpload(
                             id='upload-demo',
                             apiUrl='/upload/',
@@ -368,14 +383,28 @@ fac.AntdSpin(
 import json
 
 @app.callback(
+    Output('upload-demo', 'multiple'),
+    Input('upload-demo-is-multiple', 'checked')
+)
+def upload_is_multiple(checked):
+    return checked
+
+@app.callback(
     Output('upload-demo-output', 'children'),
-    Input('upload-demo', 'lastUploadTaskRecord'),
+    [Input('upload-demo', 'lastUploadTaskRecord'),
+     Input('upload-demo', 'listUploadTaskRecord')],
     prevent_initial_call=True
 )
-def upload_callback_demo(lastUploadTaskRecord):
-
+def upload_callback_demo(lastUploadTaskRecord, listUploadTaskRecord):
     if lastUploadTaskRecord:
-        return json.dumps(lastUploadTaskRecord, indent=4, ensure_ascii=False)'''
+        return json.dumps(
+            {
+                'lastUploadTaskRecord': lastUploadTaskRecord,
+                'listUploadTaskRecord': listUploadTaskRecord
+            },
+            indent=4,
+            ensure_ascii=False
+        )'''
                             ),
                             title='点击查看代码',
                             is_open=False,

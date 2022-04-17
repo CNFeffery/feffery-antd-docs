@@ -93,9 +93,13 @@ if __name__ == '__main__':
 
 　　用于设置*上传区域次要文字说明内容*
 
+**showUploadList：** *bool*型，默认为`True`
+
+　　用于设置*是否显示已上传文件列表*
+
 **fileListMaxLength：** *int*型，默认为`None`
 
-　　用于设置上传组件显示的已上传文件列表项目数量，默认为`None`即无限制
+　　用于设置*上传组件所记录的已上传文件列表项目数量上限*，默认为`None`即无限制
 
 **fileTypes：** *list*型，默认为`[]`
 
@@ -123,10 +127,14 @@ if __name__ == '__main__':
 
 **lastUploadTaskRecord：** *dict*或*list*型
 
-　　用于在回调中记录最近一次成功或失败上传状态下的相关参数信息，主要包含以下键值对（`multiple=True`或`directory=True`时为由下列格式字典组成的列表）：
+　　用于在回调中记录最近一次成功或失败上传状态下的相关参数信息，主要包含以下键值对（`multiple=True`或`directory=True`时，`lastUploadTaskRecord`返回由下列结构字典构成的列表）：
 
 - fileName：记录本次任务的上传文件名
 - fileSize：记录本次任务的文件体积
 - completeTimestamp：记录本次任务对应的时间戳信息
 - taskStatus：记录本次任务执行结果（`success`或`failed`）
-- taskId：此信息只有状态为`success`时才会携带，记录了本次成功上传任务对应的`uploadId`信息，方便开发者在回调中获取到上传路径信息
+- taskId：记录了本次成功上传任务对应的`uploadId`信息，方便开发者在回调中获取到上传路径信息
+
+**listUploadTaskRecord：** *list*型
+
+　　用于*记录当前上传组件中所记录的全部已上传文件信息*，格式同`lastUploadTaskRecord`的列表模式
