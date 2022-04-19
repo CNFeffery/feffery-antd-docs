@@ -350,7 +350,7 @@ fac.AntdTable(
                         ),
 
                         fac.AntdDivider(
-                            '限定maxHeight开启横向滚动模式',
+                            '限定maxWidth开启横向滚动模式',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
@@ -430,7 +430,7 @@ fac.AntdTable(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='限定maxHeight开启横向滚动模式',
+                    id='限定maxWidth开启横向滚动模式',
                     className='div-highlight'
                 ),
 
@@ -4079,7 +4079,7 @@ def table_row_select_demo_callback(selectedRowKeys, selectedRows):
                         'children': [
                             {'title': '基础的表格', 'href': '#基础的表格'},
                             {'title': '手动分配百分比宽度', 'href': '#手动分配百分比宽度'},
-                            {'title': '限定maxHeight开启横向滚动模式', 'href': '#限定maxHeight开启横向滚动模式'},
+                            {'title': '限定maxWidth开启横向滚动模式', 'href': '#限定maxWidth开启横向滚动模式'},
                             {'title': '限定maxHeight以固定表头', 'href': '#限定maxHeight以固定表头'},
                             {'title': '宽度溢出时固定左侧或右侧指定列', 'href': '#宽度溢出时固定左侧或右侧指定列'},
                             {'title': '指定部分列可编辑', 'href': '#指定部分列可编辑'},

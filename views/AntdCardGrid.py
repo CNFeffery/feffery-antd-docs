@@ -37,7 +37,7 @@ docs_content = html.Div(
                             fac.AntdText('有关'),
                             fac.AntdText('AntdCardGrid', strong=True),
                             fac.AntdText('的使用示例请移步'),
-                            fac.AntdText('AntdGrid', strong=True),
+                            fac.AntdText('AntdCard', strong=True),
                             fac.AntdText('对应的文档'),
                         ],
                         style={
