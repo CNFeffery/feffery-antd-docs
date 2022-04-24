@@ -907,6 +907,14 @@ class Config:
                 {
                     'component': 'Item',
                     'props': {
+                        'key': 'v0.1.9',
+                        'title': 'v0.1.9',
+                        'href': '/change-log-v0.1.9'
+                    }
+                },
+                {
+                    'component': 'Item',
+                    'props': {
                         'key': 'v0.1.8',
                         'title': 'v0.1.8',
                         'href': '/change-log-v0.1.8'
