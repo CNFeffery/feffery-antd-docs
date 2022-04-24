@@ -97,7 +97,8 @@ class Config:
                         'upload-demo.multiple',
                         'dragger-upload-demo.multiple',
                         'side-menu.style',
-                        'fold-side-menu-icon.icon'
+                        'fold-side-menu-icon.icon',
+                        'segmented-demo-output.children'
                     ]
 
     caches_path = './caches'
@@ -672,6 +673,14 @@ class Config:
                         'key': '/AntdPopover',
                         'href': '/AntdPopover',
                         'title': 'AntdPopover 气泡卡片'
+                    }
+                },
+                {
+                    'component': 'Item',
+                    'props': {
+                        'key': '/AntdSegmented',
+                        'href': '/AntdSegmented',
+                        'title': 'AntdSegmented 分段控制器'
                     }
                 },
                 {

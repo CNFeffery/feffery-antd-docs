@@ -90,7 +90,8 @@ from views import (
     AntdDescriptions,
     AntdDescriptionItem,
     AntdWatermark,
-    AntdPasteImage
+    AntdPasteImage,
+    AntdSegmented
 )
 
 app.layout = fuc.FefferyTopProgress(
@@ -626,6 +627,9 @@ def render_docs_content(pathname):
 
     elif pathname == '/AntdPasteImage':
         return AntdPasteImage.docs_content, pathname
+
+    elif pathname == '/AntdSegmented':
+        return AntdSegmented.docs_content, pathname
 
     return fac.AntdResult(status='404', title='您访问的页面不存在！'), pathname
 
