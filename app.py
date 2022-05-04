@@ -91,7 +91,11 @@ from views import (
     AntdDescriptionItem,
     AntdWatermark,
     AntdPasteImage,
-    AntdSegmented
+    AntdSegmented,
+    AntdCheckCard,
+    AntdCheckCardGroup,
+    AntdAccordionItem,
+    AntdAccordion
 )
 
 app.layout = fuc.FefferyTopProgress(
@@ -312,7 +316,8 @@ app.layout = fuc.FefferyTopProgress(
                                     menuItems=Config.menuItems,
                                     mode='inline',
                                     defaultOpenKeys=[
-                                        'Card', 'Descriptions', 'Form', 'Tabs', 'Grid', 'Typography', 'Layout'
+                                        'Card', 'Descriptions', 'Form', 'Tabs', 'Grid', 'Typography',
+                                        'Layout', 'CheckCard', 'Accordion'
                                     ],
                                     style={
                                         'height': '100%',
@@ -631,6 +636,18 @@ def render_docs_content(pathname):
     elif pathname == '/AntdSegmented':
         return AntdSegmented.docs_content, pathname
 
+    elif pathname == '/AntdCheckCard':
+        return AntdCheckCard.docs_content, pathname
+
+    elif pathname == '/AntdCheckCardGroup':
+        return AntdCheckCardGroup.docs_content, pathname
+
+    elif pathname == '/AntdAccordionItem':
+        return AntdAccordionItem.docs_content, pathname
+
+    elif pathname == '/AntdAccordion':
+        return AntdAccordion.docs_content, pathname
+
     return fac.AntdResult(status='404', title='您访问的页面不存在！'), pathname
 
 
@@ -653,7 +670,6 @@ app.clientside_callback(
                 {
                     'width': '300px',
                     'height': '100vh',
-                    'overflowY': 'auto',
                     'transition': 'width 0.2s'
                 },
                 'antd-menu-fold'

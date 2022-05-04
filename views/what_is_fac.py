@@ -302,6 +302,7 @@ docs_content = html.Div(
                             src=app.get_asset_url('imgs/weixin-pay.png'),
                             style={
                                 'height': '400px',
+                                'width': 'auto',
                                 'boxShadow': '0 6px 16px rgb(107 147 224 / 14%)',
                                 'borderRadius': '5px'
                             }

@@ -46,3 +46,20 @@ div {
     padding: 0 !important;
     background-color: transparent !important;
 }
+
+/*滚动条自定义样式*/
+*::-webkit-scrollbar-thumb {
+    background-color: #bfbfbf;
+    outline: none;
+    border-radius: 6px;
+}
+
+*::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+/*火狐浏览器*/
+* {
+    scrollbar-width: thin;
+}

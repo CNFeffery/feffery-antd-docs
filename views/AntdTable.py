@@ -4112,6 +4112,7 @@ def table_row_select_demo_callback(selectedRowKeys, selectedRows):
                     },
                 ],
                 offsetTop=0,
+                className='anchor-container',
                 style={
                     'maxHeight': 'calc(100vh - 80px)'
                 }

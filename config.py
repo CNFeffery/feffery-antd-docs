@@ -98,7 +98,11 @@ class Config:
                         'dragger-upload-demo.multiple',
                         'side-menu.style',
                         'fold-side-menu-icon.icon',
-                        'segmented-demo-output.children'
+                        'segmented-demo-output.children',
+                        'check-card-demo-output.children',
+                        'check-card-group-demo1-output.children',
+                        'check-card-group-demo2-output.children',
+                        'accordion-demo-output.children'
                     ]
 
     caches_path = './caches'
@@ -763,6 +767,56 @@ class Config:
                             }
                         }
                     ]
+                },
+                {
+                    'component': 'SubMenu',
+                    'props': {
+                        'key': 'CheckCard',
+                        'title': '选择卡片'
+                    },
+                    'children': [
+                        {
+                            'component': 'Item',
+                            'props': {
+                                'key': '/AntdCheckCard',
+                                'href': '/AntdCheckCard',
+                                'title': 'AntdCheckCard 选择卡片'
+                            }
+                        },
+                        {
+                            'component': 'Item',
+                            'props': {
+                                'key': '/AntdCheckCardGroup',
+                                'href': '/AntdCheckCardGroup',
+                                'title': 'AntdCheckCardGroup 组合选择卡片'
+                            }
+                        }
+                    ]
+                },
+                {
+                    'component': 'SubMenu',
+                    'props': {
+                        'key': 'Accordion',
+                        'title': '手风琴'
+                    },
+                    'children': [
+                        {
+                            'component': 'Item',
+                            'props': {
+                                'key': '/AntdAccordionItem',
+                                'href': '/AntdAccordionItem',
+                                'title': 'AntdAccordionItem 手风琴项'
+                            }
+                        },
+                        {
+                            'component': 'Item',
+                            'props': {
+                                'key': '/AntdAccordion',
+                                'href': '/AntdAccordion',
+                                'title': 'AntdAccordion 手风琴'
+                            }
+                        }
+                    ]
                 }
             ]
         },
@@ -904,6 +958,14 @@ class Config:
                 'title': '更新日志'
             },
             'children': [
+                {
+                    'component': 'Item',
+                    'props': {
+                        'key': 'v0.1.10',
+                        'title': 'v0.1.10',
+                        'href': '/change-log-v0.1.10'
+                    }
+                },
                 {
                     'component': 'Item',
                     'props': {
