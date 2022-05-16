@@ -1480,6 +1480,27 @@ fac.AntdTable(
                                 language='python',
                                 codeStyle='coy-without-shadows',
                                 codeString='''
+fac.AntdTable(
+    columns=[
+        {
+            'title': '可复制省略内容示例',
+            'dataIndex': '可复制省略内容示例',
+            'renderOptions': {
+                'renderType': 'ellipsis-copyable'
+            }
+        }
+    ],
+    data=[
+        {
+            'key': i,
+            '可复制省略内容示例': '可复制省略内容示例' * 3
+        }
+        for i in range(3)
+    ],
+    style={
+        'width': '250px'
+    }
+)
 '''
                             ),
                             title='点击查看代码',
