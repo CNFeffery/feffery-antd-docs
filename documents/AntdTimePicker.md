@@ -20,7 +20,7 @@
 
 **format：** *string*型
 
-　　用于设置*时间格式*（[参考资料](https://momentjscom.readthedocs.io/en/latest/moment/04-displaying/01-format/)），默认值为`'hh:mm:ss'`
+　　用于设置*时间格式*（[参考资料](https://momentjscom.readthedocs.io/en/latest/moment/04-displaying/01-format/)），默认值为`'HH:mm:ss'`
 
 **placeholder：** *string*型
 

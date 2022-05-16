@@ -67,7 +67,7 @@ except FileExistsError:
     pass
 
 # 限制最大传输内容大小为5MB
-app.server.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024
+app.server.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024
 
 
 @app.server.before_request

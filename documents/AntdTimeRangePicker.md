@@ -1,4 +1,4 @@
-**format：** *string*型，默认为`'hh:mm:ss'`
+**format：** *string*型，默认为`'HH:mm:ss'`
 
 　　用于设置*时间格式*（[参考资料](https://momentjscom.readthedocs.io/en/latest/moment/04-displaying/01-format/)）
 

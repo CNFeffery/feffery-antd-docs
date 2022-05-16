@@ -102,7 +102,8 @@ class Config:
                         'check-card-demo-output.children',
                         'check-card-group-demo1-output.children',
                         'check-card-group-demo2-output.children',
-                        'accordion-demo-output.children'
+                        'accordion-demo-output.children',
+                        'picture-upload-demo-output.children'
                     ]
 
     caches_path = './caches'
@@ -538,6 +539,14 @@ class Config:
                         'href': '/AntdDraggerUpload',
                         'title': 'AntdDraggerUpload 拖拽上传'
                     }
+                },
+                {
+                    'component': 'Item',
+                    'props': {
+                        'key': '/AntdPictureUpload',
+                        'href': '/AntdPictureUpload',
+                        'title': 'AntdPictureUpload 图片上传'
+                    }
                 }
             ]
         },
@@ -958,6 +967,14 @@ class Config:
                 'title': '更新日志'
             },
             'children': [
+                {
+                    'component': 'Item',
+                    'props': {
+                        'key': 'v0.1.11',
+                        'title': 'v0.1.11',
+                        'href': '/change-log-v0.1.11'
+                    }
+                },
                 {
                     'component': 'Item',
                     'props': {

@@ -1448,6 +1448,59 @@ fac.AntdTable(
                         fac.AntdTable(
                             columns=[
                                 {
+                                    'title': '可复制省略内容示例',
+                                    'dataIndex': '可复制省略内容示例',
+                                    'renderOptions': {
+                                        'renderType': 'ellipsis-copyable'
+                                    }
+                                }
+                            ],
+                            data=[
+                                {
+                                    'key': i,
+                                    '可复制省略内容示例': '可复制省略内容示例' * 3
+                                }
+                                for i in range(3)
+                            ],
+                            style={
+                                'width': '250px'
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '可复制省略模式',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='可复制省略模式',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdTable(
+                            columns=[
+                                {
                                     'title': '状态徽标示例',
                                     'dataIndex': '状态徽标示例',
                                     'renderOptions': {
@@ -4089,6 +4142,7 @@ def table_row_select_demo_callback(selectedRowKeys, selectedRows):
                             {'title': '标签模式', 'href': '#标签模式'},
                             {'title': '按钮模式', 'href': '#按钮模式'},
                             {'title': '可复制模式', 'href': '#可复制模式'},
+                            {'title': '可复制省略模式', 'href': '#可复制省略模式'},
                             {'title': '状态徽标模式', 'href': '#状态徽标模式'},
                             {'title': '图片模式', 'href': '#图片模式'},
                             {'title': '自定义格式化模式', 'href': '#自定义格式化模式'},
