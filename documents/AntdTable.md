@@ -62,11 +62,10 @@ data = [
     超链接模式下，接受的数据输入格式为*dict*型，可用键有：
     
     - href：*str*型，用于设置*链接url地址*
-    
     - target：*str*型，用于设置*跳转行为target属性*，默认为`'_blank'`
-    
     - disabled：*bool*型，设置是否*禁用链接*，默认为`False`
-  
+    - content：*str*型，用于单独设置当前记录单元格要显示的超链接文字内容
+    
   - mini-line模式
     
     迷你折线图模式下，接受的数据输入格式为*list*型，传入按顺序的折线各点的y值
@@ -92,22 +91,22 @@ data = [
     标签模式下，接受的数据输入格式为*list*型，可传入若干个由*dict*定义的单个标签信息，其中可用的键有：
     
     - tag：*str*型，用于设置对应标签的*文字内容*
-
-    - color：*str*型，用于设置对应*标签的色彩*，详见`AntdTag`的`color`参数说明
+  
+  - color：*str*型，用于设置对应*标签的色彩*，详见`AntdTag`的`color`参数说明
   
   - button模式
     
     按钮模式下，接受的数据输入格式为*dict*或*list*型，当输入为*dict*时，代表单按钮模式，可用的键有：
     
     - content：*str*型，用于设置按钮中的*文字内容*
-
-    - type：*str*型，同`AntdButton`中的`type`参数
-
-    - danger：*bool*型，同`AntdButton`中的`danger`参数
-
-    - disabled：*bool*型，同`AntdButton`中的`disabled`参数
-
-    - style：*dict*型，同`AntdButton`的`style`参数
+  
+  - type：*str*型，同`AntdButton`中的`type`参数
+  
+  - danger：*bool*型，同`AntdButton`中的`danger`参数
+  
+  - disabled：*bool*型，同`AntdButton`中的`disabled`参数
+  
+  - style：*dict*型，同`AntdButton`的`style`参数
     
     亦可输入由多个*dict*组成的列表，来渲染*多个按钮*，以实现更为复杂的功能
     

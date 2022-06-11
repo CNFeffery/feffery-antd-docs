@@ -902,6 +902,14 @@ fac.AntdTable(
                                         'renderType': 'link',
                                         'renderLinkText': '点击跳转'
                                     }
+                                },
+                                {
+                                    'title': '单元格级链接文字控制',
+                                    'dataIndex': '单元格级链接文字控制',
+                                    'renderOptions': {
+                                        'renderType': 'link',
+                                        'renderLinkText': '点击跳转'
+                                    }
                                 }
                             ],
                             data=[
@@ -909,13 +917,17 @@ fac.AntdTable(
                                     'key': i,
                                     '超链接示例': {
                                         'href': 'https://github.com/CNFeffery/feffery-antd-components'
+                                    },
+                                    '单元格级链接文字控制': {
+                                        'href': 'https://github.com/CNFeffery/feffery-antd-components',
+                                        'content': f'超链接示例{i}'
                                     }
                                 }
                                 for i in range(3)
                             ],
                             bordered=True,
                             style={
-                                'width': '250px'
+                                'width': '400px'
                             }
                         ),
 
@@ -941,6 +953,14 @@ fac.AntdTable(
                 'renderType': 'link',
                 'renderLinkText': '点击跳转'
             }
+        },
+        {
+            'title': '单元格级链接文字控制',
+            'dataIndex': '单元格级链接文字控制',
+            'renderOptions': {
+                'renderType': 'link',
+                'renderLinkText': '点击跳转'
+            }
         }
     ],
     data=[
@@ -948,13 +968,17 @@ fac.AntdTable(
             'key': i,
             '超链接示例': {
                 'href': 'https://github.com/CNFeffery/feffery-antd-components'
+            },
+            '单元格级链接文字控制': {
+                'href': 'https://github.com/CNFeffery/feffery-antd-components',
+                'content': f'超链接示例{i}'
             }
         }
         for i in range(3)
     ],
     bordered=True,
     style={
-        'width': '250px'
+        'width': '400px'
     }
 )'''
                             ),
