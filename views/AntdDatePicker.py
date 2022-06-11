@@ -202,6 +202,292 @@ fac.AntdDatePicker(
 
                 html.Div(
                     [
+                        fac.AntdDivider(
+                            "mode='eq'",
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdDatePicker(
+                            placeholder='禁用每月6号',
+                            disabledDatesStrategy=[
+                                {
+                                    'mode': 'eq',
+                                    'target': 'day',
+                                    'value': 6
+                                }
+                            ]
+                        ),
+
+                        fac.AntdDivider(
+                            "mode='ne'",
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdDatePicker(
+                            placeholder='禁用每月非6号',
+                            disabledDatesStrategy=[
+                                {
+                                    'mode': 'ne',
+                                    'target': 'day',
+                                    'value': 6
+                                }
+                            ]
+                        ),
+
+                        fac.AntdDivider(
+                            "mode='le'",
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdDatePicker(
+                            placeholder='禁用每月小于等于6号',
+                            disabledDatesStrategy=[
+                                {
+                                    'mode': 'le',
+                                    'target': 'day',
+                                    'value': 6
+                                }
+                            ]
+                        ),
+
+                        fac.AntdDivider(
+                            "mode='lt'",
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdDatePicker(
+                            placeholder='禁用每月小于6号',
+                            disabledDatesStrategy=[
+                                {
+                                    'mode': 'lt',
+                                    'target': 'day',
+                                    'value': 6
+                                }
+                            ]
+                        ),
+
+                        fac.AntdDivider(
+                            "mode='ge'",
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdDatePicker(
+                            placeholder='禁用每月大于等于6号',
+                            disabledDatesStrategy=[
+                                {
+                                    'mode': 'ge',
+                                    'target': 'day',
+                                    'value': 6
+                                }
+                            ]
+                        ),
+
+                        fac.AntdDivider(
+                            "mode='gt'",
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdDatePicker(
+                            placeholder='禁用每月大于6号',
+                            disabledDatesStrategy=[
+                                {
+                                    'mode': 'gt',
+                                    'target': 'day',
+                                    'value': 6
+                                }
+                            ]
+                        ),
+
+                        fac.AntdDivider(
+                            "mode='in'",
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdDatePicker(
+                            placeholder='禁用每月的5号到25号',
+                            disabledDatesStrategy=[
+                                {
+                                    'mode': 'in',
+                                    'target': 'day',
+                                    'value': list(range(5, 26))
+                                }
+                            ]
+                        ),
+
+                        fac.AntdDivider(
+                            "mode='not-in'",
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdDatePicker(
+                            placeholder='禁用非每月的5号到25号',
+                            disabledDatesStrategy=[
+                                {
+                                    'mode': 'not-in',
+                                    'target': 'day',
+                                    'value': list(range(5, 26))
+                                }
+                            ]
+                        ),
+
+                        fac.AntdDivider(
+                            '自定义日期禁用策略',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+fac.AntdDivider(
+    "mode='eq'",
+    innerTextOrientation='left'
+),
+
+fac.AntdDatePicker(
+    placeholder='禁用每月6号',
+    disabledDatesStrategy=[
+        {
+            'mode': 'eq',
+            'target': 'day',
+            'value': 6
+        }
+    ]
+),
+
+fac.AntdDivider(
+    "mode='ne'",
+    innerTextOrientation='left'
+),
+
+fac.AntdDatePicker(
+    placeholder='禁用每月非6号',
+    disabledDatesStrategy=[
+        {
+            'mode': 'ne',
+            'target': 'day',
+            'value': 6
+        }
+    ]
+),
+
+fac.AntdDivider(
+    "mode='le'",
+    innerTextOrientation='left'
+),
+
+fac.AntdDatePicker(
+    placeholder='禁用每月小于等于6号',
+    disabledDatesStrategy=[
+        {
+            'mode': 'le',
+            'target': 'day',
+            'value': 6
+        }
+    ]
+),
+
+fac.AntdDivider(
+    "mode='lt'",
+    innerTextOrientation='left'
+),
+
+fac.AntdDatePicker(
+    placeholder='禁用每月小于6号',
+    disabledDatesStrategy=[
+        {
+            'mode': 'lt',
+            'target': 'day',
+            'value': 6
+        }
+    ]
+),
+
+fac.AntdDivider(
+    "mode='ge'",
+    innerTextOrientation='left'
+),
+
+fac.AntdDatePicker(
+    placeholder='禁用每月大于等于6号',
+    disabledDatesStrategy=[
+        {
+            'mode': 'ge',
+            'target': 'day',
+            'value': 6
+        }
+    ]
+),
+
+fac.AntdDivider(
+    "mode='gt'",
+    innerTextOrientation='left'
+),
+
+fac.AntdDatePicker(
+    placeholder='禁用每月大于6号',
+    disabledDatesStrategy=[
+        {
+            'mode': 'gt',
+            'target': 'day',
+            'value': 6
+        }
+    ]
+),
+
+fac.AntdDivider(
+    "mode='in'",
+    innerTextOrientation='left'
+),
+
+fac.AntdDatePicker(
+    placeholder='禁用每月的5号到25号',
+    disabledDatesStrategy=[
+        {
+            'mode': 'in',
+            'target': 'day',
+            'value': list(range(5, 26))
+        }
+    ]
+),
+
+fac.AntdDivider(
+    "mode='not-in'",
+    innerTextOrientation='left'
+),
+
+fac.AntdDatePicker(
+    placeholder='禁用非每月的5号到25号',
+    disabledDatesStrategy=[
+        {
+            'mode': 'not-in',
+            'target': 'day',
+            'value': list(range(5, 26))
+        }
+    ]
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='自定义日期禁用策略',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
                         fac.AntdDatePicker(
                             id='date-picker-demo',
                             picker='date',
@@ -268,6 +554,63 @@ def date_picker_callback_demo(value):
                     className='div-highlight'
                 ),
 
+                html.Div(
+                    [
+                        fac.AntdDatePicker(
+                            id='date-picker-disabled-demo'
+                        ),
+
+                        fac.AntdDivider(
+                            '禁用今天往后七天',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+from datetime import datetime, timedelta
+
+fac.AntdDatePicker(
+    id='date-picker-disabled-demo'
+)
+
+...
+
+@app.callback(
+    Output('date-picker-disabled-demo', 'disabledDatesStrategy'),
+    Input('url', 'pathname')
+)
+def date_picker_disabled_callback_demo(pathname):
+    return [
+        {
+            'mode': 'in-enumerate-dates',
+            'value': [
+                (datetime.now() + timedelta(days=day)).strftime('%Y-%m-%d')
+                for day in range(7)
+            ]
+        }
+    ]
+'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='禁用今天往后七天',
+                    className='div-highlight'
+                ),
+
                 html.Div(style={'height': '100px'})
             ],
             style={
@@ -285,7 +628,9 @@ def date_picker_callback_demo(value):
                             {'title': '常规的日期选择', 'href': '#常规的日期选择'},
                             {'title': '添加时间选择功能', 'href': '#添加时间选择功能'},
                             {'title': '其他时间粒度选择', 'href': '#其他时间粒度选择'},
+                            {'title': '自定义日期禁用策略', 'href': '#自定义日期禁用策略'},
                             {'title': '回调示例', 'href': '#回调示例'},
+                            {'title': '禁用今天往后七天', 'href': '#禁用今天往后七天'},
                         ]
                     },
                 ],

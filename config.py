@@ -970,6 +970,22 @@ class Config:
                 {
                     'component': 'Item',
                     'props': {
+                        'key': 'v0.1.13',
+                        'title': 'v0.1.13',
+                        'href': '/change-log-v0.1.13'
+                    }
+                },
+                {
+                    'component': 'Item',
+                    'props': {
+                        'key': 'v0.1.12',
+                        'title': 'v0.1.12',
+                        'href': '/change-log-v0.1.12'
+                    }
+                },
+                {
+                    'component': 'Item',
+                    'props': {
                         'key': 'v0.1.11',
                         'title': 'v0.1.11',
                         'href': '/change-log-v0.1.11'

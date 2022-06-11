@@ -366,6 +366,70 @@ html.Div(
 
                 html.Div(
                     [
+                        fac.AntdSpace(
+                            [
+                                html.Div(
+                                    fac.AntdSlider(min=-100, max=100, vertical=True),
+                                    style={
+                                        'height': '150px'
+                                    }
+                                ),
+                                html.Div(
+                                    fac.AntdSlider(min=-100, max=100, range=True, vertical=True),
+                                    style={
+                                        'height': '150px'
+                                    }
+                                )
+                            ]
+                        ),
+
+                        fac.AntdDivider(
+                            '垂直布局',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+fac.AntdSpace(
+    [
+        html.Div(
+            fac.AntdSlider(min=-100, max=100, vertical=True),
+            style={
+                'height': '150px'
+            }
+        ),
+        html.Div(
+            fac.AntdSlider(min=-100, max=100, range=True, vertical=True),
+            style={
+                'height': '150px'
+            }
+        )
+    ]
+)'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='垂直布局',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
                         html.Div(
                             [
                                 fac.AntdSlider(id='slider-demo-1', min=-100, max=100),
@@ -449,6 +513,7 @@ def transfer_callback_demo(value, range_value):
                             {'title': '自定义部分刻度显示内容', 'href': '#自定义部分刻度显示内容'},
                             {'title': '设置数值提示框显示策略', 'href': '#设置数值提示框显示策略'},
                             {'title': '设置数值提示框前后缀文字', 'href': '#设置数值提示框前后缀文字'},
+                            {'title': '垂直布局', 'href': '#垂直布局'},
                             {'title': '回调示例', 'href': '#回调示例'},
                         ]
                     },

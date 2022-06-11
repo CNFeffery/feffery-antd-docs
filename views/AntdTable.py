@@ -1828,6 +1828,95 @@ fac.AntdTable(
                 html.Div(
                     [
                         fac.AntdTable(
+                            size='small',
+                            columns=[
+                                {
+                                    'title': '角标模式',
+                                    'dataIndex': '角标模式',
+                                    'renderOptions': {'renderType': 'corner-mark'}
+                                }
+                            ],
+                            data=[
+                                {
+                                    'key': i,
+                                    '角标模式': {
+                                        'content': '角标模式',
+                                        'color': ['red', 'blue', 'green'][i],
+                                        'offsetX': -7.5,
+                                        'offsetY': -8.5,
+                                        'placement': 'top-left',
+                                        'hide': [False, True, False][i]
+                                    }
+                                }
+                                for i in range(3)
+                            ],
+                            bordered=True,
+                            style={
+                                'width': '200px'
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '角标模式',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+fac.AntdTable(
+    size='small',
+    columns=[
+        {
+            'title': '角标模式',
+            'dataIndex': '角标模式',
+            'renderOptions': {'renderType': 'corner-mark'}
+        }
+    ],
+    data=[
+        {
+            'key': i,
+            '角标模式': {
+                'content': '角标模式',
+                'color': ['red', 'blue', 'green'][i],
+                'offsetX': -7.5,
+                'offsetY': -8.5,
+                'placement': 'top-left',
+                'hide': [False, True, False][i]
+            }
+        }
+        for i in range(3)
+    ],
+    bordered=True,
+    style={
+        'width': '200px'
+    }
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='角标模式',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdTable(
                             columns=[
                                 {
                                     'title': f'字段{i}',
@@ -4167,6 +4256,7 @@ def table_row_select_demo_callback(selectedRowKeys, selectedRows):
                             {'title': '状态徽标模式', 'href': '#状态徽标模式'},
                             {'title': '图片模式', 'href': '#图片模式'},
                             {'title': '自定义格式化模式', 'href': '#自定义格式化模式'},
+                            {'title': '角标模式', 'href': '#角标模式'},
                             {'title': '添加总结栏', 'href': '#添加总结栏'},
                             {'title': '粘性表头示例', 'href': '#粘性表头示例'},
                             {'title': '分页相关设置', 'href': '#分页相关设置'},

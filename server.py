@@ -1,7 +1,6 @@
 import os
 import dash
 from flask import request, make_response
-from flask_cors import CORS
 
 from config import Config
 
@@ -55,8 +54,6 @@ app = CustomDash(
     compress=True
 )
 
-CORS(app.server, supports_credentials=False)
-
 app.title = 'feffery-antd-components在线文档'
 
 server = app.server
@@ -66,7 +63,7 @@ try:
 except FileExistsError:
     pass
 
-# 限制最大传输内容大小为5MB
+# 限制最大传输内容大小为10MB
 app.server.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024
 
 

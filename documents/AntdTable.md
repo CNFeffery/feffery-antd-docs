@@ -22,7 +22,7 @@
 
 - renderOptions：可选，*dict*型，用于设置对应列所有单元格的*再渲染模式*，其中：
 
-  - renderType：*string*型，用于设置以何种方式进行*再渲染*，可选项有`'link'`（超链接）、`'ellipsis'`（超长内容省略模式）、`'mini-line'`（迷你折线图）、`'mini-bar'`（迷你柱状图）、`'mini-progress'`（迷你进度条）、`'mini-area'`（迷你面积图）、`'tags'`（标签模式）、`'button'`（按钮模式）、`'copyable'`（可复制模式）、`mini-ring-progress`（迷你环形进度条模式）、`'status-badge'`（状态徽标模式）、`'image'`（图片模式）、`'custom-format'`（自定义格式化模式）、`'ellipsis-copyable'`（可复制省略模式），其中*超链接模式*、各种*迷你图模式*、*标签模式*、*按钮模式*、*状态徽标模式*均需要数据输入的格式满足要求，具体要求见下文中`data`参数说明部分
+  - renderType：*string*型，用于设置以何种方式进行*再渲染*，可选项有`'link'`（超链接）、`'ellipsis'`（超长内容省略模式）、`'mini-line'`（迷你折线图）、`'mini-bar'`（迷你柱状图）、`'mini-progress'`（迷你进度条）、`'mini-area'`（迷你面积图）、`'tags'`（标签模式）、`'button'`（按钮模式）、`'copyable'`（可复制模式）、`mini-ring-progress`（迷你环形进度条模式）、`'status-badge'`（状态徽标模式）、`'image'`（图片模式）、`'custom-format'`（自定义格式化模式）、`'ellipsis-copyable'`（可复制省略模式）、`'corner-mark'`（角标模式），其中*超链接模式*、各种*迷你图模式*、*标签模式*、*按钮模式*、*状态徽标模式*、*图片模式*、*角标模式*均需要数据输入的格式满足要求，具体要求见下文中`data`参数说明部分
 
   - renderLinkText：可选，*string*型，用于在`renderType`设置为`'link'`时，指定超链接显示的文字内容，默认为`'链接🔗'`
 
@@ -116,7 +116,7 @@ data = [
     状态徽标模式下，接受的数据输入格式为*dict*，可用的键有：
   
     - status：*str*型，用于*指定徽标的模式*，可选的有`'success'`、` 'processing'`、` 'default'`、` 'error'`及`'warning'`
-- text：*str*型，用于*设置状态徽标的后置文字内容*
+    - text：*str*型，用于*设置状态徽标的后置文字内容*
   
   - image模式
   
@@ -125,6 +125,17 @@ data = [
     - src：*str*型，用于*设置图片资源的地址*
     - height：*str*或*int*型，用于*设置图片的高度*
     - preview：*bool*型，用于*设置是允许交互式预览图片*，默认为`True`
+    
+  - corner-mark模式
+  
+    角标模式下，接受的数据输入格式为*dict*型，可用的键有：
+  
+    - placement：*str*型，用于设置角标的方位，可选的有`'top-left'`、`'top-right'`、`'bottom-left'`和`'bottom-right'`
+    - color：*str*型，默认为`'rgb(24, 144, 255)'`，用于设置角标的颜色
+    - content：*str*型，用于设置单元格内容
+    - offsetX：*int*型，用于调整角标水平方向像素偏移量
+    - offsetY：*int*型，用于调整角标竖直方向像素偏移量
+    - hide：*bool*型，默认为`False`，用于设置是否隐藏当前单元格的角标
 
 **miniChartAnimation：** *bool*型，默认为`false`
 

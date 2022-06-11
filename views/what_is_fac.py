@@ -166,9 +166,11 @@ docs_content = html.Div(
 
                 html.Br(),
 
-                fac.AntdText('pip install git+https://hub.fastgit.org/CNFeffery/feffery-antd-components.git',
-                             keyboard=True,
-                             copyable=True),
+                fac.AntdText(
+                    'pip install git+https://github.91chi.fun/https://github.com/CNFeffery/feffery-antd-components.git',
+                    keyboard=True,
+                    copyable=True
+                ),
 
                 fac.AntdDivider(),
 
@@ -301,8 +303,7 @@ docs_content = html.Div(
                         fac.AntdImage(
                             src=app.get_asset_url('imgs/weixin-pay.png'),
                             style={
-                                'height': '400px',
-                                'width': 'auto',
+                                'width': '300px',
                                 'boxShadow': '0 6px 16px rgb(107 147 224 / 14%)',
                                 'borderRadius': '5px'
                             }

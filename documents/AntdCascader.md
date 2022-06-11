@@ -60,6 +60,10 @@ options = [
 
 　　设置是否*禁用*组件
 
+**allowClear：** *bool*型，默认为`True`
+
+　　设置是否渲染已选项清除按钮
+
 **size：** *str*型，默认为`'middle'`
 
 　　用于设置组件尺寸大小，可选的有`'small'`、`'middle'`与`'large'`

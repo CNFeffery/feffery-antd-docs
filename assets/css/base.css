@@ -63,3 +63,7 @@ div {
 * {
     scrollbar-width: thin;
 }
+
+.modal .visible {
+    z-index: 999;
+}
