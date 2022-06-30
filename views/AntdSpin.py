@@ -432,6 +432,67 @@ def spin_exclude_callback_demo2(nClicks):
                     className='div-highlight'
                 ),
 
+                html.Div(
+                    [
+                        fac.AntdButton('触发2秒加载动画', id='spin-custom-indicator-demo-input', type='primary'),
+
+                        fac.AntdSpin(
+                            fac.AntdText('nClicks: 0', id='spin-custom-indicator-demo-output', strong=True),
+                            indicator=fuc.FefferyExtraSpinner(
+                                type='ring'
+                            )
+                        ),
+
+                        fac.AntdDivider(
+                            '自定义加载动画元素',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+fac.AntdButton('触发2秒加载动画', id='spin-custom-indicator-demo-input', type='primary'),
+
+fac.AntdSpin(
+    fac.AntdText('nClicks: 0', id='spin-custom-indicator-demo-output', strong=True),
+    indicator=fuc.FefferyExtraSpinner(
+        type='ring'
+    )
+)
+                                            
+...
+
+@app.callback(
+    Output('spin-custom-indicator-demo-output', 'children'),
+    Input('spin-custom-indicator-demo-input', 'nClicks'),
+    prevent_initial_call=True
+)
+def spin_custom_indicator_callback_demo(nClicks):
+    import time
+    time.sleep(2)
+
+    return f'nClicks: {nClicks}'
+'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='自定义加载动画元素',
+                    className='div-highlight'
+                ),
+
                 html.Div(style={'height': '100px'})
             ],
             style={
@@ -450,6 +511,7 @@ def spin_exclude_callback_demo2(nClicks):
                             {'title': '延迟加载', 'href': '#延迟加载'},
                             {'title': 'include模式', 'href': '#include模式'},
                             {'title': 'exclude模式', 'href': '#exclude模式'},
+                            {'title': '自定义加载动画元素', 'href': '#自定义加载动画元素'},
                         ]
                     },
                 ],

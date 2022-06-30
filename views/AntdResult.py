@@ -99,10 +99,11 @@ fac.AntdResult(
                             [
                                 fac.AntdResult(
                                     status=status,
-                                    title=f'status="{status}"'
+                                    title=f'status="{status}"',
+                                    subTitle=f'status="{status}"'
                                 )
                                 for status in [
-                                'success', 'info', 'error', 'warning', '404', '403', '500'
+                                'success', 'info', 'error', 'warning', '404', '403', '500', 'loading'
                             ]
                             ],
                             direction='vertical',
@@ -129,10 +130,11 @@ fac.AntdSpace(
     [
         fac.AntdResult(
             status=status,
-            title=f'status="{status}"'
+            title=f'status="{status}"',
+            subTitle=f'status="{status}"'
         )
         for status in [
-        'success', 'info', 'error', 'warning', '404', '403', '500'
+        'success', 'info', 'error', 'warning', '404', '403', '500', 'loading'
     ]
     ],
     direction='vertical',
@@ -156,6 +158,112 @@ fac.AntdSpace(
                     className='div-highlight'
                 ),
 
+                html.Div(
+                    [
+                        fac.AntdResult(
+                            title=fac.AntdTitle(
+                                '组件型title示例',
+                                copyable=True,
+                                level=4
+                            ),
+                            subTitle=fac.AntdParagraph(
+                                [
+                                    fac.AntdText('组件型subTitle示例', copyable=True)
+                                ]
+                            )
+                        ),
+
+                        fac.AntdDivider(
+                            'title与subTitle接受组件型输入',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+fac.AntdResult(
+    title=fac.AntdTitle(
+        '组件型title示例',
+        copyable=True,
+        level=4
+    ),
+    subTitle=fac.AntdParagraph(
+        [
+            fac.AntdText('组件型subTitle示例', copyable=True)
+        ]
+    )
+)'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='title与subTitle接受组件型输入',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdResult(
+                            title='自定义icon元素示例',
+                            subTitle='自定义icon元素示例',
+                            icon=fuc.FefferyExtraSpinner(
+                                type='heart',
+                                size=100,
+                                color='red'
+                            )
+                        ),
+
+                        fac.AntdDivider(
+                            '自定义icon元素',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+import feffery_utils_components as fuc                                
+
+fac.AntdResult(
+    title='自定义icon元素示例',
+    subTitle='自定义icon元素示例',
+    icon=fuc.FefferyExtraSpinner(
+        type='heart',
+        size=100,
+        color='red'
+    )
+)'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='自定义icon元素',
+                    className='div-highlight'
+                ),
+
                 html.Div(style={'height': '100px'})
             ],
             style={
@@ -171,7 +279,9 @@ fac.AntdSpace(
                         'href': '#使用示例',
                         'children': [
                             {'title': '基础使用', 'href': '#基础使用'},
-                            {'title': '其他内置状态示例', 'href': '#其他内置状态示例'}
+                            {'title': '其他内置状态示例', 'href': '#其他内置状态示例'},
+                            {'title': 'title与subTitle接受组件型输入', 'href': '#title与subTitle接受组件型输入'},
+                            {'title': '自定义icon元素', 'href': '#自定义icon元素'},
                         ]
                     },
                 ],
@@ -184,6 +294,6 @@ fac.AntdSpace(
         )
     ],
     style={
-        'display': '20px'
+        'display': 'flex'
     }
 )

@@ -85,3 +85,15 @@ def spin_exclude_callback_demo2(nClicks):
     time.sleep(1)
 
     return f'被excludeProps指定 nClicks: {nClicks}'
+
+
+@app.callback(
+    Output('spin-custom-indicator-demo-output', 'children'),
+    Input('spin-custom-indicator-demo-input', 'nClicks'),
+    prevent_initial_call=True
+)
+def spin_custom_indicator_callback_demo(nClicks):
+    import time
+    time.sleep(2)
+
+    return f'nClicks: {nClicks}'

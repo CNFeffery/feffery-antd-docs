@@ -67,7 +67,7 @@ treeData = [
 
 **defaultExpandAll：** *bool*型，默认为`False`
 
-　　用于设置是否初始状态*展开全部*折叠的节点树，`True`（可点展开），`False`（不展开）
+　　用于设置是否初始状态*展开全部*折叠的节点树
 
 **defaultExpandedKeys：** *list*型，默认为`[]`
 

@@ -62,19 +62,17 @@ docs_content = html.Div(
                                 type='primary'
                             ),
                             title='这是一段AntdTooltip提示示例',
-                            content=[
-                                fac.AntdParagraph(
-                                    [
-                                        fac.AntdText('　　配合'),
-                                        fac.AntdText('AntdPopover', strong=True),
-                                        fac.AntdText('的'),
-                                        fac.AntdText('content', code=True),
-                                        fac.AntdText('参数，可实现比'),
-                                        fac.AntdText('AntdTooltip', strong=True),
-                                        fac.AntdText('更加丰富自由的提示框内容渲染')
-                                    ]
-                                )
-                            ],
+                            content=fac.AntdParagraph(
+                                [
+                                    fac.AntdText('　　配合'),
+                                    fac.AntdText('AntdPopover', strong=True),
+                                    fac.AntdText('的'),
+                                    fac.AntdText('content', code=True),
+                                    fac.AntdText('参数，可实现比'),
+                                    fac.AntdText('AntdTooltip', strong=True),
+                                    fac.AntdText('更加丰富自由的提示框内容渲染')
+                                ]
+                            ),
                             overlayStyle={
                                 'width': '350px'
                             }
@@ -91,8 +89,7 @@ docs_content = html.Div(
                                 fac.AntdText('　　AntdPopover', strong=True),
                                 fac.AntdText('中可通过'),
                                 fac.AntdText('content', strong=True),
-                                fac.AntdText('参数传入列表格式的'),
-                                fac.AntdText('其他组件元素，作为气泡卡片中内容区元素进行渲染')
+                                fac.AntdText('参数可自由传入其他组件元素，作为气泡卡片中内容区元素进行渲染')
                             ]
                         ),
 
@@ -109,19 +106,17 @@ fac.AntdPopover(
         type='primary'
     ),
     title='这是一段AntdTooltip提示示例',
-    content=[
-        fac.AntdParagraph(
-            [
-                fac.AntdText('　　配合'),
-                fac.AntdText('AntdPopover', strong=True),
-                fac.AntdText('的'),
-                fac.AntdText('content', code=True),
-                fac.AntdText('参数，可实现比'),
-                fac.AntdText('AntdTooltip', strong=True),
-                fac.AntdText('更加丰富自由的提示框内容渲染')
-            ]
-        )
-    ],
+    content=fac.AntdParagraph(
+        [
+            fac.AntdText('　　配合'),
+            fac.AntdText('AntdPopover', strong=True),
+            fac.AntdText('的'),
+            fac.AntdText('content', code=True),
+            fac.AntdText('参数，可实现比'),
+            fac.AntdText('AntdTooltip', strong=True),
+            fac.AntdText('更加丰富自由的提示框内容渲染')
+        ]
+    ),
     overlayStyle={
         'width': '350px'
     }

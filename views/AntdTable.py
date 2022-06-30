@@ -1166,6 +1166,145 @@ fac.AntdTable(
                         fac.AntdTable(
                             columns=[
                                 {
+                                    'title': 'mini-line示例',
+                                    'dataIndex': 'mini-line示例',
+                                    'width': '33.3%',
+                                    'renderOptions': {
+                                        'renderType': 'mini-line',
+                                        'tooltipCustomContent': '''(x, data) => {
+                            return `<div style="justify-content: center ;font-size: 16px;height: 20px;display: flex;align-items: center;border-left: 3px solid #ff4d4f;min-width: 2rem;">${data[0]?.data?.y}</ div>`;
+                        }
+                        '''
+                                    }
+                                },
+                                {
+                                    'title': 'mini-bar示例',
+                                    'dataIndex': 'mini-bar示例',
+                                    'width': '33.3%',
+                                    'renderOptions': {
+                                        'renderType': 'mini-bar',
+                                        'tooltipCustomContent': '''(x, data) => {
+                            return `<div style="justify-content: center ;font-size: 16px;height: 20px;display: flex;align-items: center;border-left: 3px solid #ff4d4f;min-width: 2rem;">${data[0]?.data?.y}</ div>`;
+                        }
+                        '''
+                                    }
+                                },
+                                {
+                                    'title': 'mini-area示例',
+                                    'dataIndex': 'mini-area示例',
+                                    'width': '33.3%',
+                                    'renderOptions': {
+                                        'renderType': 'mini-area',
+                                        'tooltipCustomContent': '''(x, data) => {
+                            return `<div style="justify-content: center ;font-size: 16px;height: 20px;display: flex;align-items: center;border-left: 3px solid #ff4d4f;min-width: 2rem;">${data[0]?.data?.y}</ div>`;
+                        }
+                        '''
+                                    }
+                                }
+                            ],
+                            data=[
+                                {
+                                    'key': i,
+                                    'mini-line示例': np.random.randint(1, 20, 10),
+                                    'mini-bar示例': np.random.randint(1, 20, 10),
+                                    'mini-area示例': np.random.randint(1, 20, 10)
+                                }
+                                for i in range(3)
+                            ],
+                            miniChartHeight=60,
+                            bordered=True
+                        ),
+
+                        fac.AntdDivider(
+                            '迷你图模式自定义tooltip',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString="""
+import numpy as np
+
+...
+
+fac.AntdTable(
+    columns=[
+        {
+            'title': 'mini-line示例',
+            'dataIndex': 'mini-line示例',
+            'width': '33.3%',
+            'renderOptions': {
+                'renderType': 'mini-line',
+                'tooltipCustomContent': '''(x, data) => {
+    return `<div style="justify-content: center ;font-size: 16px;height: 20px;display: flex;align-items: center;border-left: 3px solid #ff4d4f;min-width: 2rem;">${data[0]?.data?.y}</ div>`;
+}
+'''
+            }
+        },
+        {
+            'title': 'mini-bar示例',
+            'dataIndex': 'mini-bar示例',
+            'width': '33.3%',
+            'renderOptions': {
+                'renderType': 'mini-bar',
+                'tooltipCustomContent': '''(x, data) => {
+    return `<div style="justify-content: center ;font-size: 16px;height: 20px;display: flex;align-items: center;border-left: 3px solid #ff4d4f;min-width: 2rem;">${data[0]?.data?.y}</ div>`;
+}
+'''
+            }
+        },
+        {
+            'title': 'mini-area示例',
+            'dataIndex': 'mini-area示例',
+            'width': '33.3%',
+            'renderOptions': {
+                'renderType': 'mini-area',
+                'tooltipCustomContent': '''(x, data) => {
+    return `<div style="justify-content: center ;font-size: 16px;height: 20px;display: flex;align-items: center;border-left: 3px solid #ff4d4f;min-width: 2rem;">${data[0]?.data?.y}</ div>`;
+}
+'''
+            }
+        }
+    ],
+    data=[
+        {
+            'key': i,
+            'mini-line示例': np.random.randint(1, 20, 10),
+            'mini-bar示例': np.random.randint(1, 20, 10),
+            'mini-area示例': np.random.randint(1, 20, 10)
+        }
+        for i in range(3)
+    ],
+    miniChartHeight=60,
+    bordered=True
+)
+"""
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='迷你图模式自定义tooltip',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdTable(
+                            columns=[
+                                {
                                     'title': '标签模式示例',
                                     'dataIndex': '标签模式示例',
                                     'renderOptions': {
@@ -4273,6 +4412,7 @@ def table_row_select_demo_callback(selectedRowKeys, selectedRows):
                             {'title': '超长内容省略模式', 'href': '#超长内容省略模式'},
                             {'title': '超链接模式', 'href': '#超链接模式'},
                             {'title': '迷你图模式', 'href': '#迷你图模式'},
+                            {'title': '迷你图模式自定义tooltip', 'href': '#迷你图模式自定义tooltip'},
                             {'title': '标签模式', 'href': '#标签模式'},
                             {'title': '按钮模式', 'href': '#按钮模式'},
                             {'title': '可复制模式', 'href': '#可复制模式'},

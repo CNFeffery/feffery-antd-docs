@@ -2,6 +2,9 @@ from dash import html
 import feffery_markdown_components as fmc
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
+from dash.dependencies import Input, Output
+
+from server import app
 
 docs_content = html.Div(
     [
@@ -382,6 +385,100 @@ html.Div(
                     className='div-highlight'
                 ),
 
+                html.Div(
+                    [
+                        html.Div(
+                            [
+                                fac.AntdAlert(
+                                    showIcon=True,
+                                    message=html.Span(
+                                        [
+                                            fac.AntdText(
+                                                '这是组件型message参数示例，'
+                                            ),
+                                            fac.AntdButton(
+                                                '点我试试',
+                                                id='alert-message-button-input',
+                                                type='primary',
+                                                size='small'
+                                            )
+                                        ]
+                                    ),
+                                    description=html.Span(
+                                        [
+                                            fac.AntdText(
+                                                '这是组件型description参数示例，上面的按钮被点了0次',
+                                                id='alert-description-output'
+                                            ),
+                                        ]
+                                    )
+                                )
+                            ]
+                        ),
+
+                        fac.AntdDivider(
+                            'message与description接受组件型输入',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+fac.AntdAlert(
+    showIcon=True,
+    message=html.Span(
+        [
+            fac.AntdText(
+                '这是组件型message参数示例，'
+            ),
+            fac.AntdButton(
+                '点我试试',
+                id='alert-message-button-input',
+                type='primary',
+                size='small'
+            )
+        ]
+    ),
+    description=html.Span(
+        [
+            fac.AntdText(
+                '这是组件型description参数示例，上面的按钮被点了0次',
+                id='alert-description-output'
+            ),
+        ]
+    )
+)
+
+...
+
+@app.callback(
+    Output('alert-description-output', 'children'),
+    Input('alert-message-button-input', 'nClicks'),
+    prevent_initial_call=True
+)
+def alert_message_description_callback_demo(nClicks):
+    return f'这是组件型description参数示例，上面的按钮被点了{nClicks}次'
+'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='message与description接受组件型输入',
+                    className='div-highlight'
+                ),
+
                 html.Div(style={'height': '100px'})
             ],
             style={
@@ -403,6 +500,7 @@ html.Div(
                             {'title': '添加关闭按钮', 'href': '#添加关闭按钮'},
                             {'title': '轮播模式示例', 'href': '#轮播模式示例'},
                             {'title': '跑马灯模式示例', 'href': '#跑马灯模式示例'},
+                            {'title': 'message与description接受组件型输入', 'href': '#message与description接受组件型输入'},
                         ]
                     },
                 ],
@@ -418,3 +516,12 @@ html.Div(
         'display': 'flex'
     }
 )
+
+
+@app.callback(
+    Output('alert-description-output', 'children'),
+    Input('alert-message-button-input', 'nClicks'),
+    prevent_initial_call=True
+)
+def alert_message_description_callback_demo(nClicks):
+    return f'这是组件型description参数示例，上面的按钮被点了{nClicks}次'

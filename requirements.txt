@@ -1,6 +1,6 @@
-dash==2.4.1
+dash==2.5.1
 Faker==13.3.4
-feffery_antd_components==0.1.13
+feffery_antd_components==0.1.14
 feffery_markdown_components==0.0.1
 feffery_utils_components==0.0.12
 Flask==2.0.3

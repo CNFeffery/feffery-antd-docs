@@ -2,7 +2,7 @@
 
 　　用于设置*标题内容*
 
-**value：** *int*或*float*型
+**value：** *int*、*float*或*string*型
 
 　　用于设置要展示的*统计数值*
 

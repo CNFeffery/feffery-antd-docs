@@ -29,10 +29,9 @@
   - renderButtonPopConfirmProps：可选，*dict*型，用于在`renderType`设置为`'button'`，且需要以*点击按钮弹出气泡确认卡片进一步确认*的形式进行功能渲染时设置使用，可用的键有：
 
     - title：*str*型，用于设置气泡确认卡片的*标题内容*
-
-    - okText：*str*型，用于设置气泡确认卡片*确认按钮*的文字内容
-
+- okText：*str*型，用于设置气泡确认卡片*确认按钮*的文字内容
     - cancelText：*str*型，用于设置气泡确认卡片*取消按钮*的文字内容
+- tooltipCustomContent：可选，*string*型，用于在`renderType`设置为`'mini-line'`、`'mini-area'`或`'mini-bar'`时，传入字符串形式的`javascript`箭头函数来自定义每个`tooltip`的内容及样式，具体使用参考本页对应示例
 
 **data：** *list*型，必填，无默认值
 

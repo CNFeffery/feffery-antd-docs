@@ -9,9 +9,9 @@
 - content：*str*型，设置文字内容
 - prefixIcon：*str*型，设置标题前缀图标，可使用`AntdIcon`内置的所有图标
 
-**content：** *list*型
+**content：** *str*或*组件*型
 
-　　用于传入*列表格式的气泡卡片内容元素*
+　　用于传入*气泡卡片内容*，亦可传入单个组件或多个组件构成的列表实现自由内容嵌套
 
 **placement：** *str*型，默认为`'top'`
 

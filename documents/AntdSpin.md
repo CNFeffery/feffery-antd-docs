@@ -25,3 +25,7 @@
 **includeProps：** *list*型
 
 　　配合`listenPropsMode='include'`模式使用
+
+**indicator：** *组件*型
+
+　　用于自定义*加载动画元素*

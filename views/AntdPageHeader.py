@@ -220,6 +220,69 @@ def page_header_demo_callback(backClicks):
                     className='div-highlight'
                 ),
 
+                html.Div(
+                    [
+                        fac.AntdPageHeader(
+                            title=fac.AntdText(
+                                '组件型title示例',
+                                italic=True,
+                                copyable=True,
+                                strong=True,
+                                style={
+                                    'fontSize': '28px'
+                                }
+                            ),
+                            subTitle=fac.AntdText(
+                                '组件型subTitle示例',
+                                italic=True,
+                                copyable=True
+                            )
+                        ),
+
+                        fac.AntdDivider(
+                            'title与subTitle接受组件型输入',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+fac.AntdPageHeader(
+    title=fac.AntdText(
+        '组件型title示例',
+        italic=True,
+        copyable=True,
+        strong=True,
+        style={
+            'fontSize': '28px'
+        }
+    ),
+    subTitle=fac.AntdText(
+        '组件型subTitle示例',
+        italic=True,
+        copyable=True
+    )
+)'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='title与subTitle接受组件型输入',
+                    className='div-highlight'
+                ),
+
                 html.Div(style={'height': '100px'})
             ],
             style={
@@ -238,6 +301,7 @@ def page_header_demo_callback(backClicks):
                             {'title': '基础使用', 'href': '#基础使用'},
                             {'title': '带有子元素的页头', 'href': '#带有子元素的页头'},
                             {'title': '回调示例', 'href': '#回调示例'},
+                            {'title': 'title与subTitle接受组件型输入', 'href': '#title与subTitle接受组件型输入'},
                         ]
                     },
                 ],

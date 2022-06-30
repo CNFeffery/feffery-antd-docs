@@ -6,11 +6,14 @@ from server import app
 
 @app.callback(
     Output('dropdown-demo-output', 'children'),
-    Input('dropdown-demo', 'clickedKey'),
+    [Input('dropdown-demo', 'clickedKey'),
+     Input('dropdown-demo', 'nClicks')],
     prevent_initial_call=True
 )
-def dropdown_demo_callback(clickedKey):
+def dropdown_demo_callback(clickedKey, nClicks):
     return [
         fac.AntdText('clickedKey: ', strong=True),
-        fac.AntdText(clickedKey)
+        fac.AntdText(clickedKey),
+        fac.AntdText(', nClicks: ', strong=True),
+        fac.AntdText(nClicks)
     ]

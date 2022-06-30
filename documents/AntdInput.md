@@ -24,7 +24,7 @@
 
 **bordered：** *string*型，默认为`True`
 
-　　用于设置是否为输入框渲染边框线
+　　用于设置*是否为输入框渲染边框线*
 
 **disabled：** *string*型，默认为`False`
 
@@ -41,6 +41,10 @@
 **showCount：** *string*型，默认为`False`
 
 　　仅在`mode='text-area'`情况下可用，用于设置是否显示*当前已输入字符数量*提示
+
+**autoSize：** *bool*或*dict*型，默认为`False`
+
+　　仅在`mode='text-area'`情况下可用，用于配置*文本域自适应高度相关功能*，当传入*dict*型时，可用的键值对参数有`minRows`与`maxRows`，分别用于限制最小、最大行数
 
 **passwordUseMd5：** *bool*型，默认为`False`
 
