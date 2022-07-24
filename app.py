@@ -1,10 +1,12 @@
 import os
 
+import dash
 import feffery_markdown_components as fmc
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
 from dash import dcc
 from dash import html
+from urllib.parse import unquote
 from dash.dependencies import Input, Output, State
 
 from config import Config
@@ -96,7 +98,14 @@ from views import (
     AntdCheckCardGroup,
     AntdAccordionItem,
     AntdAccordion,
-    AntdPictureUpload
+    AntdPictureUpload,
+    AntdSkeletonAvatar,
+    AntdSkeletonButton,
+    AntdSkeletonImage,
+    AntdSkeletonInput,
+    AntdCustomSkeleton,
+    AntdSegmentedColoring,
+    AntdCopyText
 )
 
 app.layout = fuc.FefferyTopProgress(
@@ -318,7 +327,7 @@ app.layout = fuc.FefferyTopProgress(
                                     mode='inline',
                                     defaultOpenKeys=[
                                         'Card', 'Descriptions', 'Form', 'Tabs', 'Grid', 'Typography',
-                                        'Layout', 'CheckCard', 'Accordion'
+                                        'Layout', 'CheckCard', 'Accordion', 'CustomSkeleton'
                                     ],
                                     style={
                                         'height': '100%',
@@ -651,6 +660,27 @@ def render_docs_content(pathname):
 
     elif pathname == '/AntdPictureUpload':
         return AntdPictureUpload.docs_content, pathname
+
+    elif pathname == '/AntdSkeletonAvatar':
+        return AntdSkeletonAvatar.docs_content, pathname
+
+    elif pathname == '/AntdSkeletonButton':
+        return AntdSkeletonButton.docs_content, pathname
+
+    elif pathname == '/AntdSkeletonImage':
+        return AntdSkeletonImage.docs_content, pathname
+
+    elif pathname == '/AntdSkeletonInput':
+        return AntdSkeletonInput.docs_content, pathname
+
+    elif pathname == '/AntdCustomSkeleton':
+        return AntdCustomSkeleton.docs_content, pathname
+
+    elif pathname == '/AntdSegmentedColoring':
+        return AntdSegmentedColoring.docs_content, pathname
+
+    elif pathname == '/AntdCopyText':
+        return AntdCopyText.docs_content, pathname
 
     return fac.AntdResult(status='404', title='您访问的页面不存在！'), pathname
 

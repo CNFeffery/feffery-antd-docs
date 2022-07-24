@@ -9,7 +9,8 @@ class CustomDash(dash.Dash):
 
     def interpolate_index(self, **kwargs):
         # scripts = kwargs.pop('scripts').replace('https://unpkg.com/', 'https://unpkg.zhimg.com/')
-        scripts = kwargs.pop('scripts').replace('https://unpkg.com/', 'http://npm.elemecdn.com/')
+        # scripts = kwargs.pop('scripts').replace('https://unpkg.com/', 'http://npm.elemecdn.com/')
+        scripts = kwargs.pop('scripts').replace('https://unpkg.com/', 'https://fastly.jsdelivr.net/npm/')
         return super(CustomDash, self).interpolate_index(scripts=scripts, **kwargs)
 
     # def interpolate_index(self, **kwargs):

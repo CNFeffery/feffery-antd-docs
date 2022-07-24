@@ -196,6 +196,132 @@ fac.AntdTabs(
                                         }
                                     ),
                                     tab='标签页1',
+                                    key='标签页1'
+                                ),
+                                fac.AntdTabPane(
+                                    html.Div(
+                                        fac.AntdButton('标签页2测试', type='primary'),
+                                        style={
+                                            'backgroundColor': 'rgba(241, 241, 241, 0.4)',
+                                            'height': '200px',
+                                            'display': 'flex',
+                                            'justifyContent': 'center',
+                                            'alignItems': 'center'
+                                        }
+                                    ),
+                                    tab='标签页2',
+                                    key='标签页2'
+                                ),
+                                fac.AntdTabPane(
+                                    html.Div(
+                                        fac.AntdButton('标签页3测试', type='dashed'),
+                                        style={
+                                            'backgroundColor': 'rgba(241, 241, 241, 0.4)',
+                                            'height': '200px',
+                                            'display': 'flex',
+                                            'justifyContent': 'center',
+                                            'alignItems': 'center'
+                                        }
+                                    ),
+                                    tab='标签页3',
+                                    key='标签页3'
+                                )
+                            ],
+                            centered=True
+                        ),
+
+                        fac.AntdDivider(
+                            '标签头居中',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+fac.AntdTabs(
+    [
+        fac.AntdTabPane(
+            html.Div(
+                '标签页1测试',
+                style={
+                    'backgroundColor': 'rgba(241, 241, 241, 0.4)',
+                    'height': '200px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            tab='标签页1',
+            key='标签页1'
+        ),
+        fac.AntdTabPane(
+            html.Div(
+                fac.AntdButton('标签页2测试', type='primary'),
+                style={
+                    'backgroundColor': 'rgba(241, 241, 241, 0.4)',
+                    'height': '200px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            tab='标签页2',
+            key='标签页2'
+        ),
+        fac.AntdTabPane(
+            html.Div(
+                fac.AntdButton('标签页3测试', type='dashed'),
+                style={
+                    'backgroundColor': 'rgba(241, 241, 241, 0.4)',
+                    'height': '200px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            tab='标签页3',
+            key='标签页3'
+        )
+    ],
+    centered=True
+)'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='标签头居中',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdTabs(
+                            [
+                                fac.AntdTabPane(
+                                    html.Div(
+                                        '标签页1测试',
+                                        style={
+                                            'backgroundColor': 'rgba(241, 241, 241, 0.4)',
+                                            'height': '200px',
+                                            'display': 'flex',
+                                            'justifyContent': 'center',
+                                            'alignItems': 'center'
+                                        }
+                                    ),
+                                    tab='标签页1',
                                     key='标签页1',
                                     titleSideInfoPopover={
                                         'title': '标签页1说明',
@@ -637,6 +763,202 @@ fac.AntdTabs(
 
                 html.Div(
                     [
+                        fac.AntdDivider('top', innerTextOrientation='left'),
+                        fac.AntdTabs(
+                            [
+                                fac.AntdTabPane(
+                                    tab='标签页1',
+                                    key='标签页1'
+                                ),
+                                fac.AntdTabPane(
+                                    tab='标签页2',
+                                    key='标签页2'
+                                ),
+                                fac.AntdTabPane(
+                                    tab='标签页3',
+                                    key='标签页3'
+                                )
+                            ],
+                            tabBarLeftExtraContent=fac.AntdButton('我是tabBarLeftExtraContent', type='primary'),
+                            tabBarRightExtraContent=fac.AntdButton('我是tabBarRightExtraContent', type='primary')
+                        ),
+
+                        fac.AntdDivider('left', innerTextOrientation='left'),
+                        fac.AntdTabs(
+                            [
+                                fac.AntdTabPane(
+                                    tab='标签页1',
+                                    key='标签页1'
+                                ),
+                                fac.AntdTabPane(
+                                    tab='标签页2',
+                                    key='标签页2'
+                                ),
+                                fac.AntdTabPane(
+                                    tab='标签页3',
+                                    key='标签页3'
+                                )
+                            ],
+                            tabPosition='left',
+                            tabBarLeftExtraContent=fac.AntdButton('我是tabBarLeftExtraContent', type='primary'),
+                            tabBarRightExtraContent=fac.AntdButton('我是tabBarRightExtraContent', type='primary')
+                        ),
+
+                        fac.AntdDivider('right', innerTextOrientation='left'),
+                        fac.AntdTabs(
+                            [
+                                fac.AntdTabPane(
+                                    tab='标签页1',
+                                    key='标签页1'
+                                ),
+                                fac.AntdTabPane(
+                                    tab='标签页2',
+                                    key='标签页2'
+                                ),
+                                fac.AntdTabPane(
+                                    tab='标签页3',
+                                    key='标签页3'
+                                )
+                            ],
+                            tabPosition='right',
+                            tabBarLeftExtraContent=fac.AntdButton('我是tabBarLeftExtraContent', type='primary'),
+                            tabBarRightExtraContent=fac.AntdButton('我是tabBarRightExtraContent', type='primary')
+                        ),
+
+                        fac.AntdDivider('bottom', innerTextOrientation='left'),
+                        fac.AntdTabs(
+                            [
+                                fac.AntdTabPane(
+                                    tab='标签页1',
+                                    key='标签页1'
+                                ),
+                                fac.AntdTabPane(
+                                    tab='标签页2',
+                                    key='标签页2'
+                                ),
+                                fac.AntdTabPane(
+                                    tab='标签页3',
+                                    key='标签页3'
+                                )
+                            ],
+                            tabPosition='bottom',
+                            tabBarLeftExtraContent=fac.AntdButton('我是tabBarLeftExtraContent', type='primary'),
+                            tabBarRightExtraContent=fac.AntdButton('我是tabBarRightExtraContent', type='primary')
+                        ),
+
+                        fac.AntdDivider(
+                            '标签头额外元素',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+fac.AntdDivider('top', innerTextOrientation='left'),
+fac.AntdTabs(
+    [
+        fac.AntdTabPane(
+            tab='标签页1',
+            key='标签页1'
+        ),
+        fac.AntdTabPane(
+            tab='标签页2',
+            key='标签页2'
+        ),
+        fac.AntdTabPane(
+            tab='标签页3',
+            key='标签页3'
+        )
+    ],
+    tabBarLeftExtraContent=fac.AntdButton('我是tabBarLeftExtraContent', type='primary'),
+    tabBarRightExtraContent=fac.AntdButton('我是tabBarRightExtraContent', type='primary')
+),
+
+fac.AntdDivider('left', innerTextOrientation='left'),
+fac.AntdTabs(
+    [
+        fac.AntdTabPane(
+            tab='标签页1',
+            key='标签页1'
+        ),
+        fac.AntdTabPane(
+            tab='标签页2',
+            key='标签页2'
+        ),
+        fac.AntdTabPane(
+            tab='标签页3',
+            key='标签页3'
+        )
+    ],
+    tabPosition='left',
+    tabBarLeftExtraContent=fac.AntdButton('我是tabBarLeftExtraContent', type='primary'),
+    tabBarRightExtraContent=fac.AntdButton('我是tabBarRightExtraContent', type='primary')
+),
+
+fac.AntdDivider('right', innerTextOrientation='left'),
+fac.AntdTabs(
+    [
+        fac.AntdTabPane(
+            tab='标签页1',
+            key='标签页1'
+        ),
+        fac.AntdTabPane(
+            tab='标签页2',
+            key='标签页2'
+        ),
+        fac.AntdTabPane(
+            tab='标签页3',
+            key='标签页3'
+        )
+    ],
+    tabPosition='right',
+    tabBarLeftExtraContent=fac.AntdButton('我是tabBarLeftExtraContent', type='primary'),
+    tabBarRightExtraContent=fac.AntdButton('我是tabBarRightExtraContent', type='primary')
+),
+
+fac.AntdDivider('bottom', innerTextOrientation='left'),
+fac.AntdTabs(
+    [
+        fac.AntdTabPane(
+            tab='标签页1',
+            key='标签页1'
+        ),
+        fac.AntdTabPane(
+            tab='标签页2',
+            key='标签页2'
+        ),
+        fac.AntdTabPane(
+            tab='标签页3',
+            key='标签页3'
+        )
+    ],
+    tabPosition='bottom',
+    tabBarLeftExtraContent=fac.AntdButton('我是tabBarLeftExtraContent', type='primary'),
+    tabBarRightExtraContent=fac.AntdButton('我是tabBarRightExtraContent', type='primary')
+)'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='标签头额外元素',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
                         fac.AntdDivider('type="card"', innerTextOrientation='left'),
                         fac.AntdTabs(
                             [
@@ -794,6 +1116,132 @@ fac.AntdTabs(
 
                 html.Div(
                     [
+                        fac.AntdTabs(
+                            [
+                                fac.AntdTabPane(
+                                    html.Div(
+                                        '标签页1测试',
+                                        style={
+                                            'backgroundColor': 'rgba(241, 241, 241, 0.4)',
+                                            'height': '200px',
+                                            'display': 'flex',
+                                            'justifyContent': 'center',
+                                            'alignItems': 'center'
+                                        }
+                                    ),
+                                    tab='标签页1',
+                                    key='标签页1'
+                                ),
+                                fac.AntdTabPane(
+                                    html.Div(
+                                        fac.AntdButton('标签页2测试', type='primary'),
+                                        style={
+                                            'backgroundColor': 'rgba(241, 241, 241, 0.4)',
+                                            'height': '200px',
+                                            'display': 'flex',
+                                            'justifyContent': 'center',
+                                            'alignItems': 'center'
+                                        }
+                                    ),
+                                    tab='标签页2',
+                                    key='标签页2'
+                                ),
+                                fac.AntdTabPane(
+                                    html.Div(
+                                        fac.AntdButton('标签页3测试', type='dashed'),
+                                        style={
+                                            'backgroundColor': 'rgba(241, 241, 241, 0.4)',
+                                            'height': '200px',
+                                            'display': 'flex',
+                                            'justifyContent': 'center',
+                                            'alignItems': 'center'
+                                        }
+                                    ),
+                                    tab='标签页3',
+                                    key='标签页3'
+                                )
+                            ],
+                            tabPaneAnimated=True
+                        ),
+
+                        fac.AntdDivider(
+                            '标签页切换动画',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+fac.AntdTabs(
+    [
+        fac.AntdTabPane(
+            html.Div(
+                '标签页1测试',
+                style={
+                    'backgroundColor': 'rgba(241, 241, 241, 0.4)',
+                    'height': '200px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            tab='标签页1',
+            key='标签页1'
+        ),
+        fac.AntdTabPane(
+            html.Div(
+                fac.AntdButton('标签页2测试', type='primary'),
+                style={
+                    'backgroundColor': 'rgba(241, 241, 241, 0.4)',
+                    'height': '200px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            tab='标签页2',
+            key='标签页2'
+        ),
+        fac.AntdTabPane(
+            html.Div(
+                fac.AntdButton('标签页3测试', type='dashed'),
+                style={
+                    'backgroundColor': 'rgba(241, 241, 241, 0.4)',
+                    'height': '200px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center'
+                }
+            ),
+            tab='标签页3',
+            key='标签页3'
+        )
+    ],
+    tabPaneAnimated=True
+)'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='标签页切换动画',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
                         fac.AntdSpin(
                             [
                                 fac.AntdButton(
@@ -929,11 +1377,14 @@ def tabs_callback_demo(nClicks, latestDeletePane, children):
                         'href': '#使用示例',
                         'children': [
                             {'title': '基础使用', 'href': '#基础使用'},
+                            {'title': '标签头居中', 'href': '#标签头居中'},
                             {'title': '添加额外悬浮提示信息卡片', 'href': '#添加额外悬浮提示信息卡片'},
                             {'title': '手动设置默认激活的标签页', 'href': '#手动设置默认激活的标签页'},
                             {'title': '不同的标签页吸附位置', 'href': '#不同的标签页吸附位置'},
+                            {'title': '标签头额外元素', 'href': '#标签头额外元素'},
                             {'title': '不同的标签页渲染类型', 'href': '#不同的标签页渲染类型'},
                             {'title': '标签页面板众多时自动开启省略模式', 'href': '#标签页面板众多时自动开启省略模式'},
+                            {'title': '标签页切换动画', 'href': '#标签页切换动画'},
                             {'title': '回调示例', 'href': '#回调示例'},
                         ]
                     },

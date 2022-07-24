@@ -18,6 +18,30 @@
 
 　　用于设置标签页的*渲染类型*，可选的有`'line'`、`'card'`与`'editable-card'`
 
+**centered：** *bool*型，默认为`False`
+
+　　用于设置*是否居中对齐标签页头*
+
+**tabBarLeftExtraContent：** *组件型*
+
+　　用于设置*额外的标签头元素*，方位与`tabPosition`参数的设置有关，譬如`tabPosition="top"`时该额外元素位于标签头左侧
+
+**tabBarRightExtraContent：** *组件型*
+
+　　用于设置*额外的标签头元素*，方位与`tabPosition`参数的设置有关，譬如`tabPosition="top"`时该额外元素位于标签头右侧
+
+**tabBarGutter：** *int*型
+
+　　用于设置*标签头之间的像素间距*
+
+**inkBarAnimated：** *bool*型，默认为`True`
+
+　　用于设置*标签头切换是否带有动画效果*
+
+**tabPaneAnimated：** *bool*型，默认为`False`
+
+　　用于设置*标签页切换是否带有动画效果*
+
 **activeKey：** *string*型
 
 　　记录当前被激活打开的**AntdTabPane**组件对应的*key值*

@@ -91,6 +91,52 @@ docs_content = html.Div(
 
                 html.Div(
                     [
+                        fac.AntdDateRangePicker(
+                            defaultValue=['2022-01-01', None]
+                        ),
+
+                        fac.AntdDateRangePicker(
+                            defaultValue=[None, '2022-01-01']
+                        ),
+
+                        fac.AntdDivider(
+                            '初始化时只设置单边值',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+fac.AntdDateRangePicker(
+    defaultValue=['2022-01-01', None]
+),
+
+fac.AntdDateRangePicker(
+    defaultValue=[None, '2022-01-01']
+)'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='初始化时只设置单边值',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
                         fac.AntdDateRangePicker(showTime=True),
 
                         fac.AntdDivider(
@@ -642,6 +688,7 @@ def date_range_picker_disabled_callback_demo(pathname):
                         'href': '#使用示例',
                         'children': [
                             {'title': '基础的日期范围选择控件', 'href': '#基础的日期范围选择控件'},
+                            {'title': '初始化时只设置单边值', 'href': '#初始化时只设置单边值'},
                             {'title': '添加时间选择', 'href': '#添加时间选择'},
                             {'title': '自定义空白填充文字', 'href': '#自定义空白填充文字'},
                             {'title': '修改时间粒度', 'href': '#修改时间粒度'},

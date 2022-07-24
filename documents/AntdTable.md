@@ -296,3 +296,19 @@ titlePopoverInfo = {
 **recentlyMouseEnterRow：** *str*型
 
 　　当设置`enableHoverListen=True`后，用于记录最近一次鼠标移入的数据行对应`key`信息
+
+**expandedRowContents：** `list[组件型]`
+
+　　用于*传入由组件型参数构成的数组代表对应行的展开子内容*，需配合参数`expandedRowContentsKeys`按位置一一对应使用
+
+**expandedRowContentsKeys：** `list[string]`或`list[int]`型
+
+　　与参数`expandedRowContents`配合使用，两者按位置一一对应，`expandedRowContentsKeys`每个位置代表其对应的行`key`，与`expandedRowContents`对应位置的元素相呼应
+
+**expandedRowWidth：** *int*或*string*型
+
+　　用于设置*行展开控件字段列的宽度*
+
+**expandRowByClick：** *bool*型，默认为`False`
+
+　　用于设置*点击对应是否也可触发行展开操作*

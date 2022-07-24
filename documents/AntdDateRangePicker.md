@@ -6,6 +6,10 @@
 
 　　用于设置是否显示额外的时间选择界面，`True`（显示），`False`（不显示）
 
+**allowClear：** *bool*型，默认为`True`
+
+　　设置是否显示输入框内容清除按钮，`True`（显示），`False`（不显示）
+
 **format：** *string*型
 
 　　用于设置*日期格式*（[参考资料](https://momentjscom.readthedocs.io/en/latest/moment/04-displaying/01-format/)），当`showTime=False`时默认值为`'YYYY-MM-DD'`，当`showTime=True`时默认值为`'YYYY-MM-DD hh:mm:ss'`

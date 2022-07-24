@@ -479,6 +479,59 @@ def alert_message_description_callback_demo(nClicks):
                     className='div-highlight'
                 ),
 
+                html.Div(
+                    [
+                        html.Div(
+                            [
+                                fac.AntdAlert(
+                                    message='这是一条alert测试',
+                                    action=fac.AntdButton(
+                                        'action示例',
+                                        type='primary'
+                                    )
+                                )
+                            ]
+                        ),
+
+                        fac.AntdDivider(
+                            '添加右上角额外元素',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fuc.FefferySyntaxHighlighter(
+                                showLineNumbers=True,
+                                showInlineLineNumbers=True,
+                                language='python',
+                                codeStyle='coy-without-shadows',
+                                codeString='''
+html.Div(
+    [
+        fac.AntdAlert(
+            message='这是一条alert测试',
+            action=fac.AntdButton(
+                'action示例',
+                type='primary'
+            )
+        )
+    ]
+)'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='添加右上角额外元素',
+                    className='div-highlight'
+                ),
+
                 html.Div(style={'height': '100px'})
             ],
             style={
@@ -501,6 +554,7 @@ def alert_message_description_callback_demo(nClicks):
                             {'title': '轮播模式示例', 'href': '#轮播模式示例'},
                             {'title': '跑马灯模式示例', 'href': '#跑马灯模式示例'},
                             {'title': 'message与description接受组件型输入', 'href': '#message与description接受组件型输入'},
+                            {'title': '添加右上角额外元素', 'href': '#添加右上角额外元素'},
                         ]
                     },
                 ],

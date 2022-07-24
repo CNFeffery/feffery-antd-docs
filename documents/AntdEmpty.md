@@ -1,6 +1,10 @@
-**description：** *str*型
+**children：**
 
-　　用于设置*描述文字内容*
+　　用于传入*额外子元素*
+
+**description：** *组件型*
+
+　　用于设置*描述内容元素*
 
 **image：** *str*型
 
