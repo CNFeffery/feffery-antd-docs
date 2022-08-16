@@ -1,6 +1,6 @@
 import os
 import dash
-from flask import request, make_response
+from flask import request, make_response, abort
 
 from config import Config
 
@@ -15,35 +15,6 @@ class CustomDash(dash.Dash):
         scripts = kwargs.pop('scripts')
 
         return super(CustomDash, self).interpolate_index(scripts=scripts, **kwargs)
-
-    # def interpolate_index(self, **kwargs):
-    #     return '''
-    #     <!DOCTYPE html>
-    #     <html>
-    #         <head>
-    #             {metas}
-    #             <title>{title}</title>
-    #             {favicon}
-    #             {css}
-    #         </head>
-    #         <body>
-    #             {app_entry}
-    #             <footer>
-    #                 {config}
-    #                 {scripts}
-    #                 {renderer}
-    #             </footer>
-    #         </body>
-    #     </html>
-    #     '''.format(
-    #         metas=kwargs['metas'],
-    #         css=kwargs['css'],
-    #         favicon=kwargs['favicon'],
-    #         title=kwargs['title'],
-    #         app_entry=kwargs['app_entry'],
-    #         config=kwargs['config'],
-    #         scripts=kwargs['scripts'].replace('https://unpkg.com/', 'https://unpkg.zhimg.com/'),
-    #         renderer=kwargs['renderer'])
 
 
 app = CustomDash(
@@ -75,7 +46,7 @@ app.server.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024
 def ban_external_upload_request():
     if 'upload' in request.path:
         if request.headers.get('X-Requested-With') != 'XMLHttpRequest':
-            return make_response('<h1>检测到外部上传请求！</h1>')
+            abort(403)
 
 
 # 这里的app即为Dash实例

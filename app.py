@@ -1,12 +1,10 @@
 import os
 
-import dash
 import feffery_markdown_components as fmc
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
 from dash import dcc
 from dash import html
-from urllib.parse import unquote
 from dash.dependencies import Input, Output, State
 
 from config import Config
@@ -719,4 +717,4 @@ app.clientside_callback(
 )
 
 if __name__ == '__main__':
-    app.run_server(debug=False, port=8051)
+    app.run_server(debug=True)

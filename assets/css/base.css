@@ -1,8 +1,8 @@
 ._dash-loading {
     color: transparent;
     position: fixed;
-    width: calc(320px * 0.75);
-    height: calc(240px * 0.75);
+    width: calc(320px * 0.6);
+    height: calc(240px * 0.6);
     top: 50vh;
     left: 50vw;
     transform: translate(-50%, -50%);
