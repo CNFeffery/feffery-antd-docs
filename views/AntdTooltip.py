@@ -72,10 +72,9 @@ docs_content = html.Div(
 
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True,
-                                showInlineLineNumbers=True,
+                                showLineNumbers=True, 
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                 codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdTooltip(
     fac.AntdButton(
@@ -142,10 +141,9 @@ fac.AntdTooltip(
 
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True,
-                                showInlineLineNumbers=True,
+                                showLineNumbers=True, 
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                 codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdSpace(
     [

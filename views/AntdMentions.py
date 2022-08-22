@@ -97,10 +97,9 @@ docs_content = html.Div(
 
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True,
-                                showInlineLineNumbers=True,
+                                showLineNumbers=True, 
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                 codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdMentions(
     options=[
@@ -180,10 +179,9 @@ fac.AntdMentions(
 
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True,
-                                showInlineLineNumbers=True,
+                                showLineNumbers=True, 
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                 codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdDivider('autoSize=True', innerTextOrientation='left'),
 fac.AntdMentions(
@@ -264,10 +262,9 @@ fac.AntdMentions(
 
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True,
-                                showInlineLineNumbers=True,
+                                showLineNumbers=True, 
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                 codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdDivider('placement="top"', innerTextOrientation='left'),
 fac.AntdMentions(
@@ -367,10 +364,9 @@ fac.AntdMentions(
 
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True,
-                                showInlineLineNumbers=True,
+                                showLineNumbers=True, 
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                 codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdMentions(
     id='mentions-demo',

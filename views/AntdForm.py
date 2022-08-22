@@ -117,10 +117,9 @@ docs_content = html.Div(
 
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True,
-                                showInlineLineNumbers=True,
+                                showLineNumbers=True, 
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                 codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdForm(
     [
@@ -247,10 +246,9 @@ fac.AntdForm(
 
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True,
-                                showInlineLineNumbers=True,
+                                showLineNumbers=True, 
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                 codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdDivider('layout="vertical"', innerTextOrientation='left'),
 fac.AntdForm(
@@ -357,10 +355,9 @@ fac.AntdForm(
 
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True,
-                                showInlineLineNumbers=True,
+                                showLineNumbers=True, 
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                 codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdForm(
     [
@@ -450,10 +447,9 @@ fac.AntdForm(
 
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True,
-                                showInlineLineNumbers=True,
+                                showLineNumbers=True, 
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                 codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdForm(
     [
@@ -544,10 +540,9 @@ fac.AntdForm(
 
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True,
-                                showInlineLineNumbers=True,
+                                showLineNumbers=True, 
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                 codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdForm(
     [
@@ -638,10 +633,9 @@ fac.AntdForm(
 
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True,
-                                showInlineLineNumbers=True,
+                                showLineNumbers=True, 
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                 codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdForm(
     [
@@ -750,10 +744,9 @@ fac.AntdForm(
 
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True,
-                                showInlineLineNumbers=True,
+                                showLineNumbers=True, 
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                 codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdSpin(
     fac.AntdForm(
@@ -883,10 +876,9 @@ def form_demo_1_callback(value):
 
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True,
-                                showInlineLineNumbers=True,
+                                showLineNumbers=True, 
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                 codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdAlert(
     message='示例用户名：fac  密码：123456 你可以故意输错用户名或密码来查看不同的校验反馈结果',

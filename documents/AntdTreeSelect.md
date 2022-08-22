@@ -128,6 +128,10 @@ treeData = [
 
 　　用于*手动设置组件的校验状态*，可选的有`'error'`和`'warning'`
 
+**treeNodeFilterProp：** *string*型，默认为`'value'`
+
+　　用于*设置基于输入框内输入内容进行搜索的目标字段*，可选的有`'title'`、`'value'`
+
 
 
 

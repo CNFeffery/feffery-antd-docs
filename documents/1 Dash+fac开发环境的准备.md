@@ -4,10 +4,10 @@
 conda create -n dash-dev-demo python=3.8 -c https://mirrors.sjtug.sjtu.edu.cn/anaconda/pkgs/main -y
 ```
 
-　　使用`conda activate dash-dev-demo`激活我们刚刚创建的环境之后，再执行以下控制台命令（这里我们使用豆瓣镜像源来加速），就可以完成`Dash`+`fac`环境的搭建啦😀：
+　　使用`conda activate dash-dev-demo`激活我们刚刚创建的环境之后，再执行以下控制台命令（这里我们使用清华镜像源来加速），就可以完成`Dash`+`fac`环境的搭建啦😀：
 
 ```bash
-pip install dash feffery-antd-components -i https://pypi.douban.com/simple/
+pip install dash feffery-antd-components -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
 　　在`Python`中执行下列语句可以分别查看`Dash`与`feffery-antd-components`的版本：

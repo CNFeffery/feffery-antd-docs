@@ -90,10 +90,9 @@ docs_content = html.Div(
 
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True,
-                                showInlineLineNumbers=True,
+                                showLineNumbers=True, 
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                 codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdButton('触发通知提示框', id='notification-trigger-button-demo1', type='primary'),
 html.Div(id='notification-container-demo1')
@@ -172,10 +171,9 @@ def notification_demo1(nClicks):
 
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True,
-                                showInlineLineNumbers=True,
+                                showLineNumbers=True, 
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                 codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdSelect(
     placeholder='选择不同的状态',
@@ -282,10 +280,9 @@ def notification_demo2(nClicks, value):
 
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True,
-                                showInlineLineNumbers=True,
+                                showLineNumbers=True, 
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                 codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdSelect(
     placeholder='选择不同的弹出位置',
@@ -389,10 +386,9 @@ def notification_demo3(nClicks, value):
 
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True,
-                                showInlineLineNumbers=True,
+                                showLineNumbers=True, 
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                 codeTheme='coy-without-shadows',
                                 codeString='''
                         fac.AntdSpace(
                             [

@@ -25,3 +25,7 @@
 **collapsible：** *str*型，默认为`None`
 
 　　设置折叠操作的*触发区域*，可选的有`'header'`（标题文字区域）、`'disabled'`（禁用折叠）
+
+**forceRender：** *bool*型，默认为`False`
+
+　　设置*当折叠面板默认未展开时是否强制渲染内部元素*

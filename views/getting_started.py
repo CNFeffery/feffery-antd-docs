@@ -19,7 +19,7 @@ docs_content = html.Div(
                     level=2
                 ),
                 fmc.FefferyMarkdown(
-                    codeStyle='a11y-dark',
+                     codeTheme='a11y-dark',
                     markdownStr=open('./documents/1 Dash+fac开发环境的准备.md', encoding='utf-8').read()
                 ),
                 fac.AntdTitle(
@@ -28,7 +28,7 @@ docs_content = html.Div(
                     level=2
                 ),
                 fmc.FefferyMarkdown(
-                    codeStyle='a11y-dark',
+                     codeTheme='a11y-dark',
                     markdownStr=open('./documents/2 用Dash开发静态页面.md', encoding='utf-8').read(),
                     renderHtml=True
                 ),
@@ -38,7 +38,7 @@ docs_content = html.Div(
                     level=2
                 ),
                 fmc.FefferyMarkdown(
-                    codeStyle='a11y-dark',
+                     codeTheme='a11y-dark',
                     markdownStr=open('./documents/3 用Dash开发交互应用.md', encoding='utf-8').read(),
                     renderHtml=True
                 ),

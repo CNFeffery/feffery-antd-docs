@@ -123,9 +123,8 @@ docs_content = html.Div(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 from faker import Faker
 
@@ -238,9 +237,8 @@ fac.AntdTable(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 from faker import Faker
 
@@ -366,9 +364,8 @@ fac.AntdTable(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 from faker import Faker
 
@@ -488,9 +485,8 @@ fac.AntdTable(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 from faker import Faker
 
@@ -612,9 +608,8 @@ fac.AntdTable(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 from faker import Faker
 
@@ -736,9 +731,8 @@ fac.AntdTable(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 from faker import Faker
 
@@ -849,9 +843,8 @@ fac.AntdTable(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdTable(
     columns=[
@@ -940,9 +933,8 @@ fac.AntdTable(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdTable(
     columns=[
@@ -1078,9 +1070,8 @@ fac.AntdTable(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 import numpy as np
 
@@ -1224,9 +1215,8 @@ fac.AntdTable(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString="""
 import numpy as np
 
@@ -1341,9 +1331,8 @@ fac.AntdTable(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdTable(
     columns=[
@@ -1458,9 +1447,8 @@ fac.AntdTable(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdTable(
     columns=[
@@ -1566,9 +1554,8 @@ fac.AntdTable(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdTable(
     columns=[
@@ -1639,9 +1626,8 @@ fac.AntdTable(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdTable(
     columns=[
@@ -1716,9 +1702,8 @@ fac.AntdTable(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdTable(
     columns=[
@@ -1808,9 +1793,8 @@ fac.AntdTable(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdTable(
     columns=[
@@ -1929,9 +1913,8 @@ fac.AntdTable(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdTable(
     columns=[
@@ -2028,9 +2011,8 @@ fac.AntdTable(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdTable(
     size='small',
@@ -2122,9 +2104,8 @@ fac.AntdTable(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdTable(
     columns=[
@@ -2211,9 +2192,8 @@ fac.AntdTable(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdTable(
     columns=[
@@ -2278,15 +2258,14 @@ fac.AntdTable(
                                 for i in range(10)
                             ],
                             bordered=True,
-                            expandedRowContents=[
-                                fac.AntdButton(
-                                    f'第{i}行展开内容示例',
-                                    type='primary'
-                                )
-                                for i in range(0, 10, 2)
-                            ],
-                            expandedRowContentsKeys=[
-                                f'row-{i}'
+                            expandedRowKeyToContent=[
+                                {
+                                    'key': f'row-{i}',
+                                    'content': fac.AntdButton(
+                                        f'第{i}行展开内容示例',
+                                        type='primary'
+                                    )
+                                }
                                 for i in range(0, 10, 2)
                             ]
                         ),
@@ -2300,9 +2279,8 @@ fac.AntdTable(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdTable(
     columns=[
@@ -2324,15 +2302,11 @@ fac.AntdTable(
         for i in range(10)
     ],
     bordered=True,
-    expandedRowContents=[
+    expandedRowKeyToContent=[
         fac.AntdButton(
             f'第{i}行展开内容示例',
             type='primary'
         )
-        for i in range(0, 10, 2)
-    ],
-    expandedRowContentsKeys=[
-        f'row-{i}'
         for i in range(0, 10, 2)
     ]
 )
@@ -2413,9 +2387,8 @@ fac.AntdTable(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 from faker import Faker
 
@@ -2519,9 +2492,8 @@ fac.AntdTable(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 import numpy as np
 
@@ -2596,9 +2568,8 @@ fac.AntdTable(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 import numpy as np
 
@@ -2690,9 +2661,8 @@ fac.AntdTable(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdTable(
     columns=[
@@ -2794,9 +2764,8 @@ fac.AntdTable(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdTable(
     columns=[
@@ -2929,9 +2898,8 @@ fac.AntdTable(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString="""
 fac.AntdTable(
     columns=[
@@ -3091,9 +3059,8 @@ fac.AntdTable(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdDivider(
     "rowSelectionType='checkbox'",
@@ -3225,9 +3192,8 @@ fac.AntdTable(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 from faker import Faker
 
@@ -3418,9 +3384,8 @@ fac.AntdTable(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 import numpy as np
 
@@ -3592,9 +3557,8 @@ html.Div(
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 import numpy as np
 
@@ -3771,9 +3735,8 @@ def table_callback_demo(currentData,
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 import numpy as np
 import pandas as pd
@@ -4054,9 +4017,8 @@ def table_server_side_callback_demo(pagination,
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdSpin(
     [
@@ -4242,9 +4204,8 @@ def table_button_click_demo_callback(nClicksButton, recentlyButtonClickedRow, cl
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdSpin(
     [
@@ -4397,9 +4358,8 @@ def table_mouse_event_demo_callback(recentlyMouseEnterColumn,
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
                                 showLineNumbers=True,
-                                showInlineLineNumbers=True,
                                 language='python',
-                                codeStyle='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdSpin(
     [

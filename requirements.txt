@@ -1,8 +1,8 @@
 dash==2.6.1
 Faker==13.3.4
-feffery_antd_components==0.1.15
-feffery_markdown_components==0.0.1
-feffery_utils_components==0.0.15
-Flask==2.2.2
-numpy==1.23.2
-pandas==1.4.3
+feffery_antd_components==0.1.16
+feffery_markdown_components==0.1.0
+feffery_utils_components==0.0.16
+Flask==2.0.3
+numpy==1.22.3
+pandas==1.4.1

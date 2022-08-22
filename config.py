@@ -1048,6 +1048,14 @@ class Config:
                 {
                     'component': 'Item',
                     'props': {
+                        'key': 'v0.1.16',
+                        'title': 'v0.1.16',
+                        'href': '/change-log-v0.1.16'
+                    }
+                },
+                {
+                    'component': 'Item',
+                    'props': {
                         'key': 'v0.1.15',
                         'title': 'v0.1.15',
                         'href': '/change-log-v0.1.15'

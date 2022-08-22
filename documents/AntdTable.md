@@ -297,13 +297,12 @@ titlePopoverInfo = {
 
 　　当设置`enableHoverListen=True`后，用于记录最近一次鼠标移入的数据行对应`key`信息
 
-**expandedRowContents：** `list[组件型]`
+**expandedRowKeyToContent：** `list[dict]`型
 
-　　用于*传入由组件型参数构成的数组代表对应行的展开子内容*，需配合参数`expandedRowContentsKeys`按位置一一对应使用
+　　用于*为对应行定义行展开内容*，其中每个元素为字典，需包含下列键值对：
 
-**expandedRowContentsKeys：** `list[string]`或`list[int]`型
-
-　　与参数`expandedRowContents`配合使用，两者按位置一一对应，`expandedRowContentsKeys`每个位置代表其对应的行`key`，与`expandedRowContents`对应位置的元素相呼应
+- key：*string*型，用于设置对应的行`key`值
+- content：*组件*型，用于设置对应的行展开内容
 
 **expandedRowWidth：** *int*或*string*型
 

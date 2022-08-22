@@ -73,6 +73,10 @@ options = [
 
 　　用于*手动设置组件的校验状态*，可选的有`'error'`和`'warning'`
 
+**optionFilterProp：** *string*型，默认为`'value'`
+
+　　用于*设置基于输入框内输入内容进行搜索的目标字段*，可选的有`'value'`、`'label'`
+
 **value：** *list*型、string型或*list*型
 
 　　用于在回调中捕获用户选的单个选项的`'value'`值，或多个选项的`'value'`值构成的列表

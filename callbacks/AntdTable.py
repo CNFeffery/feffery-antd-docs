@@ -20,7 +20,6 @@ def table_callback_demo(currentData,
                         sorter,
                         filter,
                         pagination):
-
     ctx = dash.callback_context
 
     return [
