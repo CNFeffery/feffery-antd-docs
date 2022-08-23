@@ -2303,10 +2303,13 @@ fac.AntdTable(
     ],
     bordered=True,
     expandedRowKeyToContent=[
-        fac.AntdButton(
-            f'第{i}行展开内容示例',
-            type='primary'
-        )
+        {
+            'key': f'row-{i}',
+            'content': fac.AntdButton(
+                f'第{i}行展开内容示例',
+                type='primary'
+            )
+        }
         for i in range(0, 10, 2)
     ]
 )
