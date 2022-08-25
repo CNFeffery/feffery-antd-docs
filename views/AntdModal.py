@@ -144,10 +144,12 @@ def modal_demo_callback1(nClicks):
                             fac.AntdText('对话框内容测试'),
                             id='modal-demo-2',
                             visible=False,
-                            title={
-                                'content': '标题测试',
-                                'prefixIcon': 'fc-search'
-                            },
+                            title=html.Span(
+                                [
+                                    fac.AntdIcon(icon='fc-search'),
+                                    '标题测试'
+                                ]
+                            ),
                             renderFooter=True
                         ),
 
@@ -199,10 +201,12 @@ fac.AntdModal(
     fac.AntdText('对话框内容测试'),
     id='modal-demo-2',
     visible=False,
-    title={
-        'content': '标题测试',
-        'prefixIcon': 'fc-search'
-    },
+    title=html.Span(
+        [
+            fac.AntdIcon(icon='fc-search'),
+            '标题测试'
+        ]
+    ),
     renderFooter=True
 ),
 
