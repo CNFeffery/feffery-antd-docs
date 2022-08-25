@@ -68,10 +68,12 @@ docs_content = html.Div(
                             fac.AntdText('对话框内容测试'),
                             id='modal-demo-1',
                             visible=False,
-                            title={
-                                'content': '标题测试',
-                                'prefixIcon': 'fc-search'
-                            },
+                            title=html.Span(
+                                [
+                                    fac.AntdIcon(icon='fc-search'),
+                                    '标题测试'
+                                ]
+                            ),
                             renderFooter=True
                         ),
 
@@ -83,9 +85,9 @@ docs_content = html.Div(
 
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdButton(
     '触发对话框',
@@ -97,10 +99,12 @@ fac.AntdModal(
     fac.AntdText('对话框内容测试'),
     id='modal-demo-1',
     visible=False,
-    title={
-        'content': '标题测试',
-        'prefixIcon': 'fc-search'
-    },
+    title=html.Span(
+        [
+            fac.AntdIcon(icon='fc-search'),
+            '标题测试'
+        ]
+    ),
     renderFooter=True
 )
 ...
@@ -181,9 +185,9 @@ def modal_demo_callback1(nClicks):
 
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdButton(
     '触发对话框',
