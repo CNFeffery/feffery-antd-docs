@@ -142,6 +142,14 @@ import feffery_antd_components as fac  # 导入我们的主角fac框架
 
 app = dash.Dash(__name__)
 
+# 模拟数据
+company2percent = {
+    'A': 80,
+    'B': 65,
+    'C': 100,
+    'D': 45
+}
+
 # 构建Dash应用网页内容的过程即为对layout属性赋值的过程
 app.layout = html.Div(
     [
@@ -156,13 +164,14 @@ app.layout = html.Div(
                     [
                         fac.AntdCard(
                             fac.AntdProgress(
-                                percent=80,
+                                percent=company2percent[apartment],
                                 type='circle'
                             ),
-                            title='部门A',
+                            title=f'部门{apartment}',
                             hoverable=True,
-                            style={
-                                'textAlign': 'center'
+                            bodyStyle={
+                                'display': 'flex',
+                                'justifyContent': 'center'
                             }
                         ),
                         fac.AntdCard(
@@ -171,14 +180,15 @@ app.layout = html.Div(
                                     [
                                         fac.AntdCol(
                                             fac.AntdText(
-                                                f'员工A{i}：',
+                                                f'员工{apartment}{i}：',
                                                 strong=True
                                             ),
                                             flex='none'
                                         ),
                                         fac.AntdCol(
                                             fac.AntdProgress(
-                                                percent=round(random.uniform(20, 100), 1),
+                                                percent=round(
+                                                    random.uniform(20, 100), 1),
                                                 strokeColor={
                                                     'from': '#00F5A0',
                                                     'to': '#00D9F5'
@@ -188,7 +198,8 @@ app.layout = html.Div(
                                         )
                                     ],
                                     style={
-                                        'marginBottom': '10px'
+                                        'marginBottom': '10px',
+                                        'width': '100%'
                                     }
                                 )
                                 for i in range(1, 10)
@@ -202,160 +213,8 @@ app.layout = html.Div(
                         )
                     ],
                     span=6
-                ),
-                fac.AntdCol(
-                    [
-                        fac.AntdCard(
-                            fac.AntdProgress(
-                                percent=65,
-                                type='circle'
-                            ),
-                            title='部门B',
-                            hoverable=True,
-                            style={
-                                'textAlign': 'center'
-                            }
-                        ),
-                        fac.AntdCard(
-                            [
-                                fac.AntdRow(
-                                    [
-                                        fac.AntdCol(
-                                            fac.AntdText(
-                                                f'员工B{i}：',
-                                                strong=True
-                                            ),
-                                            flex='none'
-                                        ),
-                                        fac.AntdCol(
-                                            fac.AntdProgress(
-                                                percent=round(random.uniform(20, 100), 1),
-                                                strokeColor={
-                                                    'from': '#00F5A0',
-                                                    'to': '#00D9F5'
-                                                }
-                                            ),
-                                            flex='auto'
-                                        )
-                                    ],
-                                    style={
-                                        'marginBottom': '10px'
-                                    }
-                                )
-                                for i in range(1, 10)
-                            ],
-                            title='各员工业绩目标完成情况',
-                            hoverable=True,
-                            style={
-                                'textAlign': 'center',
-                                'marginTop': '20px'
-                            }
-                        )
-                    ],
-                    span=6
-                ),
-                fac.AntdCol(
-                    [
-                        fac.AntdCard(
-                            fac.AntdProgress(
-                                percent=100,
-                                type='circle'
-                            ),
-                            title='部门C',
-                            hoverable=True,
-                            style={
-                                'textAlign': 'center'
-                            }
-                        ),
-                        fac.AntdCard(
-                            [
-                                fac.AntdRow(
-                                    [
-                                        fac.AntdCol(
-                                            fac.AntdText(
-                                                f'员工C{i}：',
-                                                strong=True
-                                            ),
-                                            flex='none'
-                                        ),
-                                        fac.AntdCol(
-                                            fac.AntdProgress(
-                                                percent=100,
-                                                strokeColor={
-                                                    'from': '#00F5A0',
-                                                    'to': '#00D9F5'
-                                                }
-                                            ),
-                                            flex='auto'
-                                        )
-                                    ],
-                                    style={
-                                        'marginBottom': '10px'
-                                    }
-                                )
-                                for i in range(1, 10)
-                            ],
-                            title='各员工业绩目标完成情况',
-                            hoverable=True,
-                            style={
-                                'textAlign': 'center',
-                                'marginTop': '20px'
-                            }
-                        )
-                    ],
-                    span=6
-                ),
-                fac.AntdCol(
-                    [
-                        fac.AntdCard(
-                            fac.AntdProgress(
-                                percent=45,
-                                type='circle'
-                            ),
-                            title='部门D',
-                            hoverable=True,
-                            style={
-                                'textAlign': 'center'
-                            }
-                        ),
-                        fac.AntdCard(
-                            [
-                                fac.AntdRow(
-                                    [
-                                        fac.AntdCol(
-                                            fac.AntdText(
-                                                f'员工D{i}：',
-                                                strong=True
-                                            ),
-                                            flex='none'
-                                        ),
-                                        fac.AntdCol(
-                                            fac.AntdProgress(
-                                                percent=round(random.uniform(20, 100), 1),
-                                                strokeColor={
-                                                    'from': '#00F5A0',
-                                                    'to': '#00D9F5'
-                                                }
-                                            ),
-                                            flex='auto'
-                                        )
-                                    ],
-                                    style={
-                                        'marginBottom': '10px'
-                                    }
-                                )
-                                for i in range(1, 10)
-                            ],
-                            title='各员工业绩目标完成情况',
-                            hoverable=True,
-                            style={
-                                'textAlign': 'center',
-                                'marginTop': '20px'
-                            }
-                        )
-                    ],
-                    span=6
-                ),
+                )
+                for apartment in list('ABCD')
             ],
             gutter=20
         )
