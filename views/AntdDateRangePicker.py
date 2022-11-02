@@ -199,10 +199,22 @@ fac.AntdDateRangePicker(
 
                 html.Div(
                     [
-                        fac.AntdDateRangePicker(picker='week'),
-                        fac.AntdDateRangePicker(picker='month'),
-                        fac.AntdDateRangePicker(picker='quarter', placeholder=['开始季度', '结束季度']),
-                        fac.AntdDateRangePicker(picker='year'),
+                        fac.AntdDateRangePicker(
+                            picker='week',
+                            format='YYYY-第W周'
+                        ),
+                        fac.AntdDateRangePicker(
+                            picker='month',
+                            format='YYYY-MM',
+                        ),
+                        fac.AntdDateRangePicker(
+                            picker='quarter',
+                            format='YYYY-第Q季度'
+                        ),
+                        fac.AntdDateRangePicker(
+                            picker='year',
+                            format='YYYY'
+                        ),
 
                         fac.AntdDivider(
                             '修改时间粒度',
@@ -216,10 +228,23 @@ fac.AntdDateRangePicker(
                                 language='python',
                                  codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdDateRangePicker(picker='week'),
-fac.AntdDateRangePicker(picker='month'),
-fac.AntdDateRangePicker(picker='quarter', placeholder=['开始季度', '结束季度']),
-fac.AntdDateRangePicker(picker='year')'''
+fac.AntdDateRangePicker(
+    picker='week',
+    format='YYYY-第W周'
+),
+fac.AntdDateRangePicker(
+    picker='month',
+    format='YYYY-MM',
+),
+fac.AntdDateRangePicker(
+    picker='quarter',
+    format='YYYY-第Q季度'
+),
+fac.AntdDateRangePicker(
+    picker='year',
+    format='YYYY'
+)
+'''
                             ),
                             title='点击查看代码',
                             is_open=False,

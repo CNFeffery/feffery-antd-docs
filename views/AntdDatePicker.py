@@ -144,17 +144,24 @@ fac.AntdDatePicker(
                 html.Div(
                     [
                         fac.AntdDatePicker(
+                            picker='week',
+                            placeholder='请选择周：',
+                            format='YYYY-第W周'
+                        ),
+                        fac.AntdDatePicker(
                             picker='month',
                             placeholder='请选择月份：',
-                            defaultPickerValue='2020/01'
+                            format='YYYY-MM'
                         ),
-
-                        html.Div(style={'height': '25px'}),
-
+                        fac.AntdDatePicker(
+                            picker='quarter',
+                            placeholder='请选择季度：',
+                            format='YYYY-第Q季度'
+                        ),
                         fac.AntdDatePicker(
                             picker='year',
                             placeholder='请选择年份',
-                            defaultPickerValue='2020'
+                            format='YYYY'
                         ),
 
                         fac.AntdDivider(
@@ -170,18 +177,26 @@ fac.AntdDatePicker(
                                  codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdDatePicker(
+    picker='week',
+    placeholder='请选择周：',
+    format='YYYY-第W周'
+),
+fac.AntdDatePicker(
     picker='month',
     placeholder='请选择月份：',
-    defaultPickerValue='2020/01'
+    format='YYYY-MM'
 ),
-
-html.Div(style={'height': '25px'}),
-
+fac.AntdDatePicker(
+    picker='quarter',
+    placeholder='请选择季度：',
+    format='YYYY-第Q季度'
+),
 fac.AntdDatePicker(
     picker='year',
     placeholder='请选择年份',
-    defaultPickerValue='2020'
-)'''
+    format='YYYY'
+)
+'''
                             ),
                             title='点击查看代码',
                             is_open=False,
