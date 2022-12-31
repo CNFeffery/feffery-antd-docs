@@ -36,7 +36,8 @@ docs_content = html.Div(
                 ),
 
                 fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdTransfer.md', encoding='utf-8').read()
+                    markdownStr=open('documents/AntdTransfer.md',
+                                     encoding='utf-8').read()
                 ),
 
                 html.Div(
@@ -78,21 +79,21 @@ docs_content = html.Div(
 
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-                        html.Div(
-                            fac.AntdTransfer(
-                                dataSource=[
-                                    {
-                                        'key': str(i),
-                                        'title': f'选项{i}'
-                                    }
-                                    for i in range(20)
-                                ]
-                            )
-                        )'''
+html.Div(
+    fac.AntdTransfer(
+        dataSource=[
+            {
+                'key': str(i),
+                'title': f'选项{i}'
+            }
+            for i in range(20)
+        ]
+    )
+)'''
                             ),
                             title='点击查看代码',
                             is_open=False,
@@ -171,9 +172,9 @@ docs_content = html.Div(
 
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 html.Div(
     fac.AntdTransfer(
@@ -262,9 +263,9 @@ html.Div(
 
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 html.Div(
     fac.AntdTransfer(
@@ -334,9 +335,9 @@ html.Div(
 
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 html.Div(
     fac.AntdTransfer(
@@ -406,9 +407,9 @@ html.Div(
 
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 html.Div(
     fac.AntdTransfer(
@@ -462,9 +463,9 @@ html.Div(
 
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 html.Div(
     fac.AntdTransfer(
@@ -524,9 +525,9 @@ html.Div(
 
                         fac.AntdCollapse(
                             fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 html.Div(
     fac.AntdTransfer(
@@ -595,7 +596,8 @@ def transfer_callback_demo(targetKeys, moveDirection, moveKeys):
                             {'title': '自定义高度', 'href': '#自定义高度'},
                             {'title': '分页显示', 'href': '#分页显示'},
                             {'title': '添加搜索框', 'href': '#添加搜索框'},
-                            {'title': '修改左右区域标题及双向按钮文字', 'href': '#修改左右区域标题及双向按钮文字'},
+                            {'title': '修改左右区域标题及双向按钮文字',
+                                'href': '#修改左右区域标题及双向按钮文字'},
                             {'title': '回调示例', 'href': '#回调示例'},
                         ]
                     },

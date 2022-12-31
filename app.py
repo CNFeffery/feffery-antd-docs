@@ -116,27 +116,27 @@ app.layout = fuc.FefferyTopProgress(
             fuc.FefferyShortcutPanel(
                 placeholder='输入你想要搜索的内容...',
                 data=[
-                         {
-                             'id': item['props']['href'],
-                             'title': item['props']['title'],
-                             'handler': '() => window.open("%s")' % item['props']['href'],
-                             'section': group['props']['title']
-                         }
-                         for group in Config.menuItems
-                         for item in group['children']
-                         if item['props'].get('href')
-                     ] + [
-                         {
-                             'id': sub_item['props']['href'],
-                             'title': sub_item['props']['title'],
-                             'handler': '() => window.open("%s")' % sub_item['props']['href'],
-                             'section': group['props']['title']
-                         }
-                         for group in Config.menuItems
-                         for item in group['children']
-                         if item['component'] == 'SubMenu'
-                         for sub_item in item['children']
-                     ]
+                    {
+                        'id': item['props']['href'],
+                        'title': item['props']['title'],
+                        'handler': '() => window.open("%s")' % item['props']['href'],
+                        'section': group['props']['title']
+                    }
+                    for group in Config.menuItems
+                    for item in group['children']
+                    if item['props'].get('href')
+                ] + [
+                    {
+                        'id': sub_item['props']['href'],
+                        'title': sub_item['props']['title'],
+                        'handler': '() => window.open("%s")' % sub_item['props']['href'],
+                        'section': group['props']['title']
+                    }
+                    for group in Config.menuItems
+                    for item in group['children']
+                    if item['component'] == 'SubMenu'
+                    for sub_item in item['children']
+                ]
             ),
 
             # 注入快捷添加好友悬浮卡片
@@ -158,7 +158,8 @@ app.layout = fuc.FefferyTopProgress(
                                 strong=True
                             ),
                             fac.AntdImage(
-                                src=app.get_asset_url('imgs/feffery-添加好友二维码.jpg'),
+                                src=app.get_asset_url(
+                                    'imgs/feffery-添加好友二维码.jpg'),
                                 width=250,
                                 preview=False
                             )
@@ -390,7 +391,8 @@ def render_docs_content(pathname):
     if pathname.startswith('/change-log-') and pathname[1:] + '.md' in os.listdir('./change logs'):
         return html.Div(
             fmc.FefferyMarkdown(
-                markdownStr=open(f'./change logs/{pathname[1:]}.md', encoding='utf-8').read()
+                markdownStr=open(
+                    f'./change logs/{pathname[1:]}.md', encoding='utf-8').read()
             ),
             style={
                 'padding': '25px'
