@@ -352,14 +352,14 @@ def render_docs_content(pathname):
     路由回调
     '''
 
-    if pathname == '/what-is-fac' or pathname == '/':
-        pathname = '/what-is-fac'
-        return [
-            views.what_is_fac.docs_content,
-            pathname,
-            dash.no_update,
-            None
-        ]
+    # if pathname == '/what-is-fac' or pathname == '/':
+    #     pathname = '/what-is-fac'
+    #     return [
+    #         views.what_is_fac.docs_content,
+    #         pathname,
+    #         dash.no_update,
+    #         None
+    #     ]
 
     # 检查当前pathname是否在预设字典中
     if pathname in Config.key2open_keys.keys():
@@ -396,7 +396,7 @@ def render_docs_content(pathname):
     return [
         fac.AntdResult(
             status='404',
-            title='您访问的页面不存在！',
+            title='您访问的页面不存在或还在建设中',
             style={
                 'height': 'calc(100vh - 65px)'
             }
