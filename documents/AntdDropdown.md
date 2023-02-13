@@ -1,55 +1,79 @@
+**id：** *string*型
+
+　　用于设置*当前组件的唯一id信息*
+
+**style：** *dict*型
+
+　　用于设置*当前组件的css样式*
+
+**className：** *string*型
+
+　　用于设置*当前组件的css类名*
+
 **title：** *string*型
 
-　　设置下拉菜单*触发点文字标题内容*
+　　用于**设置下拉菜单触发元素的标题内容*
 
 **buttonMode：** *bool*型，默认为`False`
 
-　　设置下拉菜单触发点*是否渲染为按钮的形式*
+　　用于*设置下拉菜单触发元素是否渲染为按钮的形式*
+
+**buttonProps：** *dict*型
+
+　　用于*在触发元素为按钮形式时配置按钮相关的参数*，可用的键值对参数有：
+
+- **size：** *string*型，默认为`'middle'`，用于*设置触发按钮的尺寸规格*，可选项有`'small'`、`'middle'`和`'large'`
+- **type：** *string*型，默认为`'default'`，用于*设置触发按钮的风格*，可选项有`'primary'`、`'ghost'`、`'dashed'`、`'link'`、`'text'`、`'default'`
+- **danger：** *bool*型，默认为`False`，用于*设置是否渲染为危险警告状态*
 
 **clickedKey：** *string*型
 
-　　用于记录下拉菜单中*最近一次被点击的选项对应key值*
+　　用于*监听下拉菜单中最近一次被点击的选项对应key值*
 
 **nClicks：** *int*型
 
-　　用于记录下拉菜单中各项*累计被点击次数*，可用于辅助监听菜单项的重复点击事件
+　　用于*监听下拉菜单中所有选项累计被点击次数*，可用于辅助监听菜单项的重复点击事件
 
-**menuItems：** *list*型
+**menuItems：** `list[dict]`型
 
-　　传入*用于构建下拉菜单结构*的数据，其中列表每个元素均为字典，字典可用的键值对有：
+　　用于*定义下拉菜单选项结构*，其中列表每个元素均为字典，可用的键值对参数有：
 
-- title：*string*型，用于设置当前选项*文字内容*
-- href：*string*型，用于设置当前选项*链接url*
-- target：*string*型，用于设置当前选项*链接跳转行为*
-- disabled：*bool*型，默认为`False`，用于设置是否*禁用当前选项*
-- icon：*string*型，同`AntdIcon`中的同名参数，用于设置当前选项*前缀图标*
-- key：*string*型，用于设置当前下拉菜单下每个选项的*唯一key值*
-- isDivider：*bool*型，默认为`False`，用于设置是否应当将当前选项*视作单纯的分隔符*，设置为`True`后会忽略其他键值对参数
+- **title：** *string*型，用于*设置当前选项的标题内容*
+- **href：** *string*型，用于*设置当前选项的链接url*
+- **target：** *string*型，用于*设置当前选项的链接跳转行为*
+- **disabled：** *bool*型，默认为`False`，用于*设置是否禁用当前选项*
+- **icon：** *string*型，同`AntdIcon`中的同名参数，用于*设置当前选项的前缀图标*
+- **key：** *string*型，用于*设置当前选项的唯一key值*
+- **isDivider：** *bool*型，默认为`False`，用于*设置当前选项是否为水平分隔符*，设置为`True`后会忽略其他键值对参数
 
 **arrow：** *bool*型，默认为`False`
 
-　　设置悬浮下拉框是否显示*连接箭头*
+　　用于*设置是否为展开的下拉菜单渲染连接箭头*
 
 **disabled：** *bool*型，默认为`False`
 
-　　设置是否*禁用当前组件*
+　　用于*设置是否禁用当前组件*
 
 **overlayClassName：** *string*型
 
-　　用于设置悬浮菜单层*容器的类名*
+　　用于*设置下拉菜单容器的类名*
 
 **overlayStyle：** *string*型
 
-　　用于设置悬浮菜单层*容器的css样式*
+　　用于*设置下拉菜单容器的css样式*
 
 **placement：** *string*型，默认为`'bottomLeft'`
 
-　　用于设置悬浮菜单层的*展开方向*，可选的有`'bottomLeft'`、`'bottomCenter'`、`'bottomRight'`、`'topLeft'`、`'topCenter'`及`'topRight'`
+　　用于*设置下拉菜单的展开方向*，可选的有`'bottomLeft'`、`'bottomCenter'`、`'bottomRight'`、`'topLeft'`、`'topCenter'`及`'topRight'`
 
 **trigger：** *string*型，默认为`'hover'`
 
-　　用于设置触发下拉菜单展示的*触发事件*，可选的有`'hover'`及`'click'`
+　　用于*设置触发下拉菜单展开的触发方式*，可选的有`'hover'`及`'click'`
 
 **visible：** *bool*型，默认为`False`
 
-　　用于设置下拉菜单*是否显示*
+　　用于*设置下拉菜单是否显示*
+
+**popupContainer：** *string*型，默认为`'body'`
+
+　　用于*为当前组件涉及的悬浮层元素设置参考容器类型*，可选的有`'body'`（以页面根节点为参考）和`'parent'`（以当前元素的父容器为参考），当组件位于局部滚动容器内时，通过设置`popupContainer='parent'`可以解决悬浮层滚动不跟随的问题

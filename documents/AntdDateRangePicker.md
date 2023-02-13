@@ -1,55 +1,83 @@
-**picker：** *string*型，默认为`'date'`
+**id：** *string*型
 
-　　用于设置日期选择的粒度，可选项有`'date'`（精确到天），`'week'`（精确到周），`'month'`（精确到月），`'quarter'`（精确到季度），`'year'`（精确到年）
+　　用于设置*当前组件的唯一id信息*
 
-**showTime：** *bool*型，默认为`False`
+**style：** *dict*型
 
-　　用于设置是否显示额外的时间选择界面，`True`（显示），`False`（不显示）
+　　用于设置*当前组件的css样式*
 
-**allowClear：** *bool*型，默认为`True`
+**className：** *string*型
 
-　　设置是否显示输入框内容清除按钮，`True`（显示），`False`（不显示）
+　　用于设置*当前组件的css类名*
+
+**locale：** *string*型，默认为`'zh-cn'`
+
+　　用于*为当前组件的功能文案设置语言*，可选的有`'zh-cn'`（简体中文）、`'en-us'`（英文）
 
 **format：** *string*型
 
-　　用于设置*日期格式*（[参考资料](https://momentjscom.readthedocs.io/en/latest/moment/04-displaying/01-format/)），当`showTime=False`时默认值为`'YYYY-MM-DD'`，当`showTime=True`时默认值为`'YYYY-MM-DD hh:mm:ss'`
+　　用于*设置当前日期范围选择框的日期解析格式*，具体见[参考资料](https://momentjscom.readthedocs.io/en/latest/moment/04-displaying/01-format/)
+　　
+**picker：** *string*型，默认为`'date'`
 
-**placeholder：** `list[string, string]`型
+　　用于*设置日期范围选择的粒度*，可选的有`'date'`、`'week'`、`'month'`、`'quarter'`、`'year'`
 
-　　用于设置空白输入下开始与结束输入框的*填充说明文字*
+**disabled：** `list[bool]`型，默认为`[False, False]`
 
-**defaultPickerValue：** *string*型
+　　用于*分别设置是否禁用当前日期范围选择组件的开始日期和结束日期选择*，格式为`[是否禁用开始日期, 是否禁用结束日期]`
 
-　　用于设置日期面板默认处于的*日期位置*，需要与`format`参数一致
+**showTime：** *bool*型，默认为`False`
 
-**bordered：** *bool*型，默认为`True`
-
-　　用于设置是否显示部件外边框，`True`（显示），`False`（不显示）
-
-**value：** `list[string, string]`型
-
-　　用于在回调中捕获用户选中的开始及结束*日期或日期时间字符串*
-
-**defaultValue：** `list[string, string]`型
-
-　　用于设置初始化时默认选中的开始及结束*日期或日期时间字符串*
+　　用于*设置是否开启额外的时间选择功能*
 
 **size：** *string*型，默认为`'middle'`
 
-　　用于设置组件尺寸规格大小，可选的有`'small'`、`'middle'`与`'large'`
+　　用于*设置当前组件的尺寸规格*，可选项有`'small'`、`'middle'`和`'large'`
 
-**disabled：** `list[bool, bool]`型，默认为`False`
+**bordered：** *bool*型，默认为`True`
 
-　　设置是否禁用*输入框*
+　　用于*设置是否渲染边框*
 
-**status：** *str型*
+**placeholder：** *list*型
 
-　　用于*手动设置组件的校验状态*，可选的有`'error'`和`'warning'`
+　　用于*设置空白输入下的填充说明文字*，格式为`[开始日期空白填充文字, 结束日期空白填充文字]`
+
+**placement：** *str*型，默认为`'bottomLeft'`
+
+　　用于*设置下拉菜单的展开方向*，可选的有`'bottomLeft'`、`'bottomRight'`、`'topLeft'`及`'topRight'`
+
+**value：** *list*型
+
+　　用于*监听或设置当前已选中值*
+
+**defaultValue：** *list*型
+
+　　用于*监听或设置初始化时的已选中值*
+
+**defaultPickerValue：** *string*型
+
+　　用于*设置初始化时日期范围选择面板停留的日期位置*
 
 **disabledDatesStrategy：** `list[dict]`型
 
-　　用于自定义日期禁用策略，每个字典用于定义单条策略，满足至少一条策略的日期将会被禁用，可用的键值对参数有：
+　　用于*自定义日期禁用策略*，每个字典代表单条策略，满足至少一条策略的日期将会被禁用，可用的键值对参数有：
 
-- **mode：** *str*型，用于定义当前策略类型，可选的有`'eq'`（等于）、`'ne'`（不等于）、`'le'`（小于等于）、`'lt'`（小于）、`'ge'`（大于等于）、`'gt'`（大于）、`'in'`（属于）、`'not-in'`（不属于）、`'in-enumerate-dates'`（属于日期字符串枚举数组）、`'not-in-enumerate-dates'`（不属于日期字符串枚举数组）
-- **target：** *str*型，用于定义当前策略约束目标，可选的有`'day'`（按日）、`'month'`（按月份）、`'quarter'`（按月份）、`'year'`（按年）、`'dayOfYear'`（按当年第n天）、`'dayOfWeek'`（按当周第n天）
-- **value：** `int、list[int]或list[str]`型，用于为当前约束策略定义对应的约束值，带有`'in'`的策略需要接受列表类型输入
+- **mode：** *str*型，用于*定义当前策略类型*，可选的有`'eq'`（等于）、`'ne'`（不等于）、`'le'`（小于等于）、`'lt'`（小于）、`'ge'`（大于等于）、`'gt'`（大于）、`'in'`（属于）、`'not in'`（不属于）、`'in-enumerate-dates'`（属于日期字符串枚举数组）、`'not-in-enumerate-dates'`（不属于日期字符串枚举数组）
+- **target：** *str*型，用于*定义当前策略约束目标*，可选的有`'day'`（按日）、`'month'`（按月份）、`'quarter'`（按季度）、`'year'`（按年）、`'dayOfYear'`（按当年第n天）、`'dayOfWeek'`（按本周第n天）、`'specific-date'`（具体日期）
+- **value：** *int*、*string*、`list[int]`或`list[str]`型，用于*为当前约束策略定义对应的约束值*，带有`'in'`的策略需要接受列表类型输入
+
+**status：** *str型*
+
+　　用于*强制设置组件的状态*，可选的有`'error'`和`'warning'`
+
+**allowClear：** *bool*型，默认为`True`
+
+　　用于*设置是否允许用户清空已选项*
+
+**readOnly：** *bool*型，默认为`False`
+
+　　用于*设置是否以只读模式进行展示*
+
+**popupContainer：** *string*型，默认为`'body'`
+
+　　用于*为当前组件涉及的悬浮层元素设置参考容器类型*，可选的有`'body'`（以页面根节点为参考）和`'parent'`（以当前元素的父容器为参考），当组件位于局部滚动容器内时，通过设置`popupContainer='parent'`可以解决悬浮层滚动不跟随的问题

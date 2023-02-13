@@ -2,6 +2,7 @@ from dash import html
 import feffery_antd_components as fac
 import feffery_markdown_components as fmc
 
+# import callbacks.AntdButton
 from .side_props import render_side_props_layout
 
 docs_content = html.Div(
@@ -21,10 +22,7 @@ docs_content = html.Div(
                             'title': '通用'
                         },
                         {
-                            'title': '排版相关'
-                        },
-                        {
-                            'title': 'AntdText 文字'
+                            'title': 'AntdButton 按钮'
                         }
                     ]
                 ),
@@ -33,32 +31,15 @@ docs_content = html.Div(
 
                 fac.AntdParagraph(
                     [
-                        fac.AntdText('　　用于渲染具有丰富样式和功能的行内文字。')
+                        fac.AntdText('　　用于在各种场景下作为功能逻辑的触发点。')
                     ]
                 ),
 
                 html.Div(
                     [
-                        fac.AntdParagraph(
-                            [
-                                fac.AntdText('code示例', code=True),
-                                fac.AntdText('copyable示例', copyable=True),
-                                fac.AntdText('strikethrough示例',
-                                             strikethrough=True),
-                                fac.AntdText('disabled示例', disabled=True),
-                                fac.AntdText('mark示例', mark=True),
-                                fac.AntdText('strong示例', strong=True),
-                                fac.AntdText('underline示例', underline=True),
-                                fac.AntdText('keyboard示例', keyboard=True),
-                                fac.AntdText('secondary示例', type='secondary'),
-                                fac.AntdText('success示例', type='success'),
-                                fac.AntdText('warning示例', type='warning'),
-                                fac.AntdText('danger示例', type='danger'),
-                            ]
-                        ),
 
                         fac.AntdDivider(
-                            '不同的渲染模式',
+                            '基础使用',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
@@ -70,23 +51,6 @@ docs_content = html.Div(
                                 language='python',
                                 codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdParagraph(
-    [
-        fac.AntdText('code示例', code=True),
-        fac.AntdText('copyable示例', copyable=True),
-        fac.AntdText('strikethrough示例',
-                        strikethrough=True),
-        fac.AntdText('disabled示例', disabled=True),
-        fac.AntdText('mark示例', mark=True),
-        fac.AntdText('strong示例', strong=True),
-        fac.AntdText('underline示例', underline=True),
-        fac.AntdText('keyboard示例', keyboard=True),
-        fac.AntdText('secondary示例', type='secondary'),
-        fac.AntdText('success示例', type='success'),
-        fac.AntdText('warning示例', type='warning'),
-        fac.AntdText('danger示例', type='danger'),
-    ]
-)
 '''
                             ),
                             title='点击查看代码',
@@ -99,7 +63,7 @@ fac.AntdParagraph(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='不同的渲染模式',
+                    id='基础使用',
                     className='div-highlight'
                 ),
 
@@ -113,7 +77,7 @@ fac.AntdParagraph(
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '不同的渲染模式', 'href': '#不同的渲染模式'},
+                    {'title': '基础使用', 'href': '#基础使用'},
                 ],
                 offsetTop=0
             ),
@@ -124,7 +88,7 @@ fac.AntdParagraph(
         ),
         # 侧边参数栏
         render_side_props_layout(
-            component_name='AntdText'
+            component_name='AntdButton'
         )
     ],
     style={

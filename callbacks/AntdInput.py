@@ -1,53 +1,51 @@
-from dash import html
 import feffery_antd_components as fac
-from dash.dependencies import Input, Output, State
+from dash.dependencies import Input, Output
 
 from server import app
 
 
 @app.callback(
-    Output('input-value-demo-output', 'children'),
-    Input('input-value-demo', 'value'),
-    prevent_initial_call=True
+    Output('input-demo-output', 'children'),
+    [Input(f'input-{mode}-mode-demo', 'value')
+     for mode in ['default', 'search', 'text-area', 'password']]
 )
-def input_value_callback_demo(value):
-    return fac.AntdText(f'value: {value}', italic=True)
+def input_mode_demo(*value_list):
+
+    return fac.AntdSpace(
+        [
+            fac.AntdText(
+                f'{mode}模式value：{value_list[i]}'
+            )
+            for i, mode in enumerate(
+                ['default', 'search', 'text-area', 'password']
+            )
+        ],
+        direction='vertical'
+    )
 
 
 @app.callback(
-    Output('input-nSubmit-demo-output', 'children'),
-    Input('input-nSubmit-demo', 'nSubmit'),
-    State('input-nSubmit-demo', 'value'),
-    prevent_initial_call=True
+    Output('input-debounce-demo-output', 'children'),
+    Input('input-debounce-demo', 'debounceValue')
 )
-def input_nSubmit_callback_demo(nSubmit, value):
-    if nSubmit and value:
-        return fac.AntdText(f'nSubmit: {nSubmit}   value: {value}', italic=True)
+def input_debounce_demo(debounceValue):
+
+    return f'debounceValue: {debounceValue}'
 
 
 @app.callback(
-    Output('input-nClicksSearch-demo-output', 'children'),
-    Input('input-nClicksSearch-demo', 'nClicksSearch'),
-    State('input-nClicksSearch-demo', 'value'),
-    prevent_initial_call=True
+    Output('input-enter-demo-output', 'children'),
+    Input('input-enter-demo', 'nSubmit')
 )
-def input_nClicksSearch_callback_demo(nClicksSearch, value):
-    if nClicksSearch and value:
-        return fac.AntdText(f'nClicksSearch: {nClicksSearch}   value: {value}', italic=True)
+def input_enter_dmeo(nSubmit):
+
+    return f'nSubmit: {nSubmit}'
 
 
 @app.callback(
-    Output('input-md5-demo-output', 'children'),
-    [Input('input-md5-demo', 'value'),
-     Input('input-md5-demo', 'md5Value')],
-    prevent_initial_call=True
+    Output('input-search-demo-output', 'children'),
+    Input('input-search-demo', 'nClicksSearch')
 )
-def input_md5_demo(value, md5Value):
-    if value:
-        return [
-            fac.AntdText('value: ', strong=True),
-            value,
-            html.Br(),
-            fac.AntdText('md5Value: ', strong=True),
-            md5Value
-        ]
+def input_search_dmeo(nClicksSearch):
+
+    return f'nClicksSearch: {nClicksSearch}'

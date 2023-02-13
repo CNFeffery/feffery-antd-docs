@@ -7,6 +7,6 @@ from server import app
     Output('checkbox-demo-output', 'children'),
     Input('checkbox-demo', 'checked')
 )
-def checkbox_demo_callback(checked):
+def checkbox_demo(checked):
 
-    return str(checked)
+    return f'checked: {checked}'

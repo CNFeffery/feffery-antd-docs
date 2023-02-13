@@ -1,24 +1,36 @@
-**menuItems：** *list*型，必填，无默认值
+**id：** *string*型
 
-　　用于自由设计导航菜单结构，列表中元素为字典（通过`children`键值对向下嵌套以构成复杂的层级导航菜单结构），每个字典都代表导航菜单中的一个元素，其中：
+　　用于设置*当前组件的唯一id信息*
 
-- 键值对`component`：`str`型，表示当前元素的*角色*，`'Item'`表示*菜单项*元素，也是唯一供用户点击*选中*的元素，应作为整个菜单结构的末端元素；`'SubMenu'`表示*子菜单*元素，用于嵌套存放下一层元素，供用户点击*展开/关闭*；`'ItemGroup'`表示*菜单项分组*，用于以静态的方式（即无点击交互操作，直接展示）对其内部其他元素进行分组，类似`AntdSelect`中对选项分组后的效果
+**style：** *dict*型
 
-- 键值对`props`：`dict`型，用于传入当前元素对应的*额外属性*，其中：
+　　用于设置*当前组件的css样式*
 
-  - 键值对`key`：`str`型，用于传入当前元素*唯一id*
-  - 键值对`title`：`str`型，用于传入当前元素在导航菜单中*显示的文字标题*
-  - 键值对`disabled`：`bool`型，用于设置是否*禁用当前元素*（禁用效果会覆盖其内部嵌套的所有元素），默认为`False`
-  - 键值对`icon`：`str`型，用于为对应元素添加*前缀图标*，同`AntdIcon`中所有可用的`icon`参数
-  - 键值对`danger`：`bool`型，用于设置是否以*危险状态*显示当前元素（**注意**，此参数仅`Item`可用）
-  - 键值对`href`：`str`型，可选，用于为`Item`节点设置跳转链接url地址
-  - 键值对`target`：`str`型，可选，配合`href`，用于为`Item`节点设置跳转行为，如`'_blank'`
+**className：** *string*型
 
-- 键值对`children`：`list`型，**注意**，此参数仅`SubMenu`和`ItemGroup`可用，用于传入内部嵌套的其它元素
+　　用于设置*当前组件的css类名*
 
-　　用户可以在上述参数结构体系下自由组合出需要的复杂导航菜单结构，下面是一个示例：
+**menuItems：** `list[dict]`型
 
-```py
+　　用于*定义导航菜单结构*，列表中每个字典用于定义导航菜单中的对应元素，可用的键值对参数有：
+
+- **component：** *string*型，用于*定义当前元素的角色*，可选的有`'Item'`（菜单项，用户可点击选中，应作为整个菜单结构的末端节点）、`'SubMenu'`（子菜单，用于嵌套下一层元素，用户可点击进行展开/关闭）、`'ItemGroup'`（菜单项分组，用于分组直接展示内部嵌套的元素，类似`AntdSelect`中对选项分组后的效果）、`'Divider'`（水平分割线）
+
+- **props：** *dict*型，用于*设置当前元素的其他参数*，其中：
+- **key：** *str*型，用于*设置当前元素的唯一id*
+  - **title：** *str*型，用于*设置当前元素的标题内容*
+  - **disabled：** *bool*型，默认为`False`，用于*设置是否禁用当前元素*
+  - **icon：** *str*型，用于*为当前元素添加前缀图标*，同`AntdIcon`中的`icon`参数
+  - **danger：** *bool*型，默认为`False`，用于*设置是否以危险状态显示当前元素*，此参数仅`Item`可用
+  - **href：** *str*型，用于*为当前节点设置跳转链接url*，此参数仅`Item`可用
+  - **target：** *str*型，用于*为当前节点设置跳转行为*，此参数仅`Item`可用
+  - **dashed：** *bool*型，默认为`False`，用于*设置当前水平分割线元素是否为虚线*，此参数仅`Divider`可用
+  
+- **children：** `list[dict]`型，用于*传入内部嵌套的其它元素*，此参数仅`SubMenu`和`ItemGroup`可用
+
+　　用户可以在上述参数结构体系下自由配置任意的导航菜单结构，下面是一个示例：
+
+```python
 menuItems = [
     {
         'component': 'Item',
@@ -89,28 +101,36 @@ menuItems = [
 
 **mode：** *str*型，默认为`'vertical'` 
 
-　　用于设置导航菜单*整体显示模式*，`'vertical'`表示垂直显示模式，`'inline'`表示垂直内嵌显示模式，`'horizontal'`表示水平显示模式
+　　用于*设置导航菜单显示模式*，可选的有`'vertical'`（垂直模式）、`'inline'`（内嵌模式）、`'horizontal'`（水平模式）
 
 **theme：** *str*型，默认为`'light'`
 
-　　用于设置整体色彩风格模式，`'light'`表示浅色模式，`'dark'`表示暗色模式
-
-**defaultOpenKeys：** *list*型
-
-　　针对导航菜单中的`SubMenu`元素，设置页面初始化状态下哪些`key`值对应的`SubMenu`会*默认展开*
-
-**defaultSelectedKey：** *str*型
-
-　　针对导航菜单中的`Item`元素，设置页面初始化状态下哪一个`key`值对应的`Item`会默认被选中
-
-**renderCollapsedButton：** *bool*型，默认为`False`
-
-　　用于设置是否渲染动态折叠导航菜单的交互按钮
+　　用于*设置整体色彩风格模式*，可选的有`'light'`（浅色模式）、`'dark'`（暗色模式）
 
 **currentKey：** *str*型
 
-　　用于在回调中捕获当前*被选中*的`Item`元素对应的`key`值
+　　用于*监听或设置被选中的`Item`元素的`key`*值
 
-**openKeys：** *str*型
+**defaultSelectedKey：** *str*型
 
-　　用于在回调中捕获当前*被展开*的`SubMenu`元素对应的`key`值列表
+　　用于*设置初始化时被选中的`Item`元素的`key`*值
+
+**openKeys：** *list*型
+
+　　用于*监听或设置当前菜单中处于展开状态的`SubMenu`元素的`key`值列表*
+
+**defaultOpenKeys：** *list*型
+
+　　用于*设置初始化时当前菜单中处于展开状态的`SubMenu`元素的`key`值列表*
+
+**renderCollapsedButton：** *bool*型，默认为`False`
+
+　　用于*设置是否渲染菜单自带的折叠/展开触发按钮*
+
+**popupContainer：** *string*型，默认为`'body'`
+
+　　用于*为当前组件涉及的悬浮层元素设置参考容器类型*，可选的有`'body'`（以页面根节点为参考）和`'parent'`（以当前元素的父容器为参考），当组件位于局部滚动容器内时，通过设置`popupContainer='parent'`可以解决悬浮层滚动不跟随的问题
+
+**inlineCollapsed：** *bool*型，默认为`False`
+
+　　用于*设置当前菜单是否处于折叠状态*，进`mode='inline'`时有效

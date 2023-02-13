@@ -1,62 +1,41 @@
 from dash import html
 import feffery_antd_components as fac
-import feffery_utils_components as fuc
 import feffery_markdown_components as fmc
+
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdSpace(children, id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdSpace.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '布局'
+                        },
+                        {
+                            'title': 'AntdSpace 排列'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　用于快捷对一组元素进行水平或竖直方向上的规整排列。')
+                    ]
                 ),
 
                 html.Div(
                     [
-
                         fac.AntdDivider('默认水平方向', innerTextOrientation='left'),
 
                         fac.AntdSpace(
@@ -123,18 +102,19 @@ docs_content = html.Div(
                         fac.AntdParagraph(
                             [
                                 fac.AntdText('　　AntdSpace', strong=True),
-                                fac.AntdText('可以视作页面元素排列的快捷方式，可以解决简单的多个组件水平方向或竖直方向上单一的等间距排列需求'
-                                             '更复杂的网格排列需求请移步'),
+                                fac.AntdText(
+                                    '可以视作页面元素排列的快捷方式，用于解决基础的多个组件水平方向或竖直方向上单一的等间距排列需求，更复杂的网格排列布局需求请前往'),
                                 fac.AntdText('AntdRow/AntdCol', strong=True),
                                 fac.AntdText('进行进一步学习')
                             ]
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdDivider('默认水平方向', innerTextOrientation='left'),
 
@@ -191,7 +171,9 @@ fac.AntdSpace(
         )
     ],
     direction='vertical'
-)'''
+)
+
+'''
                             ),
                             title='点击查看代码',
                             is_open=False,
@@ -209,8 +191,8 @@ fac.AntdSpace(
 
                 html.Div(
                     [
-
-                        fac.AntdDivider('start对齐方式', innerTextOrientation='left'),
+                        fac.AntdDivider(
+                            'start对齐方式', innerTextOrientation='left'),
 
                         fac.AntdParagraph('水平方向：', strong=True),
 
@@ -279,7 +261,8 @@ fac.AntdSpace(
                             }
                         ),
 
-                        fac.AntdDivider('end对齐方式', innerTextOrientation='left'),
+                        fac.AntdDivider(
+                            'end对齐方式', innerTextOrientation='left'),
 
                         fac.AntdParagraph('水平方向：', strong=True),
 
@@ -348,7 +331,8 @@ fac.AntdSpace(
                             }
                         ),
 
-                        fac.AntdDivider('center对齐方式', innerTextOrientation='left'),
+                        fac.AntdDivider(
+                            'center对齐方式', innerTextOrientation='left'),
 
                         fac.AntdParagraph('水平方向：', strong=True),
 
@@ -417,7 +401,8 @@ fac.AntdSpace(
                             }
                         ),
 
-                        fac.AntdDivider('baseline对齐方式', innerTextOrientation='left'),
+                        fac.AntdDivider(
+                            'baseline对齐方式', innerTextOrientation='left'),
 
                         fac.AntdParagraph('水平方向：', strong=True),
 
@@ -493,10 +478,11 @@ fac.AntdSpace(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdDivider('start对齐方式', innerTextOrientation='left'),
 
@@ -772,7 +758,9 @@ fac.AntdSpace(
         'backgroundColor': 'rgba(241, 241, 241, 0.6)',
         'padding': '10px'
     }
-)'''
+)
+
+'''
                             ),
                             title='点击查看代码',
                             is_open=False,
@@ -790,7 +778,10 @@ fac.AntdSpace(
 
                 html.Div(
                     [
-                        fac.AntdDivider('size="middle"', innerTextOrientation='left'),
+                        fac.AntdDivider(
+                            'size="middle"',
+                            innerTextOrientation='left'
+                        ),
                         fac.AntdSpace(
                             [
                                 html.Div(
@@ -821,7 +812,10 @@ fac.AntdSpace(
                                 'padding': '10px'
                             }
                         ),
-                        fac.AntdDivider('size="large"', innerTextOrientation='left'),
+                        fac.AntdDivider(
+                            'size="large"',
+                            innerTextOrientation='left'
+                        ),
                         fac.AntdSpace(
                             [
                                 html.Div(
@@ -852,8 +846,10 @@ fac.AntdSpace(
                                 'padding': '10px'
                             }
                         ),
-
-                        fac.AntdDivider('size=50', innerTextOrientation='left'),
+                        fac.AntdDivider(
+                            'size=50',
+                            innerTextOrientation='left'
+                        ),
                         fac.AntdSpace(
                             [
                                 html.Div(
@@ -892,12 +888,16 @@ fac.AntdSpace(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdDivider('size="middle"', innerTextOrientation='left'),
+fac.AntdDivider(
+    'size="middle"',
+    innerTextOrientation='left'
+),
 fac.AntdSpace(
     [
         html.Div(
@@ -928,7 +928,10 @@ fac.AntdSpace(
         'padding': '10px'
     }
 ),
-fac.AntdDivider('size="large"', innerTextOrientation='left'),
+fac.AntdDivider(
+    'size="large"',
+    innerTextOrientation='left'
+),
 fac.AntdSpace(
     [
         html.Div(
@@ -959,8 +962,10 @@ fac.AntdSpace(
         'padding': '10px'
     }
 ),
-
-fac.AntdDivider('size=50', innerTextOrientation='left'),
+fac.AntdDivider(
+    'size=50',
+    innerTextOrientation='left'
+),
 fac.AntdSpace(
     [
         html.Div(
@@ -990,7 +995,9 @@ fac.AntdSpace(
         'backgroundColor': 'rgba(241, 241, 241, 0.6)',
         'padding': '10px'
     }
-)'''
+)
+
+'''
                             ),
                             title='点击查看代码',
                             is_open=False,
@@ -1021,16 +1028,17 @@ fac.AntdSpace(
                         ),
 
                         fac.AntdDivider(
-                            '添加分隔线',
+                            '添加分割线',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdSpace(
     [
@@ -1042,7 +1050,9 @@ fac.AntdSpace(
     style={
         'padding': '10px'
     }
-)'''
+)
+
+'''
                             ),
                             title='点击查看代码',
                             is_open=False,
@@ -1054,37 +1064,35 @@ fac.AntdSpace(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='添加分隔线',
+                    id='添加分割线',
                     className='div-highlight'
                 ),
 
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '基础使用', 'href': '#基础使用'},
-                            {'title': '不同的对齐方式', 'href': '#不同的对齐方式'},
-                            {'title': '调节间隔尺寸', 'href': '#调节间隔尺寸'},
-                            {'title': '添加分隔线', 'href': '#添加分隔线'},
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '不同的对齐方式', 'href': '#不同的对齐方式'},
+                    {'title': '调节间隔尺寸', 'href': '#调节间隔尺寸'},
+                    {'title': '添加分割线', 'href': '#添加分割线'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'margin': '20px'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdSpace'
         )
     ],
     style={

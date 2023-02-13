@@ -3,7 +3,6 @@ from dash.dependencies import Input, Output, State
 
 from server import app
 
-
 @app.callback(
     Output('steps-demo', 'current'),
     [Input('steps-demo-go-next', 'nClicks'),
