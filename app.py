@@ -80,17 +80,25 @@ app.layout = fuc.FefferyTopProgress(
             fac.AntdAlert(
                 message=[
                     fac.AntdText(
-                        '当前文档对应fac 0.2.0开发预览版本，推荐安装方式：'
+                        '当前文档对应fac 0.2.0的最新预发布版本，安装方式：'
                     ),
                     fac.AntdText(
-                        'pip uninstall feffery-antd-components -y && pip install git+https://github.com/CNFeffery/feffery-antd-components.git@dev0.2.0',
-                        copyable=True
+                        'pip install feffery-antd-components=={}'.format(
+                            fac.__version__
+                        ),
+                        copyable=True,
+                        strong=True
+                    ),
+                    '或',
+                    fac.AntdText(
+                        'pip install feffery-antd-components -U --pre',
+                        copyable=True,
+                        strong=True
                     )
                 ],
                 type='info',
                 showIcon=True,
                 closable=True,
-                messageRenderMode='marquee',
                 style={
                     'position': 'fixed',
                     'top': 0,
@@ -315,18 +323,18 @@ app.layout = fuc.FefferyTopProgress(
                                                 target='_blank',
                                                 className='more-components-link'
                                             ),
-                                            html.A(
-                                                'fact: 图表可视化组件库',
-                                                href='https://fact.feffery.tech/',
-                                                target='_blank',
-                                                className='more-components-link'
-                                            ),
-                                            html.A(
-                                                'flc: 交互式地图组件库',
-                                                href='https://flc.feffery.tech/',
-                                                target='_blank',
-                                                className='more-components-link'
-                                            ),
+                                            # html.A(
+                                            #     'fact: 图表可视化组件库',
+                                            #     href='https://fact.feffery.tech/',
+                                            #     target='_blank',
+                                            #     className='more-components-link'
+                                            # ),
+                                            # html.A(
+                                            #     'flc: 交互式地图组件库',
+                                            #     href='https://flc.feffery.tech/',
+                                            #     target='_blank',
+                                            #     className='more-components-link'
+                                            # ),
                                         ],
                                         direction='vertical',
                                         style={
