@@ -77,6 +77,30 @@ app.layout = fuc.FefferyTopProgress(
                 }
             ),
 
+            fac.AntdAlert(
+                message=[
+                    fac.AntdText(
+                        '当前文档对应fac 0.2.0开发预览版本，推荐安装方式：'
+                    ),
+                    fac.AntdText(
+                        'pip uninstall feffery-antd-components -y && pip install git+https://github.com/CNFeffery/feffery-antd-components.git@dev0.2.0',
+                        copyable=True
+                    )
+                ],
+                type='info',
+                showIcon=True,
+                closable=True,
+                messageRenderMode='marquee',
+                style={
+                    'position': 'fixed',
+                    'top': 0,
+                    'width': '100%',
+                    'zIndex': 999999,
+                    'height': 64,
+                    'fontSize': 15
+                }
+            ),
+
             # 页面结构
             fac.AntdRow(
                 [
