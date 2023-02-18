@@ -96,7 +96,7 @@ app.layout = fuc.FefferyTopProgress(
                         strong=True
                     )
                 ],
-                type='info',
+                type='warning',
                 showIcon=True,
                 closable=True,
                 style={

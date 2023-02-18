@@ -687,7 +687,8 @@ def button_debounce_click_demo(nClicks):
                                 fac.AntdText(
                                     id='button-auto-loading-demo-output'
                                 )
-                            ]
+                            ],
+                            align='center'
                         ),
 
                         fac.AntdDivider(
@@ -727,7 +728,8 @@ fac.AntdSpace(
         fac.AntdText(
             id='button-auto-loading-demo-output'
         )
-    ]
+    ],
+    align='center'
 )
 
 ...

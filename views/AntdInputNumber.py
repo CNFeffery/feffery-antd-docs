@@ -239,7 +239,7 @@ fac.AntdSpace(
                         ),
 
                         fac.AntdDivider(
-                            '添加内嵌前后缀元素',
+                            '添加内嵌前缀元素',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
@@ -271,7 +271,7 @@ fac.AntdInputNumber(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='添加内嵌前后缀元素',
+                    id='添加内嵌前缀元素',
                     className='div-highlight'
                 ),
 
@@ -783,7 +783,7 @@ def input_number_debounce_demo(debounceValue):
                 linkDict=[
                     {'title': '基础使用', 'href': '#基础使用'},
                     {'title': '添加前后置额外元素', 'href': '#添加前后置额外元素'},
-                    {'title': '添加内嵌前后缀元素', 'href': '#添加内嵌前后缀元素'},
+                    {'title': '添加内嵌前缀元素', 'href': '#添加内嵌前缀元素'},
                     {'title': '限制上下限', 'href': '#限制上下限'},
                     {'title': '设置指定步长', 'href': '#设置指定步长'},
                     {'title': '设置指定精度', 'href': '#设置指定精度'},

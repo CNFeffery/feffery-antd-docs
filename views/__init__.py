@@ -29,5 +29,13 @@ from . import (
     AntdFormItem,
     AntdForm,
     AntdInput,
-    AntdInputNumber
+    AntdInputNumber,
+    AntdSegmentedColoring,
+    AntdMentions,
+    AntdRadioGroup,
+    AntdRate,
+    AntdSelect,
+    AntdUpload,
+    AntdDraggerUpload,
+    AntdPictureUpload
 )

@@ -1,4 +1,7 @@
 class Config:
+
+    caches_path = 'caches'
+
     # 顶端进度条需要纳入的监听目标
     include_props = [
         'docs-content.children'
@@ -390,6 +393,7 @@ class Config:
                             'component': 'Item',
                             'props': {
                                 'key': '/AntdSegmentedColoring',
+                                'name': '/AntdSegmentedColoring',
                                 'title': 'AntdSegmentedColoring 分段着色',
                                 'href': '/AntdSegmentedColoring'
                             }
@@ -398,6 +402,7 @@ class Config:
                             'component': 'Item',
                             'props': {
                                 'key': '/AntdMentions',
+                                'name': '/AntdMentions',
                                 'title': 'AntdMentions 提及',
                                 'href': '/AntdMentions'
                             }
@@ -406,6 +411,7 @@ class Config:
                             'component': 'Item',
                             'props': {
                                 'key': '/AntdRadioGroup',
+                                'name': '/AntdRadioGroup',
                                 'title': 'AntdRadioGroup 单选框',
                                 'href': '/AntdRadioGroup'
                             }
@@ -414,6 +420,7 @@ class Config:
                             'component': 'Item',
                             'props': {
                                 'key': '/AntdRate',
+                                'name': '/AntdRate',
                                 'title': 'AntdRate 评分',
                                 'href': '/AntdRate'
                             }
@@ -422,6 +429,7 @@ class Config:
                             'component': 'Item',
                             'props': {
                                 'key': '/AntdSelect',
+                                'name': '/AntdSelect',
                                 'title': 'AntdSelect 下拉选择',
                                 'href': '/AntdSelect'
                             }
@@ -430,6 +438,7 @@ class Config:
                             'component': 'Item',
                             'props': {
                                 'key': '/AntdSlider',
+                                'name': '/AntdSlider',
                                 'title': 'AntdSlider 滑动输入条',
                                 'href': '/AntdSlider'
                             }
@@ -485,6 +494,7 @@ class Config:
                                     'component': 'Item',
                                     'props': {
                                         'key': '/AntdUpload',
+                                        'name': '/AntdUpload',
                                         'title': 'AntdUpload 上传',
                                         'href': '/AntdUpload'
                                     }
@@ -493,6 +503,7 @@ class Config:
                                     'component': 'Item',
                                     'props': {
                                         'key': '/AntdDraggerUpload',
+                                        'name': '/AntdDraggerUpload',
                                         'title': 'AntdDraggerUpload 拖拽上传',
                                         'href': '/AntdDraggerUpload'
                                     }
@@ -501,6 +512,7 @@ class Config:
                                     'component': 'Item',
                                     'props': {
                                         'key': '/AntdPictureUpload',
+                                        'name': '/AntdPictureUpload',
                                         'title': 'AntdPictureUpload 图片上传',
                                         'href': '/AntdPictureUpload'
                                     }
@@ -1131,6 +1143,14 @@ class Config:
         '/AntdForm': ['数据录入', '数据录入/表单'],
         '/AntdInput': ['数据录入'],
         '/AntdInputNumber': ['数据录入'],
+        '/AntdSegmentedColoring': ['数据录入'],
+        '/AntdMentions': ['数据录入'],
+        '/AntdRadioGroup': ['数据录入'],
+        '/AntdRate': ['数据录入'],
+        '/AntdSelect': ['数据录入'],
+        '/AntdUpload': ['数据录入', '数据录入/文件上传'],
+        '/AntdDraggerUpload': ['数据录入', '数据录入/文件上传'],
+        '/AntdPictureUpload': ['数据录入', '数据录入/文件上传'],
     }
 
     # 注入侧边菜单栏默认展开子菜单
