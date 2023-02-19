@@ -195,6 +195,114 @@ fac.AntdPictureUpload(
 
                 html.Div(
                     [
+                        fac.AntdForm(
+                            [
+                                fac.AntdFormItem(
+                                    fac.AntdSwitch(
+                                        id='show-remove-icon',
+                                        checked=True
+                                    ),
+                                    label='showRemoveIcon'
+                                ),
+                                fac.AntdFormItem(
+                                    fac.AntdSwitch(
+                                        id='show-preview-icon',
+                                        checked=True
+                                    ),
+                                    label='showPreviewIcon'
+                                )
+                            ]
+                        ),
+                        fac.AntdPictureUpload(
+                            id='picture-upload-icon-hide-demo',
+                            apiUrl='/upload/',
+                            fileMaxSize=1,
+                            buttonContent='点击上传图片',
+                            defaultFileList=[
+                                {
+                                    'name': 'feffery-添加好友二维码.jpg',
+                                    'status': 'done',
+                                    'url': '/assets/imgs/feffery-添加好友二维码.jpg'
+                                }
+                                for i in range(1, 6)
+                            ]
+                        ),
+
+                        fac.AntdDivider(
+                            '控制预览及删除图标的显隐',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdForm(
+    [
+        fac.AntdFormItem(
+            fac.AntdSwitch(
+                id='show-remove-icon',
+                checked=True
+            ),
+            label='showRemoveIcon'
+        ),
+        fac.AntdFormItem(
+            fac.AntdSwitch(
+                id='show-preview-icon',
+                checked=True
+            ),
+            label='showPreviewIcon'
+        )
+    ]
+),
+fac.AntdPictureUpload(
+    id='picture-upload-icon-hide-demo',
+    apiUrl='/upload/',
+    fileMaxSize=1,
+    buttonContent='点击上传图片',
+    defaultFileList=[
+        {
+            'name': 'feffery-添加好友二维码.jpg',
+            'status': 'done',
+            'url': '/assets/imgs/feffery-添加好友二维码.jpg'
+        }
+        for i in range(1, 6)
+    ]
+)
+
+...
+
+@app.callback(
+    [Output('picture-upload-icon-hide-demo', 'showRemoveIcon'),
+     Output('picture-upload-icon-hide-demo', 'showPreviewIcon')],
+    [Input('show-remove-icon', 'checked'),
+     Input('show-preview-icon', 'checked')]
+)
+def picture_upload_icon_hide_demo(showRemoveIcon, showPreviewIcon):
+
+    return showRemoveIcon, showPreviewIcon
+'''
+                            ),
+                            title='点击查看代码',
+                            is_open=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='控制预览及删除图标的显隐',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
                         fac.AntdPictureUpload(
                             id='picture-upload-demo',
                             apiUrl='/upload/',
@@ -283,6 +391,7 @@ def picture_upload_callback_demo(lastUploadTaskRecord, listUploadTaskRecord):
                     {'title': '基础使用', 'href': '#基础使用'},
                     {'title': '图片编辑功能', 'href': '#图片编辑功能'},
                     {'title': '为删除操作添加二次确认', 'href': '#为删除操作添加二次确认'},
+                    {'title': '控制预览及删除图标的显隐', 'href': '#控制预览及删除图标的显隐'},
                     {'title': '禁用状态', 'href': '#禁用状态'},
                     {'title': '回调示例', 'href': '#回调示例'},
                 ],
