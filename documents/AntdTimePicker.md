@@ -16,19 +16,27 @@
 
 **format：** *string*型
 
-　　用于*设置当前日期选择框的日期解析格式*，具体见[参考资料](https://momentjscom.readthedocs.io/en/latest/moment/04-displaying/01-format/)
-　　
-**picker：** *string*型，默认为`'date'`
-
-　　用于*设置日期选择的粒度*，可选的有`'date'`、`'week'`、`'month'`、`'quarter'`、`'year'`
+　　用于*设置当前时间选择框的日期解析格式*，具体见[参考资料](https://momentjscom.readthedocs.io/en/latest/moment/04-displaying/01-format/)
 
 **disabled：** *bool*型，默认为`False`
 
 　　用于*设置是否禁用当前组件*
 
-**showTime：** *bool*型，默认为`False`
+**hourStep：** *int*型，默认为`1`
 
-　　用于*设置是否开启额外的时间选择功能*
+　　用于*设置小时选择部分的选项间隔*
+
+**minuteStep：** *int*型，默认为`1`
+
+　　用于*设置分钟选择部分的选项间隔*
+
+**secondStep：** *int*型，默认为`1`
+
+　　用于*设置秒选择部分的选项间隔*
+
+**use12Hours：** *bool*型，默认为`False`
+
+　　用于*设置是否使用12小时制*
 
 **size：** *string*型，默认为`'middle'`
 
@@ -53,18 +61,6 @@
 **defaultValue：** *string*型
 
 　　用于*监听或设置初始化时的已选中值*
-
-**defaultPickerValue：** *string*型
-
-　　用于*设置初始化时日期选择面板停留的日期位置*
-
-**disabledDatesStrategy：** `list[dict]`型
-
-　　用于*自定义日期禁用策略*，每个字典代表单条策略，满足至少一条策略的日期将会被禁用，可用的键值对参数有：
-
-- **mode：** *str*型，用于*定义当前策略类型*，可选的有`'eq'`（等于）、`'ne'`（不等于）、`'le'`（小于等于）、`'lt'`（小于）、`'ge'`（大于等于）、`'gt'`（大于）、`'in'`（属于）、`'not in'`（不属于）、`'in-enumerate-dates'`（属于日期字符串枚举数组）、`'not-in-enumerate-dates'`（不属于日期字符串枚举数组）
-- **target：** *str*型，用于*定义当前策略约束目标*，可选的有`'day'`（按日）、`'month'`（按月份）、`'quarter'`（按季度）、`'year'`（按年）、`'dayOfYear'`（按当年第n天）、`'dayOfWeek'`（按本周第n天）、`'specific-date'`（具体日期）
-- **value：** *int*、*string*、`list[int]`或`list[str]`型，用于*为当前约束策略定义对应的约束值*，带有`'in'`的策略需要接受列表类型输入
 
 **status：** *string*型
 

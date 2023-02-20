@@ -35,6 +35,12 @@ from . import (
     AntdRadioGroup,
     AntdRate,
     AntdSelect,
+    AntdSlider,
+    AntdSwitch,
+    AntdTimePicker,
+    AntdTimeRangePicker,
+    AntdTransfer,
+    AntdTreeSelect,
     AntdUpload,
     AntdDraggerUpload,
     AntdPictureUpload

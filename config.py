@@ -447,6 +447,7 @@ class Config:
                             'component': 'Item',
                             'props': {
                                 'key': '/AntdSwitch',
+                                'name': '/AntdSwitch',
                                 'title': 'AntdSwitch 开关',
                                 'href': '/AntdSwitch'
                             }
@@ -455,6 +456,7 @@ class Config:
                             'component': 'Item',
                             'props': {
                                 'key': '/AntdTimePicker',
+                                'name': '/AntdTimePicker',
                                 'title': 'AntdTimePicker 时间选择框',
                                 'href': '/AntdTimePicker'
                             }
@@ -463,6 +465,7 @@ class Config:
                             'component': 'Item',
                             'props': {
                                 'key': '/AntdTimeRangePicker',
+                                'name': '/AntdTimeRangePicker',
                                 'title': 'AntdTimeRangePicker 时间范围选择框',
                                 'href': '/AntdTimeRangePicker'
                             }
@@ -471,6 +474,7 @@ class Config:
                             'component': 'Item',
                             'props': {
                                 'key': '/AntdTransfer',
+                                'name': '/AntdTransfer',
                                 'title': 'AntdTransfer 穿梭框',
                                 'href': '/AntdTransfer'
                             }
@@ -479,6 +483,7 @@ class Config:
                             'component': 'Item',
                             'props': {
                                 'key': '/AntdTreeSelect',
+                                'name': '/AntdTreeSelect',
                                 'title': 'AntdTreeSelect 树选择',
                                 'href': '/AntdTreeSelect'
                             }
@@ -1148,6 +1153,12 @@ class Config:
         '/AntdRadioGroup': ['数据录入'],
         '/AntdRate': ['数据录入'],
         '/AntdSelect': ['数据录入'],
+        '/AntdSlider': ['数据录入'],
+        '/AntdSwitch': ['数据录入'],
+        '/AntdTimePicker': ['数据录入'],
+        '/AntdTimeRangePicker': ['数据录入'],
+        '/AntdTransfer': ['数据录入'],
+        '/AntdTreeSelect': ['数据录入'],
         '/AntdUpload': ['数据录入', '数据录入/文件上传'],
         '/AntdDraggerUpload': ['数据录入', '数据录入/文件上传'],
         '/AntdPictureUpload': ['数据录入', '数据录入/文件上传'],

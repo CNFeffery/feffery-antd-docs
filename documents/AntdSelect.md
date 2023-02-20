@@ -73,7 +73,7 @@
 
 　　用于*设置多选模式下选择框内展示的已选项最大数量*，亦可设置为`'responsive'`开启响应式模式进行自适应调整
 
-**status：** *str型*
+**status：** *string*型
 
 　　用于*强制设置组件的状态*，可选的有`'error'`和`'warning'`
 
@@ -89,7 +89,7 @@
 
 　　用于*防抖监听当前已输入的搜索内容*
 
-**debounceWait：** *int*型，默认为`0`
+**debounceWait：** *int*型，默认为`200`
 
 　　用于*设置针对debounceSearchValue更新的防抖延时时长*，单位：毫秒
 

@@ -78,7 +78,7 @@
 
 　　使用`debounceValue`代替`value`配合有效的防抖延时设置，以实现有效的回调防抖效果
 
-**debounceWait：** *int*型，默认为`0`
+**debounceWait：** *int*型，默认为`200`
 
 　　用于*为debounceValue的监听更新设置防抖延时时长*，单位：毫秒
 
@@ -86,7 +86,7 @@
 
 　　用于*监听光标在输入框内时键盘enter键被按下的次数*
 
-**status：** *str型*
+**status：** *string*型
 
 　　用于*强制设置组件的状态*，可选的有`'error'`和`'warning'`
 

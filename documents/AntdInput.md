@@ -54,7 +54,7 @@
 
 　　用于*设置密码输入框模式下是否开启md5加密*
 
-**debounceWait：** *int*型，默认为`0`
+**debounceWait：** *int*型，默认为`200`
 
 　　用于*为debounceValue的监听更新设置防抖延时时长*，单位：毫秒
 
@@ -97,7 +97,7 @@
 
 　　用于*监听搜索输入框模式下搜索按钮被点按次数*
 
-**status：** *str型*
+**status：** *string*型
 
 　　用于*强制设置组件的状态*，可选的有`'error'`和`'warning'`
 

@@ -1,0 +1,68 @@
+**id：** *string*型
+
+　　用于设置*当前组件的唯一id信息*
+
+**style：** *dict*型
+
+　　用于设置*当前组件的css样式*
+
+**className：** *string*型
+
+　　用于设置*当前组件的css类名*
+
+**locale：** *string*型，默认为`'zh-cn'`
+
+　　用于*为当前组件的功能文案设置语言*，可选的有`'zh-cn'`（简体中文）、`'en-us'`（英文）
+
+**dataSource：** `list[dict]`型
+
+　　用于*定义穿梭框中的各个选项*，每个字典可用的键值对参数有：
+
+- **key：** *string*或*int*型，用于*设置当前选项的唯一标识id*
+- **title：** *组件型*，用于*设置当前选项的标题内容*
+
+**height：** *string*型
+
+　　用于*设置当前穿梭框的高度*，接受`css`中合法的`height`输入值
+
+**pagination：** *bool*或*dict*型，默认为`False`
+
+　　用于*为穿梭框中的选项显示配置翻页功能*，当传入*dict*型时，可用的键值对参数有：
+
+- **pageSize：** *int*型，用于*设置每页记录数*
+
+**operations：** `list[string]`型，默认为`['', '']`
+
+　　用于*分别设置左右移项操作按钮的文本内容*
+
+**showSearch：** *bool*型，默认为`False`
+
+　　用于*设置是否渲染搜索框*
+
+**showSelectAll：** *bool*型，默认为`True`
+
+　　用于*设置是否渲染全选框*
+
+**titles：** `list[组件]`型
+
+　　用于*分别设置左右两边的穿梭框标题内容*
+
+**targetKeys：** *list*型
+
+　　用于*设置或监听处于穿梭框右侧区域内的选项key值*
+
+**moveDirection：** *string*型
+
+　　用于*监听最近一次移项操作对应的方向*，有`'left'`、`'right'`两种情况
+
+**moveKeys：** *list*型
+
+　　用于*监听最近一次移项操作涉及的选项key值*
+
+**disabled：** *bool*型，默认为`False`
+
+　　用于*设置是否禁用当前组件*
+
+**status：** *string*型
+
+　　用于*强制设置组件的状态*，可选的有`'error'`和`'warning'`

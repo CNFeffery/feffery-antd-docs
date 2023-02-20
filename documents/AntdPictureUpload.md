@@ -209,6 +209,6 @@ def upload_file(uploadId: str, file: UploadFile = File(...)):
 
 　　用于*设置是否禁用当前组件*
 
-**status：** *str型*
+**status：** *string*型
 
 　　用于*强制设置组件的状态*，可选的有`'error'`和`'warning'`

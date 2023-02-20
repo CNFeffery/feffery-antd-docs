@@ -66,7 +66,7 @@
 - **target：** *str*型，用于*定义当前策略约束目标*，可选的有`'day'`（按日）、`'month'`（按月份）、`'quarter'`（按季度）、`'year'`（按年）、`'dayOfYear'`（按当年第n天）、`'dayOfWeek'`（按本周第n天）、`'specific-date'`（具体日期）
 - **value：** *int*、*string*、`list[int]`或`list[str]`型，用于*为当前约束策略定义对应的约束值*，带有`'in'`的策略需要接受列表类型输入
 
-**status：** *str型*
+**status：** *string*型
 
 　　用于*强制设置组件的状态*，可选的有`'error'`和`'warning'`
 

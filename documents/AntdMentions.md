@@ -48,7 +48,7 @@
 
 　　用于*设置子项菜单的展开方向*，可选的有`'bottom'`、`'top'`
 
-**status：** *str型*
+**status：** *string*型
 
 　　用于*强制设置组件的状态*，可选的有`'error'`和`'warning'`
 
