@@ -79,7 +79,7 @@ fac.AntdBreadcrumb(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -149,7 +149,7 @@ fac.AntdBreadcrumb(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -244,7 +244,7 @@ fac.AntdBreadcrumb(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -354,7 +354,7 @@ fac.AntdBreadcrumb(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],

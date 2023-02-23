@@ -90,6 +90,6 @@
 
 　　用于*强制设置组件的状态*，可选的有`'error'`和`'warning'`
 
-**readOnly：** *bool*型，默认为`False`
+**readOnly：** *bool*型
 
 　　用于*设置是否以只读模式进行展示*

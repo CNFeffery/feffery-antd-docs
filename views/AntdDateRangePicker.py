@@ -64,7 +64,7 @@ fac.AntdDateRangePicker(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -132,7 +132,7 @@ fac.AntdSpace(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -198,7 +198,7 @@ fac.AntdSpace(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -338,7 +338,7 @@ fac.AntdSpace(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -392,7 +392,7 @@ fac.AntdDateRangePicker(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -432,7 +432,7 @@ fac.AntdDateRangePicker(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -496,7 +496,7 @@ fac.AntdSpace(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -574,7 +574,7 @@ fac.AntdSpace(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -1102,7 +1102,7 @@ fac.AntdDateRangePicker(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -1281,7 +1281,7 @@ def date_range_picker_demo3(value):
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],

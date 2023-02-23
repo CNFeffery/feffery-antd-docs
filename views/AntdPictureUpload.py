@@ -64,7 +64,7 @@ fac.AntdPictureUpload(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -120,7 +120,7 @@ fac.AntdPictureUpload(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -180,7 +180,7 @@ fac.AntdPictureUpload(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -288,7 +288,7 @@ def picture_upload_icon_hide_demo(showRemoveIcon, showPreviewIcon):
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -365,7 +365,7 @@ def picture_upload_callback_demo(lastUploadTaskRecord, listUploadTaskRecord):
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],

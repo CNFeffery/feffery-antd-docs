@@ -185,7 +185,7 @@ options = [
 
 　　用于*设置已选项的回填显示策略*，可选的有`'show-parent'`（当所有子节点都被选中时，只显示父节点）、`'show-child'`（只显示选中的子节点）
 
-**readOnly：** *bool*型，默认为`False`
+**readOnly：** *bool*型
 
 　　用于*设置是否以只读模式进行展示*
 

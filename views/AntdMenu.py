@@ -130,7 +130,7 @@ html.Div(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -422,7 +422,7 @@ html.Div(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -542,7 +542,7 @@ html.Div(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -653,7 +653,7 @@ html.Div(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -767,7 +767,7 @@ html.Div(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -884,7 +884,7 @@ html.Div(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -1018,7 +1018,7 @@ html.Div(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -1126,7 +1126,7 @@ fac.AntdMenu(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -1509,7 +1509,7 @@ app.clientside_callback(
 """
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -1647,7 +1647,7 @@ def menu_callback_demo(currentKey):
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],

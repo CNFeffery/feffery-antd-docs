@@ -72,7 +72,7 @@ fac.AntdCheckboxGroup(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -166,7 +166,7 @@ fac.AntdCheckboxGroup(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -236,7 +236,7 @@ def checkbox_group_demo1(value):
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -339,7 +339,7 @@ app.clientside_callback(
 """
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],

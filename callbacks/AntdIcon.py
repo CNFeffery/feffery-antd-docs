@@ -37,6 +37,7 @@ def icon_demo_render_callback(value):
                 style={
                     'display': 'flex',
                     'alignItems': 'center',
+                    'justifyContent': 'center',
                     'marginBottom': '5px'
                 }
             ),

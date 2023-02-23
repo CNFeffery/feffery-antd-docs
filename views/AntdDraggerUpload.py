@@ -66,7 +66,7 @@ fac.AntdDraggerUpload(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -112,7 +112,7 @@ fac.AntdDraggerUpload(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -158,7 +158,7 @@ fac.AntdDraggerUpload(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -204,7 +204,7 @@ fac.AntdDraggerUpload(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -250,7 +250,7 @@ fac.AntdDraggerUpload(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -296,7 +296,7 @@ fac.AntdDraggerUpload(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -356,7 +356,7 @@ fac.AntdDraggerUpload(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -402,7 +402,7 @@ fac.AntdDraggerUpload(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -521,7 +521,7 @@ def dragger_upload_callback_demo(lastUploadTaskRecord, listUploadTaskRecord):
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],

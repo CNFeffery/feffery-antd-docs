@@ -154,7 +154,7 @@ treeData =
 
 　　用于*在下拉菜单末尾添加额外的自定义内容*
 
-**readOnly：** *bool*型，默认为`False`
+**readOnly：** *bool*型
 
 　　用于*设置是否以只读模式进行展示*
 

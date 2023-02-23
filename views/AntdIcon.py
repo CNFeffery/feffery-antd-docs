@@ -190,7 +190,7 @@ def icon_demo_render_callback(value):
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -343,7 +343,7 @@ def icon_debounce_click_demo(nClicks):
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],

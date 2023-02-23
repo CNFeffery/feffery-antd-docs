@@ -182,7 +182,7 @@ docs_content = html.Div(
                         }
                     ),
                     title='微信扫码加我好友，备注【dash学习】',
-                    is_open=True,
+                    isOpen=True,
                     ghost=True
                 ),
 
@@ -213,7 +213,7 @@ docs_content = html.Div(
                         }
                     ),
                     title='扫码关注我的知识分享公众号【玩转dash】',
-                    is_open=True,
+                    isOpen=True,
                     ghost=True
                 ),
 
@@ -243,7 +243,7 @@ docs_content = html.Div(
                         }
                     ),
                     title='更多高级知识及案例欢迎加入知识星球【玩转dash】',
-                    is_open=True,
+                    isOpen=True,
                     ghost=True
                 ),
 

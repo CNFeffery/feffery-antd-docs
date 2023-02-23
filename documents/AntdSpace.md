@@ -14,7 +14,7 @@
 
 　　用于传入*嵌套的子元素*
 
-**align：** *string*型，默认为`'start'`
+**align：** *string*型
 
 　　用于*设置内部嵌套元素的对齐方式*，可选的有`'start'`、`'end'`、`'center'`、`'baseline'`
 

@@ -73,7 +73,7 @@ app.layout = fuc.FefferyTopProgress(
                     'position': 'fixed',
                     'right': '100px',
                     'bottom': '200px',
-                    'zIndex': 99999
+                    'zIndex': 999
                 }
             ),
 
