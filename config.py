@@ -732,13 +732,40 @@ class Config:
                             }
                         },
                         {
-                            'component': 'Item',
+                            'component': 'SubMenu',
                             'props': {
-                                'key': '/AntdTable',
-                                'name': '/AntdTable',
-                                'title': 'AntdTable 表格',
-                                'href': '/AntdTable'
-                            }
+                                'key': '数据展示/表格',
+                                'title': 'AntdTable 表格'
+                            },
+                            'children': [
+                                {
+                                    'component': 'Item',
+                                    'props': {
+                                        'key': '/AntdTable-basic',
+                                        'name': '/AntdTable-basic',
+                                        'title': '基础功能',
+                                        'href': '/AntdTable-basic'
+                                    }
+                                },
+                                {
+                                    'component': 'Item',
+                                    'props': {
+                                        'key': '/AntdTable-advanced',
+                                        'name': '/AntdTable-advanced',
+                                        'title': '进阶功能',
+                                        'href': '/AntdTable-advanced'
+                                    }
+                                },
+                                {
+                                    'component': 'Item',
+                                    'props': {
+                                        'key': '/AntdTable-rerender',
+                                        'name': '/AntdTable-rerender',
+                                        'title': '再渲染模式',
+                                        'href': '/AntdTable-rerender'
+                                    }
+                                }
+                            ]
                         },
                         {
                             'component': 'Item',
@@ -1207,6 +1234,9 @@ class Config:
         '/AntdSpoiler': ['数据展示'],
         '/AntdStatistic': ['数据展示'],
         '/AntdCountdown': ['数据展示'],
+        '/AntdTable-basic': ['数据展示', '数据展示/表格'],
+        '/AntdTable-advanced': ['数据展示', '数据展示/表格'],
+        '/AntdTable-rerender': ['数据展示', '数据展示/表格'],
     }
 
     # 注入侧边菜单栏默认展开子菜单

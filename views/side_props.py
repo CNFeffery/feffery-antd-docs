@@ -21,6 +21,7 @@ def render_side_props_layout(component_name: str):
                                     )
                                     .read()
                                 ),
+                                renderHtml=True,
                                 style={
                                     'padding': '60px 25px 25px 25px'
                                 }

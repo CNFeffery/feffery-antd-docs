@@ -6,6 +6,11 @@ import feffery_utils_components as fuc
 from dash.dependencies import Input, Output, State
 
 import views
+from views import (
+    table_basic,
+    table_advanced,
+    table_rerender
+)
 from config import Config
 from utils import generate_shortcut_panel_data
 from server import app, server
@@ -396,8 +401,47 @@ def render_docs_content(pathname):
     # 检查当前pathname是否在预设字典中
     if pathname in Config.key2open_keys.keys():
 
-        # TEMP
+        # 检查当前目标pathname中是否包含AntdTable
+        if 'AntdTable' in pathname:
+
+            if pathname == '/AntdTable-basic':
+
+                return [
+                    table_basic.docs_content,
+                    pathname,
+                    Config.key2open_keys[pathname],
+                    fuc.FefferyScroll(
+                        scrollTargetId=pathname,
+                        **router_menu_scroll_params
+                    )
+                ]
+
+            elif pathname == '/AntdTable-advanced':
+
+                return [
+                    table_advanced.docs_content,
+                    pathname,
+                    Config.key2open_keys[pathname],
+                    fuc.FefferyScroll(
+                        scrollTargetId=pathname,
+                        **router_menu_scroll_params
+                    )
+                ]
+
+            elif pathname == '/AntdTable-rerender':
+
+                return [
+                    table_rerender.docs_content,
+                    pathname,
+                    Config.key2open_keys[pathname],
+                    fuc.FefferyScroll(
+                        scrollTargetId=pathname,
+                        **router_menu_scroll_params
+                    )
+                ]
+
         try:
+
             return [
                 getattr(views, pathname[1:]).docs_content,
                 pathname,
@@ -407,23 +451,10 @@ def render_docs_content(pathname):
                     **router_menu_scroll_params
                 )
             ]
+
         except Exception as e:
-            return [
-                fac.AntdResult(
-                    status='500',
-                    title='出错了',
-                    subTitle=str(e),
-                    style={
-                        'height': 'calc(100vh - 65px)'
-                    }
-                ),
-                pathname,
-                Config.key2open_keys[pathname],
-                fuc.FefferyScroll(
-                    scrollTargetId=pathname,
-                    **router_menu_scroll_params
-                )
-            ]
+
+            pass
 
     return [
         fac.AntdResult(

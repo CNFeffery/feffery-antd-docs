@@ -22,7 +22,7 @@ docs_content = html.Div(
                             'title': '导航'
                         },
                         {
-                            'title': 'AntdDrodown 下拉菜单'
+                            'title': 'AntdDropdown 下拉菜单'
                         }
                     ]
                 ),
@@ -671,7 +671,7 @@ def dropdown_demo_callback(clickedKey, nClicks):
         ),
         # 侧边参数栏
         render_side_props_layout(
-            component_name='AntdButton'
+            component_name='AntdDropdown'
         )
     ],
     style={
