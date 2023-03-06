@@ -1,12 +1,12 @@
 ._dash-loading {
   color: transparent;
   position: fixed;
-  width: calc(320px * 0.6);
-  height: calc(240px * 0.6);
-  top: 50vh;
+  width: calc(95px * 1);
+  height: calc(87px * 1);
+  top: calc(50vh - 30px);
   left: 50vw;
   transform: translate(-50%, -50%);
-  background-image: url("/assets/imgs/loading3.gif");
+  background-image: url("/assets/imgs/loading1.gif");
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -30,6 +30,7 @@ div {
 
 .ant-anchor-wrapper {
   transform: translateY(8px) !important;
+  max-height: calc(100vh - 150px) !important;
 }
 
 .ant-back-top {

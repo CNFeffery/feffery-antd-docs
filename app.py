@@ -1,3 +1,5 @@
+import uuid
+import time
 import dash
 from dash import dcc, html
 from urllib.parse import unquote
@@ -9,6 +11,7 @@ import views
 from views import (
     table_basic,
     table_advanced,
+    table_server_side_mode,
     table_rerender
 )
 from config import Config
@@ -112,6 +115,29 @@ app.layout = fuc.FefferyTopProgress(
                     'height': 64,
                     'fontSize': 15
                 }
+            ),
+
+            # 注入内容区刷新辅助动画锚点
+            fac.AntdSpin(
+                html.Div(
+                    id='docs-content-spin-center',
+                    style={
+                        'position': 'fixed'  # 强制脱离文档流
+                    }
+                ),
+                indicator=fuc.FefferyExtraSpinner(
+                    type='guard',
+                    color='#1890ff',
+                    style={
+                        'position': 'fixed',
+                        'top': '50%',
+                        'left': '50%',
+                        'width': 100,
+                        'height': 100,
+                        'transform': 'translate(-50%, -50%)',
+                        'zIndex': 999
+                    }
+                )
             ),
 
             # 页面结构
@@ -379,9 +405,7 @@ app.layout = fuc.FefferyTopProgress(
 
 @app.callback(
     [Output('docs-content', 'children'),
-     Output('router-menu', 'currentKey'),
-     Output('router-menu', 'openKeys'),
-     Output('side-menu-scroll-to-current-key', 'children')],
+     Output('docs-content-spin-center', 'key')],
     Input('url', 'pathname')
 )
 def render_docs_content(pathname):
@@ -401,6 +425,9 @@ def render_docs_content(pathname):
     # 检查当前pathname是否在预设字典中
     if pathname in Config.key2open_keys.keys():
 
+        # 复杂内容渲染效果优化
+        time.sleep(0.5)
+
         # 检查当前目标pathname中是否包含AntdTable
         if 'AntdTable' in pathname:
 
@@ -408,48 +435,35 @@ def render_docs_content(pathname):
 
                 return [
                     table_basic.docs_content,
-                    pathname,
-                    Config.key2open_keys[pathname],
-                    fuc.FefferyScroll(
-                        scrollTargetId=pathname,
-                        **router_menu_scroll_params
-                    )
+                    str(uuid.uuid4())
                 ]
 
             elif pathname == '/AntdTable-advanced':
 
                 return [
                     table_advanced.docs_content,
-                    pathname,
-                    Config.key2open_keys[pathname],
-                    fuc.FefferyScroll(
-                        scrollTargetId=pathname,
-                        **router_menu_scroll_params
-                    )
+                    str(uuid.uuid4())
+                ]
+
+            elif pathname == '/AntdTable-server-side-mode':
+
+                return [
+                    table_server_side_mode.docs_content,
+                    str(uuid.uuid4())
                 ]
 
             elif pathname == '/AntdTable-rerender':
 
                 return [
                     table_rerender.docs_content,
-                    pathname,
-                    Config.key2open_keys[pathname],
-                    fuc.FefferyScroll(
-                        scrollTargetId=pathname,
-                        **router_menu_scroll_params
-                    )
+                    str(uuid.uuid4())
                 ]
 
         try:
 
             return [
                 getattr(views, pathname[1:]).docs_content,
-                pathname,
-                Config.key2open_keys[pathname],
-                fuc.FefferyScroll(
-                    scrollTargetId=pathname,
-                    **router_menu_scroll_params
-                )
+                str(uuid.uuid4())
             ]
 
         except Exception as e:
@@ -464,6 +478,43 @@ def render_docs_content(pathname):
                 'height': 'calc(100vh - 65px)'
             }
         ),
+        str(uuid.uuid4())
+    ]
+
+
+@app.callback(
+    [Output('router-menu', 'currentKey'),
+     Output('router-menu', 'openKeys'),
+     Output('side-menu-scroll-to-current-key', 'children')],
+    Input('url', 'pathname')
+)
+def handle_other_router_interaction(pathname):
+    '''
+    路由相关的交互效果优化
+    '''
+
+    # if pathname == '/what-is-fac' or pathname == '/':
+    #     pathname = '/what-is-fac'
+    #     return [
+    #         views.what_is_fac.docs_content,
+    #         pathname,
+    #         dash.no_update,
+    #         None
+    #     ]
+
+    # 检查当前pathname是否在预设字典中
+    if pathname in Config.key2open_keys.keys():
+
+        return [
+            pathname,
+            Config.key2open_keys[pathname],
+            fuc.FefferyScroll(
+                scrollTargetId=pathname,
+                **router_menu_scroll_params
+            )
+        ]
+
+    return [
         pathname,
         dash.no_update,
         None
@@ -472,12 +523,12 @@ def render_docs_content(pathname):
 
 @app.callback(
     Output('page-anchor-scroll-to-while-page-initial', 'children'),
-    Input('url', 'hash'),
-    State('page-anchor-scroll-to-while-page-initial', 'children')
+    Input('docs-content-spin-center', 'key'),
+    State('url', 'hash')
 )
-def page_anchor_scroll_to_while_page_initial(hash_, _):
+def page_anchor_scroll_to_while_page_initial(_, hash_):
 
-    if not _ and hash_:
+    if _ and hash_:
 
         return fuc.FefferyScroll(
             scrollTargetId=unquote(hash_)[1:],

@@ -24,7 +24,7 @@
 
 　　当`optionsMode='tree'`时，`options`参数需要符合树形解析模式，每个字典的可用键值对参数有：
 
-- **value：** *string*型，必填，用于*设置当前节点对应的值*
+- **value：** *string*、*int*或*float*型，必填，用于*设置当前节点对应的值*
 - **label：** *string*型，必填，用于*设置当前节点的标签内容*
 - **disabled：** *bool*型，默认为`False`，用于*设置是否禁用当前节点*
 - **children：** *list*型，用于*向下嵌套后代树形结构*
@@ -76,7 +76,7 @@ options = [
 
 　　当`optionsMode='flat'`时，`options`参数需要符合扁平解析模式，每个字典的可用键值对参数有：
 
-- **value：** *string*型，必填，用于*设置当前节点对应的值*
+- **value：** *string*、*int*或*float*，必填，用于*设置当前节点对应的值*
 - **label：** *string*型，必填，用于*设置当前节点的标签内容*
 - **disabled：** *bool*型，默认为`False`，用于*设置是否禁用当前节点*
 - **key：** *string*型，用于*唯一标识当前节点*，从而实现父节点与子节点间的关联

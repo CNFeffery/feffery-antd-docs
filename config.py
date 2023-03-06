@@ -759,6 +759,15 @@ class Config:
                                 {
                                     'component': 'Item',
                                     'props': {
+                                        'key': '/AntdTable-server-side-mode',
+                                        'name': '/AntdTable-server-side-mode',
+                                        'title': '服务端数据加载模式',
+                                        'href': '/AntdTable-server-side-mode'
+                                    }
+                                },
+                                {
+                                    'component': 'Item',
+                                    'props': {
                                         'key': '/AntdTable-rerender',
                                         'name': '/AntdTable-rerender',
                                         'title': '再渲染模式',
@@ -1236,6 +1245,7 @@ class Config:
         '/AntdCountdown': ['数据展示'],
         '/AntdTable-basic': ['数据展示', '数据展示/表格'],
         '/AntdTable-advanced': ['数据展示', '数据展示/表格'],
+        '/AntdTable-server-side-mode': ['数据展示', '数据展示/表格'],
         '/AntdTable-rerender': ['数据展示', '数据展示/表格'],
     }
 

@@ -19,7 +19,7 @@
 　　用于*构建下拉选择的选项结构*，每个字典的可用键值对参数有：
 
 - **label：** *组件型*，用于*设置当前选项的标签内容*
-- **value：** *string*型，用于*设置当前选项的值*
+- **value：** *string*、*int*或*float*型，用于*设置当前选项的值*
 - **disabled：** *bool*型，默认为`False`，用于*设置是否禁用当前选项*
 - **colors：** `list[string]`型，用于*在色带特殊渲染模式下定义当前选项的色彩值序列*
 - **group：** *string*型，用于*设置当前分组的标签内容*
@@ -61,11 +61,11 @@
 
 　　用于*设置下拉菜单的展开方向*，可选的有`'bottomLeft'`、`'bottomRight'`、`'topLeft'`及`'topRight'`
 
-**value：** *string*或*list*型
+**value：** *string*、*int*、*float*或*list*型
 
 　　用于*监听或设置当前已选中值*
 
-**defaultValue：** *string*或*list*型
+**defaultValue：** *string*、*int*、*float*或*list*型
 
 　　用于*监听或设置初始化时的已选中值*
 

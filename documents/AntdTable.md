@@ -14,10 +14,6 @@
 
 　　用于*为当前组件的功能文案设置语言*，可选的有`'zh-cn'`（简体中文）、`'en-us'`（英文）
 
-**containerId：** *string*型
-
-　　用于*为当前表格中的各种悬浮层元素设置参考容器id*，从而解决局部容器内已展开的悬浮层元素不跟随滑动等问题
-
 **columns：** `list[dict]`型
 
 　　用于*为当前表格定义要展示的字段及相关功能参数*，每个字典代表1个字段，可用的键值对参数有：
@@ -65,10 +61,9 @@
 - **ellipsis-copyable（长内容省略+可复制模式）：** *int*、*float*或*string*型
 
 - **tags（标签模式）：** *dict*或`list[dict]`型，单个*dict*表示单个标签，多个*dict*构成的列表表示多个标签，其中每个字典可用的键值对参数有：
-
-  - **color：** *string*型，用于*为当前标签设置背景色*
+- **color：** *string*型，用于*为当前标签设置背景色*
   - **tag：** *string*型，用于*为当前标签设置文字内容*
-
+  
 - **status-badge（状态徽标模式）：** *dict*型，可用的键值对参数有：
 
   - **status：** *string*型，用于*设置当前状态徽标的状态*，可选的有`'success'`、`'processing'`、`'default'`、`'error'`、`'warning'`
@@ -190,22 +185,6 @@
 
 　　用于*设置是否开启粘性表头功能*
 
-**enableHoverListen：** *bool*型，默认为`False`
-
-　　用于*设置是否开启行鼠标悬停事件监听*，此功能开启后会影响到多种再渲染模式的正常使用，请谨慎使用
-
-**recentlyMouseEnterColumnDataIndex：** *string*型
-
-　　当`enableHoverListen=True`时，用于*监听最近一次鼠标移入列事件对应字段的dataIndex信息*
-
-**recentlyMouseEnterRowKey：** *int*或*string*型
-
-　　当`enableHoverListen=True`时，用于*监听最近一次鼠标移入行事件对应的行记录key值*
-
-**recentlyMouseEnterRow：** *dict*型
-
-　　当`enableHoverListen=True`时，用于*监听最近一次鼠标移入事件对应的行记录字典*
-
 **titlePopoverInfo：** *dict*型
 
 　　用于*为各个字段配置字段名旁附带的气泡卡片提示信息*，键为相应字段的`dataIndex`，值为字典，可用的键值对参数有：
@@ -232,6 +211,10 @@
 - **sortDataIndexes：** `list[dict]`型，用于*设置需要开启排序功能字段的dataIndex值*
 - **multiple：** *bool*或*string*型，默认为`False`，用于*设置是否开启组合排序功能*，当设置为`True`时`sortDataIndexes`的字段顺序将被视作组合排序的优先级；当设置为`'auto'`时，组合排序的优先级将由用户点击排序的字段先后决定
 
+**sorter：** *dict*型
+
+　　用于*监听最近一次排序操作后各个字段对应的排序状态*
+
 **filterOptions：** *dict*型
 
 　　用于*配置字段筛选相关功能*，键为相应字段的`dataIndex`，值为字典，可用的键值对参数有：
@@ -240,6 +223,10 @@
 - **filterCustomItems：** *list*型，当`filterMode`为`'checkbox'`时，用于*手动设置筛选项值列表*
 - **filterMultiple：** *bool*型，默认为`True`，当`filterMode`为`'checkbox'`时，用于*设置是否允许多选*
 - **filterSearch：** *bool*型，默认为`False`，当`filterMode`为`'checkbox'`时，用于*设置开启搜索框*
+
+**filter：** *dict*型
+
+　　用于*监听最近一次筛选操作后各个字段对应的筛选值条件*
 
 **pagination：** *dict*或*bool*型
 
@@ -264,31 +251,157 @@
 
 　　用于*监听最近一次可编辑单元格操作后发生变动的行记录字典*
 
-**sorter：** *dict*型
-
-　　用于*监听最近一次排序操作后各个字段对应的排序状态*
-
-**filter：** *dict*型
-
-　　用于*监听最近一次筛选操作后各个字段对应的筛选值条件*
-
-**mode：** *string*型，默认为`'client-side'`
-
-　　用于*设置表格数据渲染模式*，可选的有`'client-side'`（浏览器端渲染）、`'server-side'`（服务端渲染）
-
 **summaryRowContents：** `list[dict]`型
 
 　　用于*配置总结栏相关功能*，每个字典元素按顺序共同构成当前表格的总结栏，可用的键值对参数有：
 
 - **content：** *组件型*，用于*设置当前对应总结栏的内容*
+
 - **colSpan：** *int*型，默认为`1`，用于*设置当前总结栏横跨的字段数量*
 
-  
+- **align：** *string*型，默认为`'left'`，用于*设置当前总结栏内容的对齐方式*，可选的有`'left'`、`'center'`、`'right'`
 
-  
+**summaryRowFixed：** *bool*型，默认为`False`
 
-  
+　　用于*设置当前总结栏是否固定在底端显示*
 
-  
+**conditionalStyleFuncs：** *dict*型
 
-  
+　　用于*为各个字段配置用于处理自定义样式的javascript函数字符串*，键为相应字段的`dataIndex`，值为字字符串，注意，此功能与单元格可编辑功能不能同时使用
+
+**expandedRowKeyToContent：** `list[dict]`型
+
+　　用于*为对应行配置可展开内容*，每个字典元素用于定义对应行的可展开内容，可用的键值对参数有：
+
+- **key：** *string*型，用于*设置当前可展开内容对应的行记录key值*
+- **content：** *组件型*，用于*设置当前可展开行内容*
+
+**expandedRowWidth：** *int*或*string*型
+
+　　用于*设置当前表格中行展开控件列的宽度*
+
+**expandRowByClick：** *bool*型，默认为`False`
+
+　　用于*设置当前表格的可展开内容是否可通过点击对应行任意位置进行触发*
+
+**enableCellClickListenColumns：** `list[string]`型
+
+　　用于*设置当前表格中开启单元格点击事件监听的字段dataIndex信息*，此功能开启后会影响到多种再渲染模式的正常使用，请谨慎使用
+
+**recentlyCellClickColumn：** *string*型
+
+　　当`enableCellClickListenColumns`进行有效设置后，用于*监听最近一次单元格点击事件对应字段的dataIndex信息*
+
+**recentlyCellClickRecord：** *dict*型
+
+　　当`enableCellClickListenColumns`进行有效设置后，用于*监听最近一次单元格点击事件对应的行记录字典*
+
+**nClicksCell：** *int*型，默认为`0`
+
+　　当`enableCellClickListenColumns`进行有效设置后，用于*监听当前表格中相关单元格的累计点击次数*
+
+**enableHoverListen：** *bool*型，默认为`False`
+
+　　用于*设置是否开启行鼠标悬停事件监听*，注意，此功能开启后会影响到多种再渲染模式的正常使用，请谨慎使用
+
+**recentlyMouseEnterColumnDataIndex：** *string*型
+
+　　当`enableHoverListen=True`时，用于*监听最近一次鼠标移入列事件对应字段的dataIndex信息*
+
+**recentlyMouseEnterRowKey：** *int*或*string*型
+
+　　当`enableHoverListen=True`时，用于*监听最近一次鼠标移入行事件对应的行记录key值*
+
+**recentlyMouseEnterRow：** *dict*型
+
+　　当`enableHoverListen=True`时，用于*监听最近一次鼠标移入事件对应的行记录字典*
+
+**emptyContent：** *组件型*
+
+　　用于*自定义当前表格数据记录为空时的提示信息*
+
+**containerId：** *string*型
+
+　　用于*为当前表格中的各种悬浮层元素设置参考容器id*，从而解决局部容器内已展开的悬浮层元素不跟随滑动等问题
+
+**cellUpdateOptimize：** *bool*型，默认为`False`
+
+　　用于*设置是否针对当前表格开启单元格内容渲染优化加速*，开启后，当`data`更新时，由行`key`和列`dataIndex`唯一定位的单元格对应源数据无变化时不会进行重绘，从而降低页面刷新开销，但可能会导致一些内容刷新异常问题
+
+**mode：** *string*型，默认为`'client-side'`
+
+　　用于*设置表格数据渲染模式*，可选的有`'client-side'`（浏览器端渲染）、`'server-side'`（服务端渲染）
+
+---
+
+**miniChartHeight：** *int*型，默认为`30`
+
+　　用于*为当前表格中的所有迷你图模式相关单元格设置像素高度*
+
+**miniChartAnimation：** *bool*型，默认为`False`
+
+　　用于*为当前表格中的所有迷你图模式相关单元格设置是否开启迷你图初始化动画效果*
+
+**recentlyButtonClickedRow：** *dict*型
+
+　　用于*监听最近一次按钮模式相关点击事件对应的行记录字典*
+
+**nClicksButton：** *int*型，默认为`0`
+
+　　用于*监听当前表格中各按钮模式字段按钮的累计点击次数*
+
+**clickedContent：** *string*型
+
+　　用于*监听最近一次按钮模式相关点击事件对应的按钮内容*
+
+**recentlyButtonClickedDataIndex：** *string*型
+
+　　用于*监听最近一次按钮模式相关点击事件对应的字段dataIndex信息*
+
+**customFormatFuncs：** *dict*型
+
+　　用于*为当前表格中各自定义格式模式字段设置相应的javascript函数字符串*，键为相应字段的`dataIndex`，值为字字符串
+
+**recentlyCheckedRow：** *dict*型
+
+　　用于*监听最近一次勾选框模式相关勾选事件对应的行记录字典*
+
+**recentlyCheckedLabel：** *string*型
+
+　　用于*监听最近一次勾选框模式相关勾选事件对应的勾选框标签内容*
+
+**recentlyCheckedDataIndex：** *string*型
+
+　　用于*监听最近一次勾选框模式相关勾选事件对应的字段dataIndex信息*
+
+**recentlyCheckedStatus：** *bool*型
+
+　　用于*监听最近一次勾选框模式相关勾选事件对应的勾选框状态*
+
+**recentlySwitchRow：** *dict*型
+
+　　用于*监听最近一次开关模式相关事件对应的行记录字典*
+
+**recentlySwitchDataIndex：** *string*型
+
+　　用于*监听最近一次开关模式相关事件对应的字段dataIndex信息*
+
+**recentlySwitchStatus：** *bool*型
+
+　　用于*监听最近一次开关模式相关事件对应的开关状态*
+
+**nClicksDropdownItem：** *int*型，默认为`0`
+
+　　用于*监听当前表格中各下拉选择菜单模式相关选项的累计点击次数*
+
+**recentlyClickedDropdownItemTitle：** *string*型
+
+　　用于*监听最近一次下拉选择菜单模式选项点击事件对应的选项标题内容*
+
+**recentlyDropdownItemClickedDataIndex：** *string*型
+
+　　用于*监听最近一次下拉选择菜单模式选项点击事件对应的字段dataIndex信息*
+
+**recentlyDropdownItemClickedRow：** *dict*型
+
+　　用于*监听最近一次下拉选择菜单模式选项点击事件对应的行记录字典*
