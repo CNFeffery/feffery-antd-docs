@@ -61,9 +61,11 @@
 - **ellipsis-copyable（长内容省略+可复制模式）：** *int*、*float*或*string*型
 
 - **tags（标签模式）：** *dict*或`list[dict]`型，单个*dict*表示单个标签，多个*dict*构成的列表表示多个标签，其中每个字典可用的键值对参数有：
-- **color：** *string*型，用于*为当前标签设置背景色*
+
+  - **color：** *string*型，用于*为当前标签设置背景色*
+
   - **tag：** *string*型，用于*为当前标签设置文字内容*
-  
+
 - **status-badge（状态徽标模式）：** *dict*型，可用的键值对参数有：
 
   - **status：** *string*型，用于*设置当前状态徽标的状态*，可选的有`'success'`、`'processing'`、`'default'`、`'error'`、`'warning'`
@@ -89,7 +91,7 @@
 - **row-merge（跨行合并单元格模式）：** *dict*型，可用的键值对参数有：
 
   - **content：** *int*、*float*或*string*型，用于*设置当前单元格内容*
-  - **rowSpan：** *int*型，用于*设置当前单元格应向下合并的单元格数量*，`0`即代表不进行合并
+  - **rowSpan：** *int*型，用于*设置当前单元格竖向跨越的单元格数量*，`1`即代表不进行合并
 
 - **dropdown-links（下拉链接菜单模式）：** `list[dict]`型，其中每个字典用于定义当前下拉链接菜单中的一个链接项，可用的键值对参数有：
 
@@ -113,7 +115,7 @@
 
 - **mini-progress（迷你进度图模式）：** *float*或*int*型，取值应在`0`到`1`之间
 
-- **mini-ring-progress（迷你进度图模式）：** *float*或*int*型，取值应在`0`到`1`之间
+- **mini-ring-progress（迷你环形进度图模式）：** *float*或*int*型，取值应在`0`到`1`之间
 
 - **button（按钮模式）：** *dict*或`list[dict]`型，单个*dict*表示单个按钮，多个*dict*构成的列表表示多个按钮，其中每个字典可用的键值对参数有：
 
@@ -125,20 +127,22 @@
   - **href：** *string*型，用于*设置当前按钮的链接url*
   - **target：** *string*型，默认为`'_blank'`，用于*设置当前按钮具有链接时的跳转行为*
   - **icon：** *string*型，用于*为当前按钮设置前缀图标*，同`AntdIcon`中的同名参数
+  - **custom：** *任意类型*，用于*存储辅助信息*
 
 - **checkbox（勾选框模式）：** *dict*型，可用的键值对参数有：
 
   - **checked：** *bool*型，用于*设置当前勾选框是否被勾选*
   - **disabled：** *bool*型，默认为`False`，用于*设置是否禁用当前勾选框*
   - **label：** *string*型，用于*为当前勾选框设置标签文字内容*
+  - **custom：** *任意类型*，用于*存储辅助信息*
 
 - **switch（开关模式）：** *dict*型，可用的键值对参数有：
 
   - **checked：** *bool*型，用于*设置当前开关是否处于开启状态*
   - **disabled：** *bool*型，默认为`False`，用于*设置是否禁用当前开关*
-  
   - **checkedChildren：** *string*型，用于*设置当前开关开启状态下的标签文字*
   - **unCheckedChildren：** *string*型，用于*设置当前开关关闭状态下的标签文字*
+  - **custom：** *任意类型*，用于*存储辅助信息*
   
 - **dropdown（下拉选择菜单模式）：** `list[dict]`型，其中每个字典用于定义当前下拉选择菜单中的一个菜单项，可用的键值对参数有：
 
@@ -146,6 +150,7 @@
   - **disabled：** *bool*型，默认为`False`，用于*设置是否禁用当前菜单项*
   - **icon：** *string*型，用于*为当前菜单项设置前缀图标*，同`AntdIcon`中的同名参数
   - **isDivider：** *bool*型，用于*设置当前菜单项是否充当分割线角色*
+  - **custom：** *任意类型*，用于*存储辅助信息*
 
 **bordered：** *bool*型，默认为`False`
 
@@ -342,10 +347,6 @@
 
 　　用于*为当前表格中的所有迷你图模式相关单元格设置是否开启迷你图初始化动画效果*
 
-**recentlyButtonClickedRow：** *dict*型
-
-　　用于*监听最近一次按钮模式相关点击事件对应的行记录字典*
-
 **nClicksButton：** *int*型，默认为`0`
 
 　　用于*监听当前表格中各按钮模式字段按钮的累计点击次数*
@@ -358,13 +359,13 @@
 
 　　用于*监听最近一次按钮模式相关点击事件对应的字段dataIndex信息*
 
+**recentlyButtonClickedRow：** *dict*型
+
+　　用于*监听最近一次按钮模式相关点击事件对应的行记录字典*
+
 **customFormatFuncs：** *dict*型
 
 　　用于*为当前表格中各自定义格式模式字段设置相应的javascript函数字符串*，键为相应字段的`dataIndex`，值为字字符串
-
-**recentlyCheckedRow：** *dict*型
-
-　　用于*监听最近一次勾选框模式相关勾选事件对应的行记录字典*
 
 **recentlyCheckedLabel：** *string*型
 
@@ -378,9 +379,9 @@
 
 　　用于*监听最近一次勾选框模式相关勾选事件对应的勾选框状态*
 
-**recentlySwitchRow：** *dict*型
+**recentlyCheckedRow：** *dict*型
 
-　　用于*监听最近一次开关模式相关事件对应的行记录字典*
+　　用于*监听最近一次勾选框模式相关勾选事件对应的行记录字典*
 
 **recentlySwitchDataIndex：** *string*型
 
@@ -389,6 +390,10 @@
 **recentlySwitchStatus：** *bool*型
 
 　　用于*监听最近一次开关模式相关事件对应的开关状态*
+
+**recentlySwitchRow：** *dict*型
+
+　　用于*监听最近一次开关模式相关事件对应的行记录字典*
 
 **nClicksDropdownItem：** *int*型，默认为`0`
 

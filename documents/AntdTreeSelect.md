@@ -36,7 +36,26 @@
 　　下面是树形`treeData`的示例：
 
 ```python
-treeData = 
+treeData = [
+    {
+        'key': '节点1',
+        'value': '1',
+        'title': '节点1',
+        'children': [
+            {
+                'key': f'节点1-{i}',
+                'value': f'1-{i}',
+                'title': f'节点1-{i}'
+            }
+            for i in range(1, 5)
+        ]
+    },
+    {
+        'key': '节点2',
+        'value': '2',
+        'title': '节点2'
+    }
+]
 ```
 
 　　当`treeDataMode='flat'`时，`treeData`参数需要符合扁平解析模式，每个字典的可用键值对参数有：
@@ -55,7 +74,22 @@ treeData =
 　　下面是扁平`treeData`的示例：
 
 ```python
-treeData = 
+treeData = [
+    {
+        'key': '节点1',
+        'value': '1',
+        'title': '节点1'
+    },
+    *[
+        {
+            'key': f'节点1-{i}',
+            'value': f'1-{i}',
+            'title': f'节点1-{i}',
+            'parent': '节点1'
+        }
+        for i in range(1, 6)
+    ]
+]
 ```
 
 **disabled：** *bool*型，默认为`False`

@@ -1339,7 +1339,7 @@ def table_server_side_mode_pagination_filter_demo_sql(pagination,
             for valid_filter in valid_filters[1:]:
                 filter_conditions = filter_conditions & (
                     getattr(
-                        DemoTable, valid_filter[0]) == valid_filter[1]
+                        DemoTable, valid_filter[0]) << valid_filter[1]
                     if filterOptions[valid_filter[0]].get('filterMode') != 'keyword'
                     else
                     getattr(DemoTable, valid_filter[0])
