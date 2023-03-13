@@ -37,14 +37,24 @@ def generate_shortcut_panel_data(raw_menu_items):
             # 否则进行展开
             elif level2['component'] == 'SubMenu':
                 for level3 in level2['children']:
-                    output_data.append(
-                        {
-                            'id': level3['props']['key'],
-                            'title': level3['props']['title'],
-                            'section': '组件介绍',
-                            'handler': '() => window.open("%s")' % level3['props']['href'],
-                        }
-                    )
+                    if 'table' in level3['props']['key'].lower():
+                        output_data.append(
+                            {
+                                'id': level3['props']['key'],
+                                'title': 'AntdTable '+level3['props']['title'],
+                                'section': '组件介绍',
+                                'handler': '() => window.open("%s")' % level3['props']['href'],
+                            }
+                        )
+                    else:
+                        output_data.append(
+                            {
+                                'id': level3['props']['key'],
+                                'title': level3['props']['title'],
+                                'section': '组件介绍',
+                                'handler': '() => window.open("%s")' % level3['props']['href'],
+                            }
+                        )
 
     # “进阶使用”
     output_data.extend(

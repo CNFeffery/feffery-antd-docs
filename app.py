@@ -38,6 +38,12 @@ app.layout = fuc.FefferyTopProgress(
             # 注入基于url中hash信息的页面锚点滚动效果
             html.Div(id='page-anchor-scroll-to-while-page-initial'),
 
+            # 注入侧边参数说明栏展开像素宽度记忆
+            dcc.Store(
+                id='side-props-width',
+                storage_type='local'
+            ),
+
             # 注入快捷搜索面板
             fuc.FefferyShortcutPanel(
                 placeholder='输入你想要搜索的组件...',
@@ -576,40 +582,88 @@ app.clientside_callback(
 
 app.clientside_callback(
     '''
-    (nClicks, oldStyle) => {
-        if (nClicks) {
-            if (oldStyle.width === '500px') {
+    (nClicks, sidePropsWidth, oldStyle) => {
+        if ( window.dash_clientside.callback_context.triggered[0] ) {
+            if ( window.dash_clientside.callback_context.triggered[0]['prop_id'] === 'fold-side-props.nClicks' && nClicks ) {
+                if (oldStyle.width !== 0) {
+                    return [
+                        {
+                            'width': 0,
+                            'height': '100vh',
+                            'padding': '0 10px',
+                            'position': 'relative',
+                            'background': '#f2f3f5',
+                            'transition': 'width 0.15s ease'
+                        },
+                        'antd-arrow-left'
+                    ]
+                }
                 return [
                     {
-                        'width': 0,
+                        'width': sidePropsWidth || 500,
                         'height': '100vh',
-                        'padding': '0 10px',
+                        'padding': '0 20px',
+                        'position': 'relative',
+                        'background': '#f2f3f5',
+                        'transition': 'width 0.4s ease'
+                    },
+                    'antd-arrow-right'
+                ]
+            } else if ( window.dash_clientside.callback_context.triggered[0]['prop_id'] === 'side-props-width.data' && sidePropsWidth ) {
+                return [
+                    {
+                        'width': sidePropsWidth,
+                        'height': '100vh',
+                        'padding': '0 20px',
                         'position': 'relative',
                         'background': '#f2f3f5',
                         'transition': 'width 0.15s ease'
                     },
-                    'antd-arrow-left'
+                    'antd-arrow-right'
                 ]
             }
-            return [
-                {
-                    'width': '500px',
-                    'height': '100vh',
-                    'padding': '0 20px',
-                    'position': 'relative',
-                    'background': '#f2f3f5',
-                    'transition': 'width 0.4s ease'
-                },
-                'antd-arrow-right'
-            ]
         }
+        
         return window.dash_clientside.no_update;
     }
     ''',
     [Output('side-props', 'style'),
      Output('fold-side-props-icon', 'icon')],
     Input('fold-side-props', 'nClicks'),
+    Input('side-props-width', 'data'),
     State('side-props', 'style')
+)
+
+
+app.clientside_callback(
+    '''(nClicksPlus, nClicksMinus, data) => {
+        data = data || 500
+        if ( window.dash_clientside.callback_context.triggered[0]['prop_id'] === 'side-props-width-plus.nClicks' && nClicksPlus ) {
+            return [
+                data + 50,
+                data + 50 >= 700,
+                data + 50 <= 400
+            ]
+        } else if ( window.dash_clientside.callback_context.triggered[0]['prop_id'] === 'side-props-width-minus.nClicks' && nClicksMinus ) {
+            return[
+                data - 50,
+                data - 50 >= 700,
+                data - 50 <= 400
+            ]
+        }
+
+        return [
+            data,
+            data >= 700,
+            data <= 400
+        ];
+    }''',
+    [Output('side-props-width', 'data'),
+     Output('side-props-width-plus', 'disabled'),
+     Output('side-props-width-minus', 'disabled')],
+    [Input('side-props-width-plus', 'nClicks'),
+     Input('side-props-width-minus', 'nClicks')],
+    State('side-props-width', 'data')
 )
 
 if __name__ == '__main__':

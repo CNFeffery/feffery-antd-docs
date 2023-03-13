@@ -1313,7 +1313,8 @@ fac.AntdSpace(
             ],
             style={
                 'flex': 'auto',
-                'padding': '25px'
+                'padding': '25px',
+                'width': 0
             }
         ),
         html.Div(

@@ -13,17 +13,63 @@ def render_side_props_layout(component_name: str):
                 [
                     fuc.FefferyScrollbars(
                         fac.AntdRibbon(
-                            fmc.FefferyMarkdown(
-                                markdownStr=(
-                                    open(
-                                        f'./documents/{component_name}.md',
-                                        encoding='utf-8'
+                            html.Div(
+                                [
+                                    # 侧边菜单栏宽度调节
+                                    fac.AntdSpace(
+                                        [
+                                            fac.AntdButton(
+                                                fac.AntdIcon(
+                                                    icon='antd-plus-circle-two-tone',
+                                                    style={
+                                                        'fontSize': 24,
+                                                        'cursor': 'pointer'
+                                                    }
+                                                ),
+                                                id='side-props-width-plus',
+                                                type='text',
+                                                size='small',
+                                                shape='circle',
+                                                debounceWait=100
+                                            ),
+                                            fac.AntdButton(
+                                                fac.AntdIcon(
+                                                    icon='antd-minus-circle-two-tone',
+                                                    style={
+                                                        'fontSize': 24,
+                                                        'cursor': 'pointer'
+                                                    }
+                                                ),
+                                                id='side-props-width-minus',
+                                                type='text',
+                                                size='small',
+                                                shape='circle',
+                                                debounceWait=100
+                                            )
+                                        ],
+                                        size=5,
+                                        style={
+                                            'position': 'absolute',
+                                            'right': 15,
+                                            'top': 7
+                                        }
+                                    ),
+                                    fmc.FefferyMarkdown(
+                                        markdownStr=(
+                                            open(
+                                                f'./documents/{component_name}.md',
+                                                encoding='utf-8'
+                                            )
+                                            .read()
+                                        ),
+                                        renderHtml=True,
+                                        style={
+                                            'padding': '60px 25px 25px 25px'
+                                        }
                                     )
-                                    .read()
-                                ),
-                                renderHtml=True,
+                                ],
                                 style={
-                                    'padding': '60px 25px 25px 25px'
+                                    'position': 'relative'
                                 }
                             ),
                             text=f'{component_name} API参数说明',
@@ -60,7 +106,7 @@ def render_side_props_layout(component_name: str):
                 ],
                 id='side-props',
                 style={
-                    'width': '500px',
+                    'width': 500,  # 默认初始化宽度
                     'height': '100vh',
                     'padding': '0 20px',
                     'position': 'relative',

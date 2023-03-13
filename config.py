@@ -823,6 +823,7 @@ class Config:
                                     'component': 'Item',
                                     'props': {
                                         'key': '/AntdTabPane',
+                                        'name': '/AntdTabPane',
                                         'title': 'AntdTabPane 标签页面板',
                                         'href': '/AntdTabPane'
                                     }
@@ -831,6 +832,7 @@ class Config:
                                     'component': 'Item',
                                     'props': {
                                         'key': '/AntdTabs',
+                                        'name': '/AntdTabs',
                                         'title': 'AntdTabs 标签页',
                                         'href': '/AntdTabs'
                                     }
@@ -848,6 +850,7 @@ class Config:
                                     'component': 'Item',
                                     'props': {
                                         'key': '/AntdCheckCard',
+                                        'name': '/AntdCheckCard',
                                         'title': 'AntdCheckCard 选择卡片',
                                         'href': '/AntdCheckCard'
                                     }
@@ -856,6 +859,7 @@ class Config:
                                     'component': 'Item',
                                     'props': {
                                         'key': '/AntdCheckCardGroup',
+                                        'name': '/AntdCheckCardGroup',
                                         'title': 'AntdCheckCardGroup 组合选择卡片',
                                         'href': '/AntdCheckCardGroup'
                                     }
@@ -863,29 +867,13 @@ class Config:
                             ]
                         },
                         {
-                            'component': 'SubMenu',
+                            'component': 'Item',
                             'props': {
-                                'key': '数据展示/手风琴',
-                                'title': '手风琴'
-                            },
-                            'children': [
-                                {
-                                    'component': 'Item',
-                                    'props': {
-                                        'key': '/AntdAccordionItem',
-                                        'title': 'AntdAccordionItem 手风琴项',
-                                        'href': '/AntdAccordionItem'
-                                    }
-                                },
-                                {
-                                    'component': 'Item',
-                                    'props': {
-                                        'key': '/AntdAccordion',
-                                        'title': 'AntdAccordion 手风琴',
-                                        'href': '/AntdAccordion'
-                                    }
-                                },
-                            ]
+                                'key': '/AntdAccordion',
+                                'name': '/AntdAccordion',
+                                'title': 'AntdAccordion 手风琴',
+                                'href': '/AntdAccordion'
+                            }
                         }
                     ]
                 },
@@ -1247,6 +1235,15 @@ class Config:
         '/AntdTable-advanced': ['数据展示', '数据展示/表格'],
         '/AntdTable-server-side-mode': ['数据展示', '数据展示/表格'],
         '/AntdTable-rerender': ['数据展示', '数据展示/表格'],
+        '/AntdTag': ['数据展示'],
+        '/AntdTimeline': ['数据展示'],
+        '/AntdTooltip': ['数据展示'],
+        '/AntdTree': ['数据展示'],
+        '/AntdTabPane': ['数据展示', '数据展示/标签页'],
+        '/AntdTabs': ['数据展示', '数据展示/标签页'],
+        '/AntdCheckCard': ['数据展示', '数据展示/选择卡片'],
+        '/AntdCheckCardGroup': ['数据展示', '数据展示/选择卡片'],
+        '/AntdAccordion': ['数据展示'],
     }
 
     # 注入侧边菜单栏默认展开子菜单

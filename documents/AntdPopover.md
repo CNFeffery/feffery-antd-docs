@@ -42,7 +42,7 @@
 
 　　用于*设置当前气泡卡片容器的css样式*
 
-**overlayInnerStyle：** *dict*xing
+**overlayInnerStyle：** *dict*型
 
 　　用于*设置当前气泡卡片内容区域的css样式*
 

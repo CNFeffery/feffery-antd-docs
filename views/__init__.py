@@ -63,5 +63,14 @@ from . import (
     AntdSegmented,
     AntdSpoiler,
     AntdStatistic,
-    AntdCountdown
+    AntdCountdown,
+    AntdTag,
+    AntdTimeline,
+    AntdTooltip,
+    AntdTree,
+    AntdTabPane,
+    AntdTabs,
+    AntdCheckCard,
+    AntdCheckCardGroup,
+    AntdAccordion
 )

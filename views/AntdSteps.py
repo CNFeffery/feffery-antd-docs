@@ -801,7 +801,8 @@ def steps_callback_demo_part2(current):
             ],
             style={
                 'flex': 'auto',
-                'padding': '25px'
+                'padding': '25px',
+                'width': 0
             }
         ),
         html.Div(

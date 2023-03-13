@@ -72,3 +72,7 @@ steps = [
 **allowClick：** *bool*型，默认为`False`
 
 　　用于*设置是否允许直接点击步骤进行切换*
+
+**responsive：** *bool*型，默认为`True`
+
+　　用于*设置是否在页面宽度低于532px时自动强制垂直渲染步骤条*
