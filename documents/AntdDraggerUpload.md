@@ -150,6 +150,30 @@ def upload_file(uploadId: str, file: UploadFile = File(...)):
 
 　　用于*设置是否为已上传文件的删除操作添加二次确认模态框*
 
+**showPercent：** *bool*型，默认为`False`
+
+　　用于*设置是否为文件上传进度条添加进度百分比文字信息*
+
+**progressProps：** *dict*型
+
+　　用于*配置文件上传进度条相关参数*，可用的键值对参数有：
+
+- **strokeColor：** *string*或*dict*型，用于*设置进度条颜色*，当传入*dict*型输入时可设置渐变色，可用的键值对参数有：
+  - **from：** *string*型，用于*设置进度条起始颜色*
+  - **to：** *string*型，用于*设置进度条终点颜色*
+- **strokeWidth：** *int*型，用于*设置进度条像素线宽*
+- **format：** *dict*型，用于*配置百分比文字内容*，可用的键值对参数有：
+  - **prefix：** *string*型，默认为`''`，用于*设置进度条百分比文字内容的前缀文字*
+  - **suffix：** *string*型，默认为`'%'`，用于*设置进度条百分比文字内容的后缀文字*
+
+**showSuccessMessage：** *bool*型，默认为`True`
+
+　　用于*设置是否在每次新文件上传成功后弹出相应的消息提示*
+
+**showErrorMessage：** *bool*型，默认为`True`
+
+　　用于*设置是否在每次新文件上传失败后弹出相应的消息提示*
+
 **lastUploadTaskRecord：** `dict`或`list[dict]`型
 
 　　用于*监听最近一次用户所上传文件相关信息*，单文件上传模式下为单个字典，多文件及文件夹上传模式下为字典元素构成的列表，其中每个字典具有的键值对有：

@@ -55,32 +55,52 @@ app.layout = fuc.FefferyTopProgress(
             # 注入快捷添加好友悬浮卡片
             html.Div(
                 [
-                    fac.AntdPopover(
-                        fac.AntdButton(
-                            fac.AntdIcon(icon='antd-bulb'),
-                            shape='circle',
-                            style={
-                                'zoom': '1.25',
-                                'boxShadow': '0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d'
-                            }
-                        ),
-                        placement='left',
-                        content=[
-                            fac.AntdText(
-                                '微信扫码加我好友，备注【dash学习】加入学习交流群，更多灵感更快进步',
-                                strong=True
+                    fac.AntdSpace(
+                        [
+                            fac.AntdTooltip(
+                                fac.AntdButton(
+                                    fac.AntdIcon(icon='antd-bug'),
+                                    shape='circle',
+                                    href='https://github.com/CNFeffery/feffery-antd-components/issues',
+                                    target='_blank',
+                                    style={
+                                        'zoom': '1.25',
+                                        'boxShadow': '0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d'
+                                    }
+                                ),
+                                placement='left',
+                                title='问题反馈'
                             ),
-                            fac.AntdImage(
-                                src=app.get_asset_url(
-                                    'imgs/feffery-添加好友二维码.jpg'),
-                                width=250,
-                                preview=False
+
+                            fac.AntdPopover(
+                                fac.AntdButton(
+                                    fac.AntdIcon(icon='antd-bulb'),
+                                    shape='circle',
+                                    style={
+                                        'zoom': '1.25',
+                                        'boxShadow': '0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d'
+                                    }
+                                ),
+                                placement='left',
+                                content=[
+                                    fac.AntdText(
+                                        '微信扫码加我好友，备注【dash学习】加入学习交流群，更多灵感更快进步',
+                                        strong=True
+                                    ),
+                                    fac.AntdImage(
+                                        src=app.get_asset_url(
+                                            'imgs/feffery-添加好友二维码.jpg'),
+                                        width=250,
+                                        preview=False
+                                    )
+                                ],
+                                overlayStyle={
+                                    'width': '300px',
+                                    'height': '408px'
+                                }
                             )
                         ],
-                        overlayStyle={
-                            'width': '300px',
-                            'height': '408px'
-                        }
+                        direction='vertical'
                     )
                 ],
                 style={

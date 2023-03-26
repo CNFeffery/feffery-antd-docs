@@ -2,7 +2,6 @@ from dash import html
 import feffery_antd_components as fac
 import feffery_markdown_components as fmc
 
-# import callbacks.AntdButton
 from .side_props import render_side_props_layout
 
 docs_content = html.Div(
@@ -19,10 +18,10 @@ docs_content = html.Div(
                             'title': '组件介绍'
                         },
                         {
-                            'title': '通用'
+                            'title': '其他'
                         },
                         {
-                            'title': 'AntdButton 按钮'
+                            'title': 'AntdBackTop 回到顶部'
                         }
                     ]
                 ),
@@ -31,13 +30,39 @@ docs_content = html.Div(
 
                 fac.AntdParagraph(
                     [
-                        fac.AntdText('　　用于在各种场景下作为功能逻辑的触发点。')
+                        fac.AntdText('　　用于帮助用户在长页面中快速回到顶部。')
                     ]
                 ),
 
                 html.Div(
                     [
-
+                        html.Div(
+                            [
+                                fac.AntdBackTop(
+                                    containerId='back-top-container-demo',
+                                    duration=1
+                                ),
+                                fac.AntdTitle(
+                                    '向下滑动一段距离',
+                                    level=4
+                                )
+                            ] + [
+                                html.Div(
+                                    [
+                                        i if i % 2 == 0 else html.Br()
+                                        for i in range(200)
+                                    ]
+                                )
+                            ],
+                            id='back-top-container-demo',
+                            style={
+                                'maxHeight': '500px',
+                                'overflowY': 'auto',
+                                'position': 'relative',
+                                'backgroundColor': 'rgba(240, 240, 240, 0.2)',
+                                'padding': '20px'
+                            }
+                        ),
 
                         fac.AntdDivider(
                             '基础使用',
@@ -52,6 +77,33 @@ docs_content = html.Div(
                                 language='python',
                                 codeTheme='coy-without-shadows',
                                 codeString='''
+html.Div(
+    [
+        fac.AntdBackTop(
+            containerId='back-top-container-demo',
+            duration=1
+        ),
+        fac.AntdTitle(
+            '向下滑动一段距离',
+            level=4
+        )
+    ] + [
+        html.Div(
+            [
+                i if i % 2 == 0 else html.Br()
+                for i in range(200)
+            ]
+        )
+    ],
+    id='back-top-container-demo',
+    style={
+        'maxHeight': '500px',
+        'overflowY': 'auto',
+        'position': 'relative',
+        'backgroundColor': 'rgba(240, 240, 240, 0.2)',
+        'padding': '20px'
+    }
+)
 '''
                             ),
                             title='点击查看代码',
@@ -89,7 +141,7 @@ docs_content = html.Div(
         ),
         # 侧边参数栏
         render_side_props_layout(
-            component_name='AntdButton'
+            component_name='AntdBackTop'
         )
     ],
     style={

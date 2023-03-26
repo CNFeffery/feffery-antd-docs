@@ -46,7 +46,7 @@
 
 　　用于*设置当前气泡卡片内容区域的css样式*
 
-**trigger：** *string‘*或*list*型，默认为`'hover'`
+**trigger：** *string*或*list*型，默认为`'hover'`
 
 　　用于*设置当前气泡卡片的显示触发行为*，可选项有`'hover'`、`'focus'`、`'click'`，也可以传入多种行为构成的列表实现多行为触发
 

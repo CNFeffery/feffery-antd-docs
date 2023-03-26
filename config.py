@@ -888,6 +888,7 @@ class Config:
                             'component': 'Item',
                             'props': {
                                 'key': '/AntdAlert',
+                                'name': '/AntdAlert',
                                 'title': 'AntdAlert 警告提示',
                                 'href': '/AntdAlert'
                             }
@@ -896,6 +897,7 @@ class Config:
                             'component': 'Item',
                             'props': {
                                 'key': '/AntdDrawer',
+                                'name': '/AntdDrawer',
                                 'title': 'AntdDrawer 抽屉',
                                 'href': '/AntdDrawer'
                             }
@@ -904,6 +906,7 @@ class Config:
                             'component': 'Item',
                             'props': {
                                 'key': '/AntdMessage',
+                                'name': '/AntdMessage',
                                 'title': 'AntdMessage 全局提示',
                                 'href': '/AntdMessage'
                             }
@@ -912,6 +915,7 @@ class Config:
                             'component': 'Item',
                             'props': {
                                 'key': '/AntdModal',
+                                'name': '/AntdModal',
                                 'title': 'AntdModal 对话框',
                                 'href': '/AntdModal'
                             }
@@ -920,6 +924,7 @@ class Config:
                             'component': 'Item',
                             'props': {
                                 'key': '/AntdNotification',
+                                'name': '/AntdNotification',
                                 'title': 'AntdNotification 通知提醒框',
                                 'href': '/AntdNotification'
                             }
@@ -928,6 +933,7 @@ class Config:
                             'component': 'Item',
                             'props': {
                                 'key': '/AntdPopconfirm',
+                                'name': '/AntdPopconfirm',
                                 'title': 'AntdPopconfirm 气泡确认框',
                                 'href': '/AntdPopconfirm'
                             }
@@ -936,6 +942,7 @@ class Config:
                             'component': 'Item',
                             'props': {
                                 'key': '/AntdProgress',
+                                'name': '/AntdProgress',
                                 'title': 'AntdProgress 进度条',
                                 'href': '/AntdProgress'
                             }
@@ -944,6 +951,7 @@ class Config:
                             'component': 'Item',
                             'props': {
                                 'key': '/AntdResult',
+                                'name': '/AntdResult',
                                 'title': 'AntdResult 结果',
                                 'href': '/AntdResult'
                             }
@@ -952,6 +960,7 @@ class Config:
                             'component': 'Item',
                             'props': {
                                 'key': '/AntdSkeleton',
+                                'name': '/AntdSkeleton',
                                 'title': 'AntdSkeleton 骨骼屏',
                                 'href': '/AntdSkeleton'
                             }
@@ -967,6 +976,7 @@ class Config:
                                     'component': 'Item',
                                     'props': {
                                         'key': '/AntdCustomSkeleton',
+                                        'name': '/AntdCustomSkeleton',
                                         'title': 'AntdCustomSkeleton 自定义骨骼屏',
                                         'href': '/AntdCustomSkeleton'
                                     }
@@ -975,6 +985,7 @@ class Config:
                                     'component': 'Item',
                                     'props': {
                                         'key': '/AntdSkeletonAvatar',
+                                        'name': '/AntdSkeletonAvatar',
                                         'title': 'AntdSkeletonAvatar 头像占位图',
                                         'href': '/AntdSkeletonAvatar'
                                     }
@@ -983,6 +994,7 @@ class Config:
                                     'component': 'Item',
                                     'props': {
                                         'key': '/AntdSkeletonButton',
+                                        'name': '/AntdSkeletonButton',
                                         'title': 'AntdSkeletonButton 按钮占位图',
                                         'href': '/AntdSkeletonButton'
                                     }
@@ -991,6 +1003,7 @@ class Config:
                                     'component': 'Item',
                                     'props': {
                                         'key': '/AntdSkeletonImage',
+                                        'name': '/AntdSkeletonImage',
                                         'title': 'AntdSkeletonImage 图片占位图',
                                         'href': '/AntdSkeletonImage'
                                     }
@@ -999,6 +1012,7 @@ class Config:
                                     'component': 'Item',
                                     'props': {
                                         'key': '/AntdSkeletonInput',
+                                        'name': '/AntdSkeletonInput',
                                         'title': 'AntdSkeletonInput 输入框占位图',
                                         'href': '/AntdSkeletonInput'
                                     }
@@ -1009,6 +1023,7 @@ class Config:
                             'component': 'Item',
                             'props': {
                                 'key': '/AntdSpin',
+                                'name': '/AntdSpin',
                                 'title': 'AntdSpin 加载动画',
                                 'href': '/AntdSpin'
                             }
@@ -1026,6 +1041,7 @@ class Config:
                             'component': 'Item',
                             'props': {
                                 'key': '/AntdAnchor',
+                                'name': '/AntdAnchor',
                                 'title': 'AntdAnchor 锚点',
                                 'href': '/AntdAnchor'
                             }
@@ -1034,6 +1050,7 @@ class Config:
                             'component': 'Item',
                             'props': {
                                 'key': '/AntdBackTop',
+                                'name': '/AntdBackTop',
                                 'title': 'AntdBackTop 回到顶部',
                                 'href': '/AntdBackTop'
                             }
@@ -1042,7 +1059,8 @@ class Config:
                             'component': 'Item',
                             'props': {
                                 'key': '/AntdConfigProvider',
-                                'title': 'AntdConfigProvider 参数配置',
+                                'name': '/AntdConfigProvider',
+                                'title': 'AntdConfigProvider 全局配置',
                                 'href': '/AntdConfigProvider'
                             }
                         },
@@ -1050,6 +1068,7 @@ class Config:
                             'component': 'Item',
                             'props': {
                                 'key': '/AntdCopyText',
+                                'name': '/AntdCopyText',
                                 'title': 'AntdCopyText 文本复制',
                                 'href': '/AntdCopyText'
                             }
@@ -1058,6 +1077,7 @@ class Config:
                             'component': 'Item',
                             'props': {
                                 'key': '/AntdWatermark',
+                                'name': '/AntdWatermark',
                                 'title': 'AntdWatermark 水印',
                                 'href': '/AntdWatermark'
                             }
@@ -1244,6 +1264,26 @@ class Config:
         '/AntdCheckCard': ['数据展示', '数据展示/选择卡片'],
         '/AntdCheckCardGroup': ['数据展示', '数据展示/选择卡片'],
         '/AntdAccordion': ['数据展示'],
+        '/AntdAlert': ['反馈'],
+        '/AntdDrawer': ['反馈'],
+        '/AntdMessage': ['反馈'],
+        '/AntdModal': ['反馈'],
+        '/AntdNotification': ['反馈'],
+        '/AntdPopconfirm': ['反馈'],
+        '/AntdProgress': ['反馈'],
+        '/AntdResult': ['反馈'],
+        '/AntdSkeleton': ['反馈'],
+        '/AntdCustomSkeleton': ['反馈', '反馈/自定义骨骼屏'],
+        '/AntdSkeletonAvatar': ['反馈', '反馈/自定义骨骼屏'],
+        '/AntdSkeletonButton': ['反馈', '反馈/自定义骨骼屏'],
+        '/AntdSkeletonImage': ['反馈', '反馈/自定义骨骼屏'],
+        '/AntdSkeletonInput': ['反馈', '反馈/自定义骨骼屏'],
+        '/AntdSpin': ['反馈'],
+        '/AntdAnchor': ['其他'],
+        '/AntdBackTop': ['其他'],
+        '/AntdConfigProvider': ['其他'],
+        '/AntdCopyText': ['其他'],
+        '/AntdWatermark': ['其他'],
     }
 
     # 注入侧边菜单栏默认展开子菜单

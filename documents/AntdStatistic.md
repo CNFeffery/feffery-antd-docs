@@ -14,9 +14,9 @@
 
 　　用于传入*嵌套的子元素*
 
-**value：** *int*或*string*型
+**value：** *int*、*float*或*组件型*
 
-　　用于*设置要展示的数值信息*
+　　用于*设置要展示的数值信息*，也可直接传入其他元素作为内容，典型应用场景如传入`fuc.FefferyCountUp()`实现数字递增动画
 
 **showGroupSeparator：** *bool*型，默认为`True`
 

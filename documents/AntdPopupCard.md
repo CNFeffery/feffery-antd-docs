@@ -14,10 +14,6 @@
 
 　　用于传入*嵌套的子元素*
 
-**locale：** *string*型，默认为`'zh-cn'`
-
-　　用于*为当前组件的功能文案设置语言*，可选的有`'zh-cn'`（简体中文）、`'en-us'`（英文）
-
 **title：** *组件型*
 
 　　用于*设置当前弹出式卡片的标题元素*
@@ -32,7 +28,7 @@
 
 **transitionType：** *string*型，默认为`'fade'`
 
-　　用于*设置当前弹出式的显隐动画类型*，可选的有`'none'`、`'fade'`、`'zoom'`、`'zoom-big'`、`'zoom-big-fast'`、`'slide-up'`、`'slide-down'`、`'slide-left'`、`'slide-right'`、`'move-up'`、`'move-down'`、`'move-left'`、`'move-right'`
+　　用于*设置当前弹出式卡片的显隐动画类型*，可选的有`'none'`、`'fade'`、`'zoom'`、`'zoom-big'`、`'zoom-big-fast'`、`'slide-up'`、`'slide-down'`、`'slide-left'`、`'slide-right'`、`'move-up'`、`'move-down'`、`'move-left'`、`'move-right'`
 
 **closable：** *bool*型，默认为`True`
 

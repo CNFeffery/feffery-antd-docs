@@ -2,6 +2,7 @@ from dash import html
 import feffery_antd_components as fac
 import feffery_markdown_components as fmc
 
+import callbacks.AntdCopyText
 from .side_props import render_side_props_layout
 
 docs_content = html.Div(
@@ -18,10 +19,10 @@ docs_content = html.Div(
                             'title': '组件介绍'
                         },
                         {
-                            'title': '数据展示'
+                            'title': '其他'
                         },
                         {
-                            'title': 'AntdAvatarGroup 头像组'
+                            'title': 'AntdCopyText 文本复制'
                         }
                     ]
                 ),
@@ -30,32 +31,14 @@ docs_content = html.Div(
 
                 fac.AntdParagraph(
                     [
-                        fac.AntdText('　　用于妥善展示一组头像。')
+                        fac.AntdText('　　用于帮助用户快速复制指定文本内容。')
                     ]
                 ),
 
                 html.Div(
                     [
-                        fac.AntdAvatarGroup(
-                            [
-                                fac.AntdAvatar(
-                                    mode='text',
-                                    text='F',
-                                    style={
-                                        'background': background
-                                    }
-                                )
-                                for background in [
-                                    '#d29200',
-                                    '#ffb900',
-                                    '#fff100',
-                                    '#d83b01',
-                                    '#ea4300',
-                                    '#00188f',
-                                    '#004b50'
-                                ]
-                            ],
-                            size='large'
+                        fac.AntdCopyText(
+                            text='AntdCopyText复制示例'
                         ),
 
                         fac.AntdDivider(
@@ -71,26 +54,8 @@ docs_content = html.Div(
                                 language='python',
                                 codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdAvatarGroup(
-    [
-        fac.AntdAvatar(
-            mode='text',
-            text='F',
-            style={
-                'background': background
-            }
-        )
-        for background in [
-            '#d29200',
-            '#ffb900',
-            '#fff100',
-            '#d83b01',
-            '#ea4300',
-            '#00188f',
-            '#004b50'
-        ]
-    ],
-    size='large'
+fac.AntdCopyText(
+    text='AntdCopyText复制示例'
 )
 '''
                             ),
@@ -110,31 +75,20 @@ fac.AntdAvatarGroup(
 
                 html.Div(
                     [
-                        fac.AntdAvatarGroup(
-                            [
-                                fac.AntdAvatar(
-                                    mode='text',
-                                    text='F',
-                                    style={
-                                        'background': background
-                                    }
-                                )
-                                for background in [
-                                    '#d29200',
-                                    '#ffb900',
-                                    '#fff100',
-                                    '#d83b01',
-                                    '#ea4300',
-                                    '#00188f',
-                                    '#004b50'
-                                ]
-                            ],
-                            maxCount=3,
-                            size='large'
+                        fac.AntdCopyText(
+                            text='AntdCopyText复制示例',
+                            beforeIcon='点我复制',
+                            afterIcon='复制成功'
+                        ),
+
+                        fac.AntdCopyText(
+                            text='AntdCopyText复制示例',
+                            beforeIcon=fac.AntdIcon(icon='antd-smile'),
+                            afterIcon=fac.AntdIcon(icon='antd-like')
                         ),
 
                         fac.AntdDivider(
-                            '省略展示',
+                            '自定义复制前后渲染内容',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
@@ -146,27 +100,16 @@ fac.AntdAvatarGroup(
                                 language='python',
                                 codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdAvatarGroup(
-    [
-        fac.AntdAvatar(
-            mode='text',
-            text='F',
-            style={
-                'background': background
-            }
-        )
-        for background in [
-            '#d29200',
-            '#ffb900',
-            '#fff100',
-            '#d83b01',
-            '#ea4300',
-            '#00188f',
-            '#004b50'
-        ]
-    ],
-    maxCount=3,
-    size='large'
+fac.AntdCopyText(
+    text='AntdCopyText复制示例',
+    beforeIcon='点我复制',
+    afterIcon='复制成功'
+),
+
+fac.AntdCopyText(
+    text='AntdCopyText复制示例',
+    beforeIcon=fac.AntdIcon(icon='antd-smile'),
+    afterIcon=fac.AntdIcon(icon='antd-like')
 )
 '''
                             ),
@@ -180,42 +123,30 @@ fac.AntdAvatarGroup(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='省略展示',
+                    id='自定义复制前后渲染内容',
                     className='div-highlight'
                 ),
 
                 html.Div(
                     [
-                        fac.AntdDivider(
-                            'maxPopoverTrigger="click"',
-                            innerTextOrientation='left'
-                        ),
-                        fac.AntdAvatarGroup(
+                        fac.AntdSpace(
                             [
-                                fac.AntdAvatar(
-                                    mode='text',
-                                    text='F',
+                                fac.AntdInput(
+                                    id='copy-text-input',
+                                    maxLength=20,
                                     style={
-                                        'background': background
+                                        'width': '150px'
                                     }
+                                ),
+                                fac.AntdCopyText(
+                                    id='copy-text-output',
+                                    text='无内容'
                                 )
-                                for background in [
-                                    '#d29200',
-                                    '#ffb900',
-                                    '#fff100',
-                                    '#d83b01',
-                                    '#ea4300',
-                                    '#00188f',
-                                    '#004b50'
-                                ]
-                            ],
-                            maxCount=3,
-                            size='large',
-                            maxPopoverTrigger='click'
+                            ]
                         ),
 
                         fac.AntdDivider(
-                            '省略展示部分的不同触发方式',
+                            '回调示例',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
@@ -227,33 +158,30 @@ fac.AntdAvatarGroup(
                                 language='python',
                                 codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdDivider(
-    'maxPopoverTrigger="click"',
-    innerTextOrientation='left'
-),
-fac.AntdAvatarGroup(
+fac.AntdSpace(
     [
-        fac.AntdAvatar(
-            mode='text',
-            text='F',
+        fac.AntdInput(
+            id='copy-text-input',
+            maxLength=20,
             style={
-                'background': background
+                'width': '150px'
             }
+        ),
+        fac.AntdCopyText(
+            id='copy-text-output',
+            text='无内容'
         )
-        for background in [
-            '#d29200',
-            '#ffb900',
-            '#fff100',
-            '#d83b01',
-            '#ea4300',
-            '#00188f',
-            '#004b50'
-        ]
-    ],
-    maxCount=3,
-    size='large',
-    maxPopoverTrigger='click'
+    ]
 )
+
+...
+
+@app.callback(
+    Output('copy-text-output', 'text'),
+    Input('copy-text-input', 'value')
+)
+def copy_text_callback(value):
+    return value or '无内容'
 '''
                             ),
                             title='点击查看代码',
@@ -266,7 +194,7 @@ fac.AntdAvatarGroup(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='省略展示部分的不同触发方式',
+                    id='回调示例',
                     className='div-highlight'
                 ),
 
@@ -281,8 +209,8 @@ fac.AntdAvatarGroup(
             fac.AntdAnchor(
                 linkDict=[
                     {'title': '基础使用', 'href': '#基础使用'},
-                    {'title': '省略展示', 'href': '#省略展示'},
-                    {'title': '省略展示部分的不同触发方式', 'href': '#省略展示部分的不同触发方式'},
+                    {'title': '自定义复制前后渲染内容', 'href': '#自定义复制前后渲染内容'},
+                    {'title': '回调示例', 'href': '#回调示例'},
                 ],
                 offsetTop=0
             ),
@@ -293,7 +221,7 @@ fac.AntdAvatarGroup(
         ),
         # 侧边参数栏
         render_side_props_layout(
-            component_name='AntdAvatarGroup'
+            component_name='AntdCopyText'
         )
     ],
     style={

@@ -24,7 +24,7 @@
 
 **maxPopoverTrigger：** *string*型，默认为`'hover'`
 
-　　用于*设置省略展示部分气泡卡片弹出的触发动作*，可选的有`'hover'`、`'focus'`、`'click'`
+　　用于*设置省略展示部分气泡卡片弹出的触发动作*，可选的有`'hover'`、`'click'`
 
 **maxStyle：** *dict*型
 

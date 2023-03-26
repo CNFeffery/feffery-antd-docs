@@ -3,7 +3,7 @@ from dash import html
 import feffery_antd_components as fac
 import feffery_markdown_components as fmc
 
-import callbacks.table_rerender
+import callbacks.table_rerender_c
 from .side_props import render_side_props_layout
 
 docs_content = html.Div(
