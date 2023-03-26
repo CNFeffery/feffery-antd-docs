@@ -1,5 +1,6 @@
 from dash import html, dcc
 import feffery_antd_components as fac
+import feffery_utils_components as fuc
 import feffery_markdown_components as fmc
 
 import callbacks.AntdStatistic
@@ -272,6 +273,58 @@ fac.AntdStatistic(
                 html.Div(
                     [
                         fac.AntdStatistic(
+                            value=fuc.FefferyCountUp(
+                                end=13456.78,
+                                duration=3,
+                                decimals=2
+                            ),
+                            title='配合数字递增'
+                        ),
+
+                        fac.AntdDivider(
+                            '配合数字递增组件',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+import feffery_utils_components as fuc
+
+...
+
+fac.AntdStatistic(
+    value=fuc.FefferyCountUp(
+        end=13456.78,
+        duration=3,
+        decimals=2
+    ),
+    title='配合数字递增'
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='配合数字递增组件',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdStatistic(
                             id='statistic-demo',
                             precision=2,
                             title='XX股份实时股价',
@@ -388,6 +441,7 @@ def statistic_demo_callback(n_intervals, value):
                     {'title': '限制精度', 'href': '#限制精度'},
                     {'title': '添加前后缀', 'href': '#添加前后缀'},
                     {'title': '为标题添加额外信息提示', 'href': '#为标题添加额外信息提示'},
+                    {'title': '配合数字递增组件', 'href': '#配合数字递增组件'},
                     {'title': '回调示例', 'href': '#回调示例'},
                 ],
                 offsetTop=0
