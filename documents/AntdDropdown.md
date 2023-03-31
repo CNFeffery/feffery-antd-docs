@@ -6,9 +6,9 @@
 
 　　用于设置*当前组件的css样式*
 
-**className：** *string*型
+**className：** *string*或*dict*型
 
-　　用于设置*当前组件的css类名*
+　　用于设置*当前组件的css类名*，支持[动态css](/advanced-classname)
 
 **title：** *string*型
 
@@ -54,9 +54,9 @@
 
 　　用于*设置是否禁用当前组件*
 
-**overlayClassName：** *string*型
+**overlayClassName：** *string*或*dict*型
 
-　　用于*设置下拉菜单容器的类名*
+　　用于*设置下拉菜单容器的类名*，支持[动态css](/advanced-classname)
 
 **overlayStyle：** *string*型
 

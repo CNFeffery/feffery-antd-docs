@@ -6,9 +6,9 @@
 
 　　用于设置*当前组件的css样式*
 
-**className：** *string*型
+**className：** *string*或*dict*型
 
-　　用于设置*当前组件的css类名*
+　　用于设置*当前组件的css类名*，支持[动态css](/advanced-classname)
 
 **icon：** *string*型
 
@@ -21,4 +21,3 @@
 **debounceWait：** *int*型，默认为`200`
 
 　　用于*为nClicks的监听更新设置防抖延时时长*，单位：毫秒
-

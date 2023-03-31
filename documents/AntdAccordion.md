@@ -6,16 +6,16 @@
 
 　　用于设置*当前组件的css样式*
 
-**className：** *string*型
+**className：** *string*或*dict*型
 
-　　用于设置*当前组件的css类名*
+　　用于设置*当前组件的css类名*，支持[动态css](/advanced-classname)
 
 **items：** `list[dict]`型
 
 　　用于*定义当前手风琴列表*，每个字典可用的键值对参数有：
 
 - **children：** *组件型*，用于*设置当前手风琴项的内部元素*
-- **className：** *string*型，用于*设置当前手风琴项的css类名*
+- **className：** *string*或*dict*型，用于*设置当前手风琴项的css类名*，支持[动态css](/advanced-classname)
 - **style：** *dict*型，用于*设置当前手风琴项的css样式*
 - **key：** *int*或*string*型，必填，用于*设置当前手风琴项的唯一识别id*
 - **collapsible：** *string*型，用于*设置当前手风琴项的折叠触发方式*，可选的有`'header'`、`'disabled'`

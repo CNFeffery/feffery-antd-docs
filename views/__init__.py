@@ -1,6 +1,6 @@
 from . import (
-    AntdProgress,
     what_is_fac,
+    AntdProgress,
     AntdIcon,
     AntdButton,
     AntdParagraph,
@@ -93,5 +93,8 @@ from . import (
     AntdBackTop,
     AntdConfigProvider,
     AntdCopyText,
-    AntdWatermark
+    AntdWatermark,
+    advanced_classname,
+    popup_container,
+    internationalization
 )

@@ -6,13 +6,13 @@
 
 　　用于设置*当前组件的css样式*
 
-**className：** *string*型
+**className：** *string*或*dict*型
 
-　　用于设置*当前组件的css类名*
+　　用于设置*当前组件的css类名*，支持[动态css](/advanced-classname)
 
-**wrapperClassName：** *string*型
+**wrapperClassName：** *string*或*dict*型
 
-　　用于设置*当前加载动画组件容器的css类名*
+　　用于设置*当前加载动画组件容器的css类名*，支持[动态css](/advanced-classname)
 
 **children：** *组件型*
 

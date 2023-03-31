@@ -6,9 +6,9 @@
 
 　　用于设置*当前组件的css样式*
 
-**className：** *string*型
+**className：** *string*或*dict*型
 
-　　用于设置*当前组件的css类名*
+　　用于设置*当前组件的css类名*，支持[动态css](/advanced-classname)
 
 <font style="color: white; background: #fab005; border-radius: 6px; padding: 3px 8px;">0.3.x将废弃</font> **children：** *组件型*
 

@@ -1103,6 +1103,7 @@ class Config:
                     'component': 'Item',
                     'props': {
                         'key': '/advanced-classname',
+                        'name': '/advanced-classname',
                         'title': '进阶className的使用',
                         'href': '/advanced-classname'
                     }
@@ -1110,15 +1111,8 @@ class Config:
                 {
                     'component': 'Item',
                     'props': {
-                        'key': '/responsive',
-                        'title': '响应式',
-                        'href': '/responsive'
-                    }
-                },
-                {
-                    'component': 'Item',
-                    'props': {
                         'key': '/popup-container',
+                        'name': '/popup-container',
                         'title': '弹出层容器设置',
                         'href': '/popup-container'
                     }
@@ -1127,6 +1121,7 @@ class Config:
                     'component': 'Item',
                     'props': {
                         'key': '/internationalization',
+                        'name': '/internationalization',
                         'title': '国际化',
                         'href': '/internationalization'
                     }
@@ -1135,6 +1130,7 @@ class Config:
                     'component': 'Item',
                     'props': {
                         'key': '/style-overwrite',
+                        'name': '/style-overwrite',
                         'title': '自定义样式覆盖',
                         'href': '/style-overwrite'
                     }
@@ -1143,6 +1139,7 @@ class Config:
                     'component': 'Item',
                     'props': {
                         'key': '/prop-persistence',
+                        'name': '/prop-persistence',
                         'title': '属性持久化',
                         'href': '/prop-persistence'
                     }
@@ -1151,8 +1148,18 @@ class Config:
                     'component': 'Item',
                     'props': {
                         'key': '/use-key-to-refresh',
+                        'name': '/use-key-to-refresh',
                         'title': '强制刷新组件',
                         'href': '/use-key-to-refresh'
+                    }
+                },
+                {
+                    'component': 'Item',
+                    'props': {
+                        'key': '/responsive',
+                        'name': '/responsive',
+                        'title': '响应式',
+                        'href': '/responsive'
                     }
                 },
             ]

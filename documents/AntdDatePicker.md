@@ -6,9 +6,9 @@
 
 　　用于设置*当前组件的css样式*
 
-**className：** *string*型
+**className：** *string*或*dict*型
 
-　　用于设置*当前组件的css类名*
+　　用于设置*当前组件的css类名*，支持[动态css](/advanced-classname)
 
 **locale：** *string*型，默认为`'zh-cn'`
 
@@ -17,7 +17,7 @@
 **format：** *string*型
 
 　　用于*设置当前日期选择框的日期解析格式*，具体见[参考资料](https://momentjscom.readthedocs.io/en/latest/moment/04-displaying/01-format/)
-　　
+
 **picker：** *string*型，默认为`'date'`
 
 　　用于*设置日期选择的粒度*，可选的有`'date'`、`'week'`、`'month'`、`'quarter'`、`'year'`

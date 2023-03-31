@@ -439,17 +439,33 @@ def render_docs_content(pathname):
     路由回调
     '''
 
-    # if pathname == '/what-is-fac' or pathname == '/':
-    #     pathname = '/what-is-fac'
-    #     return [
-    #         views.what_is_fac.docs_content,
-    #         pathname,
-    #         dash.no_update,
-    #         None
-    #     ]
+    if pathname == '/what-is-fac' or pathname == '/':
+        pass
+        # return [
+        #     views.what_is_fac.docs_content,
+        #     str(uuid.uuid4())
+        # ]
+
+    elif pathname == '/advanced-classname':
+        return [
+            views.advanced_classname.docs_content,
+            str(uuid.uuid4())
+        ]
+
+    elif pathname == '/popup-container':
+        return [
+            views.popup_container.docs_content,
+            str(uuid.uuid4())
+        ]
+
+    elif pathname == '/internationalization':
+        return [
+            views.internationalization.docs_content,
+            str(uuid.uuid4())
+        ]
 
     # 检查当前pathname是否在预设字典中
-    if pathname in Config.key2open_keys.keys():
+    elif pathname in Config.key2open_keys.keys():
 
         # 复杂内容渲染效果优化
         time.sleep(0.5)
@@ -519,17 +535,29 @@ def handle_other_router_interaction(pathname):
     路由相关的交互效果优化
     '''
 
-    # if pathname == '/what-is-fac' or pathname == '/':
-    #     pathname = '/what-is-fac'
-    #     return [
-    #         views.what_is_fac.docs_content,
-    #         pathname,
-    #         dash.no_update,
-    #         None
-    #     ]
+    if pathname == '/what-is-fac' or pathname == '/':
+        return [
+            '/what-is-fac',
+            dash.no_update,
+            None
+        ]
+
+    elif pathname in [
+        '/advanced-classname',
+        '/popup-container',
+        '/internationalization'
+    ]:
+        return [
+            pathname,
+            dash.no_update,
+            fuc.FefferyScroll(
+                scrollTargetId=pathname,
+                **router_menu_scroll_params
+            )
+        ]
 
     # 检查当前pathname是否在预设字典中
-    if pathname in Config.key2open_keys.keys():
+    elif pathname in Config.key2open_keys.keys():
 
         return [
             pathname,
