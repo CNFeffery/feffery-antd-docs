@@ -1129,21 +1129,21 @@ class Config:
                 {
                     'component': 'Item',
                     'props': {
-                        'key': '/style-overwrite',
-                        'name': '/style-overwrite',
-                        'title': '自定义样式覆盖',
-                        'href': '/style-overwrite'
-                    }
-                },
-                {
-                    'component': 'Item',
-                    'props': {
                         'key': '/prop-persistence',
                         'name': '/prop-persistence',
                         'title': '属性持久化',
                         'href': '/prop-persistence'
                     }
                 },
+                # {
+                #     'component': 'Item',
+                #     'props': {
+                #         'key': '/style-overwrite',
+                #         'name': '/style-overwrite',
+                #         'title': '自定义样式覆盖',
+                #         'href': '/style-overwrite'
+                #     }
+                # },
                 {
                     'component': 'Item',
                     'props': {

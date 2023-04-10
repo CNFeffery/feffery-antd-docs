@@ -233,6 +233,10 @@
 
 　　用于*监听最近一次筛选操作后各个字段对应的筛选值条件*
 
+**hiddenRowKeys：** `list[string]`型，默认为`[]`
+
+　　用于*设置需要进行隐藏的行记录key值数组*，主要用于联动其他条件过滤类组件实现更丰富的字段值筛选效果
+
 **pagination：** *dict*或*bool*型
 
 　　用于*配置表格分页相关功能*，设置为`False`时会关闭分页功能，传入*dict*型输入时，可用的键值对参数有：
@@ -280,6 +284,10 @@
 
 - **key：** *string*型，用于*设置当前可展开内容对应的行记录key值*
 - **content：** *组件型*，用于*设置当前可展开行内容*
+
+**defaultExpandedRowKeys：** `list[string]`型
+
+　　用于*设置表格初始化时默认处于展开状态的行记录key值数组*
 
 **expandedRowWidth：** *int*或*string*型
 

@@ -134,3 +134,15 @@ menuItems = [
 **inlineCollapsed：** *bool*型，默认为`False`
 
 　　用于*设置当前菜单是否处于折叠状态*，进`mode='inline'`时有效
+
+**persistence：** *bool*型
+
+　　用于*设置是否为当前组件开启属性持久化*
+
+**persisted_props：** *list*型，默认为`['currentKey', 'openKeys']`
+
+　　用于*设置针对当前组件的哪些属性进行持久化*，可选的有`'currentKey'`、`'openKeys'`
+
+**persistence_type：** *string*型，默认为`'local'`
+
+　　用于*设置针对当前组件进行属性持久化的存储类型*，可选的有`'local'`（浏览器本地缓存）、`'session'`（当前标签页会话缓存）、`'memory'`（内存临时缓存）

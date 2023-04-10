@@ -464,6 +464,12 @@ def render_docs_content(pathname):
             str(uuid.uuid4())
         ]
 
+    elif pathname == '/prop-persistence':
+        return [
+            views.prop_persistence.docs_content,
+            str(uuid.uuid4())
+        ]
+
     # 检查当前pathname是否在预设字典中
     elif pathname in Config.key2open_keys.keys():
 
@@ -545,7 +551,8 @@ def handle_other_router_interaction(pathname):
     elif pathname in [
         '/advanced-classname',
         '/popup-container',
-        '/internationalization'
+        '/internationalization',
+        '/prop-persistence'
     ]:
         return [
             pathname,

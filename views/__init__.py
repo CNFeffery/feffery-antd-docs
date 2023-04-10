@@ -96,5 +96,6 @@ from . import (
     AntdWatermark,
     advanced_classname,
     popup_container,
-    internationalization
+    internationalization,
+    prop_persistence
 )

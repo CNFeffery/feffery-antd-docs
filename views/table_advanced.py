@@ -2413,6 +2413,106 @@ fac.AntdTable(
                                 }
                                 for i in range(0, 10, 2)
                             ],
+                            defaultExpandedRowKeys=[
+                                'row-2', 'row-6'
+                            ]
+                        ),
+
+                        fac.AntdDivider(
+                            '设置初始化展开行',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdTable(
+    columns=[
+        {
+            'title': f'字段{i}',
+            'dataIndex': f'字段{i}',
+            'width': 400
+        }
+        for i in range(5)
+    ],
+    data=[
+        {
+            **{
+                f'字段{j}': i
+                for j in range(5)
+            },
+            'key': f'row-{i}'
+        }
+        for i in range(10)
+    ],
+    bordered=True,
+    expandedRowKeyToContent=[
+        {
+            'key': f'row-{i}',
+            'content': fac.AntdButton(
+                f'第{i}行展开内容示例',
+                type='primary'
+            )
+        }
+        for i in range(0, 10, 2)
+    ],
+    defaultExpandedRowKeys=[
+        'row-2', 'row-6'
+    ]
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='设置初始化展开行',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdTable(
+                            columns=[
+                                {
+                                    'title': f'字段{i}',
+                                    'dataIndex': f'字段{i}',
+                                    'width': 400
+                                }
+                                for i in range(5)
+                            ],
+                            data=[
+                                {
+                                    **{
+                                        f'字段{j}': i
+                                        for j in range(5)
+                                    },
+                                    'key': f'row-{i}'
+                                }
+                                for i in range(10)
+                            ],
+                            bordered=True,
+                            expandedRowKeyToContent=[
+                                {
+                                    'key': f'row-{i}',
+                                    'content': fac.AntdButton(
+                                        f'第{i}行展开内容示例',
+                                        type='primary'
+                                    )
+                                }
+                                for i in range(0, 10, 2)
+                            ],
                             expandRowByClick=True
                         ),
 
@@ -3188,6 +3288,10 @@ html.Div(
                             {
                                 'title': '基础的行展开',
                                 'href': '#基础的行展开',
+                            },
+                            {
+                                'title': '设置初始化展开行',
+                                'href': '#设置初始化展开行',
                             },
                             {
                                 'title': '点击所在行展开折叠',

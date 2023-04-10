@@ -292,6 +292,92 @@ fac.AntdTooltip(
                     className='div-highlight'
                 ),
 
+                html.Div(
+                    [
+                        fac.AntdSpace(
+                            [
+                                fac.AntdTooltip(
+                                    fac.AntdButton(
+                                        '锚点元素'
+                                    ),
+                                    title='open=True',
+                                    open=True
+                                ),
+                                fac.AntdTooltip(
+                                    fac.AntdButton(
+                                        '锚点元素'
+                                    ),
+                                    title='open=True且permanent=True',
+                                    open=True,
+                                    permanent=True,
+                                    placement='right'
+                                )
+                            ]
+                        ),
+
+                        fac.AntdDivider(
+                            '可控的展开行为',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdParagraph(
+                            [
+                                '仅设置',
+                                fac.AntdText(
+                                    'open=True',
+                                    code=True
+                                ),
+                                '时，文字提示会默认展开，但随着用户后续的鼠标动作，展开状态会照常被切换'
+                            ],
+                            style={
+                                'textIndent': '2rem'
+                            }
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdTooltip(
+            fac.AntdButton(
+                '锚点元素'
+            ),
+            title='open=True',
+            open=True
+        ),
+        fac.AntdTooltip(
+            fac.AntdButton(
+                '锚点元素'
+            ),
+            title='open=True且permanent=True',
+            open=True,
+            permanent=True,
+            placement='right'
+        )
+    ]
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='可控的展开行为',
+                    className='div-highlight'
+                ),
+
                 html.Div(style={'height': '100px'})
             ],
             style={
@@ -306,6 +392,7 @@ fac.AntdTooltip(
                     {'title': '不同的悬浮层展开方向', 'href': '#不同的悬浮层展开方向'},
                     {'title': '自定义背景色', 'href': '#自定义背景色'},
                     {'title': '自定义样式', 'href': '#自定义样式'},
+                    {'title': '可控的展开行为', 'href': '#可控的展开行为'},
                 ],
                 offsetTop=0
             ),
