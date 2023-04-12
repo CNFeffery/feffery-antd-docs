@@ -29,26 +29,6 @@ router_menu_scroll_params = dict(
 app.layout = fuc.FefferyTopProgress(
     html.Div(
         [
-            # fac 0.2.0 预览版官网提示消息
-            fuc.FefferyFancyNotification(
-                fac.AntdParagraph(
-                    [
-                        'fac 0.2.x预览版官网正在建设中，点击',
-                        html.A(
-                            '此处',
-                            href='http://fac-next.feffery.tech/',
-                            target='_blank'
-                        ),
-                        '了解最新开发进展'
-                    ]
-                ),
-                type='info',
-                position='top-right',
-                theme='light',
-                closeOnClick=False,
-                autoClose=10000
-            ),
-
             # 注入url监听
             dcc.Location(id='url'),
 
