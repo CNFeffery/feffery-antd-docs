@@ -21,7 +21,7 @@
 **format：** *string*型
 
 　　用于*设置当前日期范围选择框的日期解析格式*，具体见[参考资料](https://momentjscom.readthedocs.io/en/latest/moment/04-displaying/01-format/)
-　　
+
 **picker：** *string*型，默认为`'date'`
 
 　　用于*设置日期范围选择的粒度*，可选的有`'date'`、`'week'`、`'month'`、`'quarter'`、`'year'`
