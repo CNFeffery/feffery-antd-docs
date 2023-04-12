@@ -111,38 +111,6 @@ app.layout = fuc.FefferyTopProgress(
                 }
             ),
 
-            fac.AntdAlert(
-                message=[
-                    fac.AntdText(
-                        '当前文档对应fac 0.2.0的最新预发布版本，安装方式：'
-                    ),
-                    fac.AntdText(
-                        'pip install feffery-antd-components=={}'.format(
-                            fac.__version__
-                        ),
-                        copyable=True,
-                        strong=True
-                    ),
-                    '或',
-                    fac.AntdText(
-                        'pip install feffery-antd-components -U --pre',
-                        copyable=True,
-                        strong=True
-                    )
-                ],
-                type='warning',
-                showIcon=True,
-                closable=True,
-                style={
-                    'position': 'fixed',
-                    'top': 0,
-                    'width': '100%',
-                    'zIndex': 999999,
-                    'height': 64,
-                    'fontSize': 15
-                }
-            ),
-
             # 注入内容区刷新辅助动画锚点
             fac.AntdSpin(
                 html.Div(
@@ -440,11 +408,16 @@ def render_docs_content(pathname):
     '''
 
     if pathname == '/what-is-fac' or pathname == '/':
-        pass
-        # return [
-        #     views.what_is_fac.docs_content,
-        #     str(uuid.uuid4())
-        # ]
+        return [
+            views.what_is_fac.docs_content,
+            str(uuid.uuid4())
+        ]
+
+    elif pathname == '/getting-started':
+        return [
+            views.getting_started.docs_content,
+            str(uuid.uuid4())
+        ]
 
     elif pathname == '/advanced-classname':
         return [
@@ -467,6 +440,12 @@ def render_docs_content(pathname):
     elif pathname == '/prop-persistence':
         return [
             views.prop_persistence.docs_content,
+            str(uuid.uuid4())
+        ]
+
+    elif pathname == '/use-key-to-refresh':
+        return [
+            views.use_key_to_refresh.docs_content,
             str(uuid.uuid4())
         ]
 
@@ -548,11 +527,19 @@ def handle_other_router_interaction(pathname):
             None
         ]
 
+    elif pathname == '/getting-started':
+        return [
+            '/getting-started',
+            dash.no_update,
+            None
+        ]
+
     elif pathname in [
         '/advanced-classname',
         '/popup-container',
         '/internationalization',
-        '/prop-persistence'
+        '/prop-persistence',
+        '/use-key-to-refresh'
     ]:
         return [
             pathname,

@@ -1309,6 +1309,126 @@ fac.AntdSpace(
                     className='div-highlight'
                 ),
 
+                html.Div(
+                    [
+                        fac.AntdTable(
+                            columns=[
+                                {
+                                    'title': '字段1-1',
+                                    'dataIndex': '字段1-1',
+                                    'group': '字段1'
+                                },
+                                {
+                                    'title': '字段1-2',
+                                    'dataIndex': '字段1-2',
+                                    'group': '字段1'
+                                },
+                                {
+                                    'title': '字段2',
+                                    'dataIndex': '字段2'
+                                },
+                                {
+                                    'title': '字段3-1',
+                                    'dataIndex': '字段3-1',
+                                    'group': '字段3'
+                                },
+                                {
+                                    'title': '字段3-2',
+                                    'dataIndex': '字段3-2',
+                                    'group': '字段3'
+                                },
+                                {
+                                    'title': '字段3-3',
+                                    'dataIndex': '字段3-3',
+                                    'group': '字段3'
+                                },
+                            ],
+                            data=[
+                                {
+                                    '字段1-1': 1,
+                                    '字段1-2': 1,
+                                    '字段2': 1,
+                                    '字段3-1': 1,
+                                    '字段3-2': 1,
+                                    '字段3-3': 1
+                                }
+                            ] * 5,
+                            bordered=True
+                        ),
+
+                        fac.AntdDivider(
+                            '为字段分组',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdTable(
+    columns=[
+        {
+            'title': '字段1-1',
+            'dataIndex': '字段1-1',
+            'group': '字段1'
+        },
+        {
+            'title': '字段1-2',
+            'dataIndex': '字段1-2',
+            'group': '字段1'
+        },
+        {
+            'title': '字段2',
+            'dataIndex': '字段2'
+        },
+        {
+            'title': '字段3-1',
+            'dataIndex': '字段3-1',
+            'group': '字段3'
+        },
+        {
+            'title': '字段3-2',
+            'dataIndex': '字段3-2',
+            'group': '字段3'
+        },
+        {
+            'title': '字段3-3',
+            'dataIndex': '字段3-3',
+            'group': '字段3'
+        },
+    ],
+    data=[
+        {
+            '字段1-1': 1,
+            '字段1-2': 1,
+            '字段2': 1,
+            '字段3-1': 1,
+            '字段3-2': 1,
+            '字段3-3': 1
+        }
+    ] * 5,
+    bordered=True
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='为字段分组',
+                    className='div-highlight'
+                ),
+
                 html.Div(style={'height': '100px'})
             ],
             style={
@@ -1347,6 +1467,7 @@ fac.AntdSpace(
                     {'title': '可编辑单元格', 'href': '#可编辑单元格'},
                     {'title': '通过回调监听编辑记录', 'href': '#通过回调监听编辑记录'},
                     {'title': '不同的尺寸规格', 'href': '#不同的尺寸规格'},
+                    {'title': '为字段分组', 'href': '#为字段分组'},
                 ],
                 offsetTop=0
             ),

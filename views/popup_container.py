@@ -3,8 +3,6 @@ import feffery_antd_components as fac
 import feffery_utils_components as fuc
 import feffery_markdown_components as fmc
 
-from .side_props import render_side_props_layout
-
 docs_content = html.Div(
     [
         html.Div(

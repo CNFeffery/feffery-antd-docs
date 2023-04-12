@@ -1,5 +1,6 @@
 from . import (
     what_is_fac,
+    getting_started,
     AntdProgress,
     AntdIcon,
     AntdButton,
@@ -97,5 +98,6 @@ from . import (
     advanced_classname,
     popup_container,
     internationalization,
-    prop_persistence
+    prop_persistence,
+    use_key_to_refresh
 )

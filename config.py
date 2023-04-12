@@ -1153,15 +1153,15 @@ class Config:
                         'href': '/use-key-to-refresh'
                     }
                 },
-                {
-                    'component': 'Item',
-                    'props': {
-                        'key': '/responsive',
-                        'name': '/responsive',
-                        'title': '响应式',
-                        'href': '/responsive'
-                    }
-                },
+                # {
+                #     'component': 'Item',
+                #     'props': {
+                #         'key': '/responsive',
+                #         'name': '/responsive',
+                #         'title': '响应式',
+                #         'href': '/responsive'
+                #     }
+                # },
             ]
         },
         {
