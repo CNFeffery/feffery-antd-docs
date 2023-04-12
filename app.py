@@ -1,109 +1,29 @@
-import os
-
-import feffery_markdown_components as fmc
+import uuid
+import time
+import dash
+from dash import dcc, html
+from urllib.parse import unquote
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
-from dash import dcc
-from dash import html
 from dash.dependencies import Input, Output, State
 
-from config import Config
-from server import app, server
+import views
 from views import (
-    what_is_fac,
-    getting_started,
-    AntdDatePicker,
-    AntdDateRangePicker,
-    AntdDivider,
-    AntdIcon,
-    AntdBackTop,
-    AntdButton,
-    AntdSelect,
-    AntdRate,
-    AntdTree,
-    AntdTable,
-    AntdAnchor,
-    AntdSlider,
-    AntdTransfer,
-    AntdSteps,
-    AntdMenu,
-    AntdUpload,
-    AntdDraggerUpload,
-    AntdSpin,
-    AntdInput,
-    AntdTabPane,
-    AntdTabs,
-    AntdRow,
-    AntdCol,
-    AntdParagraph,
-    AntdText,
-    AntdTitle,
-    AntdSpace,
-    AntdAlert,
-    AntdNotification,
-    AntdMessage,
-    AntdLayout,
-    AntdHeader,
-    AntdSider,
-    AntdContent,
-    AntdFooter,
-    AntdPagination,
-    AntdCascader,
-    AntdCheckbox,
-    AntdCheckboxGroup,
-    AntdRadioGroup,
-    AntdSwitch,
-    AntdTreeSelect,
-    AntdCollapse,
-    AntdEmpty,
-    AntdTooltip,
-    AntdPopover,
-    AntdStatistic,
-    AntdCountdown,
-    AntdTag,
-    AntdDrawer,
-    AntdModal,
-    AntdPopconfirm,
-    AntdResult,
-    AntdSkeleton,
-    AntdAffix,
-    AntdBreadcrumb,
-    AntdDropdown,
-    AntdInputNumber,
-    AntdTimeline,
-    AntdProgress,
-    AntdAvatar,
-    AntdBadge,
-    AntdRibbon,
-    AntdTimePicker,
-    AntdTimeRangePicker,
-    AntdCarousel,
-    AntdForm,
-    AntdFormItem,
-    AntdCardGrid,
-    AntdCard,
-    AntdMentions,
-    AntdImage,
-    AntdPageHeader,
-    AntdCalendar,
-    AntdComment,
-    AntdDescriptions,
-    AntdDescriptionItem,
-    AntdWatermark,
-    AntdPasteImage,
-    AntdSegmented,
-    AntdCheckCard,
-    AntdCheckCardGroup,
-    AntdAccordionItem,
-    AntdAccordion,
-    AntdPictureUpload,
-    AntdSkeletonAvatar,
-    AntdSkeletonButton,
-    AntdSkeletonImage,
-    AntdSkeletonInput,
-    AntdCustomSkeleton,
-    AntdSegmentedColoring,
-    AntdCopyText
+    table_basic,
+    table_advanced,
+    table_server_side_mode,
+    table_rerender
+)
+from config import Config
+from utils import generate_shortcut_panel_data
+from server import app, server
+
+# 侧边菜单自动滚动动作基础参数
+router_menu_scroll_params = dict(
+    scrollMode='target',
+    executeScroll=True,
+    offset=-200,
+    containerId='router-menu'
 )
 
 app.layout = fuc.FefferyTopProgress(
@@ -132,104 +52,130 @@ app.layout = fuc.FefferyTopProgress(
             # 注入url监听
             dcc.Location(id='url'),
 
-            # 注入快捷指令面板
+            # 注入侧边菜单栏自动滚动至选中项动作挂载点
+            html.Div(id='side-menu-scroll-to-current-key'),
+
+            # 注入基于url中hash信息的页面锚点滚动效果
+            html.Div(id='page-anchor-scroll-to-while-page-initial'),
+
+            # 注入侧边参数说明栏展开像素宽度记忆
+            dcc.Store(
+                id='side-props-width',
+                storage_type='local'
+            ),
+
+            # 注入快捷搜索面板
             fuc.FefferyShortcutPanel(
-                placeholder='输入你想要搜索的内容...',
-                data=[
-                    {
-                        'id': item['props']['href'],
-                        'title': item['props']['title'],
-                        'handler': '() => window.open("%s")' % item['props']['href'],
-                        'section': group['props']['title']
-                    }
-                    for group in Config.menuItems
-                    for item in group['children']
-                    if item['props'].get('href')
-                ] + [
-                    {
-                        'id': sub_item['props']['href'],
-                        'title': sub_item['props']['title'],
-                        'handler': '() => window.open("%s")' % sub_item['props']['href'],
-                        'section': group['props']['title']
-                    }
-                    for group in Config.menuItems
-                    for item in group['children']
-                    if item['component'] == 'SubMenu'
-                    for sub_item in item['children']
-                ]
+                placeholder='输入你想要搜索的组件...',
+                data=generate_shortcut_panel_data(
+                    Config.menuItems
+                )
             ),
 
             # 注入快捷添加好友悬浮卡片
             html.Div(
                 [
-                    fac.AntdPopover(
-                        fac.AntdButton(
-                            fac.AntdIcon(icon='antd-bulb'),
-                            shape='circle',
-                            style={
-                                'zoom': '1.25',
-                                'boxShadow': '0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d'
-                            }
-                        ),
-                        placement='left',
-                        content=[
-                            fac.AntdText(
-                                '微信扫码加我好友，备注【dash学习】加入学习交流群，更多灵感更快进步',
-                                strong=True
+                    fac.AntdSpace(
+                        [
+                            fac.AntdTooltip(
+                                fac.AntdButton(
+                                    fac.AntdIcon(icon='antd-bug'),
+                                    shape='circle',
+                                    href='https://github.com/CNFeffery/feffery-antd-components/issues',
+                                    target='_blank',
+                                    style={
+                                        'zoom': '1.25',
+                                        'boxShadow': '0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d'
+                                    }
+                                ),
+                                placement='left',
+                                title='问题反馈'
                             ),
-                            fac.AntdImage(
-                                src=app.get_asset_url(
-                                    'imgs/feffery-添加好友二维码.jpg'),
-                                width=250,
-                                preview=False
+
+                            fac.AntdPopover(
+                                fac.AntdButton(
+                                    fac.AntdIcon(icon='antd-bulb'),
+                                    shape='circle',
+                                    style={
+                                        'zoom': '1.25',
+                                        'boxShadow': '0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d'
+                                    }
+                                ),
+                                placement='left',
+                                content=[
+                                    fac.AntdText(
+                                        '微信扫码加我好友，备注【dash学习】加入学习交流群，更多灵感更快进步',
+                                        strong=True
+                                    ),
+                                    fac.AntdImage(
+                                        src=app.get_asset_url(
+                                            'imgs/feffery-添加好友二维码.jpg'),
+                                        width=250,
+                                        preview=False
+                                    )
+                                ],
+                                overlayStyle={
+                                    'width': '300px',
+                                    'height': '408px'
+                                }
                             )
                         ],
-                        overlayStyle={
-                            'width': '300px',
-                            'height': '408px'
-                        }
+                        direction='vertical'
                     )
                 ],
                 style={
                     'position': 'fixed',
                     'right': '100px',
                     'bottom': '200px',
-                    'zIndex': 99999
+                    'zIndex': 999
                 }
             ),
 
-            # 侧边栏折叠按钮
-            fac.AntdButton(
-                fac.AntdIcon(
-                    id='fold-side-menu-icon',
-                    icon='antd-menu-fold'
+            # 注入内容区刷新辅助动画锚点
+            fac.AntdSpin(
+                html.Div(
+                    id='docs-content-spin-center',
+                    style={
+                        'position': 'fixed'  # 强制脱离文档流
+                    }
                 ),
-                id='fold-side-menu',
-                size='large',
-                type='text',
-                style={
-                    'position': 'fixed',
-                    'top': '400px',
-                    'left': 0,
-                    'zIndex': 99999,
-                    'padding': '5px 8px',
-                    'boxShadow': '2px 0 8px #00000026',
-                    'borderRadius': '0 4px 4px 0',
-                    'backgroundColor': 'white'
-                }
+                indicator=fuc.FefferyExtraSpinner(
+                    type='guard',
+                    color='#1890ff',
+                    style={
+                        'position': 'fixed',
+                        'top': '50%',
+                        'left': '50%',
+                        'width': 100,
+                        'height': 100,
+                        'transform': 'translate(-50%, -50%)',
+                        'zIndex': 999
+                    }
+                )
             ),
 
             # 页面结构
             fac.AntdRow(
                 [
                     fac.AntdCol(
-                        html.Img(
-                            src=app.get_asset_url(
-                                'imgs/fac-logo.svg'),
-                            style={
-                                'height': '50px',
-                                'padding': '0 10px',
-                                'marginTop': '7px'
+                        fuc.FefferyMotion(
+                            html.Img(
+                                src=app.get_asset_url(
+                                    'imgs/fac-logo.svg'
+                                ),
+                                style={
+                                    'height': '50px',
+                                    'padding': '0 10px',
+                                    'marginTop': '7px',
+                                    'cursor': 'pointer'
+                                }
+                            ),
+                            whileTap={
+                                'scale': 1.2
+                            },
+                            transition={
+                                'duration': 0.5,
+                                'type': 'spring'
                             }
                         ),
                     ),
@@ -253,7 +199,6 @@ app.layout = fuc.FefferyTopProgress(
                             ]
                         )
                     ),
-
                     fac.AntdCol(
                         fac.AntdParagraph(
                             [
@@ -285,12 +230,12 @@ app.layout = fuc.FefferyTopProgress(
                         ),
                         flex='auto'
                     ),
-
                     fac.AntdCol(
                         html.Div(
                             [
                                 html.A(
                                     fac.AntdImage(
+                                        id='github-entry',
                                         alt='fac源码仓库，欢迎star',
                                         src='https://img.shields.io/github/stars/CNFeffery/feffery-antd-components?style=social',
                                         preview=False,
@@ -340,26 +285,43 @@ app.layout = fuc.FefferyTopProgress(
                     fac.AntdCol(
                         fac.AntdAffix(
                             html.Div(
-                                fac.AntdMenu(
-                                    id='router-menu',
-                                    menuItems=Config.menuItems,
-                                    mode='inline',
-                                    defaultOpenKeys=[
-                                        'Card', 'Descriptions', 'Form', 'Tabs', 'Grid', 'Typography',
-                                        'Layout', 'CheckCard', 'Accordion', 'CustomSkeleton'
-                                    ],
-                                    style={
-                                        'height': '100%',
-                                        'overflow': 'hidden auto',
-                                        'paddingBottom': '50px'
-                                    }
-                                ),
+                                [
+                                    fac.AntdMenu(
+                                        id='router-menu',
+                                        menuItems=Config.menuItems,
+                                        mode='inline',
+                                        defaultOpenKeys=Config.side_menu_open_keys,
+                                        style={
+                                            'height': '100%',
+                                            'paddingBottom': '50px'
+                                        }
+                                    ),
+
+                                    fac.AntdButton(
+                                        fac.AntdIcon(
+                                            id='fold-side-menu-icon',
+                                            icon='antd-arrow-left'
+                                        ),
+                                        id='fold-side-menu',
+                                        type='text',
+                                        shape='circle',
+                                        style={
+                                            'position': 'absolute',
+                                            'zIndex': 999,
+                                            'top': '10px',
+                                            'right': '-15px',
+                                            'boxShadow': '0 4px 10px 0 rgba(0,0,0,.1)',
+                                            'background': 'white'
+                                        }
+                                    )
+                                ],
                                 id='side-menu',
                                 style={
-                                    'width': '300px',
+                                    'width': '325px',
                                     'height': '100vh',
-                                    'overflowY': 'auto',
-                                    'transition': 'width 0.2s'
+                                    'transition': 'width 0.2s',
+                                    'borderRight': '1px solid rgb(240, 240, 240)',
+                                    'paddingRight': 20
                                 }
                             ),
                             offsetTop=0
@@ -369,17 +331,74 @@ app.layout = fuc.FefferyTopProgress(
 
                     fac.AntdCol(
                         [
-                            html.Div(
+                            fuc.FefferyDiv(
+                                html.Div(
+                                    style={
+                                        'height': '100vh'
+                                    }
+                                ),
                                 id='docs-content',
                                 style={
                                     'backgroundColor': 'rgb(255, 255, 255)'
                                 }
+                            ),
+
+                            # 页尾信息
+                            fac.AntdSpace(
+                                [
+                                    fac.AntdTitle(
+                                        '更多组件库',
+                                        level=4,
+                                        style={
+                                            'color': '#1d1e1e',
+                                            'fontWeight': 'normal'
+                                        }
+                                    ),
+                                    fac.AntdSpace(
+                                        [
+                                            html.A(
+                                                'fuc: 实用工具组件库',
+                                                href='https://fuc.feffery.tech/',
+                                                target='_blank',
+                                                className='more-components-link'
+                                            ),
+                                            html.A(
+                                                'fmc: markdown渲染组件库',
+                                                href='https://fmc.feffery.tech/',
+                                                target='_blank',
+                                                className='more-components-link'
+                                            ),
+                                            # html.A(
+                                            #     'fact: 图表可视化组件库',
+                                            #     href='https://fact.feffery.tech/',
+                                            #     target='_blank',
+                                            #     className='more-components-link'
+                                            # ),
+                                            # html.A(
+                                            #     'flc: 交互式地图组件库',
+                                            #     href='https://flc.feffery.tech/',
+                                            #     target='_blank',
+                                            #     className='more-components-link'
+                                            # ),
+                                        ],
+                                        direction='vertical',
+                                        style={
+                                            'marginBottom': '75px'
+                                        }
+                                    ),
+                                    'Made with ❤ by CNFeffery'
+                                ],
+                                direction='vertical',
+                                style={
+                                    'width': '100%',
+                                    'background': '#f2f3f5',
+                                    'padding': '50px 75px',
+                                    'color': '#868e96',
+                                    'boxShadow': 'inset 0 106px 36px -116px rgb(0 0 0 / 14%)'
+                                }
                             )
                         ],
-                        flex='auto',
-                        style={
-                            'padding': '25px'
-                        }
+                        flex='auto'
                     ),
 
                     fac.AntdBackTop(
@@ -390,8 +409,8 @@ app.layout = fuc.FefferyTopProgress(
             )
         ]
     ),
-    listenPropsMode='exclude',
-    excludeProps=Config.exclude_props,
+    listenPropsMode='include',
+    includeProps=Config.include_props,
     minimum=0.33,
     speed=800,
     debug=True
@@ -400,7 +419,7 @@ app.layout = fuc.FefferyTopProgress(
 
 @app.callback(
     [Output('docs-content', 'children'),
-     Output('router-menu', 'currentKey')],
+     Output('docs-content-spin-center', 'key')],
     Input('url', 'pathname')
 )
 def render_docs_content(pathname):
@@ -408,325 +427,210 @@ def render_docs_content(pathname):
     路由回调
     '''
 
-    if pathname.startswith('/change-log-') and pathname[1:] + '.md' in os.listdir('./change logs'):
-        return html.Div(
-            fmc.FefferyMarkdown(
-                markdownStr=open(
-                    f'./change logs/{pathname[1:]}.md', encoding='utf-8').read()
-            ),
-            style={
-                'padding': '25px'
-            }
-        ), pathname.replace('/change-log-', '')
-
     if pathname == '/what-is-fac' or pathname == '/':
-        pathname = '/what-is-fac'
-        return what_is_fac.docs_content, pathname
+        return [
+            views.what_is_fac.docs_content,
+            str(uuid.uuid4())
+        ]
 
     elif pathname == '/getting-started':
-        return getting_started.docs_content, pathname
-
-    elif pathname == '/AntdIcon':
-        return AntdIcon.docs_content, pathname
-
-    elif pathname == '/AntdButton':
-        return AntdButton.docs_content, pathname
-
-    elif pathname == '/AntdParagraph':
-        return AntdParagraph.docs_content, pathname
-
-    elif pathname == '/AntdText':
-        return AntdText.docs_content, pathname
-
-    elif pathname == '/AntdTitle':
-        return AntdTitle.docs_content, pathname
-
-    elif pathname == '/AntdDivider':
-        return AntdDivider.docs_content, pathname
-
-    elif pathname == '/AntdSpace':
-        return AntdSpace.docs_content, pathname
-
-    elif pathname == '/AntdRow':
-        return AntdRow.docs_content, pathname
-
-    elif pathname == '/AntdCol':
-        return AntdCol.docs_content, pathname
-
-    elif pathname == '/AntdLayout':
-        return AntdLayout.docs_content, pathname
-
-    elif pathname == '/AntdHeader':
-        return AntdHeader.docs_content, pathname
-
-    elif pathname == '/AntdSider':
-        return AntdSider.docs_content, pathname
-
-    elif pathname == '/AntdContent':
-        return AntdContent.docs_content, pathname
-
-    elif pathname == '/AntdFooter':
-        return AntdFooter.docs_content, pathname
-
-    elif pathname == '/AntdAffix':
-        return AntdAffix.docs_content, pathname
-
-    elif pathname == '/AntdBreadcrumb':
-        return AntdBreadcrumb.docs_content, pathname
-
-    elif pathname == '/AntdDropdown':
-        return AntdDropdown.docs_content, pathname
-
-    elif pathname == '/AntdMenu':
-        return AntdMenu.docs_content, pathname
-
-    elif pathname == '/AntdPagination':
-        return AntdPagination.docs_content, pathname
-
-    elif pathname == '/AntdSteps':
-        return AntdSteps.docs_content, pathname
-
-    elif pathname == '/AntdCascader':
-        return AntdCascader.docs_content, pathname
-
-    elif pathname == '/AntdCheckbox':
-        return AntdCheckbox.docs_content, pathname
-
-    elif pathname == '/AntdCheckboxGroup':
-        return AntdCheckboxGroup.docs_content, pathname
-
-    elif pathname == '/AntdDatePicker':
-        return AntdDatePicker.docs_content, pathname
-
-    elif pathname == '/AntdDateRangePicker':
-        return AntdDateRangePicker.docs_content, pathname
-
-    elif pathname == '/AntdInput':
-        return AntdInput.docs_content, pathname
-
-    elif pathname == '/AntdInputNumber':
-        return AntdInputNumber.docs_content, pathname
-
-    elif pathname == '/AntdRadioGroup':
-        return AntdRadioGroup.docs_content, pathname
-
-    elif pathname == '/AntdSelect':
-        return AntdSelect.docs_content, pathname
-
-    elif pathname == '/AntdRate':
-        return AntdRate.docs_content, pathname
-
-    elif pathname == '/AntdSlider':
-        return AntdSlider.docs_content, pathname
-
-    elif pathname == '/AntdSwitch':
-        return AntdSwitch.docs_content, pathname
-
-    elif pathname == '/AntdTransfer':
-        return AntdTransfer.docs_content, pathname
-
-    elif pathname == '/AntdTreeSelect':
-        return AntdTreeSelect.docs_content, pathname
-
-    elif pathname == '/AntdUpload':
-        return AntdUpload.docs_content, pathname
-
-    elif pathname == '/AntdDraggerUpload':
-        return AntdDraggerUpload.docs_content, pathname
-
-    elif pathname == '/AntdCollapse':
-        return AntdCollapse.docs_content, pathname
-
-    elif pathname == '/AntdEmpty':
-        return AntdEmpty.docs_content, pathname
-
-    elif pathname == '/AntdPopover':
-        return AntdPopover.docs_content, pathname
-
-    elif pathname == '/AntdStatistic':
-        return AntdStatistic.docs_content, pathname
-
-    elif pathname == '/AntdCountdown':
-        return AntdCountdown.docs_content, pathname
-
-    elif pathname == '/AntdTable':
-        return AntdTable.docs_content, pathname
-
-    elif pathname == '/AntdTag':
-        return AntdTag.docs_content, pathname
-
-    elif pathname == '/AntdTimeline':
-        return AntdTimeline.docs_content, pathname
-
-    elif pathname == '/AntdTooltip':
-        return AntdTooltip.docs_content, pathname
-
-    elif pathname == '/AntdTree':
-        return AntdTree.docs_content, pathname
-
-    elif pathname == '/AntdTabPane':
-        return AntdTabPane.docs_content, pathname
-
-    elif pathname == '/AntdTabs':
-        return AntdTabs.docs_content, pathname
-
-    elif pathname == '/AntdAlert':
-        return AntdAlert.docs_content, pathname
-
-    elif pathname == '/AntdDrawer':
-        return AntdDrawer.docs_content, pathname
-
-    elif pathname == '/AntdMessage':
-        return AntdMessage.docs_content, pathname
-
-    elif pathname == '/AntdModal':
-        return AntdModal.docs_content, pathname
-
-    elif pathname == '/AntdNotification':
-        return AntdNotification.docs_content, pathname
-
-    elif pathname == '/AntdResult':
-        return AntdResult.docs_content, pathname
-
-    elif pathname == '/AntdSkeleton':
-        return AntdSkeleton.docs_content, pathname
-
-    elif pathname == '/AntdSpin':
-        return AntdSpin.docs_content, pathname
-
-    elif pathname == '/AntdAnchor':
-        return AntdAnchor.docs_content, pathname
-
-    elif pathname == '/AntdBackTop':
-        return AntdBackTop.docs_content, pathname
-
-    elif pathname == '/AntdPopconfirm':
-        return AntdPopconfirm.docs_content, pathname
-
-    elif pathname == '/AntdProgress':
-        return AntdProgress.docs_content, pathname
-
-    elif pathname == '/AntdAvatar':
-        return AntdAvatar.docs_content, pathname
-
-    elif pathname == '/AntdBadge':
-        return AntdBadge.docs_content, pathname
-
-    elif pathname == '/AntdRibbon':
-        return AntdRibbon.docs_content, pathname
-
-    elif pathname == '/AntdTimePicker':
-        return AntdTimePicker.docs_content, pathname
-
-    elif pathname == '/AntdTimeRangePicker':
-        return AntdTimeRangePicker.docs_content, pathname
-
-    elif pathname == '/AntdCarousel':
-        return AntdCarousel.docs_content, pathname
-
-    elif pathname == '/AntdForm':
-        return AntdForm.docs_content, pathname
-
-    elif pathname == '/AntdFormItem':
-        return AntdFormItem.docs_content, pathname
-
-    elif pathname == '/AntdCardGrid':
-        return AntdCardGrid.docs_content, pathname
-
-    elif pathname == '/AntdCard':
-        return AntdCard.docs_content, pathname
-
-    elif pathname == '/AntdMentions':
-        return AntdMentions.docs_content, pathname
-
-    elif pathname == '/AntdImage':
-        return AntdImage.docs_content, pathname
-
-    elif pathname == '/AntdPageHeader':
-        return AntdPageHeader.docs_content, pathname
-
-    elif pathname == '/AntdCalendar':
-        return AntdCalendar.docs_content, pathname
-
-    elif pathname == '/AntdComment':
-        return AntdComment.docs_content, pathname
-
-    elif pathname == '/AntdDescriptions':
-        return AntdDescriptions.docs_content, pathname
-
-    elif pathname == '/AntdDescriptionItem':
-        return AntdDescriptionItem.docs_content, pathname
-
-    elif pathname == '/AntdWatermark':
-        return AntdWatermark.docs_content, pathname
-
-    elif pathname == '/AntdPasteImage':
-        return AntdPasteImage.docs_content, pathname
-
-    elif pathname == '/AntdSegmented':
-        return AntdSegmented.docs_content, pathname
-
-    elif pathname == '/AntdCheckCard':
-        return AntdCheckCard.docs_content, pathname
-
-    elif pathname == '/AntdCheckCardGroup':
-        return AntdCheckCardGroup.docs_content, pathname
-
-    elif pathname == '/AntdAccordionItem':
-        return AntdAccordionItem.docs_content, pathname
-
-    elif pathname == '/AntdAccordion':
-        return AntdAccordion.docs_content, pathname
-
-    elif pathname == '/AntdPictureUpload':
-        return AntdPictureUpload.docs_content, pathname
-
-    elif pathname == '/AntdSkeletonAvatar':
-        return AntdSkeletonAvatar.docs_content, pathname
-
-    elif pathname == '/AntdSkeletonButton':
-        return AntdSkeletonButton.docs_content, pathname
-
-    elif pathname == '/AntdSkeletonImage':
-        return AntdSkeletonImage.docs_content, pathname
-
-    elif pathname == '/AntdSkeletonInput':
-        return AntdSkeletonInput.docs_content, pathname
-
-    elif pathname == '/AntdCustomSkeleton':
-        return AntdCustomSkeleton.docs_content, pathname
-
-    elif pathname == '/AntdSegmentedColoring':
-        return AntdSegmentedColoring.docs_content, pathname
-
-    elif pathname == '/AntdCopyText':
-        return AntdCopyText.docs_content, pathname
-
-    return fac.AntdResult(status='404', title='您访问的页面不存在！'), pathname
+        return [
+            views.getting_started.docs_content,
+            str(uuid.uuid4())
+        ]
+
+    elif pathname == '/advanced-classname':
+        return [
+            views.advanced_classname.docs_content,
+            str(uuid.uuid4())
+        ]
+
+    elif pathname == '/popup-container':
+        return [
+            views.popup_container.docs_content,
+            str(uuid.uuid4())
+        ]
+
+    elif pathname == '/internationalization':
+        return [
+            views.internationalization.docs_content,
+            str(uuid.uuid4())
+        ]
+
+    elif pathname == '/prop-persistence':
+        return [
+            views.prop_persistence.docs_content,
+            str(uuid.uuid4())
+        ]
+
+    elif pathname == '/use-key-to-refresh':
+        return [
+            views.use_key_to_refresh.docs_content,
+            str(uuid.uuid4())
+        ]
+
+    # 检查当前pathname是否在预设字典中
+    elif pathname in Config.key2open_keys.keys():
+
+        # 复杂内容渲染效果优化
+        time.sleep(0.5)
+
+        # 检查当前目标pathname中是否包含AntdTable
+        if 'AntdTable' in pathname:
+
+            if pathname == '/AntdTable-basic':
+
+                return [
+                    table_basic.docs_content,
+                    str(uuid.uuid4())
+                ]
+
+            elif pathname == '/AntdTable-advanced':
+
+                return [
+                    table_advanced.docs_content,
+                    str(uuid.uuid4())
+                ]
+
+            elif pathname == '/AntdTable-server-side-mode':
+
+                return [
+                    table_server_side_mode.docs_content,
+                    str(uuid.uuid4())
+                ]
+
+            elif pathname == '/AntdTable-rerender':
+
+                return [
+                    table_rerender.docs_content,
+                    str(uuid.uuid4())
+                ]
+
+        try:
+
+            return [
+                getattr(views, pathname[1:]).docs_content,
+                str(uuid.uuid4())
+            ]
+
+        except Exception as e:
+
+            pass
+
+    return [
+        fac.AntdResult(
+            status='404',
+            title='您访问的页面不存在或还在建设中',
+            style={
+                'height': 'calc(100vh - 65px)'
+            }
+        ),
+        str(uuid.uuid4())
+    ]
+
+
+@app.callback(
+    [Output('router-menu', 'currentKey'),
+     Output('router-menu', 'openKeys'),
+     Output('side-menu-scroll-to-current-key', 'children')],
+    Input('url', 'pathname')
+)
+def handle_other_router_interaction(pathname):
+    '''
+    路由相关的交互效果优化
+    '''
+
+    if pathname == '/what-is-fac' or pathname == '/':
+        return [
+            '/what-is-fac',
+            dash.no_update,
+            None
+        ]
+
+    elif pathname == '/getting-started':
+        return [
+            '/getting-started',
+            dash.no_update,
+            None
+        ]
+
+    elif pathname in [
+        '/advanced-classname',
+        '/popup-container',
+        '/internationalization',
+        '/prop-persistence',
+        '/use-key-to-refresh'
+    ]:
+        return [
+            pathname,
+            dash.no_update,
+            fuc.FefferyScroll(
+                scrollTargetId=pathname,
+                **router_menu_scroll_params
+            )
+        ]
+
+    # 检查当前pathname是否在预设字典中
+    elif pathname in Config.key2open_keys.keys():
+
+        return [
+            pathname,
+            Config.key2open_keys[pathname],
+            fuc.FefferyScroll(
+                scrollTargetId=pathname,
+                **router_menu_scroll_params
+            )
+        ]
+
+    return [
+        pathname,
+        dash.no_update,
+        None
+    ]
+
+
+@app.callback(
+    Output('page-anchor-scroll-to-while-page-initial', 'children'),
+    Input('docs-content-spin-center', 'key'),
+    State('url', 'hash')
+)
+def page_anchor_scroll_to_while_page_initial(_, hash_):
+
+    if _ and hash_:
+
+        return fuc.FefferyScroll(
+            scrollTargetId=unquote(hash_)[1:],
+            scrollMode='target',
+            executeScroll=True,
+            offset=0
+        )
 
 
 app.clientside_callback(
     '''
     (nClicks, oldStyle) => {
         if (nClicks) {
-            if (oldStyle.width === '300px') {
+            if (oldStyle.width === '325px') {
                 return [
                     {
-                        'width': 0,
+                        'width': 20,
                         'height': '100vh',
-                        'overflowY': 'auto',
-                        'transition': 'width 0.2s'
+                        'transition': 'width 0.2s',
+                        'borderRight': '1px solid rgb(240, 240, 240)',
+                        'paddingRight': 20
                     },
-                    'antd-menu-unfold'
+                    'antd-arrow-right'
                 ]
             }
             return [
                 {
-                    'width': '300px',
+                    'width': '325px',
                     'height': '100vh',
-                    'transition': 'width 0.2s'
+                    'transition': 'width 0.2s',
+                    'borderRight': '1px solid rgb(240, 240, 240)',
+                    'paddingRight': 20
                 },
-                'antd-menu-fold'
+                'antd-arrow-left'
             ]
         }
         return window.dash_clientside.no_update;
@@ -738,5 +642,91 @@ app.clientside_callback(
     State('side-menu', 'style')
 )
 
+app.clientside_callback(
+    '''
+    (nClicks, sidePropsWidth, oldStyle) => {
+        if ( window.dash_clientside.callback_context.triggered[0] ) {
+            if ( window.dash_clientside.callback_context.triggered[0]['prop_id'] === 'fold-side-props.nClicks' && nClicks ) {
+                if (oldStyle.width !== 0) {
+                    return [
+                        {
+                            'width': 0,
+                            'height': '100vh',
+                            'padding': '0 10px',
+                            'position': 'relative',
+                            'background': '#f2f3f5',
+                            'transition': 'width 0.15s ease'
+                        },
+                        'antd-arrow-left'
+                    ]
+                }
+                return [
+                    {
+                        'width': sidePropsWidth || 500,
+                        'height': '100vh',
+                        'padding': '0 20px',
+                        'position': 'relative',
+                        'background': '#f2f3f5',
+                        'transition': 'width 0.4s ease'
+                    },
+                    'antd-arrow-right'
+                ]
+            } else if ( window.dash_clientside.callback_context.triggered[0]['prop_id'] === 'side-props-width.data' && sidePropsWidth ) {
+                return [
+                    {
+                        'width': sidePropsWidth,
+                        'height': '100vh',
+                        'padding': '0 20px',
+                        'position': 'relative',
+                        'background': '#f2f3f5',
+                        'transition': 'width 0.15s ease'
+                    },
+                    'antd-arrow-right'
+                ]
+            }
+        }
+        
+        return window.dash_clientside.no_update;
+    }
+    ''',
+    [Output('side-props', 'style'),
+     Output('fold-side-props-icon', 'icon')],
+    Input('fold-side-props', 'nClicks'),
+    Input('side-props-width', 'data'),
+    State('side-props', 'style')
+)
+
+
+app.clientside_callback(
+    '''(nClicksPlus, nClicksMinus, data) => {
+        data = data || 500
+        if ( window.dash_clientside.callback_context.triggered[0]['prop_id'] === 'side-props-width-plus.nClicks' && nClicksPlus ) {
+            return [
+                data + 50,
+                data + 50 >= 700,
+                data + 50 <= 400
+            ]
+        } else if ( window.dash_clientside.callback_context.triggered[0]['prop_id'] === 'side-props-width-minus.nClicks' && nClicksMinus ) {
+            return[
+                data - 50,
+                data - 50 >= 700,
+                data - 50 <= 400
+            ]
+        }
+
+        return [
+            data,
+            data >= 700,
+            data <= 400
+        ];
+    }''',
+    [Output('side-props-width', 'data'),
+     Output('side-props-width-plus', 'disabled'),
+     Output('side-props-width-minus', 'disabled')],
+    [Input('side-props-width-plus', 'nClicks'),
+     Input('side-props-width-minus', 'nClicks')],
+    State('side-props-width', 'data')
+)
+
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run(debug=True)

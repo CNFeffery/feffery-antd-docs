@@ -1,31 +1,51 @@
+**id：** *string*型
+
+　　用于设置*当前组件的唯一id信息*
+
+**key：** *string*型
+
+　　对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+
+**className：** *string*或*dict*型
+
+　　用于设置*当前组件的css类名*，支持[动态css](/advanced-classname)
+
+**children：** *组件型*
+
+　　用于传入*嵌套的子元素*
+
 **innerTextOrientation：** *string*型，默认为`'center'`
 
-　　用于设置内嵌文字的对齐方式（通过`children`参数传入字符串定义内嵌文字内容），可选项有`'left'`（左对齐），`'center'`（居中），`'right'`（右对齐）
+　　用于*设置内嵌内容的对齐方式*（通过`children`参数传入内嵌内容），可选项有`'left'`（左对齐）、`'center'`（居中）、`'right'`（右对齐）
 
 **isDashed：** *bool*型，默认为`False`
 
-　　用于设置是否以虚线方式渲染分割线，`True`（虚线），`False`（实线）
+　　用于*设置是否以虚线方式渲染分割线*
 
 **direction：** *string*型，默认为`'horizontal'`
 
-　　设置分割线方向，`'horizontal'`（水平线），`'vertical'`（竖直线）
-
-**lineColor：** *string*型，默认为`'lightgrey'`
-
-　　用于设置分割线颜色，接受`css`中合法的颜色值
+　　用于*设置分割线方向*，可选项有`'horizontal'`（水平）、`'vertical'`（竖直）
 
 **fontSize：** *string*型
 
-　　用于设置*分割线内嵌文字字体大小*，接受`css`中合法的`font-size`输入值，如`'16px'`
+　　用于*设置分割线内嵌内容的字体大小*，接受`css`中合法的`font-size`输入值，如`'16px'`
 
-**fontStyle：** *string*型
+**lineColor：** *string*型，默认为`'lightgrey'`
 
-　　用于设置分割线内嵌文字风格，接受`css`中合法的`font-style`输入值，如`'oblique'`代表斜体
+　　用于*设置分割线颜色*，接受`css`中合法的颜色值
 
-**fontWeight：** *string*型
+**fontStyle：** *string*型，默认为`'initial'`
 
-　　用于设置分割线内嵌文字粗细程度，接受`css`中合法的`font-weight`输入值，如`'bold'`代表加粗
+　　用于*设置分割线内嵌内容的字体风格*，接受`css`中合法的`font-style`输入值，如`'oblique'`代表斜体
 
-**fontFamily：** *string*型
+**fontWeight：** *string*型，默认为`'initial'`
 
-　　用于设置分割线内嵌文字字体族，接受`css`中合法的`font-family`输入值，如`'KaiTi'`代表楷体
+　　用于*设置分割线内嵌内容的字重*，接受`css`中合法的`font-weight`输入值，如`'bold'`代表加粗
+
+**fontFamily：** *string*型，默认为`'initial'`
+
+　　用于*设置分割线内嵌内容的字体族*，接受`css`中合法的`font-family`输入值，如`'KaiTi'`代表楷体
+
+**fontColor：** *string*型，默认为`'#000000'`
+
+　　用于*设置内嵌内容的字体颜色*，接受`css`中合法的`color`输入值，如`'black'`

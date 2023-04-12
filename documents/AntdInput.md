@@ -1,84 +1,126 @@
+**id：** *string*型
+
+　　用于设置*当前组件的唯一id信息*
+
+**key：** *string*型
+
+　　对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+
+**style：** *dict*型
+
+　　用于设置*当前组件的css样式*
+
+**className：** *string*或*dict*型
+
+　　用于设置*当前组件的css类名*，支持[动态css](/advanced-classname)
+
 **mode：** *string*型，默认为`'default'`
 
-　　用于设置要渲染的*输入框类型*，可选的有`'default'`（常规输入框）、`'search'`（带搜索功能的输入框）、`'text-area'`（文本域输入框）以及`'password'`（密码输入框），不同的输入框模式下，有些大同小异的参数设计
-
-**placeholder：** *string*型
-
-　　用于设置输入框无输入值时的*占位提示内容*
-
-**size：** *string*，默认为`'middle'`
-
-　　用于设置输入框的*尺寸规格*，可选的有`'small'`、`'middle'`及`'large'`
-
-**addonBefore：** *string*型
-
-　　仅在`mode='default'`情况下可用，用于为常规输入框设置*前缀文字说明*
-
-**addonAfter：** *string*型
-
-　　仅在`mode='default'`情况下可用，用于为常规输入框设置*后缀文字说明*
-
-**allowClear：** *string*型，默认为`False`
-
-　　在`mode='default'`、`mode='search'`及`mode='text-area'`情况下可用，用于设置是否在输入框内渲染*内容快速清空图标*
-
-**bordered：** *string*型，默认为`True`
-
-　　用于设置*是否为输入框渲染边框线*
-
-**disabled：** *string*型，默认为`False`
-
-　　用于设置是否*禁用*当前输入框
+　　用于*设置当前输入框的功能模式*，可选的有`'default'`（常规输入框）、`'search'`（带搜索功能的输入框）、`'text-area'`（文本域输入框）、`'password'`（密码输入框）
 
 **autoComplete：** *string*型，默认为`'on'`
 
-　　用于设置*输入框的自动填充历史信息功能*，`'on'`表示开启自动填充，`'off'`表示关闭自动填充
+　　用于*设置输入框对应的浏览器自带自动填充功能*，可选的有`'on'`（开启）、`'off'`（关闭）
 
-**maxLength：** *string*型
+**disabled：** *bool*型，默认为`False`
 
-　　用于设置输入框允许输入的*最大字符数量*，默认无限制
+　　用于*设置是否禁用当前组件*
 
-**showCount：** *string*型，默认为`False`
+**size：** *string*型，默认为`'middle'`
 
-　　仅在`mode='text-area'`情况下可用，用于设置是否显示*当前已输入字符数量*提示
+　　用于*设置当前组件的尺寸规格*，可选项有`'small'`、`'middle'`和`'large'`
 
-**autoSize：** *bool*或*dict*型，默认为`False`
+**bordered：** *bool*型，默认为`True`
 
-　　仅在`mode='text-area'`情况下可用，用于配置*文本域自适应高度相关功能*，当传入*dict*型时，可用的键值对参数有`minRows`与`maxRows`，分别用于限制最小、最大行数
+　　用于*设置是否渲染边框*
 
-**passwordUseMd5：** *bool*型，默认为`False`
+**placeholder：** *string*型
 
-　　当`mode='password'`时，用于设置*是否开启md5加密传输模式*，开启后请使用`md5Value`代替`value`在回调中捕获被通用`md5`算法加密后的输入值
+　　用于*设置空白输入下的填充说明文字*
 
-**status：** *str型*
+**value：** *list*型
 
-　　用于*手动设置组件的校验状态*，可选的有`'error'`和`'warning'`
+　　用于*监听或设置当前已输入值*
 
-**value：** *string*型
+**defaultValue：** *list*型
 
-　　对应当前输入框内部已输入的内容
+　　用于*监听或设置初始化时的已输入值*
 
 **md5Value：** *string*型
 
-　　当`mode='password'`且`passwordUseMd5=True`时生效，用于*记录被通用md5算法加密后的输入值*
+　　当`passwordUseMd5=True`时，用于*监听当前已输入值对应的md5加密信息*
 
-**defaultValue：** *string*型
+**debounceValue：** *string*型
 
-　　在`mode='default'`、`mode='search'`及`mode='text-area'`情况下可用，用于为输入框设置初始化时*预填充的文字内容*
+　　使用`debounceValue`代替`value`配合有效的防抖延时设置，以实现有效的回调防抖效果
 
-**nSubmit：** *int*型
+**passwordUseMd5：** *bool*型，默认为`false`
 
-　　用于记录光标在输入框中时，键盘*enter键被按下的次数*
+　　用于*设置密码输入框模式下是否开启md5加密*
 
-**nClicksSearch：** *int*型
+**debounceWait：** *int*型，默认为`200`
 
-　　仅在`mode='search'`情况下可用，用于记录*搜索按钮被点击次数*
+　　用于*为debounceValue的监听更新设置防抖延时时长*，单位：毫秒
 
+**addonBefore：** *组件型*
 
+　　用于*设置输入框前置额外元素*
 
+**addonAfter：** *组件型*
 
+　　用于*设置输入框后置额外元素*
 
+**prefix：** *组件型*
 
+　　用于*设置输入框内嵌前缀元素*
 
+**suffix：** *组件型*
 
+　　用于*设置输入框内嵌后缀元素*
 
+**maxLength：** *int*型
+
+　　用于*设置输入框的最大内容输入字符数*，默认无限制
+
+**showCount：** *bool*型，默认为`False`
+
+　　用于*设置是否展示当前已输入字符数*
+
+**autoSize：** *bool*或*dict*型，默认为`False`
+
+　　用于*配置针对文本域输入框模式下的输入框自适应高度功能*，当传入*dict*型输入时，可用的键值对参数有：
+
+- **minRows：** *int*型，用于*设置最小行数*
+- **maxRows：** *int*型，用于*设置对大行数*
+
+**nSubmit：** *int*型，默认为`0`
+
+　　用于*监听光标在输入框内时键盘enter键被按下的次数*
+
+**nClicksSearch：** *int*型，默认为`0`
+
+　　用于*监听搜索输入框模式下搜索按钮被点按次数*
+
+**status：** *string*型
+
+　　用于*强制设置组件的状态*，可选的有`'error'`和`'warning'`
+
+**allowClear：** *bool*型，默认为`True`
+
+　　用于*设置是否允许用户清空已选项*
+
+**readOnly：** *bool*型
+
+　　用于*设置是否以只读模式进行展示*
+
+**persistence：** *bool*型
+
+　　用于*设置是否为当前组件开启属性持久化*
+
+**persisted_props：** *list*型，默认为`['value', 'md5Value']`
+
+　　用于*设置针对当前组件的哪些属性进行持久化*，可选的有`'value'`、`'md5Value'`
+
+**persistence_type：** *string*型，默认为`'local'`
+
+　　用于*设置针对当前组件进行属性持久化的存储类型*，可选的有`'local'`（浏览器本地缓存）、`'session'`（当前标签页会话缓存）、`'memory'`（内存临时缓存）

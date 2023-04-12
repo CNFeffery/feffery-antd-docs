@@ -1,59 +1,38 @@
 from dash import html
-import feffery_markdown_components as fmc
 import feffery_antd_components as fac
-import feffery_utils_components as fuc
+import feffery_markdown_components as fmc
 
 import callbacks.AntdComment
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdComment(children, id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdComment.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '数据展示'
+                        },
+                        {
+                            'title': 'AntdComment 评论'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　用于在各种场景下作为功能逻辑的触发点。')
+                    ]
                 ),
 
                 html.Div(
@@ -65,7 +44,7 @@ docs_content = html.Div(
                                 'value': '2022-01-01 19:29:01',
                                 'format': 'YYYY-MM-DD hh:mm:ss'
                             },
-                            commentContent='我希望feffery-components项目系列组件可以帮助更多人快速开发心仪的网站应用！😀'
+                            commentContent='我希望feffery-components项目系列组件可以帮助更多人快速开发心仪的应用！😀'
                         ),
 
                         fac.AntdDivider(
@@ -75,10 +54,11 @@ docs_content = html.Div(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdComment(
     authorName='费弗里',
@@ -87,12 +67,12 @@ fac.AntdComment(
         'value': '2022-01-01 19:29:01',
         'format': 'YYYY-MM-DD hh:mm:ss'
     },
-    commentContent='我希望feffery-components项目系列组件可以帮助更多人快速开发心仪的网站应用！😀'
+    commentContent='我希望feffery-components项目系列组件可以帮助更多人快速开发心仪的应用！😀'
 )
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -114,7 +94,7 @@ fac.AntdComment(
                                 'value': '2022-01-01 19:29:01',
                                 'format': 'YYYY-MM-DD hh:mm:ss'
                             },
-                            commentContent='我希望feffery-components项目系列组件可以帮助更多人快速开发心仪的网站应用！😀',
+                            commentContent='我希望feffery-components项目系列组件可以帮助更多人快速开发心仪的应用！😀',
                             avatarProps={
                                 'mode': 'image',
                                 'src': '/assets/imgs/avatar-demo.jpg'
@@ -128,10 +108,11 @@ fac.AntdComment(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdComment(
     authorName='费弗里',
@@ -140,7 +121,7 @@ fac.AntdComment(
         'value': '2022-01-01 19:29:01',
         'format': 'YYYY-MM-DD hh:mm:ss'
     },
-    commentContent='我希望feffery-components项目系列组件可以帮助更多人快速开发心仪的网站应用！😀',
+    commentContent='我希望feffery-components项目系列组件可以帮助更多人快速开发心仪的应用！😀',
     avatarProps={
         'mode': 'image',
         'src': '/assets/imgs/avatar-demo.jpg'
@@ -149,7 +130,7 @@ fac.AntdComment(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -171,7 +152,7 @@ fac.AntdComment(
                                 'value': '2022-01-01 19:29:01',
                                 'format': 'YYYY-MM-DD hh:mm:ss'
                             },
-                            commentContent='我希望feffery-components项目系列组件可以帮助更多人快速开发心仪的网站应用！😀',
+                            commentContent='我希望feffery-components项目系列组件可以帮助更多人快速开发心仪的应用！😀',
                             avatarProps={
                                 'mode': 'image',
                                 'src': '/assets/imgs/avatar-demo.jpg'
@@ -180,16 +161,17 @@ fac.AntdComment(
                         ),
 
                         fac.AntdDivider(
-                            '相对发表时间模式',
+                            '展示相对发表时间',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdComment(
     authorName='费弗里',
@@ -198,7 +180,7 @@ fac.AntdComment(
         'value': '2022-01-01 19:29:01',
         'format': 'YYYY-MM-DD hh:mm:ss'
     },
-    commentContent='我希望feffery-components项目系列组件可以帮助更多人快速开发心仪的网站应用！😀',
+    commentContent='我希望feffery-components项目系列组件可以帮助更多人快速开发心仪的应用！😀',
     avatarProps={
         'mode': 'image',
         'src': '/assets/imgs/avatar-demo.jpg'
@@ -208,7 +190,7 @@ fac.AntdComment(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -217,7 +199,7 @@ fac.AntdComment(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='相对发表时间模式',
+                    id='展示相对发表时间',
                     className='div-highlight'
                 ),
 
@@ -248,7 +230,7 @@ fac.AntdComment(
                                 'value': '2022-01-01 19:29:01',
                                 'format': 'YYYY-MM-DD hh:mm:ss'
                             },
-                            commentContent='我希望feffery-components项目系列组件可以帮助更多人快速开发心仪的网站应用！😀',
+                            commentContent='我希望feffery-components项目系列组件可以帮助更多人快速开发心仪的应用！😀',
                             avatarProps={
                                 'mode': 'image',
                                 'src': '/assets/imgs/avatar-demo.jpg'
@@ -261,11 +243,21 @@ fac.AntdComment(
                             innerTextOrientation='left'
                         ),
 
+                        fac.AntdParagraph(
+                            [
+                                '评论本身可以作为其他评论的子元素。从而实现嵌套评论楼中楼效果'
+                            ],
+                            style={
+                                'textIndent': '2rem'
+                            }
+                        ),
+
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdComment(
     [
@@ -292,7 +284,7 @@ fac.AntdComment(
         'value': '2022-01-01 19:29:01',
         'format': 'YYYY-MM-DD hh:mm:ss'
     },
-    commentContent='我希望feffery-components项目系列组件可以帮助更多人快速开发心仪的网站应用！😀',
+    commentContent='我希望feffery-components项目系列组件可以帮助更多人快速开发心仪的应用！😀',
     avatarProps={
         'mode': 'image',
         'src': '/assets/imgs/avatar-demo.jpg'
@@ -301,7 +293,7 @@ fac.AntdComment(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -323,22 +315,23 @@ fac.AntdComment(
                                 'value': '2022-01-01 19:29:01',
                                 'format': 'YYYY-MM-DD hh:mm:ss'
                             },
-                            commentContent='我希望feffery-components项目系列组件可以帮助更多人快速开发心仪的网站应用！😀',
+                            commentContent='我希望feffery-components项目系列组件可以帮助更多人快速开发心仪的应用！😀',
                             defaultAction='liked',
                             likesCount=1
                         ),
 
                         fac.AntdDivider(
-                            '预设点赞/反对状态',
+                            '设置初始化点赞及反对状态',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdComment(
     authorName='费弗里',
@@ -347,14 +340,14 @@ fac.AntdComment(
         'value': '2022-01-01 19:29:01',
         'format': 'YYYY-MM-DD hh:mm:ss'
     },
-    commentContent='我希望feffery-components项目系列组件可以帮助更多人快速开发心仪的网站应用！😀',
+    commentContent='我希望feffery-components项目系列组件可以帮助更多人快速开发心仪的应用！😀',
     defaultAction='liked',
     likesCount=1
 )
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -363,7 +356,7 @@ fac.AntdComment(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='预设点赞/反对状态',
+                    id='设置初始化点赞及反对状态',
                     className='div-highlight'
                 ),
 
@@ -377,7 +370,7 @@ fac.AntdComment(
                                 'value': '2022-01-01 19:29:01',
                                 'format': 'YYYY-MM-DD hh:mm:ss'
                             },
-                            commentContent='我希望feffery-components项目系列组件可以帮助更多人快速开发心仪的网站应用！😀',
+                            commentContent='我希望feffery-components项目系列组件可以帮助更多人快速开发心仪的应用！😀',
                             defaultAction='liked',
                             likesCount=1
                         ),
@@ -390,7 +383,10 @@ fac.AntdComment(
                                     mode='text-area',
                                     maxLength=140,
                                     allowClear=True,
-                                    showCount=True
+                                    showCount=True,
+                                    style={
+                                        'width': '100%'
+                                    }
                                 ),
 
                                 fac.AntdButton(
@@ -414,21 +410,12 @@ fac.AntdComment(
                             innerTextOrientation='left'
                         ),
 
-                        fac.AntdParagraph(
-                            [
-                                fac.AntdText('　　在这个例子中，充分展示了'),
-                                fac.AntdText('AntdComment', strong=True),
-                                fac.AntdText('配合'),
-                                fac.AntdText('Dash', strong=True),
-                                fac.AntdText('中的模式匹配回调，所实现的高度自由的评论功能')
-                            ]
-                        ),
-
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdComment(
     id='comment-demo',
@@ -438,7 +425,7 @@ fac.AntdComment(
         'value': '2022-01-01 19:29:01',
         'format': 'YYYY-MM-DD hh:mm:ss'
     },
-    commentContent='我希望feffery-components项目系列组件可以帮助更多人快速开发心仪的网站应用！😀',
+    commentContent='我希望feffery-components项目系列组件可以帮助更多人快速开发心仪的应用！😀',
     defaultAction='liked',
     likesCount=1
 ),
@@ -451,7 +438,10 @@ fac.AntdSpace(
             mode='text-area',
             maxLength=140,
             allowClear=True,
-            showCount=True
+            showCount=True,
+            style={
+                'width': '100%'
+            }
         ),
 
         fac.AntdButton(
@@ -468,7 +458,9 @@ fac.AntdSpace(
         'width': '100%'
     }
 )
+
 ...
+
 @app.callback(
     [Output('comment-demo', 'children'),
      Output('comment-demo-input', 'value')],
@@ -481,11 +473,12 @@ fac.AntdSpace(
 def comment_demo_add_children_callback(nClicks, deleteClicks, value, children):
     # 本次回调由子回复删除功能触发
     if 'deleteClicks' in dash.callback_context.triggered[0]['prop_id']:
-        triggerIndex = eval(dash.callback_context.triggered[0]['prop_id'].replace('.deleteClicks', ''))['index']
+        triggerIndex = eval(dash.callback_context.triggered[0]['prop_id'].replace(
+            '.deleteClicks', ''))['index']
 
         return [
-                   child for child in children if child['props']['id']['index'] != triggerIndex
-               ], dash.no_update
+            child for child in children if child['props']['id']['index'] != triggerIndex
+        ], dash.no_update
 
     if value:
         return children + [
@@ -525,7 +518,7 @@ def comment_demo_add_children_callback(nClicks, deleteClicks, value, children):
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -541,33 +534,30 @@ def comment_demo_add_children_callback(nClicks, deleteClicks, value, children):
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
-
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '基础使用', 'href': '#基础使用'},
-                            {'title': '自定义头像', 'href': '#自定义头像'},
-                            {'title': '相对发表时间模式', 'href': '#相对发表时间模式'},
-                            {'title': '嵌套评论', 'href': '#嵌套评论'},
-                            {'title': '预设点赞/反对状态', 'href': '#预设点赞/反对状态'},
-                            {'title': '回调示例', 'href': '#回调示例'},
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '自定义头像', 'href': '#自定义头像'},
+                    {'title': '展示相对发表时间', 'href': '#自定义头像'},
+                    {'title': '嵌套评论', 'href': '#嵌套评论'},
+                    {'title': '设置初始化点赞及反对状态', 'href': '#设置初始化点赞及反对状态'},
+                    {'title': '回调示例', 'href': '#回调示例'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'margin': '20px'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdComment'
         )
     ],
     style={

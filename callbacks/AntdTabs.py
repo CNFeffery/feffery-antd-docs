@@ -1,28 +1,82 @@
 import dash
-import feffery_antd_components as fac
+from dash import html
 from dash.dependencies import Input, Output, State
 
 from server import app
 
 
-@app.callback(
-    [Output('tabs-demo', 'children'),
-     Output('tabs-demo', 'activeKey')],
-    [Input('tabs-demo-add', 'nClicks'),
-     Input('tabs-demo', 'latestDeletePane')],
-    State('tabs-demo', 'children'),
-    prevent_initial_call=True
+app.clientside_callback(
+    '''(value) => value''',
+    Output('tabs-gutter-demo', 'tabBarGutter'),
+    Input('tabs-gutter-demo-slider', 'value')
 )
-def tabs_callback_demo(nClicks, latestDeletePane, children):
 
-    ctx = dash.callback_context
+app.clientside_callback(
+    '''(inkBarAnimated, tabPaneAnimated) => [inkBarAnimated, tabPaneAnimated]''',
+    [Output('tabs-animation-demo', 'inkBarAnimated'),
+     Output('tabs-animation-demo', 'tabPaneAnimated')],
+    [Input('tabs-animation-demo-inkBarAnimated', 'checked'),
+     Input('tabs-animation-demo-tabPaneAnimated', 'checked')]
+)
 
-    if ctx.triggered[0]['prop_id'] == 'tabs-demo-add.nClicks':
-        return children + [
-            fac.AntdTabPane(f'标签页{nClicks + 1}', tab=f'标签页{nClicks + 1}', key=f'标签页{nClicks + 1}')
-        ], f'标签页{nClicks + 1}'
 
-    elif ctx.triggered[0]['prop_id'] == 'tabs-demo.latestDeletePane':
-        return [child for child in children if child['props']['key'] != latestDeletePane], '基础标签页'
+@app.callback(
+    Output('tabs-demo-output', 'children'),
+    Input('tabs-demo', 'activeKey')
+)
+def tabs_demo(activeKey):
+
+    return f'activeKey: {activeKey}'
+
+
+@app.callback(
+    [Output('tabs-add-delete-demo', 'items'),
+     Output('tabs-add-delete-demo', 'activeKey')],
+    [Input('tabs-add-delete-demo-add', 'nClicks'),
+     Input('tabs-add-delete-demo', 'latestDeletePane')],
+    [State('tabs-add-delete-demo', 'items'),
+     State('tabs-add-delete-demo', 'activeKey')]
+)
+def tabs_add_delete_demo(nClicks,
+                         latestDeletePane,
+                         origin_items,
+                         activeKey):
+
+    if dash.ctx.triggered_id == 'tabs-add-delete-demo-add':
+
+        # 提取已有items中的最大key值
+        origin_max_key = max([int(item['key']) for item in origin_items])
+
+        return [
+            [
+                *origin_items,
+                {
+                    'label': f'标签页{origin_max_key+1}',
+                    'key': str(origin_max_key+1),
+                    'children': html.Div(
+                        f'标签页{origin_max_key+1}',
+                        style={
+                            'height': 200,
+                            'fontSize': 28,
+                            'display': 'flex',
+                            'justifyContent': 'center',
+                            'alignItems': 'center'
+                        }
+                    )
+                }
+            ],
+            str(origin_max_key+1)
+        ]
+
+    elif dash.ctx.triggered_id == 'tabs-add-delete-demo':
+
+        return [
+            [
+                item
+                for item in origin_items
+                if item['key'] != latestDeletePane
+            ],
+            '1' if latestDeletePane == activeKey else dash.no_update
+        ]
 
     return dash.no_update

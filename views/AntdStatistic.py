@@ -1,66 +1,56 @@
 from dash import html, dcc
-import feffery_markdown_components as fmc
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
+import feffery_markdown_components as fmc
 
 import callbacks.AntdStatistic
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdStatistic(id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdStatistic.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '数据展示'
+                        },
+                        {
+                            'title': 'AntdStatistic 统计数值'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　用于在各种场景下作为功能逻辑的触发点。')
+                    ]
                 ),
 
                 html.Div(
                     [
-                        fac.AntdStatistic(
-                            title='统计数值示例',
-                            value=1332971
+                        fac.AntdSpace(
+                            [
+                                fac.AntdStatistic(
+                                    title='数值型统计数值示例',
+                                    value=1321321.3213
+                                ),
+
+                                fac.AntdStatistic(
+                                    title='字符型统计数值示例',
+                                    value='99.65%'
+                                )
+                            ],
+                            direction='vertical'
                         ),
 
                         fac.AntdDivider(
@@ -70,19 +60,30 @@ docs_content = html.Div(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdStatistic(
-    title='统计数值示例',
-    value=1332971
+fac.AntdSpace(
+    [
+        fac.AntdStatistic(
+            title='数值型统计数值示例',
+            value=1321321.3213
+        ),
+
+        fac.AntdStatistic(
+            title='字符型统计数值示例',
+            value='99.65%'
+        )
+    ],
+    direction='vertical'
 )
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -98,74 +99,33 @@ fac.AntdStatistic(
                 html.Div(
                     [
                         fac.AntdStatistic(
-                            title='统计数值示例',
-                            value=1332971,
-                            suffix={
-                                'mode': 'text',
-                                'content': '人次'
-                            }
-                        ),
-
-                        fac.AntdStatistic(
-                            title='统计数值示例',
-                            value=1332971,
-                            prefix={
-                                'mode': 'icon',
-                                'content': 'fc-statistics'
-                            }
-                        ),
-
-                        fac.AntdStatistic(
-                            title='统计数值示例',
-                            value=1332971,
-                            prefix={
-                                'mode': 'icon',
-                                'content': 'md-insert-chart'
-                            }
+                            title='数值型统计数值示例',
+                            value=1321321.3213,
+                            showGroupSeparator=False
                         ),
 
                         fac.AntdDivider(
-                            '添加前后缀额外内容',
+                            '隐藏千分位分割符',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdStatistic(
-    title='统计数值示例',
-    value=1332971,
-    suffix={
-        'mode': 'text',
-        'content': '人次'
-    }
-),
-
-fac.AntdStatistic(
-    title='统计数值示例',
-    value=1332971,
-    prefix={
-        'mode': 'icon',
-        'content': 'fc-statistics'
-    }
-),
-
-fac.AntdStatistic(
-    title='统计数值示例',
-    value=1332971,
-    prefix={
-        'mode': 'icon',
-        'content': 'md-insert-chart'
-    }
+    title='数值型统计数值示例',
+    value=1321321.3213,
+    showGroupSeparator=False
 )
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -174,61 +134,40 @@ fac.AntdStatistic(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='添加前后缀额外内容',
+                    id='隐藏千分位分割符',
                     className='div-highlight'
                 ),
 
                 html.Div(
                     [
                         fac.AntdStatistic(
-                            title='统计数值示例',
-                            value=1332971,
-                            valueStyle={
-                                'color': 'blue',
-                                'fontSize': '28px'
-                            },
-                            prefix={
-                                'mode': 'icon',
-                                'content': 'fc-statistics'
-                            },
-                            suffix={
-                                'mode': 'text',
-                                'content': '人次'
-                            }
+                            title='数值型统计数值示例',
+                            value=1321321.3213,
+                            precision=2
                         ),
 
                         fac.AntdDivider(
-                            '自定义数值样式',
+                            '限制精度',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdStatistic(
-    title='统计数值示例',
-    value=1332971,
-    valueStyle={
-        'color': 'blue',
-        'fontSize': '28px'
-    },
-    prefix={
-        'mode': 'icon',
-        'content': 'fc-statistics'
-    },
-    suffix={
-        'mode': 'text',
-        'content': '人次'
-    }
+    title='数值型统计数值示例',
+    value=1321321.3213,
+    precision=2
 )
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -237,39 +176,46 @@ fac.AntdStatistic(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='自定义数值样式',
+                    id='限制精度',
                     className='div-highlight'
                 ),
 
                 html.Div(
                     [
                         fac.AntdStatistic(
-                            title='统计数值示例',
-                            value=1332971,
-                            titleTooltip='这是标题提示框示例'
+                            title='数值统计示例',
+                            value=98.67,
+                            prefix=fac.AntdIcon(
+                                icon='antd-account-book'
+                            ),
+                            suffix='万元'
                         ),
 
                         fac.AntdDivider(
-                            '添加标题提示框',
+                            '添加前后缀',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdStatistic(
-    title='统计数值示例',
-    value=1332971,
-    titleTooltip='这是标题提示框示例'
+    title='数值统计示例',
+    value=98.67,
+    prefix=fac.AntdIcon(
+        icon='antd-account-book'
+    ),
+    suffix='万元'
 )
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -278,7 +224,101 @@ fac.AntdStatistic(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='添加标题提示框',
+                    id='添加前后缀',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdStatistic(
+                            title='数值统计示例',
+                            value=98.67,
+                            titleTooltip='这是信息提示示例'
+                        ),
+
+                        fac.AntdDivider(
+                            '为标题添加额外信息提示',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdStatistic(
+    title='数值统计示例',
+    value=98.67,
+    titleTooltip='这是信息提示示例'
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='为标题添加额外信息提示',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdStatistic(
+                            value=fuc.FefferyCountUp(
+                                end=13456.78,
+                                duration=3,
+                                decimals=2
+                            ),
+                            title='配合数字递增'
+                        ),
+
+                        fac.AntdDivider(
+                            '配合数字递增组件',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+import feffery_utils_components as fuc
+
+...
+
+fac.AntdStatistic(
+    value=fuc.FefferyCountUp(
+        end=13456.78,
+        duration=3,
+        decimals=2
+    ),
+    title='配合数字递增'
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='配合数字递增组件',
                     className='div-highlight'
                 ),
 
@@ -292,10 +332,9 @@ fac.AntdStatistic(
                             valueStyle={
                                 'color': '#cf1322'
                             },
-                            prefix={
-                                'mode': 'icon',
-                                'content': 'antd-rise'
-                            }
+                            prefix=fac.AntdIcon(
+                                icon='antd-rise'
+                            )
                         ),
 
                         dcc.Interval(
@@ -310,11 +349,16 @@ fac.AntdStatistic(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
+import numpy as np
+
+...
+
 fac.AntdStatistic(
     id='statistic-demo',
     precision=2,
@@ -323,17 +367,18 @@ fac.AntdStatistic(
     valueStyle={
         'color': '#cf1322'
     },
-    prefix={
-        'mode': 'icon',
-        'content': 'antd-rise'
-    }
+    prefix=fac.AntdIcon(
+        icon='antd-rise'
+    )
 ),
 
 dcc.Interval(
     id='statistic-interval-demo',
     n_intervals=0
 )
+
 ...
+
 @app.callback(
     [Output('statistic-demo', 'value'),
      Output('statistic-demo', 'prefix'),
@@ -347,10 +392,9 @@ def statistic_demo_callback(n_intervals, value):
     if new_value >= value:
         return [
             new_value,
-            {
-                'mode': 'icon',
-                'content': 'antd-rise'
-            },
+            fac.AntdIcon(
+                icon='antd-rise'
+            ),
             {
                 'color': '#cf1322'
             }
@@ -359,10 +403,9 @@ def statistic_demo_callback(n_intervals, value):
     else:
         return [
             new_value,
-            {
-                'mode': 'icon',
-                'content': 'antd-fall'
-            },
+            fac.AntdIcon(
+                icon='antd-fall'
+            ),
             {
                 'color': '#3f8600'
             }
@@ -370,7 +413,7 @@ def statistic_demo_callback(n_intervals, value):
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -386,31 +429,31 @@ def statistic_demo_callback(n_intervals, value):
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '基础使用', 'href': '#基础使用'},
-                            {'title': '添加前后缀额外内容', 'href': '#添加前后缀额外内容'},
-                            {'title': '自定义数值样式', 'href': '#自定义数值样式'},
-                            {'title': '添加标题提示框', 'href': '#添加标题提示框'},
-                            {'title': '回调示例', 'href': '#回调示例'},
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '隐藏千分位分割符', 'href': '#隐藏千分位分割符'},
+                    {'title': '限制精度', 'href': '#限制精度'},
+                    {'title': '添加前后缀', 'href': '#添加前后缀'},
+                    {'title': '为标题添加额外信息提示', 'href': '#为标题添加额外信息提示'},
+                    {'title': '配合数字递增组件', 'href': '#配合数字递增组件'},
+                    {'title': '回调示例', 'href': '#回调示例'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'padding': '20px'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdStatistic'
         )
     ],
     style={

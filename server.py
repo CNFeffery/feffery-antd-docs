@@ -1,6 +1,6 @@
 import os
 import dash
-from flask import request, make_response, abort
+from flask import request, abort
 
 from config import Config
 
@@ -23,10 +23,10 @@ app = CustomDash(
     update_title=None,
     serve_locally=False,
     extra_hot_reload_paths=[
-        './documents',
-        './change logs'
+        './documents'
     ],
-    compress=True
+    compress=True,
+    assets_ignore='dark.css'
 )
 
 app.title = 'feffery-antd-components在线文档'
@@ -37,9 +37,6 @@ try:
     os.mkdir(Config.caches_path)
 except FileExistsError:
     pass
-
-# 限制最大传输内容大小为10MB
-app.server.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024
 
 
 @app.server.before_request

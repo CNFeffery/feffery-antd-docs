@@ -4,11 +4,11 @@ from server import app
 
 
 @app.callback(
-    [Output('form-demo-1', 'validateStatus'),
-     Output('form-demo-1', 'help')],
-    Input('form-demo-1-status', 'value')
+    [Output('form-item-status-demo', 'validateStatus'),
+     Output('form-item-status-demo', 'help')],
+    Input('form-item-status-switch', 'value')
 )
-def form_demo_1_callback(value):
+def form_item_status_demo(value):
     if not value or value == 'None':
         return None, None
 
@@ -16,16 +16,16 @@ def form_demo_1_callback(value):
 
 
 @app.callback(
-    [Output('form-item-validate-demo-username', 'validateStatus'),
-     Output('form-item-validate-demo-password', 'validateStatus'),
-     Output('form-item-validate-demo-username', 'help'),
-     Output('form-item-validate-demo-password', 'help')],
-    Input('form-validate-demo-submit', 'nClicks'),
-    [State('form-validate-demo-username', 'value'),
-     State('form-validate-demo-password', 'value')],
+    [Output('form-item-validate-demo-username-container', 'validateStatus'),
+     Output('form-item-validate-demo-password-container', 'validateStatus'),
+     Output('form-item-validate-demo-username-container', 'help'),
+     Output('form-item-validate-demo-password-container', 'help')],
+    Input('form-item-validate-demo-submit', 'nClicks'),
+    [State('form-item-validate-demo-username', 'value'),
+     State('form-item-validate-demo-password', 'value')],
     prevent_initial_call=True
 )
-def form_demo_2_callback(nClicks, username, password):
+def form_item_validate_demo(nClicks, username, password):
 
     if username and password:
         return [

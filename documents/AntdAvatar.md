@@ -1,35 +1,51 @@
+**id：** *string*型
+
+　　用于设置*当前组件的唯一id信息*
+
+**key：** *string*型
+
+　　对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+
+**style：** *dict*型
+
+　　用于设置*当前组件的css样式*
+
+**className：** *string*或*dict*型
+
+　　用于设置*当前组件的css类名*，支持[动态css](/advanced-classname)
+
 **mode：** *string*型，默认为`'icon'`
 
-　　用于设置*头像渲染模式*，可选的有`'text'`（文本模式）、`'icon'`（图标模式）与`'image'`（图片模式）
-
-**text：** *string*型
-
-　　仅`mode="text"`时可用，用于设置*头像填充文字内容*
+　　用于*设置当前头像的模式*，可选的有`'text'`、`'icon'`、`'image'`
 
 **gap：** *int*型，默认为`4`
 
-　　仅`mode="text"`时可用，用于设置*头像填充文字左右两侧留白像素距离*
+　　当`mode="text"`时，用于*设置头像内的文字到左右两侧的像素间隔大小*
+
+**text：** *string*型
+
+　　当`mode="text"`时，用于*设置头像内的文字内容*
 
 **icon：** *string*型
 
-　　仅`mode="icon"`时可用，用于设置*头像填充图标*，同`AntdIcon`中的同名参数
-
-**src：** *string*型
-
-　　仅`mode="image"`时可用，用于*设置头像图片url地址*
-
-**srcSet：** *string*型
-
-　　仅`mode="image"`时可用，用于*设置头像图片base64字符串*
+　　当`mode="icon"`时，用于*设置头像内显示的图标*，同`AntdIcon`中的同名参数
 
 **alt：** *string*型
 
-　　仅`mode="image"`时可用，用于*设置头像图片加载失败时的备选填充文字*
+　　当`mode="image"`时，用于*设置头像图片加载失败时的占位文字信息*
+
+**src：** *string*型
+
+　　当`mode="image"`时，用于*设置头像图片的url地址*
+
+**srcSet：** *string*型
+
+　　当`mode="image"`时，用于*设置头像图片的base64格式地址*，是`src`的备选
 
 **size：** *int*、*string*或*dict*型，默认为`'default'`
 
-　　用于设置*头像尺寸大小*，传入*int*型时代表像素边长；传入*string*型，用于在预设的几种尺寸规格中进行选择，可选的有`'default'`、`'small'`及`'large'`；传入*dict*型时，用于以各个断点为键设置**响应式**尺寸，分别设置*int*型像素边长值，可用断点有`xs`、`sm`、`md`、`lg`、`xl`及`xxl`
+　　用于*设置头像的大小*，当传入*int*型输入时，用于设置头像的像素大小；当传入*string*型输入时，用于在预设的规格中进行选择，可选的有`'small'`、`'default'`、`'large'`；当传入*dict*型输入时，用于设置不同响应式断点下的头像像素大小，可用的响应式断点有`'xs'`、`'sm'`、`'md'`、`'lg'`、`'xl'`、`'xxl'`
 
 **shape：** *string*型，默认为`'circle'`
 
-　　用于设置*头像的形状*，可选的有`'circle'`与`'square'`
+　　用于*设置头像的形状*，可选的有`'circle'`、`'square'`

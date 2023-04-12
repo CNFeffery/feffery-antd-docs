@@ -1,14 +1,34 @@
-**children：** 
+**id：** *string*型
 
-　　用于设置按钮内部文字、图标等内容
+　　用于设置*当前组件的唯一id信息*
+
+**key：** *string*型
+
+　　对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+
+**style：** *dict*型
+
+　　用于设置*当前组件的css样式*
+
+**className：** *string*或*dict*型
+
+　　用于设置*当前组件的css类名*，支持[动态css](/advanced-classname)
+
+**children：** *组件型*
+
+　　用于传入*嵌套的子元素*
+
+**loadingChildren：** *组件型*
+
+　　用于*设置loading状态时按钮嵌套的子元素*
 
 **type：** *string*型，默认为`'default'`
 
-　　用于设置按钮整体风格，可选项有`'primary'`、`'dashed'`、`'link'`、`'text'`、`'default'`
+　　用于*设置按钮风格*，可选项有`'primary'`、`'ghost'`、`'dashed'`、`'link'`、`'text'`、`'default'`
 
 **href：** *string*型
 
-　　当传入*url*时，可使得`AntdButton`充当类似`a`标签的网页跳转作用
+　　当传入*url*时，可令`AntdButton`充当网页跳转功能
 
 **target：** *string*型
 
@@ -16,28 +36,40 @@
 
 **block：** *bool*型，默认为`False`
 
-　　用于设置按钮宽度是否撑满父级元素，`True`（撑满），`False`（不撑满）
+　　用于*设置按钮宽度是否撑满父级元素*
 
 **danger：** *bool*型，默认为`False`
 
-　　用于设置是否显示为*危险警告*状态，`True`（显示），`False`（不显示）
+　　用于*设置是否渲染为危险警告状态*
 
 **disabled：** *bool*型，默认为`False`
 
-　　用于设置是否显示为*不可点击*状态，`True`（显示），`False`（不显示）
+　　用于*设置是否禁用当前组件*
 
 **shape：** *string*型或*None*，默认为`None`
 
-　　用于设置按钮形状，可选项有`'circle'`（原型）、`'round'`（圆角矩形）
+　　用于*设置按钮形状*，可选项有`'circle'`（圆形）、`'round'`（圆角矩形）
 
 **size：** *string*型，默认为`'middle'`
 
-　　用于设置按钮的尺寸规格，可选项有`'small'`、`'middle'`和`'large'`
+　　用于*设置当前组件的尺寸规格*，可选项有`'small'`、`'middle'`和`'large'`
+
+**nClicks：** *int*型，默认为`0`
+
+　　用于*在回调中记录按钮被点按次数*
+
+**debounceWait：** *int*型，默认为`200`
+
+　　用于*为nClicks的监听更新设置防抖延时时长*，单位：毫秒
+
+**icon：** *组件型*
+
+　　用于*为当前按钮设置内嵌前缀子元素*
 
 **loading：** *bool*型，默认为`False`
 
-　　用于设置*是否以加载中状态渲染按钮*
+　　用于*设置是否以加载中状态渲染按钮*
 
-**nClicks：** *int*型
+**autoSpin：** *bool*型，默认为`False`
 
-　　用于在回调中记录按钮被点按次数，初始化为0
+　　用于*设置当前按钮在被点击后是否自动进入loading状态*

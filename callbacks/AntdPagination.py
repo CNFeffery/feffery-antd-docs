@@ -10,7 +10,7 @@ from server import app
      Input('pagination-demo', 'pageSize')]
 )
 def pagination_callback_demo(current, pageSize):
-     
+
     return [
         fac.AntdText(f'内容项{i}')
         for i in range((current - 1) * pageSize, current * pageSize)

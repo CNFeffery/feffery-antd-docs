@@ -1,59 +1,41 @@
 from dash import html
 import feffery_antd_components as fac
 import feffery_markdown_components as fmc
-import feffery_utils_components as fuc
 
 import callbacks.AntdCheckCard
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdCheckCard(children, id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdCheckCard.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '数据展示'
+                        },
+                        {
+                            'title': '选择卡片'
+                        },
+                        {
+                            'title': 'AntdCheckCard 选择卡片'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　用于渲染具有状态切换功能的内容卡片。')
+                    ]
                 ),
 
                 html.Div(
@@ -69,7 +51,8 @@ docs_content = html.Div(
                                     fac.AntdStatistic(
                                         title='统计数值示例',
                                         value=1332971
-                                    )
+                                    ),
+                                    defaultChecked=True
                                 ),
                                 fac.AntdCheckCard(
                                     html.Div(
@@ -87,7 +70,7 @@ docs_content = html.Div(
                                             ),
                                             html.Div(
                                                 fac.AntdText(
-                                                    '选择卡片示例' * 10
+                                                    '选择卡片示例' * 20
                                                 ),
                                                 style={
                                                     'flex': 'auto'
@@ -100,7 +83,11 @@ docs_content = html.Div(
                                     )
                                 )
                             ],
-                            direction='vertical'
+                            direction='vertical',
+                            size='small',
+                            style={
+                                'width': '100%'
+                            }
                         ),
 
                         fac.AntdDivider(
@@ -109,19 +96,12 @@ docs_content = html.Div(
                             innerTextOrientation='left'
                         ),
 
-                        fac.AntdParagraph(
-                            [
-                                fac.AntdText('　　'),
-                                fac.AntdText('AntdCheckCard', code=True),
-                                fac.AntdText('中可自由嵌套其它任意元素')
-                            ]
-                        ),
-
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdSpace(
     [
@@ -133,7 +113,8 @@ fac.AntdSpace(
         fac.AntdCheckCard(
             fac.AntdStatistic(
                 title='统计数值示例',
-                value=1332971
+                value=1332971,
+                defaultChecked=True
             )
         ),
         fac.AntdCheckCard(
@@ -152,7 +133,7 @@ fac.AntdSpace(
                     ),
                     html.Div(
                         fac.AntdText(
-                            '选择卡片示例' * 10
+                            '选择卡片示例' * 20
                         ),
                         style={
                             'flex': 'auto'
@@ -165,15 +146,18 @@ fac.AntdSpace(
             )
         )
     ],
-    direction='vertical'
+    direction='vertical',
+    size='small',
+    style={
+        'width': '100%'
+    }
 )
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
@@ -186,18 +170,80 @@ fac.AntdSpace(
 
                 html.Div(
                     [
+                        fac.AntdSpace(
+                            [
+                                fac.AntdCheckCard(
+                                    f'size="{size}"',
+                                    size=size
+                                )
+                                for size in [
+                                    'small', 'default', 'large'
+                                ]
+                            ],
+                            direction='vertical',
+                            size='small',
+                            style={
+                                'width': '100%'
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '不同的尺寸规格',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdCheckCard(
+            f'size="{size}"',
+            size=size
+        )
+        for size in [
+            'small', 'default', 'large'
+        ]
+    ],
+    direction='vertical',
+    size='small',
+    style={
+        'width': '100%'
+    }
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='不同的尺寸规格',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
                         fac.AntdCheckCard(
                             fac.AntdText(
                                 '选择卡片示例' * 10
                             ),
-                            id='check-card-demo'
+                            id='check-card-demo',
+                            defaultChecked=False
                         ),
 
                         fac.AntdParagraph(
-                            [
-                                fac.AntdText('checked: '),
-                                fac.AntdText(id='check-card-demo-output')
-                            ]
+                            id='check-card-demo-output'
                         ),
 
                         fac.AntdDivider(
@@ -207,23 +253,22 @@ fac.AntdSpace(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdCheckCard(
     fac.AntdText(
         '选择卡片示例' * 10
     ),
-    id='check-card-demo'
+    id='check-card-demo',
+    defaultChecked=False
 ),
 
 fac.AntdParagraph(
-    [
-        fac.AntdText('checked: '),
-        fac.AntdText(id='check-card-demo-output')
-    ]
+    id='check-card-demo-output'
 )
 
 ...
@@ -232,16 +277,15 @@ fac.AntdParagraph(
     Output('check-card-demo-output', 'children'),
     Input('check-card-demo', 'checked')
 )
-def check_card_demo_callback(checked):
+def check_card_demo(checked):
 
-    return str(checked)
+    return f'checked: {checked}'
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
@@ -255,28 +299,27 @@ def check_card_demo_callback(checked):
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '基础使用', 'href': '#基础使用'},
-                            {'title': '回调示例', 'href': '#回调示例'},
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '不同的尺寸规格', 'href': '#不同的尺寸规格'},
+                    {'title': '回调示例', 'href': '#回调示例'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'margin': '20px'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdCheckCard'
         )
     ],
     style={

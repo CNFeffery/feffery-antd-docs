@@ -1,4 +1,4 @@
-from dash import html
+import feffery_antd_components as fac
 from dash.dependencies import Input, Output
 
 from server import app
@@ -8,15 +8,12 @@ from server import app
     Output('transfer-demo-output', 'children'),
     [Input('transfer-demo', 'targetKeys'),
      Input('transfer-demo', 'moveDirection'),
-     Input('transfer-demo', 'moveKeys')],
-    prevent_initial_call=True
+     Input('transfer-demo', 'moveKeys')]
 )
-def transfer_callback_demo(targetKeys, moveDirection, moveKeys):
-     
+def transfer_demo(targetKeys, moveDirection, moveKeys):
+
     return [
-        f'targetKeys: {targetKeys}',
-        html.Br(),
-        f'moveDirection: {moveDirection}',
-        html.Br(),
-        f'moveKeys: {moveKeys}'
+        fac.AntdText(f'targetKeys: {targetKeys}'),
+        fac.AntdText(f'moveDirection: {moveDirection}'),
+        fac.AntdText(f'moveKeys: {moveKeys}')
     ]

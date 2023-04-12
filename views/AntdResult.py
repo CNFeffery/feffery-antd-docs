@@ -1,64 +1,44 @@
 from dash import html
-import feffery_utils_components as fuc
-import feffery_markdown_components as fmc
 import feffery_antd_components as fac
+import feffery_markdown_components as fmc
+
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdResult(id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdResult.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '反馈'
+                        },
+                        {
+                            'title': 'AntdResult 结果'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　用于为用户提供不同场景下的状态提示。')
+                    ]
                 ),
 
                 html.Div(
                     [
                         fac.AntdResult(
-                            title='结果页示例',
-                            subTitle='这是一段结果页示例文字说明'
+                            title='标题示例',
+                            subTitle='副标题示例'
                         ),
 
                         fac.AntdDivider(
@@ -68,18 +48,20 @@ docs_content = html.Div(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdResult(
-    title='结果页示例',
-    subTitle='这是一段结果页示例文字说明'
-)'''
+    title='标题示例',
+    subTitle='副标题示例'
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -97,53 +79,55 @@ fac.AntdResult(
                         fac.AntdSpace(
                             [
                                 fac.AntdResult(
-                                    status=status,
-                                    title=f'status="{status}"',
-                                    subTitle=f'status="{status}"'
+                                    title='标题示例',
+                                    subTitle=f'status="{status}"',
+                                    status=status
                                 )
                                 for status in [
-                                'success', 'info', 'error', 'warning', '404', '403', '500', 'loading'
-                            ]
+                                    'info', 'success', 'warning', 'error',
+                                    '404', '403', '500', 'loading'
+                                ]
                             ],
                             direction='vertical',
-                            addSplitLine=True,
                             style={
                                 'width': '100%'
                             }
                         ),
 
                         fac.AntdDivider(
-                            '其他内置状态示例',
+                            '不同的状态类型',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdSpace(
     [
         fac.AntdResult(
-            status=status,
-            title=f'status="{status}"',
-            subTitle=f'status="{status}"'
+            title='标题示例',
+            subTitle=f'status="{status}"',
+            status=status
         )
         for status in [
-        'success', 'info', 'error', 'warning', '404', '403', '500', 'loading'
-    ]
+            'info', 'success', 'warning', 'error',
+            '404', '403', '500', 'loading'
+        ]
     ],
     direction='vertical',
-    addSplitLine=True,
     style={
         'width': '100%'
     }
-)'''
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -152,52 +136,134 @@ fac.AntdSpace(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='其他内置状态示例',
+                    id='不同的状态类型',
                     className='div-highlight'
                 ),
 
                 html.Div(
                     [
                         fac.AntdResult(
-                            title=fac.AntdTitle(
-                                '组件型title示例',
-                                copyable=True,
-                                level=4
+                            title='标题示例',
+                            subTitle='副标题示例',
+                            icon=fac.AntdIcon(
+                                icon='antd-bulb',
+                                style={
+                                    'fontSize': 60,
+                                    'color': '#fcd53f'
+                                }
+                            )
+                        ),
+
+                        fac.AntdDivider(
+                            '自定义图标',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdResult(
+    title='标题示例',
+    subTitle='副标题示例',
+    icon=fac.AntdIcon(
+        icon='antd-bulb',
+        style={
+            'fontSize': 60,
+            'color': '#fcd53f'
+        }
+    )
+)
+'''
                             ),
-                            subTitle=fac.AntdParagraph(
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='自定义图标',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdResult(
+                            status='success',
+                            title='任务创建成功',
+                            subTitle=fac.AntdSpace(
                                 [
-                                    fac.AntdText('组件型subTitle示例', copyable=True)
-                                ]
+                                    fac.AntdText(
+                                        '创建时间：2023-01-01 12:00:00',
+                                        type='secondary'
+                                    ),
+                                    fac.AntdSpace(
+                                        [
+                                            fac.AntdButton(
+                                                '查看详情',
+                                                type='primary'
+                                            ),
+                                            fac.AntdButton(
+                                                '回到首页'
+                                            )
+                                        ]
+                                    )
+                                ],
+                                direction='vertical',
+                                align='center'
                             )
                         ),
 
                         fac.AntdDivider(
-                            'title与subTitle接受组件型输入',
+                            '更复杂的使用',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdResult(
-    title=fac.AntdTitle(
-        '组件型title示例',
-        copyable=True,
-        level=4
-    ),
-    subTitle=fac.AntdParagraph(
+    status='success',
+    title='任务创建成功',
+    subTitle=fac.AntdSpace(
         [
-            fac.AntdText('组件型subTitle示例', copyable=True)
-        ]
+            fac.AntdText(
+                '创建时间：2023-01-01 12:00:00',
+                type='secondary'
+            ),
+            fac.AntdSpace(
+                [
+                    fac.AntdButton(
+                        '查看详情',
+                        type='primary'
+                    ),
+                    fac.AntdButton(
+                        '回到首页'
+                    )
+                ]
+            )
+        ],
+        direction='vertical',
+        align='center'
     )
-)'''
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -206,87 +272,35 @@ fac.AntdResult(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='title与subTitle接受组件型输入',
-                    className='div-highlight'
-                ),
-
-                html.Div(
-                    [
-                        fac.AntdResult(
-                            title='自定义icon元素示例',
-                            subTitle='自定义icon元素示例',
-                            icon=fuc.FefferyExtraSpinner(
-                                type='heart',
-                                size=100,
-                                color='red'
-                            )
-                        ),
-
-                        fac.AntdDivider(
-                            '自定义icon元素',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
-
-                        fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
-                                language='python',
-                                 codeTheme='coy-without-shadows',
-                                codeString='''
-import feffery_utils_components as fuc                                
-
-fac.AntdResult(
-    title='自定义icon元素示例',
-    subTitle='自定义icon元素示例',
-    icon=fuc.FefferyExtraSpinner(
-        type='heart',
-        size=100,
-        color='red'
-    )
-)'''
-                            ),
-                            title='点击查看代码',
-                            is_open=False,
-                            ghost=True
-                        )
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='自定义icon元素',
+                    id='更复杂的使用',
                     className='div-highlight'
                 ),
 
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '基础使用', 'href': '#基础使用'},
-                            {'title': '其他内置状态示例', 'href': '#其他内置状态示例'},
-                            {'title': 'title与subTitle接受组件型输入', 'href': '#title与subTitle接受组件型输入'},
-                            {'title': '自定义icon元素', 'href': '#自定义icon元素'},
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '不同的状态类型', 'href': '#不同的状态类型'},
+                    {'title': '自定义图标', 'href': '#自定义图标'},
+                    {'title': '更复杂的使用', 'href': '#更复杂的使用'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'margin': '20px'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdResult'
         )
     ],
     style={

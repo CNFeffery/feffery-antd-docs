@@ -7,5 +7,6 @@ from server import app
     Output('accordion-demo-output', 'children'),
     Input('accordion-demo', 'activeKey')
 )
-def accordion_demo_callback(activeKey):
-    return str(activeKey)
+def accordion_demo(activeKey):
+
+    return f'activeKey: {activeKey}'

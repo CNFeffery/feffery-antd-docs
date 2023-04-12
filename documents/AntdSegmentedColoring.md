@@ -1,63 +1,87 @@
-**size：** *string*，默认为`'middle'`
+**id：** *string*型
 
-　　用于设置*组件整体尺寸规格*，可选的有`'small'`、`'middle'`及`'large'`
+　　用于设置*当前组件的唯一id信息*
 
-**bordered：** *string*型，默认为`True`
+**key：** *string*型
 
-　　用于设置*是否显示组件整体外边框线*
+　　对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
 
-**disabled：** *string*型，默认为`False`
+**style：** *dict*型
 
-　　用于设置*是否禁用整个组件*
+　　用于设置*当前组件的css样式*
+
+**className：** *string*或*dict*型
+
+　　用于设置*当前组件的css类名*，支持[动态css](/advanced-classname)
+
+**breakpoints：** `list[int]`型，必填
+
+　　用于*设置或监听当前的各分段断点值*
+
+**colors：** `list[string]`型，必填
+
+　　用于*设置与断点各区间一一对应的色彩值*，`color`数组长度应为`breakpoints`数组长度-1
 
 **controls：** *bool*型，默认为`True`
 
-　　设置是否为每个数字输入框右侧边渲染*加减数值按钮*
+　　用于*设置是否在每个数字输入框右侧内部添加辅助快捷增减按钮*
 
 **keyboard：** *bool*型，默认为`True`
 
-　　设置*是否为每个数字输入框启用键盘快捷方式*，即当光标在输入框内时，可通过按下键盘上下键来调节输入的数值
-
-**placeholder：** *string*型
-
-　　用于*为所有数字输入框设置统一的输入框占位提示信息*
+　　用于*设置是否允许通过键盘上下键调整各个数字输入框的数值*
 
 **min：** *int*、*float*或*string*型
 
-　　用于设置*每个数字输入框允许输入的数值下限*
+　　用于*设置数字输入框的合法数值下限*，默认无限制
 
 **max：** *int*、*float*或*string*型
 
-　　用于设置*每个数字输入框允许输入的数值上限*
+　　用于*设置数字输入框的合法数值上限*，默认为限制
 
-**step：** *int*、*float*或*string*型，默认为`1`
+**step：** *int*、*float*或*string*型
 
-　　用于设置*数字输入框数值改变的步长*
+　　用于*设置数字输入框的增减步长*
 
 **precision：** *int*型
 
-　　用于设置数值*精度*
+　　用于*设置数字输入框的数值精度即小数位数*
 
-**readOnly：** *bool*型，默认为`False`
+**disabled：** *bool*型，默认为`False`
 
-　　设置是否*以只读模式渲染组件*
+　　用于*设置是否禁用当前组件*
 
-**breakpoints：** `list[int]`或`list[float]`型
+**size：** *string*型，默认为`'middle'`
 
-　　用于设置及监听*分段断点值*
+　　用于*设置当前组件的尺寸规格*，可选项有`'small'`、`'middle'`和`'large'`
 
-**colors：** `list[string]`型
+**bordered：** *bool*型，默认为`True`
 
-　　用于设置*对应每个分段的css颜色值*，长度为`breakpoints`长度-1
+　　用于*设置是否渲染边框*
+
+**placeholder：** *string*型
+
+　　用于*设置为各输入框统一设置空白输入下的填充说明文字*
+
+**readOnly：** *bool*型
+
+　　用于*设置是否以只读模式进行展示*
+
+**pureLegend：** *bool*型，默认为`False`
+
+　　用于*设置是否开启纯图例模式*
 
 **inputNumberStyle：** *dict*型
 
-　　用于统一设置*每个数字输入框的css样式*
+　　用于*统一为数字输入框设置css样式*
 
 **colorBlockStyle：** *dict*型
 
-　　用于统一设置*每个填充色块的css样式*
+　　用于*统一为色块设置css样式*
 
-**colorBlockPosition：** *string*型，默认为`'right'`
+**colorBlockPosition：** *string*型
 
-　　用于设置*填充色块相对输入框的方位*，可选的有`'left'`、`'right'`
+　　用于*设置色块相对于数字输入框的位置*，可选的有`'left'`、`'right'`
+
+**pureLegendLabelStyle：** *dict*型
+
+　　当`pureLegend=True`时，用于*设置图例文字的css样式*

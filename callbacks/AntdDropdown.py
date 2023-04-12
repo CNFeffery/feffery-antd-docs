@@ -14,6 +14,6 @@ def dropdown_demo_callback(clickedKey, nClicks):
     return [
         fac.AntdText('clickedKey: ', strong=True),
         fac.AntdText(clickedKey),
-        fac.AntdText(', nClicks: ', strong=True),
+        fac.AntdText('　nClicks: ', strong=True),
         fac.AntdText(nClicks)
     ]

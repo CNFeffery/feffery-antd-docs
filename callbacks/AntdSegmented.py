@@ -7,5 +7,6 @@ from server import app
     Output('segmented-demo-output', 'children'),
     Input('segmented-demo', 'value')
 )
-def segmented_callback_demo(value):
+def segmented_demo(value):
+
     return f'value: {value}'

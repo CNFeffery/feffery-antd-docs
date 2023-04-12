@@ -1,57 +1,38 @@
 from dash import html
-import feffery_markdown_components as fmc
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
+import feffery_markdown_components as fmc
+
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdRibbon(children, id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdRibbon.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '数据展示'
+                        },
+                        {
+                            'title': 'AntdRibbon 缎带'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　用于为容器类元素添加点缀作用的缎带。')
+                    ]
                 ),
 
                 html.Div(
@@ -59,23 +40,23 @@ docs_content = html.Div(
                         fac.AntdSpace(
                             [
                                 fac.AntdRibbon(
-                                    html.Div(
+                                    fuc.FefferyDiv(
+                                        shadow='always-shadow',
                                         style={
                                             'height': '200px',
                                             'width': '300px',
-                                            'borderRadius': '16px',
-                                            'boxShadow': 'rgb(102 124 145 / 9%) 0px 2px 6px 0px'
+                                            'borderRadius': '10px'
                                         }
                                     ),
                                     text='缎带示例'
                                 ),
                                 fac.AntdRibbon(
-                                    html.Div(
+                                    fuc.FefferyDiv(
+                                        shadow='always-shadow',
                                         style={
                                             'height': '200px',
                                             'width': '300px',
-                                            'borderRadius': '16px',
-                                            'boxShadow': 'rgb(102 124 145 / 9%) 0px 2px 6px 0px'
+                                            'borderRadius': '10px'
                                         }
                                     ),
                                     text='缎带示例',
@@ -83,7 +64,8 @@ docs_content = html.Div(
                                     color='#ff4d4f'
                                 )
                             ],
-                            direction='vertical'
+                            direction='vertical',
+                            size='large'
                         ),
 
                         fac.AntdDivider(
@@ -92,38 +74,33 @@ docs_content = html.Div(
                             innerTextOrientation='left'
                         ),
 
-                        fac.AntdParagraph(
-                            [
-                                fac.AntdText('　　缎带的使用很简单，主要用于装饰div盒子')
-                            ]
-                        ),
-
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdSpace(
     [
         fac.AntdRibbon(
-            html.Div(
+            fuc.FefferyDiv(
+                shadow='always-shadow',
                 style={
                     'height': '200px',
                     'width': '300px',
-                    'borderRadius': '16px',
-                    'boxShadow': 'rgb(102 124 145 / 9%) 0px 2px 6px 0px'
+                    'borderRadius': '10px'
                 }
             ),
             text='缎带示例'
         ),
         fac.AntdRibbon(
-            html.Div(
+            fuc.FefferyDiv(
+                shadow='always-shadow',
                 style={
                     'height': '200px',
                     'width': '300px',
-                    'borderRadius': '16px',
-                    'boxShadow': 'rgb(102 124 145 / 9%) 0px 2px 6px 0px'
+                    'borderRadius': '10px'
                 }
             ),
             text='缎带示例',
@@ -131,12 +108,13 @@ fac.AntdSpace(
             color='#ff4d4f'
         )
     ],
-    direction='vertical'
+    direction='vertical',
+    size='large'
 )
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -152,28 +130,25 @@ fac.AntdSpace(
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
-
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '基础使用', 'href': '#基础使用'},
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'margin': '20px'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdRibbon'
         )
     ],
     style={

@@ -1,6 +1,6 @@
 from faker import Faker
 import feffery_antd_components as fac
-from dash.dependencies import Input, Output, State, ALL
+from dash.dependencies import Input, Output
 
 from server import app
 

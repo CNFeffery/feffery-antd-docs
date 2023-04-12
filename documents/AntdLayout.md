@@ -1,4 +1,19 @@
-**children：**
+**id：** *string*型
 
-　　**AntdLayout**是使用**fac**中的**AntdHeader**、**AntdFooter**、**AntdSider**以及**AntdContent**布局组件的必要父级容器，故而此参数需要由上述四种*布局组件*进行组合，亦可嵌套**AntdLayout**按照你的设计想法实现复杂的嵌套布局
+　　用于设置*当前组件的唯一id信息*
 
+**key：** *string*型
+
+　　对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+
+**style：** *dict*型
+
+　　用于设置*当前组件的css样式*
+
+**className：** *string*或*dict*型
+
+　　用于设置*当前组件的css类名*，支持[动态css](/advanced-classname)
+
+**children：** *组件型*
+
+　　用于传入*嵌套的子元素*

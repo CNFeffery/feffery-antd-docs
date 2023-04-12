@@ -1,67 +1,50 @@
 from dash import html
-import feffery_markdown_components as fmc
 import feffery_antd_components as fac
-import feffery_utils_components as fuc
+import feffery_markdown_components as fmc
 
 import callbacks.AntdCollapse
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdCollapse(children, id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdCollapse.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '数据展示'
+                        },
+                        {
+                            'title': 'AntdCollapse 折叠面板'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　用于渲染单个可折叠展开的特殊容器，典型如本网站所有示例代码所在容器。')
+                    ]
                 ),
 
                 html.Div(
                     [
                         fac.AntdCollapse(
-                            fac.AntdText('测试内容'),
-                            title='点击此处展开',
-                            is_open=False
+                            fac.AntdParagraph(
+                                '内容示例'*20
+                            ),
+                            title='折叠面板示例',
+                            style={
+                                'width': 300
+                            }
                         ),
 
                         fac.AntdDivider(
@@ -71,19 +54,25 @@ docs_content = html.Div(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdCollapse(
-    fac.AntdText('测试内容'),
-    title='点击此处展开',
-    is_open=False
-)'''
+    fac.AntdParagraph(
+        '内容示例'*20
+    ),
+    title='折叠面板示例',
+    style={
+        'width': 300
+    }
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -99,10 +88,121 @@ fac.AntdCollapse(
                 html.Div(
                     [
                         fac.AntdCollapse(
-                            fac.AntdText('测试内容'),
-                            title='点击此处展开',
-                            is_open=False,
+                            fac.AntdParagraph(
+                                '内容示例'*20
+                            ),
+                            isOpen=False,
+                            title='折叠面板示例',
+                            style={
+                                'width': 300
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '初始化折叠',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdCollapse(
+    fac.AntdParagraph(
+        '内容示例'*20
+    ),
+    isOpen=False,
+    title='折叠面板示例',
+    style={
+        'width': 300
+    }
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
                             ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='初始化折叠',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdCollapse(
+                            fac.AntdParagraph(
+                                '内容示例'*20
+                            ),
+                            bordered=False,
+                            title='折叠面板示例',
+                            style={
+                                'width': 300
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '无边框',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdCollapse(
+    fac.AntdParagraph(
+        '内容示例'*20
+    ),
+    bordered=False,
+    title='折叠面板示例',
+    style={
+        'width': 300
+    }
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='无边框',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        html.Div(
+                            fac.AntdCollapse(
+                                fac.AntdParagraph(
+                                    '内容示例'*20
+                                ),
+                                ghost=True,
+                                title='折叠面板示例'
+                            ),
+                            style={
+                                'background': '#e7f5ff',
+                                'width': 300
+                            }
                         ),
 
                         fac.AntdDivider(
@@ -112,20 +212,29 @@ fac.AntdCollapse(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdCollapse(
-    fac.AntdText('测试内容'),
-    title='点击此处展开',
-    is_open=False,
-    ghost=True
-)'''
+html.Div(
+    fac.AntdCollapse(
+        fac.AntdParagraph(
+            '内容示例'*20
+        ),
+        ghost=True,
+        title='折叠面板示例'
+    ),
+    style={
+        'background': '#e7f5ff',
+        'width': 300
+    }
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -140,18 +249,278 @@ fac.AntdCollapse(
 
                 html.Div(
                     [
-                        fac.AntdSwitch(
-                            id='collapse-switch-demo',
-                            checked=False,
-                            checkedChildren='打开',
-                            unCheckedChildren='关闭'
+                        fac.AntdSpace(
+                            [
+                                fac.AntdCollapse(
+                                    fac.AntdParagraph(
+                                        '内容示例'*20
+                                    ),
+                                    title='collapsible="header"',
+                                    collapsible='header',
+                                    isOpen=False,
+                                    style={
+                                        'width': 300
+                                    }
+                                ),
+                                fac.AntdCollapse(
+                                    fac.AntdParagraph(
+                                        '内容示例'*20
+                                    ),
+                                    title='collapsible="disabled"',
+                                    collapsible='disabled',
+                                    isOpen=False,
+                                    style={
+                                        'width': 300
+                                    }
+                                )
+                            ],
+                            direction='vertical'
+                        ),
+
+                        fac.AntdDivider(
+                            '不同的折叠触发策略',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            id='collapse-demo',
-                            title='折叠面板回调示例',
-                            is_open=False,
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdCollapse(
+            fac.AntdParagraph(
+                '内容示例'*20
+            ),
+            title='collapsible="header"',
+            collapsible='header',
+            isOpen=False,
+            style={
+                'width': 300
+            }
+        ),
+        fac.AntdCollapse(
+            fac.AntdParagraph(
+                '内容示例'*20
+            ),
+            title='collapsible="disabled"',
+            collapsible='disabled',
+            isOpen=False,
+            style={
+                'width': 300
+            }
+        )
+    ],
+    direction='vertical'
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
                             ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='不同的折叠触发策略',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdDivider(
+                            'forceRender=False（默认）',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdSpace(
+                            [
+                                fac.AntdCollapse(
+                                    fac.AntdInput(
+                                        id='collapse-child-demo1',
+                                        defaultValue='内容测试',
+                                        style={
+                                            'width': '100%'
+                                        }
+                                    ),
+                                    isOpen=False,
+                                    style={
+                                        'width': 300
+                                    }
+                                ),
+                                fac.AntdText(
+                                    id='collapse-child-demo1-output'
+                                )
+                            ]
+                        ),
+
+                        fac.AntdDivider(
+                            'forceRender=True',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdSpace(
+                            [
+                                fac.AntdCollapse(
+                                    fac.AntdInput(
+                                        id='collapse-child-demo2',
+                                        defaultValue='内容测试',
+                                        style={
+                                            'width': '100%'
+                                        }
+                                    ),
+                                    isOpen=False,
+                                    forceRender=True,
+                                    style={
+                                        'width': 300
+                                    }
+                                ),
+                                fac.AntdText(
+                                    id='collapse-child-demo2-output'
+                                )
+                            ]
+                        ),
+
+                        fac.AntdDivider(
+                            'forceRender的应用场景',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdParagraph(
+                            [
+                                '在设置参数',
+                                fac.AntdText(
+                                    'forceRender=True',
+                                    code=True
+                                ),
+                                '后，即使折叠面板初始化时处于折叠状态，也会强制提前将内部元素渲染到页面中，从而便于一些初始化回调的正常赋值'
+                            ],
+                            style={
+                                'textIndent': '2rem'
+                            }
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdDivider(
+    'forceRender=False（默认）',
+    innerTextOrientation='left'
+),
+
+fac.AntdSpace(
+    [
+        fac.AntdCollapse(
+            fac.AntdInput(
+                id='collapse-child-demo1',
+                defaultValue='内容测试',
+                style={
+                    'width': '100%'
+                }
+            ),
+            isOpen=False,
+            style={
+                'width': 300
+            }
+        ),
+        fac.AntdText(
+            id='collapse-child-demo1-output'
+        )
+    ]
+),
+
+fac.AntdDivider(
+    'forceRender=True',
+    innerTextOrientation='left'
+),
+
+fac.AntdSpace(
+    [
+        fac.AntdCollapse(
+            fac.AntdInput(
+                id='collapse-child-demo2',
+                defaultValue='内容测试',
+                style={
+                    'width': '100%'
+                }
+            ),
+            isOpen=False,
+            forceRender=True,
+            style={
+                'width': 300
+            }
+        ),
+        fac.AntdText(
+            id='collapse-child-demo2-output'
+        )
+    ]
+)
+
+...
+
+@app.callback(
+    Output('collapse-child-demo1-output', 'children'),
+    Input('collapse-child-demo1', 'value')
+)
+def collapse_child_demo1(value):
+
+    return value
+
+@app.callback(
+    Output('collapse-child-demo2-output', 'children'),
+    Input('collapse-child-demo2', 'value')
+)
+def collapse_child_demo2(value):
+
+    return value
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='forceRender的应用场景',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSpace(
+                            [
+                                fac.AntdCollapse(
+                                    fac.AntdParagraph(
+                                        '内容示例'*20
+                                    ),
+                                    id='collapse-demo',
+                                    isOpen=True,
+                                    title='回调示例',
+                                    style={
+                                        'width': 300
+                                    }
+                                ),
+                                fac.AntdText(
+                                    id='collapse-demo-output'
+                                )
+                            ],
+                            direction='vertical'
                         ),
 
                         fac.AntdDivider(
@@ -161,39 +530,45 @@ fac.AntdCollapse(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdSwitch(
-    id='collapse-switch-demo',
-    checked=False,
-    checkedChildren='打开',
-    unCheckedChildren='关闭'
-),
-
-fac.AntdCollapse(
-    id='collapse-demo',
-    title='折叠面板回调示例',
-    is_open=False,
-    ghost=True
+fac.AntdSpace(
+    [
+        fac.AntdCollapse(
+            fac.AntdParagraph(
+                '内容示例'*20
+            ),
+            id='collapse-demo',
+            isOpen=True,
+            title='回调示例',
+            style={
+                'width': 300
+            }
+        ),
+        fac.AntdText(
+            id='collapse-demo-output'
+        )
+    ],
+    direction='vertical'
 )
+
 ...
-@app.callback(
-    [Output('collapse-demo', 'children'),
-     Output('collapse-demo', 'is_open')],
-    Input('collapse-switch-demo', 'checked')
-)
-def collapse_demo_callback(checked):
-    if checked:
-        return datetime.now().strftime('%Y-%m-%d %H:%M:%S'), checked
 
-    return dash.no_update, checked
+@app.callback(
+    Output('collapse-demo-output', 'children'),
+    Input('collapse-demo', 'isOpen')
+)
+def collapse_demo(isOpen):
+
+    return f'isOpen={isOpen}'
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -209,29 +584,31 @@ def collapse_demo_callback(checked):
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '基础使用', 'href': '#基础使用'},
-                            {'title': '透明面板模式', 'href': '#透明面板模式'},
-                            {'title': '回调示例', 'href': '#回调示例'},
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '初始化折叠', 'href': '#初始化折叠'},
+                    {'title': '无边框', 'href': '#无边框'},
+                    {'title': '透明面板模式', 'href': '#透明面板模式'},
+                    {'title': '不同的折叠触发策略', 'href': '#不同的折叠触发策略'},
+                    {'title': 'forceRender的应用场景', 'href': '#forceRender的应用场景'},
+                    {'title': '回调示例', 'href': '#回调示例'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'margin': '20px'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdCollapse'
         )
     ],
     style={

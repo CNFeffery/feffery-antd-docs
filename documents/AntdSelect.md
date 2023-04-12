@@ -1,85 +1,146 @@
-**placeholder：** *string*型
+**id：** *string*型
 
-　　用于设置空白输入下的填充说明文字
+　　用于设置*当前组件的唯一id信息*
 
-**options：** *list*型，必填，无默认值
+**key：** *string*型
 
-　　用于设置下拉选择区域每个选项的信息，常规组织方式与分组组织方式所需的格式参考下面，其中对于每个选项，`'label'`设置对应选项的显示文字，`'value'`设置对应选项被选中后对应的返回值（*string*或*int*型），`'disabled'`设置对应选项是否处于*不可选择*状态，`'colors'`用于开启*色带渲染*模式（传入由`css`中合法色彩输入所组成的列表）；对于分组，`'group'`用于设置组名，`'options'`传入若干常规组织方式下的多个选项所构成的列表：
+　　对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
 
-```python
-# 常规组织方式
-options = [
-    {'label': '中国', 'value': '中国'},
-    {'label': '美国', 'value': '美国'},
-    {'label': '俄罗斯', 'value': '俄罗斯'},
-    {'label': '德国', 'value': '德国', 'disabled': True},
-    {'label': '加拿大', 'value': '加拿大'}
-]
+**style：** *dict*型
 
-# 分组组织方式
-options = [
-    {
-        'group': '亚洲',
-        'options': [
-            {'label': '中国', 'value': '中国'}
-        ]
-    },
-    {
-        'group': '北美洲',
-        'options': [
-            {'label': '美国', 'value': '美国'},
-            {'label': '加拿大', 'value': '加拿大'}
-        ]
-    },
-    {
-        'group': '欧洲',
-        'options': [
-            {'label': '俄罗斯', 'value': '俄罗斯'},
-            {'label': '德国', 'value': '德国'}
-        ]
-    }
-]
-```
+　　用于设置*当前组件的css样式*
 
-**mode：** *string*型或*None*，默认为`None`
+**className：** *string*或*dict*型
 
-　　用于设置下拉选择模式，可选项有`'multiple'`（多选）、`'tags'`（自由新增模式）、`None`（单选）
+　　用于设置*当前组件的css类名*，支持[动态css](/advanced-classname)
 
-**colorsMode：** *string*型，默认为`'sequential'`
+**locale：** *string*型，默认为`'zh-cn'`
 
-　　用于设置具体的*色带渲染模式*，可选的有`'sequential'`（连续色带）及`'diverging'`（离散色带）
+　　用于*为当前组件的功能文案设置语言*，可选的有`'zh-cn'`（简体中文）、`'en-us'`（英文）
+
+**options：** `list[dict]`型，必填
+
+　　用于*构建下拉选择的选项结构*，每个字典的可用键值对参数有：
+
+- **label：** *组件型*，用于*设置当前选项的标签内容*
+- **value：** *string*、*int*或*float*型，用于*设置当前选项的值*
+- **disabled：** *bool*型，默认为`False`，用于*设置是否禁用当前选项*
+- **colors：** `list[string]`型，用于*在色带特殊渲染模式下定义当前选项的色彩值序列*
+- **group：** *string*型，用于*设置当前分组的标签内容*
+- **options：** `list[dict]`型，用于*定义嵌套在当前分组下的选项配置字典数组*
+
+**listHeight：** *int*型，默认为`256`
+
+　　用于*设置下拉选择菜单的像素高度*
+
+**colorsMode：** *string*型
+
+　　当需要进行色带渲染时，用于*设置色带的渲染模式*，可选的有`'sequential'`（连续色带）、`'diverging'`（离散色带）
 
 **colorsNameWidth：** *int*型，默认为`40`
 
-　　用于设置*色带渲染*模式下，色带前`label`部分的像素宽度
+　　用于*在色带渲染模式下设置颜色名称部分的像素宽度*
 
-**defaultValue：** *list*型、string型或*list*型
+**mode：** *string*型
 
-　　用于设置默认被选中的单个选项的`'value'`值，或多个选项的`'value'`值构成的列表
+　　用于*设置选择模式*，可选的有`'multiple'`（多选）、`'tags'`（自由新增），默认不设置则为单选
 
-**maxTagCount：** *int*型，默认为5
+**disabled：** *bool*型，默认为`False`
 
-　　用于限定已选择选项在输入框内*最多存放*的数量，超出部分会省略为*数字记号*
+　　用于*设置是否禁用当前组件*
 
-**listHeight：** *int*型，默认为256
+**size：** *string*型，默认为`'middle'`
 
-　　用于设置下拉选择框的最大*像素高度*，超出部分则需使用滑轮滑动浏览
+　　用于*设置当前组件的尺寸规格*，可选项有`'small'`、`'middle'`和`'large'`
+
+**bordered：** *bool*型，默认为`True`
+
+　　用于*设置是否渲染边框*
+
+**placeholder：** *string*型
+
+　　用于*设置空白选择下的填充说明文字*
 
 **placement：** *str*型，默认为`'bottomLeft'`
 
-　　用于设置*悬浮层展开方位*，可选的有`'bottomLeft'`、`'bottomRight'`、`'topLeft'`及`'topRight'`
+　　用于*设置下拉菜单的展开方向*，可选的有`'bottomLeft'`、`'bottomRight'`、`'topLeft'`及`'topRight'`
 
-**status：** *str型*
+**value：** *string*、*int*、*float*或*list*型
 
-　　用于*手动设置组件的校验状态*，可选的有`'error'`和`'warning'`
+　　用于*监听或设置当前已选中值*
+
+**defaultValue：** *string*、*int*、*float*或*list*型
+
+　　用于*监听或设置初始化时的已选中值*
+
+**maxTagCount：** *int*或*str*型
+
+　　用于*设置多选模式下选择框内展示的已选项最大数量*，亦可设置为`'responsive'`开启响应式模式进行自适应调整
+
+**status：** *string*型
+
+　　用于*强制设置组件的状态*，可选的有`'error'`和`'warning'`
 
 **optionFilterProp：** *string*型，默认为`'value'`
 
-　　用于*设置基于输入框内输入内容进行搜索的目标字段*，可选的有`'value'`、`'label'`
+　　用于*设置搜索内容对应各选项的匹配字段*，可选的有`value''`、`'label'`
 
-**value：** *list*型、string型或*list*型
+**searchValue：** *string*型
 
-　　用于在回调中捕获用户选的单个选项的`'value'`值，或多个选项的`'value'`值构成的列表
+　　用于*监听当前已输入的搜索内容*
 
+**debounceSearchValue：** *string*型
 
+　　用于*防抖监听当前已输入的搜索内容*
 
+**debounceWait：** *int*型，默认为`200`
+
+　　用于*设置针对debounceSearchValue更新的防抖延时时长*，单位：毫秒
+
+**autoSpin：** *bool*型，默认为`False`
+
+　　用于*设置是否在当前下拉选择的任意参数充当回调的输出角色，显示后缀加载中图标动画*
+
+**autoClearSearchValue：** *bool*型，默认为`True`
+
+　　当`mode='multiple'`或`mode='tags'`时，用于*设置是否在新选项被选中后自动清空输入框中的搜索内容*
+
+**emptyContent：** *组件型*
+
+　　用于*自定义无选项时下拉菜单中展示的提示内容*
+
+**loadingEmptyContent：** *组件型*
+
+　　当`autoSpin=True`且当前下拉选择的任意参数充当回调的输出角色时，用于*自定义无选项时下拉菜单中展示的提示内容*
+
+**dropdownBefore：** *组件型*
+
+　　用于*在下拉选择菜单开头添加额外的自定义内容*
+
+**dropdownAfter：** *组件型*
+
+　　用于*在下拉选择菜单末尾添加额外的自定义内容*
+
+**allowClear：** *bool*型，默认为`True`
+
+　　用于*设置是否允许用户清空已选项*
+
+**readOnly：** *bool*型
+
+　　用于*设置是否以只读模式进行展示*
+
+**popupContainer：** *string*型，默认为`'body'`
+
+　　用于*为当前组件涉及的悬浮层元素设置参考容器类型*，可选的有`'body'`（以页面根节点为参考）和`'parent'`（以当前元素的父容器为参考），当组件位于局部滚动容器内时，通过设置`popupContainer='parent'`可以解决悬浮层滚动不跟随的问题
+
+**persistence：** *bool*型
+
+　　用于*设置是否为当前组件开启属性持久化*
+
+**persisted_props：** *list*型，默认为`['value']`
+
+　　用于*设置针对当前组件的哪些属性进行持久化*，可选的有`'value'`
+
+**persistence_type：** *string*型，默认为`'local'`
+
+　　用于*设置针对当前组件进行属性持久化的存储类型*，可选的有`'local'`（浏览器本地缓存）、`'session'`（当前标签页会话缓存）、`'memory'`（内存临时缓存）

@@ -1,71 +1,49 @@
 from dash import html
 import feffery_antd_components as fac
-import feffery_utils_components as fuc
 import feffery_markdown_components as fmc
-from dash.dependencies import Input, Output, State
 
-from server import app
+import callbacks.AntdNotification
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdNotification(children, id, className, style, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdNotification.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '反馈'
+                        },
+                        {
+                            'title': 'AntdNotification 通知提醒框'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　用于渲染弹出式通知提醒框。')
+                    ]
                 ),
 
                 html.Div(
                     [
+                        fac.AntdButton(
+                            '触发通知提醒框',
+                            id='notification-basic-demo-new'
+                        ),
 
-                        fac.AntdSpin(
-                            [
-                                fac.AntdButton('触发通知提示框', id='notification-trigger-button-demo1', type='primary'),
-                                html.Div(id='notification-container-demo1')
-                            ],
-                            text='回调中'
+                        html.Div(
+                            id='notification-basic-demo'
                         ),
 
                         fac.AntdDivider(
@@ -76,43 +54,48 @@ docs_content = html.Div(
 
                         fac.AntdParagraph(
                             [
-                                fac.AntdText('　　AntdNotification', strong=True),
-                                fac.AntdText('的使用方式较为特殊，它属于'),
-                                fac.AntdText('昙花一现', strong=True),
-                                fac.AntdText('式的组件，不需要事先在'),
-                                fac.AntdText('app.layout', strong=True),
-                                fac.AntdText('中进行定义，推荐的使用方式是预先定义容纳它的容器，'
-                                             '后续回调中直接将'),
-                                fac.AntdText('fac.AntdNotification(...)', italic=True),
-                                fac.AntdText('对象作为回调输出返回对应容器即可，譬如本例中由按钮触发通知提示框的弹出显示')
-                            ]
+                                '通知提醒框的常规使用方式是通过回调向某个容器输出，每一次输出都会触发一条新的通知提醒框的新增'
+                            ],
+                            style={
+                                'textIndent': '2rem'
+                            }
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdButton('触发通知提示框', id='notification-trigger-button-demo1', type='primary'),
-html.Div(id='notification-container-demo1')
+fac.AntdButton(
+    '触发通知提醒框',
+    id='notification-basic-demo-new'
+),
+
+html.Div(
+    id='notification-basic-demo'
+)
+
 ...
+
 @app.callback(
-    Output('notification-container-demo1', 'children'),
-    Input('notification-trigger-button-demo1', 'nClicks'),
+    Output('notification-basic-demo', 'children'),
+    Input('notification-basic-demo-new', 'nClicks'),
     prevent_initial_call=True
 )
-def notification_demo1(nClicks):
+def notification_basic_demo(nClicks):
+
     return fac.AntdNotification(
-        message='通知提示框测试',
-        description='这是一段辅助说明文字内容'
-    )'''
+        message='通知提醒框示例',
+        description='内容示例'
+    )
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
@@ -125,151 +108,35 @@ def notification_demo1(nClicks):
 
                 html.Div(
                     [
-
-                        fac.AntdSpin(
+                        fac.AntdSpace(
                             [
-                                fac.AntdSelect(
-                                    placeholder='选择不同的状态',
+                                fac.AntdRadioGroup(
+                                    id='notification-placement-demo-placement',
                                     options=[
                                         {
-                                            'label': 'default',
-                                            'value': 'default'
-                                        },
-                                        {
-                                            'label': 'success',
-                                            'value': 'success'
-                                        },
-                                        {
-                                            'label': 'error',
-                                            'value': 'error'
-                                        },
-                                        {
-                                            'label': 'info',
-                                            'value': 'info'
-                                        },
-                                        {
-                                            'label': 'warning',
-                                            'value': 'warning'
+                                            'label': placement,
+                                            'value': placement
                                         }
+                                        for placement in [
+                                            'topLeft', 'topRight', 'bottomLeft', 'bottomRight'
+                                        ]
                                     ],
-                                    id='notification-type-select-demo2',
-                                    style={
-                                        'width': '200px'
-                                    }
+                                    defaultValue='topRight'
                                 ),
-                                fac.AntdButton('触发通知提示框', id='notification-trigger-button-demo2', type='primary'),
-                                html.Div(id='notification-container-demo2')
+                                fac.AntdButton(
+                                    '触发通知提醒框',
+                                    id='notification-placement-demo-new',
+                                    type='primary'
+                                )
                             ],
-                            text='回调中'
+                            direction='vertical',
+                            style={
+                                'width': '100%'
+                            }
                         ),
 
-                        fac.AntdDivider(
-                            '不同的状态',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
-
-                        fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
-                                language='python',
-                                 codeTheme='coy-without-shadows',
-                                codeString='''
-fac.AntdSelect(
-    placeholder='选择不同的状态',
-    options=[
-        {
-            'label': 'default',
-            'value': 'default'
-        },
-        {
-            'label': 'success',
-            'value': 'success'
-        },
-        {
-            'label': 'error',
-            'value': 'error'
-        },
-        {
-            'label': 'info',
-            'value': 'info'
-        },
-        {
-            'label': 'warning',
-            'value': 'warning'
-        }
-    ],
-    id='notification-type-select-demo2',
-    style={
-        'width': '200px'
-    }
-),
-fac.AntdButton('触发通知提示框', id='notification-trigger-button-demo2', type='primary'),
-html.Div(id='notification-container-demo2')
-...
-@app.callback(
-    Output('notification-container-demo2', 'children'),
-    Input('notification-trigger-button-demo2', 'nClicks'),
-    State('notification-type-select-demo2', 'value'),
-    prevent_initial_call=True
-)
-def notification_demo2(nClicks, value):
-    if value:
-        return fac.AntdNotification(
-            message='通知提示框测试',
-            description='这是一段辅助说明文字内容',
-            type=value
-        )'''
-                            ),
-                            title='点击查看代码',
-                            is_open=False,
-                            ghost=True
-                        )
-
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='不同的状态',
-                    className='div-highlight'
-                ),
-
-                html.Div(
-                    [
-
-                        fac.AntdSpin(
-                            [
-                                fac.AntdSelect(
-                                    placeholder='选择不同的弹出位置',
-                                    options=[
-                                        {
-                                            'label': 'topLeft',
-                                            'value': 'topLeft'
-                                        },
-                                        {
-                                            'label': 'topRight',
-                                            'value': 'topRight'
-                                        },
-                                        {
-                                            'label': 'bottomLeft',
-                                            'value': 'bottomLeft'
-                                        },
-                                        {
-                                            'label': 'bottomRight',
-                                            'value': 'bottomRight'
-                                        }
-                                    ],
-                                    id='notification-placement-select-demo3',
-                                    style={
-                                        'width': '200px'
-                                    }
-                                ),
-                                fac.AntdButton('触发通知提示框', id='notification-trigger-button-demo3', type='primary'),
-                                html.Div(id='notification-container-demo3')
-                            ],
-                            text='回调中'
+                        html.Div(
+                            id='notification-placement-demo'
                         ),
 
                         fac.AntdDivider(
@@ -279,58 +146,64 @@ def notification_demo2(nClicks, value):
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdSelect(
-    placeholder='选择不同的弹出位置',
-    options=[
-        {
-            'label': 'topLeft',
-            'value': 'topLeft'
-        },
-        {
-            'label': 'topRight',
-            'value': 'topRight'
-        },
-        {
-            'label': 'bottomLeft',
-            'value': 'bottomLeft'
-        },
-        {
-            'label': 'bottomRight',
-            'value': 'bottomRight'
-        }
+fac.AntdSpace(
+    [
+        fac.AntdRadioGroup(
+            id='notification-placement-demo-placement',
+            options=[
+                {
+                    'label': placement,
+                    'value': placement
+                }
+                for placement in [
+                    'topLeft', 'topRight', 'bottomLeft', 'bottomRight'
+                ]
+            ],
+            defaultValue='topRight'
+        ),
+        fac.AntdButton(
+            '触发通知提醒框',
+            id='notification-placement-demo-new',
+            type='primary'
+        )
     ],
-    id='notification-placement-select-demo3',
+    direction='vertical',
     style={
-        'width': '200px'
+        'width': '100%'
     }
 ),
-fac.AntdButton('触发通知提示框', id='notification-trigger-button-demo3', type='primary'),
-html.Div(id='notification-container-demo3')
+
+html.Div(
+    id='notification-placement-demo'
+)
+
 ...
+
 @app.callback(
-    Output('notification-container-demo3', 'children'),
-    Input('notification-trigger-button-demo3', 'nClicks'),
-    State('notification-placement-select-demo3', 'value'),
+    Output('notification-placement-demo', 'children'),
+    Input('notification-placement-demo-new', 'nClicks'),
+    State('notification-placement-demo-placement', 'value'),
     prevent_initial_call=True
 )
-def notification_demo3(nClicks, value):
-    if value:
-        return fac.AntdNotification(
-            message='通知提示框测试',
-            description='这是一段辅助说明文字内容',
-            placement=value
-        )'''
+def notification_placement_demo(nClicks, value):
+
+    return fac.AntdNotification(
+        message='通知提醒框示例',
+        description='内容示例',
+        placement=value
+    )
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
@@ -343,196 +216,139 @@ def notification_demo3(nClicks, value):
 
                 html.Div(
                     [
-
-                        fac.AntdSpin(
+                        fac.AntdSpace(
                             [
-                                fac.AntdSpace(
-                                    [
-                                        fac.AntdSlider(
-                                            id='notification-slider-demo4',
-                                            tooltipVisible=False,
-                                            min=1,
-                                            max=10,
-                                            step=1,
-                                            defaultValue=5,
-                                            marks={
-                                                **{
-                                                    i: f'{i}秒'
-                                                    for i in range(1, 10)
-                                                },
-                                                **{
-                                                    10: 'None'
-                                                }
-                                            },
-                                            style={
-                                                'width': '400px'
-                                            }
-                                        ),
-                                        fac.AntdButton('触发通知提示框', id='notification-trigger-button-demo4',
-                                                       type='primary')
+                                fac.AntdRadioGroup(
+                                    id='notification-type-demo-type',
+                                    options=[
+                                        {
+                                            'label': type_,
+                                            'value': type_
+                                        }
+                                        for type_ in [
+                                            'default', 'info', 'success', 'warning', 'error'
+                                        ]
                                     ],
-                                    size='large'
+                                    defaultValue='default'
                                 ),
-                                html.Div(id='notification-container-demo4')
+                                fac.AntdButton(
+                                    '触发通知提醒框',
+                                    id='notification-type-demo-new',
+                                    type='primary'
+                                )
                             ],
-                            text='回调中'
+                            direction='vertical',
+                            style={
+                                'width': '100%'
+                            }
+                        ),
+
+                        html.Div(
+                            id='notification-type-demo'
                         ),
 
                         fac.AntdDivider(
-                            '持续显示时长的设置',
+                            '不同的状态类型',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-                        fac.AntdSpace(
-                            [
-                                fac.AntdSlider(
-                                    id='notification-slider-demo4',
-                                    tooltipVisible=False,
-                                    min=1,
-                                    max=10,
-                                    step=1,
-                                    defaultValue=5,
-                                    marks={
-                                        **{
-                                            i: f'{i}秒'
-                                            for i in range(1, 10)
-                                        },
-                                        **{
-                                            10: 'None'
-                                        }
-                                    },
-                                    style={
-                                        'width': '400px'
-                                    }
-                                ),
-                                fac.AntdButton('触发通知提示框', id='notification-trigger-button-demo4', type='primary')
-                            ],
-                            size='large'
-                        ),
-                        html.Div(id='notification-container-demo4')
-                        ...
-                        @app.callback(
-                            Output('notification-container-demo4', 'children'),
-                            Input('notification-trigger-button-demo4', 'nClicks'),
-                            State('notification-slider-demo4', 'value'),
-                            prevent_initial_call=True
-                        )
-                        def notification_demo4(nClicks, value):
-                            if value:
-                                return fac.AntdNotification(
-                                    message=f'持续时长{value}秒' if value != 10 else '持续时长∞秒',
-                                    description='这是一段辅助说明文字内容',
-                                    duration=value if value != 10 else None
-                                )'''
+fac.AntdSpace(
+    [
+        fac.AntdRadioGroup(
+            id='notification-type-demo-type',
+            options=[
+                {
+                    'label': type_,
+                    'value': type_
+                }
+                for type_ in [
+                    'default', 'info', 'success', 'warning', 'error'
+                ]
+            ],
+            defaultValue='default'
+        ),
+        fac.AntdButton(
+            '触发通知提醒框',
+            id='notification-type-demo-new',
+            type='primary'
+        )
+    ],
+    direction='vertical',
+    style={
+        'width': '100%'
+    }
+),
+
+html.Div(
+    id='notification-type-demo'
+)
+
+...
+
+@app.callback(
+    Output('notification-type-demo', 'children'),
+    Input('notification-type-demo-new', 'nClicks'),
+    State('notification-type-demo-type', 'value'),
+    prevent_initial_call=True
+)
+def notification_type_demo(nClicks, value):
+
+    return fac.AntdNotification(
+        message='通知提醒框示例',
+        description='内容示例',
+        type=value
+    )
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='持续显示时长的设置',
+                    id='不同的状态类型',
                     className='div-highlight'
                 ),
 
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '基础使用', 'href': '#基础使用'},
-                            {'title': '不同的状态', 'href': '#不同的状态'},
-                            {'title': '不同的弹出位置', 'href': '#不同的弹出位置'},
-                            {'title': '持续显示时长的设置', 'href': '#持续显示时长的设置'},
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '不同的弹出位置', 'href': '#不同的弹出位置'},
+                    {'title': '不同的状态类型', 'href': '#不同的状态类型'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'margin': '20px'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdNotification'
         )
     ],
     style={
         'display': 'flex'
     }
 )
-
-
-@app.callback(
-    Output('notification-container-demo1', 'children'),
-    Input('notification-trigger-button-demo1', 'nClicks'),
-    prevent_initial_call=True
-)
-def notification_demo1(nClicks):
-    return fac.AntdNotification(
-        message='通知提示框测试',
-        description='这是一段辅助说明文字内容'
-    )
-
-
-@app.callback(
-    Output('notification-container-demo2', 'children'),
-    Input('notification-trigger-button-demo2', 'nClicks'),
-    State('notification-type-select-demo2', 'value'),
-    prevent_initial_call=True
-)
-def notification_demo2(nClicks, value):
-    if value:
-        return fac.AntdNotification(
-            message='通知提示框测试',
-            description='这是一段辅助说明文字内容',
-            type=value
-        )
-
-
-@app.callback(
-    Output('notification-container-demo3', 'children'),
-    Input('notification-trigger-button-demo3', 'nClicks'),
-    State('notification-placement-select-demo3', 'value'),
-    prevent_initial_call=True
-)
-def notification_demo3(nClicks, value):
-    if value:
-        return fac.AntdNotification(
-            message='通知提示框测试',
-            description='这是一段辅助说明文字内容',
-            placement=value
-        )
-
-
-@app.callback(
-    Output('notification-container-demo4', 'children'),
-    Input('notification-trigger-button-demo4', 'nClicks'),
-    State('notification-slider-demo4', 'value'),
-    prevent_initial_call=True
-)
-def notification_demo4(nClicks, value):
-    return fac.AntdNotification(
-        message=f'持续时长{value}秒' if value != 10 else '持续时长∞秒',
-        description='这是一段辅助说明文字内容',
-        duration=value if value != 10 else None
-    )

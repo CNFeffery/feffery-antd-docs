@@ -1,54 +1,57 @@
 from dash import html
 import feffery_antd_components as fac
-import feffery_markdown_components as fmc
+
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
-        html.H2(
-            'AntdSkeletonImage(id, *args, **kwargs)',
-            style={
-                'borderLeft': '4px solid grey',
-                'padding': '3px 0 3px 10px',
-                'backgroundColor': '#f5f5f5'
-            }
-        ),
-
-        html.Span(
-            '主要参数说明：',
-            id='主要参数说明',
-            style={
-                'borderLeft': '4px solid grey',
-                'padding': '3px 0 3px 10px',
-                'backgroundColor': '#f5f5f5',
-                'fontWeight': 'bold',
-                'fontSize': '1.2rem'
-            }
-        ),
-
-        fmc.FefferyMarkdown(
-            markdownStr=open('documents/AntdSkeletonImage.md', encoding='utf-8').read()
-        ),
-
-        html.Ul(
+        html.Div(
             [
-                html.Li(
-                    fac.AntdParagraph(
-                        [
-                            fac.AntdText('有关'),
-                            fac.AntdText('AntdSkeletonImage', strong=True),
-                            fac.AntdText('的使用示例请移步'),
-                            fac.AntdText('AntdCustomSkeleton', strong=True),
-                            fac.AntdText('对应的文档'),
-                        ],
-                        style={
-                            'paddingTop': '20px'
-                        }
-                    ),
-                    style={'listStyleType': 'circle'}
-                )
-            ]
-        ),
+                fac.AntdBackTop(
+                    duration=0.3
+                ),
 
-        html.Div(style={'height': '100px'})
-    ]
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '反馈'
+                        },
+                        {
+                            'title': '自定义骨骼屏'
+                        },
+                        {
+                            'title': 'AntdSkeletonImage 图片占位图'
+                        }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　用于在自定义骨骼屏中构建图片占位相关内容，'),
+                        fac.AntdText('有关'),
+                        fac.AntdText('AntdSkeletonImage', strong=True),
+                        fac.AntdText('的使用示例请移步'),
+                        fac.AntdText('AntdCustomSkeleton', strong=True),
+                        fac.AntdText('对应的文档。')
+                    ]
+                )
+            ],
+            style={
+                'flex': 'auto',
+                'padding': '25px'
+            }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdSkeletonImage'
+        )
+    ],
+    style={
+        'display': 'flex'
+    }
 )

@@ -1,63 +1,44 @@
 from dash import html
-import feffery_markdown_components as fmc
 import feffery_antd_components as fac
-import feffery_utils_components as fuc
+import feffery_markdown_components as fmc
+
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdImage(id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdImage.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '数据展示'
+                        },
+                        {
+                            'title': 'AntdImage 图片'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　用于展示单张或一组图片。')
+                    ]
                 ),
 
                 html.Div(
                     [
                         fac.AntdImage(
-                            src='assets/imgs/fac-logo.svg'
+                            src='/assets/imgs/流浪地球2海报.jpg',
+                            height=400
                         ),
 
                         fac.AntdDivider(
@@ -67,18 +48,20 @@ docs_content = html.Div(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdImage(
-    src='assets/imgs/fac-logo.svg'
+    src='/assets/imgs/流浪地球2海报.jpg',
+    height=400
 )
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -93,65 +76,34 @@ fac.AntdImage(
 
                 html.Div(
                     [
-                        fac.AntdDivider('multiImageMode="fold"（默认）', innerTextOrientation='left'),
                         fac.AntdImage(
-                            src=[
-                                'assets/imgs/fac-logo.svg',
-                                'assets/imgs/山海情.webp',
-                                'assets/imgs/antd-logo.svg',
-                                'assets/imgs/react-logo.svg',
-                            ],
-                            height=200
-                        ),
-                        fac.AntdDivider('multiImageMode="unfold"', innerTextOrientation='left'),
-                        fac.AntdImage(
-                            src=[
-                                'assets/imgs/fac-logo.svg',
-                                'assets/imgs/山海情.webp',
-                                'assets/imgs/antd-logo.svg',
-                                'assets/imgs/react-logo.svg',
-                            ],
-                            multiImageMode='unfold',
-                            height=200
+                            src='/assets/imgs/流浪地球2海报.jpg',
+                            height=400,
+                            preview=False
                         ),
 
                         fac.AntdDivider(
-                            '多图模式',
+                            '静态模式',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdDivider('multiImageMode="fold"（默认）', innerTextOrientation='left'),
 fac.AntdImage(
-    src=[
-        'assets/imgs/fac-logo.svg',
-        'assets/imgs/山海情.webp',
-        'assets/imgs/antd-logo.svg',
-        'assets/imgs/react-logo.svg',
-    ],
-    height=200
-),
-fac.AntdDivider('multiImageMode="unfold"', innerTextOrientation='left'),
-fac.AntdImage(
-    src=[
-        'assets/imgs/fac-logo.svg',
-        'assets/imgs/山海情.webp',
-        'assets/imgs/antd-logo.svg',
-        'assets/imgs/react-logo.svg',
-    ],
-    multiImageMode='unfold',
-    height=200
+    src='/assets/imgs/流浪地球2海报.jpg',
+    height=400,
+    preview=False
 )
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -160,37 +112,98 @@ fac.AntdImage(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='多图模式',
+                    id='静态模式',
                     className='div-highlight'
                 ),
 
                 html.Div(
                     [
-                        # 传入无效的图片地址
+                        fac.AntdDivider(
+                            'multiImageMode="fold"（默认）',
+                            innerTextOrientation='left'
+                        ),
                         fac.AntdImage(
-                            src='assets/imgs/fac-logo_.svg'
+                            src=[
+                                '/assets/imgs/image示例1.png',
+                                '/assets/imgs/image示例2.png',
+                                '/assets/imgs/image示例3.png',
+                                '/assets/imgs/image示例4.png',
+                                '/assets/imgs/image示例5.png',
+                                '/assets/imgs/image示例6.png',
+                                '/assets/imgs/image示例7.png',
+                            ],
+                            height=80
                         ),
 
                         fac.AntdDivider(
-                            '加载失败时的占位图',
+                            'multiImageMode="unfold"（默认）',
+                            innerTextOrientation='left'
+                        ),
+                        fac.AntdImage(
+                            src=[
+                                '/assets/imgs/image示例1.png',
+                                '/assets/imgs/image示例2.png',
+                                '/assets/imgs/image示例3.png',
+                                '/assets/imgs/image示例4.png',
+                                '/assets/imgs/image示例5.png',
+                                '/assets/imgs/image示例6.png',
+                                '/assets/imgs/image示例7.png'
+                            ],
+                            multiImageMode='unfold',
+                            height=80
+                        ),
+
+                        fac.AntdDivider(
+                            '展示一组图片',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-# 传入无效的图片地址
+fac.AntdDivider(
+    'multiImageMode="fold"（默认）',
+    innerTextOrientation='left'
+),
 fac.AntdImage(
-    src='assets/imgs/fac-logo_.svg'
+    src=[
+        '/assets/imgs/image示例1.png',
+        '/assets/imgs/image示例2.png',
+        '/assets/imgs/image示例3.png',
+        '/assets/imgs/image示例4.png',
+        '/assets/imgs/image示例5.png',
+        '/assets/imgs/image示例6.png',
+        '/assets/imgs/image示例7.png',
+    ],
+    height=80
+),
+
+fac.AntdDivider(
+    'multiImageMode="unfold"（默认）',
+    innerTextOrientation='left'
+),
+fac.AntdImage(
+    src=[
+        '/assets/imgs/image示例1.png',
+        '/assets/imgs/image示例2.png',
+        '/assets/imgs/image示例3.png',
+        '/assets/imgs/image示例4.png',
+        '/assets/imgs/image示例5.png',
+        '/assets/imgs/image示例6.png',
+        '/assets/imgs/image示例7.png'
+    ],
+    multiImageMode='unfold',
+    height=80
 )
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -199,37 +212,107 @@ fac.AntdImage(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='加载失败时的占位图',
+                    id='展示一组图片',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdDivider(
+                            '默认占位图',
+                            innerTextOrientation='left'
+                        ),
+                        fac.AntdImage(
+                            src='/assets/imgs/不存在图片示例.jpg',
+                            preview=False,
+                            height=100
+                        ),
+
+                        fac.AntdDivider(
+                            '自定义占位图',
+                            innerTextOrientation='left'
+                        ),
+                        fac.AntdImage(
+                            src='/assets/imgs/不存在图片示例.jpg',
+                            fallback='/assets/imgs/image回滚占位图示例1.png',
+                            preview=False,
+                            height=100
+                        ),
+
+                        fac.AntdDivider(
+                            '加载失败占位图',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdDivider(
+    '默认占位图',
+    innerTextOrientation='left'
+),
+fac.AntdImage(
+    src='/assets/imgs/不存在图片示例.jpg',
+    preview=False,
+    height=100
+),
+
+fac.AntdDivider(
+    '自定义占位图',
+    innerTextOrientation='left'
+),
+fac.AntdImage(
+    src='/assets/imgs/不存在图片示例.jpg',
+    fallback='/assets/imgs/image回滚占位图示例1.png',
+    preview=False,
+    height=100
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='加载失败占位图',
                     className='div-highlight'
                 ),
 
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
-
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '基础使用', 'href': '#基础使用'},
-                            {'title': '多图模式', 'href': '#多图模式'},
-                            {'title': '加载失败时的占位图', 'href': '#加载失败时的占位图'},
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '静态模式', 'href': '#静态模式'},
+                    {'title': '展示一组图片', 'href': '#展示一组图片'},
+                    {'title': '加载失败占位图', 'href': '#加载失败占位图'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'margin': '20px'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdImage'
         )
     ],
     style={

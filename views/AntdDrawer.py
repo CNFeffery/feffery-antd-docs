@@ -1,75 +1,52 @@
 from dash import html
 import feffery_antd_components as fac
-import feffery_utils_components as fuc
 import feffery_markdown_components as fmc
 
 import callbacks.AntdDrawer
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdDrawer(id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdDrawer.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '反馈'
+                        },
+                        {
+                            'title': 'AntdDrawer 抽屉'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　用于构建全屏弹出式额外内容区域。')
+                    ]
                 ),
 
                 html.Div(
                     [
                         fac.AntdButton(
-                            '触发抽屉',
-                            type='primary',
-                            id='drawer-demo-trigger-1'
+                            '打开示例抽屉',
+                            id='drawer-basic-demo-open',
+                            type='primary'
                         ),
 
                         fac.AntdDrawer(
-                            fac.AntdText('抽屉内容测试' * 200),
-                            id='drawer-demo-1',
-                            style={
-                                'zIndex': 99999
-                            }
+                            '示例内容',
+                            title='基础抽屉示例',
+                            id='drawer-basic-demo'
                         ),
 
                         fac.AntdDivider(
@@ -79,39 +56,40 @@ docs_content = html.Div(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdButton(
-    '触发抽屉',
-    type='primary',
-    id='drawer-demo-trigger-1'
+    '打开示例抽屉',
+    id='drawer-basic-demo-open',
+    type='primary'
 ),
 
 fac.AntdDrawer(
-    fac.AntdText('抽屉内容测试' * 200),
-    id='drawer-demo-1',
-    style={
-        'zIndex': 99999
-    }
+    '示例内容',
+    title='基础抽屉示例',
+    id='drawer-basic-demo'
 )
+
 ...
+
 @app.callback(
-    Output('drawer-demo-1', 'visible'),
-    Input('drawer-demo-trigger-1', 'nClicks'),
+    Output('drawer-basic-demo', 'visible'),
+    Input('drawer-basic-demo-open', 'nClicks'),
     prevent_initial_call=True
 )
-def drawer_demo_callback1(nClicks):
+def drawer_basic_demo(nCLicks):
+
     return True
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
@@ -126,181 +104,323 @@ def drawer_demo_callback1(nClicks):
                     [
                         fac.AntdSpace(
                             [
-                                fac.AntdButton(
-                                    'top方向',
-                                    type='primary',
-                                    id='drawer-demo-trigger-2-top'
+                                fac.AntdRadioGroup(
+                                    id='drawer-placement-demo-placement',
+                                    options=[
+                                        {
+                                            'label': placement,
+                                            'value': placement
+                                        }
+                                        for placement in [
+                                            'left', 'top', 'right', 'bottom'
+                                        ]
+                                    ],
+                                    defaultValue='right'
                                 ),
                                 fac.AntdButton(
-                                    'left方向',
-                                    type='primary',
-                                    id='drawer-demo-trigger-2-left'
-                                ),
-                                fac.AntdButton(
-                                    'bottom方向',
-                                    type='primary',
-                                    id='drawer-demo-trigger-2-bottom'
-                                ),
-                            ]
+                                    '打开示例抽屉',
+                                    id='drawer-placement-demo-open',
+                                    type='primary'
+                                )
+                            ],
+                            direction='vertical'
                         ),
 
                         fac.AntdDrawer(
-                            fac.AntdText('抽屉内容测试' * 100),
-                            id='drawer-demo-2-top',
-                            placement='top',
-                            mask=False,
-                            style={
-                                'zIndex': 99999
-                            }
-                        ),
-
-                        fac.AntdDrawer(
-                            fac.AntdText('抽屉内容测试' * 100),
-                            id='drawer-demo-2-left',
-                            placement='left',
-                            mask=False,
-                            style={
-                                'zIndex': 99999
-                            }
-                        ),
-
-                        fac.AntdDrawer(
-                            fac.AntdText('抽屉内容测试' * 100),
-                            id='drawer-demo-2-bottom',
-                            placement='bottom',
-                            mask=False,
-                            style={
-                                'zIndex': 99999
-                            }
+                            '示例内容',
+                            id='drawer-placement-demo'
                         ),
 
                         fac.AntdDivider(
-                            '不同的抽屉弹出方向',
+                            '不同的展开方位',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdSpace(
     [
-        fac.AntdButton(
-            'top方向',
-            type='primary',
-            id='drawer-demo-trigger-2-top'
+        fac.AntdRadioGroup(
+            id='drawer-placement-demo-placement',
+            options=[
+                {
+                    'label': placement,
+                    'value': placement
+                }
+                for placement in [
+                    'left', 'top', 'right', 'bottom'
+                ]
+            ],
+            defaultValue='right'
         ),
         fac.AntdButton(
-            'left方向',
-            type='primary',
-            id='drawer-demo-trigger-2-left'
-        ),
-        fac.AntdButton(
-            'bottom方向',
-            type='primary',
-            id='drawer-demo-trigger-2-bottom'
-        ),
-    ]
+            '打开示例抽屉',
+            id='drawer-placement-demo-open',
+            type='primary'
+        )
+    ],
+    direction='vertical'
 ),
 
 fac.AntdDrawer(
-    fac.AntdText('抽屉内容测试' * 100),
-    id='drawer-demo-2-top',
-    placement='top',
-    mask=False,
-    style={
-        'zIndex': 99999
-    }
-),
-
-fac.AntdDrawer(
-    fac.AntdText('抽屉内容测试' * 100),
-    id='drawer-demo-2-left',
-    placement='left',
-    mask=False,
-    style={
-        'zIndex': 99999
-    }
-),
-
-fac.AntdDrawer(
-    fac.AntdText('抽屉内容测试' * 100),
-    id='drawer-demo-2-bottom',
-    placement='bottom',
-    mask=False,
-    style={
-        'zIndex': 99999
-    }
+    '示例内容',
+    id='drawer-placement-demo'
 )
+
 ...
+
 @app.callback(
-    [Output('drawer-demo-2-top', 'visible'),
-     Output('drawer-demo-2-left', 'visible'),
-     Output('drawer-demo-2-bottom', 'visible')],
-    [Input('drawer-demo-trigger-2-top', 'nClicks'),
-     Input('drawer-demo-trigger-2-left', 'nClicks'),
-     Input('drawer-demo-trigger-2-bottom', 'nClicks')],
+    [Output('drawer-placement-demo', 'title'),
+     Output('drawer-placement-demo', 'placement')],
+    Input('drawer-placement-demo-placement', 'value')
+)
+def update_drawer_placement_and_title_dmeo(value):
+
+    return [
+        f'placement="{value}"',
+        value
+    ]
+
+
+@app.callback(
+    Output('drawer-placement-demo', 'visible'),
+    Input('drawer-placement-demo-open', 'nClicks'),
     prevent_initial_call=True
 )
-def drawer_demo_callback2(_, __, ___):
-    ctx = dash.callback_context
+def draw_placement_demo(nClicks):
 
-    placement = ctx.triggered[0]['prop_id'].split('.')[0].split('-')[-1]
-
-    if placement == 'top':
-        return True, False, False
-
-    elif placement == 'left':
-        return False, True, False
-
-    else:
-        return False, False, True
+    return True
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='不同的抽屉弹出方向',
+                    id='不同的展开方位',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdButton(
+                            '打开示例抽屉',
+                            id='drawer-extra-demo-open',
+                            type='primary'
+                        ),
+
+                        fac.AntdDrawer(
+                            '示例内容',
+                            id='drawer-extra-demo',
+                            title='抽屉示例',
+                            width='50vw',
+                            extra=fac.AntdSpace(
+                                [
+                                    fac.AntdButton(
+                                        '操作1',
+                                        type='primary'
+                                    ),
+                                    fac.AntdButton(
+                                        '操作2',
+                                        type='primary',
+                                        danger=True
+                                    )
+                                ],
+                                size='small'
+                            )
+                        ),
+
+                        fac.AntdDivider(
+                            '定义额外操作区元素',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdButton(
+    '打开示例抽屉',
+    id='drawer-extra-demo-open',
+    type='primary'
+),
+
+fac.AntdDrawer(
+    '示例内容',
+    id='drawer-extra-demo',
+    title='抽屉示例',
+    width='50vw',
+    extra=fac.AntdSpace(
+        [
+            fac.AntdButton(
+                '操作1',
+                type='primary'
+            ),
+            fac.AntdButton(
+                '操作2',
+                type='primary',
+                danger=True
+            )
+        ],
+        size='small'
+    )
+)
+
+...
+
+@app.callback(
+    Output('drawer-extra-demo', 'visible'),
+    Input('drawer-extra-demo-open', 'nClicks'),
+    prevent_initial_call=True
+)
+def drawer_extra_demo(nClicks):
+
+    return True
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='定义额外操作区元素',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        html.Div(
+                            [
+                                fac.AntdButton(
+                                    '打开示例抽屉',
+                                    id='drawer-local-demo-open',
+                                    type='primary'
+                                ),
+                                fac.AntdDrawer(
+                                    '示例内容',
+                                    id='drawer-local-demo',
+                                    title='局部容器抽屉示例',
+                                    containerId='drawer-local-container'
+                                )
+                            ],
+                            id='drawer-local-container',
+                            style={
+                                'height': 400,
+                                'border': '1px solid #e9ecef',
+                                'position': 'relative',
+                                'padding': 25,
+                                'overflowX': 'hidden'
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '在局部容器中使用',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+html.Div(
+    [
+        fac.AntdButton(
+            '打开示例抽屉',
+            id='drawer-local-demo-open',
+            type='primary'
+        ),
+        fac.AntdDrawer(
+            '示例内容',
+            id='drawer-local-demo',
+            title='局部容器抽屉示例',
+            containerId='drawer-local-container'
+        )
+    ],
+    id='drawer-local-container',
+    style={
+        'height': 400,
+        'border': '1px solid #e9ecef',
+        'position': 'relative',
+        'padding': 25,
+        'overflowX': 'hidden'
+    }
+)
+
+...
+
+@app.callback(
+    Output('drawer-local-demo', 'visible'),
+    Input('drawer-local-demo-open', 'nClicks'),
+    prevent_initial_call=True
+)
+def drawer_local_demo(nClicks):
+
+    return True
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='在局部容器中使用',
                     className='div-highlight'
                 ),
 
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
-
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '基础使用', 'href': '#基础使用'},
-                            {'title': '不同的抽屉弹出方向', 'href': '#不同的抽屉弹出方向'},
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '不同的展开方位', 'href': '#不同的展开方位'},
+                    {'title': '定义额外操作区元素', 'href': '#定义额外操作区元素'},
+                    {'title': '在局部容器中使用', 'href': '#在局部容器中使用'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'margin': '20px'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdDrawer'
         )
     ],
     style={

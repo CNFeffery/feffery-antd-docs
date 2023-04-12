@@ -4,64 +4,52 @@ import feffery_utils_components as fuc
 import feffery_markdown_components as fmc
 
 import callbacks.AntdSpin
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdSpin(children, id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdSpin.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '反馈'
+                        },
+                        {
+                            'title': 'AntdSpin 加载动画'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　用于为正在加载中的内容添加加载动画。')
+                    ]
                 ),
 
                 html.Div(
                     [
-                        fac.AntdButton('触发2秒加载动画', id='spin-basic-demo-input', type='primary'),
+                        fac.AntdButton(
+                            '触发示例',
+                            id='spin-basic-demo-trigger',
+                            style={
+                                'marginBottom': 10
+                            }
+                        ),
 
                         fac.AntdSpin(
-                            fac.AntdText('nClicks: 0', id='spin-basic-demo-output', strong=True),
+                            fac.AntdText(
+                                id='spin-basic-demo-output'
+                            ),
                             text='回调中'
                         ),
 
@@ -71,43 +59,48 @@ docs_content = html.Div(
                             innerTextOrientation='left'
                         ),
 
-                        fac.AntdParagraph(
-                            [
-                                fac.AntdText('　　默认模式下，被'),
-                                fac.AntdText('AntdSpin', strong=True),
-                                fac.AntdText('作为children参数传入的所有后代组件，在作为回调过程的'),
-                                fac.AntdText('Output', strong=True),
-                                fac.AntdText('处于回调中状态时，都会触发加载动画过程'),
-                            ]
-                        ),
-
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdButton('触发2秒加载动画', id='spin-basic-demo-input', type='primary'),
+fac.AntdButton(
+    '触发示例',
+    id='spin-basic-demo-trigger',
+    style={
+        'marginBottom': 10
+    }
+),
 
 fac.AntdSpin(
-    fac.AntdText('nClicks: 0', id='spin-basic-demo-output', strong=True),
+    fac.AntdText(
+        id='spin-basic-demo-output'
+    ),
     text='回调中'
 )
+
 ...
+
+import time
+
+...
+
 @app.callback(
     Output('spin-basic-demo-output', 'children'),
-    Input('spin-basic-demo-input', 'nClicks'),
+    Input('spin-basic-demo-trigger', 'nClicks'),
     prevent_initial_call=True
 )
-def spin_basic_callback_demo(nClicks):
-    import time
+def spin_basic_demo(nClicks):
+
     time.sleep(2)
 
     return f'nClicks: {nClicks}'
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -124,298 +117,115 @@ def spin_basic_callback_demo(nClicks):
                     [
                         fac.AntdSpace(
                             [
-                                fac.AntdButton('触发耗时0.5秒的回调过程', id='spin-delay-demo-input1', type='primary'),
-                                fac.AntdButton('触发耗时2秒的回调过程', id='spin-delay-demo-input2', type='primary')
-                            ]
+                                fac.AntdButton(
+                                    '按钮1',
+                                    id='spin-exclude-demo-trigger1'
+                                ),
+                                fac.AntdButton(
+                                    '按钮2',
+                                    id='spin-exclude-demo-trigger2'
+                                )
+                            ],
+                            style={
+                                'width': '100%',
+                                'marginBottom': 10
+                            }
                         ),
 
                         fac.AntdSpin(
-                            fac.AntdText('0.5秒回调 nClicks: 0', id='spin-delay-demo-output1', strong=True),
-                            delay=1000,
-                            text='回调中'
-                        ),
-
-                        fac.AntdSpin(
-                            fac.AntdText('2s回调 nClicks: 0', id='spin-delay-demo-output2', strong=True),
-                            delay=1000,
-                            text='回调中'
-                        ),
-
-                        fac.AntdDivider(
-                            '延迟加载',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
-
-                        fac.AntdParagraph(
                             [
-                                fac.AntdText('当监听的后代组件实际加载耗时低于'),
-                                fac.AntdText('delay', strong=True),
-                                fac.AntdText('所设置的时长时，加载动画不会被触发')
-                            ]
-                        ),
-
-                        fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
-                                language='python',
-                                 codeTheme='coy-without-shadows',
-                                codeString='''
-fac.AntdSpace(
-    [
-        fac.AntdButton('触发耗时0.5秒的回调过程', id='spin-delay-demo-input1', type='primary'),
-        fac.AntdButton('触发耗时2秒的回调过程', id='spin-delay-demo-input2', type='primary')
-    ]
-),
-
-fac.AntdSpin(
-    fac.AntdText('0.5秒回调 nClicks: 0', id='spin-delay-demo-output1', strong=True),
-    delay=1000,
-    text='回调中'
-),
-
-fac.AntdSpin(
-    fac.AntdText('2s回调 nClicks: 0', id='spin-delay-demo-output2', strong=True),
-    delay=1000,
-    text='回调中'
-)
-...
-@app.callback(
-    Output('spin-delay-demo-output1', 'children'),
-    Input('spin-delay-demo-input1', 'nClicks'),
-    prevent_initial_call=True
-)
-def spin_delay_callback_demo1(nClicks):
-    import time
-    time.sleep(0.5)
-
-    return f'0.5秒回调 nClicks: {nClicks}'
-
-
-@app.callback(
-    Output('spin-delay-demo-output2', 'children'),
-    Input('spin-delay-demo-input2', 'nClicks'),
-    prevent_initial_call=True
-)
-def spin_delay_callback_demo2(nClicks):
-    import time
-    time.sleep(2)
-
-    return f'2秒回调 nClicks: {nClicks}'
-'''
-                            ),
-                            title='点击查看代码',
-                            is_open=False,
-                            ghost=True
-                        )
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='延迟加载',
-                    className='div-highlight'
-                ),
-
-                html.Div(
-                    [
-                        fac.AntdSpace(
-                            [
-                                fac.AntdButton('未被includeProps指定', id='spin-include-demo-input1', type='primary'),
-                                fac.AntdButton('被includeProps指定', id='spin-include-demo-input2', type='primary')
-                            ]
-                        ),
-
-                        fac.AntdSpin(
-                            fac.AntdSpace(
-                                [
-                                    fac.AntdText('未被includeProps指定 nClicks: 0', id='spin-include-demo-output1',
-                                                 strong=True),
-                                    fac.AntdText('被includeProps指定 nClicks: 0', id='spin-include-demo-output2',
-                                                 strong=True)
-                                ],
-                                direction='vertical'
-                            ),
-                            listenPropsMode='include',
-                            includeProps=['spin-include-demo-output2.children'],
-                            text='回调中'
-                        ),
-
-                        fac.AntdDivider(
-                            'include模式',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
-
-                        fac.AntdParagraph(
-                            [
-                                fac.AntdText("　　listenPropsMode='include'", strong=True),
-                                fac.AntdText("时，由"),
-                                fac.AntdText('includeProps', strong=True),
-                                fac.AntdText('指定的组件属性对应的'),
-                                fac.AntdText('Output', strong=True),
-                                fac.AntdText('回调过程才会触发加载动画'),
-                            ]
-                        ),
-
-                        fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
-                                language='python',
-                                 codeTheme='coy-without-shadows',
-                                codeString='''
-fac.AntdSpace(
-    [
-        fac.AntdButton('未被includeProps指定', id='spin-include-demo-input1', type='primary'),
-        fac.AntdButton('被includeProps指定', id='spin-include-demo-input2', type='primary')
-    ]
-),
-
-fac.AntdSpin(
-    fac.AntdSpace(
-        [
-            fac.AntdText('未被includeProps指定 nClicks: 0', id='spin-include-demo-output1', strong=True),
-            fac.AntdText('被includeProps指定 nClicks: 0', id='spin-include-demo-output2', strong=True)
-        ],
-        direction='vertical'
-    ),
-    listenPropsMode='include',
-    includeProps=['spin-include-demo-output2.children'],
-    text='回调中'
-)
-...
-@app.callback(
-    Output('spin-include-demo-output1', 'children'),
-    Input('spin-include-demo-input1', 'nClicks'),
-    prevent_initial_call=True
-)
-def spin_include_callback_demo1(nClicks):
-    import time
-    time.sleep(1)
-
-    return f'未被includeProps指定 nClicks: {nClicks}'
-
-
-@app.callback(
-    Output('spin-include-demo-output2', 'children'),
-    Input('spin-include-demo-input2', 'nClicks'),
-    prevent_initial_call=True
-)
-def spin_include_callback_demo2(nClicks):
-    import time
-    time.sleep(1)
-
-    return f'被includeProps指定 nClicks: {nClicks}'
-'''
-                            ),
-                            title='点击查看代码',
-                            is_open=False,
-                            ghost=True
-                        )
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='include模式',
-                    className='div-highlight'
-                ),
-
-                html.Div(
-                    [
-                        fac.AntdSpace(
-                            [
-                                fac.AntdButton('未被excludeProps指定', id='spin-exclude-demo-input1', type='primary'),
-                                fac.AntdButton('被excludeProps指定', id='spin-exclude-demo-input2', type='primary')
-                            ]
-                        ),
-
-                        fac.AntdSpin(
-                            fac.AntdSpace(
-                                [
-                                    fac.AntdText('未被excludeProps指定 nClicks: 0', id='spin-exclude-demo-output1',
-                                                 strong=True),
-                                    fac.AntdText('被excludeProps指定 nClicks: 0', id='spin-exclude-demo-output2',
-                                                 strong=True)
-                                ],
-                                direction='vertical'
-                            ),
+                                fac.AntdParagraph(
+                                    id='spin-exclude-demo-output1'
+                                ),
+                                fac.AntdParagraph(
+                                    id='spin-exclude-demo-output2'
+                                )
+                            ],
+                            text='回调中',
                             listenPropsMode='exclude',
-                            excludeProps=['spin-exclude-demo-output2.children'],
-                            text='回调中'
+                            excludeProps=[
+                                'spin-exclude-demo-output1.children'
+                            ]
                         ),
 
                         fac.AntdDivider(
-                            'exclude模式',
+                            '排除监听模式',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
-                        fac.AntdParagraph(
-                            [
-                                fac.AntdText("　　listenPropsMode='exclude'", strong=True),
-                                fac.AntdText("时，由"),
-                                fac.AntdText('excludeProps', strong=True),
-                                fac.AntdText('指定的组件属性对应的'),
-                                fac.AntdText('Output', strong=True),
-                                fac.AntdText('回调过程不会触发加载动画'),
-                            ]
-                        ),
-
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdSpace(
     [
-        fac.AntdButton('未被excludeProps指定', id='spin-exclude-demo-input1', type='primary'),
-        fac.AntdButton('被excludeProps指定', id='spin-exclude-demo-input2', type='primary')
-    ]
+        fac.AntdButton(
+            '按钮1',
+            id='spin-exclude-demo-trigger1'
+        ),
+        fac.AntdButton(
+            '按钮2',
+            id='spin-exclude-demo-trigger2'
+        )
+    ],
+    style={
+        'width': '100%',
+        'marginBottom': 10
+    }
 ),
 
 fac.AntdSpin(
-    fac.AntdSpace(
-        [
-            fac.AntdText('未被excludeProps指定 nClicks: 0', id='spin-exclude-demo-output1', strong=True),
-            fac.AntdText('被excludeProps指定 nClicks: 0', id='spin-exclude-demo-output2', strong=True)
-        ],
-        direction='vertical'
-    ),
+    [
+        fac.AntdParagraph(
+            id='spin-exclude-demo-output1'
+        ),
+        fac.AntdParagraph(
+            id='spin-exclude-demo-output2'
+        )
+    ],
+    text='回调中',
     listenPropsMode='exclude',
-    excludeProps=['spin-exclude-demo-output2.children'],
-    text='回调中'
+    excludeProps=[
+        'spin-exclude-demo-output1.children'
+    ]
 )
+
 ...
+
+import time
+
+...
+
 @app.callback(
     Output('spin-exclude-demo-output1', 'children'),
-    Input('spin-exclude-demo-input1', 'nClicks'),
+    Input('spin-exclude-demo-trigger1', 'nClicks'),
     prevent_initial_call=True
 )
-def spin_exclude_callback_demo1(nClicks):
-    import time
+def spin_exclude_demo1(nClicks):
+
     time.sleep(1)
 
-    return f'未被excludeProps指定 nClicks: {nClicks}'
+    return f'按钮1: {nClicks}'
 
 
 @app.callback(
     Output('spin-exclude-demo-output2', 'children'),
-    Input('spin-exclude-demo-input2', 'nClicks'),
+    Input('spin-exclude-demo-trigger2', 'nClicks'),
     prevent_initial_call=True
 )
-def spin_exclude_callback_demo2(nClicks):
-    import time
+def spin_exclude_demo2(nClicks):
+
     time.sleep(1)
 
-    return f'被excludeProps指定 nClicks: {nClicks}'
-                        '''
+    return f'按钮2: {nClicks}'
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -424,58 +234,206 @@ def spin_exclude_callback_demo2(nClicks):
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='exclude模式',
+                    id='排除监听模式',
                     className='div-highlight'
                 ),
 
                 html.Div(
                     [
-                        fac.AntdButton('触发2秒加载动画', id='spin-custom-indicator-demo-input', type='primary'),
+                        fac.AntdSpace(
+                            [
+                                fac.AntdButton(
+                                    '按钮1',
+                                    id='spin-include-demo-trigger1'
+                                ),
+                                fac.AntdButton(
+                                    '按钮2',
+                                    id='spin-include-demo-trigger2'
+                                )
+                            ],
+                            style={
+                                'width': '100%',
+                                'marginBottom': 10
+                            }
+                        ),
 
                         fac.AntdSpin(
-                            fac.AntdText('nClicks: 0', id='spin-custom-indicator-demo-output', strong=True),
+                            [
+                                fac.AntdParagraph(
+                                    id='spin-include-demo-output1'
+                                ),
+                                fac.AntdParagraph(
+                                    id='spin-include-demo-output2'
+                                )
+                            ],
+                            text='回调中',
+                            listenPropsMode='include',
+                            includeProps=[
+                                'spin-include-demo-output1.children'
+                            ]
+                        ),
+
+                        fac.AntdDivider(
+                            '包含监听模式',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdButton(
+            '按钮1',
+            id='spin-include-demo-trigger1'
+        ),
+        fac.AntdButton(
+            '按钮2',
+            id='spin-include-demo-trigger2'
+        )
+    ],
+    style={
+        'width': '100%',
+        'marginBottom': 10
+    }
+),
+
+fac.AntdSpin(
+    [
+        fac.AntdParagraph(
+            id='spin-include-demo-output1'
+        ),
+        fac.AntdParagraph(
+            id='spin-include-demo-output2'
+        )
+    ],
+    text='回调中',
+    listenPropsMode='include',
+    includeProps=[
+        'spin-include-demo-output1.children'
+    ]
+)
+
+...
+
+import time
+
+...
+
+@app.callback(
+    Output('spin-include-demo-output1', 'children'),
+    Input('spin-include-demo-trigger1', 'nClicks'),
+    prevent_initial_call=True
+)
+def spin_include_demo1(nClicks):
+
+    time.sleep(1)
+
+    return f'按钮1: {nClicks}'
+
+
+@app.callback(
+    Output('spin-include-demo-output2', 'children'),
+    Input('spin-include-demo-trigger2', 'nClicks'),
+    prevent_initial_call=True
+)
+def spin_include_demo2(nClicks):
+
+    time.sleep(1)
+
+    return f'按钮2: {nClicks}'
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='包含监听模式',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdButton(
+                            '触发示例',
+                            id='spin-custom-demo-trigger',
+                            style={
+                                'marginBottom': 10
+                            }
+                        ),
+
+                        fac.AntdSpin(
+                            fac.AntdText(
+                                'nClicks: 0',
+                                id='spin-custom-demo-output'
+                            ),
                             indicator=fuc.FefferyExtraSpinner(
                                 type='ring'
                             )
                         ),
 
                         fac.AntdDivider(
-                            '自定义加载动画元素',
+                            '自定义加载动画',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdButton('触发2秒加载动画', id='spin-custom-indicator-demo-input', type='primary'),
+fac.AntdButton(
+    '触发示例',
+    id='spin-custom-demo-trigger',
+    style={
+        'marginBottom': 10
+    }
+),
 
 fac.AntdSpin(
-    fac.AntdText('nClicks: 0', id='spin-custom-indicator-demo-output', strong=True),
+    fac.AntdText(
+        'nClicks: 0',
+        id='spin-custom-demo-output'
+    ),
     indicator=fuc.FefferyExtraSpinner(
         type='ring'
     )
 )
-                                            
+
+...
+
+import time
+
 ...
 
 @app.callback(
-    Output('spin-custom-indicator-demo-output', 'children'),
-    Input('spin-custom-indicator-demo-input', 'nClicks'),
+    Output('spin-custom-demo-output', 'children'),
+    Input('spin-custom-demo-trigger', 'nClicks'),
     prevent_initial_call=True
 )
-def spin_custom_indicator_callback_demo(nClicks):
-    import time
+def spin_custom_demo(nClicks):
+
     time.sleep(2)
 
     return f'nClicks: {nClicks}'
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -484,38 +442,35 @@ def spin_custom_indicator_callback_demo(nClicks):
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='自定义加载动画元素',
+                    id='自定义加载动画',
                     className='div-highlight'
                 ),
 
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '基础使用', 'href': '#基础使用'},
-                            {'title': '延迟加载', 'href': '#延迟加载'},
-                            {'title': 'include模式', 'href': '#include模式'},
-                            {'title': 'exclude模式', 'href': '#exclude模式'},
-                            {'title': '自定义加载动画元素', 'href': '#自定义加载动画元素'},
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '排除监听模式', 'href': '#排除监听模式'},
+                    {'title': '包含监听模式', 'href': '#包含监听模式'},
+                    {'title': '自定义加载动画', 'href': '#自定义加载动画'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'margin': '20px'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdSpin'
         )
     ],
     style={

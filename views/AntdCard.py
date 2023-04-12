@@ -1,65 +1,44 @@
 from dash import html
 import feffery_antd_components as fac
-import feffery_utils_components as fuc
 import feffery_markdown_components as fmc
+
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdCard(id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdCard.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '数据展示'
+                        },
+                        {
+                            'title': 'AntdCard 卡片'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　用于构建美观的内容展示卡片。')
+                    ]
                 ),
 
                 html.Div(
                     [
-
                         fac.AntdCard(
-                            fac.AntdParagraph(
-                                """　　从来就没有什么救世主，
+                            '''
+　　从来就没有什么救世主，
 也不靠神仙皇帝。
 要创造人类的幸福，
 全靠我们自己。
@@ -69,19 +48,18 @@ docs_content = html.Div(
 趁热打铁才能成功！
 这是最后的斗争，
 团结起来，到明天，
-英特纳雄耐尔就一定要实现。""",
-                                italic=True
-                            ),
+英特纳雄耐尔就一定要实现。
+''',
                             title='卡片示例',
                             style={
-                                'width': '300px',
-                                'marginBottom': '10px'
+                                'width': 300,
+                                'marginBottom': 10
                             }
                         ),
 
                         fac.AntdCard(
-                            fac.AntdParagraph(
-                                """　　从来就没有什么救世主，
+                            '''
+　　从来就没有什么救世主，
 也不靠神仙皇帝。
 要创造人类的幸福，
 全靠我们自己。
@@ -91,13 +69,12 @@ docs_content = html.Div(
 趁热打铁才能成功！
 这是最后的斗争，
 团结起来，到明天，
-英特纳雄耐尔就一定要实现。""",
-                                italic=True
-                            ),
+英特纳雄耐尔就一定要实现。
+''',
+                            title='无边框卡片示例',
                             bordered=False,
-                            title='卡片示例（无边框）',
                             style={
-                                'width': '300px'
+                                'width': 300
                             }
                         ),
 
@@ -108,14 +85,15 @@ docs_content = html.Div(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
-                                codeString='''
+                                codeTheme='coy-without-shadows',
+                                codeString="""
 fac.AntdCard(
-    fac.AntdParagraph(
-        """　　从来就没有什么救世主，
+    '''
+　　从来就没有什么救世主，
 也不靠神仙皇帝。
 要创造人类的幸福，
 全靠我们自己。
@@ -125,19 +103,18 @@ fac.AntdCard(
 趁热打铁才能成功！
 这是最后的斗争，
 团结起来，到明天，
-英特纳雄耐尔就一定要实现。""",
-        italic=True
-    ),
+英特纳雄耐尔就一定要实现。
+''',
     title='卡片示例',
     style={
-        'width': '300px',
-        'marginBottom': '10px'
+        'width': 300,
+        'marginBottom': 10
     }
 ),
 
 fac.AntdCard(
-    fac.AntdParagraph(
-        """　　从来就没有什么救世主，
+    '''
+　　从来就没有什么救世主，
 也不靠神仙皇帝。
 要创造人类的幸福，
 全靠我们自己。
@@ -147,19 +124,18 @@ fac.AntdCard(
 趁热打铁才能成功！
 这是最后的斗争，
 团结起来，到明天，
-英特纳雄耐尔就一定要实现。""",
-        italic=True
-    ),
+英特纳雄耐尔就一定要实现。
+''',
+    title='无边框卡片示例',
     bordered=False,
-    title='卡片示例（无边框）',
     style={
-        'width': '300px'
+        'width': 300
     }
 )
-'''
+"""
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -174,54 +150,72 @@ fac.AntdCard(
 
                 html.Div(
                     [
-
                         fac.AntdCard(
-                            fac.AntdParagraph(
-                                '卡片示例',
-                                italic=True
-                            ),
+                            '''
+　　从来就没有什么救世主，
+也不靠神仙皇帝。
+要创造人类的幸福，
+全靠我们自己。
+我们要夺回劳动果实，
+让思想冲破牢笼。
+快把那炉火烧得通红，
+趁热打铁才能成功！
+这是最后的斗争，
+团结起来，到明天，
+英特纳雄耐尔就一定要实现。
+''',
+                            title='卡片示例',
                             extraLink={
                                 'content': '链接示例',
-                                'href': '/AntdCard'
+                                'href': 'https://zh.wikipedia.org/zh-hans/国际歌'
                             },
-                            title='卡片示例',
                             style={
-                                'width': '300px',
-                                'marginBottom': '10px'
+                                'width': 300,
+                                'marginBottom': 10
                             }
                         ),
 
                         fac.AntdDivider(
-                            '添加右上角额外链接',
+                            '添加右上角链接',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
-                                codeString='''
+                                codeTheme='coy-without-shadows',
+                                codeString="""
 fac.AntdCard(
-    fac.AntdParagraph(
-        '卡片示例',
-        italic=True
-    ),
+    '''
+　　从来就没有什么救世主，
+也不靠神仙皇帝。
+要创造人类的幸福，
+全靠我们自己。
+我们要夺回劳动果实，
+让思想冲破牢笼。
+快把那炉火烧得通红，
+趁热打铁才能成功！
+这是最后的斗争，
+团结起来，到明天，
+英特纳雄耐尔就一定要实现。
+''',
+    title='卡片示例',
     extraLink={
         'content': '链接示例',
-        'href': '/AntdCard'
+        'href': 'https://zh.wikipedia.org/zh-hans/国际歌'
     },
-    title='卡片示例',
     style={
-        'width': '300px',
-        'marginBottom': '10px'
+        'width': 300,
+        'marginBottom': 10
     }
 )
-'''
+"""
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -230,16 +224,15 @@ fac.AntdCard(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='添加右上角额外链接',
+                    id='添加右上角链接',
                     className='div-highlight'
                 ),
 
                 html.Div(
                     [
-
                         fac.AntdCard(
                             coverImg={
-                                'src': '/assets/imgs/山海情.webp'
+                                'src': '/assets/imgs/流浪地球2海报.jpg'
                             },
                             title='图片封面示例',
                             bodyStyle={
@@ -253,20 +246,21 @@ fac.AntdCard(
                         ),
 
                         fac.AntdDivider(
-                            '配置封面图片',
+                            '使用封面图片',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdCard(
     coverImg={
-        'src': '/assets/imgs/山海情.webp'
+        'src': '/assets/imgs/流浪地球2海报.jpg'
     },
     title='图片封面示例',
     bodyStyle={
@@ -281,7 +275,7 @@ fac.AntdCard(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -290,13 +284,74 @@ fac.AntdCard(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='配置封面图片',
+                    id='使用封面图片',
                     className='div-highlight'
                 ),
 
                 html.Div(
                     [
+                        fac.AntdSpace(
+                            [
+                                fac.AntdCard(
+                                    'size="default"',
+                                    title='卡片示例'
+                                ),
 
+                                fac.AntdCard(
+                                    'size="small"',
+                                    title='卡片示例',
+                                    size='small'
+                                )
+                            ],
+                            direction='vertical'
+                        ),
+
+                        fac.AntdDivider(
+                            '不同的尺寸规格',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdCard(
+            'size="default"',
+            title='卡片示例'
+        ),
+
+        fac.AntdCard(
+            'size="small"',
+            title='卡片示例',
+            size='small'
+        )
+    ],
+    direction='vertical'
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='不同的尺寸规格',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
                         fac.AntdCard(
                             [
                                 fac.AntdCardGrid(
@@ -318,16 +373,17 @@ fac.AntdCard(
                         ),
 
                         fac.AntdDivider(
-                            '使用卡片网格作为子元素',
+                            '内嵌卡片网格',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdCard(
     [
@@ -351,7 +407,7 @@ fac.AntdCard(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -360,37 +416,117 @@ fac.AntdCard(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='使用卡片网格作为子元素',
+                    id='内嵌卡片网格',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdCard(
+                            '''
+　　从来就没有什么救世主，
+也不靠神仙皇帝。
+要创造人类的幸福，
+全靠我们自己。
+我们要夺回劳动果实，
+让思想冲破牢笼。
+快把那炉火烧得通红，
+趁热打铁才能成功！
+这是最后的斗争，
+团结起来，到明天，
+英特纳雄耐尔就一定要实现。
+''',
+                            title='卡片示例',
+                            headStyle={
+                                'display': 'none'
+                            },
+                            hoverable=True,
+                            style={
+                                'width': 300,
+                                'marginBottom': 10
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '隐藏标题栏',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString="""
+fac.AntdCard(
+    '''
+　　从来就没有什么救世主，
+也不靠神仙皇帝。
+要创造人类的幸福，
+全靠我们自己。
+我们要夺回劳动果实，
+让思想冲破牢笼。
+快把那炉火烧得通红，
+趁热打铁才能成功！
+这是最后的斗争，
+团结起来，到明天，
+英特纳雄耐尔就一定要实现。
+''',
+    title='卡片示例',
+    headStyle={
+        'display': 'none'
+    },
+    hoverable=True,
+    style={
+        'width': 300,
+        'marginBottom': 10
+    }
+)
+"""
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='隐藏标题栏',
                     className='div-highlight'
                 ),
 
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '基础使用', 'href': '#基础使用'},
-                            {'title': '添加右上角额外链接', 'href': '#添加右上角额外链接'},
-                            {'title': '配置封面图片', 'href': '#配置封面图片'},
-                            {'title': '使用卡片网格作为子元素', 'href': '#使用卡片网格作为子元素'},
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '添加右上角链接', 'href': '#添加右上角链接'},
+                    {'title': '使用封面图片', 'href': '#使用封面图片'},
+                    {'title': '不同的尺寸规格', 'href': '#不同的尺寸规格'},
+                    {'title': '内嵌卡片网格', 'href': '#内嵌卡片网格'},
+                    {'title': '隐藏标题栏', 'href': '#隐藏标题栏'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'margin': '20px'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdCard'
         )
     ],
     style={

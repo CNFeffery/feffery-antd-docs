@@ -1,55 +1,74 @@
-**children：**
+**id：** *string*型
 
-　　用于传入置于*抽屉中的前端元素*
+　　用于设置*当前组件的唯一id信息*
+
+**key：** *string*型
+
+　　对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+
+**style：** *dict*型
+
+　　用于设置*当前组件的css样式*
+
+**className：** *string*或*dict*型
+
+　　用于设置*当前组件的css类名*，支持[动态css](/advanced-classname)
+
+**children：** *组件型*
+
+　　用于传入*嵌套的子元素*
 
 **visible：** *bool*型，默认为`False`
 
-　　对应当前抽屉*是否弹出*
+　　用于*设置或监听当前抽屉的展开状态*
 
-**title：** *str*型
+**title：** *组件型*
 
-　　用于设置抽屉的*标题文字内容*
+　　用于*设置当前抽屉的标题内容*
 
-**extra：** *组件型*
+**placement：** *string*型，默认为`'right'`
 
-　　用于设置*标题旁额外元素*
-
-**placement：** *str*型，默认为`'right'`
-
-　　用于设置抽屉从屏幕的*哪个方向弹出*，可用的有`'left'`、`'right'`、`'top'`与`'bottom'`
+　　用于*设置当前抽屉的展开方位*，可选的有`'left'`、`'right'`、`'top'`、`'bottom'`
 
 **closable：** *bool*型，默认为`True`
 
-　　用于设置是否在抽屉右上角*渲染关闭按钮*
+　　用于*设置是否为当前抽屉渲染关闭按钮*
 
 **forceRender：** *bool*型，默认为`False`
 
-　　用于设置是否在抽屉未弹出之前就*对内部元素进行预渲染*，在某些场景下可以优化页面整体渲染速度
+　　用于*设置在抽屉初始化关闭时是否预先渲染内部元素*
 
-**destroyOnClose：** *bool*型，默认为`True`
+**destroyOnClose：** *bool*型，默认为`False`
 
-　　用于设置是否在抽屉被关闭时，*对内部已渲染的元素进行销毁*
+　　用于*设置在抽屉被关闭后是否销毁内部元素*
 
-**containerId：** *str型*
+**width：** *int*、*float*或*string*型，默认为`256`
 
-　　抽屉默认全屏弹出，若需要在*局部区域内弹出*，可绑定`position`为`relative`的容器`id`
+　　当`placement`为`'left'`或`'right'`时，用于*设置当前抽屉的宽度*
 
-**height：** *int*型，默认为`256`
+**height：** *int*、*float*或*string*型，默认为`256`
 
-　　当`placement`参数为`'top'`或`'bottom'`时，用于设置*抽屉的像素高度*
+　　当`placement`为`'top'`或`'bottom'`时，用于*设置当前抽屉的高度*
 
 **mask：** *bool*型，默认为`True`
 
-　　用于设置是否在抽屉展开时，在抽屉之外的区域*渲染蒙版*
+　　当抽屉展开时，用于*设置是否在抽屉以外区域渲染蒙版层*
 
 **maskClosable：** *bool*型，默认为`True`
 
-　　用于设置抽屉的蒙版区域，*是否可通过点击事件来关闭抽屉自身*
-
-**width：** *int*型，默认为`256`
-
-　　当`placement`参数为`'left'`或`'right'`时，用于设置*抽屉的像素宽度*
+　　用于*设置是否可以通过点击蒙版层的方式关闭已展开的抽屉*
 
 **zIndex：** *int*型，默认为`1000`
 
-　　用于快捷设置抽屉整体的`z-index`属性
+　　用于*设置当前抽屉的z-index属性*
+
+**extra：** *组件型*
+
+　　用于*为当前抽屉设置额外操作区元素*
+
+**containerId：** *string*型
+
+　　当需要抽屉在局部容器内展示时，用于*设置目标局部容器的id*，注意，该目标局部容器`position`需为`relative`
+
+
+

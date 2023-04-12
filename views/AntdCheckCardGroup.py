@@ -1,59 +1,42 @@
 from dash import html
 import feffery_antd_components as fac
-import feffery_markdown_components as fmc
 import feffery_utils_components as fuc
+import feffery_markdown_components as fmc
 
 import callbacks.AntdCheckCardGroup
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdCheckCardGroup(children, id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdCheckCardGroup.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '数据展示'
+                        },
+                        {
+                            'title': '选择卡片'
+                        },
+                        {
+                            'title': 'AntdCheckCardGroup 组合选择卡片'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　用于监听一组选择卡片的选择情况。')
+                    ]
                 ),
 
                 html.Div(
@@ -61,14 +44,12 @@ docs_content = html.Div(
                         fac.AntdCheckCardGroup(
                             [
                                 fac.AntdCheckCard(
-                                    fac.AntdStatistic(
-                                        title='统计数值示例',
-                                        value=1332971
-                                    ),
-                                    value=f'option{i}'
+                                    f'选项{i}',
+                                    value=i
                                 )
-                                for i in range(4)
-                            ]
+                                for i in range(1, 6)
+                            ],
+                            defaultValue=3
                         ),
 
                         fac.AntdDivider(
@@ -78,29 +59,28 @@ docs_content = html.Div(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdCheckCardGroup(
     [
         fac.AntdCheckCard(
-            fac.AntdStatistic(
-                title='统计数值示例',
-                value=1332971
-            ),
-            value=f'option{i}'
+            f'选项{i}',
+            value=i
         )
-        for i in range(4)
-    ]
-)'''
+        for i in range(1, 6)
+    ],
+    defaultValue=3
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
@@ -116,14 +96,12 @@ fac.AntdCheckCardGroup(
                         fac.AntdCheckCardGroup(
                             [
                                 fac.AntdCheckCard(
-                                    fac.AntdStatistic(
-                                        title='统计数值示例',
-                                        value=1332971
-                                    ),
-                                    value=f'option{i}'
+                                    f'选项{i}',
+                                    value=i
                                 )
-                                for i in range(4)
+                                for i in range(1, 6)
                             ],
+                            defaultValue=[2, 3, 4],
                             multiple=True
                         ),
 
@@ -134,30 +112,29 @@ fac.AntdCheckCardGroup(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdCheckCardGroup(
     [
         fac.AntdCheckCard(
-            fac.AntdStatistic(
-                title='统计数值示例',
-                value=1332971
-            ),
-            value=f'option{i}'
+            f'选项{i}',
+            value=i
         )
-        for i in range(4)
+        for i in range(1, 6)
     ],
+    defaultValue=[2, 3, 4],
     multiple=True
-)'''
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
@@ -170,53 +147,104 @@ fac.AntdCheckCardGroup(
 
                 html.Div(
                     [
-                        fac.AntdDivider(
-                            '单选模式',
-                            innerTextOrientation='left'
+                        fuc.FefferyStyle(
+                            rawStyle='''
+#check-card-group-custom-style-demo .ant-pro-checkcard-content {
+    padding: 3px 8px;
+}
+'''
                         ),
                         fac.AntdCheckCardGroup(
                             [
                                 fac.AntdCheckCard(
-                                    fac.AntdStatistic(
-                                        title='统计数值示例',
-                                        value=1332971
-                                    ),
-                                    value=f'option{i}'
+                                    f'选项{i}',
+                                    value=i,
+                                    style={
+                                        'width': 'auto',
+                                        'marginRight': 3,
+                                        'marginBottom': 3,
+                                        'borderRadius': 5
+                                    }
                                 )
-                                for i in range(4)
+                                for i in range(1, 26)
                             ],
-                            id='check-card-group-demo1'
-                        ),
-                        fac.AntdParagraph(
-                            [
-                                fac.AntdText('value: '),
-                                fac.AntdText(id='check-card-group-demo1-output')
-                            ]
+                            id='check-card-group-custom-style-demo',
+                            defaultValue=[4, 8, 9, 15],
+                            multiple=True
                         ),
 
                         fac.AntdDivider(
-                            '多选模式',
+                            '自定义选项样式',
+                            lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString="""
+fuc.FefferyStyle(
+    rawStyle='''
+#check-card-group-custom-style-demo .ant-pro-checkcard-content {
+    padding: 3px 8px;
+}
+'''
+),
+fac.AntdCheckCardGroup(
+    [
+        fac.AntdCheckCard(
+            f'选项{i}',
+            value=i,
+            style={
+                'width': 'auto',
+                'marginRight': 3,
+                'marginBottom': 3,
+                'borderRadius': 5
+            }
+        )
+        for i in range(1, 26)
+    ],
+    id='check-card-group-custom-style-demo',
+    defaultValue=[4, 8, 9, 15],
+    multiple=True
+)
+"""
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='自定义选项样式',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
                         fac.AntdCheckCardGroup(
                             [
                                 fac.AntdCheckCard(
-                                    fac.AntdStatistic(
-                                        title='统计数值示例',
-                                        value=1332971
-                                    ),
-                                    value=f'option{i}'
+                                    f'选项{i}',
+                                    value=i
                                 )
-                                for i in range(4)
+                                for i in range(1, 6)
                             ],
-                            id='check-card-group-demo2',
-                            multiple=True
+                            id='check-card-group-demo',
+                            size='small',
+                            multiple=True,
+                            defaultValue=[1, 2]
                         ),
+
                         fac.AntdParagraph(
-                            [
-                                fac.AntdText('value: '),
-                                fac.AntdText(id='check-card-group-demo2-output')
-                            ]
+                            id='check-card-group-demo-output'
                         ),
 
                         fac.AntdDivider(
@@ -226,83 +254,45 @@ fac.AntdCheckCardGroup(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdDivider(
-    '单选模式',
-    innerTextOrientation='left'
-),
 fac.AntdCheckCardGroup(
     [
         fac.AntdCheckCard(
-            fac.AntdStatistic(
-                title='统计数值示例',
-                value=1332971
-            ),
-            value=f'option{i}'
+            f'选项{i}',
+            value=i
         )
-        for i in range(4)
+        for i in range(1, 6)
     ],
-    id='check-card-group-demo1'
-),
-fac.AntdParagraph(
-    [
-        fac.AntdText('value: '),
-        fac.AntdText(id='check-card-group-demo1-output')
-    ]
+    id='check-card-group-demo',
+    size='small',
+    multiple=True,
+    defaultValue=[1, 2]
 ),
 
-fac.AntdDivider(
-    '多选模式',
-    innerTextOrientation='left'
-),
-fac.AntdCheckCardGroup(
-    [
-        fac.AntdCheckCard(
-            fac.AntdStatistic(
-                title='统计数值示例',
-                value=1332971
-            ),
-            value=f'option{i}'
-        )
-        for i in range(4)
-    ],
-    id='check-card-group-demo2',
-    multiple=True
-),
 fac.AntdParagraph(
-    [
-        fac.AntdText('value: '),
-        fac.AntdText(id='check-card-group-demo2-output')
-    ]
+    id='check-card-group-demo-output'
 )
 
 ...
 
 @app.callback(
-    Output('check-card-group-demo1-output', 'children'),
-    Input('check-card-group-demo1', 'value')
+    Output('check-card-group-demo-output', 'children'),
+    Input('check-card-group-demo', 'value')
 )
-def check_card_group_demo1_callback(value):
-    return str(value)
+def check_card_group_demo(value):
 
-
-@app.callback(
-    Output('check-card-group-demo2-output', 'children'),
-    Input('check-card-group-demo2', 'value')
-)
-def check_card_group_demo2_callback(value):
-    return str(value)
+    return f'value: {value}'
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
@@ -316,29 +306,28 @@ def check_card_group_demo2_callback(value):
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '基础使用', 'href': '#基础使用'},
-                            {'title': '多选模式', 'href': '#多选模式'},
-                            {'title': '回调示例', 'href': '#回调示例'},
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '多选模式', 'href': '#多选模式'},
+                    {'title': '自定义选项样式', 'href': '#自定义选项样式'},
+                    {'title': '回调示例', 'href': '#回调示例'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'margin': '20px'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdCheckCardGroup'
         )
     ],
     style={

@@ -1,4 +1,5 @@
 import numpy as np
+import feffery_antd_components as fac
 from dash.dependencies import Input, Output, State
 
 from server import app
@@ -17,10 +18,9 @@ def statistic_demo_callback(n_intervals, value):
     if new_value >= value:
         return [
             new_value,
-            {
-                'mode': 'icon',
-                'content': 'antd-rise'
-            },
+            fac.AntdIcon(
+                icon='antd-rise'
+            ),
             {
                 'color': '#cf1322'
             }
@@ -29,10 +29,9 @@ def statistic_demo_callback(n_intervals, value):
     else:
         return [
             new_value,
-            {
-                'mode': 'icon',
-                'content': 'antd-fall'
-            },
+            fac.AntdIcon(
+                icon='antd-fall'
+            ),
             {
                 'color': '#3f8600'
             }

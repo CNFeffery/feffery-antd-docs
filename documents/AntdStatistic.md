@@ -1,37 +1,51 @@
-**title：** *string*型
+**id：** *string*型
 
-　　用于设置*标题内容*
+　　用于设置*当前组件的唯一id信息*
 
-**value：** *int*、*float*或*string*型
+**key：** *string*型
 
-　　用于设置要展示的*统计数值*
+　　对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
 
-**valueStyle：** *dict*型
+**style：** *dict*型
 
-　　用于设置针对统计数值的*css样式*
+　　用于设置*当前组件的css样式*
+
+**className：** *string*或*dict*型
+
+　　用于设置*当前组件的css类名*，支持[动态css](/advanced-classname)
+
+**children：** *组件型*
+
+　　用于传入*嵌套的子元素*
+
+**value：** *int*、*float*或*组件型*
+
+　　用于*设置要展示的数值信息*，也可直接传入其他元素作为内容，典型应用场景如传入`fuc.FefferyCountUp()`实现数字递增动画
 
 **showGroupSeparator：** *bool*型，默认为`True`
 
-　　用于设置*是否针对数值添加千分位逗号标识符*
+　　用于*设置针对数值型的value输入是否展示千位分割符*
 
 **precision：** *int*型
 
-　　设置*要保留的小数位数*
+　　用于*设置针对数值型value输入的数值精度限制*
 
-**prefix：** *dict*型
+**prefix：** *组件型*
 
-　　用于为统计数值设置*前缀内容*，可用的键值对有：
+　　用于*为数值信息添加前缀内容*
 
-- mode：*string*型，可选的有`'text'`（文字模式）和`'icon'`（图标模式）
-- content：*string*型，**文字模式**下用于设置*前缀文字内容*；**图标模式**下用于传入适用于`AntdIcon`的所有`icon`参数值用于设置*前缀图标*
+**suffix：** *组件型*
 
-**suffix：** *dict*型
+　　用于*为数值信息添加后缀内容*
 
-　　用于为统计数值设置*后缀内容*，可用的键值对有：
+**title：** *组件型*
 
-- mode：*string*型，可选的有`'text'`（文字模式）和`'icon'`（图标模式）
-- content：*string*型，**文字模式**下用于设置*后缀文字内容*；**图标模式**下用于传入适用于`AntdIcon`的所有`icon`参数值用于设置*后缀图标*
+　　用于*设置标题内容*
 
 **titleTooltip：** *string*型
 
-　　用于*为标题添加后缀悬浮提示文字*
+　　用于*设置标题后缀的悬停提示信息内容*
+
+**valueStyle：** *dict*型
+
+　　用于*设置数值信息的css样式*

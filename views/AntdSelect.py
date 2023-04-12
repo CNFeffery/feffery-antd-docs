@@ -1,683 +1,1136 @@
 from dash import html
 import feffery_antd_components as fac
-import feffery_utils_components as fuc
 import feffery_markdown_components as fmc
 
 import callbacks.AntdSelect
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdSelect(id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdSelect.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '数据录入'
+                        },
+                        {
+                            'title': 'AntdSelect 下拉选择'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　用于为用户提供一组选项进行选择。')
+                    ]
                 ),
 
                 html.Div(
                     [
                         fac.AntdSelect(
-                            placeholder='请选择国家：',
-                            options=[
-                                {'label': '中国', 'value': '中国'},
-                                {'label': '美国', 'value': '美国'},
-                                {'label': '俄罗斯', 'value': '俄罗斯'},
-                                {'label': '德国', 'value': '德国', 'disabled': True},
-                                {'label': '加拿大', 'value': '加拿大'}
-                            ],
-                            style={
-                                # 使用css样式固定宽度
-                                'width': '200px'
-                            }
-                        ),
-
-                        fac.AntdDivider(
-                            '基础的下拉选择',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
-
-                        fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
-                                language='python',
-                                 codeTheme='coy-without-shadows',
-                                codeString='''
-fac.AntdSelect(
-    placeholder='请选择国家：',
-    options=[
-        {'label': '中国', 'value': '中国'},
-        {'label': '美国', 'value': '美国'},
-        {'label': '俄罗斯', 'value': '俄罗斯'},
-        {'label': '德国', 'value': '德国', 'disabled': True},
-        {'label': '加拿大', 'value': '加拿大'}
-    ],
-    style={
-        # 使用css样式固定宽度
-        'width': '200px'
-    }
-)'''
-                            ),
-                            title='点击查看代码',
-                            is_open=False,
-                            ghost=True
-                        )
-
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='基础的下拉选择',
-                    className='div-highlight'
-                ),
-
-                html.Div(
-                    [
-                        fac.AntdSelect(
-                            placeholder='请选择国家：',
                             options=[
                                 {
-                                    'group': '亚洲',
-                                    'options': [
-                                        {'label': '中国', 'value': '中国'}
-                                    ]
-                                },
-                                {
-                                    'group': '北美洲',
-                                    'options': [
-                                        {'label': '美国', 'value': '美国'},
-                                        {'label': '加拿大', 'value': '加拿大'}
-                                    ]
-                                },
-                                {
-                                    'group': '欧洲',
-                                    'options': [
-                                        {'label': '俄罗斯', 'value': '俄罗斯'},
-                                        {'label': '德国', 'value': '德国', 'disabled': True}
-                                    ]
+                                    'label': f'选项{i}',
+                                    'value': f'选项{i}'
                                 }
+                                for i in range(1, 6)
                             ],
                             style={
-                                # 使用css样式固定宽度
-                                'width': '200px'
+                                'width': 200
                             }
                         ),
 
                         fac.AntdDivider(
-                            '分组下拉选择',
+                            '基础使用',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdSelect(
-    placeholder='请选择国家：',
     options=[
         {
-            'group': '亚洲',
-            'options': [
-                {'label': '中国', 'value': '中国'}
-            ]
-        },
-        {
-            'group': '北美洲',
-            'options': [
-                {'label': '美国', 'value': '美国'},
-                {'label': '加拿大', 'value': '加拿大'}
-            ]
-        },
-        {
-            'group': '欧洲',
-            'options': [
-                {'label': '俄罗斯', 'value': '俄罗斯'},
-                {'label': '德国', 'value': '德国', 'disabled': True}
-            ]
+            'label': f'选项{i}',
+            'value': f'选项{i}'
         }
+        for i in range(1, 6)
     ],
     style={
-        # 使用css样式固定宽度
-        'width': '200px'
+        'width': 200
     }
-)'''
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='分组下拉选择',
+                    id='基础使用',
                     className='div-highlight'
                 ),
 
                 html.Div(
                     [
                         fac.AntdSelect(
-                            placeholder='请选择离散色彩：',
-                            colorsMode='diverging',
-                            colorsNameWidth=50,
                             options=[
                                 {
-                                    'label': 'Balance_5',
-                                    'value': 'Balance_5',
-                                    'colors': ['#181c43', '#3888ba', '#f1eceb', '#c05a3c', '#3c0912']
-                                },
-                                {
-                                    'label': 'Curl_6',
-                                    'value': 'Curl_6',
-                                    'colors': ['#151d44', '#117d79', '#b6cbaf', '#e6b7a2', '#ae4060', '#340d35']
-                                },
-                                {
-                                    'label': '钴蓝',
-                                    'value': '钴蓝',
-                                    'colors': ['#6b9bb8']
+                                    'label': f'选项{i}',
+                                    'value': f'选项{i}'
                                 }
+                                for i in range(1, 6)
                             ],
+                            mode='multiple',
                             style={
-                                # 使用css样式固定宽度
-                                'width': '200px'
-                            }
-                        ),
-
-                        fac.AntdSelect(
-                            placeholder='请选择连续色彩：',
-                            colorsNameWidth=50,
-                            options=[
-                                {
-                                    'label': 'Amp',
-                                    'value': 'Amp',
-                                    'colors': ['#f1edec', '#d7a291', '#c0583b', '#901029', '#3c0912']
-                                },
-                                {
-                                    'label': 'Deep',
-                                    'value': 'Deep',
-                                    'colors': ['#fdfecc', '#78cea3', '#488e9e', '#404d8c', '#281a2c']
-                                }
-                            ],
-                            style={
-                                # 使用css样式固定宽度
-                                'width': '200px'
+                                'width': 200
                             }
                         ),
 
                         fac.AntdDivider(
-                            '色带渲染模式',
+                            '多选模式',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSelect(
+    options=[
+        {
+            'label': f'选项{i}',
+            'value': f'选项{i}'
+        }
+        for i in range(1, 6)
+    ],
+    mode='multiple',
+    style={
+        'width': 200
+    }
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='多选模式',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSelect(
+                            options=[
+                                {
+                                    'label': f'选项{i}',
+                                    'value': f'选项{i}'
+                                }
+                                for i in range(1, 6)
+                            ],
+                            mode='tags',
+                            style={
+                                'width': 200
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '自由新增模式',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdParagraph(
                             [
-                                fac.AntdText('　　色带模式下展示预设的色彩型输入更加形象直观')
+                                '　　自由新增模式下，在输入框中输入内容后按下',
+                                fac.AntdText(
+                                    'enter',
+                                    keyboard=True
+                                ),
+                                '键，可以进行新选项的添加'
                             ]
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdSelect(
-    placeholder='请选择离散色彩：',
-    colorsMode='diverging',
-    colorsNameWidth=50,
     options=[
         {
-            'label': 'Balance_5',
-            'value': 'Balance_5',
-            'colors': ['#181c43', '#3888ba', '#f1eceb', '#c05a3c', '#3c0912']
-        },
-        {
-            'label': 'Curl_6',
-            'value': 'Curl_6',
-            'colors': ['#151d44', '#117d79', '#b6cbaf', '#e6b7a2', '#ae4060', '#340d35']
-        },
-        {
-            'label': '钴蓝',
-            'value': '钴蓝',
-            'colors': ['#6b9bb8']
+            'label': f'选项{i}',
+            'value': f'选项{i}'
         }
-    ],
-    style={
-        # 使用css样式固定宽度
-        'width': '200px'
-    }
-),
-
-fac.AntdSelect(
-    placeholder='请选择连续色彩：',
-    colorsNameWidth=50,
-    options=[
-        {
-            'label': 'Amp',
-            'value': 'Amp',
-            'colors': ['#f1edec', '#d7a291', '#c0583b', '#901029', '#3c0912']
-        },
-        {
-            'label': 'Deep',
-            'value': 'Deep',
-            'colors': ['#fdfecc', '#78cea3', '#488e9e', '#404d8c', '#281a2c']
-        }
-    ],
-    style={
-        # 使用css样式固定宽度
-        'width': '200px'
-    }
-)'''
-                            ),
-                            title='点击查看代码',
-                            is_open=False,
-                            ghost=True
-                        )
-
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='色带渲染模式',
-                    className='div-highlight'
-                ),
-
-                html.Div(
-                    [
-                        fac.AntdSelect(
-                            placeholder='请选择国家（多选）：',
-                            options=[
-                                {'label': '中国', 'value': '中国'},
-                                {'label': '美国', 'value': '美国'},
-                                {'label': '俄罗斯', 'value': '俄罗斯'},
-                                {'label': '德国', 'value': '德国'},
-                                {'label': '加拿大', 'value': '加拿大'}
-                            ],
-                            mode='multiple',
-                            style={
-                                # 使用css样式固定宽度
-                                'width': '200px'
-                            }
-                        ),
-
-                        # 自由新增模式下，输入框内即使输入不存在的选项
-                        # 按下enter之后也会被添加到已选择
-                        fac.AntdSelect(
-                            placeholder='请选择国家（自由新增）：',
-                            options=[
-                                {'label': '中国', 'value': '中国'},
-                                {'label': '美国', 'value': '美国'},
-                                {'label': '俄罗斯', 'value': '俄罗斯'},
-                                {'label': '德国', 'value': '德国'},
-                                {'label': '加拿大', 'value': '加拿大'}
-                            ],
-                            mode='tags',
-                            style={
-                                # 使用css样式固定宽度
-                                'width': '200px'
-                            }
-                        ),
-
-                        fac.AntdDivider(
-                            '多选与自由新增模式',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
-
-                        fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
-                                language='python',
-                                 codeTheme='coy-without-shadows',
-                                codeString='''
-fac.AntdSelect(
-    placeholder='请选择国家（多选）：',
-    options=[
-        {'label': '中国', 'value': '中国'},
-        {'label': '美国', 'value': '美国'},
-        {'label': '俄罗斯', 'value': '俄罗斯'},
-        {'label': '德国', 'value': '德国'},
-        {'label': '加拿大', 'value': '加拿大'}
-    ],
-    mode='multiple',
-    style={
-        # 使用css样式固定宽度
-        'width': '200px'
-    }
-),
-
-# 自由新增模式下，输入框内即使输入不存在的选项
-# 按下enter之后也会被添加到已选择
-fac.AntdSelect(
-    placeholder='请选择国家（自由新增）：',
-    options=[
-        {'label': '中国', 'value': '中国'},
-        {'label': '美国', 'value': '美国'},
-        {'label': '俄罗斯', 'value': '俄罗斯'},
-        {'label': '德国', 'value': '德国'},
-        {'label': '加拿大', 'value': '加拿大'}
+        for i in range(1, 6)
     ],
     mode='tags',
     style={
-        # 使用css样式固定宽度
-        'width': '200px'
+        'width': 200
     }
-)'''
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='多选与自由新增模式',
+                    id='自由新增模式',
                     className='div-highlight'
                 ),
 
                 html.Div(
                     [
                         fac.AntdSelect(
-                            placeholder='请选择国家：',
                             options=[
-                                {'label': '中国', 'value': '中国'},
-                                {'label': '美国', 'value': '美国'},
-                                {'label': '俄罗斯', 'value': '俄罗斯'},
-                                {'label': '德国', 'value': '德国'},
-                                {'label': '加拿大', 'value': '加拿大'}
+                                {
+                                    'group': '分组1',
+                                    'options': [
+                                        {
+                                            'label': f'选项1-{i}',
+                                            'value': f'选项1-{i}'
+                                        }
+                                        for i in range(1, 4)
+                                    ]
+                                },
+                                {
+                                    'group': '分组2',
+                                    'options': [
+                                        {
+                                            'label': f'选项2-{i}',
+                                            'value': f'选项2-{i}'
+                                        }
+                                        for i in range(1, 4)
+                                    ]
+                                }
                             ],
-                            defaultValue=['中国', '美国'],
-                            mode='multiple',
                             style={
-                                # 使用css样式固定宽度
-                                'width': '200px'
+                                'width': 200
                             }
                         ),
 
                         fac.AntdDivider(
-                            '设置默认选中值',
+                            '下拉选项分组',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdSelect(
-    placeholder='请选择国家：',
     options=[
-        {'label': '中国', 'value': '中国'},
-        {'label': '美国', 'value': '美国'},
-        {'label': '俄罗斯', 'value': '俄罗斯'},
-        {'label': '德国', 'value': '德国'},
-        {'label': '加拿大', 'value': '加拿大'}
+        {
+            'group': '分组1',
+            'options': [
+                {
+                    'label': f'选项1-{i}',
+                    'value': f'选项1-{i}'
+                }
+                for i in range(1, 4)
+            ]
+        },
+        {
+            'group': '分组2',
+            'options': [
+                {
+                    'label': f'选项2-{i}',
+                    'value': f'选项2-{i}'
+                }
+                for i in range(1, 4)
+            ]
+        }
     ],
-    defaultValue=['中国', '美国'],
-    mode='multiple',
     style={
-        # 使用css样式固定宽度
-        'width': '200px'
+        'width': 200
     }
-)'''
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='设置默认选中值',
+                    id='下拉选项分组',
                     className='div-highlight'
                 ),
 
                 html.Div(
                     [
-                        fac.AntdSelect(
-                            placeholder='请选择项目：',
-                            options=[
-                                {'label': f'项目{i}', 'value': f'项目{i}'}
-                                for i in range(200)
-                            ],
-                            mode='multiple',
-                            listHeight=500,
-                            style={
-                                # 使用css样式固定宽度
-                                'width': '200px'
-                            }
+                        fac.AntdSpace(
+                            [
+                                fac.AntdSelect(
+                                    options=[
+                                        {
+                                            'label': f'选项{i}',
+                                            'value': f'选项{i}'
+                                        }
+                                        for i in range(1, 26)
+                                    ],
+                                    listHeight=400,
+                                    style={
+                                        'width': 200
+                                    }
+                                ),
+
+                                fac.AntdSelect(
+                                    options=[
+                                        {
+                                            'label': f'选项{i}',
+                                            'value': f'选项{i}'
+                                        }
+                                        for i in range(1, 10)
+                                    ],
+                                    listHeight=100,
+                                    style={
+                                        'width': 200
+                                    }
+                                )
+                            ]
                         ),
 
                         fac.AntdDivider(
-                            '修改下拉选择最大高度',
+                            '下拉菜单最大高度',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdSelect(
-    placeholder='请选择项目：',
-    options=[
-        {'label': f'项目{i}', 'value': f'项目{i}'}
-        for i in range(200)
-    ],
-    mode='multiple',
-    listHeight=500,
-    style={
-        # 使用css样式固定宽度
-        'width': '200px'
-    }
-)'''
+fac.AntdSpace(
+    [
+        fac.AntdSelect(
+            options=[
+                {
+                    'label': f'选项{i}',
+                    'value': f'选项{i}'
+                }
+                for i in range(1, 26)
+            ],
+            listHeight=400,
+            style={
+                'width': 200
+            }
+        ),
+
+        fac.AntdSelect(
+            options=[
+                {
+                    'label': f'选项{i}',
+                    'value': f'选项{i}'
+                }
+                for i in range(1, 10)
+            ],
+            listHeight=100,
+            style={
+                'width': 200
+            }
+        )
+    ]
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='修改下拉选择最大高度',
+                    id='下拉菜单最大高度',
                     className='div-highlight'
                 ),
 
                 html.Div(
                     [
+                        fac.AntdDivider(
+                            '连续型色带',
+                            innerTextOrientation='left'
+                        ),
                         fac.AntdSelect(
-                            placeholder='请选择项目：',
+                            defaultValue='色系1',
                             options=[
-                                {'label': f'项目{i}', 'value': f'项目{i}'}
-                                for i in range(200)
+                                {
+                                    'label': '色系1',
+                                    'value': '色系1',
+                                    'colors': ['#fff5f5', '#ff8787', '#c92a2a']
+                                },
+                                {
+                                    'label': '色系2',
+                                    'value': '色系2',
+                                    'colors': ['#f8f0fc', '#da77f2', '#862e9c']
+                                },
+                                {
+                                    'label': '色系3',
+                                    'value': '色系3',
+                                    'colors': ['#e7f5ff', '#4dabf7', '#1864ab']
+                                }
                             ],
-                            mode='multiple',
-                            listHeight=500,
-                            maxTagCount=3,  # 设置最大显示3个
+                            colorsMode='sequential',
                             style={
-                                # 使用css样式固定宽度
-                                'width': '350px'
+                                'width': 200
                             }
                         ),
 
                         fac.AntdDivider(
-                            '设置输入框已选择选项最大显示数量',
+                            '离散型色带',
+                            innerTextOrientation='left'
+                        ),
+                        fac.AntdSelect(
+                            defaultValue='色系1',
+                            options=[
+                                {
+                                    'label': '色系1',
+                                    'value': '色系1',
+                                    'colors': ['#fff5f5', '#ff8787', '#c92a2a']
+                                },
+                                {
+                                    'label': '色系2',
+                                    'value': '色系2',
+                                    'colors': ['#f8f0fc', '#da77f2', '#862e9c']
+                                },
+                                {
+                                    'label': '色系3',
+                                    'value': '色系3',
+                                    'colors': ['#e7f5ff', '#4dabf7', '#1864ab']
+                                }
+                            ],
+                            colorsMode='diverging',
+                            style={
+                                'width': 200
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '色带选择模式',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
+fac.AntdDivider(
+    '连续型色带',
+    innerTextOrientation='left'
+),
 fac.AntdSelect(
-    placeholder='请选择项目：',
+    defaultValue='色系1',
     options=[
-        {'label': f'项目{i}', 'value': f'项目{i}'}
-        for i in range(200)
+        {
+            'label': '色系1',
+            'value': '色系1',
+            'colors': ['#fff5f5', '#ff8787', '#c92a2a']
+        },
+        {
+            'label': '色系2',
+            'value': '色系2',
+            'colors': ['#f8f0fc', '#da77f2', '#862e9c']
+        },
+        {
+            'label': '色系3',
+            'value': '色系3',
+            'colors': ['#e7f5ff', '#4dabf7', '#1864ab']
+        }
     ],
-    mode='multiple',
-    listHeight=500,
-    maxTagCount=3, # 设置最大显示3个
+    colorsMode='sequential',
     style={
-        # 使用css样式固定宽度
-        'width': '350px'
+        'width': 200
     }
-)'''
+),
+
+fac.AntdDivider(
+    '离散型色带',
+    innerTextOrientation='left'
+),
+fac.AntdSelect(
+    defaultValue='色系1',
+    options=[
+        {
+            'label': '色系1',
+            'value': '色系1',
+            'colors': ['#fff5f5', '#ff8787', '#c92a2a']
+        },
+        {
+            'label': '色系2',
+            'value': '色系2',
+            'colors': ['#f8f0fc', '#da77f2', '#862e9c']
+        },
+        {
+            'label': '色系3',
+            'value': '色系3',
+            'colors': ['#e7f5ff', '#4dabf7', '#1864ab']
+        }
+    ],
+    colorsMode='diverging',
+    style={
+        'width': 200
+    }
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='设置输入框已选择选项最大显示数量',
+                    id='色带选择模式',
                     className='div-highlight'
                 ),
 
                 html.Div(
                     [
                         fac.AntdSelect(
-                            placeholder='请选择项目：',
+                            options=[
+                                {
+                                    'label': f'选项{i}',
+                                    'value': f'选项{i}'
+                                }
+                                for i in range(1, 6)
+                            ],
+                            disabled=True,
+                            style={
+                                'width': 200
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '禁用状态',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSelect(
+    options=[
+        {
+            'label': f'选项{i}',
+            'value': f'选项{i}'
+        }
+        for i in range(1, 6)
+    ],
+    disabled=True,
+    style={
+        'width': 200
+    }
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='禁用状态',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSelect(
+                            defaultValue='选项1',
+                            options=[
+                                {
+                                    'label': f'选项{i}',
+                                    'value': f'选项{i}'
+                                }
+                                for i in range(1, 6)
+                            ],
+                            readOnly=True,
+                            style={
+                                'width': 200
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '只读状态',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSelect(
+    defaultValue='选项1',
+    options=[
+        {
+            'label': f'选项{i}',
+            'value': f'选项{i}'
+        }
+        for i in range(1, 6)
+    ],
+    readOnly=True,
+    style={
+        'width': 200
+    }
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='只读状态',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSpace(
+                            [
+                                fac.AntdSelect(
+                                    defaultValue='选项1',
+                                    options=[
+                                        {
+                                            'label': f'选项{i}',
+                                            'value': f'选项{i}'
+                                        }
+                                        for i in range(1, 6)
+                                    ],
+                                    placeholder=f'status="{status}"',
+                                    status=status,
+                                    style={
+                                        'width': 200
+                                    }
+                                )
+                                for status in ['warning', 'error']
+                            ],
+                            direction='vertical'
+                        ),
+
+                        fac.AntdDivider(
+                            '强制状态渲染',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdSelect(
+            defaultValue='选项1',
+            options=[
+                {
+                    'label': f'选项{i}',
+                    'value': f'选项{i}'
+                }
+                for i in range(1, 6)
+            ],
+            placeholder=f'status="{status}"',
+            status=status,
+            style={
+                'width': 200
+            }
+        )
+        for status in ['warning', 'error']
+    ],
+    direction='vertical'
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='强制状态渲染',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSpace(
+                            [
+                                fac.AntdSelect(
+                                    options=[
+                                        {
+                                            'label': f'选项{i}',
+                                            'value': f'选项{i}'
+                                        }
+                                        for i in range(1, 6)
+                                    ],
+                                    placeholder=f'size="{size}"',
+                                    size=size,
+                                    style={
+                                        'width': 200
+                                    }
+                                )
+                                for size in ['small', 'middle', 'large']
+                            ],
+                            direction='vertical'
+                        ),
+
+                        fac.AntdDivider(
+                            '不同的尺寸规格',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdSelect(
+            options=[
+                {
+                    'label': f'选项{i}',
+                    'value': f'选项{i}'
+                }
+                for i in range(1, 6)
+            ],
+            placeholder=f'size="{size}"',
+            size=size,
+            style={
+                'width': 200
+            }
+        )
+        for size in ['small', 'middle', 'large']
+    ],
+    direction='vertical'
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='不同的尺寸规格',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSelect(
+                            options=[
+                                {
+                                    'label': f'选项{i}',
+                                    'value': f'选项{i}'
+                                }
+                                for i in range(1, 6)
+                            ],
+                            placeholder='请选择',
+                            bordered=False,
+                            style={
+                                'width': 200
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '无边框',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSelect(
+    options=[
+        {
+            'label': f'选项{i}',
+            'value': f'选项{i}'
+        }
+        for i in range(1, 6)
+    ],
+    placeholder='请选择',
+    bordered=False,
+    style={
+        'width': 200
+    }
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='无边框',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSpace(
+                            [
+                                fac.AntdSelect(
+                                    options=[
+                                        {
+                                            'label': f'选项{i}',
+                                            'value': f'选项{i}'
+                                        }
+                                        for i in range(1, 6)
+                                    ],
+                                    placeholder=f'placement="{placement}"',
+                                    placement=placement,
+                                    style={
+                                        'width': 400
+                                    }
+                                )
+                                for placement in [
+                                    'bottomLeft', 'bottomRight',
+                                    'topLeft', 'topRight'
+                                ]
+                            ],
+                            direction='vertical'
+                        ),
+
+                        fac.AntdDivider(
+                            '不同的悬浮层展开方向',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdSelect(
+            options=[
+                {
+                    'label': f'选项{i}',
+                    'value': f'选项{i}'
+                }
+                for i in range(1, 6)
+            ],
+            placeholder=f'placement="{placement}"',
+            placement=placement,
+            style={
+                'width': 400
+            }
+        )
+        for placement in [
+            'bottomLeft', 'bottomRight',
+            'topLeft', 'topRight'
+        ]
+    ],
+    direction='vertical'
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='不同的悬浮层展开方向',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSelect(
                             options=[],
+                            emptyContent=fac.AntdResult(
+                                status='warning',
+                                subTitle='暂无可选项',
+                                style={
+                                    'padding': 0
+                                }
+                            ),
                             style={
-                                # 使用css样式固定宽度
-                                'width': '350px'
+                                'width': 200
                             }
                         ),
 
                         fac.AntdDivider(
-                            '自主控制显示空状态示例',
+                            '自定义无选项时的提示内容',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdSelect(
-    placeholder='请选择项目：',
     options=[],
+    emptyContent=fac.AntdResult(
+        status='warning',
+        subTitle='暂无可选项',
+        style={
+            'padding': 0
+        }
+    ),
     style={
-        # 使用css样式固定宽度
-        'width': '350px'
+        'width': 200
     }
-)'''
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='自主控制显示空状态示例',
+                    id='自定义无选项时的提示内容',
                     className='div-highlight'
                 ),
 
                 html.Div(
                     [
-                        fac.AntdSpin(
-                            html.Pre('[]', id='select-demo-output'),
-                            text='回调中'
-                        ),
                         fac.AntdSelect(
-                            id='select-demo',
-                            placeholder='请选择国家：',
-                            mode='multiple',
                             options=[
-                                {'label': '中国', 'value': '中国'},
-                                {'label': '美国', 'value': '美国'},
-                                {'label': '俄罗斯', 'value': '俄罗斯'},
-                                {'label': '德国', 'value': '德国', 'disabled': True},
-                                {'label': '加拿大', 'value': '加拿大'}
+                                {
+                                    'label': f'选项{i}',
+                                    'value': f'选项{i}'
+                                }
+                                for i in range(1, 6)
                             ],
+                            dropdownBefore=fac.AntdInput(
+                                mode='text-area',
+                                placeholder='dropdownBefore示例',
+                                autoSize=True
+                            ),
+                            dropdownAfter=fac.AntdButton(
+                                'dropdownAfter示例',
+                                type='primary',
+                                block=True
+                            ),
                             style={
-                                # 使用css样式固定宽度
-                                'width': '200px'
+                                'width': 200
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '开头和末尾添加额外元素',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSelect(
+    options=[
+        {
+            'label': f'选项{i}',
+            'value': f'选项{i}'
+        }
+        for i in range(1, 6)
+    ],
+    dropdownBefore=fac.AntdInput(
+        mode='text-area',
+        placeholder='dropdownBefore示例',
+        autoSize=True
+    ),
+    dropdownAfter=fac.AntdButton(
+        'dropdownAfter示例',
+        type='primary',
+        block=True
+    ),
+    style={
+        'width': 200
+    }
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='开头和末尾添加额外元素',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSpace(
+                            [
+                                fac.AntdSelect(
+                                    id='select-demo1',
+                                    options=[
+                                        {
+                                            'label': f'选项{i}',
+                                            'value': f'选项{i}'
+                                        }
+                                        for i in range(1, 6)
+                                    ],
+                                    style={
+                                        'width': 200
+                                    }
+                                ),
+                                fac.AntdText(
+                                    id='select-demo1-output'
+                                )
+                            ],
+                            align='center',
+                            style={
+                                'width': '100%',
+                                'marginBottom': 20
+                            }
+                        ),
+
+                        fac.AntdSpace(
+                            [
+                                fac.AntdSelect(
+                                    id='select-demo2',
+                                    options=[
+                                        {
+                                            'label': f'选项{i}',
+                                            'value': f'选项{i}'
+                                        }
+                                        for i in range(1, 6)
+                                    ],
+                                    mode='multiple',
+                                    style={
+                                        'width': 200
+                                    }
+                                ),
+                                fac.AntdText(
+                                    id='select-demo2-output'
+                                )
+                            ],
+                            align='center',
+                            style={
+                                'width': '100%'
                             }
                         ),
 
@@ -688,43 +1141,88 @@ fac.AntdSelect(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-html.Pre('[]', id='select-demo-output'),
-fac.AntdSelect(
-    id='select-demo',
-    placeholder='请选择国家：',
-    mode='multiple',
-    options=[
-        {'label': '中国', 'value': '中国'},
-        {'label': '美国', 'value': '美国'},
-        {'label': '俄罗斯', 'value': '俄罗斯'},
-        {'label': '德国', 'value': '德国', 'disabled': True},
-        {'label': '加拿大', 'value': '加拿大'}
+fac.AntdSpace(
+    [
+        fac.AntdSelect(
+            id='select-demo1',
+            options=[
+                {
+                    'label': f'选项{i}',
+                    'value': f'选项{i}'
+                }
+                for i in range(1, 6)
+            ],
+            style={
+                'width': 200
+            }
+        ),
+        fac.AntdText(
+            id='select-demo1-output'
+        )
     ],
+    align='center',
     style={
-        # 使用css样式固定宽度
-        'width': '200px'
+        'width': '100%',
+        'marginBottom': 20
+    }
+),
+
+fac.AntdSpace(
+    [
+        fac.AntdSelect(
+            id='select-demo2',
+            options=[
+                {
+                    'label': f'选项{i}',
+                    'value': f'选项{i}'
+                }
+                for i in range(1, 6)
+            ],
+            mode='multiple',
+            style={
+                'width': 200
+            }
+        ),
+        fac.AntdText(
+            id='select-demo2-output'
+        )
+    ],
+    align='center',
+    style={
+        'width': '100%'
     }
 )
-...
-@app.callback(
-    Output('select-demo-output', 'children'),
-    Input('select-demo', 'value'),
-    prevent_initial_call=True
-)
-def button_callback_demo(value):
 
-    return str(value)'''
+...
+
+@app.callback(
+    Output('select-demo1-output', 'children'),
+    Input('select-demo1', 'value'),
+)
+def select_demo1(value):
+
+    return f'value: {value}'
+
+
+@app.callback(
+    Output('select-demo2-output', 'children'),
+    Input('select-demo2', 'value'),
+)
+def select_demo2(value):
+
+    return f'value: {value}'
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
@@ -735,38 +1233,285 @@ def button_callback_demo(value):
                     className='div-highlight'
                 ),
 
+                html.Div(
+                    [
+                        fac.AntdDivider(
+                            '监听searchValue',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdSpace(
+                            [
+                                fac.AntdSelect(
+                                    id='select-search-value-demo',
+                                    placeholder='请输入',
+                                    options=[
+                                        {
+                                            'label': f'选项{i}',
+                                            'value': f'选项{i}'
+                                        }
+                                        for i in range(1, 6)
+                                    ],
+                                    style={
+                                        'width': 200
+                                    }
+                                ),
+                                fac.AntdText(
+                                    id='select-search-value-demo-output'
+                                )
+                            ],
+                            align='center'
+                        ),
+
+                        fac.AntdDivider(
+                            '500毫秒防抖监听debounceSearchValue',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdSpace(
+                            [
+                                fac.AntdSelect(
+                                    id='select-debounce-search-value-demo',
+                                    placeholder='请输入',
+                                    debounceWait=500,
+                                    options=[
+                                        {
+                                            'label': f'选项{i}',
+                                            'value': f'选项{i}'
+                                        }
+                                        for i in range(1, 6)
+                                    ],
+                                    style={
+                                        'width': 200
+                                    }
+                                ),
+                                fac.AntdText(
+                                    id='select-debounce-search-value-demo-output'
+                                )
+                            ],
+                            align='center'
+                        ),
+
+                        fac.AntdDivider(
+                            '监听搜索内容',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdDivider(
+    '监听searchValue',
+    innerTextOrientation='left'
+),
+
+fac.AntdSpace(
+    [
+        fac.AntdSelect(
+            id='select-search-value-demo',
+            placeholder='请输入',
+            options=[
+                {
+                    'label': f'选项{i}',
+                    'value': f'选项{i}'
+                }
+                for i in range(1, 6)
+            ],
+            style={
+                'width': 200
+            }
+        ),
+        fac.AntdText(
+            id='select-search-value-demo-output'
+        )
+    ],
+    align='center'
+),
+
+fac.AntdDivider(
+    '500毫秒防抖监听debounceSearchValue',
+    innerTextOrientation='left'
+),
+
+fac.AntdSpace(
+    [
+        fac.AntdSelect(
+            id='select-debounce-search-value-demo',
+            placeholder='请输入',
+            debounceWait=500,
+            options=[
+                {
+                    'label': f'选项{i}',
+                    'value': f'选项{i}'
+                }
+                for i in range(1, 6)
+            ],
+            style={
+                'width': 200
+            }
+        ),
+        fac.AntdText(
+            id='select-debounce-search-value-demo-output'
+        )
+    ],
+    align='center'
+)
+
+...
+
+@app.callback(
+    Output('select-search-value-demo-output', 'children'),
+    Input('select-search-value-demo', 'searchValue')
+)
+def select_search_value_demo(searchValue):
+
+    return f'searchValue: {searchValue}'
+
+
+@app.callback(
+    Output('select-debounce-search-value-demo-output', 'children'),
+    Input('select-debounce-search-value-demo', 'debounceSearchValue')
+)
+def select_debounce_search_value_demo(debounceSearchValue):
+
+    return f'debounceSearchValue: {debounceSearchValue}'
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='监听搜索内容',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSelect(
+                            id='select-auto-spin-remote-load-options',
+                            placeholder='请输入要搜索的内容',
+                            options=[],
+                            autoSpin=True,
+                            debounceWait=200,
+                            style={
+                                'width': 250
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '配合autoSpin实现远程选项加载',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSelect(
+    id='select-auto-spin-remote-load-options',
+    placeholder='请输入要搜索的内容',
+    options=[],
+    autoSpin=True,
+    debounceWait=200,
+    style={
+        'width': 250
+    }
+)
+
+...
+
+import time
+
+...
+
+@app.callback(
+    Output('select-auto-spin-remote-load-options', 'options'),
+    Input('select-auto-spin-remote-load-options', 'debounceSearchValue')
+)
+def select_auto_spin_remote_load_options_demo(debounceSearchValue):
+
+    if debounceSearchValue:
+
+        time.sleep(1)
+
+        return [
+            {
+                'label': f'{debounceSearchValue}模拟选项{i}',
+                'value': f'{debounceSearchValue}模拟选项{i}'
+            }
+            for i in range(1, 6)
+        ]
+
+    return []
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='配合autoSpin实现远程选项加载',
+                    className='div-highlight'
+                ),
+
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '基础的下拉选择', 'href': '#基础的下拉选择'},
-                            {'title': '分组下拉选择', 'href': '#分组下拉选择'},
-                            {'title': '色带渲染模式', 'href': '#色带渲染模式'},
-                            {'title': '多选与自由新增模式', 'href': '#多选与自由新增模式'},
-                            {'title': '设置默认选中值', 'href': '#设置默认选中值'},
-                            {'title': '修改下拉选择最大高度', 'href': '#修改下拉选择最大高度'},
-                            {'title': '设置输入框已选择选项最大显示数量', 'href': '#设置输入框已选择选项最大显示数量'},
-                            {'title': '自主控制显示空状态示例', 'href': '#自主控制显示空状态示例'},
-                            {'title': '回调示例', 'href': '#回调示例'}
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '多选模式', 'href': '#多选模式'},
+                    {'title': '自由新增模式', 'href': '#自由新增模式'},
+                    {'title': '下拉选项分组', 'href': '#下拉选项分组'},
+                    {'title': '下拉菜单最大高度', 'href': '#下拉菜单最大高度'},
+                    {'title': '色带选择模式', 'href': '#色带选择模式'},
+                    {'title': '禁用状态', 'href': '#禁用状态'},
+                    {'title': '只读状态', 'href': '#只读状态'},
+                    {'title': '强制状态渲染', 'href': '#强制状态渲染'},
+                    {'title': '不同的尺寸规格', 'href': '#不同的尺寸规格'},
+                    {'title': '无边框', 'href': '#无边框'},
+                    {'title': '不同的悬浮层展开方向', 'href': '#不同的悬浮层展开方向'},
+                    {'title': '自定义无选项时的提示内容', 'href': '#自定义无选项时的提示内容'},
+                    {'title': '开头和末尾添加额外元素', 'href': '#开头和末尾添加额外元素'},
+                    {'title': '回调示例', 'href': '#回调示例'},
+                    {'title': '监听搜索内容', 'href': '#监听搜索内容'},
+                    {'title': '配合autoSpin实现远程选项加载', 'href': '#配合autoSpin实现远程选项加载'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'margin': '20px'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdSelect'
         )
     ],
     style={

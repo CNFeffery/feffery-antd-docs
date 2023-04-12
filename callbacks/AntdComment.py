@@ -1,5 +1,5 @@
-import uuid
 import dash
+import uuid
 from datetime import datetime
 import feffery_antd_components as fac
 from dash.dependencies import Input, Output, State, ALL
@@ -19,11 +19,12 @@ from server import app
 def comment_demo_add_children_callback(nClicks, deleteClicks, value, children):
     # 本次回调由子回复删除功能触发
     if 'deleteClicks' in dash.callback_context.triggered[0]['prop_id']:
-        triggerIndex = eval(dash.callback_context.triggered[0]['prop_id'].replace('.deleteClicks', ''))['index']
+        triggerIndex = eval(dash.callback_context.triggered[0]['prop_id'].replace(
+            '.deleteClicks', ''))['index']
 
         return [
-                   child for child in children if child['props']['id']['index'] != triggerIndex
-               ], dash.no_update
+            child for child in children if child['props']['id']['index'] != triggerIndex
+        ], dash.no_update
 
     if value:
         return children + [

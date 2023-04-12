@@ -1,28 +1,51 @@
+**id：** *string*型
+
+　　用于设置*当前组件的唯一id信息*
+
+**key：** *string*型
+
+　　对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+
+**style：** *dict*型
+
+　　用于设置*当前组件的css样式*
+
+**className：** *string*或*dict*型
+
+　　用于设置*当前组件的css类名*，支持[动态css](/advanced-classname)
+
+**children：** *组件型*
+
+　　用于传入*嵌套的子元素*
+
 **message：** *string*型
 
-　　用于设置通知提示框的*主要文字内容*
+　　用于*设置当前通知提醒框的主要信息内容*
 
 **description：** *string*型
 
-　　可选，用于设置通知提示框的*辅助说明文字内容*
+　　用于*设置当前通知提醒框的次要信息内容*
 
 **type：** *string*型，默认为`'default'`
 
-　　用于设置通知提示框的*状态类型*，可选的有`'default'`、`'success'`、`'error'`、`'info'`、`'warning'`
+　　用于*设置当前通知提醒框的状态类型*，可选的有`'default'`、`'success'`、`'error'`、`'info'`、`'warning'`
 
 **placement：** *string*型，默认为`'topRight'`
 
-　　用于设置通知提示框在整个屏幕中的弹出位置，可选的有`'topLeft'`、`'topRight'`、`'bottomLeft'`及`'bottomRight'`
+　　用于*设置当前通知提醒框的弹出位置*，可选的有`'topLeft'`、`'topRight'`、`'bottomLeft'`、`'bottomRight'`
 
-**top：** *int*型
+**top：** *int*型，默认为`24`
 
-　　当通知提示框在顶部位置弹出时，用于设置通知提示框距离顶端的*像素距离*
+　　当通知提醒框从页面顶部弹出时，用于*设置到顶部的像素距离*
 
-**bottom：** *int*型
+**bottom：** *int*型，默认为`24`
 
-　　当通知提示框在底部位置弹出时，用于设置通知提示框距离底端的*像素距离*
+　　当通知提醒框从页面底部弹出时，用于*设置其到底部的像素距离*
 
-**duration：** *int*型，默认为`4.5`
+**duration：** *int*或*float*型，默认为`4.5`
 
-　　用于设置通知提示框从显示到自动消失经历的时长（单位：秒），当传入`None`时，则通知提示框不会自动消失，只能由用户点击关闭按钮手动关闭
+　　用于*设置当前通知提醒框从显示到消失的延时时长*，单位：秒
 
+**closable：** *bool*型，默认为`True`
+
+　　用于*设置是否为当前通知提醒框添加关闭按钮*

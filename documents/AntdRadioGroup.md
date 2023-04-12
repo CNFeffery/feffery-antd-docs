@@ -1,35 +1,64 @@
-**options：** *list*型
+**id：** *string*型
 
-　　用于定义组内每个选项相关参数，每个选项由字典定义，可用的键有：
+　　用于设置*当前组件的唯一id信息*
 
-- label：*str*型，用于设置当前选择框显示的*文本内容*
-- value：*str*型，用于设置当前选择框对应值
-- disabled：*bool*型，用于设置是否禁用当前选项
+**key：** *string*型
 
-**direction：** *str*型，默认为`'horizontal'`
+　　对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
 
-　　用于设置组件的*排列方向*，可选的有`'horizontal'`与`'vertical'`
+**style：** *dict*型
 
-**optionType：** *str*型，默认为`'default'`
+　　用于设置*当前组件的css样式*
 
-　　用于设置选项*渲染方式*，可选的有`'default'`与`'button'`
+**className：** *string*或*dict*型
 
-**buttonStyle：** *str*型，默认为`'outline'`
+　　用于设置*当前组件的css类名*，支持[动态css](/advanced-classname)
 
-　　当`optionType='button'`开启按钮模式时，用于设置按钮的显示样式，可选的有`'outline'`与`'solid'`
+**direction：** *string*型，默认为`'horizontal'`
+
+　　用于*设置单选框的选项排列方向*，可选的有`'horizontal'`、`'vertical'`
+
+**options：** `list[dict]`型
+
+　　用于*定义选项*，每个字典表示一个选项，可用的键值对参数有：
+
+- **label：** *组件型*，用于*设置当前选项的标签内容*
+- **value：** *string*、*int*或*float*型，用于*设置当前选项对应的选中值*
+- **disabled：** *bool*型，默认为`False`，用于*设置是否禁用当前选项*
 
 **disabled：** *bool*型，默认为`False`
 
-　　用于设置是否*禁用组件*
+　　用于*设置是否禁用当前组件*
 
-**size：** *str*型，默认为`'middle'`
+**size：** *string*型，默认为`'middle'`
 
-　　当`optionType='button'`开启按钮模式时，用于设置*组件按钮尺寸大小*，可选的有`'large'`、`'middle'`与`'small'`
+　　当`optionType='button'`时，用于*设置当前组件的尺寸规格*，可选项有`'small'`、`'middle'`和`'large'`
 
-**defaultValue：** *str*型
+**value：** *string*、*int*或*float*型
 
-　　设置*默认选中*的选项对应`value`
+　　用于*监听或设置当前已选中值*
 
-**value：** *str*型
+**defaultValue：** *string*、*int*或*float*型
 
-　　对应*当前已选中*的选项对应`value`
+　　用于*监听或设置初始化时的已选中值*
+
+**optionType：** *string*型，默认为`'default'`
+
+　　用于*设置选项的样式类型*，可选的有`'default'`、`'button'`
+
+**buttonStyle：** *string*型，默认为`'outline'`
+
+　　当`optionType='button'`时，用于*设置按钮的样式风格*，可选的有`'outline'`、`'solid'`
+
+**persistence：** *bool*型
+
+　　用于*设置是否为当前组件开启属性持久化*
+
+**persisted_props：** *list*型，默认为`['value']`
+
+　　用于*设置针对当前组件的哪些属性进行持久化*，可选的有`'value'`
+
+**persistence_type：** *string*型，默认为`'local'`
+
+　　用于*设置针对当前组件进行属性持久化的存储类型*，可选的有`'local'`（浏览器本地缓存）、`'session'`（当前标签页会话缓存）、`'memory'`（内存临时缓存）
+

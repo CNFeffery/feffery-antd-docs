@@ -5,8 +5,8 @@ from server import app
 
 @app.callback(
     Output('rate-demo-output', 'children'),
-    Input('rate-demo', 'value'),
-    prevent_initial_call=True
+    Input('rate-demo', 'value')
 )
-def rate_demo_callback(value):
-    return value
+def rate_demo(value):
+
+    return f'value: {value}'

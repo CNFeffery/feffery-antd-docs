@@ -1,59 +1,81 @@
+**id：** *string*型
+
+　　用于设置*当前组件的唯一id信息*
+
+**key：** *string*型
+
+　　对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+
+**style：** *dict*型
+
+　　用于设置*当前组件的css样式*
+
+**className：** *string*或*dict*型
+
+　　用于设置*当前组件的css类名*，支持[动态css](/advanced-classname)
+
 **type：** *string*型，默认为`'line'`
 
-　　用于设置*进度条类型*，可选的有`'line'`（条形）、`'circle'`（环形）及`'dashboard'`（仪表盘型）
+　　用于*设置进度条类型*，可选的有`'line'`、`'circle'`、`'dashboard'`
 
 **size：** *string*型，默认为`'default'`
 
-　　用于设置*进度条尺寸大小*，可选的有`'default'`与`'small'`
+　　用于*设置进度条的尺寸规格*，可选的有`'default'`、`'small'`
 
 **percent：** *int*或*float*型，默认为`0`
 
-　　用于设置进度条对应的*百分比*，取值在`0`到`100`之间，当设置为`100`时进度条会自动渲染为*完成状态*
+　　用于*设置进度条对应的百分比*，取值应在0到100之间
 
 **format：** *dict*型
 
-　　用于自定义*百分比数值格式*，可用的键值对有：
+　　用于*配置百分比文字内容*，可用的键值对参数有：
 
-- prefix：*string*型，用于设置百分比数值*前缀文字*
-- suffix：*string*型，用于设置百分比数值*后缀文字*，默认为`'%'`
-- content：*string*型，用于直接设置要显示的实际内容，用于替代原有的百分比数值
+- **prefix：** *string*型，默认为`''`，用于*设置进度条百分比文字内容的前缀文字*
+- **suffix：** *string*型，默认为`'%'`，用于*设置进度条百分比文字内容的后缀文字*
+- **content：** *组件型*，用于*强制覆盖原有的百分比文字内容*
 
 **status：** *string*型
 
-　　仅当`type='line'`时有效，用于自定义*进度条状态*，可选的有`'success'`、`'exception'`、`'normal'`及`'active'`，其中`'active'`仅线型进度条可用
+　　用于*强制设置进度条的状态类型*，可选的有`'success'`、`'exception'`、`'normal'`、`'active'`，其中`'active'`仅`'line'`型进度条可用
 
 **showInfo：** *bool*型，默认为`True`
 
-　　用于设置*是否显示进度百分比数值及状态图标*
+　　用于*设置是否显示进度数值或状态图标*
 
 **strokeColor：** *string*或*dict*型
 
-　　用于设置*进度条颜色*，当传入*string*型时，接受*css合法色彩值*；当传入*dict*型时，可通过键值对`from`、`to`分别传入*css合法色彩值*用于实现*渐变色*进度条
+　　用于*设置进度条颜色*，当传入*dict*型输入时可设置渐变色，可用的键值对参数有：
+
+- **from：** *string*型，用于*设置进度条起始颜色*
+- **to：** *string*型，用于*设置进度条终点颜色*
 
 **strokeLinecap：** *string*型，默认为`'round'`
 
-　　用于设置*进度条的线型*，可选的有`'round'`与`'square'`
-
-**width：** *int*型，默认为`132`
-
-　　当`type='circle'`或`type='dashboard'`时，用于设置*画布像素宽度*
+　　用于*设置进度条线型*，同`css`中的`stroke-linecap`属性，可选的有`'round'`、`'butt'`、`'square'`
 
 **strokeWidth：** *int*型
 
-　　用于设置*进度条宽度*，针对不同`type`的进度条单位不同，当`type='line'`时，代表像素宽度，默认为`10`；当`type='circle'`或`type='dashboard'`时，代表其占`width`值的**百分比**，默认为`6`
+　　用于*设置进度条像素线宽*
 
 **trailColor：** *string*型
 
-　　用于设置*未满100%剩余进度条部分的颜色*
+　　用于*设置进度条未完成部分的颜色*，默认无颜色
+
+**width：** *int*型，默认为`132`
+
+　　当`type`为`'circle'`和`'dashboard'`时可用，用于*设置画布像素宽度*
 
 **gapDegree：** *int*型，默认为`75`
 
-　　针对`type='dashboard'`模式，用于设置*仪表盘进度条的缺口部分弧度（单位：度）*，取值应在`0`到`295`之间
+　　当`type`为`'dashboard'`时可用，用于*设置仪表盘进度条的缺口角度*，取值应在0到295之间
 
 **gapPosition：** *string*型，默认为`'bottom'`
 
-　　针对`type='dashboard'`模式，用于设置*仪表盘进度条缺口方位*，可选的有`'top'`、`'bottom'`、`'left'`与`'right'`
+　　当`type`为`'dashboard'`时可用，用于*设置仪表盘缺口方向*，可选的有`'left'`、`'top'`、`'right'`、`'bottom'`
 
 **steps：** *int*型
 
-　　针对`type='line'`模式，用于设置*进度条的分段数量*
+　　当`type`为`'line'`时可用，用于*设置分段进度条的分段数量*
+
+
+

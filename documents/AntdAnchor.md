@@ -1,31 +1,53 @@
-**linkDict：** *list*型，必填
+**id：** *string*型
 
-　　用于构造层次目录，每个元素为字典，其中：
+　　用于设置*当前组件的唯一id信息*
 
-- title：*string*型，用于设置锚点目录对应显示的*标题内容*
-- href：*string*型，用于设置当前锚点对应元素的*id hash*，如`id='test'`的*id hash*为`'#test'`
-- children：*list*型，用于嵌套子目录锚点参数
+**key：** *string*型
+
+　　对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+
+**style：** *dict*型
+
+　　用于设置*当前组件的css样式*
+
+**className：** *string*或*dict*型
+
+　　用于设置*当前组件的css类名*，支持[动态css](/advanced-classname)
+
+**linkDict：** `list[dict]`型，必填
+
+　　用于*定义当前锚点的层次结构*，每个*dict*型表示1个节点，可通过`children`参数向下进行嵌套，可用的键值对参数有：
+
+- **title：** *string*型，用于*设置当前节点的标题文字*
+- **href：** *string*型，用于*设置当前节点对应的网址*
+- **target：** *string*型，用于*设置当前节点的链接跳转行为*
+- **children：** `list[dict]`型，用于*继续向下嵌套节点*
 
 **align：** *string*型，默认为`'right'`
 
-　　用于设置锚点的*贴靠*方向，`'left'`贴靠左边，`'right'`贴靠右边
+　　用于*设置锚点组件的布局方位*，可选的有`'left'`、`'right'`
 
 **containerId：** *string*型
 
-　　当锚点组件位于局部滚动页面内时（典型如本在线文档中的所有组件说明页），用于绑定`position`为`relative`的祖先容器作为位置计算的参考，从而修正显示异常情况
+　　用于*为锚点设置参考局部容器的id*
 
-**targetOffset：** *int*型
+**targetOffset：** *int*或*float*型
 
-　　用于设置点击锚点定位到目标元素时，y轴上的*像素偏移距离*，譬如本网站中所有锚点都设置了`targetOffset=200`
+　　用于*设置锚点点击切换到目标元素后的位移偏移量*
 
 **affix：** *bool*型，默认为`True`
 
-　　用于设置*是否开启固定模式*
+　　用于*设置是否开启锚定模式*
 
 **bounds：** *int*型，默认为`5`
 
-　　用于设置*组件四周边界的像素宽度*
+　　用于*设置锚点区域的像素外边距*
 
-**offsetTop：** *int*型
+**offsetTop：** *int*或*float*型
 
-　　用于设置*固定后的锚点距离顶端的像素距离*
+　　用于*设置锚点触发锚定效果对应的顶端像素距离阈值*
+
+**clickedLink：** *dict*型
+
+　　用于*监听锚点中的点击事件*
+

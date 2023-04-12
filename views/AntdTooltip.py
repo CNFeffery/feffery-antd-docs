@@ -1,67 +1,48 @@
 from dash import html
+import feffery_antd_components as fac
 import feffery_utils_components as fuc
 import feffery_markdown_components as fmc
-import feffery_antd_components as fac
+
+import callbacks.AntdTooltip
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdTooltip(children, id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdTooltip.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '数据展示'
+                        },
+                        {
+                            'title': 'AntdTooltip 信息提示'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　用于为指定元素添加额外信息提示。')
+                    ]
                 ),
 
                 html.Div(
                     [
                         fac.AntdTooltip(
                             fac.AntdButton(
-                                '请将鼠标悬浮于此',
-                                type='primary'
+                                '锚点元素'
                             ),
-                            title='这是一段AntdTooltip提示示例'
+                            title='信息提示示例'
                         ),
 
                         fac.AntdDivider(
@@ -71,21 +52,22 @@ docs_content = html.Div(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdTooltip(
     fac.AntdButton(
-        '请将鼠标悬浮于此',
-        type='primary'
+        '锚点元素'
     ),
-    title='这是一段AntdTooltip提示示例'
-)'''
+    title='信息提示示例'
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -104,82 +86,54 @@ fac.AntdTooltip(
                             [
                                 fac.AntdTooltip(
                                     fac.AntdButton(
-                                        'hover事件',
-                                        type='primary'
+                                        placement
                                     ),
-                                    title='这是一段AntdTooltip提示示例'
-                                ),
-
-                                fac.AntdTooltip(
-                                    fac.AntdButton(
-                                        'click事件',
-                                        type='primary'
-                                    ),
-                                    title='这是一段AntdTooltip提示示例',
-                                    trigger='click'
-                                ),
-
-                                fac.AntdTooltip(
-                                    fac.AntdInput(
-                                        placeholder='focus事件',
-                                        style={
-                                            'width': '150px'
-                                        }
-                                    ),
-                                    title='这是一段AntdTooltip提示示例',
-                                    trigger='focus'
+                                    title=placement,
+                                    placement=placement
                                 )
+                                for placement in [
+                                    'top', 'left', 'right', 'bottom',
+                                    'topLeft', 'topRight', 'bottomLeft',
+                                    'bottomRight'
+                                ]
                             ],
-                            direction='vertical'
+                            wrap=True
                         ),
 
                         fac.AntdDivider(
-                            '不同的触发行为',
+                            '不同的悬浮层展开方向',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdSpace(
     [
         fac.AntdTooltip(
             fac.AntdButton(
-                'hover事件',
-                type='primary'
+                placement
             ),
-            title='这是一段AntdTooltip提示示例'
-        ),
-
-        fac.AntdTooltip(
-            fac.AntdButton(
-                'click事件',
-                type='primary'
-            ),
-            title='这是一段AntdTooltip提示示例',
-            trigger='click'
-        ),
-
-        fac.AntdTooltip(
-            fac.AntdInput(
-                placeholder='focus事件',
-                style={
-                    'width': '150px'
-                }
-            ),
-            title='这是一段AntdTooltip提示示例',
-            trigger='focus'
+            title=placement,
+            placement=placement
         )
+        for placement in [
+            'top', 'left', 'right', 'bottom',
+            'topLeft', 'topRight', 'bottomLeft',
+            'bottomRight'
+        ]
     ],
-    direction='vertical'
-)'''
+    wrap=True
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -188,35 +142,268 @@ fac.AntdSpace(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='不同的触发行为',
+                    id='不同的悬浮层展开方向',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSpace(
+                            [
+                                fuc.FefferyHexColorPicker(
+                                    id='tooltip-color-demo-input',
+                                    showAlpha=True,
+                                    color='#f6f7f866'
+                                ),
+
+                                fac.AntdTooltip(
+                                    fac.AntdButton(
+                                        '锚点示例'
+                                    ),
+                                    id='tooltip-color-demo',
+                                    title='信息提示示例'
+                                )
+                            ]
+                        ),
+
+                        fac.AntdDivider(
+                            '自定义背景色',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSpace(
+    [
+        fuc.FefferyHexColorPicker(
+            id='tooltip-color-demo-input',
+            showAlpha=True,
+            color='#f6f7f866'
+        ),
+
+        fac.AntdTooltip(
+            fac.AntdButton(
+                '锚点示例'
+            ),
+            id='tooltip-color-demo',
+            title='信息提示示例'
+        )
+    ]
+)
+
+...
+
+@app.callback(
+    [Output('tooltip-color-demo', 'color'),
+     Output('tooltip-color-demo', 'title')],
+    Input('tooltip-color-demo-input', 'color')
+)
+def tooltip_color_demo(color):
+
+    return [
+        color,
+        fac.AntdParagraph(
+            [
+                '当前color: ',
+                fac.AntdText(
+                    color,
+                    copyable=True
+                )
+            ]
+        )
+    ]
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='自定义背景色',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdTooltip(
+                            fac.AntdButton(
+                                '锚点示例'
+                            ),
+                            title='内容示例'*50,
+                            overlayStyle={
+                                'width': 250
+                            },
+                            overlayInnerStyle={
+                                'maxHeight': 150,
+                                'overflowY': 'auto'
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '自定义样式',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdTooltip(
+    fac.AntdButton(
+        '锚点示例'
+    ),
+    title='内容示例'*50,
+    overlayStyle={
+        'width': 250
+    },
+    overlayInnerStyle={
+        'maxHeight': 150,
+        'overflowY': 'auto'
+    }
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='自定义样式',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSpace(
+                            [
+                                fac.AntdTooltip(
+                                    fac.AntdButton(
+                                        '锚点元素'
+                                    ),
+                                    title='open=True',
+                                    open=True
+                                ),
+                                fac.AntdTooltip(
+                                    fac.AntdButton(
+                                        '锚点元素'
+                                    ),
+                                    title='open=True且permanent=True',
+                                    open=True,
+                                    permanent=True,
+                                    placement='right'
+                                )
+                            ]
+                        ),
+
+                        fac.AntdDivider(
+                            '可控的展开行为',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdParagraph(
+                            [
+                                '仅设置',
+                                fac.AntdText(
+                                    'open=True',
+                                    code=True
+                                ),
+                                '时，文字提示会默认展开，但随着用户后续的鼠标动作，展开状态会照常被切换'
+                            ],
+                            style={
+                                'textIndent': '2rem'
+                            }
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdTooltip(
+            fac.AntdButton(
+                '锚点元素'
+            ),
+            title='open=True',
+            open=True
+        ),
+        fac.AntdTooltip(
+            fac.AntdButton(
+                '锚点元素'
+            ),
+            title='open=True且permanent=True',
+            open=True,
+            permanent=True,
+            placement='right'
+        )
+    ]
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='可控的展开行为',
                     className='div-highlight'
                 ),
 
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '基础使用', 'href': '#基础使用'},
-                            {'title': '不同的触发行为', 'href': '#不同的触发行为'},
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '不同的悬浮层展开方向', 'href': '#不同的悬浮层展开方向'},
+                    {'title': '自定义背景色', 'href': '#自定义背景色'},
+                    {'title': '自定义样式', 'href': '#自定义样式'},
+                    {'title': '可控的展开行为', 'href': '#可控的展开行为'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'margin': 'none'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdTooltip'
         )
     ],
     style={

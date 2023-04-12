@@ -1,64 +1,51 @@
 from dash import html
 import feffery_antd_components as fac
-import feffery_utils_components as fuc
 import feffery_markdown_components as fmc
 
 import callbacks.AntdSwitch
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdSwitch(id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdSwitch.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '数据录入'
+                        },
+                        {
+                            'title': 'AntdSwitch 开关'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　用于为用户提供在两种状态之间进行切换的功能。')
+                    ]
                 ),
 
                 html.Div(
                     [
-                        fac.AntdSwitch(),
+                        fac.AntdSpace(
+                            [
+                                fac.AntdSwitch(),
+
+                                fac.AntdSwitch(
+                                    checked=True
+                                )
+                            ]
+                        ),
 
                         fac.AntdDivider(
                             '基础使用',
@@ -67,17 +54,27 @@ docs_content = html.Div(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
-                                codeString='''fac.AntdSwitch()'''
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdSwitch(),
+
+        fac.AntdSwitch(
+            checked=True
+        )
+    ]
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
@@ -96,53 +93,194 @@ docs_content = html.Div(
                         ),
 
                         fac.AntdDivider(
-                            '设置不同状态下文字提示内容',
+                            '自定义状态标签',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdSwitch(
     checkedChildren='打开',
     unCheckedChildren='关闭'
-)'''
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='设置不同状态下文字提示内容',
+                    id='自定义状态标签',
                     className='div-highlight'
                 ),
 
                 html.Div(
                     [
-                        fac.AntdSpin(
-                            html.Div(
-                                [
-                                    fac.AntdSwitch(
-                                        id='switch-demo',
-                                        style={
-                                            'marginRight': '10px'
-                                        }
-                                    ),
-                                    fac.AntdText('checked：', strong=True),
-                                    fac.AntdText(id='switch-demo-output')
-                                ]
+                        fac.AntdSwitch(
+                            checked=True,
+                            size='small'
+                        ),
+
+                        fac.AntdDivider(
+                            '迷你尺寸',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSwitch(
+    checked=True,
+    size='small'
+)
+'''
                             ),
-                            text='回调中'
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='迷你尺寸',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSpace(
+                            [
+                                fac.AntdSwitch(
+                                    disabled=True
+                                ),
+                                fac.AntdSwitch(
+                                    checked=True,
+                                    disabled=True
+                                )
+                            ]
+                        ),
+
+                        fac.AntdDivider(
+                            '禁用状态',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdSwitch(
+            disabled=True
+        ),
+        fac.AntdSwitch(
+            checked=True,
+            disabled=True
+        )
+    ]
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='禁用状态',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSpace(
+                            [
+                                fac.AntdSwitch(
+                                    loading=True
+                                ),
+                                fac.AntdSwitch(
+                                    checked=True,
+                                    loading=True
+                                )
+                            ]
+                        ),
+
+                        fac.AntdDivider(
+                            '加载中状态',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdSwitch(
+            loading=True
+        ),
+        fac.AntdSwitch(
+            checked=True,
+            loading=True
+        )
+    ]
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='加载中状态',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSwitch(
+                            id='switch-demo'
+                        ),
+
+                        fac.AntdParagraph(
+                            id='switch-demo-output'
                         ),
 
                         fac.AntdDivider(
@@ -152,40 +290,35 @@ fac.AntdSwitch(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdSpin(
-    html.Div(
-        [
-            fac.AntdSwitch(
-                id='switch-demo',
-                style={
-                    'marginRight': '10px'
-                }
-            ),
-            fac.AntdText('checked：', strong=True),
-            fac.AntdText(id='switch-demo-output')
-        ]
-    ),
-    text='回调中'
+fac.AntdSwitch(
+    id='switch-demo'
+),
+
+fac.AntdParagraph(
+    id='switch-demo-output'
 )
+
 ...
+
 @app.callback(
     Output('switch-demo-output', 'children'),
     Input('switch-demo', 'checked')
 )
-def switch_demo_callback(checked):
+def switch_demo(checked):
 
-    return str(checked)'''
+    return f'checked: {checked}'
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
@@ -199,29 +332,30 @@ def switch_demo_callback(checked):
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '基础使用', 'href': '#基础使用'},
-                            {'title': '设置不同状态下文字提示内容', 'href': '#设置不同状态下文字提示内容'},
-                            {'title': '回调示例', 'href': '#回调示例'},
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '自定义状态标签', 'href': '#自定义状态标签'},
+                    {'title': '迷你尺寸', 'href': '#迷你尺寸'},
+                    {'title': '禁用状态', 'href': '#禁用状态'},
+                    {'title': '加载中状态', 'href': '#加载中状态'},
+                    {'title': '回调示例', 'href': '#回调示例'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'margin': '20px'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdSwitch'
         )
     ],
     style={

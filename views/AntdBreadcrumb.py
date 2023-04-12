@@ -1,62 +1,41 @@
 from dash import html
-import feffery_markdown_components as fmc
 import feffery_antd_components as fac
-import feffery_utils_components as fuc
+import feffery_markdown_components as fmc
+
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdBreadcrumb(id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdBreadcrumb.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '导航'
+                        },
+                        {
+                            'title': 'AntdBreadcrumb 面包屑'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　用于展示当前页面在系统层级结构中的位置。')
+                    ]
                 ),
 
                 html.Div(
                     [
-
                         fac.AntdBreadcrumb(
                             items=[
                                 {
@@ -78,10 +57,11 @@ docs_content = html.Div(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdBreadcrumb(
     items=[
@@ -99,7 +79,7 @@ fac.AntdBreadcrumb(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -114,7 +94,6 @@ fac.AntdBreadcrumb(
 
                 html.Div(
                     [
-
                         fac.AntdBreadcrumb(
                             items=[
                                 {
@@ -142,10 +121,11 @@ fac.AntdBreadcrumb(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdBreadcrumb(
     items=[
@@ -169,7 +149,7 @@ fac.AntdBreadcrumb(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -184,7 +164,6 @@ fac.AntdBreadcrumb(
 
                 html.Div(
                     [
-
                         fac.AntdBreadcrumb(
                             items=[
                                 {
@@ -214,11 +193,31 @@ fac.AntdBreadcrumb(
                             innerTextOrientation='left'
                         ),
 
+                        fac.AntdParagraph(
+                            [
+                                '通过参数',
+                                fac.AntdText(
+                                    'icon',
+                                    code=True
+                                ),
+                                '，可基于图标代号直接使用',
+                                fac.AntdText(
+                                    'AntdIcon',
+                                    strong=True
+                                ),
+                                '中的各种图标作为节点的前缀图标'
+                            ],
+                            style={
+                                'textIndent': '2rem'
+                            }
+                        ),
+
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdBreadcrumb(
     items=[
@@ -245,7 +244,7 @@ fac.AntdBreadcrumb(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -260,7 +259,6 @@ fac.AntdBreadcrumb(
 
                 html.Div(
                     [
-
                         fac.AntdBreadcrumb(
                             items=[
                                 {
@@ -302,16 +300,17 @@ fac.AntdBreadcrumb(
                         ),
 
                         fac.AntdDivider(
-                            '添加悬浮菜单',
+                            '节点添加悬浮菜单',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdBreadcrumb(
     items=[
@@ -355,7 +354,7 @@ fac.AntdBreadcrumb(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -364,116 +363,35 @@ fac.AntdBreadcrumb(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='添加悬浮菜单',
-                    className='div-highlight'
-                ),
-
-                html.Div(
-                    [
-
-                        fac.AntdBreadcrumb(
-                            separator='->',
-                            items=[
-                                {
-                                    'title': 'feffery-components仓库主页',
-                                    'href': 'https://github.com/CNFeffery/feffery-dash-components',
-                                    'target': '_blank',
-                                    'icon': 'github'
-                                },
-                                {
-                                    'title': 'feffery-antd-components文档首页',
-                                    'href': '/',
-                                    'target': '_blank',
-                                    'icon': 'home'
-                                },
-                                {
-                                    'title': 'AntdBreadcrumb文档页',
-                                    'href': '/AntdBreadcrumb',
-                                    'target': '_blank',
-                                    'icon': 'fc-approval'
-                                }
-                            ]
-                        ),
-
-                        fac.AntdDivider(
-                            '自定义层级分隔符',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
-
-                        fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
-                                language='python',
-                                 codeTheme='coy-without-shadows',
-                                codeString='''
-fac.AntdBreadcrumb(
-    separator='->',
-    items=[
-        {
-            'title': 'feffery-components仓库主页',
-            'href': 'https://github.com/CNFeffery/feffery-dash-components',
-            'target': '_blank',
-            'icon': 'github'
-        },
-        {
-            'title': 'feffery-antd-components文档首页',
-            'href': '/',
-            'target': '_blank',
-            'icon': 'home'
-        },
-        {
-            'title': 'AntdBreadcrumb文档页',
-            'href': '/AntdBreadcrumb',
-            'target': '_blank',
-            'icon': 'fc-approval'
-        }
-    ]
-)
-'''
-                            ),
-                            title='点击查看代码',
-                            is_open=False,
-                            ghost=True
-                        )
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='自定义层级分隔符',
+                    id='节点添加悬浮菜单',
                     className='div-highlight'
                 ),
 
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '基础使用', 'href': '#基础使用'},
-                            {'title': '添加链接跳转功能', 'href': '#添加链接跳转功能'},
-                            {'title': '添加前缀图标', 'href': '#添加前缀图标'},
-                            {'title': '添加悬浮菜单', 'href': '#添加悬浮菜单'},
-                            {'title': '自定义层级分隔符', 'href': '#自定义层级分隔符'}
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '添加链接跳转功能', 'href': '#添加链接跳转功能'},
+                    {'title': '添加前缀图标', 'href': '#添加前缀图标'},
+                    {'title': '节点添加悬浮菜单', 'href': '#节点添加悬浮菜单'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'padding': '20px'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdBreadcrumb'
         )
     ],
     style={

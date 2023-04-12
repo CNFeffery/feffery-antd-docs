@@ -1,6 +1,7 @@
 from dash import html
 from datetime import datetime
 import feffery_antd_components as fac
+import feffery_utils_components as fuc
 
 from server import app
 
@@ -8,7 +9,6 @@ docs_content = html.Div(
     [
         html.Div(
             [
-
                 fac.AntdBackTop(
                     duration=0.6
                 ),
@@ -26,7 +26,8 @@ docs_content = html.Div(
                 fac.AntdParagraph(
                     [
                         fac.AntdText('文档最近更新：', strong=True),
-                        fac.AntdText(datetime.today().strftime('%Y-%m-%d'), code=True)
+                        fac.AntdText(datetime.today().strftime(
+                            '%Y-%m-%d'), code=True)
                     ]
                 ),
 
@@ -39,15 +40,15 @@ docs_content = html.Div(
                         fac.AntdText('fac', strong=True),
                         fac.AntdText('），基于著名的React UI组件库'),
                         fac.AntdText('ant design', strong=True),
-                        fac.AntdText('进行二次开发，将'),
+                        fac.AntdText('进行大量二次开发，将'),
                         fac.AntdText('ant design', strong=True),
                         fac.AntdText('中的诸多实用组件及特性引入'),
                         fac.AntdText('Dash', italic=True),
-                        fac.AntdText('，帮助开发者使用'),
-                        fac.AntdText('极低', strong=True),
-                        fac.AntdText('的纯'),
+                        fac.AntdText('，帮助开发者纯'),
                         fac.AntdText('Python', strong=True),
-                        fac.AntdText('代码量，即可快速开发出现代化的交互式web应用，将你有关web应用的美好憧憬✨高效地实现。'),
+                        fac.AntdText(
+                            '构建现代化高质量且任意复杂程度的交互式web应用，帮助你将有关web应用的美好憧憬✨高效地实现。'
+                        ),
                     ]
                 ),
 
@@ -59,7 +60,8 @@ docs_content = html.Div(
                         ),
                         fac.AntdText(
                             '+',
-                            style={'fontSize': '30px', 'color': 'rgba(170, 170, 170, 1)', 'padding': '0 15px 0 15px'}
+                            style={
+                                'fontSize': '30px', 'color': 'rgba(170, 170, 170, 1)', 'padding': '0 15px 0 15px'}
                         ),
                         html.Img(
                             src=app.get_asset_url('imgs/antd-logo.svg'),
@@ -67,7 +69,8 @@ docs_content = html.Div(
                         ),
                         fac.AntdText(
                             '+',
-                            style={'fontSize': '30px', 'color': 'rgba(170, 170, 170, 1)', 'padding': '0 15px 0 15px'}
+                            style={
+                                'fontSize': '30px', 'color': 'rgba(170, 170, 170, 1)', 'padding': '0 15px 0 15px'}
                         ),
                         html.Img(
                             src=app.get_asset_url('imgs/dash-logo.png'),
@@ -75,7 +78,8 @@ docs_content = html.Div(
                         ),
                         fac.AntdText(
                             '=',
-                            style={'fontSize': '30px', 'color': 'rgba(170, 170, 170, 1)', 'padding': '0 15px 0 15px'}
+                            style={
+                                'fontSize': '30px', 'color': 'rgba(170, 170, 170, 1)', 'padding': '0 15px 0 15px'}
                         ),
                         html.Img(
                             src=app.get_asset_url('imgs/fac-logo.svg'),
@@ -85,7 +89,9 @@ docs_content = html.Div(
                     style={
                         'display': 'flex',
                         'justifyContent': 'center',
-                        'alignItems': 'center'
+                        'alignItems': 'center',
+                        'paddingTop': 25,
+                        'paddingBottom': 25,
                     }
                 ),
 
@@ -101,12 +107,514 @@ docs_content = html.Div(
                     id='特性'
                 ),
 
-                html.Ul(
+                fac.AntdRow(
                     [
-                        html.Li('🎁 功能丰富，在antd的基础上设计出更多增广功能', style={'listStyleType': 'circle'}),
-                        html.Li('😋 使用简单，开发者上手难度低，无需javascript代码即可实现复杂交互', style={'listStyleType': 'circle'}),
-                        html.Li('💎 文档详实，针对每个组件的主要功能及用法予以丰富案例介绍', style={'listStyleType': 'circle'})
-                    ]
+                        fac.AntdCol(
+                            fuc.FefferyDiv(
+                                [
+                                    fac.AntdSpace(
+                                        [
+                                            html.Div(
+                                                html.Img(
+                                                    src='assets/imgs/Python.svg',
+                                                    style={
+                                                        'height': '3rem',
+                                                        'transform': 'translateY(12px)'
+                                                    }
+                                                ),
+                                                style={
+                                                    'height': '4rem'
+                                                }
+                                            ),
+                                            fac.AntdText(
+                                                '纯Python开发',
+                                                style={
+                                                    'fontSize': 20
+                                                }
+                                            ),
+                                            html.Div(
+                                                fac.AntdText(
+                                                    '基于Dash框架，只需编写Python\n即可完成应用开发全过程',
+                                                    style={
+                                                        'color': '#697b8c',
+                                                        'whiteSpace': 'pre'
+                                                    }
+                                                ),
+                                                style={
+                                                    'textAlign': 'center'
+                                                }
+                                            )
+                                        ],
+                                        direction='vertical',
+                                        align='center',
+                                        style={
+                                            'width': 175
+                                        }
+                                    )
+                                ],
+                                shadow='hover-shadow',
+                                style={
+                                    'height': 220,
+                                    'borderRadius': 6,
+                                    'position': 'relative',
+                                    'display': 'flex',
+                                    'alignItems': 'center',
+                                    'justifyContent': 'center'
+                                }
+                            ),
+                            span=6
+                        ),
+
+                        fac.AntdCol(
+                            fuc.FefferyDiv(
+                                [
+                                    fac.AntdSpace(
+                                        [
+                                            html.Div(
+                                                html.Img(
+                                                    src='assets/imgs/MBE风格多色图标-组件.svg',
+                                                    style={
+                                                        'height': '4rem'
+                                                    }
+                                                ),
+                                                style={
+                                                    'height': '4rem'
+                                                }
+                                            ),
+                                            fac.AntdText(
+                                                '组件种类齐全',
+                                                style={
+                                                    'fontSize': 20
+                                                }
+                                            ),
+                                            html.Div(
+                                                fac.AntdText(
+                                                    '内置近百种网页功能组件\n满足通用场景需求',
+                                                    style={
+                                                        'color': '#697b8c',
+                                                        'whiteSpace': 'pre'
+                                                    }
+                                                ),
+                                                style={
+                                                    'textAlign': 'center'
+                                                }
+                                            )
+                                        ],
+                                        direction='vertical',
+                                        align='center',
+                                        style={
+                                            'width': 175
+                                        }
+                                    )
+                                ],
+                                shadow='hover-shadow',
+                                style={
+                                    'height': 220,
+                                    'borderRadius': 6,
+                                    'position': 'relative',
+                                    'display': 'flex',
+                                    'alignItems': 'center',
+                                    'justifyContent': 'center'
+                                }
+                            ),
+                            span=6
+                        ),
+
+                        fac.AntdCol(
+                            fuc.FefferyDiv(
+                                [
+                                    fac.AntdSpace(
+                                        [
+                                            html.Div(
+                                                html.Img(
+                                                    src='assets/imgs/表格.svg',
+                                                    style={
+                                                        'height': '2.5rem',
+                                                        'transform': 'translateY(15px)'
+                                                    }
+                                                ),
+                                                style={
+                                                    'height': '4rem'
+                                                }
+                                            ),
+                                            fac.AntdText(
+                                                '丰富的表格功能',
+                                                style={
+                                                    'fontSize': 20
+                                                }
+                                            ),
+                                            html.Div(
+                                                fac.AntdText(
+                                                    [
+                                                        '内置功能强大的表格组件',
+                                                        html.A(
+                                                            'AntdTable',
+                                                            href='/AntdTable-basic',
+                                                            target='_blank'
+                                                        ),
+                                                        '\n充分展示交互表格数据'
+                                                    ],
+                                                    style={
+                                                        'color': '#697b8c',
+                                                        'whiteSpace': 'pre'
+                                                    }
+                                                ),
+                                                style={
+                                                    'textAlign': 'center'
+                                                }
+                                            )
+                                        ],
+                                        direction='vertical',
+                                        align='center',
+                                        style={
+                                            'width': 175
+                                        }
+                                    )
+                                ],
+                                shadow='hover-shadow',
+                                style={
+                                    'height': 220,
+                                    'borderRadius': 6,
+                                    'position': 'relative',
+                                    'display': 'flex',
+                                    'alignItems': 'center',
+                                    'justifyContent': 'center'
+                                }
+                            ),
+                            span=6
+                        ),
+
+                        fac.AntdCol(
+                            fuc.FefferyDiv(
+                                [
+                                    fac.AntdSpace(
+                                        [
+                                            html.Div(
+                                                html.Img(
+                                                    src='assets/imgs/结构树.svg',
+                                                    style={
+                                                        'height': '2.5rem',
+                                                        'transform': 'translateY(15px)'
+                                                    }
+                                                ),
+                                                style={
+                                                    'height': '4rem'
+                                                }
+                                            ),
+                                            fac.AntdText(
+                                                '强大的树形控件',
+                                                style={
+                                                    'fontSize': 20
+                                                }
+                                            ),
+                                            html.Div(
+                                                fac.AntdText(
+                                                    [
+                                                        '内置功能强大的树形控件',
+                                                        html.A(
+                                                            'AntdTree',
+                                                            href='/AntdTree',
+                                                            target='_blank'
+                                                        ),
+                                                        '\n树形结构交互展示能力拉满'
+                                                    ],
+                                                    style={
+                                                        'color': '#697b8c',
+                                                        'whiteSpace': 'pre'
+                                                    }
+                                                ),
+                                                style={
+                                                    'textAlign': 'center'
+                                                }
+                                            )
+                                        ],
+                                        direction='vertical',
+                                        align='center',
+                                        style={
+                                            'width': 175
+                                        }
+                                    )
+                                ],
+                                shadow='hover-shadow',
+                                style={
+                                    'height': 220,
+                                    'borderRadius': 6,
+                                    'position': 'relative',
+                                    'display': 'flex',
+                                    'alignItems': 'center',
+                                    'justifyContent': 'center'
+                                }
+                            ),
+                            span=6
+                        ),
+
+                        fac.AntdCol(
+                            fuc.FefferyDiv(
+                                [
+                                    fac.AntdSpace(
+                                        [
+                                            html.Div(
+                                                html.Img(
+                                                    src='assets/imgs/MBE风格多色图标-时间.svg',
+                                                    style={
+                                                        'height': '4rem'
+                                                    }
+                                                ),
+                                                style={
+                                                    'height': '4rem'
+                                                }
+                                            ),
+                                            fac.AntdText(
+                                                '实用的日期选择器',
+                                                style={
+                                                    'fontSize': 20
+                                                }
+                                            ),
+                                            html.Div(
+                                                fac.AntdText(
+                                                    [
+                                                        '内置日期及日期范围选择组件\n',
+                                                        html.A(
+                                                            'AntdDatePicker',
+                                                            href='/AntdDatePicker',
+                                                            target='_blank'
+                                                        ),
+                                                        '、',
+                                                        html.A(
+                                                            'AntdDateRangePicker',
+                                                            href='/AntdDateRangePicker',
+                                                            target='_blank'
+                                                        ),
+                                                        '\n可灵活配置使用策略'
+                                                    ],
+                                                    style={
+                                                        'color': '#697b8c',
+                                                        'whiteSpace': 'pre'
+                                                    }
+                                                ),
+                                                style={
+                                                    'textAlign': 'center'
+                                                }
+                                            )
+                                        ],
+                                        direction='vertical',
+                                        align='center',
+                                        style={
+                                            'width': 175
+                                        }
+                                    )
+                                ],
+                                shadow='hover-shadow',
+                                style={
+                                    'height': 220,
+                                    'borderRadius': 6,
+                                    'position': 'relative',
+                                    'display': 'flex',
+                                    'alignItems': 'center',
+                                    'justifyContent': 'center'
+                                }
+                            ),
+                            span=6
+                        ),
+
+                        fac.AntdCol(
+                            fuc.FefferyDiv(
+                                [
+                                    fac.AntdSpace(
+                                        [
+                                            html.Div(
+                                                html.Img(
+                                                    src='assets/imgs/MBE风格多色图标-文档.svg',
+                                                    style={
+                                                        'height': '4rem'
+                                                    }
+                                                ),
+                                                style={
+                                                    'height': '4rem'
+                                                }
+                                            ),
+                                            fac.AntdText(
+                                                '便捷的表单功能',
+                                                style={
+                                                    'fontSize': 20
+                                                }
+                                            ),
+                                            html.Div(
+                                                fac.AntdText(
+                                                    [
+                                                        '基于内置表单整合组件\n',
+                                                        html.A(
+                                                            'AntdForm',
+                                                            href='/AntdForm',
+                                                            target='_blank'
+                                                        ),
+                                                        '、',
+                                                        html.A(
+                                                            'AntdFormItem',
+                                                            href='/AntdFormItem',
+                                                            target='_blank'
+                                                        ),
+                                                        '\n轻松构建整张表单'
+                                                    ],
+                                                    style={
+                                                        'color': '#697b8c',
+                                                        'whiteSpace': 'pre'
+                                                    }
+                                                ),
+                                                style={
+                                                    'textAlign': 'center'
+                                                }
+                                            )
+                                        ],
+                                        direction='vertical',
+                                        align='center',
+                                        style={
+                                            'width': 175
+                                        }
+                                    )
+                                ],
+                                shadow='hover-shadow',
+                                style={
+                                    'height': 220,
+                                    'borderRadius': 6,
+                                    'position': 'relative',
+                                    'display': 'flex',
+                                    'alignItems': 'center',
+                                    'justifyContent': 'center'
+                                }
+                            ),
+                            span=6
+                        ),
+
+                        fac.AntdCol(
+                            fuc.FefferyDiv(
+                                [
+                                    fac.AntdSpace(
+                                        [
+                                            html.Div(
+                                                html.Img(
+                                                    src='assets/imgs/翻译.svg',
+                                                    style={
+                                                        'height': '4rem'
+                                                    }
+                                                ),
+                                                style={
+                                                    'height': '4rem'
+                                                }
+                                            ),
+                                            fac.AntdText(
+                                                '支持中英双语言',
+                                                style={
+                                                    'fontSize': 20
+                                                }
+                                            ),
+                                            html.Div(
+                                                fac.AntdText(
+                                                    '内置各组件文案信息支持在\n简体中文与英文之间进行设置切换',
+                                                    style={
+                                                        'color': '#697b8c',
+                                                        'whiteSpace': 'pre'
+                                                    }
+                                                ),
+                                                style={
+                                                    'textAlign': 'center'
+                                                }
+                                            )
+                                        ],
+                                        direction='vertical',
+                                        align='center',
+                                        style={
+                                            'width': 175
+                                        }
+                                    )
+                                ],
+                                shadow='hover-shadow',
+                                style={
+                                    'height': 220,
+                                    'borderRadius': 6,
+                                    'position': 'relative',
+                                    'display': 'flex',
+                                    'alignItems': 'center',
+                                    'justifyContent': 'center'
+                                }
+                            ),
+                            span=6
+                        ),
+
+                        fac.AntdCol(
+                            fuc.FefferyDiv(
+                                [
+                                    fac.AntdSpace(
+                                        [
+                                            html.Div(
+                                                html.Img(
+                                                    src='assets/imgs/应用.svg',
+                                                    style={
+                                                        'height': '3rem',
+                                                        'transform': 'translateY(10px)'
+                                                    }
+                                                ),
+                                                style={
+                                                    'height': '4rem'
+                                                }
+                                            ),
+                                            fac.AntdText(
+                                                '联动更多组件库',
+                                                style={
+                                                    'fontSize': 20
+                                                }
+                                            ),
+                                            html.Div(
+                                                fac.AntdText(
+                                                    [
+                                                        '高效联动feffery-components生态中\n',
+                                                        html.A(
+                                                            'fuc',
+                                                            href='https://fuc.feffery.tech/',
+                                                            target='_blank'
+                                                        ),
+                                                        '、',
+                                                        html.A(
+                                                            'fmc',
+                                                            href='https://fmc.feffery.tech/',
+                                                            target='_blank'
+                                                        ),
+                                                        '等组件库，实现更多功能'
+                                                    ],
+                                                    style={
+                                                        'color': '#697b8c',
+                                                        'whiteSpace': 'pre'
+                                                    }
+                                                ),
+                                                style={
+                                                    'textAlign': 'center'
+                                                }
+                                            )
+                                        ],
+                                        direction='vertical',
+                                        align='center',
+                                        style={
+                                            'width': 175
+                                        }
+                                    )
+                                ],
+                                shadow='hover-shadow',
+                                style={
+                                    'height': 220,
+                                    'borderRadius': 6,
+                                    'position': 'relative',
+                                    'display': 'flex',
+                                    'alignItems': 'center',
+                                    'justifyContent': 'center'
+                                }
+                            ),
+                            span=6
+                        )
+                    ],
+                    gutter=[25, 25],
+                    style={
+                        'padding': '75px 0'
+                    }
                 ),
 
                 fac.AntdParagraph(
@@ -152,22 +660,16 @@ docs_content = html.Div(
 
                 fac.AntdTitle('最新稳定版本：', level=5),
 
-                fac.AntdText(f'pip install feffery-antd-components=={fac.__version__}', keyboard=True, copyable=True),
+                fac.AntdText(
+                    f'pip install feffery-antd-components=={fac.__version__}',
+                    keyboard=True,
+                    copyable=True
+                ),
 
-                fac.AntdTitle('最新开发版本：', level=5),
-
-                fac.AntdText('pip install git+https://github.com/CNFeffery/feffery-antd-components.git',
-                             keyboard=True,
-                             copyable=True),
-
-                html.Br(),
-
-                fac.AntdText('国内github镜像加速下载方式：'),
-
-                html.Br(),
+                fac.AntdTitle('最新预发布版本：', level=5),
 
                 fac.AntdText(
-                    'pip install git+https://github.91chi.fun/https://github.com/CNFeffery/feffery-antd-components.git',
+                    'pip install feffery-antd-components --pre -U',
                     keyboard=True,
                     copyable=True
                 ),
@@ -200,7 +702,7 @@ docs_content = html.Div(
                         }
                     ),
                     title='微信扫码加我好友，备注【dash学习】',
-                    is_open=True,
+                    isOpen=True,
                     ghost=True
                 ),
 
@@ -231,7 +733,7 @@ docs_content = html.Div(
                         }
                     ),
                     title='扫码关注我的知识分享公众号【玩转dash】',
-                    is_open=True,
+                    isOpen=True,
                     ghost=True
                 ),
 
@@ -260,8 +762,8 @@ docs_content = html.Div(
                             'justifyContent': 'center'
                         }
                     ),
-                    title='更多高级知识及案例欢迎加入知识星球【玩转dash】',
-                    is_open=True,
+                    title='更多dash高级知识技巧及海量应用案例欢迎加入我的知识星球【玩转dash】',
+                    isOpen=True,
                     ghost=True
                 ),
 
@@ -294,7 +796,8 @@ docs_content = html.Div(
                             'web应用，如果你有意愿为我分担有关服务器等开销，亦或是赞助鼓励我对于'
                         ),
                         fac.AntdText('fac', strong=True),
-                        fac.AntdText('过去已做出以及未来将要做出的贡献，可以微信扫一扫下方“赞助二维码”随意赞助，感谢支持。')
+                        fac.AntdText(
+                            '过去已做出以及未来将要做出的贡献，可以微信扫一扫下方“赞助二维码”随意赞助，感谢支持。')
                     ]
                 ),
 
@@ -314,7 +817,7 @@ docs_content = html.Div(
                         }
                     ),
                     title='赞助二维码',
-                    is_open=True,
+                    isOpen=True,
                     ghost=True
                 ),
 
@@ -350,6 +853,7 @@ docs_content = html.Div(
         )
     ],
     style={
-        'display': 'flex'
+        'display': 'flex',
+        'padding': 25
     }
 )

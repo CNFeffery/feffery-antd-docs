@@ -1,45 +1,61 @@
-**options：** *list*型
+**id：** *string*型
 
-　　用于设置*子项待选项*，每个元素为*dict*型，可用的键值对参数有：
+　　用于设置*当前组件的唯一id信息*
 
-- label：*string*型，用于设置*当前子项标签文字*
-- value：*string*型，用于设置*当前子项对应值*
+**key：** *string*型
+
+　　对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+
+**style：** *dict*型
+
+　　用于设置*当前组件的css样式*
+
+**className：** *string*或*dict*型
+
+　　用于设置*当前组件的css类名*，支持[动态css](/advanced-classname)
 
 **autoSize：** *bool*或*dict*型，默认为`False`
 
-　　用于设置*是否开启输入框自适应高度模式*，也可以传入*dict*型来自行设置至多至少要显示的输入框行数，可用的键值对参数有：
+　　用于*配置针对输入内容的输入框自适应高度功能*，当传入*dict*型输入时，可用的键值对参数有：
 
-- minRows：*int*型，用于设置*最小输入框行数*
-- maxRows：*int*型，用于设置*最大输入框行数*
+- **minRows：** *int*型，用于*设置最小行数*
+- **maxRows：** *int*型，用于*设置对大行数*
 
 **prefix：** *string*型，默认为`'@'`
 
-　　用于设置*触发子项悬浮层展开的字符*
+　　用于*设置触发子项菜单弹出的关键字*
 
-**popupContainerId：** *string*型
+**value：** *list*型
 
-　　用于在*局部滚动条*模式下，以传入对应*id*的方式为子项悬浮展开层绑定合适的参考容器，从而修正一些潜在的显示问题，具体使用场景参考本页对应示例
+　　用于*监听或设置当前已输入值*
 
-**placement：** *string*型，默认为`'bottom'`
+**defaultValue：** *list*型
 
-　　用于设置*子项弹出层的方位*，可选的有`'top'`与`'bottom'`
+　　用于*监听或设置初始化时的已输入值*
 
-**disabled：** *bool*型，默认为`False`
+**options：** `list[dict]`型，必填
 
-　　用于设置*是否禁用当前组件*
+　　用于*定义子项菜单中的选项*，其中每个字典可用的键值对参数有：
 
-**status：** *str型*
-
-　　用于*手动设置组件的校验状态*，可选的有`'error'`和`'warning'`
-
-**value：** *string*型
-
-　　用于*记录当前提及输入框内全部文字内容*
-
-**defaultValue：** *string*型
-
-　　用于*设置初始化时提及输入框内全部文字内容*
+- **label：** *组件型*，用于*设置当前选项的标签内容*
+- **value：** *string*型，用于*设置当前选项对应的值*
 
 **selectedOptions：** *list*型
 
-　　用于*记录当前已提及的子项值*
+　　用于*监听当前提及组件中已被提及的选项值*
+
+**disabled：** *bool*型，默认为`False`
+
+　　用于*设置是否禁用当前组件*
+
+**placement：** *str*型，默认为`'bottom'`
+
+　　用于*设置子项菜单的展开方向*，可选的有`'bottom'`、`'top'`
+
+**status：** *string*型
+
+　　用于*强制设置组件的状态*，可选的有`'error'`和`'warning'`
+
+**popupContainer：** *string*型，默认为`'body'`
+
+　　用于*为当前组件涉及的悬浮层元素设置参考容器类型*，可选的有`'body'`（以页面根节点为参考）和`'parent'`（以当前元素的父容器为参考），当组件位于局部滚动容器内时，通过设置`popupContainer='parent'`可以解决悬浮层滚动不跟随的问题

@@ -1,27 +1,55 @@
-**children：** 
+**id：** *string*型
 
-　　用于*传入要置于当前选择卡片内部的其它元素*
+　　用于设置*当前组件的唯一id信息*
 
-**checked：** *bool*型，默认为`False`
+**key：** *string*型
 
-　　对应当前选择卡片的*选择状态*
+　　对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
 
-**defaultChecked：** *bool*型，默认为`False`
+**style：** *dict*型
 
-　　设置*当前选择卡片默认的选择状态*
+　　用于设置*当前组件的css样式*
+
+**className：** *string*或*dict*型
+
+　　用于设置*当前组件的css类名，支持[动态css](/advanced-classname)*
+
+**children：** *组件型*
+
+　　用于传入*嵌套的子元素*
+
+**checked：** *bool*型
+
+　　用于*设置或监听当前选择卡片的状态*
+
+**defaultChecked：** *bool*型
+
+　　用于*设置初始化时当前选择卡片的状态*
 
 **bordered：** *bool*型，默认为`True`
 
-　　设置*是否渲染选择卡片边框*
-
-**value：** *string*型
-
-　　用于*为当前选择卡片设置对应的值*，用于配合组合选择卡片时使用
+　　用于*设置是否为当前选择卡片渲染轮廓*
 
 **disabled：** *bool*型，默认为`False`
 
-　　设置是否*禁用组件*
+　　用于*设置是否禁用当前选择卡片*
 
 **size：** *string*型，默认为`'default'`
 
-　　用于设置*当前选择卡片的尺寸规格*，可选的有`'small'`、`'default'`和`'large'`
+　　用于*设置当前选择卡片的尺寸规格*，可选的有`'small'`、`'default'`、`'large'`
+
+**value：** *int*、*float*或*string*型
+
+　　配合`AntdCheckCardGroup`使用，用于*设置当前选择卡片对应的值*
+
+**persistence：** *bool*型
+
+　　用于*设置是否为当前组件开启属性持久化*
+
+**persisted_props：** *list*型，默认为`['checked']`
+
+　　用于*设置针对当前组件的哪些属性进行持久化*，可选的有`'checked'`
+
+**persistence_type：** *string*型，默认为`'local'`
+
+　　用于*设置针对当前组件进行属性持久化的存储类型*，可选的有`'local'`（浏览器本地缓存）、`'session'`（当前标签页会话缓存）、`'memory'`（内存临时缓存）

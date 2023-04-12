@@ -1,57 +1,37 @@
 from dash import html
-import feffery_markdown_components as fmc
 import feffery_antd_components as fac
-import feffery_utils_components as fuc
+import feffery_markdown_components as fmc
+
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdCarousel(children, id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdCarousel.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '数据展示'
+                        },
+                        {
+                            'title': 'AntdCarousel 走马灯'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　用于以轮播切换的形式展示多个内容。')
+                    ]
                 ),
 
                 html.Div(
@@ -71,7 +51,12 @@ docs_content = html.Div(
                                     }
                                 )
                                 for i, color in
-                                enumerate(['#0050b3', '#096dd9', '#1890ff', '#69c0ff', '#91d5ff'])
+                                enumerate(
+                                    [
+                                        '#0050b3', '#096dd9', '#1890ff',
+                                        '#69c0ff', '#91d5ff'
+                                    ]
+                                )
                             ]
                         ),
 
@@ -82,10 +67,11 @@ docs_content = html.Div(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdCarousel(
     [
@@ -102,13 +88,18 @@ fac.AntdCarousel(
             }
         )
         for i, color in
-        enumerate(['#0050b3', '#096dd9', '#1890ff', '#69c0ff', '#91d5ff'])
+        enumerate(
+            [
+                '#0050b3', '#096dd9', '#1890ff',
+                '#69c0ff', '#91d5ff'
+            ]
+        )
     ]
 )
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -138,7 +129,11 @@ fac.AntdCarousel(
                                     }
                                 )
                                 for i, color in
-                                enumerate(['#0050b3', '#096dd9', '#1890ff', '#69c0ff', '#91d5ff'])
+                                enumerate(
+                                    [
+                                        '#0050b3', '#096dd9', '#1890ff', '#69c0ff', '#91d5ff'
+                                    ]
+                                )
                             ],
                             autoplay=True
                         ),
@@ -150,41 +145,46 @@ fac.AntdCarousel(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdCarousel(
-    [
-        html.Div(
-            f'子元素{i}',
-            style={
-                'color': 'white',
-                'fontSize': '36px',
-                'height': '400px',
-                'backgroundColor': color,
-                'display': 'flex',
-                'justifyContent': 'center',
-                'alignItems': 'center'
-            }
-        )
-        for i, color in
-        enumerate(['#0050b3', '#096dd9', '#1890ff', '#69c0ff', '#91d5ff'])
-    ],
-    autoplay=True
-)
-'''
+                fac.AntdCarousel(
+                    [
+                        html.Div(
+                            f'子元素{i}',
+                            style={
+                                'color': 'white',
+                                'fontSize': '36px',
+                                'height': '400px',
+                                'backgroundColor': color,
+                                'display': 'flex',
+                                'justifyContent': 'center',
+                                'alignItems': 'center'
+                            }
+                        )
+                        for i, color in
+                        enumerate(
+                            [
+                                '#0050b3', '#096dd9', '#1890ff', '#69c0ff', '#91d5ff'
+                            ]
+                        )
+                    ],
+                    autoplay=True
+                )
+                '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
                     style={
                         'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
+                                        'padding': '10px 10px 20px 10px',
+                                        'border': '1px solid #f0f0f0'
                     },
                     id='自动轮播',
                     className='div-highlight'
@@ -209,7 +209,8 @@ fac.AntdCarousel(
                                             }
                                         )
                                         for i, color in
-                                        enumerate(['#0050b3', '#096dd9', '#1890ff', '#69c0ff', '#91d5ff'])
+                                        enumerate(
+                                            ['#0050b3', '#096dd9', '#1890ff', '#69c0ff', '#91d5ff'])
                                     ],
                                     dotPosition=position,
                                     autoplay=True,
@@ -228,50 +229,52 @@ fac.AntdCarousel(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-html.Div(
-    [
-        fac.AntdCarousel(
-            [
                 html.Div(
-                    f'dotPosition={position} 子元素{i}',
-                    style={
-                        'color': 'white',
-                        'fontSize': '36px',
-                        'height': '400px',
-                        'backgroundColor': color,
-                        'display': 'flex',
-                        'justifyContent': 'center',
-                        'alignItems': 'center'
-                    }
+                    [
+                        fac.AntdCarousel(
+                            [
+                                html.Div(
+                                    f'dotPosition={position} 子元素{i}',
+                                    style={
+                                        'color': 'white',
+                                        'fontSize': '36px',
+                                        'height': '400px',
+                                        'backgroundColor': color,
+                                        'display': 'flex',
+                                        'justifyContent': 'center',
+                                        'alignItems': 'center'
+                                    }
+                                )
+                                for i, color in
+                                enumerate(
+                                    ['#0050b3', '#096dd9', '#1890ff', '#69c0ff', '#91d5ff'])
+                            ],
+                            dotPosition=position,
+                            autoplay=True,
+                            style={
+                                'marginBottom': '10px'
+                            }
+                        )
+                        for position in ['top', 'bottom', 'left', 'right']
+                    ]
                 )
-                for i, color in
-                enumerate(['#0050b3', '#096dd9', '#1890ff', '#69c0ff', '#91d5ff'])
-            ],
-            dotPosition=position,
-            autoplay=True,
-            style={
-                'marginBottom': '10px'
-            }
-        )
-        for position in ['top', 'bottom', 'left', 'right']
-    ]
-)
-'''
+                '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
                     style={
                         'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
+                                        'padding': '10px 10px 20px 10px',
+                                        'border': '1px solid #f0f0f0'
                     },
                     id='不同的轮播指示器方位',
                     className='div-highlight'
@@ -294,7 +297,11 @@ html.Div(
                                     }
                                 )
                                 for i, color in
-                                enumerate(['#0050b3', '#096dd9', '#1890ff', '#69c0ff', '#91d5ff'])
+                                enumerate(
+                                    [
+                                        '#0050b3', '#096dd9', '#1890ff', '#69c0ff', '#91d5ff'
+                                    ]
+                                )
                             ],
                             autoplay=True,
                             effect='fade'
@@ -307,10 +314,92 @@ html.Div(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+                fac.AntdCarousel(
+                    [
+                        html.Div(
+                            f'子元素{i}',
+                            style={
+                                'color': 'white',
+                                'fontSize': '36px',
+                                'height': '400px',
+                                'backgroundColor': color,
+                                'display': 'flex',
+                                'justifyContent': 'center',
+                                'alignItems': 'center'
+                            }
+                        )
+                        for i, color in
+                        enumerate(
+                            [
+                                '#0050b3', '#096dd9', '#1890ff', '#69c0ff', '#91d5ff'
+                            ]
+                        )
+                    ],
+                    autoplay=True,
+                    effect='fade'
+                )
+                '''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                                        'padding': '10px 10px 20px 10px',
+                                        'border': '1px solid #f0f0f0'
+                    },
+                    id='不同的轮播切换效果',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdCarousel(
+                            [
+                                html.Div(
+                                    f'子元素{i}',
+                                    style={
+                                        'color': 'white',
+                                        'fontSize': '36px',
+                                        'height': '400px',
+                                        'backgroundColor': color,
+                                        'display': 'flex',
+                                        'justifyContent': 'center',
+                                        'alignItems': 'center'
+                                    }
+                                )
+                                for i, color in
+                                enumerate(
+                                    [
+                                        '#0050b3', '#096dd9', '#1890ff',
+                                        '#69c0ff', '#91d5ff'
+                                    ]
+                                )
+                            ],
+                            autoplaySpeed=1000,
+                            autoplay=True
+                        ),
+
+                        fac.AntdDivider(
+                            '设置轮播间隔',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdCarousel(
     [
@@ -327,15 +416,20 @@ fac.AntdCarousel(
             }
         )
         for i, color in
-        enumerate(['#0050b3', '#096dd9', '#1890ff', '#69c0ff', '#91d5ff'])
+        enumerate(
+            [
+                '#0050b3', '#096dd9', '#1890ff',
+                '#69c0ff', '#91d5ff'
+            ]
+        )
     ],
-    autoplay=True,
-    effect='fade'
+    autoplaySpeed=1000,
+    autoplay=True
 )
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -344,7 +438,89 @@ fac.AntdCarousel(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='不同的轮播切换效果',
+                    id='设置轮播间隔',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdCarousel(
+                            [
+                                html.Div(
+                                    f'子元素{i}',
+                                    style={
+                                        'color': 'white',
+                                        'fontSize': '36px',
+                                        'height': '400px',
+                                        'backgroundColor': color,
+                                        'display': 'flex',
+                                        'justifyContent': 'center',
+                                        'alignItems': 'center'
+                                    }
+                                )
+                                for i, color in
+                                enumerate(
+                                    [
+                                        '#0050b3', '#096dd9', '#1890ff',
+                                        '#69c0ff', '#91d5ff'
+                                    ]
+                                )
+                            ],
+                            speed=2000,
+                            autoplay=True
+                        ),
+
+                        fac.AntdDivider(
+                            '设置过渡动画耗时',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdCarousel(
+    [
+        html.Div(
+            f'子元素{i}',
+            style={
+                'color': 'white',
+                'fontSize': '36px',
+                'height': '400px',
+                'backgroundColor': color,
+                'display': 'flex',
+                'justifyContent': 'center',
+                'alignItems': 'center'
+            }
+        )
+        for i, color in
+        enumerate(
+            [
+                '#0050b3', '#096dd9', '#1890ff',
+                '#69c0ff', '#91d5ff'
+            ]
+        )
+    ],
+    speed=2000,
+    autoplay=True
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='设置过渡动画耗时',
                     className='div-highlight'
                 ),
 
@@ -352,6 +528,7 @@ fac.AntdCarousel(
             ],
             style={
                 'flex': 'auto',
+                'padding': '25px',
                 'width': 0
             }
         ),
@@ -359,24 +536,24 @@ fac.AntdCarousel(
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '基础使用', 'href': '#基础使用'},
-                            {'title': '自动轮播', 'href': '#自动轮播'},
-                            {'title': '不同的轮播指示器方位', 'href': '#不同的轮播指示器方位'},
-                            {'title': '不同的轮播切换效果', 'href': '#不同的轮播切换效果'},
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '自动轮播', 'href': '#自动轮播'},
+                    {'title': '不同的轮播指示器方位', 'href': '#不同的轮播指示器方位'},
+                    {'title': '不同的轮播切换效果', 'href': '#不同的轮播切换效果'},
+                    {'title': '设置轮播间隔', 'href': '#设置轮播间隔'},
+                    {'title': '设置过渡动画耗时', 'href': '#设置过渡动画耗时'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'margin': '20px'
+                'padding': '25px',
+                'flexShrink': 0
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdButton'
         )
     ],
     style={

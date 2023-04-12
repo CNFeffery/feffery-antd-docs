@@ -1,115 +1,185 @@
-**treeData：** *list*型，必填，无默认值
+**id：** *string*型
 
-用于*构建树形结构*的必要参数，元素为单个或多个字典，每个字典的**键值对**有：
+　　用于设置*当前组件的唯一id信息*
 
-- title：必填，*str*型，用于设置此节点显示的文字标签
-- key：必填，*str*型，相当于此节点的 id，需在整棵树内保持唯一性
-- disabled：可选，*bool*型，用于设置是否禁用此节点的交互性，默认为`False`即不禁用
-- icon：可选，*str*型，用于在参数`showIcon=True`时设置节点的前缀图标，对应`AntdIcon`中的所有内置图标
-- checkable：可选，*bool*型，用于在参数`checkable=True`时设置是否在节点前渲染勾选框，默认为`True`即渲染
-- disableCheckbox：可选，*bool*型，用于在参数`checkable=True`时设置是否禁用此节点的勾选框，默认为`False`即不禁用
-- selectable：可选，*bool*型，用于在参数`selectable=True`时设置此节点是否可点击选中，默认为`True`即可点击选中
-- children：可选，*list*型，用于构建此节点的子节点，同`treeData`格式
+**key：** *string*型
 
-下面是示例：
+　　对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
 
-```py
+**style：** *dict*型
+
+　　用于设置*当前组件的css样式*
+
+**className：** *string*或*dict*型
+
+　　用于设置*当前组件的css类名，支持[动态css](/advanced-classname)*
+
+**treeDataMode：** *string*型，默认为`'tree'`
+
+　　用于*设置针对treeData参数的解析模式*，可选的有`'tree'`（树形结构）、`'flat'`（扁平结构）
+
+**treeData：** `list[dict]`型，必填
+
+　　用于*构建树选择的选项结构*
+
+　　当`treeDataMode='tree'`时，`treeData`参数需要符合树形解析模式，每个字典的可用键值对参数有：
+
+- **title：** *string*型，必填，用于*设置当前节点对应的标题内容*
+- **key：** *string*型，必填，用于*唯一标识当前节点*
+- **disabled：** *bool*型，默认为`False`，用于*设置是否禁用当前节点*
+- **icon：** *string*型，用于*为当前节点设置前缀图标*，同`AntdIcon`中的同名参数
+- **checkable：** *bool*型，用于*设置是否为当前节点渲染勾选框*
+- **disableCheckbox：** *bool*型，用于*设置是否禁用当前节点的勾选框*
+- **selectable：** *bool*型，用于*设置当前节点是否可被选中*
+- **style：** *dict*型，用于*设置当前节点的css样式*
+- **className：** *string*型，用于*设置当前节点的css类名*
+- **tooltipProps：** *dict*型，用于*为当前节点配置信息提示相关功能*，可用的键值对参数有：
+  - **title：** *string*型，用于*设置当前节点对应信息提示的文字内容*
+  - **placement：** *string*型，用于*设置当前节点对应信息提示的展开方位*，可选的有`'top'`、`'left'`、`'right'`、`'bottom'`、`'topLeft'`、`'topRight'`、`'bottomLeft'`、`'bottomRight'`
+
+　　下面是树形`treeData`的示例：
+
+```python
 treeData = [
     {
-        'title': '世界',
-        'key': '世界',
-        'icon': 'antd-user',
+        'key': '节点1',
+        'title': '节点1',
         'children': [
             {
-                'title': '亚洲',
-                'key': '亚洲',
-                'children': [
-                    {
-                        'title': '中国',
-                        'key': '中国',
-                        'icon': 'antd-table'
-                    },
-                    {
-                        'title': '日本',
-                        'key': '日本',
-                        'icon': 'antd-database',
-                        'disabled': True
-                    }
-                ]
-            },
-            {
-                'title': '北美洲',
-                'key': '北美洲',
-                'icon': 'antd-file',
-                'children': [
-                    {
-                        'title': '美国',
-                        'key': '美国',
-                        'icon': 'antd-file-text'
-                    }
-                ]
+                'key': f'节点1-{i}',
+                'title': f'节点1-{i}'
             }
+            for i in range(1, 5)
         ]
+    },
+    {
+        'key': '节点2',
+        'title': '节点2'
     }
 ]
 ```
 
-**showIcon：** *bool*型，默认为`True`
+　　当`treeDataMode='flat'`时，`treeData`参数需要符合扁平解析模式，每个字典的可用键值对参数有：
 
-用于设置当前树形控件是否允许渲染节点前缀*图标*，`True`（渲染），`False`（不渲染）
+- **title：** *string*型，必填，用于*设置当前节点对应的标题内容*
+- **key：** *string*型，必填，用于*唯一标识当前节点*，从而实现父节点与子节点间的关联
+- **disabled：** *bool*型，默认为`False`，用于*设置是否禁用当前节点*
+- **icon：** *string*型，用于*为当前节点设置前缀图标*，同`AntdIcon`中的同名参数
+- **checkable：** *bool*型，用于*设置是否为当前节点渲染勾选框*
+- **disableCheckbox：** *bool*型，用于*设置是否禁用当前节点的勾选框*
+- **selectable：** *bool*型，用于*设置当前节点是否可被选中*
+- **style：** *dict*型，用于*设置当前节点的css样式*
+- **className：** *string*型，用于*设置当前节点的css类名*
+- **tooltipProps：** *dict*型，用于*为当前节点配置信息提示相关功能*，可用的键值对参数有：
+  - **title：** *string*型，用于*设置当前节点对应信息提示的文字内容*
+  - **placement：** *string*型，用于*设置当前节点对应信息提示的展开方位*，可选的有`'top'`、`'left'`、`'right'`、`'bottom'`、`'topLeft'`、`'topRight'`、`'bottomLeft'`、`'bottomRight'`
+- **parent：** *string*型，用于*声明当前节点的父节点key值*，从而实现父节点与子节点间的关联
 
-**checkable：** *bool*型，默认为`False`
+　　下面是扁平`treeData`的示例：
 
-用于整体设置各节点前是否*渲染勾选框*供用户点击勾选，`True`（渲染），`False`（不渲染）
+```python
+treeData = [
+    {
+        'key': '节点1',
+        'title': '节点1',
+        'children': [
+            {
+                'key': f'节点1-{i}',
+                'title': f'节点1-{i}'
+            }
+            for i in range(1, 5)
+        ]
+    },
+    {
+        'key': '节点2',
+        'title': '节点2'
+    }
+]
+```
+
+**showIcon：** *bool*型，默认为`False`
+
+　　用于*设置是否渲染树节点前缀的图标*
 
 **selectable：** *bool*型，默认为`True`
 
-用于整体设置各节点是否可*点击选中*，`True`（可点击），`False`（不可点击）
-
-**defaultExpandAll：** *bool*型，默认为`False`
-
-用于设置是否初始状态*展开全部*折叠的节点树
-
-**defaultExpandedKeys：** *list*型，默认为`[]`
-
-用于自定义设置初始状态哪些`key`对应节点被展开
-
-**defaultExpandParent：** *bool*型，默认为`False`
-
-当参数`defaultExpandedKeys`指定节点的上层节点未被展开时，通过设置此参数为`True`可强制其展开，保证了`defaultExpandedKeys`的展开效果
-
-**defaultCheckedKeys：** *list*型
-
-设置默认被勾选上的*节点 key 值列表*
-
-**defaultSelectedKeys：** *list*型
-
-设置默认被选择的*节点 key 值列表*
+　　用于*设置树节点是否可选中*
 
 **multiple：** *bool*型，默认为`False`
 
-用于设置节点被点击选中是否允许多选，`True`（允许），`False`（不允许）
+　　用于*设置树节点是否可进行多选点选*
 
-**showLine：** *bool*型，默认为`True`
+**checkable：** *bool*型，默认为`False`
 
-用于设置是否绘制节点之间的连接线，`True`（绘制），`False`（不绘制）
+　　用于*设置是否为树节点前添加勾选框*
 
-**height：** *int*型
+**defaultExpandAll：** *bool*型，默认为`False`
 
-用于设定树形控件的最大高度，超出部分将以滑轮滚动形式进行加载，且采用了*虚拟化*技术，适合在节点树较为庞大时使用以提升性能
+　　用于*设置初始化时是否展开全部节点*
+
+**expandedKeys：** `list[string]`型
+
+　　用于*设置或监听处于展开状态的节点key值数组*
+
+**defaultExpandedKeys：** `list[string]`型
+
+　　用于*设置初始化时处于展开状态的节点key值数组*
+
+**defaultExpandParent：** *bool*型，默认为`False`
+
+　　用于*设置初始化时展开的节点的父节点是否自动一并展开*
+
+**selectedKeys：** `list[string]`型
+
+　　用于*设置或监听处于选中状态的节点key值数组*
+
+**defaultSelectedKeys：** `list[string]`型
+
+　　用于*设置初始化时处于选中状态的节点key值数组*
+
+**checkedKeys：** `list[string]`型
+
+　　用于*设置或监听处于勾选状态的节点key值数组*
+
+**defaultCheckedKeys：** `list[string]`型
+
+　　用于*设置初始化时处于勾选状态的节点key值数组*
+
+**halfCheckedKeys：** `list[string]`型
+
+　　用于*监听处于半勾选状态下的节点key值数组*
 
 **checkStrictly：** *bool*型，默认为`False`
 
-用于设置先辈节点与后代节点之间的选择行为*是否彼此独立*，譬如设置为`True`时，父节点的选择行为不会使得其下所有子节点自动被选中
+　　用于*设置节点与其后代节点之间的勾选行为是否彼此独立不关联*
 
-**selectedKeys：** *list*型
+**showLine：** *bool*或*dict*型，默认为`{'showLeafIcon': False}`
 
-用于在回调中捕获*已被点击选中的节点`key`列表*
+　　用于*设置是否显示连接线*，当传入*dict*型输入时，可用的键值对参数有：
 
-**checkedKeys：** *list*型
+- **showLeafIcon：** *bool*型，用于*设置是否为叶节点渲染前缀图标*
 
-用于在回调中捕获*已被勾选选中的节点`key`列表*
+**height：** *int*或*float*型
 
-**halfCheckedKeys：** *list*型
+　　用于*设置虚拟滚动模式下的窗口像素高度*，不设置则不会开启虚拟滚动功能
 
-用于再回调中捕获*处于半勾选状态下的节点`key`列表*
+**draggable：** *bool*型，默认为`False`
+
+　　当`treeDataMode="tree"`时，用于*设置是否开启节点可拖拽功能*，每次有效拖拽行为完成后会将新的树结构更新到`treeData`中
+
+**draggedNodeKey：** *string*型
+
+　　用于*监听每次有效节点拖拽行为对应的节点key值*
+
+**persistence：** *bool*型
+
+　　用于*设置是否为当前组件开启属性持久化*
+
+**persisted_props：** *list*型，默认为`['selectedKeys', 'checkedKeys', 'expandedKeys', 'halfCheckedKeys']`
+
+　　用于*设置针对当前组件的哪些属性进行持久化*，可选的有`'selectedKeys'`、`'checkedKeys'`、`'expandedKeys'`、`'halfCheckedKeys'`
+
+**persistence_type：** *string*型，默认为`'local'`
+
+　　用于*设置针对当前组件进行属性持久化的存储类型*，可选的有`'local'`（浏览器本地缓存）、`'session'`（当前标签页会话缓存）、`'memory'`（内存临时缓存）
+

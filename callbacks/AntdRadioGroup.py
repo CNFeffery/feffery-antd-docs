@@ -7,5 +7,6 @@ from server import app
     Output('radio-group-demo-output', 'children'),
     Input('radio-group-demo', 'value')
 )
-def radio_group_demo_callback(value):
-    return str(value)
+def radio_group_demo(value):
+
+    return f'value: {value}'

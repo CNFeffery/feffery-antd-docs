@@ -1,67 +1,68 @@
 from dash import html
-import feffery_markdown_components as fmc
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
+import feffery_markdown_components as fmc
+
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdProgress(id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdProgress.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '反馈'
+                        },
+                        {
+                            'title': 'AntdProrgess 进度条'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　用于渲染常用形式的进度条。')
+                    ]
                 ),
 
                 html.Div(
                     [
-                        fac.AntdDivider('type="line"（默认）', innerTextOrientation='left'),
-                        fac.AntdProgress(percent=80, style={'width': '200px'}),
-                        fac.AntdDivider('type="circle"', innerTextOrientation='left'),
-                        fac.AntdProgress(percent=80, type='circle'),
-                        fac.AntdDivider('type="dashboard"', innerTextOrientation='left'),
-                        fac.AntdProgress(percent=80, type='dashboard'),
+                        fac.AntdDivider(
+                            'type="line"（默认）',
+                            innerTextOrientation='left'
+                        ),
+                        fac.AntdProgress(
+                            percent=80,
+                            style={
+                                'width': 200
+                            }
+                        ),
+                        fac.AntdDivider(
+                            'type="circle"',
+                            innerTextOrientation='left'
+                        ),
+                        fac.AntdProgress(
+                            percent=80,
+                            type='circle'
+                        ),
+                        fac.AntdDivider(
+                            'type="dashboard"',
+                            innerTextOrientation='left'
+                        ),
+                        fac.AntdProgress(
+                            percent=80,
+                            type='dashboard'
+                        ),
 
                         fac.AntdDivider(
                             '基础使用',
@@ -69,28 +70,43 @@ docs_content = html.Div(
                             innerTextOrientation='left'
                         ),
 
-                        fac.AntdParagraph(
-                            [
-                                fac.AntdText('　　基础的3种进度条类型')
-                            ]
-                        ),
-
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdDivider('type="line"（默认）', innerTextOrientation='left'),
-fac.AntdProgress(percent=80, style={'width': '200px'}),
-fac.AntdDivider('type="circle"', innerTextOrientation='left'),
-fac.AntdProgress(percent=80, type='circle'),
-fac.AntdDivider('type="dashboard"', innerTextOrientation='left'),
-fac.AntdProgress(percent=80, type='dashboard')
+fac.AntdDivider(
+    'type="line"（默认）',
+    innerTextOrientation='left'
+),
+fac.AntdProgress(
+    percent=80,
+    style={
+        'width': 200
+    }
+),
+fac.AntdDivider(
+    'type="circle"',
+    innerTextOrientation='left'
+),
+fac.AntdProgress(
+    percent=80,
+    type='circle'
+),
+fac.AntdDivider(
+    'type="dashboard"',
+    innerTextOrientation='left'
+),
+fac.AntdProgress(
+    percent=80,
+    type='dashboard'
+)
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -105,333 +121,278 @@ fac.AntdProgress(percent=80, type='dashboard')
 
                 html.Div(
                     [
-                        fac.AntdProgress(percent=100, style={'width': '200px'}),
-                        html.Br(),
-                        fac.AntdProgress(percent=100, type='circle'),
-                        html.Br(),
-                        fac.AntdProgress(percent=100, type='dashboard'),
+                        fac.AntdSpace(
+                            [
+                                fac.AntdProgress(
+                                    percent=100,
+                                    style={
+                                        'width': 200
+                                    }
+                                ),
+                                fac.AntdProgress(
+                                    percent=100,
+                                    type='circle'
+                                ),
+                                fac.AntdProgress(
+                                    percent=100,
+                                    type='dashboard'
+                                )
+                            ],
+                            direction='vertical'
+                        ),
 
                         fac.AntdDivider(
-                            'percent达到100时的状态',
+                            '100%状态样式',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdProgress(
+            percent=100,
+            style={
+                'width': 200
+            }
+        ),
+        fac.AntdProgress(
+            percent=100,
+            type='circle'
+        ),
+        fac.AntdProgress(
+            percent=100,
+            type='dashboard'
+        )
+    ],
+    direction='vertical'
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='100%状态样式',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSpace(
+                            [
+                                fac.AntdProgress(
+                                    percent=80,
+                                    status=status,
+                                    style={
+                                        'width': 425
+                                    }
+                                )
+                                for status in [
+                                    'normal', 'success', 'exception', 'active'
+                                ]
+                            ],
+                            direction='vertical',
+                            style={
+                                'width': '100%'
+                            }
+                        ),
+
+                        fac.AntdSpace(
+                            [
+                                fac.AntdProgress(
+                                    percent=80,
+                                    status=status,
+                                    type='circle'
+                                )
+                                for status in [
+                                    'normal', 'success', 'exception'
+                                ]
+                            ],
+                            style={
+                                'width': '100%'
+                            }
+                        ),
+
+                        fac.AntdSpace(
+                            [
+                                fac.AntdProgress(
+                                    percent=80,
+                                    status=status,
+                                    type='dashboard'
+                                )
+                                for status in [
+                                    'normal', 'success', 'exception'
+                                ]
+                            ],
+                            style={
+                                'width': '100%'
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '强制状态类型',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdProgress(
+            percent=80,
+            status=status,
+            style={
+                'width': 425
+            }
+        )
+        for status in [
+            'normal', 'success', 'exception', 'active'
+        ]
+    ],
+    direction='vertical',
+    style={
+        'width': '100%'
+    }
+),
+
+fac.AntdSpace(
+    [
+        fac.AntdProgress(
+            percent=80,
+            status=status,
+            type='circle'
+        )
+        for status in [
+            'normal', 'success', 'exception'
+        ]
+    ],
+    style={
+        'width': '100%'
+    }
+),
+
+fac.AntdSpace(
+    [
+        fac.AntdProgress(
+            percent=80,
+            status=status,
+            type='dashboard'
+        )
+        for status in [
+            'normal', 'success', 'exception'
+        ]
+    ],
+    style={
+        'width': '100%'
+    }
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='强制状态类型',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSpace(
+                            [
+                                fac.AntdProgress(
+                                    percent=80,
+                                    status=status,
+                                    size='small',
+                                    style={
+                                        'width': 425
+                                    }
+                                )
+                                for status in [
+                                    'normal', 'success', 'exception', 'active'
+                                ]
+                            ],
+                            direction='vertical',
+                            style={
+                                'width': '100%'
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '迷你尺寸进度条',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdParagraph(
                             [
-                                fac.AntdText('　　基础的3种进度条类型')
-                            ]
-                        ),
-
-                        fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
-                                language='python',
-                                 codeTheme='coy-without-shadows',
-                                codeString='''
-fac.AntdProgress(percent=100, style={'width': '200px'}),
-html.Br(),
-fac.AntdProgress(percent=100, type='circle'),
-html.Br(),
-fac.AntdProgress(percent=100, type='dashboard')
-'''
-                            ),
-                            title='点击查看代码',
-                            is_open=False,
-                            ghost=True
-                        )
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='percent达到100时的状态',
-                    className='div-highlight'
-                ),
-
-                html.Div(
-                    [
-                        fac.AntdProgress(
-                            percent=100,
-                            format={
-                                'prefix': '结果：',
-                                'suffix': '分'
-                            },
+                                '针对',
+                                fac.AntdText(
+                                    'line',
+                                    strong=True
+                                ),
+                                '型进度条可设置迷你尺寸规格'
+                            ],
                             style={
-                                'width': '200px'
+                                'textIndent': '2rem'
                             }
                         ),
-                        html.Br(),
-                        fac.AntdProgress(
-                            percent=60,
-                            format={
-                                'content': '及格'
-                            },
-                            type='circle'
-                        ),
-                        html.Br(),
-                        fac.AntdProgress(
-                            percent=30,
-                            format={
-                                'content': '不及格'
-                            },
-                            type='dashboard'
-                        ),
-
-                        fac.AntdDivider(
-                            '自定义百分比数值内容',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdProgress(
-    percent=100,
-    format={
-        'prefix': '结果：',
-        'suffix': '分'
-    },
-    style={
-        'width': '200px'
-    }
-),
-html.Br(),
-fac.AntdProgress(
-    percent=60,
-    format={
-        'content': '及格'
-    },
-    type='circle'
-),
-html.Br(),
-fac.AntdProgress(
-    percent=30,
-    format={
-        'content': '不及格'
-    },
-    type='dashboard'
-)
-'''
-                            ),
-                            title='点击查看代码',
-                            is_open=False,
-                            ghost=True
-                        )
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='自定义百分比数值内容',
-                    className='div-highlight'
-                ),
-
-                html.Div(
-                    [
-                        fac.AntdTabs(
-                            [
-                                fac.AntdTabPane(
-                                    [
-                                        fac.AntdDivider('status="success"', innerTextOrientation='left'),
-                                        fac.AntdProgress(
-                                            percent=80,
-                                            status='success',
-                                            style={
-                                                'width': '200px'
-                                            }
-                                        ),
-                                        fac.AntdDivider('status="exception"', innerTextOrientation='left'),
-                                        fac.AntdProgress(
-                                            percent=80,
-                                            status='exception',
-                                            style={
-                                                'width': '200px'
-                                            }
-                                        ),
-                                        fac.AntdDivider('status="normal"', innerTextOrientation='left'),
-                                        fac.AntdProgress(
-                                            percent=80,
-                                            status='normal',
-                                            style={
-                                                'width': '200px'
-                                            }
-                                        ),
-                                        fac.AntdDivider('status="active"', innerTextOrientation='left'),
-                                        fac.AntdProgress(
-                                            percent=80,
-                                            status='active',
-                                            style={
-                                                'width': '200px'
-                                            }
-                                        )
-                                    ],
-                                    tab='线型进度条',
-                                    key='线型进度条'
-                                ),
-                                fac.AntdTabPane(
-                                    [
-                                        fac.AntdDivider('status="success"', innerTextOrientation='left'),
-                                        fac.AntdProgress(
-                                            percent=80,
-                                            status='success',
-                                            type='circle'
-                                        ),
-                                        fac.AntdDivider('status="exception"', innerTextOrientation='left'),
-                                        fac.AntdProgress(
-                                            percent=80,
-                                            status='exception',
-                                            type='circle'
-                                        ),
-                                        fac.AntdDivider('status="normal"', innerTextOrientation='left'),
-                                        fac.AntdProgress(
-                                            percent=80,
-                                            status='normal',
-                                            type='circle'
-                                        )
-                                    ],
-                                    tab='环形进度条',
-                                    key='环形进度条'
-                                ),
-                                fac.AntdTabPane(
-                                    [
-                                        fac.AntdDivider('status="success"', innerTextOrientation='left'),
-                                        fac.AntdProgress(
-                                            percent=80,
-                                            status='success',
-                                            type='dashboard'
-                                        ),
-                                        fac.AntdDivider('status="exception"', innerTextOrientation='left'),
-                                        fac.AntdProgress(
-                                            percent=80,
-                                            status='exception',
-                                            type='dashboard'
-                                        ),
-                                        fac.AntdDivider('status="normal"', innerTextOrientation='left'),
-                                        fac.AntdProgress(
-                                            percent=80,
-                                            status='normal',
-                                            type='dashboard'
-                                        )
-                                    ],
-                                    tab='仪表盘进度条',
-                                    key='仪表盘进度条'
-                                )
-                            ]
-                        ),
-
-                        fac.AntdDivider(
-                            '不同的自定义状态',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
-
-                        fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
-                                language='python',
-                                 codeTheme='coy-without-shadows',
-                                codeString='''
-fac.AntdTabs(
+fac.AntdSpace(
     [
-        fac.AntdTabPane(
-            [
-                fac.AntdDivider('status="success"', innerTextOrientation='left'),
-                fac.AntdProgress(
-                    percent=80,
-                    status='success',
-                    style={
-                        'width': '200px'
-                    }
-                ),
-                fac.AntdDivider('status="exception"', innerTextOrientation='left'),
-                fac.AntdProgress(
-                    percent=80,
-                    status='exception',
-                    style={
-                        'width': '200px'
-                    }
-                ),
-                fac.AntdDivider('status="normal"', innerTextOrientation='left'),
-                fac.AntdProgress(
-                    percent=80,
-                    status='normal',
-                    style={
-                        'width': '200px'
-                    }
-                ),
-                fac.AntdDivider('status="active"', innerTextOrientation='left'),
-                fac.AntdProgress(
-                    percent=80,
-                    status='active',
-                    style={
-                        'width': '200px'
-                    }
-                )
-            ],
-            tab='线型进度条',
-            key='线型进度条'
-        ),
-        fac.AntdTabPane(
-            [
-                fac.AntdDivider('status="success"', innerTextOrientation='left'),
-                fac.AntdProgress(
-                    percent=80,
-                    status='success',
-                    type='circle'
-                ),
-                fac.AntdDivider('status="exception"', innerTextOrientation='left'),
-                fac.AntdProgress(
-                    percent=80,
-                    status='exception',
-                    type='circle'
-                ),
-                fac.AntdDivider('status="normal"', innerTextOrientation='left'),
-                fac.AntdProgress(
-                    percent=80,
-                    status='normal',
-                    type='circle'
-                )
-            ],
-            tab='环形进度条',
-            key='环形进度条'
-        ),
-        fac.AntdTabPane(
-            [
-                fac.AntdDivider('status="success"', innerTextOrientation='left'),
-                fac.AntdProgress(
-                    percent=80,
-                    status='success',
-                    type='dashboard'
-                ),
-                fac.AntdDivider('status="exception"', innerTextOrientation='left'),
-                fac.AntdProgress(
-                    percent=80,
-                    status='exception',
-                    type='dashboard'
-                ),
-                fac.AntdDivider('status="normal"', innerTextOrientation='left'),
-                fac.AntdProgress(
-                    percent=80,
-                    status='normal',
-                    type='dashboard'
-                )
-            ],
-            tab='仪表盘进度条',
-            key='仪表盘进度条'
+        fac.AntdProgress(
+            percent=80,
+            status=status,
+            size='small',
+            style={
+                'width': 425
+            }
         )
-    ]
+        for status in [
+            'normal', 'success', 'exception', 'active'
+        ]
+    ],
+    direction='vertical',
+    style={
+        'width': '100%'
+    }
 )
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -440,240 +401,445 @@ fac.AntdTabs(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='不同的自定义状态',
+                    id='迷你尺寸进度条',
                     className='div-highlight'
                 ),
 
                 html.Div(
                     [
-                        fac.AntdProgress(
-                            percent=100,
-                            showInfo=False,
+                        fac.AntdSpace(
+                            [
+                                fac.AntdProgress(
+                                    percent=80,
+                                    format={
+                                        'prefix': '进度'
+                                    },
+                                    style={
+                                        'width': 200
+                                    }
+                                ),
+                                fac.AntdProgress(
+                                    percent=80,
+                                    format={
+                                        'suffix': '分'
+                                    },
+                                    type='circle'
+                                ),
+                                fac.AntdProgress(
+                                    percent=80,
+                                    format={
+                                        'content': '🚀🚀🚀'
+                                    },
+                                    type='dashboard'
+                                )
+                            ],
+                            direction='vertical'
+                        ),
+
+                        fac.AntdDivider(
+                            '自定义百分比内容',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdProgress(
+            percent=80,
+            format={
+                'prefix': '进度'
+            },
+            style={
+                'width': 200
+            }
+        ),
+        fac.AntdProgress(
+            percent=80,
+            format={
+                'suffix': '分'
+            },
+            type='circle'
+        ),
+        fac.AntdProgress(
+            percent=80,
+            format={
+                'content': '🚀🚀🚀'
+            },
+            type='dashboard'
+        )
+    ],
+    direction='vertical'
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='自定义百分比内容',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSpace(
+                            [
+                                fac.AntdProgress(
+                                    percent=80,
+                                    strokeColor={
+                                        'from': '#f067b4',
+                                        'to': '#81ffef'
+                                    },
+                                    style={
+                                        'width': 200
+                                    }
+                                ),
+                                fac.AntdProgress(
+                                    percent=80,
+                                    strokeColor={
+                                        'from': '#f067b4',
+                                        'to': '#81ffef'
+                                    },
+                                    type='circle'
+                                ),
+                                fac.AntdProgress(
+                                    percent=80,
+                                    strokeColor={
+                                        'from': '#f067b4',
+                                        'to': '#81ffef'
+                                    },
+                                    type='dashboard'
+                                )
+                            ],
+                            direction='vertical'
+                        ),
+
+                        fac.AntdDivider(
+                            '设置渐变色',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdProgress(
+            percent=80,
+            strokeColor={
+                'from': '#f067b4',
+                'to': '#81ffef'
+            },
+            style={
+                'width': 200
+            }
+        ),
+        fac.AntdProgress(
+            percent=80,
+            strokeColor={
+                'from': '#f067b4',
+                'to': '#81ffef'
+            },
+            type='circle'
+        ),
+        fac.AntdProgress(
+            percent=80,
+            strokeColor={
+                'from': '#f067b4',
+                'to': '#81ffef'
+            },
+            type='dashboard'
+        )
+    ],
+    direction='vertical'
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='设置渐变色',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSpace(
+                            [
+                                fac.AntdProgress(
+                                    percent=80,
+                                    trailColor='#a5d8ff',
+                                    style={
+                                        'width': 200
+                                    }
+                                ),
+                                fac.AntdProgress(
+                                    percent=80,
+                                    trailColor='#a5d8ff',
+                                    type='circle'
+                                ),
+                                fac.AntdProgress(
+                                    percent=80,
+                                    trailColor='#a5d8ff',
+                                    type='dashboard'
+                                )
+                            ],
+                            direction='vertical'
+                        ),
+
+                        fac.AntdDivider(
+                            '设置未完成部分颜色',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdProgress(
+            percent=80,
+            trailColor='#a5d8ff',
+            style={
+                'width': 200
+            }
+        ),
+        fac.AntdProgress(
+            percent=80,
+            trailColor='#a5d8ff',
+            type='circle'
+        ),
+        fac.AntdProgress(
+            percent=80,
+            trailColor='#a5d8ff',
+            type='dashboard'
+        )
+    ],
+    direction='vertical'
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='设置未完成部分颜色',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSpace(
+                            [
+                                fac.AntdProgress(
+                                    percent=80,
+                                    type='dashboard',
+                                    gapPosition=position
+                                )
+                                for position in [
+                                    'left', 'top', 'right', 'bottom'
+                                ]
+                            ],
+                            direction='vertical'
+                        ),
+
+                        fac.AntdDivider(
+                            '设置仪表盘开口方向',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='设置仪表盘开口方向',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdDivider(
+                            '默认分段宽度',
+                            innerTextOrientation='left'
+                        ),
+                        fac.AntdSpace(
+                            [
+                                fac.AntdProgress(
+                                    percent=40,
+                                    steps=10
+                                ),
+                                fac.AntdProgress(
+                                    percent=100,
+                                    steps=5,
+                                    strokeColor='#52c41a'
+                                ),
+                                fac.AntdProgress(
+                                    percent=80,
+                                    steps=10,
+                                    size='small'
+                                )
+                            ],
+                            direction='vertical',
                             style={
-                                'width': '200px'
+                                'width': '100%'
                             }
                         ),
-                        html.Br(),
-                        fac.AntdProgress(
-                            percent=60,
-                            showInfo=False,
-                            type='circle'
+
+                        fac.AntdDivider(
+                            '自定义分段宽度',
+                            innerTextOrientation='left'
                         ),
-                        html.Br(),
-                        fac.AntdProgress(
-                            percent=30,
-                            showInfo=False,
-                            type='dashboard'
+                        fuc.FefferyStyle(
+                            rawStyle='''
+#progress-custom-step-width .ant-progress-steps-item {
+    width: 30px !important;
+}
+'''
+                        ),
+                        fac.AntdSpace(
+                            [
+                                fac.AntdProgress(
+                                    percent=40,
+                                    steps=10
+                                ),
+                                fac.AntdProgress(
+                                    percent=100,
+                                    steps=5,
+                                    strokeColor='#52c41a'
+                                )
+                            ],
+                            id='progress-custom-step-width',
+                            direction='vertical',
+                            style={
+                                'width': '100%'
+                            }
                         ),
 
                         fac.AntdDivider(
-                            '关闭额外说明内容',
+                            '分段line型进度条',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
-                                codeString='''
-fac.AntdProgress(
-    percent=100,
-    showInfo=False,
+                                codeTheme='coy-without-shadows',
+                                codeString="""
+fac.AntdDivider(
+    '默认分段宽度',
+    innerTextOrientation='left'
+),
+fac.AntdSpace(
+    [
+        fac.AntdProgress(
+            percent=40,
+            steps=10
+        ),
+        fac.AntdProgress(
+            percent=100,
+            steps=5,
+            strokeColor='#52c41a'
+        ),
+        fac.AntdProgress(
+            percent=80,
+            steps=10,
+            size='small'
+        )
+    ],
+    direction='vertical',
     style={
-        'width': '200px'
+        'width': '100%'
     }
 ),
-html.Br(),
-fac.AntdProgress(
-    percent=60,
-    showInfo=False,
-    type='circle'
+
+fac.AntdDivider(
+    '自定义分段宽度',
+    innerTextOrientation='left'
 ),
-html.Br(),
-fac.AntdProgress(
-    percent=30,
-    showInfo=False,
-    type='dashboard'
-)
+fuc.FefferyStyle(
+    rawStyle='''
+#progress-custom-step-width .ant-progress-steps-item {
+    width: 30px !important;
+}
 '''
-                            ),
-                            title='点击查看代码',
-                            is_open=False,
-                            ghost=True
-                        )
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='关闭额外说明内容',
-                    className='div-highlight'
-                ),
-
-                html.Div(
-                    [
-                        fac.AntdTabs(
-                            [
-                                fac.AntdTabPane(
-                                    [
-                                        fac.AntdDivider('单一色彩', innerTextOrientation='left'),
-                                        fac.AntdProgress(
-                                            percent=80,
-                                            strokeColor='#2e62cd',
-                                            style={
-                                                'width': '200px'
-                                            }
-                                        ),
-                                        fac.AntdDivider('渐变色彩', innerTextOrientation='left'),
-                                        fac.AntdProgress(
-                                            percent=80,
-                                            strokeColor={
-                                                'from': '#00F5A0',
-                                                'to': '#00D9F5'
-                                            },
-                                            style={
-                                                'width': '200px'
-                                            }
-                                        )
-                                    ],
-                                    tab='线型进度条',
-                                    key='线型进度条'
-                                ),
-                                fac.AntdTabPane(
-                                    [
-                                        fac.AntdDivider('单一色彩', innerTextOrientation='left'),
-                                        fac.AntdProgress(
-                                            percent=80,
-                                            strokeColor='#2e62cd',
-                                            type='circle'
-                                        ),
-                                        fac.AntdDivider('渐变色彩', innerTextOrientation='left'),
-                                        fac.AntdProgress(
-                                            percent=80,
-                                            strokeColor={
-                                                'from': '#00F5A0',
-                                                'to': '#00D9F5'
-                                            },
-                                            type='circle'
-                                        )
-                                    ],
-                                    tab='环形进度条',
-                                    key='环形进度条'
-                                ),
-                                fac.AntdTabPane(
-                                    [
-                                        fac.AntdDivider('单一色彩', innerTextOrientation='left'),
-                                        fac.AntdProgress(
-                                            percent=80,
-                                            strokeColor='#2e62cd',
-                                            type='dashboard'
-                                        ),
-                                        fac.AntdDivider('渐变色彩', innerTextOrientation='left'),
-                                        fac.AntdProgress(
-                                            percent=80,
-                                            strokeColor={
-                                                'from': '#00F5A0',
-                                                'to': '#00D9F5'
-                                            },
-                                            type='dashboard'
-                                        )
-                                    ],
-                                    tab='仪表盘进度条',
-                                    key='仪表盘进度条'
-                                )
-                            ]
-                        ),
-
-                        fac.AntdDivider(
-                            '自定义进度条颜色',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
-
-                        fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
-                                language='python',
-                                 codeTheme='coy-without-shadows',
-                                codeString='''
-fac.AntdTabs(
+),
+fac.AntdSpace(
     [
-        fac.AntdTabPane(
-            [
-                fac.AntdDivider('单一色彩', innerTextOrientation='left'),
-                fac.AntdProgress(
-                    percent=80,
-                    strokeColor='#2e62cd',
-                    style={
-                        'width': '200px'
-                    }
-                ),
-                fac.AntdDivider('渐变色彩', innerTextOrientation='left'),
-                fac.AntdProgress(
-                    percent=80,
-                    strokeColor={
-                        'from': '#00F5A0',
-                        'to': '#00D9F5'
-                    },
-                    style={
-                        'width': '200px'
-                    }
-                )
-            ],
-            tab='线型进度条',
-            key='线型进度条'
+        fac.AntdProgress(
+            percent=40,
+            steps=10
         ),
-        fac.AntdTabPane(
-            [
-                fac.AntdDivider('单一色彩', innerTextOrientation='left'),
-                fac.AntdProgress(
-                    percent=80,
-                    strokeColor='#2e62cd',
-                    type='circle'
-                ),
-                fac.AntdDivider('渐变色彩', innerTextOrientation='left'),
-                fac.AntdProgress(
-                    percent=80,
-                    strokeColor={
-                        'from': '#00F5A0',
-                        'to': '#00D9F5'
-                    },
-                    type='circle'
-                )
-            ],
-            tab='环形进度条',
-            key='环形进度条'
-        ),
-        fac.AntdTabPane(
-            [
-                fac.AntdDivider('单一色彩', innerTextOrientation='left'),
-                fac.AntdProgress(
-                    percent=80,
-                    strokeColor='#2e62cd',
-                    type='dashboard'
-                ),
-                fac.AntdDivider('渐变色彩', innerTextOrientation='left'),
-                fac.AntdProgress(
-                    percent=80,
-                    strokeColor={
-                        'from': '#00F5A0',
-                        'to': '#00D9F5'
-                    },
-                    type='dashboard'
-                )
-            ],
-            tab='仪表盘进度条',
-            key='仪表盘进度条'
+        fac.AntdProgress(
+            percent=100,
+            steps=5,
+            strokeColor='#52c41a'
         )
-    ]
+    ],
+    id='progress-custom-step-width',
+    direction='vertical',
+    style={
+        'width': '100%'
+    }
 )
-'''
+"""
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -682,92 +848,40 @@ fac.AntdTabs(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='自定义进度条颜色',
-                    className='div-highlight'
-                ),
-
-                html.Div(
-                    [
-                        fac.AntdProgress(
-                            percent=80,
-                            steps=10
-                        ),
-                        html.Br(),
-                        fac.AntdProgress(
-                            percent=80,
-                            steps=10,
-                            size='small'
-                        ),
-
-                        fac.AntdDivider(
-                            '分段线型进度条',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
-
-                        fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
-                                language='python',
-                                 codeTheme='coy-without-shadows',
-                                codeString='''
-fac.AntdProgress(
-    percent=80,
-    steps=10
-),
-html.Br(),
-fac.AntdProgress(
-    percent=80,
-    steps=10,
-    size='small'
-)
-'''
-                            ),
-                            title='点击查看代码',
-                            is_open=False,
-                            ghost=True
-                        )
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='分段线型进度条',
+                    id='分段line型进度条',
                     className='div-highlight'
                 ),
 
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
-
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '基础使用', 'href': '#基础使用'},
-                            {'title': 'percent达到100时的状态', 'href': '#percent达到100时的状态'},
-                            {'title': '自定义百分比数值内容', 'href': '#自定义百分比数值内容'},
-                            {'title': '不同的自定义状态', 'href': '#不同的自定义状态'},
-                            {'title': '关闭额外说明内容', 'href': '#关闭额外说明内容'},
-                            {'title': '自定义进度条颜色', 'href': '#自定义进度条颜色'},
-                            {'title': '分段线型进度条', 'href': '#分段线型进度条'},
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '100%状态样式', 'href': '#100%状态样式'},
+                    {'title': '强制状态类型', 'href': '#强制状态类型'},
+                    {'title': '迷你尺寸进度条', 'href': '#迷你尺寸进度条'},
+                    {'title': '自定义百分比内容', 'href': '#自定义百分比内容'},
+                    {'title': '设置渐变色', 'href': '#设置渐变色'},
+                    {'title': '设置未完成部分颜色', 'href': '#设置未完成部分颜色'},
+                    {'title': '设置仪表盘开口方向', 'href': '#设置仪表盘开口方向'},
+                    {'title': '分段line型进度条', 'href': '#分段line型进度条'}
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'margin': '20px'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdProgress'
         )
     ],
     style={

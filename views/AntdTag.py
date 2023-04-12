@@ -1,63 +1,49 @@
 from dash import html
-import feffery_utils_components as fuc
-import feffery_markdown_components as fmc
 import feffery_antd_components as fac
+import feffery_markdown_components as fmc
+
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdTag(id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdTag.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '数据展示'
+                        },
+                        {
+                            'title': 'AntdTag 标签'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　用于渲染美观的小标签。')
+                    ]
                 ),
 
                 html.Div(
                     [
-                        fac.AntdTag(
-                            content='标签测试'
+                        fac.AntdSpace(
+                            [
+                                fac.AntdTag(
+                                    content=f'标签{i}'
+                                )
+                                for i in range(1, 4)
+                            ],
+                            size='small'
                         ),
 
                         fac.AntdDivider(
@@ -67,17 +53,25 @@ docs_content = html.Div(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdTag(
-    content='标签测试'
-)'''
+fac.AntdSpace(
+    [
+        fac.AntdTag(
+            content=f'标签{i}'
+        )
+        for i in range(1, 4)
+    ],
+    size='small'
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -92,8 +86,10 @@ fac.AntdTag(
 
                 html.Div(
                     [
-                        fac.AntdDivider('内置色彩风格', innerTextOrientation='left'),
-
+                        fac.AntdDivider(
+                            '使用内置色彩主题',
+                            innerTextOrientation='left'
+                        ),
                         fac.AntdSpace(
                             [
                                 fac.AntdTag(
@@ -101,24 +97,27 @@ fac.AntdTag(
                                     color=color
                                 )
                                 for color in [
-                                'magenta',
-                                'red',
-                                'volcano',
-                                'orange',
-                                'gold',
-                                'lime',
-                                'green',
-                                'cyan',
-                                'blue',
-                                'geekblue',
-                                'purple'
-                            ]
+                                    'magenta',
+                                    'red',
+                                    'volcano',
+                                    'orange',
+                                    'gold',
+                                    'lime',
+                                    'green',
+                                    'cyan',
+                                    'blue',
+                                    'geekblue',
+                                    'purple'
+                                ]
                             ],
-                            direction='vertical'
+                            wrap=True,
+                            size='small'
                         ),
 
-                        fac.AntdDivider('自定义色彩风格', innerTextOrientation='left'),
-
+                        fac.AntdDivider(
+                            '使用任意css颜色值',
+                            innerTextOrientation='left'
+                        ),
                         fac.AntdSpace(
                             [
                                 fac.AntdTag(
@@ -126,13 +125,19 @@ fac.AntdTag(
                                     color=color
                                 )
                                 for color in [
-                                '#f50',
-                                '#2db7f5',
-                                '#87d068',
-                                '#108ee9'
-                            ]
+                                    '#c5f6fa',
+                                    '#99e9f2',
+                                    '#66d9e8',
+                                    '#3bc9db',
+                                    '#22b8cf',
+                                    '#15aabf',
+                                    '#1098ad',
+                                    '#0c8599',
+                                    '#0b7285'
+                                ]
                             ],
-                            direction='vertical'
+                            wrap=True,
+                            size='small'
                         ),
 
                         fac.AntdDivider(
@@ -142,13 +147,16 @@ fac.AntdTag(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdDivider('内置色彩风格', innerTextOrientation='left'),
-
+fac.AntdDivider(
+    '使用内置色彩主题',
+    innerTextOrientation='left'
+),
 fac.AntdSpace(
     [
         fac.AntdTag(
@@ -156,24 +164,27 @@ fac.AntdSpace(
             color=color
         )
         for color in [
-        'magenta',
-        'red',
-        'volcano',
-        'orange',
-        'gold',
-        'lime',
-        'green',
-        'cyan',
-        'blue',
-        'geekblue',
-        'purple'
-    ]
+            'magenta',
+            'red',
+            'volcano',
+            'orange',
+            'gold',
+            'lime',
+            'green',
+            'cyan',
+            'blue',
+            'geekblue',
+            'purple'
+        ]
     ],
-    direction='vertical'
+    wrap=True,
+    size='small'
 ),
 
-fac.AntdDivider('自定义色彩风格', innerTextOrientation='left'),
-
+fac.AntdDivider(
+    '使用任意css颜色值',
+    innerTextOrientation='left'
+),
 fac.AntdSpace(
     [
         fac.AntdTag(
@@ -181,17 +192,24 @@ fac.AntdSpace(
             color=color
         )
         for color in [
-        '#f50',
-        '#2db7f5',
-        '#87d068',
-        '#108ee9'
-    ]
+            '#c5f6fa',
+            '#99e9f2',
+            '#66d9e8',
+            '#3bc9db',
+            '#22b8cf',
+            '#15aabf',
+            '#1098ad',
+            '#0c8599',
+            '#0b7285'
+        ]
     ],
-    direction='vertical'
-)'''
+    wrap=True,
+    size='small'
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -207,31 +225,45 @@ fac.AntdSpace(
                 html.Div(
                     [
                         fac.AntdTag(
-                            content='fac官方github仓库',
-                            color='cyan',
-                            href='https://github.com/CNFeffery/feffery-antd-components'
+                            content='fuc官网',
+                            href='https://fuc.feffery.tech',
+                            color='cyan'
+                        ),
+
+                        fac.AntdTag(
+                            content='fmc官网',
+                            href='https://fmc.feffery.tech',
+                            color='green'
                         ),
 
                         fac.AntdDivider(
-                            '充当链接功能',
+                            '充当链接使用',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdTag(
-    content='fac官方github仓库',
-    color='cyan',
-    href='https://github.com/CNFeffery/feffery-antd-components'
-)'''
+    content='fuc官网',
+    href='https://fuc.feffery.tech',
+    color='cyan'
+),
+
+fac.AntdTag(
+    content='fmc官网',
+    href='https://fmc.feffery.tech',
+    color='green'
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -240,36 +272,34 @@ fac.AntdTag(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='充当链接功能',
+                    id='充当链接使用',
                     className='div-highlight'
                 ),
 
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '基础使用', 'href': '#基础使用'},
-                            {'title': '不同的色彩风格', 'href': '#不同的色彩风格'},
-                            {'title': '充当链接功能', 'href': '#充当链接功能'},
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '不同的色彩风格', 'href': '#不同的色彩风格'},
+                    {'title': '充当链接使用', 'href': '#充当链接使用'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'margin': '20px'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdTag'
         )
     ],
     style={

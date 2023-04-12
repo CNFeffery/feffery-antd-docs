@@ -1,27 +1,56 @@
-**options：** *list*型
+**id：** *string*型
 
-　　用于定义组内每个选项相关参数，每个选项由字典定义，可用的键有：
+　　用于设置*当前组件的唯一id信息*
 
-- label：*str*型，用于设置当前选择框显示的*文本内容*
-- value：*str*或*int*型，用于设置当前选择框对应值
-- disabled：*bool*型，用于设置是否禁用当前选项
+**key：** *string*型
 
-**block：** *bool*型，默认为`False`
+　　对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
 
-　　用于*设置当前组件是否撑满父容器的宽度*
+**style：** *dict*型
+
+　　用于设置*当前组件的css样式*
+
+**className：** *string*或*dict*型
+
+　　用于设置*当前组件的css类名*，支持[动态css](/advanced-classname)
 
 **disabled：** *bool*型，默认为`False`
 
-　　用于设置是否*禁用组件*
+　　用于*设置是否禁用当前组件*
 
-**size：** *str*型，默认为`'middle'`
+**options：** `list[dict]`型
 
-　　用于设置*组件尺寸大小*，可选的有`'large'`、`'middle'`与`'small'`
+　　用于*定义选项*，每个字典表示一个选项，可用的键值对参数有：
 
-**defaultValue：** *str*或*int*型
+- **label：** *组件型*，必填，用于*设置当前选项的标签内容*
+- **value：** *int*、*float*或*string*型，必填，用于*设置当前选项对应的选中值*
+- **disabled：** *bool*型，默认为`False`，用于*设置是否禁用当前选项*
+- **icon：** *string*型，用于*设置当前选项的前缀图标*，同`AntdIcon`中的同名参数
 
-　　设置*默认选中*的选项对应`value`
+**value：** *int*、*float*或*string*型
 
-**value：** *str*型
+　　用于*监听或设置当前已选中值*
 
-　　对应*当前已选中*的选项对应`value`
+**defaultValue：** *int*、*float*或*string*型
+
+　　用于*设置初始化时的已选中值*
+
+**block：** *bool*型，默认为`False`
+
+　　用于*设置当前分段控制器是否撑满父容器宽度*
+
+**size：** *string*型，默认为`'middle'`
+
+　　用于*设置当前组件的尺寸规格*，可选的有`'small'`、`'middle'`、`'large'`
+
+**persistence：** *bool*型
+
+　　用于*设置是否为当前组件开启属性持久化*
+
+**persisted_props：** *list*型，默认为`['value']`
+
+　　用于*设置针对当前组件的哪些属性进行持久化*，可选的有`'value'`
+
+**persistence_type：** *string*型，默认为`'local'`
+
+　　用于*设置针对当前组件进行属性持久化的存储类型*，可选的有`'local'`（浏览器本地缓存）、`'session'`（当前标签页会话缓存）、`'memory'`（内存临时缓存）

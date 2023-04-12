@@ -1,81 +1,59 @@
 from dash import html
-import feffery_markdown_components as fmc
 import feffery_antd_components as fac
-import feffery_utils_components as fuc
+import feffery_markdown_components as fmc
 
 import callbacks.AntdDropdown
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdDropdown(id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdDropdown.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '导航'
+                        },
+                        {
+                            'title': 'AntdDropdown 下拉菜单'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　用于展示具有若干选项或链接的向下弹出的列表。')
+                    ]
                 ),
 
                 html.Div(
                     [
-
                         fac.AntdDropdown(
                             title='触发点',
                             menuItems=[
                                 {
-                                    'title': '子页面1'
+                                    'title': '选项1'
                                 },
                                 {
-                                    'title': '子页面2'
+                                    'title': '选项2'
                                 },
                                 {
                                     'isDivider': True
                                 },
                                 {
-                                    'title': '子页面3-1'
+                                    'title': '选项3-1'
                                 },
                                 {
-                                    'title': '子页面3-2'
+                                    'title': '选项3-2'
                                 }
                             ]
                         ),
@@ -87,35 +65,36 @@ docs_content = html.Div(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdDropdown(
     title='触发点',
     menuItems=[
         {
-            'title': '子页面1'
+            'title': '选项1'
         },
         {
-            'title': '子页面2'
+            'title': '选项2'
         },
         {
             'isDivider': True
         },
         {
-            'title': '子页面3-1'
+            'title': '选项3-1'
         },
         {
-            'title': '子页面3-2'
+            'title': '选项3-2'
         }
     ]
 )
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -130,26 +109,82 @@ fac.AntdDropdown(
 
                 html.Div(
                     [
+                        fac.AntdSpace(
+                            [
+                                fac.AntdDropdown(
+                                    title='触发点',
+                                    buttonMode=True,
+                                    menuItems=[
+                                        {
+                                            'title': '子页面1'
+                                        },
+                                        {
+                                            'title': '子页面2'
+                                        },
+                                        {
+                                            'isDivider': True
+                                        },
+                                        {
+                                            'title': '子页面3-1'
+                                        },
+                                        {
+                                            'title': '子页面3-2'
+                                        }
+                                    ]
+                                ),
 
-                        fac.AntdDropdown(
-                            title='触发点',
-                            buttonMode=True,
-                            menuItems=[
-                                {
-                                    'title': '子页面1'
-                                },
-                                {
-                                    'title': '子页面2'
-                                },
-                                {
-                                    'isDivider': True
-                                },
-                                {
-                                    'title': '子页面3-1'
-                                },
-                                {
-                                    'title': '子页面3-2'
-                                }
+                                fac.AntdDropdown(
+                                    title='触发点',
+                                    buttonMode=True,
+                                    buttonProps={
+                                        'size': 'large',
+                                        'type': 'dashed'
+                                    },
+                                    menuItems=[
+                                        {
+                                            'title': '子页面1'
+                                        },
+                                        {
+                                            'title': '子页面2'
+                                        },
+                                        {
+                                            'isDivider': True
+                                        },
+                                        {
+                                            'title': '子页面3-1'
+                                        },
+                                        {
+                                            'title': '子页面3-2'
+                                        }
+                                    ]
+                                ),
+
+                                fac.AntdDropdown(
+                                    title='触发点',
+                                    buttonMode=True,
+                                    buttonProps={
+                                        'size': 'small',
+                                        'type': 'primary',
+                                        'danger': True
+                                    },
+                                    menuItems=[
+                                        {
+                                            'title': '子页面1'
+                                        },
+                                        {
+                                            'title': '子页面2'
+                                        },
+                                        {
+                                            'isDivider': True
+                                        },
+                                        {
+                                            'title': '子页面3-1'
+                                        },
+                                        {
+                                            'title': '子页面3-2'
+                                        }
+                                    ]
+                                )
                             ]
                         ),
 
@@ -160,36 +195,94 @@ fac.AntdDropdown(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdDropdown(
-    title='触发点',
-    buttonMode=True,
-    menuItems=[
-        {
-            'title': '子页面1'
-        },
-        {
-            'title': '子页面2'
-        },
-        {
-            'isDivider': True
-        },
-        {
-            'title': '子页面3-1'
-        },
-        {
-            'title': '子页面3-2'
-        }
+fac.AntdSpace(
+    [
+        fac.AntdDropdown(
+            title='触发点',
+            buttonMode=True,
+            menuItems=[
+                {
+                    'title': '子页面1'
+                },
+                {
+                    'title': '子页面2'
+                },
+                {
+                    'isDivider': True
+                },
+                {
+                    'title': '子页面3-1'
+                },
+                {
+                    'title': '子页面3-2'
+                }
+            ]
+        ),
+
+        fac.AntdDropdown(
+            title='触发点',
+            buttonMode=True,
+            buttonProps={
+                'size': 'large',
+                'type': 'dashed'
+            },
+            menuItems=[
+                {
+                    'title': '子页面1'
+                },
+                {
+                    'title': '子页面2'
+                },
+                {
+                    'isDivider': True
+                },
+                {
+                    'title': '子页面3-1'
+                },
+                {
+                    'title': '子页面3-2'
+                }
+            ]
+        ),
+
+        fac.AntdDropdown(
+            title='触发点',
+            buttonMode=True,
+            buttonProps={
+                'size': 'small',
+                'type': 'primary',
+                'danger': True
+            },
+            menuItems=[
+                {
+                    'title': '子页面1'
+                },
+                {
+                    'title': '子页面2'
+                },
+                {
+                    'isDivider': True
+                },
+                {
+                    'title': '子页面3-1'
+                },
+                {
+                    'title': '子页面3-2'
+                }
+            ]
+        )
     ]
 )
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -204,7 +297,6 @@ fac.AntdDropdown(
 
                 html.Div(
                     [
-
                         fac.AntdDropdown(
                             title='触发点',
                             trigger='click',
@@ -228,16 +320,17 @@ fac.AntdDropdown(
                         ),
 
                         fac.AntdDivider(
-                            '点击触发',
+                            '点击触发方式',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdDropdown(
     title='触发点',
@@ -263,7 +356,7 @@ fac.AntdDropdown(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -272,13 +365,12 @@ fac.AntdDropdown(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='点击触发',
+                    id='点击触发方式',
                     className='div-highlight'
                 ),
 
                 html.Div(
                     [
-
                         fac.AntdDropdown(
                             title='触发点',
                             arrow=True,
@@ -302,16 +394,17 @@ fac.AntdDropdown(
                         ),
 
                         fac.AntdDivider(
-                            '添加连接箭头',
+                            '添加箭头',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdDropdown(
     title='触发点',
@@ -337,7 +430,7 @@ fac.AntdDropdown(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -346,13 +439,12 @@ fac.AntdDropdown(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='添加连接箭头',
+                    id='添加箭头',
                     className='div-highlight'
                 ),
 
                 html.Div(
                     [
-
                         fac.AntdSpace(
                             [
                                 fac.AntdDropdown(
@@ -378,8 +470,8 @@ fac.AntdDropdown(
                                     ]
                                 )
                                 for placement in [
-                                'bottomLeft', 'bottomCenter', 'bottomRight',
-                                'topLeft', 'topCenter', 'topRight']
+                                    'bottomLeft', 'bottomCenter', 'bottomRight',
+                                    'topLeft', 'topCenter', 'topRight']
                             ],
                             size=20
                         ),
@@ -391,10 +483,11 @@ fac.AntdDropdown(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdSpace(
     [
@@ -421,15 +514,15 @@ fac.AntdSpace(
             ]
         )
         for placement in [
-        'bottomLeft', 'bottomCenter', 'bottomRight',
-        'topLeft', 'topCenter', 'topRight']
+            'bottomLeft', 'bottomCenter', 'bottomRight',
+            'topLeft', 'topCenter', 'topRight']
     ],
     size=20
 )
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -444,42 +537,36 @@ fac.AntdSpace(
 
                 html.Div(
                     [
+                        fac.AntdDropdown(
+                            id='dropdown-demo',
+                            title='触发点',
+                            arrow=True,
+                            placement='topCenter',
+                            menuItems=[
+                                {
+                                    'title': '子页面1',
+                                    'key': '子页面1',
+                                },
+                                {
+                                    'title': '子页面2',
+                                    'key': '子页面2',
+                                },
+                                {
+                                    'isDivider': True
+                                },
+                                {
+                                    'title': '子页面3-1',
+                                    'key': '子页面3-1'
+                                },
+                                {
+                                    'title': '子页面3-2',
+                                    'key': '子页面3-2'
+                                }
+                            ]
+                        ),
 
-                        fac.AntdSpin(
-                            [
-                                fac.AntdDropdown(
-                                    id='dropdown-demo',
-                                    title='触发点',
-                                    arrow=True,
-                                    placement='topCenter',
-                                    menuItems=[
-                                        {
-                                            'title': '子页面1',
-                                            'key': '子页面1',
-                                        },
-                                        {
-                                            'title': '子页面2',
-                                            'key': '子页面2',
-                                        },
-                                        {
-                                            'isDivider': True
-                                        },
-                                        {
-                                            'title': '子页面3-1',
-                                            'key': '子页面3-1'
-                                        },
-                                        {
-                                            'title': '子页面3-2',
-                                            'key': '子页面3-2'
-                                        }
-                                    ]
-                                ),
-
-                                html.Div(
-                                    id='dropdown-demo-output'
-                                )
-                            ],
-                            text='回调中'
+                        html.Div(
+                            id='dropdown-demo-output'
                         ),
 
                         fac.AntdDivider(
@@ -488,57 +575,43 @@ fac.AntdSpace(
                             innerTextOrientation='left'
                         ),
 
-                        fac.AntdParagraph(
-                            [
-                                fac.AntdText('　　除了在构造选项时传入href等参数令选项充当链接跳转功能之外，'),
-                                fac.AntdText('AntdDropdown', strong=True),
-                                fac.AntdText('还可通过为选项设置key值，从而在回调中监听'),
-                                fac.AntdText('clickedKey', strong=True),
-                                fac.AntdText('随着选项点击事件的变化')
-                            ]
-                        ),
-
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdSpin(
-    [
-        fac.AntdDropdown(
-            id='dropdown-demo',
-            title='触发点',
-            arrow=True,
-            placement='topCenter',
-            menuItems=[
-                {
-                    'title': '子页面1',
-                    'key': '子页面1',
-                },
-                {
-                    'title': '子页面2',
-                    'key': '子页面2',
-                },
-                {
-                    'isDivider': True
-                },
-                {
-                    'title': '子页面3-1',
-                    'key': '子页面3-1'
-                },
-                {
-                    'title': '子页面3-2',
-                    'key': '子页面3-2'
-                }
-            ]
-        ),
+fac.AntdDropdown(
+    id='dropdown-demo',
+    title='触发点',
+    arrow=True,
+    placement='topCenter',
+    menuItems=[
+        {
+            'title': '子页面1',
+            'key': '子页面1',
+        },
+        {
+            'title': '子页面2',
+            'key': '子页面2',
+        },
+        {
+            'isDivider': True
+        },
+        {
+            'title': '子页面3-1',
+            'key': '子页面3-1'
+        },
+        {
+            'title': '子页面3-2',
+            'key': '子页面3-2'
+        }
+    ]
+),
 
-        html.Div(
-            id='dropdown-demo-output'
-        )
-    ],
-    text='回调中'
+html.Div(
+    id='dropdown-demo-output'
 )
 
 ...
@@ -553,13 +626,13 @@ def dropdown_demo_callback(clickedKey, nClicks):
     return [
         fac.AntdText('clickedKey: ', strong=True),
         fac.AntdText(clickedKey),
-        fac.AntdText(', nClicks: ', strong=True),
+        fac.AntdText('　nClicks: ', strong=True),
         fac.AntdText(nClicks)
     ]
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -575,32 +648,30 @@ def dropdown_demo_callback(clickedKey, nClicks):
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '基础使用', 'href': '#基础使用'},
-                            {'title': '按钮模式', 'href': '#按钮模式'},
-                            {'title': '点击触发', 'href': '#点击触发'},
-                            {'title': '添加连接箭头', 'href': '#添加连接箭头'},
-                            {'title': '不同的弹出方位', 'href': '#不同的弹出方位'},
-                            {'title': '回调示例', 'href': '#回调示例'}
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '按钮模式', 'href': '#按钮模式'},
+                    {'title': '点击触发方式', 'href': '#点击触发方式'},
+                    {'title': '添加箭头', 'href': '#添加箭头'},
+                    {'title': '不同的弹出方位', 'href': '#不同的弹出方位'},
+                    {'title': '回调示例', 'href': '#回调示例'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'padding': '20px'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdDropdown'
         )
     ],
     style={

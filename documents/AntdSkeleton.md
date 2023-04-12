@@ -1,44 +1,64 @@
+**id：** *string*型
+
+　　用于设置*当前组件的唯一id信息*
+
+**key：** *string*型
+
+　　对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+
+**style：** *dict*型
+
+　　用于设置*当前组件的css样式*
+
+**className：** *string*或*dict*型
+
+　　用于设置*当前组件的css类名*，支持[动态css](/advanced-classname)
+
+**children：** *组件型*
+
+　　用于传入*嵌套的子元素*
+
 **active：** *bool*型，默认为`False`
 
-　　用于设置*是否渲染动态骨骼屏效果*
+　　用于*设置当前骨骼屏是否开启扫屏动画效果*
 
 **avatar：** *bool*或*dict*型，默认为`False`
 
-　　用于设置*骨骼屏中的头像占位效果*，可设置为`True`开启基础头像，亦可传入字典进行精细化设置，可用的键值对参数有：
+　　用于*设置是否在骨骼屏中添加头像占位图*，当传入*dict*型时可对头像占位图进行配置，可用的键值对参数有：
 
-- active：*bool*型，默认为`False`，仅在**单独**使用头像占位时生效，用于设置是否对头像*渲染动态效果*
-- shape：*string*型，默认为`'circle'`，用于设置头像占位的形状，可选的有`'circle'`及`'square'`
-- size：*int*或*string*型，默认为`'default'`，用于设置头像占位图的大小规格，传入*int*型数值时表示头像的像素大小，传入`'large'`、`'small'`或`'default'`可使用预设的固定规格尺寸
+- **active：** *bool*型，默认为`False`，用于*设置头像占位图是否开启扫屏动画效果*
+- **shape：** *string*型，可选的有`'circle'`、`'square'`
+- **size：** *int*或*string*型，默认为`'default'`，用于*设置头像占位图的尺寸*，*int*型输入用于设置像素尺寸，*string*型可选的有`'large'`、`'small'`、`'default'`
 
 **paragraph：** *bool*或*dict*型，默认为`True`
 
-　　用于设置*骨骼屏中的段落占位效果*，可设置为`True`开启基础段落，亦可传入字典进行精细化设置，可用的键值对参数有：
+　　用于*设置是否在骨骼屏中添加段落占位图*，当传入*dict*型时可对段落占位图进行配置，可用的键值对参数有：
 
-- rows：*int*型，用于设置*段落占位的行数*
-- width：*int*、*string*或*list*型，当传入*int*型时，用于设置段落占位**最后一行**的像素宽度；当传入*string*型时，用于设置段落占位**最后一行**的`css`宽度值，如`'50%'`；当传入*list*型时，列表中每个元素可接受*int*或*string*型，用于分别设置对应行的宽度
+- **rows：** *int*型，用于*设置段落占位图实际行数*
+- **width：** *int*、*string*或*list*型，当传入*int*或*string*型时，用于设置段落占位图最后一行的宽度，当传入*list*型时，用于逐行设置宽度
 
 **title：** *bool*或*dict*型，默认为`True`
 
-　　用于设置*骨骼屏中的标题占位效果*，可设置为`True`开启基础标题，亦可传入字典进行精细化设置，可用的键值对参数有：
+　　用于*设置是否在骨骼屏中添加标题占位图*，当传入*dict*型时可对标题占位图进行配置，可用的键值对参数有：
 
-- width：*int*或*string*型，当传入*int*型时，用于设置标题占位的像素宽度；当传入*string*型时，用于设置`css`宽度值，如`'2rem'`
+- **width：** *int*或*string*型，用于*设置标题占位图宽度*
 
 **round：** *bool*型，默认为`False`
 
-　　用于设置*段落与标题占位是否以圆角矩形形式进行渲染*
+　　用于*设置段落和标题占位图是否启用圆角效果*
 
 **debug：** *bool*型，默认为`False`
 
-　　用于设置是否开启*debug模式*，开启后，每当对应`AntdSkeleton`组件加载骨骼屏渲染时，`浏览器开发者工具-console`中会打印触发本次骨骼屏渲染的子节点**id**信息
+　　用于*设置是否开启调试模式*，开启后当骨骼屏内部嵌套的元素作为回调函数`Output`角色且回调函数执行中时，会在浏览器控制台打印相关组件的`id`及`prop`信息
 
 **listenPropsMode：** *string*型，默认为`'default'`
 
-　　用于设置特殊的*子节点监听过滤模式*，默认为`'default'`时，`AntdSkeleton`的所有后代组件作为回调的`Output`进行回调过程时，都会触发加载动画；当设置为`'exclude'`时，会开启*排除过滤模式*，此时传入`includeProps`参数列表中的所有`'id.prop名称'`对应的后代组件处于回调时不会触发加载动画；当设置为`'include'`时，会开启*包含监听模式*，此时与`'exclude'`**恰恰相反**，只有传入到参数`includeProps`列表中的所有`'id.prop名称'`对应的后代组件的回调过程才会被`AntdSkeleton`监听
+　　用于*设置骨骼屏针对内部嵌套元素回调行为的监听方式*，可用的有`'default'`（默认全监听模式）、`'exclude'`（排除模式）、`'include'`（包含模式）
 
 **excludeProps：** *list*型
 
-　　配合`listenPropsMode='exclude'`模式使用
+　　当`listenPropsMode='exclude'`时，用于*设置需要排除监听的内部嵌套组件对应属性*，列表中每个元素用于定义要排除的目标，格式为`组件id.属性名称`，如`'demo-input.value'`
 
 **includeProps：** *list*型
 
-　　配合`listenPropsMode='include'`模式使用
+　　当`listenPropsMode='include'`时，用于*设置需要包含监听的内部嵌套组件对应属性*，列表中每个元素用于定义要包含的目标，格式为`组件id.属性名称`，如`'demo-input.value'`

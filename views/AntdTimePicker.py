@@ -1,66 +1,44 @@
 from dash import html
 import feffery_antd_components as fac
-import feffery_utils_components as fuc
 import feffery_markdown_components as fmc
 
 import callbacks.AntdTimePicker
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-
-                html.H2(
-                    'AntdTimePicker(id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdTimePicker.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '数据录入'
+                        },
+                        {
+                            'title': 'AntdTimePicker 时间选择框'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　用于为用户提供时间选择功能。')
+                    ]
                 ),
 
                 html.Div(
                     [
                         fac.AntdTimePicker(
-                            allowClear=True
+                            placeholder='请选择时间'
                         ),
 
                         fac.AntdDivider(
@@ -70,21 +48,21 @@ docs_content = html.Div(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdTimePicker(
-    allowClear=True
+    placeholder='请选择时间'
 )
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
@@ -97,94 +75,71 @@ fac.AntdTimePicker(
 
                 html.Div(
                     [
-                        fac.AntdTimePicker(
-                            allowClear=True,
-                            hourStep=3,
-                            minuteStep=10,
-                            secondStep=10
+                        fac.AntdSpace(
+                            [
+                                fac.AntdTimePicker(
+                                    placeholder=f'placement="{placement}"',
+                                    placement=placement,
+                                    style={
+                                        'width': 220
+                                    }
+                                )
+                                for placement in [
+                                    'bottomLeft', 'bottomRight', 'topLeft', 'topRight'
+                                ]
+                            ],
+                            direction='vertical'
                         ),
 
                         fac.AntdDivider(
-                            '调整时间粒度',
+                            '不同的悬浮层展开方位',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdTimePicker(
-    allowClear=True,
-    hourStep=3,
-    minuteStep=10,
-    secondStep=10
+fac.AntdSpace(
+    [
+        fac.AntdTimePicker(
+            placeholder=f'placement="{placement}"',
+            placement=placement,
+            style={
+                'width': 220
+            }
+        )
+        for placement in [
+            'bottomLeft', 'bottomRight', 'topLeft', 'topRight'
+        ]
+    ],
+    direction='vertical'
 )
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='调整时间粒度',
+                    id='不同的悬浮层展开方位',
                     className='div-highlight'
                 ),
 
                 html.Div(
                     [
                         fac.AntdTimePicker(
-                            allowClear=True,
-                            use12Hours=True
-                        ),
-
-                        fac.AntdDivider(
-                            '12小时制',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
-
-                        fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
-                                language='python',
-                                 codeTheme='coy-without-shadows',
-                                codeString='''
-fac.AntdTimePicker(
-    allowClear=True,
-    use12Hours=True
-)
-'''
-                            ),
-                            title='点击查看代码',
-                            is_open=False,
-                            ghost=True
-                        )
-
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='12小时制',
-                    className='div-highlight'
-                ),
-
-                html.Div(
-                    [
-                        fac.AntdTimePicker(
-                            allowClear=True,
-                            format='hh时mm分ss秒',
-                            defaultValue='18时16分21秒'
+                            format='HH点mm分ss秒',
+                            defaultValue='12点18分17秒'
                         ),
 
                         fac.AntdDivider(
@@ -194,23 +149,22 @@ fac.AntdTimePicker(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdTimePicker(
-    allowClear=True,
-    format='hh时mm分ss秒',
-    defaultValue='18时16分21秒'
+    format='HH点mm分ss秒',
+    defaultValue='12点18分17秒'
 )
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
@@ -223,19 +177,271 @@ fac.AntdTimePicker(
 
                 html.Div(
                     [
+                        fac.AntdTimePicker(
+                            defaultValue='12:00:19',
+                            disabled=True
+                        ),
 
-                        fac.AntdSpin(
+                        fac.AntdDivider(
+                            '禁用状态',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdTimePicker(
+    defaultValue='12:00:19',
+    disabled=True
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='禁用状态',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdTimePicker(
+                            defaultValue='12:00:19',
+                            readOnly=True
+                        ),
+
+                        fac.AntdDivider(
+                            '只读状态',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdTimePicker(
+    defaultValue='12:00:19',
+    readOnly=True
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='只读状态',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSpace(
                             [
-                                html.Div(
-                                    id='time-picker-demo-output'
-                                ),
                                 fac.AntdTimePicker(
-                                    id='time-picker-demo',
-                                    allowClear=True,
-                                    format='hh时mm分ss秒'
+                                    placeholder='status="warning"',
+                                    status='warning',
+                                    style={
+                                        'width': 200
+                                    }
+                                ),
+
+                                fac.AntdTimePicker(
+                                    placeholder='status="error"',
+                                    status='error',
+                                    style={
+                                        'width': 200
+                                    }
                                 )
                             ],
-                            text='回调中'
+                            direction='vertical'
+                        ),
+
+                        fac.AntdDivider(
+                            '强制状态渲染',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdTimePicker(
+            placeholder='status="warning"',
+            status='warning',
+            style={
+                'width': 200
+            }
+        ),
+
+        fac.AntdTimePicker(
+            placeholder='status="error"',
+            status='error',
+            style={
+                'width': 200
+            }
+        )
+    ],
+    direction='vertical'
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='强制状态渲染',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdTimePicker(
+                            hourStep=3,
+                            minuteStep=10,
+                            secondStep=20
+                        ),
+
+                        fac.AntdDivider(
+                            '设置各部分时间间隔',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdTimePicker(
+    hourStep=3,
+    minuteStep=10,
+    secondStep=20
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='设置各部分时间间隔',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdTimePicker(
+                            use12Hours=True
+                        ),
+
+                        fac.AntdDivider(
+                            '12小时制',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdTimePicker(
+    use12Hours=True
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='12小时制',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSpace(
+                            [
+                                fac.AntdSpace(
+                                    [
+                                        fac.AntdTimePicker(
+                                            id='time-picker-demo',
+                                            defaultValue='06:00:00'
+                                        ),
+                                        fac.AntdText(
+                                            id='time-picker-demo-output'
+                                        )
+                                    ],
+                                    align='center'
+                                ),
+
+                                fac.AntdSpace(
+                                    [
+                                        fac.AntdTimePicker(
+                                            id='time-picker-format-demo',
+                                            defaultValue='06时00分00秒',
+                                            format='HH时mm分ss秒'
+                                        ),
+                                        fac.AntdText(
+                                            id='time-picker-format-demo-output'
+                                        )
+                                    ],
+                                    align='center'
+                                )
+                            ],
+                            direction='vertical',
+                            style={
+                                'width': '100%'
+                            }
                         ),
 
                         fac.AntdDivider(
@@ -245,42 +451,71 @@ fac.AntdTimePicker(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdSpin(
+fac.AntdSpace(
     [
-        html.Div(
-            id='time-picker-demo-output'
+        fac.AntdSpace(
+            [
+                fac.AntdTimePicker(
+                    id='time-picker-demo',
+                    defaultValue='06:00:00'
+                ),
+                fac.AntdText(
+                    id='time-picker-demo-output'
+                )
+            ],
+            align='center'
         ),
-        fac.AntdTimePicker(
-            id='time-picker-demo',
-            allowClear=True,
-            format='hh时mm分ss秒'
+
+        fac.AntdSpace(
+            [
+                fac.AntdTimePicker(
+                    id='time-picker-format-demo',
+                    defaultValue='06时00分00秒',
+                    format='HH时mm分ss秒'
+                ),
+                fac.AntdText(
+                    id='time-picker-format-demo-output'
+                )
+            ],
+            align='center'
         )
     ],
-    text='回调中'
+    direction='vertical',
+    style={
+        'width': '100%'
+    }
 )
+
 ...
+
 @app.callback(
     Output('time-picker-demo-output', 'children'),
-    Input('time-picker-demo', 'value'),
-    prevent_initial_call=True
+    Input('time-picker-demo', 'value')
 )
-def time_picker_demo_callback(value):
-    return [
-        fac.AntdText('value: ', strong=True),
-        fac.AntdText(value)
-    ]
+def time_picker_demo(value):
+
+    return f'value: {value}'
+
+
+@app.callback(
+    Output('time-picker-format-demo-output', 'children'),
+    Input('time-picker-format-demo', 'value')
+)
+def time_picker_format_demo(value):
+
+    return f'value: {value}'
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
@@ -294,31 +529,33 @@ def time_picker_demo_callback(value):
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '基础使用', 'href': '#基础使用'},
-                            {'title': '调整时间粒度', 'href': '#调整时间粒度'},
-                            {'title': '12小时制', 'href': '#12小时制'},
-                            {'title': '自定义format', 'href': '#自定义format'},
-                            {'title': '回调示例', 'href': '#回调示例'},
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '不同的悬浮层展开方位', 'href': '#不同的悬浮层展开方位'},
+                    {'title': '自定义format', 'href': '#自定义format'},
+                    {'title': '禁用状态', 'href': '#禁用状态'},
+                    {'title': '只读状态', 'href': '#只读状态'},
+                    {'title': '强制状态渲染', 'href': '#强制状态渲染'},
+                    {'title': '设置各部分时间间隔', 'href': '#设置各部分时间间隔'},
+                    {'title': '12小时制', 'href': '#12小时制'},
+                    {'title': '回调示例', 'href': '#回调示例'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'margin': '20px'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdTimePicker'
         )
     ],
     style={

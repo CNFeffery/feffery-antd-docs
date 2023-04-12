@@ -1,81 +1,54 @@
 from dash import html
-import feffery_markdown_components as fmc
 import feffery_antd_components as fac
-import feffery_utils_components as fuc
+import feffery_markdown_components as fmc
 
 import callbacks.AntdMentions
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdMentions(id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdMentions.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '数据录入'
+                        },
+                        {
+                            'title': 'AntdMentions 提及'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText(
+                            '　　用于实现在输入内容中对不同角色进行提及的功能，常用于构建论坛、协同办公等平台中的评论功能。'
+                        )
+                    ]
                 ),
 
                 html.Div(
                     [
-
                         fac.AntdMentions(
                             options=[
                                 {
-                                    'label': '费弗里',
-                                    'value': '费弗里'
-                                },
-                                {
-                                    'label': '小A',
-                                    'value': '小A'
-                                },
-                                {
-                                    'label': 'liz',
-                                    'value': 'liz'
+                                    'label': f'用户{c}',
+                                    'value': f'用户{c}'
                                 }
+                                for c in list('abcdef')
                             ],
                             style={
-                                'width': '400px'
+                                'width': 200
                             }
                         ),
 
@@ -87,43 +60,38 @@ docs_content = html.Div(
 
                         fac.AntdParagraph(
                             [
-                                fac.AntdText('　　输入'),
-                                fac.AntdText('prefix', code=True),
-                                fac.AntdText('参数指定的子项层触发字符（默认为'),
-                                fac.AntdText('"@"', code=True),
-                                fac.AntdText('），即可选择需要在此处提及的对象进行插入')
+                                '  输入子项菜单默认触发关键字',
+                                fac.AntdText(
+                                    '@',
+                                    strong=True
+                                ),
+                                '后可进行目标角色的选中和提及'
                             ]
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdMentions(
     options=[
         {
-            'label': '费弗里',
-            'value': '费弗里'
-        },
-        {
-            'label': '小A',
-            'value': '小A'
-        },
-        {
-            'label': 'liz',
-            'value': 'liz'
+            'label': f'用户{c}',
+            'value': f'用户{c}'
         }
+        for c in list('abcdef')
     ],
     style={
-        'width': '400px'
+        'width': 200
     }
 )
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -138,86 +106,140 @@ fac.AntdMentions(
 
                 html.Div(
                     [
-
-                        fac.AntdDivider('autoSize=True', innerTextOrientation='left'),
-                        fac.AntdMentions(
-                            options=[
-                                {
-                                    'label': f'用户{i}',
-                                    'value': f'用户{i}'
-                                }
-                                for i in list('ABCDEFGH')
-                            ],
-                            defaultValue='请 @用户A 协助 @用户B 与 @用户C 完成 @用户D 离职后遗留的工作内容，' * 5,
-                            autoSize=True,
-                            style={
-                                'width': '400px'
-                            }
+                        fac.AntdDivider(
+                            'autoSize=False（默认）',
+                            innerTextOrientation='left'
                         ),
-
-                        fac.AntdDivider('autoSize={"minRows": 3, "maxRows": 5}', innerTextOrientation='left'),
                         fac.AntdMentions(
+                            defaultValue='示例内容'*20,
                             options=[
                                 {
-                                    'label': f'用户{i}',
-                                    'value': f'用户{i}'
+                                    'label': f'用户{c}',
+                                    'value': f'用户{c}'
                                 }
-                                for i in list('ABCDEFGH')
+                                for c in list('abcdef')
                             ],
-                            defaultValue='请 @用户A 协助 @用户B 与 @用户C 完成 @用户D 离职后遗留的工作内容，' * 5,
-                            autoSize={"minRows": 3, "maxRows": 5},
                             style={
-                                'width': '400px'
+                                'width': 300
                             }
                         ),
 
                         fac.AntdDivider(
-                            '配置输入框自适应高度',
+                            'autoSize=True',
+                            innerTextOrientation='left'
+                        ),
+                        fac.AntdMentions(
+                            defaultValue='示例内容'*20,
+                            options=[
+                                {
+                                    'label': f'用户{c}',
+                                    'value': f'用户{c}'
+                                }
+                                for c in list('abcdef')
+                            ],
+                            autoSize=True,
+                            style={
+                                'width': 300
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '配置minRows、maxRows参数',
+                            innerTextOrientation='left'
+                        ),
+                        fac.AntdMentions(
+                            defaultValue='示例内容'*20,
+                            options=[
+                                {
+                                    'label': f'用户{c}',
+                                    'value': f'用户{c}'
+                                }
+                                for c in list('abcdef')
+                            ],
+                            autoSize={
+                                'minRows': 2,
+                                'maxRows': 6
+                            },
+                            style={
+                                'width': 300
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '自适应高度',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdDivider('autoSize=True', innerTextOrientation='left'),
+fac.AntdDivider(
+    'autoSize=False（默认）',
+    innerTextOrientation='left'
+),
 fac.AntdMentions(
+    defaultValue='示例内容'*20,
     options=[
         {
-            'label': f'用户{i}',
-            'value': f'用户{i}'
+            'label': f'用户{c}',
+            'value': f'用户{c}'
         }
-        for i in list('ABCDEFGH')
+        for c in list('abcdef')
     ],
-    defaultValue='请 @用户A 协助 @用户B 与 @用户C 完成 @用户D 离职后遗留的工作内容，' * 5,
-    autoSize=True,
     style={
-        'width': '400px'
+        'width': 300
     }
 ),
 
-fac.AntdDivider('autoSize={"minRows": 3, "maxRows": 5}', innerTextOrientation='left'),
+fac.AntdDivider(
+    'autoSize=True',
+    innerTextOrientation='left'
+),
 fac.AntdMentions(
+    defaultValue='示例内容'*20,
     options=[
         {
-            'label': f'用户{i}',
-            'value': f'用户{i}'
+            'label': f'用户{c}',
+            'value': f'用户{c}'
         }
-        for i in list('ABCDEFGH')
+        for c in list('abcdef')
     ],
-    defaultValue='请 @用户A 协助 @用户B 与 @用户C 完成 @用户D 离职后遗留的工作内容，' * 5,
-    autoSize={"minRows": 3, "maxRows": 5},
+    autoSize=True,
     style={
-        'width': '400px'
+        'width': 300
+    }
+),
+
+fac.AntdDivider(
+    '配置minRows、maxRows参数',
+    innerTextOrientation='left'
+),
+fac.AntdMentions(
+    defaultValue='示例内容'*20,
+    options=[
+        {
+            'label': f'用户{c}',
+            'value': f'用户{c}'
+        }
+        for c in list('abcdef')
+    ],
+    autoSize={
+        'minRows': 2,
+        'maxRows': 6
+    },
+    style={
+        'width': 300
     }
 )
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -226,71 +248,56 @@ fac.AntdMentions(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='配置输入框自适应高度',
+                    id='自适应高度',
                     className='div-highlight'
                 ),
 
                 html.Div(
                     [
-                        fac.AntdDivider('placement="top"', innerTextOrientation='left'),
                         fac.AntdMentions(
-                            placement='top',
                             options=[
                                 {
-                                    'label': '费弗里',
-                                    'value': '费弗里'
-                                },
-                                {
-                                    'label': '小A',
-                                    'value': '小A'
-                                },
-                                {
-                                    'label': 'liz',
-                                    'value': 'liz'
+                                    'label': f'用户{c}',
+                                    'value': f'用户{c}'
                                 }
+                                for c in list('abcdef')
                             ],
+                            placement='top',
                             style={
-                                'width': '400px'
+                                'width': 200
                             }
                         ),
 
                         fac.AntdDivider(
-                            '不同的子项悬浮层弹出方位',
+                            '子项菜单向上展开',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdDivider('placement="top"', innerTextOrientation='left'),
 fac.AntdMentions(
-    placement='top',
     options=[
         {
-            'label': '费弗里',
-            'value': '费弗里'
-        },
-        {
-            'label': '小A',
-            'value': '小A'
-        },
-        {
-            'label': 'liz',
-            'value': 'liz'
+            'label': f'用户{c}',
+            'value': f'用户{c}'
         }
+        for c in list('abcdef')
     ],
+    placement='top',
     style={
-        'width': '400px'
+        'width': 200
     }
 )
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -299,7 +306,167 @@ fac.AntdMentions(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='不同的子项悬浮层弹出方位',
+                    id='子项菜单向上展开',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdMentions(
+                            options=[
+                                {
+                                    'label': f'用户{c}',
+                                    'value': f'用户{c}'
+                                }
+                                for c in list('abcdef')
+                            ],
+                            disabled=True,
+                            style={
+                                'width': 200
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '禁用状态',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdMentions(
+    options=[
+        {
+            'label': f'用户{c}',
+            'value': f'用户{c}'
+        }
+        for c in list('abcdef')
+    ],
+    disabled=True,
+    style={
+        'width': 200
+    }
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='禁用状态',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdDivider(
+                            'status="warning"',
+                            innerTextOrientation='left'
+                        ),
+                        fac.AntdMentions(
+                            options=[
+                                {
+                                    'label': f'用户{c}',
+                                    'value': f'用户{c}'
+                                }
+                                for c in list('abcdef')
+                            ],
+                            status='warning',
+                            style={
+                                'width': 200
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            'status="error"',
+                            innerTextOrientation='left'
+                        ),
+                        fac.AntdMentions(
+                            options=[
+                                {
+                                    'label': f'用户{c}',
+                                    'value': f'用户{c}'
+                                }
+                                for c in list('abcdef')
+                            ],
+                            status='error',
+                            style={
+                                'width': 200
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '强制状态渲染',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdDivider(
+    'status="warning"',
+    innerTextOrientation='left'
+),
+fac.AntdMentions(
+    options=[
+        {
+            'label': f'用户{c}',
+            'value': f'用户{c}'
+        }
+        for c in list('abcdef')
+    ],
+    status='warning',
+    style={
+        'width': 200
+    }
+),
+
+fac.AntdDivider(
+    'status="error"',
+    innerTextOrientation='left'
+),
+fac.AntdMentions(
+    options=[
+        {
+            'label': f'用户{c}',
+            'value': f'用户{c}'
+        }
+        for c in list('abcdef')
+    ],
+    status='error',
+    style={
+        'width': 200
+    }
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='强制状态渲染',
                     className='div-highlight'
                 ),
 
@@ -307,46 +474,27 @@ fac.AntdMentions(
                     [
                         fac.AntdMentions(
                             id='mentions-demo',
-                            placement='top',
-                            autoSize=True,
+                            autoSize={
+                                'minRows': 2,
+                                'maxRows': 4
+                            },
                             options=[
                                 {
-                                    'label': '费弗里',
-                                    'value': '费弗里'
-                                },
-                                {
-                                    'label': '小A',
-                                    'value': '小A'
-                                },
-                                {
-                                    'label': 'liz',
-                                    'value': 'liz'
+                                    'label': f'用户{c}',
+                                    'value': f'用户{c}'
                                 }
+                                for c in list('abcdef')
                             ],
                             style={
-                                'width': '400px'
+                                'width': 300
                             }
                         ),
-                        fac.AntdButton('提交', id='mentions-submit', type='primary'),
+
+                        html.Br(),
+
                         fac.AntdSpace(
-                            [
-                                html.Div(
-                                    [
-                                        fac.AntdText('value: ', strong=True),
-                                        fac.AntdText(id='mentions-demo-output-value')
-                                    ]
-                                ),
-                                html.Div(
-                                    [
-                                        fac.AntdText('selectedOptions: ', strong=True),
-                                        fac.AntdText(id='mentions-demo-output-selectedOptions')
-                                    ]
-                                )
-                            ],
-                            direction='vertical',
-                            style={
-                                'width': '100%'
-                            }
+                            id='mentions-demo-output',
+                            direction='vertical'
                         ),
 
                         fac.AntdDivider(
@@ -355,92 +503,59 @@ fac.AntdMentions(
                             innerTextOrientation='left'
                         ),
 
-                        fac.AntdParagraph(
-                            [
-                                fac.AntdText('　　本回调示例出于对服务器网络安全的考虑使用了'),
-                                fac.AntdText('浏览器端回调', strong=True)
-                            ]
-                        ),
-
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdMentions(
     id='mentions-demo',
-    placement='top',
-    autoSize=True,
+    autoSize={
+        'minRows': 2,
+        'maxRows': 4
+    },
     options=[
         {
-            'label': '费弗里',
-            'value': '费弗里'
-        },
-        {
-            'label': '小A',
-            'value': '小A'
-        },
-        {
-            'label': 'liz',
-            'value': 'liz'
+            'label': f'用户{c}',
+            'value': f'用户{c}'
         }
+        for c in list('abcdef')
     ],
     style={
-        'width': '400px'
+        'width': 300
     }
 ),
-fac.AntdButton('提交', id='mentions-submit', type='primary'),
+
+html.Br(),
+
 fac.AntdSpace(
-    [
-        html.Div(
-            [
-                fac.AntdText('value: ', strong=True),
-                fac.AntdText(id='mentions-demo-output-value')
-            ]
-        ),
-        html.Div(
-            [
-                fac.AntdText('selectedOptions: ', strong=True),
-                fac.AntdText(id='mentions-demo-output-selectedOptions')
-            ]
-        )
-    ],
-    direction='vertical',
-    style={
-        'width': '100%'
-    }
+    id='mentions-demo-output',
+    direction='vertical'
 )
+
 ...
-app.clientside_callback(
-    """
-    function(nClicks, value, selectedOptions) {
-    
-        if ( !value ) {
-            value = ''
-        }
-        
-        if ( !selectedOptions ) {
-            selectedOptions = []
-        }
-    
-        return [
-            value.toString(),
-            selectedOptions.toString()
-        ];
-    }
-    """,
-    [Output('mentions-demo-output-value', 'children'),
-     Output('mentions-demo-output-selectedOptions', 'children')],
-    Input('mentions-submit', 'nClicks'),
-    [State('mentions-demo', 'value'),
-     State('mentions-demo', 'selectedOptions')],
-    prevent_initial_call=True
+
+@app.callback(
+    Output('mentions-demo-output', 'children'),
+    [Input('mentions-demo', 'value'),
+     Input('mentions-demo', 'selectedOptions')]
 )
+def mentions_demo(value, selectedOptions):
+
+    return [
+        fac.AntdText(
+            f'value: {value}'
+        ),
+        fac.AntdText(
+            f'selectedOptions: {selectedOptions}'
+        )
+    ]
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -456,31 +571,30 @@ app.clientside_callback(
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
-
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '基础使用', 'href': '#基础使用'},
-                            {'title': '配置输入框自适应高度', 'href': '#配置输入框自适应高度'},
-                            {'title': '不同的子项悬浮层弹出方位', 'href': '#不同的子项悬浮层弹出方位'},
-                            {'title': '回调示例', 'href': '#回调示例'},
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '自适应高度', 'href': '#自适应高度'},
+                    {'title': '子项菜单向上展开', 'href': '#子项菜单向上展开'},
+                    {'title': '禁用状态', 'href': '#禁用状态'},
+                    {'title': '强制状态渲染', 'href': '#强制状态渲染'},
+                    {'title': '回调示例', 'href': '#回调示例'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'margin': '20px'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdMentions'
         )
     ],
     style={

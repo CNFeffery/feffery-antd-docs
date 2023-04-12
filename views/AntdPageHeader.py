@@ -1,63 +1,43 @@
 from dash import html
-import feffery_markdown_components as fmc
 import feffery_antd_components as fac
-import feffery_utils_components as fuc
+import feffery_markdown_components as fmc
 
 import callbacks.AntdPageHeader
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdPageHeader(id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdPageHeader.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '导航'
+                        },
+                        {
+                            'title': 'AntdPageHeader 页头'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　页头位于页容器顶部，起到内容概览和引导页级操作的作用。')
+                    ]
                 ),
 
                 html.Div(
                     [
+
                         fac.AntdPageHeader(
                             title='页头标题示例',
                             subTitle='页头副标题示例'
@@ -71,15 +51,16 @@ docs_content = html.Div(
 
                         fac.AntdParagraph(
                             [
-                                fac.AntdText('　　最基础的页头包含了自带浏览器后退功能的返回按钮、主标题及副标题信息')
+                                '　　最基础的页头包含了自带浏览器后退功能的返回按钮、主标题及副标题信息'
                             ]
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdPageHeader(
     title='页头标题示例',
@@ -88,7 +69,7 @@ fac.AntdPageHeader(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -108,7 +89,10 @@ fac.AntdPageHeader(
                                 [
                                     fac.AntdButton('按钮1'),
                                     fac.AntdButton('按钮2', type='primary'),
-                                    fac.AntdSwitch(checkedChildren='打开', unCheckedChildren='关闭'),
+                                    fac.AntdSwitch(
+                                        checkedChildren='打开',
+                                        unCheckedChildren='关闭'
+                                    ),
                                     fac.AntdBadge(status='processing')
                                 ]
                             ),
@@ -117,23 +101,27 @@ fac.AntdPageHeader(
                         ),
 
                         fac.AntdDivider(
-                            '带有子元素的页头',
+                            '传入子元素',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdPageHeader(
     fac.AntdSpace(
         [
             fac.AntdButton('按钮1'),
             fac.AntdButton('按钮2', type='primary'),
-            fac.AntdSwitch(checkedChildren='打开', unCheckedChildren='关闭'),
+            fac.AntdSwitch(
+                checkedChildren='打开',
+                unCheckedChildren='关闭'
+            ),
             fac.AntdBadge(status='processing')
         ]
     ),
@@ -143,7 +131,7 @@ fac.AntdPageHeader(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -152,7 +140,7 @@ fac.AntdPageHeader(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='带有子元素的页头',
+                    id='传入子元素',
                     className='div-highlight'
                 ),
 
@@ -173,17 +161,19 @@ fac.AntdPageHeader(
 
                         fac.AntdParagraph(
                             [
-                                fac.AntdText('　　设置'),
-                                fac.AntdText('historyBackDisabled=True', code=True),
-                                fac.AntdText('之后，页头的返回按钮就不再具有原生浏览器后退功能，而是可以用来记录返回按钮的点击次数从而实现更多交互')
-                            ]
+                                '可用于单纯监听返回按钮的点击事件'
+                            ],
+                            style={
+                                'textIndent': '2rem'
+                            }
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdPageHeader(
     id='page-header-demo',
@@ -191,7 +181,9 @@ fac.AntdPageHeader(
     subTitle='页头副标题示例',
     historyBackDisabled=True
 )
+
 ...
+
 @app.callback(
     Output('page-header-demo', 'children'),
     Input('page-header-demo', 'backClicks')
@@ -204,7 +196,7 @@ def page_header_demo_callback(backClicks):
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -217,96 +209,30 @@ def page_header_demo_callback(backClicks):
                     className='div-highlight'
                 ),
 
-                html.Div(
-                    [
-                        fac.AntdPageHeader(
-                            title=fac.AntdText(
-                                '组件型title示例',
-                                italic=True,
-                                copyable=True,
-                                strong=True,
-                                style={
-                                    'fontSize': '28px'
-                                }
-                            ),
-                            subTitle=fac.AntdText(
-                                '组件型subTitle示例',
-                                italic=True,
-                                copyable=True
-                            )
-                        ),
-
-                        fac.AntdDivider(
-                            'title与subTitle接受组件型输入',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
-
-                        fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
-                                language='python',
-                                 codeTheme='coy-without-shadows',
-                                codeString='''
-fac.AntdPageHeader(
-    title=fac.AntdText(
-        '组件型title示例',
-        italic=True,
-        copyable=True,
-        strong=True,
-        style={
-            'fontSize': '28px'
-        }
-    ),
-    subTitle=fac.AntdText(
-        '组件型subTitle示例',
-        italic=True,
-        copyable=True
-    )
-)'''
-                            ),
-                            title='点击查看代码',
-                            is_open=False,
-                            ghost=True
-                        )
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='title与subTitle接受组件型输入',
-                    className='div-highlight'
-                ),
-
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
-
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '基础使用', 'href': '#基础使用'},
-                            {'title': '带有子元素的页头', 'href': '#带有子元素的页头'},
-                            {'title': '回调示例', 'href': '#回调示例'},
-                            {'title': 'title与subTitle接受组件型输入', 'href': '#title与subTitle接受组件型输入'},
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '传入子元素', 'href': '#传入子元素'},
+                    {'title': '回调示例', 'href': '#回调示例'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'margin': '20px'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdPageHeader'
         )
     ],
     style={

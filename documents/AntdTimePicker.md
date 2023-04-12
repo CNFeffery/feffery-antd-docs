@@ -1,51 +1,95 @@
-**hourStep：** *int*型，默认为`1`
+**id：** *string*型
 
-　　用于设置*小时选项粒度*
+　　用于设置*当前组件的唯一id信息*
 
-**minuteStep：** *int*型，默认为`1`
+**key：** *string*型
 
-　　用于设置*分钟选项粒度*
+　　对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
 
-**secondStep：** *int*型，默认为`1`
+**style：** *dict*型
 
-　　用于设置*秒选项粒度*
+　　用于设置*当前组件的css样式*
 
-**use12Hours：** *bool*型，默认为`False`
+**className：** *string*或*dict*型
 
-　　用于设置*是否采用12小时制*，当设置为`True`时，`format`参数强制变更为`'h:mm:ss a'`
+　　用于设置*当前组件的css类名*，支持[动态css](/advanced-classname)
 
-**allowClear：** *bool*型，默认为`True`
+**locale：** *string*型，默认为`'zh-cn'`
 
-　　设置*是否显示输入框内容清除按钮*，`True`（显示），`False`（不显示）
+　　用于*为当前组件的功能文案设置语言*，可选的有`'zh-cn'`（简体中文）、`'en-us'`（英文）
 
 **format：** *string*型
 
-　　用于设置*时间格式*（[参考资料](https://momentjscom.readthedocs.io/en/latest/moment/04-displaying/01-format/)），默认值为`'HH:mm:ss'`
-
-**placeholder：** *string*型
-
-　　用于设置空白输入下的*填充说明文字*
-
-**bordered：** *bool*型，默认为`True`
-
-　　用于设置是否显示部件外边框，`True`（显示），`False`（不显示）
-
-**value：** *string*型
-
-　　用于在回调中捕获用户选中的*时间字符串*
-
-**defaultValue：** *string*型
-
-　　用于设置初始化时默认选中的*时间字符串*
-
-**size：** *string*型，默认为`'middle'`
-
-　　用于设置组件尺寸规格大小，可选的有`'small'`、`'middle'`与`'large'`
+　　用于*设置当前时间选择框的日期解析格式*，具体见[参考资料](https://momentjscom.readthedocs.io/en/latest/moment/04-displaying/01-format/)
 
 **disabled：** *bool*型，默认为`False`
 
-　　设置是否*禁用当前组件*
+　　用于*设置是否禁用当前组件*
 
-**status：** *str型*
+**hourStep：** *int*型，默认为`1`
 
-　　用于*手动设置组件的校验状态*，可选的有`'error'`和`'warning'`
+　　用于*设置小时选择部分的选项间隔*
+
+**minuteStep：** *int*型，默认为`1`
+
+　　用于*设置分钟选择部分的选项间隔*
+
+**secondStep：** *int*型，默认为`1`
+
+　　用于*设置秒选择部分的选项间隔*
+
+**use12Hours：** *bool*型，默认为`False`
+
+　　用于*设置是否使用12小时制*
+
+**size：** *string*型，默认为`'middle'`
+
+　　用于*设置当前组件的尺寸规格*，可选项有`'small'`、`'middle'`和`'large'`
+
+**bordered：** *bool*型，默认为`True`
+
+　　用于*设置是否渲染边框*
+
+**placeholder：** *string*型
+
+　　用于*设置空白输入下的填充说明文字*
+
+**placement：** *str*型，默认为`'bottomLeft'`
+
+　　用于*设置下拉菜单的展开方向*，可选的有`'bottomLeft'`、`'bottomRight'`、`'topLeft'`及`'topRight'`
+
+**value：** *string*型
+
+　　用于*监听或设置当前已选中值*
+
+**defaultValue：** *string*型
+
+　　用于*监听或设置初始化时的已选中值*
+
+**status：** *string*型
+
+　　用于*强制设置组件的状态*，可选的有`'error'`和`'warning'`
+
+**allowClear：** *bool*型，默认为`True`
+
+　　用于*设置是否允许用户清空已选项*
+
+**readOnly：** *bool*型
+
+　　用于*设置是否以只读模式进行展示*
+
+**popupContainer：** *string*型，默认为`'body'`
+
+　　用于*为当前组件涉及的悬浮层元素设置参考容器类型*，可选的有`'body'`（以页面根节点为参考）和`'parent'`（以当前元素的父容器为参考），当组件位于局部滚动容器内时，通过设置`popupContainer='parent'`可以解决悬浮层滚动不跟随的问题
+
+**persistence：** *bool*型
+
+　　用于*设置是否为当前组件开启属性持久化*
+
+**persisted_props：** *list*型，默认为`['value']`
+
+　　用于*设置针对当前组件的哪些属性进行持久化*，可选的有`'value'`
+
+**persistence_type：** *string*型，默认为`'local'`
+
+　　用于*设置针对当前组件进行属性持久化的存储类型*，可选的有`'local'`（浏览器本地缓存）、`'session'`（当前标签页会话缓存）、`'memory'`（内存临时缓存）

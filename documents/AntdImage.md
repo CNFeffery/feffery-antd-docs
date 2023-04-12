@@ -1,27 +1,49 @@
-**width：** *int*或*float*型
+**id：** *string*型
 
-　　用于设置*图片的固定像素宽度*
+　　用于设置*当前组件的唯一id信息*
 
-**height：** *int*或*float*型
+**key：** *string*型
 
-　　用于设置*图片的固定像素高度*
+　　对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
 
-**src：** *string*或*list*型
+**style：** *dict*型
 
-　　用于*要展示的单张或多张图片对应的src信息*，传入*string*型时为单张图片的*src属性*，传入*list*型时为*一组图片src属性所构成的列表*
+　　用于设置*当前组件的css样式*
+
+**className：** *string*或*dict*型
+
+　　用于设置*当前组件的css类名*，支持[动态css](/advanced-classname)
+
+**locale：** *string*型，默认为`'zh-cn'`
+
+　　用于*为当前组件的功能文案设置语言*，可选的有`'zh-cn'`（简体中文）、`'en-us'`（英文）
 
 **alt：** *string*型
 
-　　用于设置*图片的描述文字*
+　　用于*设置图片加载失败时的说明文字*
+
+**width：** *int*或*string*型
+
+　　用于*设置图片宽度*
+
+**height：** *int*或*string*型
+
+　　用于*设置图片高度*
+
+**src：** *string*或*list*型
+
+　　用于*设置图片的url地址*，当传入*list*型时，会视作多图片组合进行展示
 
 **fallback：** *string*型
 
-　　用于设置*图片加载失败时占位显示的图片*
+　　用于*设置图片加载失败时的占位图*，默认为自带的占位图
 
 **multiImageMode：** *string*型，默认为`'fold'`
 
-　　当`src`为*list*型即要渲染多张图片时，此参数用于*设置具体的多图显示模式*，可选的有`'fold'`与`'unfold'`
+　　用于*设置针对多图片组合展示时的具体形式*，可选的有`'fold'`、`'unfold'`
 
 **preview：** *bool*型，默认为`True`
 
-　　用于设置*是否开启图片的交互预览模式*
+　　用于*设置是否开启交互查看功能*
+
+　　

@@ -1,70 +1,58 @@
 from dash import html
 import feffery_antd_components as fac
-import feffery_utils_components as fuc
 import feffery_markdown_components as fmc
 
 import callbacks.AntdSlider
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdSlider(id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdSlider.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '数据录入'
+                        },
+                        {
+                            'title': 'AntdSlider 滑动输入条'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　用于为用户提供基于滑动交互的单值或范围设置功能。')
+                    ]
                 ),
 
                 html.Div(
                     [
-                        html.Div(
-                            [
-                                fac.AntdSlider(min=-100, max=100),
-                                fac.AntdSlider(range=True, min=-100, max=100)
-                            ],
+                        fac.AntdSlider(
+                            min=0,
+                            max=100,
+                            defaultValue=33,
                             style={
-                                'width': '400px'
+                                'width': 300
+                            }
+                        ),
+
+                        fac.AntdSlider(
+                            range=True,
+                            min=0,
+                            max=100,
+                            defaultValue=[10, 90],
+                            style={
+                                'width': 300
                             }
                         ),
 
@@ -75,26 +63,36 @@ docs_content = html.Div(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-html.Div(
-    [
-        fac.AntdSlider(min=-100, max=100),
-        fac.AntdSlider(range=True, min=-100, max=100)
-    ],
+fac.AntdSlider(
+    min=0,
+    max=100,
+    defaultValue=33,
     style={
-        'width': '400px'
+        'width': 300
     }
-)'''
+),
+
+fac.AntdSlider(
+    range=True,
+    min=0,
+    max=100,
+    defaultValue=[10, 90],
+    style={
+        'width': 300
+    }
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
@@ -107,335 +105,427 @@ html.Div(
 
                 html.Div(
                     [
-                        html.Div(
-                            [
-                                fac.AntdSlider(defaultValue=66, min=-100, max=100),
-                                fac.AntdSlider(defaultValue=[-10, 66], range=True, min=-100, max=100)
-                            ],
-                            style={
-                                'width': '400px'
-                            }
-                        ),
-
-                        fac.AntdDivider(
-                            '设置默认值',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
-
-                        fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
-                                language='python',
-                                 codeTheme='coy-without-shadows',
-                                codeString='''
-                        html.Div(
-                            [
-                                fac.AntdSlider(defaultValue=66, min=-100, max=100),
-                                fac.AntdSlider(defaultValue=[-10, 66], range=True, min=-100, max=100)
-                            ],
-                            style={
-                                'width': '400px'
-                            }
-                        )'''
-                            ),
-                            title='点击查看代码',
-                            is_open=False,
-                            ghost=True
-                        )
-
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='设置默认值',
-                    className='div-highlight'
-                ),
-
-                html.Div(
-                    [
-                        html.Div(
-                            [
-                                fac.AntdSlider(step=20, min=-100, max=100),
-                                fac.AntdSlider(step=0.1, range=True, min=-100, max=100)
-                            ],
-                            style={
-                                'width': '400px'
-                            }
-                        ),
-
-                        fac.AntdDivider(
-                            '设置用户拖拽调节步长',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
-
-                        fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
-                                language='python',
-                                 codeTheme='coy-without-shadows',
-                                codeString='''
-html.Div(
-    [
-        fac.AntdSlider(step=20, min=-100, max=100),
-        fac.AntdSlider(step=0.1, range=True, min=-100, max=100)
-    ],
-    style={
-        'width': '400px'
-    }
-)'''
-                            ),
-                            title='点击查看代码',
-                            is_open=False,
-                            ghost=True
-                        )
-
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='设置用户拖拽调节步长',
-                    className='div-highlight'
-                ),
-
-                html.Div(
-                    [
-                        html.Div(
-                            [
-                                fac.AntdSlider(step=20, min=-100, max=100,
-                                               marks={
-                                                   -50: '点1',
-                                                   0: '点2',
-                                                   50: '点3'
-                                               })
-                            ],
-                            style={
-                                'width': '400px'
-                            }
-                        ),
-
-                        fac.AntdDivider(
-                            '自定义部分刻度显示内容',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
-
-                        fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
-                                language='python',
-                                 codeTheme='coy-without-shadows',
-                                codeString='''
-html.Div(
-    [
-        fac.AntdSlider(step=20, min=-100, max=100,
-                       marks={
-                           -50: '点1',
-                           0: '点2',
-                           50: '点3'
-                       })
-    ],
-    style={
-        'width': '400px'
-    }
-)'''
-                            ),
-                            title='点击查看代码',
-                            is_open=False,
-                            ghost=True
-                        )
-
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='自定义部分刻度显示内容',
-                    className='div-highlight'
-                ),
-
-                html.Div(
-                    [
-                        html.Div(
-                            [
-                                fac.AntdSlider(tooltipVisible=True, min=-100, max=100),
-                                fac.AntdSlider(tooltipVisible=False, range=True, min=-100, max=100)
-                            ],
-                            style={
-                                'width': '400px'
-                            }
-                        ),
-
-                        fac.AntdDivider(
-                            '设置数值提示框显示策略',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
-
-                        fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
-                                language='python',
-                                 codeTheme='coy-without-shadows',
-                                codeString='''
-html.Div(
-    [
-        fac.AntdSlider(tooltipVisible=True, min=-100, max=100),
-        fac.AntdSlider(tooltipVisible=False, range=True, min=-100, max=100)
-    ],
-    style={
-        'width': '400px'
-    }
-)'''
-                            ),
-                            title='点击查看代码',
-                            is_open=False,
-                            ghost=True
-                        )
-
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='设置数值提示框显示策略',
-                    className='div-highlight'
-                ),
-
-                html.Div(
-                    [
-                        html.Div(
-                            [
-                                fac.AntdSlider(tooltipPrefix='指标值：', min=-100, max=100),
-                                fac.AntdSlider(tooltipSuffix='°C', range=True, min=-100, max=100)
-                            ],
-                            style={
-                                'width': '400px'
-                            }
-                        ),
-
-                        fac.AntdDivider(
-                            '设置数值提示框前后缀文字',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
-
-                        fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
-                                language='python',
-                                 codeTheme='coy-without-shadows',
-                                codeString='''
-html.Div(
-    [
-        fac.AntdSlider(tooltipPrefix='指标值：', min=-100, max=100),
-        fac.AntdSlider(tooltipSuffix='°C', range=True, min=-100, max=100)
-    ],
-    style={
-        'width': '400px'
-    }
-)'''
-                            ),
-                            title='点击查看代码',
-                            is_open=False,
-                            ghost=True
-                        )
-
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='设置数值提示框前后缀文字',
-                    className='div-highlight'
-                ),
-
-                html.Div(
-                    [
                         fac.AntdSpace(
                             [
-                                html.Div(
-                                    fac.AntdSlider(min=-100, max=100, vertical=True),
+                                fac.AntdSlider(
+                                    vertical=True,
+                                    min=0,
+                                    max=100,
+                                    defaultValue=33,
                                     style={
-                                        'height': '150px'
+                                        'height': 200
                                     }
                                 ),
-                                html.Div(
-                                    fac.AntdSlider(min=-100, max=100, range=True, vertical=True),
+
+                                fac.AntdSlider(
+                                    vertical=True,
+                                    range=True,
+                                    min=0,
+                                    max=100,
+                                    defaultValue=[10, 90],
                                     style={
-                                        'height': '150px'
+                                        'height': 200
                                     }
                                 )
                             ]
                         ),
 
                         fac.AntdDivider(
-                            '垂直布局',
+                            '垂直模式',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdSpace(
     [
-        html.Div(
-            fac.AntdSlider(min=-100, max=100, vertical=True),
+        fac.AntdSlider(
+            vertical=True,
+            min=0,
+            max=100,
+            defaultValue=33,
             style={
-                'height': '150px'
+                'height': 200
             }
         ),
-        html.Div(
-            fac.AntdSlider(min=-100, max=100, range=True, vertical=True),
+
+        fac.AntdSlider(
+            vertical=True,
+            range=True,
+            min=0,
+            max=100,
+            defaultValue=[10, 90],
             style={
-                'height': '150px'
+                'height': 200
             }
         )
     ]
-)'''
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='垂直布局',
+                    id='垂直模式',
                     className='div-highlight'
                 ),
 
                 html.Div(
                     [
-                        html.Div(
-                            [
-                                fac.AntdSlider(id='slider-demo-1', min=-100, max=100),
-                                fac.AntdSlider(id='slider-demo-2', range=True, min=-100, max=100)
-                            ],
+                        fac.AntdSlider(
+                            min=0,
+                            max=100,
+                            defaultValue=50,
+                            step=10,
                             style={
-                                'width': '400px'
+                                'width': 300
                             }
                         ),
-                        html.Br(),
-                        fac.AntdSpin(
-                            html.Em(id='slider-demo-output'),
-                            text='回调中'
+
+                        fac.AntdDivider(
+                            '自定义滑动步长',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSlider(
+    min=0,
+    max=100,
+    defaultValue=50,
+    step=10,
+    style={
+        'width': 300
+    }
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='自定义滑动步长',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSlider(
+                            min=0,
+                            max=100,
+                            defaultValue=50,
+                            marks={
+                                i*10: f'{i*10}%'
+                                for i in range(0, 11)
+                            },
+                            style={
+                                'width': 300
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '自定义刻度',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSlider(
+    min=0,
+    max=100,
+    defaultValue=50,
+    marks={
+        i*10: f'{i*10}%'
+        for i in range(0, 11)
+    },
+    style={
+        'width': 300
+    }
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='自定义刻度',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdDivider(
+                            'tooltipVisible=True',
+                            innerTextOrientation='left'
+                        ),
+                        fac.AntdSlider(
+                            min=0,
+                            max=100,
+                            defaultValue=50,
+                            tooltipVisible=True,
+                            style={
+                                'width': 300
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            'tooltipVisible=False',
+                            innerTextOrientation='left'
+                        ),
+                        fac.AntdSlider(
+                            min=0,
+                            max=100,
+                            defaultValue=50,
+                            tooltipVisible=False,
+                            style={
+                                'width': 300
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '滑动提示内容显示策略',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdDivider(
+    'tooltipVisible=True',
+    innerTextOrientation='left'
+),
+fac.AntdSlider(
+    min=0,
+    max=100,
+    defaultValue=50,
+    tooltipVisible=True,
+    style={
+        'width': 300
+    }
+),
+
+fac.AntdDivider(
+    'tooltipVisible=False',
+    innerTextOrientation='left'
+),
+fac.AntdSlider(
+    min=0,
+    max=100,
+    defaultValue=50,
+    tooltipVisible=False,
+    style={
+        'width': 300
+    }
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='滑动提示内容显示策略',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSlider(
+                            min=0,
+                            max=100,
+                            defaultValue=50,
+                            tooltipPrefix='当前值：',
+                            tooltipSuffix='%',
+                            style={
+                                'width': 300
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '滑动提示内容前后缀',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSlider(
+    min=0,
+    max=100,
+    defaultValue=50,
+    tooltipPrefix='当前值：',
+    tooltipSuffix='%',
+    style={
+        'width': 300
+    }
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='滑动提示内容前后缀',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSlider(
+                            min=0,
+                            max=100,
+                            defaultValue=33,
+                            disabled=True,
+                            style={
+                                'width': 300
+                            }
+                        ),
+
+                        fac.AntdSlider(
+                            range=True,
+                            min=0,
+                            max=100,
+                            defaultValue=[10, 90],
+                            disabled=True,
+                            style={
+                                'width': 300
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '禁用状态',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSlider(
+    min=0,
+    max=100,
+    defaultValue=33,
+    disabled=True,
+    style={
+        'width': 300
+    }
+),
+
+fac.AntdSlider(
+    range=True,
+    min=0,
+    max=100,
+    defaultValue=[10, 90],
+    disabled=True,
+    style={
+        'width': 300
+    }
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='禁用状态',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSlider(
+                            id='slider-demo',
+                            min=0,
+                            max=100,
+                            defaultValue=33,
+                            style={
+                                'width': 300
+                            }
+                        ),
+                        fac.AntdText(
+                            id='slider-demo-output'
+                        ),
+
+                        fac.AntdSlider(
+                            id='slider-range-demo',
+                            range=True,
+                            min=0,
+                            max=100,
+                            defaultValue=[10, 90],
+                            style={
+                                'width': 300
+                            }
+                        ),
+                        fac.AntdText(
+                            id='slider-range-demo-output'
                         ),
 
                         fac.AntdDivider(
@@ -445,36 +535,63 @@ fac.AntdSpace(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-html.Div(
-    [
-        fac.AntdSlider(id='slider-demo-1', min=-100, max=100),
-        fac.AntdSlider(id='slider-demo-2', range=True, min=-100, max=100)
-    ],
+fac.AntdSlider(
+    id='slider-demo',
+    min=0,
+    max=100,
+    defaultValue=33,
     style={
-        'width': '400px'
+        'width': 300
     }
 ),
-html.Br(),
-html.Em(id='slider-demo-output')
+fac.AntdText(
+    id='slider-demo-output'
+),
+
+fac.AntdSlider(
+    id='slider-range-demo',
+    range=True,
+    min=0,
+    max=100,
+    defaultValue=[10, 90],
+    style={
+        'width': 300
+    }
+),
+fac.AntdText(
+    id='slider-range-demo-output'
+)
+
 ...
+
 @app.callback(
     Output('slider-demo-output', 'children'),
-    [Input('slider-demo-1', 'value'),
-     Input('slider-demo-2', 'value')]
+    Input('slider-demo', 'value')
 )
-def transfer_callback_demo(value, range_value):
-    return f'单值选择当前值：{value}   范围选择当前值：{range_value}'''
+def slider_demo(value):
+
+    return f'value: {value}'
+
+
+@app.callback(
+    Output('slider-range-demo-output', 'children'),
+    Input('slider-range-demo', 'value')
+)
+def slider_range_demo(value):
+
+    return f'value: {value}'
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
@@ -488,34 +605,32 @@ def transfer_callback_demo(value, range_value):
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '基础使用', 'href': '#基础使用'},
-                            {'title': '设置默认值', 'href': '#设置默认值'},
-                            {'title': '设置用户拖拽调节步长', 'href': '#设置用户拖拽调节步长'},
-                            {'title': '自定义部分刻度显示内容', 'href': '#自定义部分刻度显示内容'},
-                            {'title': '设置数值提示框显示策略', 'href': '#设置数值提示框显示策略'},
-                            {'title': '设置数值提示框前后缀文字', 'href': '#设置数值提示框前后缀文字'},
-                            {'title': '垂直布局', 'href': '#垂直布局'},
-                            {'title': '回调示例', 'href': '#回调示例'},
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '垂直模式', 'href': '#垂直模式'},
+                    {'title': '自定义滑动步长', 'href': '#自定义滑动步长'},
+                    {'title': '自定义刻度', 'href': '#自定义刻度'},
+                    {'title': '滑动提示内容显示策略', 'href': '#滑动提示内容显示策略'},
+                    {'title': '滑动提示内容前后缀', 'href': '#滑动提示内容前后缀'},
+                    {'title': '禁用状态', 'href': '#禁用状态'},
+                    {'title': '回调示例', 'href': '#回调示例'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'margin': '20px'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdSlider'
         )
     ],
     style={

@@ -1,28 +1,47 @@
-**message：** *string*、*list*或*组件*型
+**id：** *string*型
 
-　　用于设置警告提示的*主要文字内容*，亦可传入单个组件或多个组件构成的列表实现自由内容嵌套
+　　用于设置*当前组件的唯一id信息*
 
-**description：** *string*或*组件*型
+**key：** *string*型
 
-　　可选，用于设置警告提示的*辅助说明文字内容*，亦可传入单个组件或多个组件构成的列表实现自由内容嵌套
+　　对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+
+**style：** *dict*型
+
+　　用于设置*当前组件的css样式*
+
+**className：** *string*或*dict*型
+
+　　用于设置*当前组件的css类名*，支持[动态css](/advanced-classname)
+
+**message：** *组件型*
+
+　　用于*为当前警告提示设置主要信息内容*
+
+**description：** *组件型*
+
+　　用于*为当前警告提示设置次要信息内容*
 
 **type：** *string*型，默认为`'info'`
 
-　　用于设置警告提示的*状态类型*，可选的有`'info'`、`'success'`、`'warning'`及`'error'`
+　　用于*为当前警告提示设置状态类型*，可选的有`'success'`、`'info'`、`'warning'`、`'error'`
 
 **showIcon：** *bool*型，默认为`False`
 
-　　用于设置是否添加*状态图标*
+　　用于*设置是否为当前警告提示添加状态图标*
 
 **closable：** *bool*型，默认为`False`
 
-　　用于设置是否为当前警告提示渲染*关闭按钮*
+　　用于*设置当前警告提示是否可关闭*
 
 **messageRenderMode：** *string*型，默认为`'default'`
 
-　　用于设置针对`message`的*渲染模式*，可选的有`'default'`、`'loop-text'`（轮播文字模式）以及`'marquee'`（跑马灯模式），其中`'loop-text'`模式需要`message`参数传入列表类型的多条字符串
+　　用于*设置当前警告提示的渲染模式*，可选的有`'default'`、`'loop-text'`（轮播模式）、`'marquee'`（走马灯模式），其中`'loop-text'`模式下需要参数`message`输入数组格式
 
 **action：** *组件型*
 
-　　用于*添加右上角操作区额外元素*
+　　用于*为当前警告提示设置右上角额外内容*
 
+**banner：** *组件型*，默认为`False`
+
+　　用于*设置是否开启顶部公告模式*

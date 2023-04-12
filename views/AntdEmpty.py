@@ -1,57 +1,37 @@
 from dash import html
-import feffery_utils_components as fuc
-import feffery_markdown_components as fmc
 import feffery_antd_components as fac
+import feffery_markdown_components as fmc
+
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdEmpty(id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdEmpty.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '数据展示'
+                        },
+                        {
+                            'title': 'AntdEmpty 空状态'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　用于在信息缺失时起到占位说明的作用。')
+                    ]
                 ),
 
                 html.Div(
@@ -65,15 +45,17 @@ docs_content = html.Div(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdEmpty()'''
+fac.AntdEmpty()
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -89,27 +71,29 @@ fac.AntdEmpty()'''
                 html.Div(
                     [
                         fac.AntdEmpty(
-                            description='这是一段提示文字'
+                            image='simple'
                         ),
 
                         fac.AntdDivider(
-                            '自定义描述文字',
+                            '简洁占位图',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdEmpty(
-    description='这是一段提示文字'
-)'''
+    image='simple'
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -118,34 +102,36 @@ fac.AntdEmpty(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='自定义描述文字',
+                    id='简洁占位图',
                     className='div-highlight'
                 ),
 
                 html.Div(
                     [
                         fac.AntdEmpty(
-                            image='/assets/imgs/fac-logo.svg'
+                            image='/assets/imgs/empty占位图示例1.png'
                         ),
 
                         fac.AntdDivider(
-                            '自定义提示图片',
+                            '自定义占位图',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdEmpty(
-    image='/assets/imgs/fac-logo.svg'
-)'''
+    image='/assets/imgs/empty占位图示例1.png'
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -154,40 +140,50 @@ fac.AntdEmpty(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='自定义提示图片',
+                    id='自定义占位图',
                     className='div-highlight'
                 ),
 
                 html.Div(
                     [
                         fac.AntdEmpty(
-                            fac.AntdButton(
-                                'children示例',
-                                type='primary'
-                            )
+                            image='/assets/imgs/empty占位图示例1.png',
+                            description=fac.AntdText(
+                                '当前页面开发中...',
+                                type='secondary'
+                            ),
+                            imageStyle={
+                                'height': 250
+                            }
                         ),
 
                         fac.AntdDivider(
-                            '利用children丰富内容展示',
+                            '设置占位图样式',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdEmpty(
-    fac.AntdButton(
-        'children示例',
-        type='primary'
-    )
-)'''
+    image='/assets/imgs/empty占位图示例1.png',
+    description=fac.AntdText(
+        '当前页面开发中...',
+        type='secondary'
+    ),
+    imageStyle={
+        'height': 250
+    }
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -196,37 +192,74 @@ fac.AntdEmpty(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='利用children丰富内容展示',
+                    id='设置占位图样式',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdEmpty(
+                            description=False
+                        ),
+
+                        fac.AntdDivider(
+                            '隐藏描述内容',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdEmpty(
+    description=False
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='隐藏描述内容',
                     className='div-highlight'
                 ),
 
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '基础使用', 'href': '#基础使用'},
-                            {'title': '自定义描述文字', 'href': '#自定义描述文字'},
-                            {'title': '自定义提示图片', 'href': '#自定义提示图片'},
-                            {'title': '利用children丰富内容展示', 'href': '#利用children丰富内容展示'},
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '简洁占位图', 'href': '#简洁占位图'},
+                    {'title': '自定义占位图', 'href': '#自定义占位图'},
+                    {'title': '设置占位图样式', 'href': '#设置占位图样式'},
+                    {'title': '隐藏描述内容', 'href': '#隐藏描述内容'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'margin': '20px'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdEmpty'
         )
     ],
     style={

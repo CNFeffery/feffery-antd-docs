@@ -1,52 +1,37 @@
 from dash import html
-import feffery_markdown_components as fmc
 import feffery_antd_components as fac
-import feffery_utils_components as fuc
+import feffery_markdown_components as fmc
+
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdBackTop(id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
+                fac.AntdBackTop(
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdBackTop.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '其他'
+                        },
+                        {
+                            'title': 'AntdBackTop 回到顶部'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　用于帮助用户在长页面中快速回到顶部。')
+                    ]
                 ),
 
                 html.Div(
@@ -64,7 +49,8 @@ docs_content = html.Div(
                             ] + [
                                 html.Div(
                                     [
-                                        i if i % 2 == 0 else html.Br() for i in range(200)
+                                        i if i % 2 == 0 else html.Br()
+                                        for i in range(200)
                                     ]
                                 )
                             ],
@@ -79,16 +65,17 @@ docs_content = html.Div(
                         ),
 
                         fac.AntdDivider(
-                            '回到顶部示例',
+                            '基础使用',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 html.Div(
     [
@@ -103,7 +90,8 @@ html.Div(
     ] + [
         html.Div(
             [
-                i if i % 2 == 0 else html.Br() for i in range(200)
+                i if i % 2 == 0 else html.Br()
+                for i in range(200)
             ]
         )
     ],
@@ -115,10 +103,11 @@ html.Div(
         'backgroundColor': 'rgba(240, 240, 240, 0.2)',
         'padding': '20px'
     }
-)'''
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -127,34 +116,32 @@ html.Div(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='回到顶部示例',
+                    id='基础使用',
                     className='div-highlight'
                 ),
 
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '回到顶部示例', 'href': '#回到顶部示例'}
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'padding': '20px'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdBackTop'
         )
     ],
     style={

@@ -7,6 +7,6 @@ from server import app
     Output('check-card-demo-output', 'children'),
     Input('check-card-demo', 'checked')
 )
-def check_card_demo_callback(checked):
+def check_card_demo(checked):
 
-    return str(checked)
+    return f'checked: {checked}'

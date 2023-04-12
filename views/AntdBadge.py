@@ -1,64 +1,43 @@
 from dash import html, dcc
-import feffery_markdown_components as fmc
 import feffery_antd_components as fac
-import feffery_utils_components as fuc
+import feffery_markdown_components as fmc
 
 import callbacks.AntdBadge
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdBadge(children, id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdBadge.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '数据展示'
+                        },
+                        {
+                            'title': 'AntdBadge 徽标数'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText(
+                            '　　一般出现在通知图标或头像的右上角，用于显示需要处理的消息条数，通过醒目视觉形式吸引用户处理。')
+                    ]
                 ),
 
                 html.Div(
                     [
-
                         fac.AntdSpace(
                             [
                                 fac.AntdBadge(
@@ -133,16 +112,16 @@ docs_content = html.Div(
                         ),
 
                         fac.AntdDivider(
-                            '常规的角标式徽标',
+                            '基础使用',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdParagraph(
                             [
-                                fac.AntdText('　　徽标最常规的用法是给其'),
+                                fac.AntdText('　　徽标最常见的用法是为其'),
                                 fac.AntdText('children', code=True),
-                                fac.AntdText('参数所传入的元素添加角标形式的徽标数，主要用于'),
+                                fac.AntdText('添加角标形式的徽标数，主要用于'),
                                 fac.AntdText('AntdIcon', code=True),
                                 fac.AntdText('、'),
                                 fac.AntdText('AntdAvatar', code=True),
@@ -151,10 +130,11 @@ docs_content = html.Div(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdSpace(
     [
@@ -231,7 +211,7 @@ fac.AntdSpace(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -240,13 +220,16 @@ fac.AntdSpace(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='常规的角标式徽标',
+                    id='基础使用',
                     className='div-highlight'
                 ),
 
                 html.Div(
                     [
-                        fac.AntdDivider('size="default"（默认）', innerTextOrientation='left'),
+                        fac.AntdDivider(
+                            'size="default"（默认）',
+                            innerTextOrientation='left'
+                        ),
                         fac.AntdSpace(
                             [
                                 fac.AntdBadge(
@@ -281,8 +264,10 @@ fac.AntdSpace(
                             size=20
                         ),
 
-                        fac.AntdDivider('size="small"', innerTextOrientation='left'),
-
+                        fac.AntdDivider(
+                            'size="small"',
+                            innerTextOrientation='left'
+                        ),
                         fac.AntdSpace(
                             [
                                 fac.AntdBadge(
@@ -321,18 +306,22 @@ fac.AntdSpace(
                         ),
 
                         fac.AntdDivider(
-                            '不同尺寸与颜色',
+                            '不同尺寸及颜色',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdDivider('size="default"（默认）', innerTextOrientation='left'),
+fac.AntdDivider(
+    'size="default"（默认）',
+    innerTextOrientation='left'
+),
 fac.AntdSpace(
     [
         fac.AntdBadge(
@@ -367,8 +356,10 @@ fac.AntdSpace(
     size=20
 ),
 
-fac.AntdDivider('size="small"', innerTextOrientation='left'),
-
+fac.AntdDivider(
+    'size="small"',
+    innerTextOrientation='left'
+),
 fac.AntdSpace(
     [
         fac.AntdBadge(
@@ -408,7 +399,7 @@ fac.AntdSpace(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -417,7 +408,7 @@ fac.AntdSpace(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='不同尺寸与颜色',
+                    id='不同尺寸及颜色',
                     className='div-highlight'
                 ),
 
@@ -438,7 +429,7 @@ fac.AntdSpace(
                         ),
 
                         fac.AntdDivider(
-                            '独立使用的徽标',
+                            '独立使用徽标',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
@@ -450,17 +441,18 @@ fac.AntdSpace(
                                 fac.AntdText('不传入'),
                                 fac.AntdText('children', code=True),
                                 fac.AntdText('参数时，可独立使用，'),
-                                fac.AntdText('注意！', strong=True),
+                                fac.AntdText('其中', strong=True),
                                 fac.AntdText('status="processing"', code=True),
                                 fac.AntdText('仅徽标独立使用时可用，否则会出现显示异常')
                             ]
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdSpace(
     [
@@ -478,7 +470,7 @@ fac.AntdSpace(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -487,7 +479,7 @@ fac.AntdSpace(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='独立使用的徽标',
+                    id='独立使用徽标',
                     className='div-highlight'
                 ),
 
@@ -522,16 +514,17 @@ fac.AntdSpace(
                         ),
 
                         fac.AntdDivider(
-                            '动态计数效果',
+                            '动态数值变化',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdSpace(
     [
@@ -560,8 +553,12 @@ fac.AntdSpace(
     ],
     size=20
 )
+
 ...
+
 import random
+
+...
 
 @app.callback(
     [Output('badge-demo-1', 'count'),
@@ -573,11 +570,10 @@ import random
 )
 def badge_callback_demo(nClicks, count1, count2):
     return count1 + random.randint(1, 10), count2 + random.randint(1, 10)
-
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -586,7 +582,7 @@ def badge_callback_demo(nClicks, count1, count2):
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='动态计数效果',
+                    id='动态数值变化',
                     className='div-highlight'
                 ),
 
@@ -624,24 +620,17 @@ def badge_callback_demo(nClicks, count1, count2):
                         ),
 
                         fac.AntdDivider(
-                            '利用点击事件实现更多交互',
+                            '基于点击事件实现更多功能',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
-                        fac.AntdParagraph(
-                            [
-                                fac.AntdText('　　当徽标或其包裹的子元素被点击时，都会触发更新'),
-                                fac.AntdText('nClicks', code=True),
-                                fac.AntdText('参数，从而帮助你实现更多回调交互效果')
-                            ]
-                        ),
-
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdAlert(
     type='info',
@@ -673,7 +662,9 @@ html.Div(
         'justifyContent': 'center'
     }
 )
+
 ...
+
 @app.callback(
     [Output('badges-area', 'children'),
      Output('badge-click-demo-start-time', 'data')],
@@ -685,28 +676,31 @@ def badge_click_demo_callback1(nClicks):
     random.shuffle(badges_count)
 
     return [
-               fac.AntdBadge(
-                   fac.AntdAvatar(
-                       mode='image',
-                       src='/assets/imgs/avatar-demo.jpg',
-                       style={
-                           'cursor': 'pointer'
-                       }
-                   ),
-                   id={
-                       'type': 'badge-click-demo',
-                       'index': idx
-                   },
-                   count=c,
-                   dot=True,
-                   style={
-                       'cursor': 'pointer'
-                   }
-               )
-               for idx, c in enumerate(badges_count)
-           ], {
-               'start-time': time.time()
-           }
+        [
+            fac.AntdBadge(
+                fac.AntdAvatar(
+                    mode='image',
+                    src='/assets/imgs/avatar-demo.jpg',
+                    style={
+                        'cursor': 'pointer'
+                    }
+                ),
+                id={
+                    'type': 'badge-click-demo',
+                    'index': idx
+                },
+                count=c,
+                dot=True,
+                style={
+                    'cursor': 'pointer'
+                }
+            )
+            for idx, c in enumerate(badges_count)
+        ],
+        {
+            'start-time': time.time()
+        }
+    ]
 
 
 @app.callback(
@@ -730,13 +724,14 @@ def badge_click_demo_callback3(counts, start_time):
         return fac.AntdParagraph(
             [
                 fac.AntdText('你的得分：', strong=True),
-                fac.AntdText('%s秒' % round(time.time() - start_time['start-time'], 3))
+                fac.AntdText('%s秒' % round(
+                    time.time() - start_time['start-time'], 3))
             ]
         )
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -745,39 +740,36 @@ def badge_click_demo_callback3(counts, start_time):
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='利用点击事件实现更多交互',
+                    id='基于点击事件实现更多功能',
                     className='div-highlight'
                 ),
 
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
-
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '常规的角标式徽标', 'href': '#常规的角标式徽标'},
-                            {'title': '不同尺寸与颜色', 'href': '#不同尺寸与颜色'},
-                            {'title': '独立使用的徽标', 'href': '#独立使用的徽标'},
-                            {'title': '动态计数效果', 'href': '#动态计数效果'},
-                            {'title': '利用点击事件实现更多交互', 'href': '#利用点击事件实现更多交互'},
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '不同尺寸及颜色', 'href': '#不同尺寸及颜色'},
+                    {'title': '独立使用徽标', 'href': '#独立使用徽标'},
+                    {'title': '动态数值变化', 'href': '#动态数值变化'},
+                    {'title': '基于点击事件实现更多功能', 'href': '#基于点击事件实现更多功能'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'margin': '20px'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdBadge'
         )
     ],
     style={

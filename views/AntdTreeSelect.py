@@ -1,59 +1,38 @@
 from dash import html
 import feffery_antd_components as fac
-import feffery_utils_components as fuc
 import feffery_markdown_components as fmc
 
 import callbacks.AntdTreeSelect
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdTreeSelect(id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdTreeSelect.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '数据录入'
+                        },
+                        {
+                            'title': 'AntdTreeSelect 树选择'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　用于为用户提供在树形结构中选择若干项的功能。')
+                    ]
                 ),
 
                 html.Div(
@@ -61,42 +40,27 @@ docs_content = html.Div(
                         fac.AntdTreeSelect(
                             treeData=[
                                 {
-                                    "title": "Node1",
-                                    "value": "0-0",
-                                    "key": "0-0",
-                                    "children": [
+                                    'key': '节点1',
+                                    'value': '1',
+                                    'title': '节点1',
+                                    'children': [
                                         {
-                                            "title": "Child Node1",
-                                            "value": "0-0-0",
-                                            "key": "0-0-0"
+                                            'key': f'节点1-{i}',
+                                            'value': f'1-{i}',
+                                            'title': f'节点1-{i}'
                                         }
+                                        for i in range(1, 5)
                                     ]
                                 },
                                 {
-                                    "title": "Node2",
-                                    "value": "0-1",
-                                    "key": "0-1",
-                                    "children": [
-                                        {
-                                            "title": "Child Node3",
-                                            "value": "0-1-0",
-                                            "key": "0-1-0"
-                                        },
-                                        {
-                                            "title": "Child Node4",
-                                            "value": "0-1-1",
-                                            "key": "0-1-1"
-                                        },
-                                        {
-                                            "title": "Child Node5",
-                                            "value": "0-1-2",
-                                            "key": "0-1-2"
-                                        }
-                                    ]
+                                    'key': '节点2',
+                                    'value': '2',
+                                    'title': '节点2'
                                 }
                             ],
+                            placeholder='请选择',
                             style={
-                                'width': '250px'
+                                'width': 256
                             }
                         ),
 
@@ -107,58 +71,44 @@ docs_content = html.Div(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdTreeSelect(
     treeData=[
         {
-            "title": "Node1",
-            "value": "0-0",
-            "key": "0-0",
-            "children": [
+            'key': '节点1',
+            'value': '1',
+            'title': '节点1',
+            'children': [
                 {
-                    "title": "Child Node1",
-                    "value": "0-0-0",
-                    "key": "0-0-0"
+                    'key': f'节点1-{i}',
+                    'value': f'1-{i}',
+                    'title': f'节点1-{i}'
                 }
+                for i in range(1, 5)
             ]
         },
         {
-            "title": "Node2",
-            "value": "0-1",
-            "key": "0-1",
-            "children": [
-                {
-                    "title": "Child Node3",
-                    "value": "0-1-0",
-                    "key": "0-1-0"
-                },
-                {
-                    "title": "Child Node4",
-                    "value": "0-1-1",
-                    "key": "0-1-1"
-                },
-                {
-                    "title": "Child Node5",
-                    "value": "0-1-2",
-                    "key": "0-1-2"
-                }
-            ]
+            'key': '节点2',
+            'value': '2',
+            'title': '节点2'
         }
     ],
+    placeholder='请选择',
     style={
-        'width': '250px'
+        'width': 256
     }
-)'''
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
@@ -171,46 +121,133 @@ fac.AntdTreeSelect(
 
                 html.Div(
                     [
+                        fac.AntdSpace(
+                            [
+                                fac.AntdTreeSelect(
+                                    treeData=[
+                                        {
+                                            'key': '节点1',
+                                            'value': '1',
+                                            'title': '节点1',
+                                            'children': [
+                                                {
+                                                    'key': f'节点1-{i}',
+                                                    'value': f'1-{i}',
+                                                    'title': f'节点1-{i}'
+                                                }
+                                                for i in range(1, 5)
+                                            ]
+                                        },
+                                        {
+                                            'key': '节点2',
+                                            'value': '2',
+                                            'title': '节点2'
+                                        }
+                                    ],
+                                    placeholder=f'placement="{placement}"',
+                                    placement=placement,
+                                    style={
+                                        'width': 256
+                                    }
+                                )
+                                for placement in [
+                                    'bottomLeft', 'bottomRight', 'topLeft', 'topRight'
+                                ]
+                            ],
+                            direction='vertical'
+                        ),
+
+                        fac.AntdDivider(
+                            '不同的悬浮层展开方位',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdTreeSelect(
+            treeData=[
+                {
+                    'key': '节点1',
+                    'value': '1',
+                    'title': '节点1',
+                    'children': [
+                        {
+                            'key': f'节点1-{i}',
+                            'value': f'1-{i}',
+                            'title': f'节点1-{i}'
+                        }
+                        for i in range(1, 5)
+                    ]
+                },
+                {
+                    'key': '节点2',
+                    'value': '2',
+                    'title': '节点2'
+                }
+            ],
+            placeholder=f'placement="{placement}"',
+            placement=placement,
+            style={
+                'width': 256
+            }
+        )
+        for placement in [
+            'bottomLeft', 'bottomRight', 'topLeft', 'topRight'
+        ]
+    ],
+    direction='vertical'
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='不同的悬浮层展开方位',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
                         fac.AntdTreeSelect(
                             treeData=[
                                 {
-                                    "title": "Node1",
-                                    "value": "0-0",
-                                    "key": "0-0",
-                                    "children": [
+                                    'key': '节点1',
+                                    'value': '1',
+                                    'title': '节点1',
+                                    'children': [
                                         {
-                                            "title": "Child Node1",
-                                            "value": "0-0-0",
-                                            "key": "0-0-0"
+                                            'key': f'节点1-{i}',
+                                            'value': f'1-{i}',
+                                            'title': f'节点1-{i}'
                                         }
+                                        for i in range(1, 5)
                                     ]
                                 },
                                 {
-                                    "title": "Node2",
-                                    "value": "0-1",
-                                    "key": "0-1",
-                                    "children": [
-                                        {
-                                            "title": "Child Node3",
-                                            "value": "0-1-0",
-                                            "key": "0-1-0"
-                                        },
-                                        {
-                                            "title": "Child Node4",
-                                            "value": "0-1-1",
-                                            "key": "0-1-1"
-                                        },
-                                        {
-                                            "title": "Child Node5",
-                                            "value": "0-1-2",
-                                            "key": "0-1-2"
-                                        }
-                                    ]
+                                    'key': '节点2',
+                                    'value': '2',
+                                    'title': '节点2'
                                 }
                             ],
+                            placeholder='请选择',
                             multiple=True,
                             style={
-                                'width': '250px'
+                                'width': 256
                             }
                         ),
 
@@ -221,59 +258,45 @@ fac.AntdTreeSelect(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdTreeSelect(
     treeData=[
         {
-            "title": "Node1",
-            "value": "0-0",
-            "key": "0-0",
-            "children": [
+            'key': '节点1',
+            'value': '1',
+            'title': '节点1',
+            'children': [
                 {
-                    "title": "Child Node1",
-                    "value": "0-0-0",
-                    "key": "0-0-0"
+                    'key': f'节点1-{i}',
+                    'value': f'1-{i}',
+                    'title': f'节点1-{i}'
                 }
+                for i in range(1, 5)
             ]
         },
         {
-            "title": "Node2",
-            "value": "0-1",
-            "key": "0-1",
-            "children": [
-                {
-                    "title": "Child Node3",
-                    "value": "0-1-0",
-                    "key": "0-1-0"
-                },
-                {
-                    "title": "Child Node4",
-                    "value": "0-1-1",
-                    "key": "0-1-1"
-                },
-                {
-                    "title": "Child Node5",
-                    "value": "0-1-2",
-                    "key": "0-1-2"
-                }
-            ]
+            'key': '节点2',
+            'value': '2',
+            'title': '节点2'
         }
     ],
+    placeholder='请选择',
     multiple=True,
     style={
-        'width': '250px'
+        'width': 256
     }
-)'''
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
@@ -289,113 +312,164 @@ fac.AntdTreeSelect(
                         fac.AntdTreeSelect(
                             treeData=[
                                 {
-                                    "title": "Node1",
-                                    "value": "0-0",
-                                    "key": "0-0",
-                                    "children": [
+                                    'key': '节点1',
+                                    'value': '1',
+                                    'title': '节点1',
+                                    'children': [
                                         {
-                                            "title": "Child Node1",
-                                            "value": "0-0-0",
-                                            "key": "0-0-0"
+                                            'key': f'节点1-{i}',
+                                            'value': f'1-{i}',
+                                            'title': f'节点1-{i}'
                                         }
+                                        for i in range(1, 5)
                                     ]
                                 },
                                 {
-                                    "title": "Node2",
-                                    "value": "0-1",
-                                    "key": "0-1",
-                                    "children": [
-                                        {
-                                            "title": "Child Node3",
-                                            "value": "0-1-0",
-                                            "key": "0-1-0"
-                                        },
-                                        {
-                                            "title": "Child Node4",
-                                            "value": "0-1-1",
-                                            "key": "0-1-1"
-                                        },
-                                        {
-                                            "title": "Child Node5",
-                                            "value": "0-1-2",
-                                            "key": "0-1-2"
-                                        }
-                                    ]
+                                    'key': '节点2',
+                                    'value': '2',
+                                    'title': '节点2'
                                 }
                             ],
+                            placeholder='请选择',
+                            multiple=True,
                             treeCheckable=True,
                             style={
-                                'width': '250px'
+                                'width': 256
                             }
                         ),
 
                         fac.AntdDivider(
-                            '开启勾选框',
+                            '带勾选框的多选模式',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdTreeSelect(
     treeData=[
         {
-            "title": "Node1",
-            "value": "0-0",
-            "key": "0-0",
-            "children": [
+            'key': '节点1',
+            'value': '1',
+            'title': '节点1',
+            'children': [
                 {
-                    "title": "Child Node1",
-                    "value": "0-0-0",
-                    "key": "0-0-0"
+                    'key': f'节点1-{i}',
+                    'value': f'1-{i}',
+                    'title': f'节点1-{i}'
                 }
+                for i in range(1, 5)
             ]
         },
         {
-            "title": "Node2",
-            "value": "0-1",
-            "key": "0-1",
-            "children": [
-                {
-                    "title": "Child Node3",
-                    "value": "0-1-0",
-                    "key": "0-1-0"
-                },
-                {
-                    "title": "Child Node4",
-                    "value": "0-1-1",
-                    "key": "0-1-1"
-                },
-                {
-                    "title": "Child Node5",
-                    "value": "0-1-2",
-                    "key": "0-1-2"
-                }
-            ]
+            'key': '节点2',
+            'value': '2',
+            'title': '节点2'
         }
     ],
+    placeholder='请选择',
+    multiple=True,
     treeCheckable=True,
     style={
-        'width': '250px'
+        'width': 256
     }
-)'''
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='开启勾选框',
+                    id='带勾选框的多选模式',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdTreeSelect(
+                            treeDataMode='flat',
+                            treeData=[
+                                {
+                                    'key': '节点1',
+                                    'value': '1',
+                                    'title': '节点1'
+                                },
+                                *[
+                                    {
+                                        'key': f'节点1-{i}',
+                                        'value': f'1-{i}',
+                                        'title': f'节点1-{i}',
+                                        'parent': '节点1'
+                                    }
+                                    for i in range(1, 6)
+                                ]
+                            ],
+                            placeholder='请选择',
+                            style={
+                                'width': 256
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '扁平treeData模式',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdTreeSelect(
+    treeDataMode='flat',
+    treeData=[
+        {
+            'key': '节点1',
+            'value': '1',
+            'title': '节点1'
+        },
+        *[
+            {
+                'key': f'节点1-{i}',
+                'value': f'1-{i}',
+                'title': f'节点1-{i}',
+                'parent': '节点1'
+            }
+            for i in range(1, 6)
+        ]
+    ],
+    placeholder='请选择',
+    style={
+        'width': 256
+    }
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='扁平treeData模式',
                     className='div-highlight'
                 ),
 
@@ -404,295 +478,763 @@ fac.AntdTreeSelect(
                         fac.AntdTreeSelect(
                             treeData=[
                                 {
-                                    "title": "Node1",
-                                    "value": "0-0",
-                                    "key": "0-0",
-                                    "children": [
+                                    'key': '节点1',
+                                    'value': '1',
+                                    'title': '节点1',
+                                    'children': [
                                         {
-                                            "title": "Child Node1",
-                                            "value": "0-0-0",
-                                            "key": "0-0-0"
+                                            'key': f'节点1-{i}',
+                                            'value': f'1-{i}',
+                                            'title': f'节点1-{i}'
                                         }
+                                        for i in range(1, 5)
                                     ]
                                 },
                                 {
-                                    "title": "Node2",
-                                    "value": "0-1",
-                                    "key": "0-1",
-                                    "children": [
-                                        {
-                                            "title": "Child Node3",
-                                            "value": "0-1-0",
-                                            "key": "0-1-0"
-                                        },
-                                        {
-                                            "title": "Child Node4",
-                                            "value": "0-1-1",
-                                            "key": "0-1-1"
-                                        },
-                                        {
-                                            "title": "Child Node5",
-                                            "value": "0-1-2",
-                                            "key": "0-1-2"
-                                        }
-                                    ]
+                                    'key': '节点2',
+                                    'value': '2',
+                                    'title': '节点2'
                                 }
                             ],
-                            treeCheckable=True,
+                            placeholder='请选择',
                             treeLine=True,
-                            style={
-                                'width': '250px'
-                            }
-                        ),
-
-                        fac.AntdDivider(
-                            '显示树连接线',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
-
-                        fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
-                                language='python',
-                                 codeTheme='coy-without-shadows',
-                                codeString='''
-fac.AntdTreeSelect(
-    treeData=[
-        {
-            "title": "Node1",
-            "value": "0-0",
-            "key": "0-0",
-            "children": [
-                {
-                    "title": "Child Node1",
-                    "value": "0-0-0",
-                    "key": "0-0-0"
-                }
-            ]
-        },
-        {
-            "title": "Node2",
-            "value": "0-1",
-            "key": "0-1",
-            "children": [
-                {
-                    "title": "Child Node3",
-                    "value": "0-1-0",
-                    "key": "0-1-0"
-                },
-                {
-                    "title": "Child Node4",
-                    "value": "0-1-1",
-                    "key": "0-1-1"
-                },
-                {
-                    "title": "Child Node5",
-                    "value": "0-1-2",
-                    "key": "0-1-2"
-                }
-            ]
-        }
-    ],
-    treeCheckable=True,
-    treeLine=True,
-    style={
-        'width': '250px'
-    }
-)'''
-                            ),
-                            title='点击查看代码',
-                            is_open=False,
-                            ghost=True
-                        )
-
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='显示树连接线',
-                    className='div-highlight'
-                ),
-
-                html.Div(
-                    [
-                        fac.AntdTreeSelect(
-                            treeData=[
-                                {
-                                    "title": "Node1",
-                                    "value": "0-0",
-                                    "key": "0-0",
-                                    "children": [
-                                        {
-                                            "title": f"Child Node{i + 1}",
-                                            "value": f"0-0-{i}",
-                                            "key": f"0-0-{i}"
-                                        }
-                                        for i in range(20)
-                                    ]
-                                },
-                                {
-                                    "title": "Node2",
-                                    "value": "0-1",
-                                    "key": "0-1",
-                                    "children": [
-                                        {
-                                            "title": "Child Node3",
-                                            "value": "0-1-0",
-                                            "key": "0-1-0"
-                                        },
-                                        {
-                                            "title": "Child Node4",
-                                            "value": "0-1-1",
-                                            "key": "0-1-1"
-                                        },
-                                        {
-                                            "title": "Child Node5",
-                                            "value": "0-1-2",
-                                            "key": "0-1-2"
-                                        }
-                                    ]
-                                }
-                            ],
-                            treeCheckable=True,
-                            treeLine=True,
-                            virtual=False,
                             treeDefaultExpandAll=True,
                             style={
-                                'width': '250px'
+                                'width': 256
                             }
                         ),
 
                         fac.AntdDivider(
-                            '关闭虚拟滚动',
+                            '添加连接线',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdTreeSelect(
     treeData=[
         {
-            "title": "Node1",
-            "value": "0-0",
-            "key": "0-0",
-            "children": [
+            'key': '节点1',
+            'value': '1',
+            'title': '节点1',
+            'children': [
                 {
-                    "title": f"Child Node{i + 1}",
-                    "value": f"0-0-{i}",
-                    "key": f"0-0-{i}"
+                    'key': f'节点1-{i}',
+                    'value': f'1-{i}',
+                    'title': f'节点1-{i}'
                 }
-                for i in range(20)
+                for i in range(1, 5)
             ]
         },
         {
-            "title": "Node2",
-            "value": "0-1",
-            "key": "0-1",
-            "children": [
-                {
-                    "title": "Child Node3",
-                    "value": "0-1-0",
-                    "key": "0-1-0"
-                },
-                {
-                    "title": "Child Node4",
-                    "value": "0-1-1",
-                    "key": "0-1-1"
-                },
-                {
-                    "title": "Child Node5",
-                    "value": "0-1-2",
-                    "key": "0-1-2"
-                }
-            ]
+            'key': '节点2',
+            'value': '2',
+            'title': '节点2'
         }
     ],
-    treeCheckable=True,
+    placeholder='请选择',
     treeLine=True,
-    virtual=False,
     treeDefaultExpandAll=True,
     style={
-        'width': '250px'
+        'width': 256
     }
-)'''
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='关闭虚拟滚动',
+                    id='添加连接线',
                     className='div-highlight'
                 ),
 
                 html.Div(
                     [
-                        fac.AntdSpin(
-                            [
-                                html.Div(
-                                    [
-                                        fac.AntdText('value：', strong=True),
-                                        fac.AntdText(id='tree-select-demo-output')
+                        fac.AntdTreeSelect(
+                            treeData=[
+                                {
+                                    'key': '节点1',
+                                    'value': '1',
+                                    'title': '节点1',
+                                    'children': [
+                                        {
+                                            'key': f'节点1-{i}',
+                                            'value': f'1-{i}',
+                                            'title': f'节点1-{i}'
+                                        }
+                                        for i in range(1, 5)
                                     ]
-                                ),
+                                },
+                                {
+                                    'key': '节点2',
+                                    'value': '2',
+                                    'title': '节点2'
+                                }
+                            ],
+                            placeholder='请选择',
+                            multiple=True,
+                            treeCheckable=True,
+                            treeCheckStrictly=True,
+                            style={
+                                'width': 256
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '父子节点独立选择',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdTreeSelect(
+    treeData=[
+        {
+            'key': '节点1',
+            'value': '1',
+            'title': '节点1',
+            'children': [
+                {
+                    'key': f'节点1-{i}',
+                    'value': f'1-{i}',
+                    'title': f'节点1-{i}'
+                }
+                for i in range(1, 5)
+            ]
+        },
+        {
+            'key': '节点2',
+            'value': '2',
+            'title': '节点2'
+        }
+    ],
+    placeholder='请选择',
+    multiple=True,
+    treeCheckable=True,
+    treeCheckStrictly=True,
+    style={
+        'width': 256
+    }
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='父子节点独立选择',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdTreeSelect(
+                            treeData=[
+                                {
+                                    'key': '节点1',
+                                    'value': '1',
+                                    'title': '节点1',
+                                    'children': [
+                                        {
+                                            'key': f'节点1-{i}',
+                                            'value': f'1-{i}',
+                                            'title': f'节点1-{i}'
+                                        }
+                                        for i in range(1, 5)
+                                    ]
+                                },
+                                {
+                                    'key': '节点2',
+                                    'value': '2',
+                                    'title': '节点2'
+                                }
+                            ],
+                            placeholder='请选择',
+                            disabled=True,
+                            style={
+                                'width': 256
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '禁用状态',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdTreeSelect(
+    treeData=[
+        {
+            'key': '节点1',
+            'value': '1',
+            'title': '节点1',
+            'children': [
+                {
+                    'key': f'节点1-{i}',
+                    'value': f'1-{i}',
+                    'title': f'节点1-{i}'
+                }
+                for i in range(1, 5)
+            ]
+        },
+        {
+            'key': '节点2',
+            'value': '2',
+            'title': '节点2'
+        }
+    ],
+    placeholder='请选择',
+    disabled=True,
+    style={
+        'width': 256
+    }
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='禁用状态',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdDivider(
+                            'showCheckedStrategy="show-all"（默认）',
+                            innerTextOrientation='left'
+                        ),
+                        fac.AntdTreeSelect(
+                            treeData=[
+                                {
+                                    'key': '节点1',
+                                    'value': '1',
+                                    'title': '节点1',
+                                    'children': [
+                                        {
+                                            'key': f'节点1-{i}',
+                                            'value': f'1-{i}',
+                                            'title': f'节点1-{i}'
+                                        }
+                                        for i in range(1, 5)
+                                    ]
+                                },
+                                {
+                                    'key': '节点2',
+                                    'value': '2',
+                                    'title': '节点2'
+                                }
+                            ],
+                            placeholder='请选择',
+                            multiple=True,
+                            treeCheckable=True,
+                            style={
+                                'width': 256
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            'showCheckedStrategy="show-parent"',
+                            innerTextOrientation='left'
+                        ),
+                        fac.AntdTreeSelect(
+                            treeData=[
+                                {
+                                    'key': '节点1',
+                                    'value': '1',
+                                    'title': '节点1',
+                                    'children': [
+                                        {
+                                            'key': f'节点1-{i}',
+                                            'value': f'1-{i}',
+                                            'title': f'节点1-{i}'
+                                        }
+                                        for i in range(1, 5)
+                                    ]
+                                },
+                                {
+                                    'key': '节点2',
+                                    'value': '2',
+                                    'title': '节点2'
+                                }
+                            ],
+                            placeholder='请选择',
+                            multiple=True,
+                            treeCheckable=True,
+                            showCheckedStrategy='show-parent',
+                            style={
+                                'width': 256
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            'showCheckedStrategy="show-child"',
+                            innerTextOrientation='left'
+                        ),
+                        fac.AntdTreeSelect(
+                            treeData=[
+                                {
+                                    'key': '节点1',
+                                    'value': '1',
+                                    'title': '节点1',
+                                    'children': [
+                                        {
+                                            'key': f'节点1-{i}',
+                                            'value': f'1-{i}',
+                                            'title': f'节点1-{i}'
+                                        }
+                                        for i in range(1, 5)
+                                    ]
+                                },
+                                {
+                                    'key': '节点2',
+                                    'value': '2',
+                                    'title': '节点2'
+                                }
+                            ],
+                            placeholder='请选择',
+                            multiple=True,
+                            treeCheckable=True,
+                            showCheckedStrategy='show-child',
+                            style={
+                                'width': 256
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '已选项回填策略',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdDivider(
+    'showCheckedStrategy="show-all"（默认）',
+    innerTextOrientation='left'
+),
+fac.AntdTreeSelect(
+    treeData=[
+        {
+            'key': '节点1',
+            'value': '1',
+            'title': '节点1',
+            'children': [
+                {
+                    'key': f'节点1-{i}',
+                    'value': f'1-{i}',
+                    'title': f'节点1-{i}'
+                }
+                for i in range(1, 5)
+            ]
+        },
+        {
+            'key': '节点2',
+            'value': '2',
+            'title': '节点2'
+        }
+    ],
+    placeholder='请选择',
+    multiple=True,
+    treeCheckable=True,
+    style={
+        'width': 256
+    }
+),
+
+fac.AntdDivider(
+    'showCheckedStrategy="show-parent"',
+    innerTextOrientation='left'
+),
+fac.AntdTreeSelect(
+    treeData=[
+        {
+            'key': '节点1',
+            'value': '1',
+            'title': '节点1',
+            'children': [
+                {
+                    'key': f'节点1-{i}',
+                    'value': f'1-{i}',
+                    'title': f'节点1-{i}'
+                }
+                for i in range(1, 5)
+            ]
+        },
+        {
+            'key': '节点2',
+            'value': '2',
+            'title': '节点2'
+        }
+    ],
+    placeholder='请选择',
+    multiple=True,
+    treeCheckable=True,
+    showCheckedStrategy='show-parent',
+    style={
+        'width': 256
+    }
+),
+
+fac.AntdDivider(
+    'showCheckedStrategy="show-child"',
+    innerTextOrientation='left'
+),
+fac.AntdTreeSelect(
+    treeData=[
+        {
+            'key': '节点1',
+            'value': '1',
+            'title': '节点1',
+            'children': [
+                {
+                    'key': f'节点1-{i}',
+                    'value': f'1-{i}',
+                    'title': f'节点1-{i}'
+                }
+                for i in range(1, 5)
+            ]
+        },
+        {
+            'key': '节点2',
+            'value': '2',
+            'title': '节点2'
+        }
+    ],
+    placeholder='请选择',
+    multiple=True,
+    treeCheckable=True,
+    showCheckedStrategy='show-child',
+    style={
+        'width': 256
+    }
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='已选项回填策略',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdTreeSelect(
+                            treeData=[
+                                {
+                                    'key': '节点1',
+                                    'value': '1',
+                                    'title': '节点1',
+                                    'children': [
+                                        {
+                                            'key': f'节点1-{i}',
+                                            'value': f'1-{i}',
+                                            'title': f'节点1-{i}'
+                                        }
+                                        for i in range(1, 5)
+                                    ]
+                                },
+                                {
+                                    'key': '节点2',
+                                    'value': '2',
+                                    'title': '节点2'
+                                }
+                            ],
+                            placeholder='请选择',
+                            defaultValue='节点2',
+                            readOnly=True,
+                            style={
+                                'width': 256
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '只读状态',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdTreeSelect(
+    treeData=[
+        {
+            'key': '节点1',
+            'value': '1',
+            'title': '节点1',
+            'children': [
+                {
+                    'key': f'节点1-{i}',
+                    'value': f'1-{i}',
+                    'title': f'节点1-{i}'
+                }
+                for i in range(1, 5)
+            ]
+        },
+        {
+            'key': '节点2',
+            'value': '2',
+            'title': '节点2'
+        }
+    ],
+    placeholder='请选择',
+    defaultValue='节点2',
+    readOnly=True,
+    style={
+        'width': 256
+    }
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='只读状态',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSpace(
+                            [
                                 fac.AntdTreeSelect(
-                                    id='tree-select-demo',
                                     treeData=[
                                         {
-                                            "title": "Node1",
-                                            "value": "0-0",
-                                            "key": "0-0",
-                                            "children": [
+                                            'key': '节点1',
+                                            'value': '1',
+                                            'title': '节点1',
+                                            'children': [
                                                 {
-                                                    "title": "Child Node1",
-                                                    "value": "0-0-0",
-                                                    "key": "0-0-0"
+                                                    'key': f'节点1-{i}',
+                                                    'value': f'1-{i}',
+                                                    'title': f'节点1-{i}'
                                                 }
+                                                for i in range(1, 5)
                                             ]
                                         },
                                         {
-                                            "title": "Node2",
-                                            "value": "0-1",
-                                            "key": "0-1",
-                                            "children": [
-                                                {
-                                                    "title": "Child Node3",
-                                                    "value": "0-1-0",
-                                                    "key": "0-1-0"
-                                                },
-                                                {
-                                                    "title": "Child Node4",
-                                                    "value": "0-1-1",
-                                                    "key": "0-1-1"
-                                                },
-                                                {
-                                                    "title": "Child Node5",
-                                                    "value": "0-1-2",
-                                                    "key": "0-1-2"
-                                                }
-                                            ]
+                                            'key': '节点2',
+                                            'value': '2',
+                                            'title': '节点2'
                                         }
                                     ],
+                                    placeholder=f'status="{status}"',
+                                    status=status,
                                     style={
-                                        'width': '250px'
+                                        'width': 256
                                     }
                                 )
+                                for status in ['warning', 'error']
                             ],
-                            text='回调中'
+                            direction='vertical'
+                        ),
+
+                        fac.AntdDivider(
+                            '强制状态渲染',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdTreeSelect(
+            treeData=[
+                {
+                    'key': '节点1',
+                    'value': '1',
+                    'title': '节点1',
+                    'children': [
+                        {
+                            'key': f'节点1-{i}',
+                            'value': f'1-{i}',
+                            'title': f'节点1-{i}'
+                        }
+                        for i in range(1, 5)
+                    ]
+                },
+                {
+                    'key': '节点2',
+                    'value': '2',
+                    'title': '节点2'
+                }
+            ],
+            placeholder=f'status="{status}"',
+            status=status,
+            style={
+                'width': 256
+            }
+        )
+        for status in ['warning', 'error']
+    ],
+    direction='vertical'
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='强制状态渲染',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdDivider(
+                            '单选示例',
+                            innerTextOrientation='left'
+                        ),
+                        fac.AntdTreeSelect(
+                            id='tree-select-demo',
+                            treeData=[
+                                {
+                                    'key': '节点1',
+                                    'value': '1',
+                                    'title': '节点1',
+                                    'children': [
+                                        {
+                                            'key': f'节点1-{i}',
+                                            'value': f'1-{i}',
+                                            'title': f'节点1-{i}'
+                                        }
+                                        for i in range(1, 5)
+                                    ]
+                                },
+                                {
+                                    'key': '节点2',
+                                    'value': '2',
+                                    'title': '节点2'
+                                }
+                            ],
+                            placeholder='请选择',
+                            style={
+                                'width': 256
+                            }
+                        ),
+                        fac.AntdSpace(
+                            id='tree-select-demo-output',
+                            direction='vertical',
+                            style={
+                                'width': '100%'
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '多选示例',
+                            innerTextOrientation='left'
+                        ),
+                        fac.AntdTreeSelect(
+                            id='tree-select-multiple-demo',
+                            treeData=[
+                                {
+                                    'key': '节点1',
+                                    'value': '1',
+                                    'title': '节点1',
+                                    'children': [
+                                        {
+                                            'key': f'节点1-{i}',
+                                            'value': f'1-{i}',
+                                            'title': f'节点1-{i}'
+                                        }
+                                        for i in range(1, 5)
+                                    ]
+                                },
+                                {
+                                    'key': '节点2',
+                                    'value': '2',
+                                    'title': '节点2'
+                                }
+                            ],
+                            placeholder='请选择',
+                            multiple=True,
+                            treeCheckable=True,
+                            style={
+                                'width': 256
+                            }
+                        ),
+                        fac.AntdSpace(
+                            id='tree-select-multiple-demo-output',
+                            direction='vertical',
+                            style={
+                                'width': '100%'
+                            }
                         ),
 
                         fac.AntdDivider(
@@ -702,79 +1244,124 @@ fac.AntdTreeSelect(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
-fac.AntdSpin(
-    [
-        html.Div(
-            [
-                fac.AntdText('value：', strong=True),
-                fac.AntdText(id='tree-select-demo-output')
-            ]
-        ),
-        fac.AntdTreeSelect(
-            id='tree-select-demo',
-            treeData=[
+fac.AntdDivider(
+    '单选示例',
+    innerTextOrientation='left'
+),
+fac.AntdTreeSelect(
+    id='tree-select-demo',
+    treeData=[
+        {
+            'key': '节点1',
+            'value': '1',
+            'title': '节点1',
+            'children': [
                 {
-                    "title": "Node1",
-                    "value": "0-0",
-                    "key": "0-0",
-                    "children": [
-                        {
-                            "title": "Child Node1",
-                            "value": "0-0-0",
-                            "key": "0-0-0"
-                        }
-                    ]
-                },
-                {
-                    "title": "Node2",
-                    "value": "0-1",
-                    "key": "0-1",
-                    "children": [
-                        {
-                            "title": "Child Node3",
-                            "value": "0-1-0",
-                            "key": "0-1-0"
-                        },
-                        {
-                            "title": "Child Node4",
-                            "value": "0-1-1",
-                            "key": "0-1-1"
-                        },
-                        {
-                            "title": "Child Node5",
-                            "value": "0-1-2",
-                            "key": "0-1-2"
-                        }
-                    ]
+                    'key': f'节点1-{i}',
+                    'value': f'1-{i}',
+                    'title': f'节点1-{i}'
                 }
-            ],
-            style={
-                'width': '250px'
-            }
-        )
+                for i in range(1, 5)
+            ]
+        },
+        {
+            'key': '节点2',
+            'value': '2',
+            'title': '节点2'
+        }
     ],
-    text='回调中'
+    placeholder='请选择',
+    style={
+        'width': 256
+    }
+),
+fac.AntdSpace(
+    id='tree-select-demo-output',
+    direction='vertical',
+    style={
+        'width': '100%'
+    }
+),
+
+fac.AntdDivider(
+    '多选示例',
+    innerTextOrientation='left'
+),
+fac.AntdTreeSelect(
+    id='tree-select-multiple-demo',
+    treeData=[
+        {
+            'key': '节点1',
+            'value': '1',
+            'title': '节点1',
+            'children': [
+                {
+                    'key': f'节点1-{i}',
+                    'value': f'1-{i}',
+                    'title': f'节点1-{i}'
+                }
+                for i in range(1, 5)
+            ]
+        },
+        {
+            'key': '节点2',
+            'value': '2',
+            'title': '节点2'
+        }
+    ],
+    placeholder='请选择',
+    multiple=True,
+    treeCheckable=True,
+    style={
+        'width': 256
+    }
+),
+fac.AntdSpace(
+    id='tree-select-multiple-demo-output',
+    direction='vertical',
+    style={
+        'width': '100%'
+    }
 )
+
 ...
+
 @app.callback(
     Output('tree-select-demo-output', 'children'),
-    Input('tree-select-demo', 'value')
+    [Input('tree-select-demo', 'value'),
+     Input('tree-select-demo', 'treeExpandedKeys')]
 )
-def tree_select_demo_callback(value):
+def tree_select_demo(value, treeExpandedKeys):
 
-    return str(value)
+    return [
+        fac.AntdText(f'value: {value}'),
+        fac.AntdText(f'treeExpandedKeys: {treeExpandedKeys}')
+    ]
+
+
+@app.callback(
+    Output('tree-select-multiple-demo-output', 'children'),
+    [Input('tree-select-multiple-demo', 'value'),
+     Input('tree-select-multiple-demo', 'treeExpandedKeys')]
+)
+def tree_select_multiple_demo(value, treeExpandedKeys):
+
+    return [
+        fac.AntdText(f'value: {value}'),
+        fac.AntdText(f'treeExpandedKeys: {treeExpandedKeys}')
+    ]
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
@@ -788,32 +1375,36 @@ def tree_select_demo_callback(value):
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '基础使用', 'href': '#基础使用'},
-                            {'title': '多选模式', 'href': '#多选模式'},
-                            {'title': '开启勾选框', 'href': '#开启勾选框'},
-                            {'title': '显示树连接线', 'href': '#显示树连接线'},
-                            {'title': '关闭虚拟滚动', 'href': '#关闭虚拟滚动'},
-                            {'title': '回调示例', 'href': '#回调示例'},
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '不同的悬浮层展开方位', 'href': '#不同的悬浮层展开方位'},
+                    {'title': '多选模式', 'href': '#多选模式'},
+                    {'title': '带勾选框的多选模式', 'href': '#带勾选框的多选模式'},
+                    {'title': '扁平treeData模式', 'href': '#扁平treeData模式'},
+                    {'title': '添加连接线', 'href': '#添加连接线'},
+                    {'title': '父子节点独立选择', 'href': '#父子节点独立选择'},
+                    {'title': '禁用状态', 'href': '#禁用状态'},
+                    {'title': '已选项回填策略', 'href': '#已选项回填策略'},
+                    {'title': '只读状态', 'href': '#只读状态'},
+                    {'title': '强制状态渲染', 'href': '#强制状态渲染'},
+                    {'title': '回调示例', 'href': '#回调示例'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'margin': '20px'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdTreeSelect'
         )
     ],
     style={

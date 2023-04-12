@@ -1,57 +1,84 @@
-**dataSource：** *list*型，必填，无默认值
+**id：** *string*型
 
-　　用于定义穿梭框中供用户选择移动的所有*选项*，列表每个元素为字典，其中键值对`key`用于定义每个选项的唯一id信息，键值对`title`用于定义对应选项显示的文字内容，下面是一个示例：
+　　用于设置*当前组件的唯一id信息*
 
-```Python
-data = [
-    {
-        'key': 'China',
-        'title': '中国'
-    },
-    {
-        'key': 'Usa',
-        'title': '美国'
-    }
-]
-```
+**key：** *string*型
 
-**height：** *str*型，可选
+　　对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
 
-　　用于设置组件高度，接受css中合法的高度值
+**style：** *dict*型
 
-**pagination：** *dict*或*bool*型，可选，默认为`False`
+　　用于设置*当前组件的css样式*
 
-　　在选项较多时可用于开启*翻页*模式，当设置为`True`时开启默认每页选项数为10的翻页模式，亦可传入字典，通过键值对`pageSize`手动设置每页选项数
+**className：** *string*或*dict*型
 
-**operations：** *list*型，可选，默认为`['', '']`
+　　用于设置*当前组件的css类名*，支持[动态css](/advanced-classname)
 
-　　用于为两个不同方向移动按钮添加*文字说明*内容
+**locale：** *string*型，默认为`'zh-cn'`
+
+　　用于*为当前组件的功能文案设置语言*，可选的有`'zh-cn'`（简体中文）、`'en-us'`（英文）
+
+**dataSource：** `list[dict]`型
+
+　　用于*定义穿梭框中的各个选项*，每个字典可用的键值对参数有：
+
+- **key：** *string*或*int*型，用于*设置当前选项的唯一标识id*
+- **title：** *组件型*，用于*设置当前选项的标题内容*
+
+**height：** *string*型
+
+　　用于*设置当前穿梭框的高度*，接受`css`中合法的`height`输入值
+
+**pagination：** *bool*或*dict*型，默认为`False`
+
+　　用于*为穿梭框中的选项显示配置翻页功能*，当传入*dict*型时，可用的键值对参数有：
+
+- **pageSize：** *int*型，用于*设置每页记录数*
+
+**operations：** `list[string]`型，默认为`['', '']`
+
+　　用于*分别设置左右移项操作按钮的文本内容*
 
 **showSearch：** *bool*型，默认为`False`
 
-　　用于设置是否为两边的选取添加搜索框功能
+　　用于*设置是否渲染搜索框*
 
 **showSelectAll：** *bool*型，默认为`True`
 
-　　用于设置是否展示全选勾选框
+　　用于*设置是否渲染全选框*
 
-**titles：** *list*型，可选，默认为`['待选区', '选定区']`
+**titles：** `list[组件]`型
 
-　　用于设置左右半边的标题内容
-
-**status：** *str型*
-
-　　用于*手动设置组件的校验状态*，可选的有`'error'`和`'warning'`
+　　用于*分别设置左右两边的穿梭框标题内容*
 
 **targetKeys：** *list*型
 
-　　用于在回调中捕获右侧选定区域中所有选项的`key`列表
+　　用于*设置或监听处于穿梭框右侧区域内的选项key值*
 
-**moveDirection：** *str*型
+**moveDirection：** *string*型
 
-　　用于在回调中捕获最近一次发生选项移动时的移动方向
+　　用于*监听最近一次移项操作对应的方向*，有`'left'`、`'right'`两种情况
 
-**moveKeys：** *str*型
+**moveKeys：** *list*型
 
-　　用于在回调中捕获最近一次发生选项移动时所涉及的所有选项的`key`列表
+　　用于*监听最近一次移项操作涉及的选项key值*
 
+**disabled：** *bool*型，默认为`False`
+
+　　用于*设置是否禁用当前组件*
+
+**status：** *string*型
+
+　　用于*强制设置组件的状态*，可选的有`'error'`和`'warning'`
+
+**persistence：** *bool*型
+
+　　用于*设置是否为当前组件开启属性持久化*
+
+**persisted_props：** *list*型，默认为`['targetKeys']`
+
+　　用于*设置针对当前组件的哪些属性进行持久化*，可选的有`'targetKeys'`
+
+**persistence_type：** *string*型，默认为`'local'`
+
+　　用于*设置针对当前组件进行属性持久化的存储类型*，可选的有`'local'`（浏览器本地缓存）、`'session'`（当前标签页会话缓存）、`'memory'`（内存临时缓存）

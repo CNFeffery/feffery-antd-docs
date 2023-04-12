@@ -1,402 +1,316 @@
 from dash import html
 import feffery_antd_components as fac
-import feffery_utils_components as fuc
 import feffery_markdown_components as fmc
 
 import callbacks.AntdTransfer
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdTransfer(id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdTransfer.md',
-                                     encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '数据录入'
+                        },
+                        {
+                            'title': 'AntdTransfer 穿梭框'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　用于以直观的方式在两栏中移动选项，帮助用户完成选择行为。')
+                    ]
                 ),
 
                 html.Div(
                     [
-                        html.Div(
-                            fac.AntdTransfer(
-                                dataSource=[
-                                    {
-                                        'key': str(i),
-                                        'title': f'选项{i}'
-                                    }
-                                    for i in range(20)
-                                ]
-                            )
-                        ),
-
-                        fac.AntdDivider(
-                            '基础使用方式',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
-
-                        fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True,
-                                language='python',
-                                codeTheme='coy-without-shadows',
-                                codeString='''
-html.Div(
-    fac.AntdTransfer(
-        dataSource=[
-            {
-                'key': str(i),
-                'title': f'选项{i}'
-            }
-            for i in range(20)
-        ]
-    )
-)'''
-                            ),
-                            title='点击查看代码',
-                            is_open=False,
-                            ghost=True
-                        )
-
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='基础使用方式',
-                    className='div-highlight'
-                ),
-
-                html.Div(
-                    [
-                        # AntdTransfer自动会撑满父元素的宽度
-                        # 因此可以通过设定父级Div的style宽度
-                        # 来实现对AntdTransfer整体宽度的调节
-                        html.Div(
-                            fac.AntdTransfer(
-                                dataSource=[
-                                    {
-                                        'key': str(i),
-                                        'title': f'选项{i}'
-                                    }
-                                    for i in range(20)
-                                ]
-                            ),
-                            style={
-                                'width': '600px'
-                            }
-                        ),
-
-                        fac.AntdDivider(),
-
-                        html.Div(
-                            fac.AntdTransfer(
-                                dataSource=[
-                                    {
-                                        'key': str(i),
-                                        'title': f'选项{i}'
-                                    }
-                                    for i in range(20)
-                                ]
-                            ),
-                            style={
-                                'width': '400px'
-                            }
-                        ),
-
-                        fac.AntdDivider(),
-
-                        html.Div(
-                            fac.AntdTransfer(
-                                dataSource=[
-                                    {
-                                        'key': str(i),
-                                        'title': f'选项{i}'
-                                    }
-                                    for i in range(20)
-                                ]
-                            ),
-                            style={
-                                'width': '500px'
-                            }
-                        ),
-
-                        fac.AntdDivider(
-                            '调节总体宽度',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
-
-                        fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True,
-                                language='python',
-                                codeTheme='coy-without-shadows',
-                                codeString='''
-html.Div(
-    fac.AntdTransfer(
-        dataSource=[
-            {
-                'key': str(i),
-                'title': f'选项{i}'
-            }
-            for i in range(20)
-        ]
-    ),
-    style={
-        'width': '600px'
-    }
-),
-
-fac.AntdDivider(),
-
-html.Div(
-    fac.AntdTransfer(
-        dataSource=[
-            {
-                'key': str(i),
-                'title': f'选项{i}'
-            }
-            for i in range(20)
-        ]
-    ),
-    style={
-        'width': '400px'
-    }
-),
-
-fac.AntdDivider(),
-
-html.Div(
-    fac.AntdTransfer(
-        dataSource=[
-            {
-                'key': str(i),
-                'title': f'选项{i}'
-            }
-            for i in range(20)
-        ]
-    ),
-    style={
-        'width': '500px'
-    }
-)'''
-                            ),
-                            title='点击查看代码',
-                            is_open=False,
-                            ghost=True
-                        )
-
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='调节总体宽度',
-                    className='div-highlight'
-                ),
-
-                html.Div(
-                    [
-                        html.Div(
-                            fac.AntdTransfer(
-                                dataSource=[
-                                    {
-                                        'key': str(i),
-                                        'title': f'选项{i}'
-                                    }
-                                    for i in range(20)
-                                ],
-                                height='500px'
-                            )
-                        ),
-
-                        fac.AntdDivider(
-                            '自定义高度',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
-
-                        fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True,
-                                language='python',
-                                codeTheme='coy-without-shadows',
-                                codeString='''
-html.Div(
-    fac.AntdTransfer(
-        dataSource=[
-            {
-                'key': str(i),
-                'title': f'选项{i}'
-            }
-            for i in range(20)
-        ],
-        height='500px'
-    )
-)'''
-                            ),
-                            title='点击查看代码',
-                            is_open=False,
-                            ghost=True
-                        )
-
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='自定义高度',
-                    className='div-highlight'
-                ),
-
-                html.Div(
-                    [
-                        html.Div(
-                            fac.AntdTransfer(
-                                dataSource=[
-                                    {
-                                        'key': str(i),
-                                        'title': f'选项{i}'
-                                    }
-                                    for i in range(20)
-                                ],
-                                pagination=True
-                            )
-                        ),
-
-                        fac.AntdDivider(),
-
-                        html.Div(
-                            fac.AntdTransfer(
-                                dataSource=[
-                                    {
-                                        'key': str(i),
-                                        'title': f'选项{i}'
-                                    }
-                                    for i in range(20)
-                                ],
-                                pagination={
-                                    'pageSize': 5
+                        fac.AntdTransfer(
+                            dataSource=[
+                                {
+                                    'key': i,
+                                    'title': f'选项{i}'
                                 }
-                            )
+                                for i in range(1, 10)
+                            ],
+                            targetKeys=[2, 3, 4]
                         ),
 
                         fac.AntdDivider(
-                            '分页显示',
+                            '基础使用',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
                                 showLineNumbers=True,
                                 language='python',
                                 codeTheme='coy-without-shadows',
                                 codeString='''
-html.Div(
-    fac.AntdTransfer(
-        dataSource=[
-            {
-                'key': str(i),
-                'title': f'选项{i}'
-            }
-            for i in range(20)
-        ],
-        pagination=True
-    )
-),
-
-fac.AntdDivider(),
-
-html.Div(
-    fac.AntdTransfer(
-        dataSource=[
-            {
-                'key': str(i),
-                'title': f'选项{i}'
-            }
-            for i in range(20)
-        ],
-        pagination={
-            'pageSize': 5
+fac.AntdTransfer(
+    dataSource=[
+        {
+            'key': i,
+            'title': f'选项{i}'
         }
-    )
-)'''
+        for i in range(1, 10)
+    ],
+    targetKeys=[2, 3, 4]
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='分页显示',
+                    id='基础使用',
                     className='div-highlight'
                 ),
 
                 html.Div(
                     [
-                        html.Div(
-                            fac.AntdTransfer(
-                                dataSource=[
-                                    {
-                                        'key': str(i),
-                                        'title': f'选项{i}'
+                        fac.AntdSpace(
+                            [
+                                fac.AntdSpace(
+                                    [
+                                        fac.AntdDivider(
+                                            f'height="{height}"',
+                                            innerTextOrientation='left'
+                                        ),
+                                        fac.AntdTransfer(
+                                            dataSource=[
+                                                {
+                                                    'key': i,
+                                                    'title': f'选项{i}'
+                                                }
+                                                for i in range(1, 10)
+                                            ],
+                                            targetKeys=[2, 3, 4],
+                                            height=height
+                                        )
+                                    ],
+                                    direction='vertical',
+                                    style={
+                                        'width': '100%'
                                     }
-                                    for i in range(20)
-                                ],
-                                showSearch=True
-                            )
+                                )
+                                for height in [
+                                    '300px', '10rem', '30vh'
+                                ]
+                            ],
+                            direction='vertical',
+                            style={
+                                'width': '100%'
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '自定义穿梭框高度',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdSpace(
+            [
+                fac.AntdDivider(
+                    f'height="{height}"',
+                    innerTextOrientation='left'
+                ),
+                fac.AntdTransfer(
+                    dataSource=[
+                        {
+                            'key': i,
+                            'title': f'选项{i}'
+                        }
+                        for i in range(1, 10)
+                    ],
+                    targetKeys=[2, 3, 4],
+                    height=height
+                )
+            ],
+            direction='vertical',
+            style={
+                'width': '100%'
+            }
+        )
+        for height in [
+            '300px', '10rem', '30vh'
+        ]
+    ],
+    direction='vertical',
+    style={
+        'width': '100%'
+    }
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='自定义穿梭框高度',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdTransfer(
+                            dataSource=[
+                                {
+                                    'key': i,
+                                    'title': f'选项{i}'
+                                }
+                                for i in range(1, 50)
+                            ],
+                            targetKeys=[2, 3, 4],
+                            pagination={
+                                'pageSize': 5
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '翻页展示',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdTransfer(
+    dataSource=[
+        {
+            'key': i,
+            'title': f'选项{i}'
+        }
+        for i in range(1, 50)
+    ],
+    targetKeys=[2, 3, 4],
+    pagination={
+        'pageSize': 5
+    }
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='翻页展示',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdTransfer(
+                            dataSource=[
+                                {
+                                    'key': i,
+                                    'title': f'选项{i}'
+                                }
+                                for i in range(1, 10)
+                            ],
+                            targetKeys=[2, 3, 4],
+                            operations=['放入', '移出']
+                        ),
+
+                        fac.AntdDivider(
+                            '自定义移项按钮内容',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdTransfer(
+    dataSource=[
+        {
+            'key': i,
+            'title': f'选项{i}'
+        }
+        for i in range(1, 10)
+    ],
+    targetKeys=[2, 3, 4],
+    operations=['放入', '移出']
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='自定义移项按钮内容',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdTransfer(
+                            dataSource=[
+                                {
+                                    'key': i,
+                                    'title': f'选项{i}'
+                                }
+                                for i in range(1, 10)
+                            ],
+                            targetKeys=[2, 3, 4],
+                            showSearch=True
                         ),
 
                         fac.AntdDivider(
@@ -406,29 +320,29 @@ html.Div(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
                                 showLineNumbers=True,
                                 language='python',
                                 codeTheme='coy-without-shadows',
                                 codeString='''
-html.Div(
-    fac.AntdTransfer(
-        dataSource=[
-            {
-                'key': str(i),
-                'title': f'选项{i}'
-            }
-            for i in range(20)
-        ],
-        showSearch=True
-    )
-)'''
+fac.AntdTransfer(
+    dataSource=[
+        {
+            'key': i,
+            'title': f'选项{i}'
+        }
+        for i in range(1, 10)
+    ],
+    targetKeys=[2, 3, 4],
+    showSearch=True
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
@@ -441,80 +355,223 @@ html.Div(
 
                 html.Div(
                     [
-                        html.Div(
-                            fac.AntdTransfer(
-                                dataSource=[
-                                    {
-                                        'key': str(i),
-                                        'title': f'选项{i}'
-                                    }
-                                    for i in range(20)
-                                ],
-                                operations=['新增', '移除'],
-                                titles=['待选指标区', '已选指标区']
-                            )
+                        fac.AntdTransfer(
+                            dataSource=[
+                                {
+                                    'key': i,
+                                    'title': f'选项{i}'
+                                }
+                                for i in range(1, 10)
+                            ],
+                            targetKeys=[2, 3, 4],
+                            titles=['左侧区域', '右侧区域']
                         ),
 
                         fac.AntdDivider(
-                            '修改左右区域标题及双向按钮文字',
+                            '设置两侧标题',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
                                 showLineNumbers=True,
                                 language='python',
                                 codeTheme='coy-without-shadows',
                                 codeString='''
-html.Div(
-    fac.AntdTransfer(
-        dataSource=[
-            {
-                'key': str(i),
-                'title': f'选项{i}'
-            }
-            for i in range(20)
-        ],
-        operations=['新增', '移除'],
-        titles=['待选指标区', '已选指标区']
-    )
-)'''
+fac.AntdTransfer(
+    dataSource=[
+        {
+            'key': i,
+            'title': f'选项{i}'
+        }
+        for i in range(1, 10)
+    ],
+    targetKeys=[2, 3, 4],
+    titles=['左侧区域', '右侧区域']
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='修改左右区域标题及双向按钮文字',
+                    id='设置两侧标题',
                     className='div-highlight'
                 ),
 
                 html.Div(
                     [
-                        html.Div(
-                            fac.AntdTransfer(
-                                id='transfer-demo',
-                                dataSource=[
-                                    {
-                                        'key': str(i),
-                                        'title': f'选项{i}'
-                                    }
-                                    for i in range(20)
-                                ]
-                            )
+                        fac.AntdTransfer(
+                            dataSource=[
+                                {
+                                    'key': i,
+                                    'title': f'选项{i}'
+                                }
+                                for i in range(1, 10)
+                            ],
+                            targetKeys=[2, 3, 4],
+                            disabled=True
                         ),
 
-                        html.Br(),
-                        fac.AntdSpin(
-                            html.Em(id='transfer-demo-output'),
-                            text='回调中'
+                        fac.AntdDivider(
+                            '禁用状态',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdTransfer(
+    dataSource=[
+        {
+            'key': i,
+            'title': f'选项{i}'
+        }
+        for i in range(1, 10)
+    ],
+    targetKeys=[2, 3, 4],
+    disabled=True
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='禁用状态',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSpace(
+                            [
+                                fac.AntdTransfer(
+                                    dataSource=[
+                                        {
+                                            'key': i,
+                                            'title': f'选项{i}'
+                                        }
+                                        for i in range(1, 10)
+                                    ],
+                                    targetKeys=[2, 3, 4],
+                                    status='warning'
+                                ),
+
+                                fac.AntdTransfer(
+                                    dataSource=[
+                                        {
+                                            'key': i,
+                                            'title': f'选项{i}'
+                                        }
+                                        for i in range(1, 10)
+                                    ],
+                                    targetKeys=[2, 3, 4],
+                                    status='error'
+                                )
+                            ],
+                            direction='vertical',
+                            style={
+                                'width': '100%'
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '强制状态渲染',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdTransfer(
+            dataSource=[
+                {
+                    'key': i,
+                    'title': f'选项{i}'
+                }
+                for i in range(1, 10)
+            ],
+            targetKeys=[2, 3, 4],
+            status='warning'
+        ),
+
+        fac.AntdTransfer(
+            dataSource=[
+                {
+                    'key': i,
+                    'title': f'选项{i}'
+                }
+                for i in range(1, 10)
+            ],
+            targetKeys=[2, 3, 4],
+            status='error'
+        )
+    ],
+    direction='vertical',
+    style={
+        'width': '100%'
+    }
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='强制状态渲染',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdTransfer(
+                            id='transfer-demo',
+                            dataSource=[
+                                {
+                                    'key': i,
+                                    'title': f'选项{i}'
+                                }
+                                for i in range(1, 10)
+                            ],
+                            targetKeys=[2, 3, 4]
+                        ),
+
+                        fac.AntdSpace(
+                            id='transfer-demo-output',
+                            direction='vertical'
                         ),
 
                         fac.AntdDivider(
@@ -524,49 +581,50 @@ html.Div(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
                                 showLineNumbers=True,
                                 language='python',
                                 codeTheme='coy-without-shadows',
                                 codeString='''
-html.Div(
-    fac.AntdTransfer(
-        id='transfer-demo',
-        dataSource=[
-            {
-                'key': str(i),
-                'title': f'选项{i}'
-            }
-            for i in range(20)
-        ]
-    )
+fac.AntdTransfer(
+    id='transfer-demo',
+    dataSource=[
+        {
+            'key': i,
+            'title': f'选项{i}'
+        }
+        for i in range(1, 10)
+    ],
+    targetKeys=[2, 3, 4]
 ),
 
-html.Br(),
-html.Em(id='transfer-demo-output')
+fac.AntdSpace(
+    id='transfer-demo-output',
+    direction='vertical'
+)
+
 ...
+
 @app.callback(
     Output('transfer-demo-output', 'children'),
     [Input('transfer-demo', 'targetKeys'),
      Input('transfer-demo', 'moveDirection'),
-     Input('transfer-demo', 'moveKeys')],
-    prevent_initial_call=True
+     Input('transfer-demo', 'moveKeys')]
 )
-def transfer_callback_demo(targetKeys, moveDirection, moveKeys):
+def transfer_demo(targetKeys, moveDirection, moveKeys):
 
     return [
-        f'targetKeys: {targetKeys}',
-        html.Br(),
-        f'moveDirection: {moveDirection}',
-        html.Br(),
-        f'moveKeys: {moveKeys}'
-    ]'''
+        fac.AntdText(f'targetKeys: {targetKeys}'),
+        fac.AntdText(f'moveDirection: {moveDirection}'),
+        fac.AntdText(f'moveKeys: {moveKeys}')
+    ]
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
@@ -580,34 +638,33 @@ def transfer_callback_demo(targetKeys, moveDirection, moveKeys):
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '基础使用方式', 'href': '#基础使用方式'},
-                            {'title': '调节总体宽度', 'href': '#调节总体宽度'},
-                            {'title': '自定义高度', 'href': '#自定义高度'},
-                            {'title': '分页显示', 'href': '#分页显示'},
-                            {'title': '添加搜索框', 'href': '#添加搜索框'},
-                            {'title': '修改左右区域标题及双向按钮文字',
-                                'href': '#修改左右区域标题及双向按钮文字'},
-                            {'title': '回调示例', 'href': '#回调示例'},
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '自定义穿梭框高度', 'href': '#自定义穿梭框高度'},
+                    {'title': '翻页展示', 'href': '#翻页展示'},
+                    {'title': '自定义移项按钮内容', 'href': '#自定义移项按钮内容'},
+                    {'title': '添加搜索框', 'href': '#添加搜索框'},
+                    {'title': '设置两侧标题', 'href': '#设置两侧标题'},
+                    {'title': '禁用状态', 'href': '#禁用状态'},
+                    {'title': '强制状态渲染', 'href': '#强制状态渲染'},
+                    {'title': '回调示例', 'href': '#回调示例'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'margin': '20px'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdTransfer'
         )
     ],
     style={

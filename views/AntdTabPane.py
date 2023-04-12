@@ -1,54 +1,75 @@
 from dash import html
 import feffery_antd_components as fac
-import feffery_markdown_components as fmc
+
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
-        html.H2(
-            'AntdTabPane(children, id, className, style, *args, **kwargs)',
-            style={
-                'borderLeft': '4px solid grey',
-                'padding': '3px 0 3px 10px',
-                'backgroundColor': '#f5f5f5'
-            }
-        ),
-
-        html.Span(
-            '主要参数说明：',
-            id='主要参数说明',
-            style={
-                'borderLeft': '4px solid grey',
-                'padding': '3px 0 3px 10px',
-                'backgroundColor': '#f5f5f5',
-                'fontWeight': 'bold',
-                'fontSize': '1.2rem'
-            }
-        ),
-
-        fmc.FefferyMarkdown(
-            markdownStr=open('documents/AntdTabPane.md', encoding='utf-8').read()
-        ),
-
-        html.Ul(
+        html.Div(
             [
-                html.Li(
-                    fac.AntdParagraph(
-                        [
-                            fac.AntdText('有关'),
-                            fac.AntdText('AntdTabPane', strong=True),
-                            fac.AntdText('的使用示例请移步'),
-                            fac.AntdText('AntdTabs', strong=True),
-                            fac.AntdText('对应的文档'),
-                        ],
-                        style={
-                            'paddingTop': '20px'
-                        }
-                    ),
-                    style={'listStyleType': 'circle'}
-                )
-            ]
-        ),
+                fac.AntdBackTop(
+                    duration=0.3
+                ),
 
-        html.Div(style={'height': '100px'})
-    ]
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '数据展示'
+                        },
+                        {
+                            'title': '标签页'
+                        },
+                        {
+                            'title': 'AntdTabPane 标签页面板'
+                        }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('用于在标签页中构建每个标签页面板，'),
+                        fac.AntdText('有关'),
+                        fac.AntdText('AntdTabPane', strong=True),
+                        fac.AntdText('的使用示例请移步'),
+                        fac.AntdText('AntdTabs', strong=True),
+                        fac.AntdText('对应的文档。')
+                    ],
+                    style={
+                        'textIndent': '2rem'
+                    }
+                ),
+
+                fac.AntdParagraph(
+                    [
+                        '此组件从下一个大版本（0.3.x）开始将会被移除，建议使用更推荐的',
+                        fac.AntdText(
+                            'items',
+                            code=True
+                        ),
+                        '方式构造标签页。'
+                    ],
+                    type='secondary',
+                    style={
+                        'textIndent': '2rem'
+                    }
+                ),
+            ],
+            style={
+                'flex': 'auto',
+                'padding': '25px'
+            }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdTabPane'
+        )
+    ],
+    style={
+        'display': 'flex'
+    }
 )

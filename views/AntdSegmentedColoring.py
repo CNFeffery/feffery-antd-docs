@@ -1,59 +1,38 @@
 from dash import html
 import feffery_antd_components as fac
-import feffery_utils_components as fuc
 import feffery_markdown_components as fmc
 
 import callbacks.AntdSegmentedColoring
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdSegmentedColoring(id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdSegmentedColoring.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '数据录入'
+                        },
+                        {
+                            'title': 'AntdSegmentedColoring 分段着色'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　用于配合数据可视化进行分段着色控制，或作为静态的图例进行展示。')
+                    ]
                 ),
 
                 html.Div(
@@ -62,7 +41,13 @@ docs_content = html.Div(
                             min=-10,
                             max=10,
                             breakpoints=[0, 1, 2, 3, 4, 5],
-                            colors=["#deecf9", "#71afe5", "#2b88d8", "#0078d4", "#106ebe"]
+                            colors=[
+                                "#deecf9",
+                                "#71afe5",
+                                "#2b88d8",
+                                "#0078d4",
+                                "#106ebe"
+                            ]
                         ),
 
                         fac.AntdDivider(
@@ -72,21 +57,28 @@ docs_content = html.Div(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdSegmentedColoring(
-    min=0,
+    min=-10,
     max=10,
     breakpoints=[0, 1, 2, 3, 4, 5],
-    colors=["#deecf9", "#71afe5", "#2b88d8", "#0078d4", "#106ebe"]
+    colors=[
+        "#deecf9",
+        "#71afe5",
+        "#2b88d8",
+        "#0078d4",
+        "#106ebe"
+    ]
 )
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -107,21 +99,27 @@ fac.AntdSegmentedColoring(
                                     min=-10,
                                     max=10,
                                     breakpoints=[0, 1, 2, 3, 4, 5],
-                                    colors=["#deecf9", "#71afe5", "#2b88d8", "#0078d4", "#106ebe"]
+                                    colors=["#deecf9", "#71afe5",
+                                            "#2b88d8", "#0078d4",
+                                            "#106ebe"]
                                 ),
                                 fac.AntdSegmentedColoring(
                                     size='small',
                                     min=-10,
                                     max=10,
                                     breakpoints=[0, 1, 2, 3, 4, 5],
-                                    colors=["#deecf9", "#71afe5", "#2b88d8", "#0078d4", "#106ebe"]
+                                    colors=["#deecf9", "#71afe5",
+                                            "#2b88d8", "#0078d4",
+                                            "#106ebe"]
                                 ),
                                 fac.AntdSegmentedColoring(
                                     size='large',
                                     min=-10,
                                     max=10,
                                     breakpoints=[0, 1, 2, 3, 4, 5],
-                                    colors=["#deecf9", "#71afe5", "#2b88d8", "#0078d4", "#106ebe"]
+                                    colors=["#deecf9", "#71afe5",
+                                            "#2b88d8", "#0078d4",
+                                            "#106ebe"]
                                 )
                             ],
                             direction='vertical'
@@ -134,10 +132,11 @@ fac.AntdSegmentedColoring(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdSpace(
     [
@@ -145,21 +144,27 @@ fac.AntdSpace(
             min=-10,
             max=10,
             breakpoints=[0, 1, 2, 3, 4, 5],
-            colors=["#deecf9", "#71afe5", "#2b88d8", "#0078d4", "#106ebe"]
+            colors=["#deecf9", "#71afe5",
+                    "#2b88d8", "#0078d4",
+                    "#106ebe"]
         ),
         fac.AntdSegmentedColoring(
             size='small',
             min=-10,
             max=10,
             breakpoints=[0, 1, 2, 3, 4, 5],
-            colors=["#deecf9", "#71afe5", "#2b88d8", "#0078d4", "#106ebe"]
+            colors=["#deecf9", "#71afe5",
+                    "#2b88d8", "#0078d4",
+                    "#106ebe"]
         ),
         fac.AntdSegmentedColoring(
             size='large',
             min=-10,
             max=10,
             breakpoints=[0, 1, 2, 3, 4, 5],
-            colors=["#deecf9", "#71afe5", "#2b88d8", "#0078d4", "#106ebe"]
+            colors=["#deecf9", "#71afe5",
+                    "#2b88d8", "#0078d4",
+                    "#106ebe"]
         )
     ],
     direction='vertical'
@@ -167,7 +172,7 @@ fac.AntdSpace(
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -230,20 +235,22 @@ fac.AntdSpace(
                             min=-10,
                             max=10,
                             breakpoints=[0, 1, 2, 3, 4, 5],
-                            colors=["#deecf9", "#71afe5", "#2b88d8", "#0078d4", "#106ebe"]
+                            colors=["#deecf9", "#71afe5",
+                                    "#2b88d8", "#0078d4", "#106ebe"]
                         ),
 
                         fac.AntdDivider(
-                            '常用的形态调节参数',
+                            '常用外观类参数',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdForm(
     [
@@ -293,7 +300,8 @@ fac.AntdSegmentedColoring(
     min=-10,
     max=10,
     breakpoints=[0, 1, 2, 3, 4, 5],
-    colors=["#deecf9", "#71afe5", "#2b88d8", "#0078d4", "#106ebe"]
+    colors=["#deecf9", "#71afe5",
+            "#2b88d8", "#0078d4", "#106ebe"]
 )
 
 ...
@@ -310,16 +318,15 @@ fac.AntdSegmentedColoring(
      Input('segmented-coloring-demo1-readOnly', 'checked'),
      Input('segmented-coloring-demo1-colorBlockPosition', 'checked')]
 )
-def segmented_coloring_demo1_callback(*checked_list):
+def segmented_coloring_demo1(*checked_list):
     return [
         *checked_list[:4],
         'right' if checked_list[4] else 'left'
     ]
-
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -328,7 +335,7 @@ def segmented_coloring_demo1_callback(*checked_list):
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='常用的形态调节参数',
+                    id='常用外观类参数',
                     className='div-highlight'
                 ),
 
@@ -340,13 +347,17 @@ def segmented_coloring_demo1_callback(*checked_list):
                             min=-10,
                             max=10,
                             breakpoints=[0, 1, 2, 3, 4, 5],
-                            colors=["#deecf9", "#71afe5", "#2b88d8", "#0078d4", "#106ebe"]
+                            colors=["#deecf9", "#71afe5",
+                                    "#2b88d8", "#0078d4",
+                                    "#106ebe"]
                         ),
 
                         fac.AntdParagraph(
                             [
                                 fac.AntdText('breakpoints: ', strong=True),
-                                fac.AntdText(id='segmented-coloring-demo2-output')
+                                fac.AntdText(
+                                    id='segmented-coloring-demo2-output'
+                                )
                             ]
                         ),
 
@@ -357,10 +368,11 @@ def segmented_coloring_demo1_callback(*checked_list):
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdSegmentedColoring(
     id='segmented-coloring-demo2',
@@ -368,35 +380,21 @@ fac.AntdSegmentedColoring(
     min=-10,
     max=10,
     breakpoints=[0, 1, 2, 3, 4, 5],
-    colors=["#deecf9", "#71afe5", "#2b88d8", "#0078d4", "#106ebe"]
+    colors=["#deecf9", "#71afe5",
+            "#2b88d8", "#0078d4",
+            "#106ebe"]
 ),
 
 fac.AntdParagraph(
     [
         fac.AntdText('breakpoints: ', strong=True),
-        fac.AntdText(id='segmented-coloring-demo2-output')
+        fac.AntdText(
+            id='segmented-coloring-demo2-output'
+        )
     ]
 )
+
 ...
-
-@app.callback(
-    [Output('segmented-coloring-demo1', 'bordered'),
-     Output('segmented-coloring-demo1', 'controls'),
-     Output('segmented-coloring-demo1', 'disabled'),
-     Output('segmented-coloring-demo1', 'readOnly'),
-     Output('segmented-coloring-demo1', 'colorBlockPosition')],
-    [Input('segmented-coloring-demo1-bordered', 'checked'),
-     Input('segmented-coloring-demo1-controls', 'checked'),
-     Input('segmented-coloring-demo1-disabled', 'checked'),
-     Input('segmented-coloring-demo1-readOnly', 'checked'),
-     Input('segmented-coloring-demo1-colorBlockPosition', 'checked')]
-)
-def segmented_coloring_demo1_callback(*checked_list):
-    return [
-        *checked_list[:4],
-        'right' if checked_list[4] else 'left'
-    ]
-
 
 @app.callback(
     Output('segmented-coloring-demo2-output', 'children'),
@@ -404,11 +402,10 @@ def segmented_coloring_demo1_callback(*checked_list):
 )
 def segmented_coloring_demo2_callback(breakpoints):
     return str(breakpoints)
-
 '''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
                     ],
@@ -424,30 +421,28 @@ def segmented_coloring_demo2_callback(breakpoints):
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '基础使用', 'href': '#基础使用'},
-                            {'title': '不同的尺寸规格', 'href': '#不同的尺寸规格'},
-                            {'title': '常用的形态调节参数', 'href': '#常用的形态调节参数'},
-                            {'title': '回调示例', 'href': '#回调示例'},
-                        ]
-                    },
+                    {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '不同的尺寸规格', 'href': '#不同的尺寸规格'},
+                    {'title': '常用外观类参数', 'href': '#常用外观类参数'},
+                    {'title': '回调示例', 'href': '#回调示例'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'margin': '20px'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdSegmentedColoring'
         )
     ],
     style={

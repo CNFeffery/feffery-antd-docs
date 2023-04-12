@@ -1,59 +1,38 @@
 from dash import html
 import feffery_antd_components as fac
-import feffery_utils_components as fuc
 import feffery_markdown_components as fmc
 
 import callbacks.AntdUpload
+from .side_props import render_side_props_layout
 
 docs_content = html.Div(
     [
         html.Div(
             [
-                html.H2(
-                    'AntdUpload(id, className, style, *args, **kwargs)',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5'
-                    }
-                ),
-
                 fac.AntdBackTop(
-                    containerId='docs-content',
-                    duration=0.6
+                    duration=0.3
                 ),
 
-                html.Span(
-                    '主要参数说明：',
-                    id='主要参数说明',
-                    style={
-                        'borderLeft': '4px solid grey',
-                        'padding': '3px 0 3px 10px',
-                        'backgroundColor': '#f5f5f5',
-                        'fontWeight': 'bold',
-                        'fontSize': '1.2rem'
-                    }
-                ),
-
-                fmc.FefferyMarkdown(
-                    markdownStr=open('documents/AntdUpload.md', encoding='utf-8').read()
-                ),
-
-                html.Div(
-                    html.Span(
-                        '使用示例',
-                        id='使用示例',
-                        style={
-                            'borderLeft': '4px solid grey',
-                            'padding': '3px 0 3px 10px',
-                            'backgroundColor': '#f5f5f5',
-                            'fontWeight': 'bold',
-                            'fontSize': '1.2rem'
+                fac.AntdBreadcrumb(
+                    items=[
+                        {
+                            'title': '组件介绍'
+                        },
+                        {
+                            'title': '数据录入'
+                        },
+                        {
+                            'title': 'AntdUpload 上传'
                         }
-                    ),
-                    style={
-                        'marginBottom': '10px'
-                    }
+                    ]
+                ),
+
+                fac.AntdDivider(isDashed=True),
+
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText('　　用于为用户提供文件上传功能。')
+                    ]
                 ),
 
                 html.Div(
@@ -64,34 +43,35 @@ docs_content = html.Div(
                         ),
 
                         fac.AntdDivider(
-                            '基础使用及单文件大小限制',
+                            '基础使用',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdUpload(
     apiUrl='/upload/',
     fileMaxSize=1
-)'''
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='基础使用及单文件大小限制',
+                    id='基础使用',
                     className='div-highlight'
                 ),
 
@@ -104,35 +84,36 @@ fac.AntdUpload(
                         ),
 
                         fac.AntdDivider(
-                            '限制上传列表显示任务记录最大数量',
+                            '限制上传列表最大数量',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdUpload(
     apiUrl='/upload/',
     fileMaxSize=1,
     fileListMaxLength=1
-)'''
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='限制上传列表显示任务记录最大数量',
+                    id='限制上传列表最大数量',
                     className='div-highlight'
                 ),
 
@@ -146,36 +127,37 @@ fac.AntdUpload(
                         ),
 
                         fac.AntdDivider(
-                            '限制上传文件的类型范围',
+                            '限制上传文件类型',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdUpload(
     apiUrl='/upload/',
     fileMaxSize=1,
     fileTypes=['csv', 'txt'],
-    buttonContent='请上传.csv或.txt文件'
-)'''
+    buttonContent='请上传csv或txt文件'
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='限制上传文件的类型范围',
+                    id='限制上传文件类型',
                     className='div-highlight'
                 ),
 
@@ -195,23 +177,24 @@ fac.AntdUpload(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdUpload(
     apiUrl='/upload/',
     fileMaxSize=1,
     multiple=True,
     buttonContent='点击上传多个文件'
-)'''
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
@@ -238,23 +221,24 @@ fac.AntdUpload(
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdUpload(
     apiUrl='/upload/',
     fileMaxSize=1,
     directory=True,
     buttonContent='点击选择文件夹进行上传'
-)'''
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
@@ -274,35 +258,134 @@ fac.AntdUpload(
                         ),
 
                         fac.AntdDivider(
-                            '自定义失败任务记录悬浮提示信息',
+                            '自定义失败记录提示信息',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
 
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
 fac.AntdUpload(
     apiUrl='/upload/',
     fileMaxSize=1,
     failedTooltipInfo='啊哦，上传过程出了问题...'
-)'''
+)
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='自定义失败任务记录悬浮提示信息',
+                    id='自定义失败记录提示信息',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdUpload(
+                            apiUrl='/upload/',
+                            fileMaxSize=1,
+                            defaultFileList=[
+                                {
+                                    'name': f'demo{i}.txt',
+                                    'status': 'done'
+                                }
+                                for i in range(1, 6)
+                            ],
+                            confirmBeforeDelete=True
+                        ),
+
+                        fac.AntdDivider(
+                            '为删除操作添加二次确认',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdUpload(
+    apiUrl='/upload/',
+    fileMaxSize=1,
+    defaultFileList=[
+        {
+            'name': f'demo{i}.txt',
+            'status': 'done'
+        }
+        for i in range(1, 6)
+    ],
+    confirmBeforeDelete=True
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='为删除操作添加二次确认',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdUpload(
+                            apiUrl='/upload/',
+                            fileMaxSize=1,
+                            disabled=True
+                        ),
+
+                        fac.AntdDivider(
+                            '禁用状态',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdUpload(
+    apiUrl='/upload/',
+    fileMaxSize=1,
+    disabled=True
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='禁用状态',
                     className='div-highlight'
                 ),
 
@@ -319,10 +402,11 @@ fac.AntdUpload(
                                 )
                             ],
                             style={
-                                'marginBottom': '5px'
+                                'marginBottom': '5px',
+                                'width': '100%'
                             }
                         ),
-                        html.Br(),
+
                         fac.AntdUpload(
                             id='upload-demo',
                             apiUrl='/upload/',
@@ -340,28 +424,29 @@ fac.AntdUpload(
                             innerTextOrientation='left'
                         ),
 
-                        fac.AntdParagraph(
-                            [
-                                fac.AntdText(
-                                    '　　这个例子展示了在满足文件体积限制的前提下，每次上传任务执行后，对成功或失败状态进行记录的相关参数信息，'
-                                ),
-                                fac.AntdText('注意！', strong=True),
-                                fac.AntdText('当'),
-                                fac.AntdText('multiple=True', code=True),
-                                fac.AntdText('或'),
-                                fac.AntdText('directory=True', code=True),
-                                fac.AntdText('时，'),
-                                fac.AntdText('lastUploadTaskRecord', code=True),
-                                fac.AntdText('参数会返回列表格式以记录每个文件的信息')
-                            ]
-                        ),
-
                         fac.AntdCollapse(
-                            fuc.FefferySyntaxHighlighter(
-                                showLineNumbers=True, 
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
                                 language='python',
-                                 codeTheme='coy-without-shadows',
+                                codeTheme='coy-without-shadows',
                                 codeString='''
+fac.AntdSpace(
+    [
+        'multiple:',
+        fac.AntdSwitch(
+            id='upload-demo-is-multiple',
+            checked=False,
+            checkedChildren='True',
+            unCheckedChildren='False'
+        )
+    ],
+    style={
+        'marginBottom': '5px',
+        'width': '100%'
+    }
+),
+
 fac.AntdUpload(
     id='upload-demo',
     apiUrl='/upload/',
@@ -372,8 +457,12 @@ fac.AntdSpin(
     html.Pre(id='upload-demo-output'),
     text='回调中'
 )
+
 ...
+
 import json
+
+...
 
 @app.callback(
     Output('upload-demo', 'multiple'),
@@ -381,6 +470,7 @@ import json
 )
 def upload_is_multiple(checked):
     return checked
+
 
 @app.callback(
     Output('upload-demo-output', 'children'),
@@ -397,13 +487,13 @@ def upload_callback_demo(lastUploadTaskRecord, listUploadTaskRecord):
             },
             indent=4,
             ensure_ascii=False
-        )'''
+        )
+'''
                             ),
                             title='点击查看代码',
-                            is_open=False,
+                            isOpen=False,
                             ghost=True
                         )
-
                     ],
                     style={
                         'marginBottom': '40px',
@@ -417,33 +507,33 @@ def upload_callback_demo(lastUploadTaskRecord, listUploadTaskRecord):
                 html.Div(style={'height': '100px'})
             ],
             style={
-                'flex': 'auto'
+                'flex': 'auto',
+                'padding': '25px'
             }
         ),
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '主要参数说明', 'href': '#主要参数说明'},
-                    {
-                        'title': '使用示例',
-                        'href': '#使用示例',
-                        'children': [
-                            {'title': '基础使用及单文件大小限制', 'href': '#基础使用及单文件大小限制'},
-                            {'title': '限制上传列表显示任务记录最大数量', 'href': '#限制上传列表显示任务记录最大数量'},
-                            {'title': '限制上传文件的类型范围', 'href': '#限制上传文件的类型范围'},
-                            {'title': '多文件上传模式', 'href': '#多文件上传模式'},
-                            {'title': '文件夹上传模式', 'href': '#文件夹上传模式'},
-                            {'title': '自定义失败任务记录悬浮提示信息', 'href': '#自定义失败任务记录悬浮提示信息'},
-                            {'title': '回调示例', 'href': '#回调示例'},
-                        ]
-                    }
+                    {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '限制上传列表最大数量', 'href': '#限制上传列表最大数量'},
+                    {'title': '限制上传文件类型', 'href': '#限制上传文件类型'},
+                    {'title': '多文件上传模式', 'href': '#多文件上传模式'},
+                    {'title': '文件夹上传模式', 'href': '#文件夹上传模式'},
+                    {'title': '自定义失败记录提示信息', 'href': '#自定义失败记录提示信息'},
+                    {'title': '为删除操作添加二次确认', 'href': '#为删除操作添加二次确认'},
+                    {'title': '禁用状态', 'href': '#禁用状态'},
+                    {'title': '回调示例', 'href': '#回调示例'},
                 ],
                 offsetTop=0
             ),
             style={
                 'flex': 'none',
-                'margin': '20px'
+                'padding': '25px'
             }
+        ),
+        # 侧边参数栏
+        render_side_props_layout(
+            component_name='AntdUpload'
         )
     ],
     style={

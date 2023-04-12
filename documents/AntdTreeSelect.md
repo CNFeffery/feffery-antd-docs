@@ -1,142 +1,213 @@
-**placeholder：** *string*型
+**id：** *string*型
 
-　　用于设置空白输入下的填充说明文字
+　　用于设置*当前组件的唯一id信息*
 
-**treeData：** *list*型，必填，无默认值
+**key：** *string*型
 
-　　用于*构建层级结构*的必要参数，元素为单个或多个字典，每个字典的**键值对**有：
+　　对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
 
-- title：*str*型，必填，设置节点显示的*文字标签内容*
-- key：*str*型，必填，设置节点对应*唯一识别id*
-- value：*str*型，必填，设置节点对应*值*
-- disabled：*bool*型，设置是否*禁用当前节点*
-- checkable：*bool*型，当`treeCheckable=True`时，设置当前节点*是否渲染勾选框*
-- disableCheckbox：*bool*型，设置以*禁用状态*渲染当前节点勾选框
-- selectable：*bool*型，设置当前节点*是否可点击选择*，优先级低于`checkable`
-- children：*list*型，用于嵌套构建此节点的子节点，同`treeData`格式
+**style：** *dict*型
 
-　　下面是示例：
+　　用于设置*当前组件的css样式*
 
-```py
+**className：** *string*或*dict*型
+
+　　用于设置*当前组件的css类名*，支持[动态css](/advanced-classname)
+
+**locale：** *string*型，默认为`'zh-cn'`
+
+　　用于*为当前组件的功能文案设置语言*，可选的有`'zh-cn'`（简体中文）、`'en-us'`（英文）
+
+**treeDataMode：** *string*型，默认为`'tree'`
+
+　　用于*设置针对treeData参数的解析模式*，可选的有`'tree'`（树形结构）、`'flat'`（扁平结构）
+
+**treeData：** `list[dict]`型，必填
+
+　　用于*构建树选择的选项结构*
+
+　　当`treeDataMode='tree'`时，`treeData`参数需要符合树形解析模式，每个字典的可用键值对参数有：
+
+- **title：** *string*型，必填，用于*设置当前节点对应的标题内容*
+- **key：** *string*型，必填，用于*唯一标识当前节点*
+- **value：** *int*、*float*或*string*型，必填，用于*设置当前节点的值*
+- **disabled：** *bool*型，默认为`False`，用于*设置是否禁用当前节点*
+- **checkable：** *bool*型，用于*设置是否为当前节点渲染勾选框*
+- **disableCheckbox：** *bool*型，用于*设置是否禁用当前节点的勾选框*
+- **selectable：** *bool*型，用于*设置当前节点是否可被选中*
+- **isLeaf：** *bool*型，用于*是否强制设置当前节点为叶节点*
+
+　　下面是树形`treeData`的示例：
+
+```python
 treeData = [
-  {
-    "title": "Node1",
-    "value": "0-0",
-    "key": "0-0",
-    "children": [
-      {
-        "title": "Child Node1",
-        "value": "0-0-0",
-        "key": "0-0-0"
-      }
-    ]
-  },
-  {
-    "title": "Node2",
-    "value": "0-1",
-    "key": "0-1",
-    "children": [
-      {
-        "title": "Child Node3",
-        "value": "0-1-0",
-        "key": "0-1-0"
-      },
-      {
-        "title": "Child Node4",
-        "value": "0-1-1",
-        "key": "0-1-1"
-      },
-      {
-        "title": "Child Node5",
-        "value": "0-1-2",
-        "key": "0-1-2"
-      }
-    ]
-  }
+    {
+        'key': '节点1',
+        'value': '1',
+        'title': '节点1',
+        'children': [
+            {
+                'key': f'节点1-{i}',
+                'value': f'1-{i}',
+                'title': f'节点1-{i}'
+            }
+            for i in range(1, 5)
+        ]
+    },
+    {
+        'key': '节点2',
+        'value': '2',
+        'title': '节点2'
+    }
 ]
 ```
 
-**allowClear：** *bool*型，默认为`True`
+　　当`treeDataMode='flat'`时，`treeData`参数需要符合扁平解析模式，每个字典的可用键值对参数有：
 
-　　设置是否渲染*内容清空按钮*
+- **title：** *string*型，必填，用于*设置当前节点对应的标题内容*
+- **key：** *string*型，必填，用于*唯一标识当前节点*，从而实现父节点与子节点间的关联
 
-**treeLine：** *bool*型，默认为`False`
+- **value：** *int*、*float*或*string*型，必填，用于*设置当前节点的值*
+- **disabled：** *bool*型，默认为`False`，用于*设置是否禁用当前节点*
+- **checkable：** *bool*型，用于*设置是否为当前节点渲染勾选框*
+- **disableCheckbox：** *bool*型，用于*设置是否禁用当前节点的勾选框*
+- **selectable：** *bool*型，用于*设置当前节点是否可被选中*
+- **isLeaf：** *bool*型，用于*设置是否强制设置当前节点为叶节点*
+- **parent：** *string*型，用于*声明当前节点的父节点key值*，从而实现父节点与子节点间的关联
 
-　　设置是否为树*渲染连接线*
+　　下面是扁平`treeData`的示例：
 
-**listHeight：** *int*型，默认为`256`
-
-　　设置*下拉菜单像素高度*
+```python
+treeData = [
+    {
+        'key': '节点1',
+        'value': '1',
+        'title': '节点1'
+    },
+    *[
+        {
+            'key': f'节点1-{i}',
+            'value': f'1-{i}',
+            'title': f'节点1-{i}',
+            'parent': '节点1'
+        }
+        for i in range(1, 6)
+    ]
+]
+```
 
 **disabled：** *bool*型，默认为`False`
 
-　　设置是否*禁用*组件
+　　用于*设置是否禁用当前组件*
 
-**size：** *str*型，默认为`'middle'`
+**size：** *string*型，默认为`'middle'`
 
-　　用于设置组件尺寸大小，可选的有`'small'`、`'middle'`与`'large'`
+　　用于*设置当前组件的尺寸规格*，可选项有`'small'`、`'middle'`和`'large'`
 
-**border：** *bool*型，默认为`True`
+**bordered：** *bool*型，默认为`True`
 
-　　用于设置是否*渲染边框*
+　　用于*设置是否渲染边框*
 
-**value：** *str*或*list*型
+**placeholder：** *string*型
 
-　　对应*已选项值*，单选模式下为选中节点对应的`value`值，多选模式下为已选节点`value`值构成的列表
-
-**defaultValue：** *str*或*list*型
-
-　　设置初始化时*已选项值*，格式同`value`
-
-**maxTagCount：** *int*型，默认为`5`
-
-　　设置在输入框中显示的*最大已选项数量*
-
-**multiple：** *bool*型，默认为`False`
-
-　　设置是否*开启多选模式*，在勾选框模式下会屏蔽此参数自动开启多选模式
-
-**treeCheckable：** *bool*型，默认为`False`
-
-　　设置是否为每个节点渲染*勾选框*
-
-**treeCheckStrictly：** *bool*型，默认为`False`
-
-　　设置是否禁用先辈节点与后代节点之间的关联，设置为`True`之后，先辈节点与后代节点之间的勾选行为彼此独立
-
-**treeDefaultExpandAll：** *bool*型，默认为`False`
-
-　　设置初始化时是否*展开所有节点树*
-
-**treeDefaultExpandedKeys：** *list*型
-
-　　设置初始化时展开的树节点`key`值列表
-
-**treeExpandedKeys：** *list*型
-
-　　对应当前已被展开的树节点`key`值列表
-
-**virtual：** *bool*型，默认为`True`
-
-　　设置是否以*虚拟滚动*的形式渲染节点树，节点众多时可显著提升性能表现
+　　用于*设置空白输入下的填充说明文字*
 
 **placement：** *str*型，默认为`'bottomLeft'`
 
-　　用于设置*悬浮层展开方位*，可选的有`'bottomLeft'`、`'bottomRight'`、`'topLeft'`及`'topRight'`
+　　用于*设置下拉菜单的展开方向*，可选的有`'bottomLeft'`、`'bottomRight'`、`'topLeft'`及`'topRight'`
 
-**status：** *str型*
+**treeLine：** *bool*型，默认为`False`
 
-　　用于*手动设置组件的校验状态*，可选的有`'error'`和`'warning'`
+　　用于*设置是否为树渲染连接线*
+
+**value：** *int*、*float*、*string*或*list*型
+
+　　用于*监听或设置当前已选中值*
+
+**defaultValue：** *int*、*float*、*string*或*list*型
+
+　　用于*监听或设置初始化时的已选中值*
+
+**maxTagCount：** *int*或*str*型
+
+　　用于*设置多选模式下选择框内展示的已选项最大数量*，亦可设置为`'responsive'`开启响应式模式进行自适应调整
+
+**listHeight：** *int*型，默认为`256`
+
+　　用于*设置下拉菜单的像素高度*
+
+**multiple：** *bool*型，默认为`False`
+
+　　用于*设置是否开启多选模式*
+
+**treeCheckable：** *bool*型，默认为`False`
+
+　　用于*设置是否为各节点添加勾选框*
+
+**treeDefaultExpandAll：** *bool*型，默认为`False`
+
+　　用于*设置初始化时是否展开所有节点*
+
+**treeDefaultExpandedKeys：** *list*型
+
+　　用于*设置初始化时处于处于展开状态的节点key值*
+
+**treeExpandedKeys：** *list*型
+
+　　用于*监听或设置当前处于展开状态的节点key值*
+
+**treeCheckStrictly：** *bool*型，默认为`False`
+
+　　用于*设置是否取消父子节点间的选择关联性*
+
+**virtual：** *bool*型，默认为`True`
+
+　　用于*设置是否启用虚拟滚动以显著提升渲染性能表现*
+
+**status：** *string*型
+
+　　用于*强制设置组件的状态*，可选的有`'error'`和`'warning'`
+
+**allowClear：** *bool*型，默认为`True`
+
+　　用于*设置是否允许用户清空已选项*
 
 **treeNodeFilterProp：** *string*型，默认为`'value'`
 
-　　用于*设置基于输入框内输入内容进行搜索的目标字段*，可选的有`'title'`、`'value'`
+　　用于*设置进行内容搜索的目标字段*，可选的有`'title'`、`'value'`
 
+**autoClearSearchValue：** *bool*型，默认为`True`
 
+　　用于*设置在多选模式下当有新的节点被选中时是否自动清空搜索框中的搜索内容*
 
+**showCheckedStrategy：** *string*型，默认为`'show-all'`
 
+　　用于*设置已选项的回填显示策略*，可选的`'show-all'`（既显示父节点也显示子节点）、有`'show-parent'`（当所有子节点都被选中时，只显示父节点）、`'show-child'`（只显示选中的子节点）
 
+**dropdownBefore：** *组件型*
 
+　　用于*在下拉菜单开头添加额外的自定义内容*
 
+**dropdownAfter：** *组件型*
 
+　　用于*在下拉菜单末尾添加额外的自定义内容*
 
+**readOnly：** *bool*型
+
+　　用于*设置是否以只读模式进行展示*
+
+**popupContainer：** *string*型，默认为`'body'`
+
+　　用于*为当前组件涉及的悬浮层元素设置参考容器类型*，可选的有`'body'`（以页面根节点为参考）和`'parent'`（以当前元素的父容器为参考），当组件位于局部滚动容器内时，通过设置`popupContainer='parent'`可以解决悬浮层滚动不跟随的问题
+
+**persistence：** *bool*型
+
+　　用于*设置是否为当前组件开启属性持久化*
+
+**persisted_props：** *list*型，默认为`['value']`
+
+　　用于*设置针对当前组件的哪些属性进行持久化*，可选的有`'value'`
+
+**persistence_type：** *string*型，默认为`'local'`
+
+　　用于*设置针对当前组件进行属性持久化的存储类型*，可选的有`'local'`（浏览器本地缓存）、`'session'`（当前标签页会话缓存）、`'memory'`（内存临时缓存）

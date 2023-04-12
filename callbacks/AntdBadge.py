@@ -1,9 +1,8 @@
 import time
-import random
-
 import dash
+import random
 import feffery_antd_components as fac
-from dash.dependencies import Input, Output, State, MATCH, ALL
+from dash.dependencies import Input, Output, State, ALL, MATCH
 
 from server import app
 
@@ -31,28 +30,31 @@ def badge_click_demo_callback1(nClicks):
     random.shuffle(badges_count)
 
     return [
-               fac.AntdBadge(
-                   fac.AntdAvatar(
-                       mode='image',
-                       src='/assets/imgs/avatar-demo.jpg',
-                       style={
-                           'cursor': 'pointer'
-                       }
-                   ),
-                   id={
-                       'type': 'badge-click-demo',
-                       'index': idx
-                   },
-                   count=c,
-                   dot=True,
-                   style={
-                       'cursor': 'pointer'
-                   }
-               )
-               for idx, c in enumerate(badges_count)
-           ], {
-               'start-time': time.time()
-           }
+        [
+            fac.AntdBadge(
+                fac.AntdAvatar(
+                    mode='image',
+                    src='/assets/imgs/avatar-demo.jpg',
+                    style={
+                        'cursor': 'pointer'
+                    }
+                ),
+                id={
+                    'type': 'badge-click-demo',
+                    'index': idx
+                },
+                count=c,
+                dot=True,
+                style={
+                    'cursor': 'pointer'
+                }
+            )
+            for idx, c in enumerate(badges_count)
+        ],
+        {
+            'start-time': time.time()
+        }
+    ]
 
 
 @app.callback(
@@ -76,6 +78,7 @@ def badge_click_demo_callback3(counts, start_time):
         return fac.AntdParagraph(
             [
                 fac.AntdText('你的得分：', strong=True),
-                fac.AntdText('%s秒' % round(time.time() - start_time['start-time'], 3))
+                fac.AntdText('%s秒' % round(
+                    time.time() - start_time['start-time'], 3))
             ]
         )

@@ -1,19 +1,39 @@
+**id：** *string*型
+
+　　用于设置*当前组件的唯一id信息*
+
+**key：** *string*型
+
+　　对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+
+**style：** *dict*型
+
+　　用于设置*当前组件的css样式*
+
+**className：** *string*或*dict*型
+
+　　用于设置*当前组件的css类名*，支持[动态css](/advanced-classname)
+
+**children：** *组件型*
+
+　　用于传入*嵌套的子元素*
+
 **skeletonContent：** *组件型*
 
-　　用于*设置加载状态时显示的元素*
+　　用于*设置作为加载状态骨骼内容的元素*
 
 **debug：** *bool*型，默认为`False`
 
-　　用于设置是否开启*debug模式*，开启后，每当对应`AntdCustomSkeleton`组件加载骨骼屏渲染时，`浏览器开发者工具-console`中会打印触发本次骨骼屏渲染的子节点**id**信息
+　　用于*设置是否开启调试模式*，开启后当骨骼屏内部嵌套的元素作为回调函数`Output`角色且回调函数执行中时，会在浏览器控制台打印相关组件的`id`及`prop`信息
 
 **listenPropsMode：** *string*型，默认为`'default'`
 
-　　用于设置特殊的*子节点监听过滤模式*，默认为`'default'`时，`AntdCustomSkeleton`的所有后代组件作为回调的`Output`进行回调过程时，都会触发加载动画；当设置为`'exclude'`时，会开启*排除过滤模式*，此时传入`includeProps`参数列表中的所有`'id.prop名称'`对应的后代组件处于回调时不会触发加载动画；当设置为`'include'`时，会开启*包含监听模式*，此时与`'exclude'`**恰恰相反**，只有传入到参数`includeProps`列表中的所有`'id.prop名称'`对应的后代组件的回调过程才会被`AntdCustomSkeleton`监听
+　　用于*设置骨骼屏针对内部嵌套元素回调行为的监听方式*，可用的有`'default'`（默认全监听模式）、`'exclude'`（排除模式）、`'include'`（包含模式）
 
 **excludeProps：** *list*型
 
-　　配合`listenPropsMode='exclude'`模式使用
+　　当`listenPropsMode='exclude'`时，用于*设置需要排除监听的内部嵌套组件对应属性*，列表中每个元素用于定义要排除的目标，格式为`组件id.属性名称`，如`'demo-input.value'`
 
 **includeProps：** *list*型
 
-　　配合`listenPropsMode='include'`模式使用
+　　当`listenPropsMode='include'`时，用于*设置需要包含监听的内部嵌套组件对应属性*，列表中每个元素用于定义要包含的目标，格式为`组件id.属性名称`，如`'demo-input.value'`

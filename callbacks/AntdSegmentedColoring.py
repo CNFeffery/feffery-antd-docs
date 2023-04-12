@@ -15,7 +15,7 @@ from server import app
      Input('segmented-coloring-demo1-readOnly', 'checked'),
      Input('segmented-coloring-demo1-colorBlockPosition', 'checked')]
 )
-def segmented_coloring_demo1_callback(*checked_list):
+def segmented_coloring_demo1(*checked_list):
     return [
         *checked_list[:4],
         'right' if checked_list[4] else 'left'

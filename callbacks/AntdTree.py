@@ -1,5 +1,4 @@
-from dash import html
-import feffery_antd_components as fac
+import json
 from dash.dependencies import Input, Output
 
 from server import app
@@ -9,17 +8,35 @@ from server import app
     Output('tree-demo-output', 'children'),
     [Input('tree-demo', 'selectedKeys'),
      Input('tree-demo', 'checkedKeys'),
-     Input('tree-demo', 'halfCheckedKeys')],
-    prevent_initial_call=True
+     Input('tree-demo', 'halfCheckedKeys'),
+     Input('tree-demo', 'expandedKeys')]
 )
-def tree_callback_demo(selectedKeys, checkedKeys, halfCheckedKeys):
-    return [
-        fac.AntdTitle('selectedKeys：', level=5),
-        html.Pre(str(selectedKeys)),
+def tree_demo(selectedKeys, checkedKeys, halfCheckedKeys, expandedKeys):
 
-        fac.AntdTitle('checkedKeys：', level=5),
-        html.Pre(str(checkedKeys)),
+    return json.dumps(
+        dict(
+            selectedKeys=selectedKeys,
+            checkedKeys=checkedKeys,
+            halfCheckedKeys=halfCheckedKeys,
+            expandedKeys=expandedKeys
+        ),
+        indent=4,
+        ensure_ascii=False
+    )
 
-        fac.AntdTitle('halfCheckedKeys：', level=5),
-        html.Pre(str(halfCheckedKeys))
-    ]
+
+@app.callback(
+    Output('tree-drag-demo-output', 'children'),
+    [Input('tree-drag-demo', 'treeData'),
+     Input('tree-drag-demo', 'draggedNodeKey')]
+)
+def tree_drag_demo(treeData, draggedNodeKey):
+
+    return json.dumps(
+        dict(
+            treeData=treeData,
+            draggedNodeKey=draggedNodeKey
+        ),
+        indent=4,
+        ensure_ascii=False
+    )
