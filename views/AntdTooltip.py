@@ -296,23 +296,38 @@ fac.AntdTooltip(
                     [
                         fac.AntdSpace(
                             [
-                                fac.AntdTooltip(
-                                    fac.AntdButton(
-                                        '锚点元素'
-                                    ),
-                                    title='open=True',
-                                    open=True
+                                fac.AntdForm(
+                                    [
+                                        fac.AntdFormItem(
+                                            fac.AntdSwitch(
+                                                id='tooltip-open-demo-open',
+                                                checkedChildren='True',
+                                                unCheckedChildren='False',
+                                                checked=False
+                                            ),
+                                            label='open'
+                                        ),
+                                        fac.AntdFormItem(
+                                            fac.AntdSwitch(
+                                                id='tooltip-open-demo-permanent',
+                                                checkedChildren='True',
+                                                unCheckedChildren='False',
+                                                checked=False
+                                            ),
+                                            label='permanent'
+                                        )
+                                    ],
+                                    layout='inline'
                                 ),
                                 fac.AntdTooltip(
                                     fac.AntdButton(
                                         '锚点元素'
                                     ),
-                                    title='open=True且permanent=True',
-                                    open=True,
-                                    permanent=True,
+                                    id='tooltip-open-demo',
                                     placement='right'
                                 )
-                            ]
+                            ],
+                            direction='vertical'
                         ),
 
                         fac.AntdDivider(
@@ -341,28 +356,60 @@ fac.AntdTooltip(
                                 showLineNumbers=True,
                                 language='python',
                                 codeTheme='coy-without-shadows',
-                                codeString='''
+                                codeString="""
 fac.AntdSpace(
     [
-        fac.AntdTooltip(
-            fac.AntdButton(
-                '锚点元素'
-            ),
-            title='open=True',
-            open=True
+        fac.AntdForm(
+            [
+                fac.AntdFormItem(
+                    fac.AntdSwitch(
+                        id='tooltip-open-demo-open',
+                        checkedChildren='True',
+                        unCheckedChildren='False',
+                        checked=False
+                    ),
+                    label='open'
+                ),
+                fac.AntdFormItem(
+                    fac.AntdSwitch(
+                        id='tooltip-open-demo-permanent',
+                        checkedChildren='True',
+                        unCheckedChildren='False',
+                        checked=False
+                    ),
+                    label='permanent'
+                )
+            ],
+            layout='inline'
         ),
         fac.AntdTooltip(
             fac.AntdButton(
                 '锚点元素'
             ),
-            title='open=True且permanent=True',
-            open=True,
-            permanent=True,
+            id='tooltip-open-demo',
             placement='right'
         )
-    ]
+    ],
+    direction='vertical'
 )
-'''
+
+...
+
+app.clientside_callback(
+    '''(open, permanent) => {
+        return [
+            open,
+            permanent,
+            `open=${open} permanent=${permanent}`
+        ];
+    }''',
+    [Output('tooltip-open-demo', 'open'),
+     Output('tooltip-open-demo', 'permanent'),
+     Output('tooltip-open-demo', 'title')],
+    [Input('tooltip-open-demo-open', 'checked'),
+     Input('tooltip-open-demo-permanent', 'checked')]
+)
+"""
                             ),
                             title='点击查看代码',
                             isOpen=False,

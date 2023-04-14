@@ -23,3 +23,19 @@ def tooltip_color_demo(color):
             ]
         )
     ]
+
+
+app.clientside_callback(
+    '''(open, permanent) => {
+        return [
+            open,
+            permanent,
+            `open=${open} permanent=${permanent}`
+        ];
+    }''',
+    [Output('tooltip-open-demo', 'open'),
+     Output('tooltip-open-demo', 'permanent'),
+     Output('tooltip-open-demo', 'title')],
+    [Input('tooltip-open-demo-open', 'checked'),
+     Input('tooltip-open-demo-permanent', 'checked')]
+)
