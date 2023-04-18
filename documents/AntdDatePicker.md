@@ -26,6 +26,10 @@
 
 　　用于*设置日期选择的粒度*，可选的有`'date'`、`'week'`、`'month'`、`'quarter'`、`'year'`
 
+**firstDayOfWeek：** *int*型
+
+　　用于*自定义每周的第一天*，如`1`表示周一
+
 **disabled：** *bool*型，默认为`False`
 
 　　用于*设置是否禁用当前组件*
