@@ -255,6 +255,40 @@ if __name__ == '__main__':
                 ),
 
                 fac.AntdTitle(
+                    '拓展阅读',
+                    id='拓展阅读',
+                    level=3
+                ),
+
+                fac.AntdSpace(
+                    [
+                        html.A(
+                            fac.AntdCard(
+                                title='10分钟极速入门dash应用开发',
+                                coverImg={
+                                    'src': 'assets/imgs/getting-started配图/cover_10分钟极速入门dash应用开发.png',
+                                    'style': {
+                                        'width': 265,
+                                        'height': 325,
+                                        'objectFit': 'cover'
+                                    }
+                                },
+                                hoverable=True,
+                                bodyStyle={
+                                    'padding': 0
+                                }
+                            ),
+                            href='https://mp.weixin.qq.com/s/BvGJT7DPHP2dYExZgifgiw',
+                            target='_blank'
+                        )
+                    ]
+                ),
+
+                fac.AntdDivider(
+                    isDashed=True
+                ),
+
+                fac.AntdTitle(
                     '更多dash专业知识',
                     id='更多dash专业知识',
                     level=3
@@ -329,6 +363,7 @@ if __name__ == '__main__':
                 linkDict=[
                     {'title': '环境搭建', 'href': '#环境搭建'},
                     {'title': '构建示例应用', 'href': '#构建示例应用'},
+                    {'title': '拓展阅读', 'href': '#拓展阅读'},
                     {'title': '更多dash专业知识', 'href': '#更多dash专业知识'}
                 ],
                 offsetTop=0
