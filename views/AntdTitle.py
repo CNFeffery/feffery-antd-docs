@@ -41,26 +41,32 @@ docs_content = html.Div(
                     [
                         fac.AntdParagraph(
                             [
-                                fac.AntdText('code示例', code=True),
-                                fac.AntdText('copyable示例', copyable=True),
-                                fac.AntdText('strikethrough示例',
-                                             strikethrough=True),
-                                fac.AntdText('disabled示例', disabled=True),
-                                fac.AntdText('mark示例', mark=True),
-                                fac.AntdText('strong示例', strong=True),
-                                fac.AntdText('underline示例', underline=True),
-                                fac.AntdText('keyboard示例', keyboard=True),
-                                fac.AntdText('secondary示例', type='secondary'),
-                                fac.AntdText('success示例', type='success'),
-                                fac.AntdText('warning示例', type='warning'),
-                                fac.AntdText('danger示例', type='danger'),
+                                fac.AntdTitle('一级标题', level=1),
+                                fac.AntdTitle('二级标题', level=2),
+                                fac.AntdTitle('三级标题', level=3),
+                                fac.AntdTitle('四级标题', level=4),
+                                fac.AntdTitle('五级标题', level=5)
                             ]
                         ),
 
                         fac.AntdDivider(
-                            '不同的渲染模式',
+                            '不同的标题级别',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
+                        ),
+
+                        fac.AntdParagraph(
+                            [
+                                fac.AntdText('AntdTitle', strong=True),
+                                fac.AntdText('拥有'),
+                                fac.AntdText('AntdText', strong=True),
+                                fac.AntdText('的所有常规渲染模式，参数同样适用，这里就不再赘述，仅展示不同'),
+                                fac.AntdText('level', strong=True),
+                                fac.AntdText('参数下的效果'),
+                            ],
+                            style={
+                                'textIndent': '2rem'
+                            }
                         ),
 
                         fac.AntdCollapse(
@@ -72,19 +78,11 @@ docs_content = html.Div(
                                 codeString='''
 fac.AntdParagraph(
     [
-        fac.AntdText('code示例', code=True),
-        fac.AntdText('copyable示例', copyable=True),
-        fac.AntdText('strikethrough示例',
-                     strikethrough=True),
-        fac.AntdText('disabled示例', disabled=True),
-        fac.AntdText('mark示例', mark=True),
-        fac.AntdText('strong示例', strong=True),
-        fac.AntdText('underline示例', underline=True),
-        fac.AntdText('keyboard示例', keyboard=True),
-        fac.AntdText('secondary示例', type='secondary'),
-        fac.AntdText('success示例', type='success'),
-        fac.AntdText('warning示例', type='warning'),
-        fac.AntdText('danger示例', type='danger'),
+        fac.AntdTitle('一级标题', level=1),
+        fac.AntdTitle('二级标题', level=2),
+        fac.AntdTitle('三级标题', level=3),
+        fac.AntdTitle('四级标题', level=4),
+        fac.AntdTitle('五级标题', level=5)
     ]
 )
 '''
@@ -99,7 +97,7 @@ fac.AntdParagraph(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='不同的渲染模式',
+                    id='不同的标题级别',
                     className='div-highlight'
                 ),
 
@@ -113,7 +111,7 @@ fac.AntdParagraph(
         html.Div(
             fac.AntdAnchor(
                 linkDict=[
-                    {'title': '不同的渲染模式', 'href': '#不同的渲染模式'},
+                    {'title': '不同的标题级别', 'href': '#不同的标题级别'},
                 ],
                 offsetTop=0
             ),
@@ -124,7 +122,7 @@ fac.AntdParagraph(
         ),
         # 侧边参数栏
         render_side_props_layout(
-            component_name='AntdText'
+            component_name='AntdTitle'
         )
     ],
     style={
