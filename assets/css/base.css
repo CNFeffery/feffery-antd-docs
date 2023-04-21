@@ -98,3 +98,7 @@ ninja-keys {
   transition: all 0.3s;
   color: #40a9ff;
 }
+
+#docs-content>div:last-child .ant-anchor-wrapper {
+  max-width: 200px;
+}
