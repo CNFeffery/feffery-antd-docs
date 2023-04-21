@@ -98,6 +98,10 @@ def upload_file(uploadId: str, file: UploadFile = File(...)):
     return {"filename": file.filename}
 ```
 
+**headers：** *dict*型
+
+　　用于*为上传请求设置额外的headers信息*
+
 **downloadUrl：** *string*型
 
 　　当需要为已上传的文件添加下载链接时，用于*设置文件下载服务接口*，请求类型为`GET`，需接受参数`taskId`和`filename`，其中`taskId`自动传递当前组件的`uploadId`参数，`filename`传递目标下载文件的文件名

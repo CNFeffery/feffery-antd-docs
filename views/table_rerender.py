@@ -2303,6 +2303,219 @@ def table_rerender_dropdown_demo(nClicksDropdownItem,
                     className='div-highlight'
                 ),
 
+                html.Div(
+                    [
+                        fac.AntdTable(
+                            id='table-rerender-select-demo',
+                            columns=[
+                                {
+                                    'title': 'select示例1',
+                                    'dataIndex': 'select示例1',
+                                    'renderOptions': {
+                                        'renderType': 'select'
+                                    },
+                                    'width': 'calc(100% / 3)'
+                                },
+                                {
+                                    'title': 'select示例2',
+                                    'dataIndex': 'select示例2',
+                                    'renderOptions': {
+                                        'renderType': 'select'
+                                    },
+                                    'width': 'calc(100% / 3)'
+                                },
+                                {
+                                    'title': 'select示例3',
+                                    'dataIndex': 'select示例3',
+                                    'renderOptions': {
+                                        'renderType': 'select'
+                                    },
+                                    'width': 'calc(100% / 3)'
+                                }
+                            ],
+                            data=[
+                                {
+                                    'select示例1': {
+                                        'options': [
+                                            {
+                                                'label': f'选项{j}',
+                                                'value': f'选项{j}'
+                                            }
+                                            for j in range(5)
+                                        ],
+                                        'allowClear': True,
+                                        'placeholder': '请选择'
+                                    },
+                                    'select示例2': {
+                                        'options': [
+                                            {
+                                                'label': f'选项{j}',
+                                                'value': f'选项{j}'
+                                            }
+                                            for j in range(5)
+                                        ],
+                                        'mode': 'multiple',
+                                        'allowClear': True,
+                                        'placeholder': '请选择'
+                                    },
+                                    'select示例3': {
+                                        'options': [
+                                            {
+                                                'label': f'选项{j}',
+                                                'value': f'选项{j}'
+                                            }
+                                            for j in range(5)
+                                        ],
+                                        'mode': 'tags',
+                                        'allowClear': True,
+                                        'placeholder': '请选择'
+                                    }
+                                }
+                                for i in range(1, 4)
+                            ],
+                            bordered=True,
+                            style={
+                                'width': 600
+                            }
+                        ),
+
+                        html.Pre(
+                            id='table-rerender-select-demo-output'
+                        ),
+
+                        fac.AntdDivider(
+                            'select下拉选择模式及回调示例',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdTable(
+    id='table-rerender-select-demo',
+    columns=[
+        {
+            'title': 'select示例1',
+            'dataIndex': 'select示例1',
+            'renderOptions': {
+                'renderType': 'select'
+            },
+            'width': 'calc(100% / 3)'
+        },
+        {
+            'title': 'select示例2',
+            'dataIndex': 'select示例2',
+            'renderOptions': {
+                'renderType': 'select'
+            },
+            'width': 'calc(100% / 3)'
+        },
+        {
+            'title': 'select示例3',
+            'dataIndex': 'select示例3',
+            'renderOptions': {
+                'renderType': 'select'
+            },
+            'width': 'calc(100% / 3)'
+        }
+    ],
+    data=[
+        {
+            'select示例1': {
+                'options': [
+                    {
+                        'label': f'选项{j}',
+                        'value': f'选项{j}'
+                    }
+                    for j in range(5)
+                ],
+                'allowClear': True,
+                'placeholder': '请选择'
+            },
+            'select示例2': {
+                'options': [
+                    {
+                        'label': f'选项{j}',
+                        'value': f'选项{j}'
+                    }
+                    for j in range(5)
+                ],
+                'mode': 'multiple',
+                'allowClear': True,
+                'placeholder': '请选择'
+            },
+            'select示例3': {
+                'options': [
+                    {
+                        'label': f'选项{j}',
+                        'value': f'选项{j}'
+                    }
+                    for j in range(5)
+                ],
+                'mode': 'tags',
+                'allowClear': True,
+                'placeholder': '请选择'
+            }
+        }
+        for i in range(1, 4)
+    ],
+    bordered=True,
+    style={
+        'width': 600
+    }
+),
+
+html.Pre(
+    id='table-rerender-select-demo-output'
+)
+
+...
+
+import json
+
+...
+
+@app.callback(
+    Output('table-rerender-select-demo-output', 'children'),
+    [Input('table-rerender-select-demo', 'recentlySelectRow'),
+     Input('table-rerender-select-demo', 'recentlySelectDataIndex'),
+     Input('table-rerender-select-demo', 'recentlySelectValue')],
+    prevent_initial_call=True
+)
+def table_rerender_select_demo(recentlySelectRow,
+                               recentlySelectDataIndex,
+                               recentlySelectValue):
+
+    return json.dumps(
+        dict(
+            recentlySelectRow=recentlySelectRow,
+            recentlySelectDataIndex=recentlySelectDataIndex,
+            recentlySelectValue=recentlySelectValue
+        ),
+        indent=4,
+        ensure_ascii=False
+    )
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='select下拉选择模式及回调示例',
+                    className='div-highlight'
+                ),
+
                 html.Div(style={'height': '100px'})
             ],
             style={
@@ -2355,6 +2568,10 @@ def table_rerender_dropdown_demo(nClicksDropdownItem,
                         'title': 'dropdown下拉选择菜单模式及回调示例',
                         'href': '#dropdown下拉选择菜单模式及回调示例'
                     },
+                    {
+                        'title': 'select下拉选择模式及回调示例',
+                        'href': '#select下拉选择模式及回调示例'
+                    }
                 ],
                 offsetTop=0
             ),

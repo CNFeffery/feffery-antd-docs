@@ -26,7 +26,7 @@
 - **dataIndex：** *string*型，必填，用于*设置当前字段的唯一id信息*，该信息对应`data`中每条记录内的键值对
 - **group：** *string*型，用于*为当前字段设置所属的分组信息*，用于渲染双层表头使用
 - **renderOptions：** *dict*型，用于*为当前字段设置与再渲染模式相关的配置参数*，可用的键值对参数有：
-  - **renderType：** *string*型，用于*为当前字段设置所需的再渲染模式类型*，可选的有`'link'`（链接模式）、`'ellipsis'`（长内容省略模式）、`'copyable'`（可复制模式）、`'ellipsis-copyable'`（长内容省略+可复制模式）、`'tags'`（标签模式）、`'status-badge'`（状态徽标模式）、`'image'`（图片模式）、`'custom-format'`（自定义格式模式）、`'corner-mark'`（角标模式）、`'row-merge'`（跨行合并单元格模式）、`'dropdown-links'`（下拉链接菜单模式）、`'image-avatar'`（图片型头像模式）、`'mini-line'`（迷你折线图模式）、`'mini-bar'`（迷你柱状图模式）、`'mini-progress'`（迷你进度图模式）、`'mini-ring-progress'`（迷你环形进度图模式）、`'mini-area'`（迷你面积图模式）、`'button'`（按钮模式）、`'checkbox'`（勾选框模式）、`'switch'`（开关模式）、`'dropdown'`（下拉选择菜单模式）
+  - **renderType：** *string*型，用于*为当前字段设置所需的再渲染模式类型*，可选的有`'link'`（链接模式）、`'ellipsis'`（长内容省略模式）、`'copyable'`（可复制模式）、`'ellipsis-copyable'`（长内容省略+可复制模式）、`'tags'`（标签模式）、`'status-badge'`（状态徽标模式）、`'image'`（图片模式）、`'custom-format'`（自定义格式模式）、`'corner-mark'`（角标模式）、`'row-merge'`（跨行合并单元格模式）、`'dropdown-links'`（下拉链接菜单模式）、`'image-avatar'`（图片型头像模式）、`'mini-line'`（迷你折线图模式）、`'mini-bar'`（迷你柱状图模式）、`'mini-progress'`（迷你进度图模式）、`'mini-ring-progress'`（迷你环形进度图模式）、`'mini-area'`（迷你面积图模式）、`'button'`（按钮模式）、`'checkbox'`（勾选框模式）、`'switch'`（开关模式）、`'dropdown'`（下拉选择菜单模式）、`'select'`（下拉选择模式）
   - **renderLinkText：** *string*型，当`renderType="link"`时，用于*统一为当前字段所渲染出的链接设置文字内容*
   - **renderButtonPopConfirmProps：** *dict*型，当`renderType="button"`时，且需要为当前字段所渲染出的按钮添加气泡确认框时，用于*设置与气泡确认相关框的配置参数*，可用的键值对参数有：
     - **title：** *string*型，用于*为气泡确认框设置标题文字*
@@ -423,3 +423,15 @@
 **recentlyDropdownItemClickedRow：** *dict*型
 
 　　用于*监听最近一次下拉选择菜单模式选项点击事件对应的行记录字典*
+
+**recentlySelectDataIndex：** *string*型
+
+　　用于*监听最近一次下拉选择模式选值更新事件对应的字段dataIndex信息*
+
+**recentlySelectValue：** *string*、*int*、*float*或*list*型
+
+　　用于*监听最近一次下拉选择模式选值更新事件对应的value最新状态*
+
+**recentlySelectRow：** *dict*型
+
+　　用于*监听最近一次下拉选择模式选值更新事件对应的行记录字典*

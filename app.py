@@ -586,7 +586,6 @@ def page_anchor_scroll_to_while_page_initial(_, hash_):
         )
 
 
-
 app.clientside_callback(
     ClientsideFunction(
         namespace='clientside',

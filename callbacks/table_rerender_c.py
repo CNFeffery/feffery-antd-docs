@@ -100,3 +100,25 @@ def table_rerender_dropdown_demo(nClicksDropdownItem,
         indent=4,
         ensure_ascii=False
     )
+
+
+@app.callback(
+    Output('table-rerender-select-demo-output', 'children'),
+    [Input('table-rerender-select-demo', 'recentlySelectRow'),
+     Input('table-rerender-select-demo', 'recentlySelectDataIndex'),
+     Input('table-rerender-select-demo', 'recentlySelectValue')],
+    prevent_initial_call=True
+)
+def table_rerender_select_demo(recentlySelectRow,
+                               recentlySelectDataIndex,
+                               recentlySelectValue):
+
+    return json.dumps(
+        dict(
+            recentlySelectRow=recentlySelectRow,
+            recentlySelectDataIndex=recentlySelectDataIndex,
+            recentlySelectValue=recentlySelectValue
+        ),
+        indent=4,
+        ensure_ascii=False
+    )
