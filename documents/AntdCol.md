@@ -1,4 +1,4 @@
-**id：** *string*型
+**id：** *string*或*dict*型
 
 　　用于设置*当前组件的唯一id信息*
 
