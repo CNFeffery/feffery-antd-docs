@@ -437,15 +437,15 @@ html.Div(
                                             type='primary'
                                         ),
                                         wrapperCol={
-                                            'offset': 4
+                                            'offset': 5
                                         }
                                     )
                                 ],
                                 labelCol={
-                                    'span': 4
+                                    'span': 5
                                 },
                                 wrapperCol={
-                                    'span': 20
+                                    'span': 19
                                 },
                                 style={
                                     'width': 300,
@@ -488,15 +488,15 @@ html.Div(
                     type='primary'
                 ),
                 wrapperCol={
-                    'offset': 4
+                    'offset': 5
                 }
             )
         ],
         labelCol={
-            'span': 4
+            'span': 5
         },
         wrapperCol={
-            'span': 20
+            'span': 19
         },
         style={
             'width': 300,
