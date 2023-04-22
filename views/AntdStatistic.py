@@ -32,7 +32,7 @@ docs_content = html.Div(
 
                 fac.AntdParagraph(
                     [
-                        fac.AntdText('　　用于在各种场景下作为功能逻辑的触发点。')
+                        fac.AntdText('　　用于构建漂亮的统计数值展示。')
                     ]
                 ),
 
