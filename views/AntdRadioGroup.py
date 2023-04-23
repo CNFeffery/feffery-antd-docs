@@ -424,6 +424,31 @@ fac.AntdSpace(
                                 language='python',
                                 codeTheme='coy-without-shadows',
                                 codeString='''
+fac.AntdRadioGroup(
+    id='radio-group-demo',
+    options=[
+        {
+            'label': f'选项{c}',
+            'value': c
+        }
+        for c in list('abcdef')
+    ],
+    defaultValue='a'
+),
+
+fac.AntdParagraph(
+    id='radio-group-demo-output'
+)
+
+...
+
+@app.callback(
+    Output('radio-group-demo-output', 'children'),
+    Input('radio-group-demo', 'value')
+)
+def radio_group_demo(value):
+
+    return f'value: {value}'
 '''
                             ),
                             title='点击查看代码',
