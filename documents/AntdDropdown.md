@@ -74,6 +74,10 @@
 
 　　用于*设置触发下拉菜单展开的触发方式*，可选的有`'hover'`及`'click'`
 
+**autoAdjustOverflow：** *bool*型，默认为`True`
+
+　　用于*设置当下拉菜单被遮挡时是否自动调整位置*
+
 **visible：** *bool*型，默认为`False`
 
 　　用于*设置下拉菜单是否显示*

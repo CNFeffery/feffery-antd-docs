@@ -23,7 +23,8 @@ app = CustomDash(
     update_title=None,
     serve_locally=False,
     extra_hot_reload_paths=[
-        './documents'
+        './documents',
+        './change_logs'
     ],
     compress=True,
     assets_ignore='dark.css'

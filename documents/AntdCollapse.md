@@ -40,7 +40,7 @@
 
 **collapsible：** *string*型
 
-　　用于*设置折叠/展开触发策略*，可选的有`'header'`（仅标题内容部分触发）、`'disabled'`（禁用）
+　　用于*设置折叠/展开触发策略*，可选的有`'header'`（仅标题内容部分触发）、`'disabled'`（禁用）、`'icon'`（仅图标区域触发）
 
 **forceRender：** *bool*型，默认为`False`
 

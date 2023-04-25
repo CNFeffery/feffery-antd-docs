@@ -1,3 +1,5 @@
+import re
+import os
 import uuid
 import time
 import dash
@@ -314,7 +316,7 @@ app.layout = fuc.FefferyTopProgress(
                             fuc.FefferyDiv(
                                 html.Div(
                                     style={
-                                        'height': '100vh'
+                                        'minHeight': '100vh'
                                     }
                                 ),
                                 id='docs-content',
@@ -449,6 +451,18 @@ def render_docs_content(pathname):
             str(uuid.uuid4())
         ]
 
+    # 若访问更新日志相关页面
+    elif (
+        re.fullmatch('/change-log-v\d+\.\d+\.\d+', pathname) and
+        pathname[1:]+'.md' in os.listdir('./change_logs')
+    ):
+        return [
+            views.generate_change_logs.genarate_layout(
+                pathname
+            ),
+            str(uuid.uuid4())
+        ]
+
     # 检查当前pathname是否在预设字典中
     elif pathname in Config.key2open_keys.keys():
 
@@ -534,16 +548,31 @@ def handle_other_router_interaction(pathname):
             None
         ]
 
-    elif pathname in [
-        '/advanced-classname',
-        '/popup-container',
-        '/internationalization',
-        '/prop-persistence',
-        '/use-key-to-refresh'
-    ]:
+    elif (
+        pathname in [
+            '/advanced-classname',
+            '/popup-container',
+            '/internationalization',
+            '/prop-persistence',
+            '/use-key-to-refresh'
+        ]
+    ):
         return [
             pathname,
             dash.no_update,
+            fuc.FefferyScroll(
+                scrollTargetId=pathname,
+                **router_menu_scroll_params
+            )
+        ]
+
+    elif (
+        re.fullmatch('/change-log-v\d+\.\d+\.\d+', pathname) and
+        pathname[1:]+'.md' in os.listdir('./change_logs')
+    ):
+        return [
+            pathname,
+            [re.findall('(v\d+\.\d+\.)', pathname)[0]+'x'],
             fuc.FefferyScroll(
                 scrollTargetId=pathname,
                 **router_menu_scroll_params

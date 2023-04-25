@@ -272,6 +272,17 @@ html.Div(
                                     style={
                                         'width': 300
                                     }
+                                ),
+                                fac.AntdCollapse(
+                                    fac.AntdParagraph(
+                                        '内容示例'*20
+                                    ),
+                                    title='collapsible="icon"',
+                                    collapsible='icon',
+                                    isOpen=False,
+                                    style={
+                                        'width': 300
+                                    }
                                 )
                             ],
                             direction='vertical'
@@ -309,6 +320,17 @@ fac.AntdSpace(
             ),
             title='collapsible="disabled"',
             collapsible='disabled',
+            isOpen=False,
+            style={
+                'width': 300
+            }
+        ),
+        fac.AntdCollapse(
+            fac.AntdParagraph(
+                '内容示例'*20
+            ),
+            title='collapsible="icon"',
+            collapsible='icon',
             isOpen=False,
             style={
                 'width': 300

@@ -120,7 +120,7 @@ def upload_file(uploadId: str, file: UploadFile = File(...)):
 
 **uploadId：** *string*型
 
-　　用于*设置当前上传组件在调用文件上传、下载等服务时所使用到的唯一id信息*
+　　用于*设置当前上传组件在调用文件上传、下载等服务时所使用到的唯一id信息*，默认不设置时会自动生成随机uuid作为`uploadId`
 
 **fileMaxSize：** *int*或*float*型，默认为`500`
 
@@ -200,6 +200,7 @@ def upload_file(uploadId: str, file: UploadFile = File(...)):
 - **status：** *string*型，用于*设置当前文件的展示状态*，可选的有`'done'`（成功上传状态）、`'error'`（上传失败状态）
 - **uid：** *string*型，用于*唯一表示当前文件*
 - **url：** *string*型，用于*设置当前文件的下载链接*
+- **taskId：** *string*型，用于*表示当前已上传记录对应的uploadId状态*，有值传入时，会在当前组件`uploadId`未设置时作为默认的`uploadId`使用
 
 **disabled：** *bool*型，默认为`False`
 

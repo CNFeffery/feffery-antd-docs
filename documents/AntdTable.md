@@ -318,6 +318,18 @@
 
 　　当`enableCellClickListenColumns`进行有效设置后，用于*监听当前表格中相关单元格的累计点击次数*
 
+**recentlyCellDoubleClickColumn：** *string*型
+
+　　当`enableCellClickListenColumns`进行有效设置后，用于*监听最近一次单元格点双击事件对应字段的dataIndex信息*
+
+**recentlyCellDoubleClickRecord：** *dict*型
+
+　　当`enableCellClickListenColumns`进行有效设置后，用于*监听最近一次单元格双击事件对应的行记录字典*
+
+**nDoubleClicksCell：** *int*型，默认为`0`
+
+　　当`enableCellClickListenColumns`进行有效设置后，用于*监听当前表格中相关单元格的累计双击次数*
+
 **enableHoverListen：** *bool*型，默认为`False`
 
 　　用于*设置是否开启行鼠标悬停事件监听*，注意，此功能开启后会影响到多种再渲染模式的正常使用，请谨慎使用

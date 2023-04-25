@@ -99,5 +99,6 @@ from . import (
     popup_container,
     internationalization,
     prop_persistence,
-    use_key_to_refresh
+    use_key_to_refresh,
+    generate_change_logs
 )

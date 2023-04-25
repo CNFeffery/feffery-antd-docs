@@ -2622,7 +2622,7 @@ fac.AntdTable(
                                     'enableCellClickListenColumns',
                                     code=True
                                 ),
-                                '内声明的字段，可以监听到用户在相关单元格内的点击事件'
+                                '内声明的字段，可以监听到用户在相关单元格内的单击和双击事件'
                             ],
                             style={
                                 'textIndent': '2rem'
@@ -2674,23 +2674,32 @@ import json
 
 @app.callback(
     Output('table-click-event-demo-output', 'children'),
-    Input('table-click-event-demo', 'nClicksCell'),
+    [Input('table-click-event-demo', 'nClicksCell'),
+     Input('table-click-event-demo', 'nDoubleClicksCell')],
     [State('table-click-event-demo', 'enableCellClickListenColumns'),
      State('table-click-event-demo', 'recentlyCellClickColumn'),
-     State('table-click-event-demo', 'recentlyCellClickRecord')],
+     State('table-click-event-demo', 'recentlyCellClickRecord'),
+     State('table-click-event-demo', 'recentlyCellDoubleClickColumn'),
+     State('table-click-event-demo', 'recentlyCellDoubleClickRecord')],
     prevent_initial_call=True
 )
 def table_click_event_demo(nClicksCell,
+                           nDoubleClicksCell,
                            enableCellClickListenColumns,
                            recentlyCellClickColumn,
-                           recentlyCellClickRecord):
+                           recentlyCellClickRecord,
+                           recentlyCellDoubleClickColumn,
+                           recentlyCellDoubleClickRecord):
 
     return json.dumps(
         dict(
-            nClicksCell=nClicksCell,
             enableCellClickListenColumns=enableCellClickListenColumns,
+            nClicksCell=nClicksCell,
             recentlyCellClickColumn=recentlyCellClickColumn,
-            recentlyCellClickRecord=recentlyCellClickRecord
+            recentlyCellClickRecord=recentlyCellClickRecord,
+            nDoubleClicksCell=nDoubleClicksCell,
+            recentlyCellDoubleClickColumn=recentlyCellDoubleClickColumn,
+            recentlyCellDoubleClickRecord=recentlyCellDoubleClickRecord
         ),
         indent=4,
         ensure_ascii=False

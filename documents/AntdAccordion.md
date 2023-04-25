@@ -46,7 +46,7 @@
 
 **collapsible：** *string*型
 
-　　用于*为所有手风琴项设置折叠触发方式*，可选的有`'header'`、`'disabled'`
+　　用于*为所有手风琴项设置折叠触发方式*，可选的有`'header'`、`'disabled'`、`'icon'`
 
 **expandIconPosition：** *string*型，默认为`'left'`
 

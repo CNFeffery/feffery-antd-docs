@@ -52,23 +52,32 @@ def table_filter_demo(filter_):
 
 @app.callback(
     Output('table-click-event-demo-output', 'children'),
-    Input('table-click-event-demo', 'nClicksCell'),
+    [Input('table-click-event-demo', 'nClicksCell'),
+     Input('table-click-event-demo', 'nDoubleClicksCell')],
     [State('table-click-event-demo', 'enableCellClickListenColumns'),
      State('table-click-event-demo', 'recentlyCellClickColumn'),
-     State('table-click-event-demo', 'recentlyCellClickRecord')],
+     State('table-click-event-demo', 'recentlyCellClickRecord'),
+     State('table-click-event-demo', 'recentlyCellDoubleClickColumn'),
+     State('table-click-event-demo', 'recentlyCellDoubleClickRecord')],
     prevent_initial_call=True
 )
 def table_click_event_demo(nClicksCell,
+                           nDoubleClicksCell,
                            enableCellClickListenColumns,
                            recentlyCellClickColumn,
-                           recentlyCellClickRecord):
+                           recentlyCellClickRecord,
+                           recentlyCellDoubleClickColumn,
+                           recentlyCellDoubleClickRecord):
 
     return json.dumps(
         dict(
-            nClicksCell=nClicksCell,
             enableCellClickListenColumns=enableCellClickListenColumns,
+            nClicksCell=nClicksCell,
             recentlyCellClickColumn=recentlyCellClickColumn,
-            recentlyCellClickRecord=recentlyCellClickRecord
+            recentlyCellClickRecord=recentlyCellClickRecord,
+            nDoubleClicksCell=nDoubleClicksCell,
+            recentlyCellDoubleClickColumn=recentlyCellDoubleClickColumn,
+            recentlyCellDoubleClickRecord=recentlyCellDoubleClickRecord
         ),
         indent=4,
         ensure_ascii=False
