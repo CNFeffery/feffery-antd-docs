@@ -51,39 +51,30 @@
 **data：** *list*型，用于*为当前表格设置源数据*，每个元素为字典，其各个键名与`columns`中各个字段的`dataIndex`信息对应，并可额外设置键值对`key`作为当前行记录的唯一标识id（若未设置`key`，`AntdTable`内部会自动生成递增序号作为`key`，`data`中每条记录的字段值格式与对应字段是否开启再渲染模式，以及具体开启的再渲染模式类型有关，不同再渲染模式接受的输入值格式如下：
 
 - **常规模式（不开启再渲染）：** *int*、*float*或*string*型
-
 - **link（链接模式）：** *dict*型，可用的键值对参数有：
 
   - **content：** *string*型，用于*设置当前记录值所渲染链接的文字内容*，优先级高于`renderLinkText`
   - **href：** *string*型，用于*设置当前记录值所渲染链接的url*
   - **target：** *string*型，默认为`'_blank'`，用于*设置当前记录值所渲染链接的跳转行为*
   - **disabled：** *bool*型，默认为`False`，用于*设置是否禁用当前记录值所渲染的链接*
-
 - **ellipsis（长内容省略模式）：** *int*、*float*或*string*型
-
 - **copyable（可复制模式）：**  *int*、*float*或*string*型
-
 - **ellipsis-copyable（长内容省略+可复制模式）：** *int*、*float*或*string*型
-
 - **tags（标签模式）：** *dict*或`list[dict]`型，单个*dict*表示单个标签，多个*dict*构成的列表表示多个标签，其中每个字典可用的键值对参数有：
 
   - **color：** *string*型，用于*为当前标签设置背景色*
 
   - **tag：** *string*型，用于*为当前标签设置文字内容*
-
 - **status-badge（状态徽标模式）：** *dict*型，可用的键值对参数有：
 
   - **status：** *string*型，用于*设置当前状态徽标的状态*，可选的有`'success'`、`'processing'`、`'default'`、`'error'`、`'warning'`
   - **text：** *int*、*float*或*string*型，用于*设置当前状态徽标的后缀文字内容*
-
 - **image（图片模式）：** *dict*型，可用的键值对参数有：
 
   - **src：** *string*型，用于*设置当前图片的url地址*
   - **height：** *int*、*float*或*string*型，用于*设置当前图片的高度*
   - **preview：** *bool*型，默认为`True`，用于*设置当前图片是否开启交互预览功能*
-
 - **custom-format（自定义格式模式）：**  *int*、*float*或*string*型
-
 - **corner-mark（角标模式）：** *dict*型，可用的键值对参数有：
 
   - **placement：** *string*型，用于*设置当前单元格角标的方位*，可选的有`'top-left'`、`'top-right'`、`'bottom-left'`、`'bottom-right'`
@@ -92,12 +83,10 @@
   - **offsetX：** *int*或*float*型，用于*为当前单元格角标设置水平方向上的像素偏移量*
   - **offsetY：** *int*或*float*型，用于*为当前单元格角标设置竖直方向上的像素偏移量*
   - **hide：** *bool*型，默认为`False`，用于*设置是否隐藏当前单元格角标*
-
 - **row-merge（跨行合并单元格模式）：** *dict*型，可用的键值对参数有：
 
   - **content：** *int*、*float*或*string*型，用于*设置当前单元格内容*
   - **rowSpan：** *int*型，用于*设置当前单元格竖向跨越的单元格数量*，`1`即代表不进行合并
-
 - **dropdown-links（下拉链接菜单模式）：** `list[dict]`型，其中每个字典用于定义当前下拉链接菜单中的一个链接项，可用的键值对参数有：
 
   - **title：** *string*型，用于*设置当前链接项的标题文字*
@@ -105,23 +94,16 @@
   - **disabled：** *bool*型，默认为`False`，用于*设置是否禁用当前链接项*
   - **icon：** *string*型，用于*为当前链接项设置前缀图标*，同`AntdIcon`中的同名参数
   - **isDivider：** *bool*型，用于*设置当前链接项是否充当分割线角色*
-
 - **image-avatar（图片型头像模式）：** *dict*型，可用的键值对参数有：
 
   - **src：** *string*型，用于*设置当前图片型头像的图片url地址*
   - **size：** *int*、*string*或*dict*型，用于*设置当前头像的大小*，当传入*int*型输入时，用于设置头像的像素大小；当传入*string*型输入时，用于在预设的规格中进行选择，可选的有`'small'`、`'default'`、`'large'`；当传入*dict*型输入时，用于设置不同响应式断点下的头像像素大小，可用的响应式断点有`'xs'`、`'sm'`、`'md'`、`'lg'`、`'xl'`、`'xxl'`
   - **shape：** *string*型，默认为`'circle'`，用于*设置当前头像的形状*，可选的有`'circle'`、`'square'`
-
 - **mini-line（迷你折线图模式）：** `list[int]`或`list[float]`型
-
 - **mini-bar（迷你柱状图模式）：** `list[int]`或`list[float]`型
-
 - **mini-area（迷你面积图模式）：** `list[int]`或`list[float]`型
-
 - **mini-progress（迷你进度图模式）：** *float*或*int*型，取值应在`0`到`1`之间
-
 - **mini-ring-progress（迷你环形进度图模式）：** *float*或*int*型，取值应在`0`到`1`之间
-
 - **button（按钮模式）：** *dict*或`list[dict]`型，单个*dict*表示单个按钮，多个*dict*构成的列表表示多个按钮，其中每个字典可用的键值对参数有：
 
   - **disabled：** *bool*型，默认为`False`，用于*设置是否禁用当前按钮*
@@ -133,14 +115,12 @@
   - **target：** *string*型，默认为`'_blank'`，用于*设置当前按钮具有链接时的跳转行为*
   - **icon：** *string*型，用于*为当前按钮设置前缀图标*，同`AntdIcon`中的同名参数
   - **custom：** *任意类型*，用于*存储辅助信息*
-
 - **checkbox（勾选框模式）：** *dict*型，可用的键值对参数有：
 
   - **checked：** *bool*型，用于*设置当前勾选框是否被勾选*
   - **disabled：** *bool*型，默认为`False`，用于*设置是否禁用当前勾选框*
   - **label：** *string*型，用于*为当前勾选框设置标签文字内容*
   - **custom：** *任意类型*，用于*存储辅助信息*
-
 - **switch（开关模式）：** *dict*型，可用的键值对参数有：
 
   - **checked：** *bool*型，用于*设置当前开关是否处于开启状态*
@@ -148,7 +128,6 @@
   - **checkedChildren：** *string*型，用于*设置当前开关开启状态下的标签文字*
   - **unCheckedChildren：** *string*型，用于*设置当前开关关闭状态下的标签文字*
   - **custom：** *任意类型*，用于*存储辅助信息*
-  
 - **dropdown（下拉选择菜单模式）：** `list[dict]`型，其中每个字典用于定义当前下拉选择菜单中的一个菜单项，可用的键值对参数有：
 
   - **title：** *string*型，用于*设置当前菜单项的标题文字*
@@ -156,6 +135,23 @@
   - **icon：** *string*型，用于*为当前菜单项设置前缀图标*，同`AntdIcon`中的同名参数
   - **isDivider：** *bool*型，用于*设置当前菜单项是否充当分割线角色*
   - **custom：** *任意类型*，用于*存储辅助信息*
+- **select（下拉选择模式）：** `dict`型，可用的键值对参数有：
+  - **className：** *string*型，用于*设置当前下拉选择的css类名*
+  - **style：** *dict*型，用于*设置当前下拉选择的css样式*
+  - **options：** `list[dict]`型，用于*设置下拉选择的选项*，每个*dict*型元素可用的键值对参数有：
+    - **label：** *string*型，用于*设置当前选项的标题内容*
+    - **value：** *string*型，用于*设置当前选项的值*
+  - **listHeight：** *int*型，默认为`256`，用于*设置当前下拉选择展开层的最大像素高度*
+  - **mode：** *string*型，用于*设置选择模式*，默认不设置则为单选，可选的有`'multiple'`（多选模式）、`'tags'`（自由新增模式）
+  - **disabled：** *bool*型，用于*设置是否禁用当前下拉选择*
+  - **size：** *string*型，默认为`'middle'`，用于*设置当前下拉选择的尺寸规格*，可选的有`'small'`、`'middle'`、`'large'`
+  - **bordered：** *bool*型，默认为`True`，用于*设置是否渲染边框*
+  - **placeholder：** *string*型，用于*设置无选中项时的提示文字*
+  - **placement：** *string*型，默认为`'bottomLeft'`，用于*设置当前下拉选择的展开方位*，可选的有`'bottomLeft'`、`'bottomRight'`、`'topLeft'`、`'topRight'`
+  - **value：** *string*型，用于*设置当前下拉选择的选中值*
+  - **maxTagCount：** *int*或*string*型，用于*设置多选模式下选择框内展示的已选项最大数量*，亦可设置为`'responsive'`开启响应式模式进行自适应调整
+  - **optionFilterProp：** *string*型，用于*设置搜索内容对应各选项的匹配字段*，可选的有`value''`、`'label'`
+  - **allowClear：** *bool*型，用于*设置是否允许用户清空已选项*
 
 **bordered：** *bool*型，默认为`False`
 
