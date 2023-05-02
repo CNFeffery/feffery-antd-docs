@@ -113,11 +113,11 @@ menuItems = [
 
 **currentKey：** *str*型
 
-　　用于*监听或设置被选中的`Item`元素的`key`*值
+　　用于*监听或设置被选中的`Item`元素的`key`值*
 
 **defaultSelectedKey：** *str*型
 
-　　用于*设置初始化时被选中的`Item`元素的`key`*值
+　　用于*设置初始化时被选中的`Item`元素的`key`值*
 
 **openKeys：** *list*型
 
