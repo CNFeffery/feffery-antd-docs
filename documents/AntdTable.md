@@ -48,7 +48,7 @@
 - **width：** *int*或*string*型，用于*设置当前字段的宽度*
 - **hidden：** *bool*型，默认为`False`，用于*设置是否需要隐藏当前字段*
 
-**data：** *list*型，用于*为当前表格设置源数据*，每个元素为字典，其各个键名与`columns`中各个字段的`dataIndex`信息对应，并可额外设置键值对`key`作为当前行记录的唯一标识id（若未设置`key`，`AntdTable`内部会自动生成递增序号作为`key`，`data`中每条记录的字段值格式与对应字段是否开启再渲染模式，以及具体开启的再渲染模式类型有关，不同再渲染模式接受的输入值格式如下：
+**data：** *list*型，用于*为当前表格设置源数据*，每个元素为字典，其各个键名与`columns`中各个字段的`dataIndex`信息对应，并可额外设置键值对`key`作为当前行记录的唯一标识id（若未设置`key`，`AntdTable`内部会自动生成递增序号作为`key`），`data`中每条记录的字段值格式与对应字段是否开启再渲染模式，以及具体开启的再渲染模式类型有关，不同再渲染模式接受的输入值格式如下：
 
 - **常规模式（不开启再渲染）：** *int*、*float*或*string*型
 - **link（链接模式）：** *dict*型，可用的键值对参数有：
@@ -140,7 +140,7 @@
   - **style：** *dict*型，用于*设置当前下拉选择的css样式*
   - **options：** `list[dict]`型，用于*设置下拉选择的选项*，每个*dict*型元素可用的键值对参数有：
     - **label：** *string*型，用于*设置当前选项的标题内容*
-    - **value：** *string*型，用于*设置当前选项的值*
+    - **value：** *string*、*int*或*float*型，用于*设置当前选项的值*
   - **listHeight：** *int*型，默认为`256`，用于*设置当前下拉选择展开层的最大像素高度*
   - **mode：** *string*型，用于*设置选择模式*，默认不设置则为单选，可选的有`'multiple'`（多选模式）、`'tags'`（自由新增模式）
   - **disabled：** *bool*型，用于*设置是否禁用当前下拉选择*
@@ -148,7 +148,7 @@
   - **bordered：** *bool*型，默认为`True`，用于*设置是否渲染边框*
   - **placeholder：** *string*型，用于*设置无选中项时的提示文字*
   - **placement：** *string*型，默认为`'bottomLeft'`，用于*设置当前下拉选择的展开方位*，可选的有`'bottomLeft'`、`'bottomRight'`、`'topLeft'`、`'topRight'`
-  - **value：** *string*型，用于*设置当前下拉选择的选中值*
+  - **value：**  *string*、*int*或*float*型，用于*设置当前下拉选择的选中值*
   - **maxTagCount：** *int*或*string*型，用于*设置多选模式下选择框内展示的已选项最大数量*，亦可设置为`'responsive'`开启响应式模式进行自适应调整
   - **optionFilterProp：** *string*型，用于*设置搜索内容对应各选项的匹配字段*，可选的有`value''`、`'label'`
   - **allowClear：** *bool*型，用于*设置是否允许用户清空已选项*

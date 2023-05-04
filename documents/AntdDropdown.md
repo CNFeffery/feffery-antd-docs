@@ -30,6 +30,18 @@
 - **type：** *string*型，默认为`'default'`，用于*设置触发按钮的风格*，可选项有`'primary'`、`'ghost'`、`'dashed'`、`'link'`、`'text'`、`'default'`
 - **danger：** *bool*型，默认为`False`，用于*设置是否渲染为危险警告状态*
 
+**freePosition：** *bool*型，默认为`False`
+
+　　用于*设置是否强制开启自由位置模式*
+
+**freePositionStyle：** *dict*型
+
+　　当`freePosition=True`时，用于*调整下拉菜单的位置等样式*
+
+**freePositionClassName：** *string*型
+
+　　当`freePosition=True`时，用于*设置下拉菜单的css类*
+
 **clickedKey：** *string*型
 
 　　用于*监听下拉菜单中最近一次被点击的选项对应key值*

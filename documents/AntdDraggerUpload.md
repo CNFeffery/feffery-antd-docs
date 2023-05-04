@@ -213,6 +213,7 @@ def upload_file(uploadId: str, file: UploadFile = File(...)):
 - **uid：** *string*型，用于*唯一表示当前文件*
 - **url：** *string*型，用于*设置当前文件的下载链接*
 - **taskId：** *string*型，用于*表示当前已上传记录对应的uploadId状态*，有值传入时，会在当前组件`uploadId`未设置时作为默认的`uploadId`使用
+- **fileSize：** *int*型，用于*设置当前文件的尺寸*
 
 **disabled：** *bool*型，默认为`False`
 

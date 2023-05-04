@@ -3169,6 +3169,115 @@ html.Div(
                     className='div-highlight'
                 ),
 
+                html.Div(
+                    [
+                        fac.AntdTable(
+                            columns=[
+                                {
+                                    'title': f'字段{i}',
+                                    'dataIndex': f'字段{i}',
+                                    'width': 'calc(100% / 3)'
+                                }
+                                for i in range(1, 4)
+                            ],
+                            data=[
+                                {
+                                    'key': f'row-{i}',
+                                    '字段1': '第一层',
+                                    '字段2': '第一层',
+                                    '字段3': '第一层',
+                                    'children': [
+                                        {
+                                            'key': f'row-{i}{j}',
+                                            '字段1': '第二层',
+                                            '字段2': '第二层',
+                                            '字段3': '第二层'
+                                        }
+                                        for j in range(3)
+                                    ]
+                                }
+                                for i in range(3)
+                            ],
+                            bordered=True
+                        ),
+
+                        fac.AntdDivider(
+                            '行记录数据可嵌套',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdParagraph(
+                            [
+                                '在定义参数',
+                                fac.AntdText(
+                                    'data',
+                                    code=True
+                                ),
+                                '时可通过键值对属性',
+                                fac.AntdText(
+                                    'children',
+                                    code=True
+                                ),
+                                '向下嵌套展示行记录'
+                            ],
+                            style={
+                                'textIndent': '2rem'
+                            }
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdTable(
+    columns=[
+        {
+            'title': f'字段{i}',
+            'dataIndex': f'字段{i}',
+            'width': 'calc(100% / 3)'
+        }
+        for i in range(1, 4)
+    ],
+    data=[
+        {
+            'key': f'row-{i}',
+            '字段1': '第一层',
+            '字段2': '第一层',
+            '字段3': '第一层',
+            'children': [
+                {
+                    'key': f'row-{i}{j}',
+                    '字段1': '第二层',
+                    '字段2': '第二层',
+                    '字段3': '第二层'
+                }
+                for j in range(3)
+            ]
+        }
+        for i in range(3)
+    ],
+    bordered=True
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='行记录数据可嵌套',
+                    className='div-highlight'
+                ),
+
                 html.Div(style={'height': '100px'})
             ],
             style={
@@ -3311,7 +3420,8 @@ html.Div(
                     {'title': '监听表格内点击事件', 'href': '#监听表格内点击事件'},
                     {'title': '监听表格内鼠标悬停事件', 'href': '#监听表格内鼠标悬停事件'},
                     {'title': '自定义空内容', 'href': '#自定义空内容'},
-                    {'title': '局部容器内悬浮层锚点配置', 'href': '#局部容器内悬浮层锚点配置'}
+                    {'title': '局部容器内悬浮层锚点配置', 'href': '#局部容器内悬浮层锚点配置'},
+                    {'title': '行记录数据可嵌套', 'href': '#行记录数据可嵌套'},
                 ],
                 offsetTop=0
             ),

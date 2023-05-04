@@ -1,5 +1,6 @@
 from dash import html
 import feffery_antd_components as fac
+import feffery_utils_components as fuc
 import feffery_markdown_components as fmc
 
 import callbacks.AntdDropdown
@@ -292,6 +293,117 @@ fac.AntdSpace(
                         'border': '1px solid #f0f0f0'
                     },
                     id='按钮模式',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fuc.FefferyDiv(
+                            '请在此区域内任意位置点击鼠标右键',
+                            id='dropdown-free-position-demo-trigger',
+                            enableListenContextMenu=True,
+                            style={
+                                'borderRadius': 6,
+                                'background': '#adb5bd',
+                                'height': 400,
+                                'color': 'white',
+                                'display': 'flex',
+                                'justifyContent': 'center',
+                                'alignItems': 'center'
+                            }
+                        ),
+
+                        html.Div(id='dropdown-free-position-demo-container'),
+
+                        fac.AntdDivider(
+                            '自由位置模式',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdParagraph(
+                            [
+                                '自由位置模式的最典型应用场景是配合',
+                                fac.AntdText(
+                                    'fuc.FefferyDiv',
+                                    code=True
+                                ),
+                                '的右键事件监听功能，实现监听区域内鼠标右键触发自定义右键菜单'
+                            ],
+                            style={
+                                'textIndent': '2rem'
+                            }
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fuc.FefferyDiv(
+    '请在此区域内任意位置点击鼠标右键',
+    id='dropdown-free-position-demo-trigger',
+    enableListenContextMenu=True,
+    style={
+        'borderRadius': 6,
+        'background': '#adb5bd',
+        'height': 400,
+        'color': 'white',
+        'display': 'flex',
+        'justifyContent': 'center',
+        'alignItems': 'center'
+    }
+),
+
+html.Div(id='dropdown-free-position-demo-container')
+
+...
+
+import uuid
+
+...
+
+@app.callback(
+    Output('dropdown-free-position-demo-container', 'children'),
+    Input('dropdown-free-position-demo-trigger', 'contextMenuEvent'),
+    prevent_initial_call=True
+)
+def dropdown_free_position_demo(contextMenuEvent):
+
+    if contextMenuEvent:
+
+        return fac.AntdDropdown(
+            key=str(uuid.uuid4()),
+            visible=True,
+            freePosition=True,
+            freePositionStyle={
+                'left': contextMenuEvent['clientX'],
+                'top': contextMenuEvent['clientY']
+            },
+            menuItems=[
+                {
+                    'title': f'右键菜单选项{i}',
+                    'key': f'右键菜单选项{i}'
+                }
+                for i in range(1, 6)
+            ],
+            trigger='click'
+        )
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='自由位置模式',
                     className='div-highlight'
                 ),
 
@@ -657,6 +769,7 @@ def dropdown_demo_callback(clickedKey, nClicks):
                 linkDict=[
                     {'title': '基础使用', 'href': '#基础使用'},
                     {'title': '按钮模式', 'href': '#按钮模式'},
+                    {'title': '自由位置模式', 'href': '#自由位置模式'},
                     {'title': '点击触发方式', 'href': '#点击触发方式'},
                     {'title': '添加箭头', 'href': '#添加箭头'},
                     {'title': '不同的弹出方位', 'href': '#不同的弹出方位'},

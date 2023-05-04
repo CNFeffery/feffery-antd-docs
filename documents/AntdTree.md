@@ -36,6 +36,10 @@
 - **tooltipProps：** *dict*型，用于*为当前节点配置信息提示相关功能*，可用的键值对参数有：
   - **title：** *string*型，用于*设置当前节点对应信息提示的文字内容*
   - **placement：** *string*型，用于*设置当前节点对应信息提示的展开方位*，可选的有`'top'`、`'left'`、`'right'`、`'bottom'`、`'topLeft'`、`'topRight'`、`'bottomLeft'`、`'bottomRight'`
+- **contextMenu：** `list[dict]`型，用于*为当前节点定义右键菜单各选项*，每个字典的可用键值对参数有：
+  - **key：** *string*型，用于*设置当前右键菜单项的唯一id*
+  - **label：** *string*型，用于*设置当前右键菜单项的标题内容*
+  - **icon：** *string*型，用于*为当前右键菜单项设置前缀图标*，同`AntdIcon`中的同名参数
 
 　　下面是树形`treeData`的示例：
 
@@ -73,6 +77,10 @@ treeData = [
 - **tooltipProps：** *dict*型，用于*为当前节点配置信息提示相关功能*，可用的键值对参数有：
   - **title：** *string*型，用于*设置当前节点对应信息提示的文字内容*
   - **placement：** *string*型，用于*设置当前节点对应信息提示的展开方位*，可选的有`'top'`、`'left'`、`'right'`、`'bottom'`、`'topLeft'`、`'topRight'`、`'bottomLeft'`、`'bottomRight'`
+- **contextMenu：** `list[dict]`型，用于*为当前节点定义右键菜单各选项*，每个字典的可用键值对参数有：
+  - **key：** *string*型，用于*设置当前右键菜单项的唯一id*
+  - **label：** *string*型，用于*设置当前右键菜单项的标题内容*
+  - **icon：** *string*型，用于*为当前右键菜单项设置前缀图标*，同`AntdIcon`中的同名参数
 - **parent：** *string*型，用于*声明当前节点的父节点key值*，从而实现父节点与子节点间的关联
 
 　　下面是扁平`treeData`的示例：
@@ -170,6 +178,13 @@ treeData = [
 **draggedNodeKey：** *string*型
 
 　　用于*监听每次有效节点拖拽行为对应的节点key值*
+
+**clickedContextMenu：** *dict*型
+
+　　用于*监听每次有效的节点右键菜单点击事件*，具有的键值对属性有：
+
+- **nodeKey：** *string*型，用于*监听右键菜单点击事件对应的树节点key值*
+- **menuKey：** *string*型，用于*监听右键菜单点击事件对应的选项key值*
 
 **persistence：** *bool*型
 

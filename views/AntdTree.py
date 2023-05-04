@@ -811,6 +811,165 @@ fac.AntdTree(
                         fac.AntdTree(
                             treeData=[
                                 {
+                                    'title': '四川省',
+                                    'key': '四川省',
+                                    'children': [
+                                        {
+                                            'title': '成都市',
+                                            'key': '成都市',
+                                        },
+                                        {
+                                            'title': '广安市',
+                                            'key': '广安市',
+                                        }
+                                    ],
+                                    'contextMenu': [
+                                        {
+                                            'key': f'四川省-操作选项{i}',
+                                            'label': f'操作选项{i}'
+                                        }
+                                        for i in range(1, 6)
+                                    ]
+                                },
+                                {
+                                    'title': '重庆市',
+                                    'key': '重庆市',
+                                    'children': [
+                                        {
+                                            'title': '渝中区',
+                                            'key': '渝中区',
+                                            'children': [
+                                                {
+                                                    'title': '解放碑街道',
+                                                    'key': '解放碑街道',
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            'title': '渝北区',
+                                            'key': '渝北区',
+                                        }
+                                    ],
+                                    'contextMenu': [
+                                        {
+                                            'key': f'重庆市-操作选项{i}',
+                                            'label': f'操作选项{i}',
+                                            'icon': 'antd-function'
+                                        }
+                                        for i in range(1, 6)
+                                    ]
+                                }
+                            ],
+                            defaultExpandAll=True
+                        ),
+
+                        fac.AntdDivider(
+                            '为节点添加自定义右键菜单',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdParagraph(
+                            [
+                                '本例中为节点',
+                                fac.AntdText(
+                                    '四川省',
+                                    strong=True
+                                ),
+                                '和',
+                                fac.AntdText(
+                                    '重庆市',
+                                    strong=True
+                                ),
+                                '添加了自定义右键菜单功能'
+                            ],
+                            style={
+                                'textIndent': '2rem'
+                            }
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdTree(
+    treeData=[
+        {
+            'title': '四川省',
+            'key': '四川省',
+            'children': [
+                {
+                    'title': '成都市',
+                    'key': '成都市',
+                },
+                {
+                    'title': '广安市',
+                    'key': '广安市',
+                }
+            ],
+            'contextMenu': [
+                {
+                    'key': f'四川省-操作选项{i}',
+                    'label': f'操作选项{i}'
+                }
+                for i in range(1, 6)
+            ]
+        },
+        {
+            'title': '重庆市',
+            'key': '重庆市',
+            'children': [
+                {
+                    'title': '渝中区',
+                    'key': '渝中区',
+                    'children': [
+                        {
+                            'title': '解放碑街道',
+                            'key': '解放碑街道',
+                        }
+                    ]
+                },
+                {
+                    'title': '渝北区',
+                    'key': '渝北区',
+                }
+            ],
+            'contextMenu': [
+                {
+                    'key': f'重庆市-操作选项{i}',
+                    'label': f'操作选项{i}',
+                    'icon': 'antd-function'
+                }
+                for i in range(1, 6)
+            ]
+        }
+    ],
+    defaultExpandAll=True
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='为节点添加自定义右键菜单',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdTree(
+                            treeData=[
+                                {
                                     'title': f'节点{i}',
                                     'key': f'节点{i}',
                                     'children': [
@@ -1757,6 +1916,193 @@ def tree_drag_demo(treeData, draggedNodeKey):
                     className='div-highlight'
                 ),
 
+                html.Div(
+                    [
+                        fac.AntdTree(
+                            id='tree-context-menu-demo',
+                            treeData=[
+                                {
+                                    'title': '四川省',
+                                    'key': '四川省',
+                                    'children': [
+                                        {
+                                            'title': '成都市',
+                                            'key': '成都市',
+                                        },
+                                        {
+                                            'title': '广安市',
+                                            'key': '广安市',
+                                        }
+                                    ],
+                                    'contextMenu': [
+                                        {
+                                            'key': f'四川省-操作选项{i}',
+                                            'label': f'操作选项{i}'
+                                        }
+                                        for i in range(1, 6)
+                                    ]
+                                },
+                                {
+                                    'title': '重庆市',
+                                    'key': '重庆市',
+                                    'children': [
+                                        {
+                                            'title': '渝中区',
+                                            'key': '渝中区',
+                                            'children': [
+                                                {
+                                                    'title': '解放碑街道',
+                                                    'key': '解放碑街道',
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            'title': '渝北区',
+                                            'key': '渝北区',
+                                        }
+                                    ],
+                                    'contextMenu': [
+                                        {
+                                            'key': f'重庆市-操作选项{i}',
+                                            'label': f'操作选项{i}',
+                                            'icon': 'antd-function'
+                                        }
+                                        for i in range(1, 6)
+                                    ]
+                                }
+                            ]
+                        ),
+
+                        html.Pre(
+                            id='tree-context-menu-demo-output'
+                        ),
+
+                        fac.AntdDivider(
+                            '节点右键菜单回调示例',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdParagraph(
+                            [
+                                '本例中为节点',
+                                fac.AntdText(
+                                    '四川省',
+                                    strong=True
+                                ),
+                                '和',
+                                fac.AntdText(
+                                    '重庆市',
+                                    strong=True
+                                ),
+                                '添加了自定义右键菜单功能'
+                            ],
+                            style={
+                                'textIndent': '2rem'
+                            }
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdTree(
+    id='tree-context-menu-demo',
+    treeData=[
+        {
+            'title': '四川省',
+            'key': '四川省',
+            'children': [
+                {
+                    'title': '成都市',
+                    'key': '成都市',
+                },
+                {
+                    'title': '广安市',
+                    'key': '广安市',
+                }
+            ],
+            'contextMenu': [
+                {
+                    'key': f'四川省-操作选项{i}',
+                    'label': f'操作选项{i}'
+                }
+                for i in range(1, 6)
+            ]
+        },
+        {
+            'title': '重庆市',
+            'key': '重庆市',
+            'children': [
+                {
+                    'title': '渝中区',
+                    'key': '渝中区',
+                    'children': [
+                        {
+                            'title': '解放碑街道',
+                            'key': '解放碑街道',
+                        }
+                    ]
+                },
+                {
+                    'title': '渝北区',
+                    'key': '渝北区',
+                }
+            ],
+            'contextMenu': [
+                {
+                    'key': f'重庆市-操作选项{i}',
+                    'label': f'操作选项{i}',
+                    'icon': 'antd-function'
+                }
+                for i in range(1, 6)
+            ]
+        }
+    ]
+),
+
+html.Pre(
+    id='tree-context-menu-demo-output'
+)
+
+...
+
+import json
+
+...
+
+@app.callback(
+    Output('tree-context-menu-demo-output', 'children'),
+    Input('tree-context-menu-demo', 'clickedContextMenu')
+)
+def tree_context_menu_demo(clickedContextMenu):
+
+    return json.dumps(
+        dict(
+            treeData=clickedContextMenu
+        ),
+        indent=4,
+        ensure_ascii=False
+    )
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='节点右键菜单回调示例',
+                    className='div-highlight'
+                ),
+
                 html.Div(style={'height': '100px'})
             ],
             style={
@@ -1773,6 +2119,7 @@ def tree_drag_demo(treeData, draggedNodeKey):
                     {'title': '节点前缀展示图标', 'href': '#节点前缀展示图标'},
                     {'title': '自定义节点样式', 'href': '#自定义节点样式'},
                     {'title': '为节点添加tooltip', 'href': '#为节点添加tooltip'},
+                    {'title': '为节点添加自定义右键菜单', 'href': '#为节点添加自定义右键菜单'},
                     {'title': '大数据量时开启虚拟滚动优化', 'href': '#大数据量时开启虚拟滚动优化'},
                     {'title': '多选模式', 'href': '#多选模式'},
                     {'title': '带勾选框的多选模式', 'href': '#带勾选框的多选模式'},
@@ -1781,6 +2128,7 @@ def tree_drag_demo(treeData, draggedNodeKey):
                     {'title': '节点可拖拽', 'href': '#节点可拖拽'},
                     {'title': '节点选择回调示例', 'href': '#节点选择回调示例'},
                     {'title': '节点拖拽回调示例', 'href': '#节点拖拽回调示例'},
+                    {'title': '节点右键菜单回调示例', 'href': '#节点右键菜单回调示例'},
                 ],
                 offsetTop=0
             ),

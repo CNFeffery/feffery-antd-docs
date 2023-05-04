@@ -6,5 +6,5 @@
   - 新增参数`autoAdjustOverflow`用于控制当下拉菜单被遮挡时是否自动调整位置
 - `AntdAccordion`、`AntdCollapse`
   - 参数`collapsible`新增可选项`'icon'`，用于设置仅图标区域可点击触发展开
-- `AntdUpload`、`AntdDraggableUpload`、`AntdPictureUpload`
+- `AntdUpload`、`AntdDraggerUpload`、`AntdPictureUpload`
   - 参数`defaultFileList`各元素新增键值对参数`taskId`用于为`uploadId`提供默认缺省值，从而修正新的上传记录导致旧的上传记录`taskId`被覆盖的问题

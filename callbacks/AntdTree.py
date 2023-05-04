@@ -40,3 +40,18 @@ def tree_drag_demo(treeData, draggedNodeKey):
         indent=4,
         ensure_ascii=False
     )
+
+
+@app.callback(
+    Output('tree-context-menu-demo-output', 'children'),
+    Input('tree-context-menu-demo', 'clickedContextMenu')
+)
+def tree_context_menu_demo(clickedContextMenu):
+
+    return json.dumps(
+        dict(
+            treeData=clickedContextMenu
+        ),
+        indent=4,
+        ensure_ascii=False
+    )
