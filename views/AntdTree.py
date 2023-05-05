@@ -2082,7 +2082,7 @@ def tree_context_menu_demo(clickedContextMenu):
 
     return json.dumps(
         dict(
-            treeData=clickedContextMenu
+            clickedContextMenu=clickedContextMenu
         ),
         indent=4,
         ensure_ascii=False
