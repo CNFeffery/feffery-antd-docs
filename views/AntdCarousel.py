@@ -553,7 +553,7 @@ fac.AntdCarousel(
         ),
         # 侧边参数栏
         render_side_props_layout(
-            component_name='AntdButton'
+            component_name='AntdCarousel'
         )
     ],
     style={
