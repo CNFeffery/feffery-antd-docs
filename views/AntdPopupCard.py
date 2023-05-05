@@ -76,12 +76,6 @@ fac.AntdPopupCard(
     id='popup-card-basic-demo',
     title='弹出式卡片示例',
     visible=False
-),
-
-fac.AntdDivider(
-    '基础使用',
-    lineColor='#f0f0f0',
-    innerTextOrientation='left'
 )
 
 ...
