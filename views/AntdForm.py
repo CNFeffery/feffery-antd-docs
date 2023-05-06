@@ -350,7 +350,7 @@ fac.AntdForm(
                         ),
 
                         fac.AntdDivider(
-                            '不同的标签对齐方式',
+                            '表单项标签左对齐',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
@@ -410,7 +410,7 @@ html.Div(
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='不同的标签对齐方式',
+                    id='表单项标签左对齐',
                     className='div-highlight'
                 ),
 
