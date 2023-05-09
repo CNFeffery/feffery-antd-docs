@@ -54,7 +54,7 @@
 
 　　使用`debounceValue`代替`value`配合有效的防抖延时设置，以实现有效的回调防抖效果
 
-**passwordUseMd5：** *bool*型，默认为`false`
+**passwordUseMd5：** *bool*型，默认为`False`
 
 　　用于*设置密码输入框模式下是否开启md5加密*
 
