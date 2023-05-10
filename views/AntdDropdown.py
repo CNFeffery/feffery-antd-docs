@@ -298,6 +298,94 @@ fac.AntdSpace(
 
                 html.Div(
                     [
+                        fac.AntdDropdown(
+                            title='触发点',
+                            buttonMode=True,
+                            buttonProps={
+                                'style': {
+                                    'color': 'white',
+                                    'width': 150,
+                                    'background': 'linear-gradient(135deg,#8a2be2,#ffa500,#f8f8ff)'
+                                }
+                            },
+                            menuItems=[
+                                {
+                                    'title': '子页面1'
+                                },
+                                {
+                                    'title': '子页面2'
+                                },
+                                {
+                                    'isDivider': True
+                                },
+                                {
+                                    'title': '子页面3-1'
+                                },
+                                {
+                                    'title': '子页面3-2'
+                                }
+                            ]
+                        ),
+
+                        fac.AntdDivider(
+                            '自定义按钮样式',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdDropdown(
+    title='触发点',
+    buttonMode=True,
+    buttonProps={
+        'style': {
+            'color': 'white',
+            'width': 150,
+            'background': 'linear-gradient(135deg,#8a2be2,#ffa500,#f8f8ff)'
+        }
+    },
+    menuItems=[
+        {
+            'title': '子页面1'
+        },
+        {
+            'title': '子页面2'
+        },
+        {
+            'isDivider': True
+        },
+        {
+            'title': '子页面3-1'
+        },
+        {
+            'title': '子页面3-2'
+        }
+    ]
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='自定义按钮样式',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
                         fuc.FefferyDiv(
                             '请在此区域内任意位置点击鼠标右键',
                             id='dropdown-free-position-demo-trigger',
@@ -769,6 +857,7 @@ def dropdown_demo_callback(clickedKey, nClicks):
                 linkDict=[
                     {'title': '基础使用', 'href': '#基础使用'},
                     {'title': '按钮模式', 'href': '#按钮模式'},
+                    {'title': '自定义按钮样式', 'href': '#自定义按钮样式'},
                     {'title': '自由位置模式', 'href': '#自由位置模式'},
                     {'title': '点击触发方式', 'href': '#点击触发方式'},
                     {'title': '添加箭头', 'href': '#添加箭头'},

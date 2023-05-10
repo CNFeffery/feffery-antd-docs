@@ -79,6 +79,64 @@ fac.AntdDateRangePicker(
 
                 html.Div(
                     [
+                        fac.AntdDateRangePicker(
+                            placeholder=['开始日期时间', '结束日期时间'],
+                            showTime={
+                                'defaultValue': ['08:30:00', '17:30:00']
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '设置自动选定的时间值',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdParagraph(
+                            [
+                                '由参数',
+                                fac.AntdText(
+                                    'showTime.defaultValue',
+                                    code=True
+                                ),
+                                '设定的默认值，将会在用户初次选中日期后，在时间选择面板中被自动选中'
+                            ],
+                            style={
+                                'textIndent': '2rem'
+                            }
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdDateRangePicker(
+    placeholder=['开始日期时间', '结束日期时间'],
+    showTime={
+        'defaultValue': ['08:30:00', '17:30:00']
+    }
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='设置自动选定的时间值',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
                         fac.AntdSpace(
                             [
                                 fac.AntdDateRangePicker(
@@ -1305,6 +1363,7 @@ def date_range_picker_demo3(value):
             fac.AntdAnchor(
                 linkDict=[
                     {'title': '基础使用', 'href': '#基础使用'},
+                    {'title': '设置自动选定的时间值', 'href': '#设置自动选定的时间值'},
                     {'title': '不同的悬浮层展开方位', 'href': '#不同的悬浮层展开方位'},
                     {'title': '不同的日期范围选择粒度', 'href': '#不同的日期范围选择粒度'},
                     {'title': '自定义format', 'href': '#自定义format'},

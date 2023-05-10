@@ -118,6 +118,16 @@ def upload_file(uploadId: str, file: UploadFile = File(...)):
 
 　　用于*设置当前上传组件触发点按钮内的内容*
 
+**buttonProps：** *dict*型
+
+　　用于*配置上传按钮相关参数*，可用的键值对参数有：
+
+- **size：** *string*型，默认为`'middle'`，用于*设置上传按钮的尺寸规格*，可选项有`'small'`、`'middle'`和`'large'`
+- **type：** *string*型，默认为`'default'`，用于*设置上传按钮的风格*，可选项有`'primary'`、`'ghost'`、`'dashed'`、`'link'`、`'text'`、`'default'`
+- **danger：** *bool*型，默认为`False`，用于*设置上传按钮是否渲染为危险警告状态*
+- **style：** *dict*型，用于*设置上传按钮的css样式*
+- **className：** *string*型，用于*设置上传按钮的css类名*
+
 **uploadId：** *string*型
 
 　　用于*设置当前上传组件在调用文件上传、下载等服务时所使用到的唯一id信息*，默认不设置时会自动生成随机uuid作为`uploadId`

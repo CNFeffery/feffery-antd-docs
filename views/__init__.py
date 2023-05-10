@@ -9,6 +9,7 @@ from . import (
     AntdTitle,
     AntdDivider,
     AntdSpace,
+    AntdCompact,
     AntdCol,
     AntdRow,
     AntdHeader,

@@ -1068,6 +1068,60 @@ fac.AntdSpace(
                     className='div-highlight'
                 ),
 
+                html.Div(
+                    [
+                        fac.AntdSpace(
+                            [
+                                html.Div('子组件1'),
+                                html.Div('子组件2'),
+                                html.Div('子组件3')
+                            ],
+                            customSplit='😎',
+                            style={
+                                'padding': '10px'
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '自定义分割元素',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSpace(
+    [
+        html.Div('子组件1'),
+        html.Div('子组件2'),
+        html.Div('子组件3')
+    ],
+    customSplit='😎',
+    style={
+        'padding': '10px'
+    }
+),
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='自定义分割元素',
+                    className='div-highlight'
+                ),
+
                 html.Div(style={'height': '100px'})
             ],
             style={
@@ -1082,6 +1136,7 @@ fac.AntdSpace(
                     {'title': '不同的对齐方式', 'href': '#不同的对齐方式'},
                     {'title': '调节间隔尺寸', 'href': '#调节间隔尺寸'},
                     {'title': '添加分割线', 'href': '#添加分割线'},
+                    {'title': '自定义分割元素', 'href': '#自定义分割元素'},
                 ],
                 offsetTop=0
             ),

@@ -138,6 +138,15 @@ class Config:
                             }
                         },
                         {
+                            'component': 'Item',
+                            'props': {
+                                'key': '/AntdCompact',
+                                'name': '/AntdCompact',
+                                'title': 'AntdCompact 紧凑排列',
+                                'href': '/AntdCompact'
+                            }
+                        },
+                        {
                             'component': 'SubMenu',
                             'props': {
                                 'key': '布局/网格系统',
@@ -1181,6 +1190,14 @@ class Config:
                         {
                             'component': 'Item',
                             'props': {
+                                'key': '/change-log-v0.2.7',
+                                'title': 'v0.2.7',
+                                'href': '/change-log-v0.2.7'
+                            }
+                        },
+                        {
+                            'component': 'Item',
+                            'props': {
                                 'key': '/change-log-v0.2.6',
                                 'title': 'v0.2.6',
                                 'href': '/change-log-v0.2.6'
@@ -1209,6 +1226,7 @@ class Config:
         '/AntdTitle': ['通用', '通用/排版相关'],
         '/AntdDivider': ['布局'],
         '/AntdSpace': ['布局'],
+        '/AntdCompact': ['布局'],
         '/AntdCol': ['布局', '布局/网格系统'],
         '/AntdRow': ['布局', '布局/网格系统'],
         '/AntdLayout': ['布局', '布局/经典布局'],

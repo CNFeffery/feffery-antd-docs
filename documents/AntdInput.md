@@ -113,6 +113,10 @@
 
 　　用于*设置是否以只读模式进行展示*
 
+**emptyAsNone：** *bool*型，默认为`False`
+
+　　当输入框中无有效内容时，用于*设置是否统一将value和debounceValue更新为None而不是空字符串*
+
 **persistence：** *bool*型
 
 　　用于*设置是否为当前组件开启属性持久化*

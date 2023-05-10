@@ -34,9 +34,12 @@
 
 　　用于*设置是否禁用当前组件*
 
-**showTime：** *bool*型，默认为`False`
+**showTime：** *bool*或*dict*型，默认为`False`
 
-　　用于*设置是否开启额外的时间选择功能*
+　　用于*设置是否开启额外的时间选择功能*，当传入*dict*型输入时，会在开启时间选择功能的同时，自动设定默认选中的时间值，该默认时间值将会在用户点击选择完日期之后自动选中，其中可用的键值对参数有：
+
+- **defaultValue：** *string*型，用于*设置时间字符串*
+- **format：** *string*型，默认为`'HH:mm:ss'`，用于*设置与showTime.defaultValue对应的时间解析格式*，具体见[参考资料](https://momentjscom.readthedocs.io/en/latest/moment/04-displaying/01-format/)
 
 **size：** *string*型，默认为`'middle'`
 

@@ -34,9 +34,12 @@
 
 　　用于*分别设置是否禁用当前日期范围选择组件的开始日期和结束日期选择*，格式为`[是否禁用开始日期, 是否禁用结束日期]`
 
-**showTime：** *bool*型，默认为`False`
+**showTime：** *bool*或*dict*型，默认为`False`
 
-　　用于*设置是否开启额外的时间选择功能*
+　　用于*设置是否开启额外的时间选择功能*，当传入*dict*型输入时，会在开启时间选择功能的同时，自动设定默认选中的时间值，该默认时间值将会在用户点击选择完日期之后自动选中，其中可用的键值对参数有：
+
+- **defaultValue：** `list[string]`型，用于*分别设置开始和结束日期对应的时间字符串*
+- **format：** *string*型，默认为`'HH:mm:ss'`，用于*设置与showTime.defaultValue对应的时间解析格式*，具体见[参考资料](https://momentjscom.readthedocs.io/en/latest/moment/04-displaying/01-format/)
 
 **size：** *string*型，默认为`'middle'`
 

@@ -185,6 +185,7 @@ treeData = [
 
 - **nodeKey：** *string*型，用于*监听右键菜单点击事件对应的树节点key值*
 - **menuKey：** *string*型，用于*监听右键菜单点击事件对应的选项key值*
+- **timestamp：** *int*型，用于*监听右键菜单点击事件发生时间戳*
 
 **persistence：** *bool*型
 
