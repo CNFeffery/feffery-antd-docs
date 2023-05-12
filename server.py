@@ -9,10 +9,10 @@ class CustomDash(dash.Dash):
 
     def interpolate_index(self, **kwargs):
         # scripts = kwargs.pop('scripts').replace('https://unpkg.com/', 'https://unpkg.zhimg.com/')
-        # scripts = kwargs.pop('scripts').replace('https://unpkg.com/', 'http://npm.elemecdn.com/')
+        scripts = kwargs.pop('scripts').replace('https://unpkg.com/', 'https://npm.elemecdn.com/')
         # scripts = kwargs.pop('scripts').replace('https://unpkg.com/', 'https://fastly.jsdelivr.net/npm/')
 
-        scripts = kwargs.pop('scripts')
+        # scripts = kwargs.pop('scripts')
 
         # # 提取scripts部分符合条件的外部js资源
         # external_scripts = re.findall('(<script src=".*?"></script>)', scripts)
