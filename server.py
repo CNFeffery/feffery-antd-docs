@@ -34,12 +34,11 @@ class CustomDash(dash.Dash):
         scripts = '''<script>
 window.onerror = async function(message, source, lineno, colno, error) { 
     if ( message.includes("DashRenderer") !== -1 ) {
-        while ( true ) {
+        while ( typeof renderer === 'undefined' ) {
             try {
                 var renderer = new DashRenderer();
-                break
             } catch {
-                setTimeout("", 250)
+                await new Promise(resolve => setTimeout(resolve, 200));
             }
         }
     }
