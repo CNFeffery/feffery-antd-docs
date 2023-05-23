@@ -27,8 +27,7 @@ class CustomDash(dash.Dash):
             scripts = scripts.replace(
                 external_script,
                 '''<script src="{}" onerror='this.remove(); let fallbackScript = document.createElement("script"); fallbackScript.src = "{}"; document.querySelector("head").prepend(fallbackScript);'></script>'''.format(
-                    re.findall('"(.*?)"', external_script)[0]
-                    .replace('https://unpkg.com/', 'https://unpk.com/'),
+                    re.findall('"(.*?)"', external_script)[0],
                     re.findall('"(.*?)"', external_script)[0]
                     .replace('https://unpkg.com/', 'https://npm.elemecdn.com/')
                 )
