@@ -1372,7 +1372,7 @@ def date_range_picker_demo3(value):
                     {'title': '强制状态渲染', 'href': '#强制状态渲染'},
                     {'title': '初始化停留日期位置', 'href': '#初始化停留日期位置'},
                     {'title': '自定义日期禁用策略', 'href': '#自定义日期禁用策略'},
-                    {'title': '回调示例', 'href': '#回调示例'},
+                    {'title': '回调示例', 'href': '#回调示例'}
                 ],
                 offsetTop=0
             ),

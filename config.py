@@ -1190,6 +1190,14 @@ class Config:
                         {
                             'component': 'Item',
                             'props': {
+                                'key': '/change-log-v0.2.9',
+                                'title': 'v0.2.9',
+                                'href': '/change-log-v0.2.9'
+                            }
+                        },
+                        {
+                            'component': 'Item',
+                            'props': {
                                 'key': '/change-log-v0.2.8',
                                 'title': 'v0.2.8',
                                 'href': '/change-log-v0.2.8'

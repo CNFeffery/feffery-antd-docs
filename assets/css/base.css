@@ -85,10 +85,6 @@ code {
   margin-left: 10px !important;
 }
 
-ninja-keys {
-  --ninja-accent-color: #1890ff;
-}
-
 .more-components-link {
   color: rgba(0, 0, 0, 0.88);
   transition: all 0.3s;

@@ -1084,6 +1084,122 @@ fac.AntdSelect(
                     [
                         fac.AntdSpace(
                             [
+                                fac.AntdRadioGroup(
+                                    id='select-multiple-mode-search-demo-switch-mode',
+                                    options=[
+                                        {
+                                            'label': mode,
+                                            'value': mode
+                                        }
+                                        for mode in [
+                                            'case-insensitive',
+                                            'case-sensitive',
+                                            'regex'
+                                        ]
+                                    ],
+                                    defaultValue='case-insensitive',
+                                    optionType='button'
+                                ),
+                                fac.AntdSelect(
+                                    id='select-multiple-mode-search-demo',
+                                    options=[
+                                        {
+                                            'label': f'选项{i}',
+                                            'value': f'选项{i}'
+                                        }
+                                        for i in list('AbCdEf')
+                                    ],
+                                    style={
+                                        'width': 200
+                                    }
+                                )
+                            ],
+                            direction='vertical',
+                            style={
+                                'width': '100%'
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '多模式搜索',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdRadioGroup(
+            id='select-multiple-mode-search-demo-switch-mode',
+            options=[
+                {
+                    'label': mode,
+                    'value': mode
+                }
+                for mode in [
+                    'case-insensitive',
+                    'case-sensitive',
+                    'regex'
+                ]
+            ],
+            defaultValue='case-insensitive',
+            optionType='button'
+        ),
+        fac.AntdSelect(
+            id='select-multiple-mode-search-demo',
+            options=[
+                {
+                    'label': f'选项{i}',
+                    'value': f'选项{i}'
+                }
+                for i in list('AbCdEf')
+            ],
+            style={
+                'width': 200
+            }
+        )
+    ],
+    direction='vertical',
+    style={
+        'width': '100%'
+    }
+)
+
+...
+
+@app.callback(
+    Output('select-multiple-mode-search-demo', 'optionFilterMode'),
+    Input('select-multiple-mode-search-demo-switch-mode', 'value')
+)
+def select_multiple_mode_search_demo(value):
+
+    return value
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='多模式搜索',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSpace(
+                            [
                                 fac.AntdSelect(
                                     id='select-demo1',
                                     options=[
@@ -1498,6 +1614,7 @@ def select_auto_spin_remote_load_options_demo(debounceSearchValue):
                     {'title': '不同的悬浮层展开方向', 'href': '#不同的悬浮层展开方向'},
                     {'title': '自定义无选项时的提示内容', 'href': '#自定义无选项时的提示内容'},
                     {'title': '开头和末尾添加额外元素', 'href': '#开头和末尾添加额外元素'},
+                    {'title': '多模式搜索', 'href': '#多模式搜索'},
                     {'title': '回调示例', 'href': '#回调示例'},
                     {'title': '监听搜索内容', 'href': '#监听搜索内容'},
                     {'title': '配合autoSpin实现远程选项加载', 'href': '#配合autoSpin实现远程选项加载'},

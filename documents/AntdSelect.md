@@ -89,6 +89,10 @@
 
 　　用于*监听当前已输入的搜索内容*
 
+**optionFilterMode：** *string*型，默认为`'case-insensitive'`
+
+　　用于*设置输入框搜索的匹配模式*，可选的有`'case-insensitive'`（大小写不敏感）、`'case-sensitive'`（大小写敏感）、`'regex'`（正则表达式）
+
 **debounceSearchValue：** *string*型
 
 　　用于*防抖监听当前已输入的搜索内容*

@@ -5,6 +5,15 @@ from server import app
 
 
 @app.callback(
+    Output('tree-select-multiple-mode-search-demo', 'treeNodeFilterMode'),
+    Input('tree-select-multiple-mode-search-demo-switch-mode', 'value')
+)
+def tree_select_multiple_mode_search_demo(value):
+
+    return value
+
+
+@app.callback(
     Output('tree-select-demo-output', 'children'),
     [Input('tree-select-demo', 'value'),
      Input('tree-select-demo', 'treeExpandedKeys')]

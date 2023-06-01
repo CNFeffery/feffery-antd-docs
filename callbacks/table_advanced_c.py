@@ -1,4 +1,5 @@
 import json
+import random
 from dash.dependencies import Input, Output, State
 
 from server import app
@@ -11,6 +12,42 @@ from server import app
     prevent_initial_call=True
 )
 def table_row_selection_demo(selectedRowKeys, selectedRows):
+
+    return json.dumps(
+        dict(
+            selectedRowKeys=selectedRowKeys,
+            selectedRows=selectedRows
+        ),
+        indent=4,
+        ensure_ascii=False
+    )
+
+
+@app.callback(
+    Output('table-row-selection-sync-selected-rows-demo', 'data'),
+    Input('table-row-selection-sync-selected-rows-demo-update-data', 'nClicks'),
+    prevent_initial_call=True
+)
+def table_row_selection_sync_selected_rows_demo_update_data(nClicks):
+
+    return [
+        {
+            **{
+                f'字段{i}': round(random.uniform(0, 10), 3)
+                for i in range(1, 4)
+            },
+            'key': f'row-{row+1}'
+        }
+        for row in range(3)
+    ]
+
+
+@app.callback(
+    Output('table-row-selection-sync-selected-rows-demo-output', 'children'),
+    [Input('table-row-selection-sync-selected-rows-demo', 'selectedRowKeys'),
+     Input('table-row-selection-sync-selected-rows-demo', 'selectedRows')]
+)
+def table_row_selection_sync_selected_rows_demo(selectedRowKeys, selectedRows):
 
     return json.dumps(
         dict(

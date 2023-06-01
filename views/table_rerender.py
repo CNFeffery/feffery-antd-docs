@@ -1,6 +1,7 @@
 import numpy as np
 from dash import html
 import feffery_antd_components as fac
+import feffery_utils_components as fuc
 import feffery_markdown_components as fmc
 
 import callbacks.table_rerender_c
@@ -2516,6 +2517,140 @@ def table_rerender_select_demo(recentlySelectRow,
                     className='div-highlight'
                 ),
 
+                html.Div(
+                    [
+                        fac.AntdTable(
+                            columns=[
+                                {
+                                    'title': '自定义元素示例',
+                                    'dataIndex': '自定义元素示例'
+                                }
+                            ],
+                            data=[
+                                {
+                                    '自定义元素示例': html.Div(
+                                        fac.AntdText(
+                                            '示例内容'*100,
+                                            style={
+                                                'textIndent': '2rem'
+                                            }
+                                        ),
+                                        style={
+                                            'maxHeight': 50,
+                                            'overflowY': 'auto',
+                                            'textAlign': 'left'
+                                        }
+                                    )
+                                },
+                                {
+                                    '自定义元素示例': fmc.FefferyMarkdown(
+                                        markdownStr='''
+```python
+import numpy as np
+from dash import html
+import feffery_antd_components as fac
+import feffery_markdown_components as fmc
+```
+'''
+                                    )
+                                },
+                                {
+                                    '自定义元素示例': fuc.FefferyQRCode(
+                                        value='FefferyQRCode示例'
+                                    )
+                                }
+                            ],
+                            bordered=True,
+                            style={
+                                'width': '100%'
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '自定义单元格元素',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdParagraph(
+                            [
+                                '目前已有的快捷再渲染模式满足不了你的需求？没关系，任何组件元素都可以作为单元格值被传入😉！',
+                                '（此特性建议仅用作静态展示使用）'
+                            ],
+                            style={
+                                'textIndent': '2rem'
+                            }
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString="""
+fac.AntdTable(
+    columns=[
+        {
+            'title': '自定义元素示例',
+            'dataIndex': '自定义元素示例'
+        }
+    ],
+    data=[
+        {
+            '自定义元素示例': html.Div(
+                fac.AntdText(
+                    '示例内容'*100,
+                    style={
+                        'textIndent': '2rem'
+                    }
+                ),
+                style={
+                    'maxHeight': 50,
+                    'overflowY': 'auto',
+                    'textAlign': 'left'
+                }
+            )
+        },
+        {
+            '自定义元素示例': fmc.FefferyMarkdown(
+                markdownStr='''
+```python
+import numpy as np
+from dash import html
+import feffery_antd_components as fac
+import feffery_markdown_components as fmc
+```
+'''
+            )
+        },
+        {
+            '自定义元素示例': fuc.FefferyQRCode(
+                value='FefferyQRCode示例'
+            )
+        }
+    ],
+    bordered=True,
+    style={
+        'width': '100%'
+    }
+)
+"""
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='自定义单元格元素',
+                    className='div-highlight'
+                ),
+
                 html.Div(style={'height': '100px'})
             ],
             style={
@@ -2571,6 +2706,10 @@ def table_rerender_select_demo(recentlySelectRow,
                     {
                         'title': 'select下拉选择模式及回调示例',
                         'href': '#select下拉选择模式及回调示例'
+                    },
+                    {
+                        'title': '自定义单元格元素',
+                        'href': '#自定义单元格元素'
                     }
                 ],
                 offsetTop=0

@@ -176,6 +176,10 @@ treeData = [
 
 　　用于*设置进行内容搜索的目标字段*，可选的有`'title'`、`'value'`
 
+**treeNodeFilterMode：** *string*型，默认为`'case-insensitive'`
+
+　　用于*设置输入框搜索的匹配模式*，可选的有`'case-insensitive'`（大小写不敏感）、`'case-sensitive'`（大小写敏感）、`'regex'`（正则表达式）
+
 **autoClearSearchValue：** *bool*型，默认为`True`
 
 　　用于*设置在多选模式下当有新的节点被选中时是否自动清空搜索框中的搜索内容*

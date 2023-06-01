@@ -43,6 +43,10 @@
 
 　　用于*设置是否渲染搜索框*
 
+**optionFilterMode：** *string*型，默认为`'case-insensitive'`
+
+　　用于*设置输入框搜索的匹配模式*，可选的有`'case-insensitive'`（大小写不敏感）、`'case-sensitive'`（大小写敏感）、`'regex'`（正则表达式）
+
 **showSelectAll：** *bool*型，默认为`True`
 
 　　用于*设置是否渲染全选框*

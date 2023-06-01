@@ -61,11 +61,10 @@ docs_content = html.Div(
                                 codeString='''
 fac.AntdPopover(
     fac.AntdButton(
-        '锚点元素',
-        type='link'
+        '锚点元素'
     ),
     title='气泡卡片示例',
-    content='内容示例'*10
+    content='内容示例'
 )
 '''
                             ),

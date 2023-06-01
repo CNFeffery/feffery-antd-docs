@@ -44,6 +44,12 @@
     - **placement：** *string*型，用于*统一为当前字段的下拉链接菜单设置弹出方位*，可选的有`'bottomLeft'`、`'bottomCenter'`、`'bottomRight'`、`'topLeft'`、`'topCenter'`、`'topRight'`
 - **fixed：** *string*型，当需要冻结固定当前字段时，用于*设置冻结固定的方位*，可选的有`'left'`、`'right'`
 - **editable：** *bool*型，默认为`False`，用于*设置当前字段是否开启可编辑模式*
+- **editOptions：** *dict*型，用于*为当前字段配置编辑模式相关参数*，可用的键值对参数有：
+  - **mode：** *string*型，默认为`'default'`，用于*设置当前字段可编辑模式下的输入框类型*，可选的有`'default'`、`'text-area'`
+  - **autoSize：** *bool*或*dict*型，默认为`False`，用于*配置针对文本域输入框模式下的输入框自适应高度功能*，当传入*dict*型输入时，可用的键值对参数有：
+    - **minRows：** *int*型，用于*设置最小行数*
+    - **maxRows：** *int*型，用于*设置对大行数*
+  - **maxLength：** *int*型，用于*设置输入框最大允许输入的字符长度*，默认无限制
 - **align：** *string*型，用于*设置当前字段内容的水平对齐方式*，可选的有`'left'`、`'center'`、`'right'`
 - **width：** *int*或*string*型，用于*设置当前字段的宽度*
 - **hidden：** *bool*型，默认为`False`，用于*设置是否需要隐藏当前字段*
@@ -177,7 +183,7 @@
 
 **selectedRowKeys：** *list*型
 
-　　用于*监听当前已被选择的行key值列表*
+　　用于*设置或监听当前已被选择的行key值列表*
 
 **rowSelectionWidth：** *int*或*string*型，默认为`32`
 
@@ -186,6 +192,10 @@
 **selectedRows：** `list[dict]`型
 
 　　用于*监听当前已被选择的行记录值列表*
+
+**selectedRowsSyncWithData：** *bool*型，默认为`False`
+
+　　设置为`True`后，每次`data`数据源更新后，`selectedRows`中对应行记录信息都会被同步更新
 
 **sticky：** *bool*型，默认为`False`
 

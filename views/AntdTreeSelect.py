@@ -971,6 +971,140 @@ fac.AntdTreeSelect(
 
                 html.Div(
                     [
+                        fac.AntdSpace(
+                            [
+                                fac.AntdRadioGroup(
+                                    id='tree-select-multiple-mode-search-demo-switch-mode',
+                                    options=[
+                                        {
+                                            'label': mode,
+                                            'value': mode
+                                        }
+                                        for mode in [
+                                            'case-insensitive',
+                                            'case-sensitive',
+                                            'regex'
+                                        ]
+                                    ],
+                                    defaultValue='case-insensitive',
+                                    optionType='button'
+                                ),
+                                fac.AntdTreeSelect(
+                                    id='tree-select-multiple-mode-search-demo',
+                                    treeData=[
+                                        {
+                                            'key': f'节点{i}',
+                                            'title': f'节点{i}',
+                                            'value': f'节点{i}',
+                                            'children': [
+                                                {
+                                                    'key': f'节点{i}-{j}',
+                                                    'title': f'节点{i}-{j}',
+                                                    'value': f'节点{i}-{j}',
+                                                }
+                                                for j in range(1, 4)
+                                            ]
+                                        }
+                                        for i in list('AbCdEf')
+                                    ],
+                                    style={
+                                        'width': 300
+                                    }
+                                )
+                            ],
+                            direction='vertical',
+                            style={
+                                'width': '100%'
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '多模式搜索',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdRadioGroup(
+            id='tree-select-multiple-mode-search-demo-switch-mode',
+            options=[
+                {
+                    'label': mode,
+                    'value': mode
+                }
+                for mode in [
+                    'case-insensitive',
+                    'case-sensitive',
+                    'regex'
+                ]
+            ],
+            defaultValue='case-insensitive',
+            optionType='button'
+        ),
+        fac.AntdTreeSelect(
+            id='tree-select-multiple-mode-search-demo',
+            treeData=[
+                {
+                    'key': f'节点{i}',
+                    'title': f'节点{i}',
+                    'value': f'节点{i}',
+                    'children': [
+                        {
+                            'key': f'节点{i}-{j}',
+                            'title': f'节点{i}-{j}',
+                            'value': f'节点{i}-{j}',
+                        }
+                        for j in range(1, 4)
+                    ]
+                }
+                for i in list('AbCdEf')
+            ],
+            style={
+                'width': 300
+            }
+        )
+    ],
+    direction='vertical',
+    style={
+        'width': '100%'
+    }
+)
+
+...
+
+@app.callback(
+    Output('tree-select-multiple-mode-search-demo', 'treeNodeFilterMode'),
+    Input('tree-select-multiple-mode-search-demo-switch-mode', 'value')
+)
+def tree_select_multiple_mode_search_demo(value):
+
+    return value
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='多模式搜索',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
                         fac.AntdTreeSelect(
                             treeData=[
                                 {
@@ -1391,6 +1525,7 @@ def tree_select_multiple_demo(value, treeExpandedKeys):
                     {'title': '父子节点独立选择', 'href': '#父子节点独立选择'},
                     {'title': '禁用状态', 'href': '#禁用状态'},
                     {'title': '已选项回填策略', 'href': '#已选项回填策略'},
+                    {'title': '多模式搜索', 'href': '#多模式搜索'},
                     {'title': '只读状态', 'href': '#只读状态'},
                     {'title': '强制状态渲染', 'href': '#强制状态渲染'},
                     {'title': '回调示例', 'href': '#回调示例'},

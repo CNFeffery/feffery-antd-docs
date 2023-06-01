@@ -5,6 +5,15 @@ from server import app
 
 
 @app.callback(
+    Output('select-multiple-mode-search-demo', 'optionFilterMode'),
+    Input('select-multiple-mode-search-demo-switch-mode', 'value')
+)
+def select_multiple_mode_search_demo(value):
+
+    return value
+
+
+@app.callback(
     Output('select-demo1-output', 'children'),
     Input('select-demo1', 'value'),
 )

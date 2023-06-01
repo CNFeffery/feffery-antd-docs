@@ -217,7 +217,7 @@ fac.AntdTable(
                         ),
 
                         fac.AntdDivider(
-                            '监听已选行key值',
+                            '监听已选行',
                             lineColor='#f0f0f0',
                             innerTextOrientation='left'
                         ),
@@ -289,7 +289,186 @@ def table_row_selection_demo(selectedRowKeys, selectedRows):
                         'padding': '10px 10px 20px 10px',
                         'border': '1px solid #f0f0f0'
                     },
-                    id='监听已选行key值',
+                    id='监听已选行',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdSpace(
+                            [
+                                fac.AntdButton(
+                                    '刷新数据',
+                                    id='table-row-selection-sync-selected-rows-demo-update-data',
+                                    type='primary'
+                                ),
+                                fac.AntdTable(
+                                    id='table-row-selection-sync-selected-rows-demo',
+                                    columns=[
+                                        {
+                                            'title': f'字段{i}',
+                                            'dataIndex': f'字段{i}'
+                                        }
+                                        for i in range(1, 4)
+                                    ],
+                                    data=[
+                                        {
+                                            **{
+                                                f'字段{i}': round(random.uniform(0, 10), 3)
+                                                for i in range(1, 4)
+                                            },
+                                            'key': f'row-{row+1}'
+                                        }
+                                        for row in range(3)
+                                    ],
+                                    rowSelectionType='checkbox',
+                                    selectedRowsSyncWithData=True
+                                )
+                            ],
+                            direction='vertical',
+                            style={
+                                'width': '100%'
+                            }
+                        ),
+
+                        html.Pre(
+                            id='table-row-selection-sync-selected-rows-demo-output'
+                        ),
+
+                        fac.AntdDivider(
+                            '同步刷新selectedRows',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdParagraph(
+                            [
+                                '在设置参数',
+                                fac.AntdText(
+                                    'selectedRowsSyncWithData=True',
+                                    code=True
+                                ),
+                                '后，针对表格数据源的更新会根据当前的',
+                                fac.AntdText(
+                                    'selectedRowKeys',
+                                    code=True
+                                ),
+                                '状态，对',
+                                fac.AntdText(
+                                    'selectedRows',
+                                    code=True
+                                ),
+                                '信息进行同步刷新'
+                            ],
+                            style={
+                                'textIndent': '2rem'
+                            }
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+import random
+
+...
+
+fac.AntdSpace(
+    [
+        fac.AntdButton(
+            '刷新数据',
+            id='table-row-selection-sync-selected-rows-demo-update-data',
+            type='primary'
+        ),
+        fac.AntdTable(
+            id='table-row-selection-sync-selected-rows-demo',
+            columns=[
+                {
+                    'title': f'字段{i}',
+                    'dataIndex': f'字段{i}'
+                }
+                for i in range(1, 4)
+            ],
+            data=[
+                {
+                    **{
+                        f'字段{i}': round(random.uniform(0, 10), 3)
+                        for i in range(1, 4)
+                    },
+                    'key': f'row-{row+1}'
+                }
+                for row in range(3)
+            ],
+            rowSelectionType='checkbox',
+            selectedRowsSyncWithData=True
+        )
+    ],
+    direction='vertical',
+    style={
+        'width': '100%'
+    }
+),
+
+html.Pre(
+    id='table-row-selection-sync-selected-rows-demo-output'
+)
+
+...
+
+import json
+
+...
+
+@app.callback(
+    Output('table-row-selection-sync-selected-rows-demo', 'data'),
+    Input('table-row-selection-sync-selected-rows-demo-update-data', 'nClicks'),
+    prevent_initial_call=True
+)
+def table_row_selection_sync_selected_rows_demo_update_data(nClicks):
+
+    return [
+        {
+            **{
+                f'字段{i}': round(random.uniform(0, 10), 3)
+                for i in range(1, 4)
+            },
+            'key': f'row-{row+1}'
+        }
+        for row in range(3)
+    ]
+
+
+@app.callback(
+    Output('table-row-selection-sync-selected-rows-demo-output', 'children'),
+    [Input('table-row-selection-sync-selected-rows-demo', 'selectedRowKeys'),
+     Input('table-row-selection-sync-selected-rows-demo', 'selectedRows')]
+)
+def table_row_selection_sync_selected_rows_demo(selectedRowKeys, selectedRows):
+
+    return json.dumps(
+        dict(
+            selectedRowKeys=selectedRowKeys,
+            selectedRows=selectedRows
+        ),
+        indent=4,
+        ensure_ascii=False
+    )
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='同步刷新selectedRows',
                     className='div-highlight'
                 ),
 
@@ -590,6 +769,102 @@ fac.AntdTable(
                         'border': '1px solid #f0f0f0'
                     },
                     id='编辑模式配置内容格式校验',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
+                        fac.AntdTable(
+                            columns=[
+                                {
+                                    'title': '文本域编辑示例',
+                                    'dataIndex': '文本域编辑示例',
+                                    'editable': True,
+                                    'editOptions': {
+                                        'mode': 'text-area',  # 开启文本域编辑模式
+                                        'autoSize': {
+                                            'minRows': 1,
+                                            'maxRows': 3
+                                        }
+                                    }
+                                }
+                            ],
+                            data=[
+                                {
+                                    '文本域编辑示例': '内容示例'
+                                }
+                            ] * 3,
+                            bordered=True,
+                            style={
+                                'width': 200
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '文本域编辑模式',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdParagraph(
+                            [
+                                '文本域编辑模式下，',
+                                fac.AntdText(
+                                    'enter',
+                                    keyboard=True
+                                ),
+                                '键的按下将不会退出当前输入框，而是会进行换行'
+                            ],
+                            style={
+                                'textIndent': '2rem'
+                            }
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdTable(
+    columns=[
+        {
+            'title': '文本域编辑示例',
+            'dataIndex': '文本域编辑示例',
+            'editable': True,
+            'editOptions': {
+                'mode': 'text-area',  # 开启文本域编辑模式
+                'autoSize': {
+                    'minRows': 1,
+                    'maxRows': 3
+                }
+            }
+        }
+    ],
+    data=[
+        {
+            '文本域编辑示例': '内容示例'
+        }
+    ] * 3,
+    bordered=True,
+    style={
+        'width': 200
+    }
+)
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='文本域编辑模式',
                     className='div-highlight'
                 ),
 
@@ -3302,14 +3577,19 @@ fac.AntdTable(
                                 'href': '#多选模式'
                             },
                             {
-                                'title': '监听已选行key值',
-                                'href': '#监听已选行key值'
+                                'title': '监听已选行',
+                                'href': '#监听已选行'
+                            },
+                            {
+                                'title': '同步刷新selectedRows',
+                                'href': '#同步刷新selectedRows'
                             }
                         ]
                     },
                     {'title': '粘性表头功能', 'href': '#粘性表头功能'},
                     {'title': '字段标题额外说明信息', 'href': '#字段标题额外说明信息'},
                     {'title': '编辑模式配置内容格式校验', 'href': '#编辑模式配置内容格式校验'},
+                    {'title': '文本域编辑模式', 'href': '#文本域编辑模式'},
                     {
                         'title': '排序功能',
                         'href': '#排序功能',

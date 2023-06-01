@@ -355,6 +355,120 @@ fac.AntdTransfer(
 
                 html.Div(
                     [
+                        fac.AntdSpace(
+                            [
+                                fac.AntdRadioGroup(
+                                    id='transfer-multiple-mode-search-demo-switch-mode',
+                                    options=[
+                                        {
+                                            'label': mode,
+                                            'value': mode
+                                        }
+                                        for mode in [
+                                            'case-insensitive',
+                                            'case-sensitive',
+                                            'regex'
+                                        ]
+                                    ],
+                                    defaultValue='case-insensitive',
+                                    optionType='button'
+                                ),
+                                fac.AntdTransfer(
+                                    id='transfer-multiple-mode-search-demo',
+                                    dataSource=[
+                                        {
+                                            'key': i,
+                                            'title': f'选项{i}'
+                                        }
+                                        for i in list('AbCdEf')
+                                    ],
+                                    targetKeys=[],
+                                    showSearch=True
+                                )
+                            ],
+                            direction='vertical',
+                            style={
+                                'width': '100%'
+                            }
+                        ),
+
+                        fac.AntdDivider(
+                            '多模式搜索',
+                            lineColor='#f0f0f0',
+                            innerTextOrientation='left'
+                        ),
+
+                        fac.AntdCollapse(
+                            fmc.FefferySyntaxHighlighter(
+                                showCopyButton=True,
+                                showLineNumbers=True,
+                                language='python',
+                                codeTheme='coy-without-shadows',
+                                codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdRadioGroup(
+            id='transfer-multiple-mode-search-demo-switch-mode',
+            options=[
+                {
+                    'label': mode,
+                    'value': mode
+                }
+                for mode in [
+                    'case-insensitive',
+                    'case-sensitive',
+                    'regex'
+                ]
+            ],
+            defaultValue='case-insensitive',
+            optionType='button'
+        ),
+        fac.AntdTransfer(
+            id='transfer-multiple-mode-search-demo',
+            dataSource=[
+                {
+                    'key': i,
+                    'title': f'选项{i}'
+                }
+                for i in list('AbCdEf')
+            ],
+            targetKeys=[],
+            showSearch=True
+        )
+    ],
+    direction='vertical',
+    style={
+        'width': '100%'
+    }
+)
+
+...
+
+@app.callback(
+    Output('transfer-multiple-mode-search-demo', 'optionFilterMode'),
+    Input('transfer-multiple-mode-search-demo-switch-mode', 'value')
+)
+def transfer_multiple_mode_search_demo(value):
+
+    return value
+'''
+                            ),
+                            title='点击查看代码',
+                            isOpen=False,
+                            ghost=True
+                        )
+                    ],
+                    style={
+                        'marginBottom': '40px',
+                        'padding': '10px 10px 20px 10px',
+                        'border': '1px solid #f0f0f0'
+                    },
+                    id='多模式搜索',
+                    className='div-highlight'
+                ),
+
+                html.Div(
+                    [
                         fac.AntdTransfer(
                             dataSource=[
                                 {
@@ -650,6 +764,7 @@ def transfer_demo(targetKeys, moveDirection, moveKeys):
                     {'title': '翻页展示', 'href': '#翻页展示'},
                     {'title': '自定义移项按钮内容', 'href': '#自定义移项按钮内容'},
                     {'title': '添加搜索框', 'href': '#添加搜索框'},
+                    {'title': '多模式搜索', 'href': '#多模式搜索'},
                     {'title': '设置两侧标题', 'href': '#设置两侧标题'},
                     {'title': '禁用状态', 'href': '#禁用状态'},
                     {'title': '强制状态渲染', 'href': '#强制状态渲染'},

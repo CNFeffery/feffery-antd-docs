@@ -5,6 +5,15 @@ from server import app
 
 
 @app.callback(
+    Output('transfer-multiple-mode-search-demo', 'optionFilterMode'),
+    Input('transfer-multiple-mode-search-demo-switch-mode', 'value')
+)
+def transfer_multiple_mode_search_demo(value):
+
+    return value
+
+
+@app.callback(
     Output('transfer-demo-output', 'children'),
     [Input('transfer-demo', 'targetKeys'),
      Input('transfer-demo', 'moveDirection'),
