@@ -260,7 +260,7 @@ def icon_demo_render_callback(value):
                             [
                                 fac.AntdText('AntdIcon', strong=True),
                                 fac.AntdText(
-                                    '也可以类似按钮组件监听点击事件'
+                                    '也可以类似按钮组件那样监听点击事件（同样支持防抖）'
                                 )
                             ],
                             style={

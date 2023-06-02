@@ -358,7 +358,7 @@ def table_row_selection_demo(selectedRowKeys, selectedRows):
                                     'selectedRows',
                                     code=True
                                 ),
-                                '信息进行同步刷新'
+                                '信息进行同步刷新（使用此项功能时请确保原始输入数据源各行记录中具有键值对key）'
                             ],
                             style={
                                 'textIndent': '2rem'
