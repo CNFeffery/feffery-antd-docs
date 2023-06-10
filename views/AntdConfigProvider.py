@@ -60,7 +60,7 @@ docs_content = html.Div(
                                     'AntdConfigProvider',
                                     strong=True
                                 ),
-                                '的内部元素'
+                                '的内部元素，因此不一定要包裹住其他页面元素'
                             ],
                             style={
                                 'textIndent': '2rem'

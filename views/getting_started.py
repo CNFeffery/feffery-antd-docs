@@ -34,6 +34,16 @@ docs_content = html.Div(
                         'textIndent': '2rem'
                     }
                 ),
+                fac.AntdParagraph(
+                    [
+                        fac.AntdText(
+                            '注：由于国内pypi相关镜像的更新延迟，通过其进行相关库的安装，版本可能滞后于原始pypi中的最新版本'
+                        )
+                    ],
+                    style={
+                        'textIndent': '2rem'
+                    }
+                ),
                 fac.AntdTabs(
                     items=[
                         {
