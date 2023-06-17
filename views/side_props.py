@@ -1,3 +1,4 @@
+import os
 import uuid
 from dash import html
 import feffery_antd_components as fac
@@ -5,7 +6,29 @@ import feffery_utils_components as fuc
 import feffery_markdown_components as fmc
 
 
-def render_side_props_layout(component_name: str):
+def render_side_props_layout(component_name: str, language: str = '中文'):
+
+    # 根据当前language切换markdown语言
+    if language == 'English' and os.path.exists(f'./documents/{component_name}-en_US.md'):
+        markdownStr = (
+            open(
+                f'./documents/{component_name}-en_US.md',
+                encoding='utf-8'
+            )
+            .read()
+        )
+        markdownStr = '> *This translation is based on ChatGPT.*\n\n' + markdownStr
+
+    # 否则则回滚到中文参数说明
+    else:
+        markdownStr = (
+            open(
+                f'./documents/{component_name}.md',
+                encoding='utf-8'
+            )
+            .read()
+        )
+        language = '中文'
 
     return html.Div(
         fac.AntdAffix(
@@ -55,13 +78,7 @@ def render_side_props_layout(component_name: str):
                                         }
                                     ),
                                     fmc.FefferyMarkdown(
-                                        markdownStr=(
-                                            open(
-                                                f'./documents/{component_name}.md',
-                                                encoding='utf-8'
-                                            )
-                                            .read()
-                                        ),
+                                        markdownStr=markdownStr,
                                         renderHtml=True,
                                         style={
                                             'padding': '60px 25px 25px 25px'
@@ -72,7 +89,11 @@ def render_side_props_layout(component_name: str):
                                     'position': 'relative'
                                 }
                             ),
-                            text=f'{component_name} API参数说明',
+                            text=(
+                                f'{component_name} API参数说明'
+                                if language == '中文' else
+                                f'{component_name} Props API'
+                            ),
                             placement='start',
                             style={
                                 'padding': '5px 8px 5px 15px',

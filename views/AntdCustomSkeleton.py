@@ -5,119 +5,122 @@ import feffery_markdown_components as fmc
 import callbacks.AntdCustomSkeleton
 from .side_props import render_side_props_layout
 
-docs_content = html.Div(
-    [
-        html.Div(
-            [
-                fac.AntdBackTop(
-                    duration=0.3
-                ),
 
-                fac.AntdBreadcrumb(
-                    items=[
-                        {
-                            'title': '组件介绍'
-                        },
-                        {
-                            'title': '反馈'
-                        },
-                        {
-                            'title': '自定义骨骼屏'
-                        },
-                        {
-                            'title': 'AntdCustomSkeleton 自定义骨骼屏'
-                        }
-                    ]
-                ),
+def docs_content(language: str = '中文'):
 
-                fac.AntdDivider(isDashed=True),
+    return html.Div(
+        [
+            html.Div(
+                [
+                    fac.AntdBackTop(
+                        duration=0.3
+                    ),
 
-                fac.AntdParagraph(
-                    [
-                        fac.AntdText('　　用于自由设计骨骼屏加载中内容。')
-                    ]
-                ),
-
-                html.Div(
-                    [
-                        fac.AntdSpace(
-                            [
-                                fac.AntdButton(
-                                    '触发2秒自定义骨骼屏动画',
-                                    id='skeleton-custom-demo-input',
-                                    type='primary'
-                                ),
-
-                                fac.AntdCustomSkeleton(
-                                    id='custom-skeleton-demo',
-                                    skeletonContent=html.Div(
-                                        [
-                                            fac.AntdRow(
-                                                [
-                                                    fac.AntdCol(
-                                                        fac.AntdSkeletonButton(
-                                                            block=True,
-                                                            active=True
-                                                        ),
-                                                        span=6,
-                                                        style={
-                                                            'padding': '4px'
-                                                        }
-                                                    )
-                                                ] * 16
-                                            ),
-                                            fac.AntdSpace(
-                                                [
-                                                    html.Div(
-                                                        fac.AntdSkeletonButton(
-                                                            active=True,
-                                                            size='small',
-                                                            block=True
-                                                        ),
-                                                        style={
-                                                            'width': '80px'
-                                                        }
-                                                    ),
-                                                    html.Div(
-                                                        fac.AntdSkeletonButton(
-                                                            active=True,
-                                                            size='small',
-                                                            block=True
-                                                        ),
-                                                        style={
-                                                            'width': '60px'
-                                                        }
-                                                    )
-                                                ],
-                                                style={
-                                                    'float': 'right',
-                                                    'paddingRight': '4px',
-                                                    'paddingTop': '15px'
-                                                }
-                                            )
-                                        ]
-                                    )
-                                ),
-                            ],
-                            direction='vertical',
-                            style={
-                                'width': '100%'
+                    fac.AntdBreadcrumb(
+                        items=[
+                            {
+                                'title': '组件介绍'
+                            },
+                            {
+                                'title': '反馈'
+                            },
+                            {
+                                'title': '自定义骨骼屏'
+                            },
+                            {
+                                'title': 'AntdCustomSkeleton 自定义骨骼屏'
                             }
-                        ),
+                        ]
+                    ),
 
-                        fac.AntdDivider(
-                            '基础使用',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
+                    fac.AntdDivider(isDashed=True),
 
-                        fac.AntdCollapse(
-                            fmc.FefferySyntaxHighlighter(
-                                showCopyButton=True,
-                                showLineNumbers=True,
-                                language='python',
-                                codeTheme='coy-without-shadows',
-                                codeString='''
+                    fac.AntdParagraph(
+                        [
+                            fac.AntdText('　　用于自由设计骨骼屏加载中内容。')
+                        ]
+                    ),
+
+                    html.Div(
+                        [
+                            fac.AntdSpace(
+                                [
+                                    fac.AntdButton(
+                                        '触发2秒自定义骨骼屏动画',
+                                        id='skeleton-custom-demo-input',
+                                        type='primary'
+                                    ),
+
+                                    fac.AntdCustomSkeleton(
+                                        id='custom-skeleton-demo',
+                                        skeletonContent=html.Div(
+                                            [
+                                                fac.AntdRow(
+                                                    [
+                                                        fac.AntdCol(
+                                                            fac.AntdSkeletonButton(
+                                                                block=True,
+                                                                active=True
+                                                            ),
+                                                            span=6,
+                                                            style={
+                                                                'padding': '4px'
+                                                            }
+                                                        )
+                                                    ] * 16
+                                                ),
+                                                fac.AntdSpace(
+                                                    [
+                                                        html.Div(
+                                                            fac.AntdSkeletonButton(
+                                                                active=True,
+                                                                size='small',
+                                                                block=True
+                                                            ),
+                                                            style={
+                                                                'width': '80px'
+                                                            }
+                                                        ),
+                                                        html.Div(
+                                                            fac.AntdSkeletonButton(
+                                                                active=True,
+                                                                size='small',
+                                                                block=True
+                                                            ),
+                                                            style={
+                                                                'width': '60px'
+                                                            }
+                                                        )
+                                                    ],
+                                                    style={
+                                                        'float': 'right',
+                                                        'paddingRight': '4px',
+                                                        'paddingTop': '15px'
+                                                    }
+                                                )
+                                            ]
+                                        )
+                                    ),
+                                ],
+                                direction='vertical',
+                                style={
+                                    'width': '100%'
+                                }
+                            ),
+
+                            fac.AntdDivider(
+                                '基础使用',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
 fac.AntdSpace(
     [
         fac.AntdButton(
@@ -234,46 +237,47 @@ def skeleton_custom_callback_demo(nClicks):
         ]
     )
 '''
-                            ),
-                            title='点击查看代码',
-                            isOpen=False,
-                            ghost=True
-                        )
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='基础使用',
-                    className='div-highlight'
-                ),
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='基础使用',
+                        className='div-highlight'
+                    ),
 
-                html.Div(style={'height': '100px'})
-            ],
-            style={
-                'flex': 'auto',
-                'padding': '25px'
-            }
-        ),
-        html.Div(
-            fac.AntdAnchor(
-                linkDict=[
-                    {'title': '基础使用', 'href': '#基础使用'},
+                    html.Div(style={'height': '100px'})
                 ],
-                offsetTop=0
+                style={
+                    'flex': 'auto',
+                    'padding': '25px'
+                }
             ),
-            style={
-                'flex': 'none',
-                'padding': '25px'
-            }
-        ),
-        # 侧边参数栏
-        render_side_props_layout(
-            component_name='AntdCustomSkeleton'
-        )
-    ],
-    style={
-        'display': 'flex'
-    }
-)
+            html.Div(
+                fac.AntdAnchor(
+                    linkDict=[
+                        {'title': '基础使用', 'href': '#基础使用'},
+                    ],
+                    offsetTop=0
+                ),
+                style={
+                    'flex': 'none',
+                    'padding': '25px'
+                }
+            ),
+            # 侧边参数栏
+            render_side_props_layout(
+                component_name='AntdCustomSkeleton',
+                language=language
+            )
+        ],
+        style={
+            'display': 'flex'
+        }
+    )

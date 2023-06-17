@@ -34,11 +34,11 @@ app.layout = fuc.FefferyTopProgress(
             # 注入url监听
             dcc.Location(id='url'),
 
-            # 注入侧边菜单栏自动滚动至选中项动作挂载点
-            html.Div(id='side-menu-scroll-to-current-key'),
-
-            # 注入基于url中hash信息的页面锚点滚动效果
-            html.Div(id='page-anchor-scroll-to-while-page-initial'),
+            # 全局页面重载动作
+            fuc.FefferyReload(
+                id='global-reload',
+                delay=300
+            ),
 
             # 注入侧边参数说明栏展开像素宽度记忆
             dcc.Store(
@@ -57,6 +57,12 @@ app.layout = fuc.FefferyTopProgress(
                     'zIndex': 99999
                 }
             ),
+
+            # 注入侧边菜单栏自动滚动至选中项动作挂载点
+            html.Div(id='side-menu-scroll-to-current-key'),
+
+            # 注入基于url中hash信息的页面锚点滚动效果
+            html.Div(id='page-anchor-scroll-to-while-page-initial'),
 
             # 注入快捷添加好友悬浮卡片
             html.Div(
@@ -203,7 +209,7 @@ app.layout = fuc.FefferyTopProgress(
                                     }
                                 ),
                                 fac.AntdText(
-                                    '唤出搜索面板',
+                                    id='ctrl+k-description',
                                     style={
                                         'color': '#8c8c8c'
                                     }
@@ -219,6 +225,25 @@ app.layout = fuc.FefferyTopProgress(
                     fac.AntdCol(
                         html.Div(
                             [
+                                fac.AntdSegmented(
+                                    id='global-language',
+                                    options=[
+                                        {
+                                            'label': '中文',
+                                            'value': '中文'
+                                        },
+                                        {
+                                            'label': 'English',
+                                            'value': 'English'
+                                        }
+                                    ],
+                                    defaultValue='中文',
+                                    persistence=True,
+                                    style={
+                                        'marginRight': 25
+                                    }
+                                ),
+
                                 html.A(
                                     fac.AntdImage(
                                         id='github-entry',
@@ -227,7 +252,7 @@ app.layout = fuc.FefferyTopProgress(
                                         preview=False,
                                         fallback=None,
                                         style={
-                                            'transform': 'translateY(0px) scale(1.25)'
+                                            'transform': 'translateY(-2px) scale(1.25)'
                                         }
                                     ),
                                     href='https://github.com/CNFeffery/feffery-antd-components',
@@ -239,6 +264,7 @@ app.layout = fuc.FefferyTopProgress(
 
                                 html.A(
                                     '皖ICP备2021012734号-1',
+                                    id='icp-info',
                                     href='https://beian.miit.gov.cn/',
                                     target='_blank',
                                     style={
@@ -406,52 +432,53 @@ app.layout = fuc.FefferyTopProgress(
 @app.callback(
     [Output('docs-content', 'children'),
      Output('docs-content-spin-center', 'key')],
-    Input('url', 'pathname')
+    Input('url', 'pathname'),
+    State('global-language', 'value')
 )
-def render_docs_content(pathname):
+def render_docs_content(pathname, global_language):
     '''
     路由回调
     '''
 
     if pathname == '/what-is-fac' or pathname == '/':
         return [
-            views.what_is_fac.docs_content,
+            views.what_is_fac.docs_content(language=global_language),
             str(uuid.uuid4())
         ]
 
     elif pathname == '/getting-started':
         return [
-            views.getting_started.docs_content,
+            views.getting_started.docs_content(language=global_language),
             str(uuid.uuid4())
         ]
 
     elif pathname == '/advanced-classname':
         return [
-            views.advanced_classname.docs_content,
+            views.advanced_classname.docs_content(language=global_language),
             str(uuid.uuid4())
         ]
 
     elif pathname == '/popup-container':
         return [
-            views.popup_container.docs_content,
+            views.popup_container.docs_content(language=global_language),
             str(uuid.uuid4())
         ]
 
     elif pathname == '/internationalization':
         return [
-            views.internationalization.docs_content,
+            views.internationalization.docs_content(language=global_language),
             str(uuid.uuid4())
         ]
 
     elif pathname == '/prop-persistence':
         return [
-            views.prop_persistence.docs_content,
+            views.prop_persistence.docs_content(language=global_language),
             str(uuid.uuid4())
         ]
 
     elif pathname == '/use-key-to-refresh':
         return [
-            views.use_key_to_refresh.docs_content,
+            views.use_key_to_refresh.docs_content(language=global_language),
             str(uuid.uuid4())
         ]
 
@@ -479,35 +506,36 @@ def render_docs_content(pathname):
             if pathname == '/AntdTable-basic':
 
                 return [
-                    table_basic.docs_content,
+                    table_basic.docs_content(language=global_language),
                     str(uuid.uuid4())
                 ]
 
             elif pathname == '/AntdTable-advanced':
 
                 return [
-                    table_advanced.docs_content,
+                    table_advanced.docs_content(language=global_language),
                     str(uuid.uuid4())
                 ]
 
             elif pathname == '/AntdTable-server-side-mode':
 
                 return [
-                    table_server_side_mode.docs_content,
+                    table_server_side_mode.docs_content(
+                        language=global_language),
                     str(uuid.uuid4())
                 ]
 
             elif pathname == '/AntdTable-rerender':
 
                 return [
-                    table_rerender.docs_content,
+                    table_rerender.docs_content(language=global_language),
                     str(uuid.uuid4())
                 ]
 
         try:
-
             return [
-                getattr(views, pathname[1:]).docs_content,
+                getattr(views, pathname[1:]).docs_content(
+                    language=global_language),
                 str(uuid.uuid4())
             ]
 
@@ -655,6 +683,20 @@ app.clientside_callback(
     [Input('side-props-width-plus', 'nClicks'),
      Input('side-props-width-minus', 'nClicks')],
     State('side-props-width', 'data')
+)
+
+
+app.clientside_callback(
+    '''(value) => true''',
+    Output('global-reload', 'reload'),
+    Input('global-language', 'value'),
+    prevent_initial_call=True
+)
+
+app.clientside_callback(
+    '''(value) => value === "中文" ? "唤出搜索面板" : "To invoke the search panel"''',
+    Output('ctrl+k-description', 'children'),
+    Input('global-language', 'value')
 )
 
 if __name__ == '__main__':

@@ -8,82 +8,85 @@ from callbacks.table_server_side_mode_c import (
 )
 from .side_props import render_side_props_layout
 
-docs_content = html.Div(
-    [
-        html.Div(
-            [
-                fac.AntdBackTop(
-                    duration=0.3
-                ),
 
-                fac.AntdBreadcrumb(
-                    items=[
-                        {
-                            'title': '组件介绍'
-                        },
-                        {
-                            'title': '数据展示'
-                        },
-                        {
-                            'title': 'AntdTable'
-                        },
-                        {
-                            'title': '服务端数据加载模式'
+def docs_content(language: str = '中文'):
+
+    return html.Div(
+        [
+            html.Div(
+                [
+                    fac.AntdBackTop(
+                        duration=0.3
+                    ),
+
+                    fac.AntdBreadcrumb(
+                        items=[
+                            {
+                                'title': '组件介绍'
+                            },
+                            {
+                                'title': '数据展示'
+                            },
+                            {
+                                'title': 'AntdTable'
+                            },
+                            {
+                                'title': '服务端数据加载模式'
+                            }
+                        ]
+                    ),
+
+                    fac.AntdDivider(isDashed=True),
+
+                    fac.AntdParagraph(
+                        [
+                            '本页文档展示了AntdTable组件基于服务端数据加载模式，对大量数据的展示需求进行性能优化，本质上是在设置参数',
+                            fac.AntdText(
+                                'mode="server-side"',
+                                code=True
+                            ),
+                            '后，通过监听AntdTable中翻页、排序、筛选等常见交互行为对应的监听参数变化，进而通过回调函数传递到后端进行对应数据帧的生成，并传回AntdTable中进行展示，',
+                            '相当于任意时刻下，表格中实际加载的数据只有用户所看到的当页数据'
+                        ],
+                        style={
+                            'textIndent': '2rem'
                         }
-                    ]
-                ),
+                    ),
 
-                fac.AntdDivider(isDashed=True),
+                    fac.AntdParagraph(
+                        [
+                            fac.AntdText(
+                                '注意',
+                                strong=True
+                            ),
+                            '，本页文档后续所有与',
+                            fac.AntdText(
+                                'demo_df',
+                                code=True
+                            ),
+                            '有关的示例中，',
+                            fac.AntdText(
+                                'demo_df',
+                                code=True
+                            ),
+                            '均为同一个',
+                            fac.AntdText(
+                                'pandas',
+                                strong=True
+                            ),
+                            '数据框，由下列代码生成：'
+                        ],
+                        style={
+                            'textIndent': '2rem'
+                        }
+                    ),
 
-                fac.AntdParagraph(
-                    [
-                        '本页文档展示了AntdTable组件基于服务端数据加载模式，对大量数据的展示需求进行性能优化，本质上是在设置参数',
-                        fac.AntdText(
-                            'mode="server-side"',
-                            code=True
-                        ),
-                        '后，通过监听AntdTable中翻页、排序、筛选等常见交互行为对应的监听参数变化，进而通过回调函数传递到后端进行对应数据帧的生成，并传回AntdTable中进行展示，',
-                        '相当于任意时刻下，表格中实际加载的数据只有用户所看到的当页数据'
-                    ],
-                    style={
-                        'textIndent': '2rem'
-                    }
-                ),
-
-                fac.AntdParagraph(
-                    [
-                        fac.AntdText(
-                            '注意',
-                            strong=True
-                        ),
-                        '，本页文档后续所有与',
-                        fac.AntdText(
-                            'demo_df',
-                            code=True
-                        ),
-                        '有关的示例中，',
-                        fac.AntdText(
-                            'demo_df',
-                            code=True
-                        ),
-                        '均为同一个',
-                        fac.AntdText(
-                            'pandas',
-                            strong=True
-                        ),
-                        '数据框，由下列代码生成：'
-                    ],
-                    style={
-                        'textIndent': '2rem'
-                    }
-                ),
-
-                fmc.FefferySyntaxHighlighter(
-                    showCopyButton=True,
-                    showLineNumbers=True,
-                    language='python',
-                    codeTheme='coy-without-shadows',
-                    codeString='''
+                    fmc.FefferySyntaxHighlighter(
+                        showCopyButton=True,
+                        showLineNumbers=True,
+                        language='python',
+                        codeTheme='coy-without-shadows',
+                        codeString='''
 import pandas as pd
 
 # 生成演示用数据框
@@ -116,43 +119,43 @@ demo_df = (
     .sample(frac=1, replace=False)
 )
 '''
-                ),
+                    ),
 
-                fac.AntdParagraph(
-                    [
-                        '本页文档后续所有与',
-                        fac.AntdText(
-                            'DemoTable',
-                            code=True
-                        ),
-                        '有关的示例中，',
-                        fac.AntdText(
-                            'DemoTable',
-                            code=True
-                        ),
-                        '均为同一个基于',
-                        fac.AntdText(
-                            'peewee',
-                            strong=True
-                        ),
-                        '定义的',
-                        fac.AntdText(
-                            'ORM',
-                            strong=True
-                        ),
-                        '模型类，由下列代码定义：'
-                    ],
-                    style={
-                        'textIndent': '2rem'
-                    }
-                ),
+                    fac.AntdParagraph(
+                        [
+                            '本页文档后续所有与',
+                            fac.AntdText(
+                                'DemoTable',
+                                code=True
+                            ),
+                            '有关的示例中，',
+                            fac.AntdText(
+                                'DemoTable',
+                                code=True
+                            ),
+                            '均为同一个基于',
+                            fac.AntdText(
+                                'peewee',
+                                strong=True
+                            ),
+                            '定义的',
+                            fac.AntdText(
+                                'ORM',
+                                strong=True
+                            ),
+                            '模型类，由下列代码定义：'
+                        ],
+                        style={
+                            'textIndent': '2rem'
+                        }
+                    ),
 
-                fmc.FefferySyntaxHighlighter(
-                    showCopyButton=True,
-                    showLineNumbers=True,
-                    language='python',
-                    codeTheme='coy-without-shadows',
-                    codeString='''
+                    fmc.FefferySyntaxHighlighter(
+                        showCopyButton=True,
+                        showLineNumbers=True,
+                        language='python',
+                        codeTheme='coy-without-shadows',
+                        codeString='''
 from peewee import (
     SqliteDatabase,
     CharField,
@@ -205,57 +208,57 @@ with db.atomic():
                 .execute()
             )
 '''
-                ),
+                    ),
 
-                fac.AntdDivider(isDashed=True),
+                    fac.AntdDivider(isDashed=True),
 
-                html.Div(
-                    id='基于pandas的远程数据加载示例'
-                ),
+                    html.Div(
+                        id='基于pandas的远程数据加载示例'
+                    ),
 
-                html.Div(
-                    [
-                        fac.AntdSpin(
-                            fac.AntdTable(
-                                id='table-server-side-mode-pagination-demo-pandas',
-                                columns=[
-                                    {
-                                        'title': column,
-                                        'dataIndex': column,
-                                        'width': 'calc(100% / {})'.format(demo_df.shape[0])
+                    html.Div(
+                        [
+                            fac.AntdSpin(
+                                fac.AntdTable(
+                                    id='table-server-side-mode-pagination-demo-pandas',
+                                    columns=[
+                                        {
+                                            'title': column,
+                                            'dataIndex': column,
+                                            'width': 'calc(100% / {})'.format(demo_df.shape[0])
+                                        }
+                                        for column in demo_df.columns
+                                    ],
+                                    bordered=True,
+                                    # 关键参数
+                                    mode='server-side',
+                                    pagination={
+                                        'total': demo_df.shape[0],
+                                        'current': 1,
+                                        'pageSize': 5,
+                                        'showSizeChanger': True,
+                                        'pageSizeOptions': [5, 10],
+                                        'position': 'topCenter',
+                                        'showQuickJumper': True
                                     }
-                                    for column in demo_df.columns
-                                ],
-                                bordered=True,
-                                # 关键参数
-                                mode='server-side',
-                                pagination={
-                                    'total': demo_df.shape[0],
-                                    'current': 1,
-                                    'pageSize': 5,
-                                    'showSizeChanger': True,
-                                    'pageSizeOptions': [5, 10],
-                                    'position': 'topCenter',
-                                    'showQuickJumper': True
-                                }
+                                ),
+                                text='数据加载中',
+                                size='small'
                             ),
-                            text='数据加载中',
-                            size='small'
-                        ),
 
-                        fac.AntdDivider(
-                            '翻页驱动（pandas示例）',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
+                            fac.AntdDivider(
+                                '翻页驱动（pandas示例）',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
 
-                        fac.AntdCollapse(
-                            fmc.FefferySyntaxHighlighter(
-                                showCopyButton=True,
-                                showLineNumbers=True,
-                                language='python',
-                                codeTheme='coy-without-shadows',
-                                codeString='''
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
 fac.AntdSpin(
     fac.AntdTable(
         id='table-server-side-mode-pagination-demo-pandas',
@@ -304,67 +307,67 @@ def table_server_side_mode_pagination_demo_pandas(pagination):
 
     return dash.no_update
 '''
-                            ),
-                            title='点击查看代码',
-                            isOpen=False,
-                            ghost=True
-                        )
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='翻页驱动（pandas示例）',
-                    className='div-highlight'
-                ),
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='翻页驱动（pandas示例）',
+                        className='div-highlight'
+                    ),
 
-                html.Div(
-                    [
-                        fac.AntdSpin(
-                            fac.AntdTable(
-                                id='table-server-side-mode-pagination+sort-demo-pandas',
-                                columns=[
-                                    {
-                                        'title': column,
-                                        'dataIndex': column,
-                                        'width': 'calc(100% / {})'.format(demo_df.shape[0])
+                    html.Div(
+                        [
+                            fac.AntdSpin(
+                                fac.AntdTable(
+                                    id='table-server-side-mode-pagination+sort-demo-pandas',
+                                    columns=[
+                                        {
+                                            'title': column,
+                                            'dataIndex': column,
+                                            'width': 'calc(100% / {})'.format(demo_df.shape[0])
+                                        }
+                                        for column in demo_df.columns
+                                    ],
+                                    bordered=True,
+                                    # 关键参数
+                                    mode='server-side',
+                                    pagination={
+                                        'total': demo_df.shape[0],
+                                        'current': 1,
+                                        'pageSize': 5,
+                                        'showSizeChanger': True,
+                                        'pageSizeOptions': [5, 10],
+                                        'position': 'topCenter',
+                                        'showQuickJumper': True
+                                    },
+                                    sortOptions={
+                                        'sortDataIndexes': demo_df.columns
                                     }
-                                    for column in demo_df.columns
-                                ],
-                                bordered=True,
-                                # 关键参数
-                                mode='server-side',
-                                pagination={
-                                    'total': demo_df.shape[0],
-                                    'current': 1,
-                                    'pageSize': 5,
-                                    'showSizeChanger': True,
-                                    'pageSizeOptions': [5, 10],
-                                    'position': 'topCenter',
-                                    'showQuickJumper': True
-                                },
-                                sortOptions={
-                                    'sortDataIndexes': demo_df.columns
-                                }
+                                ),
+                                text='数据加载中',
+                                size='small'
                             ),
-                            text='数据加载中',
-                            size='small'
-                        ),
 
-                        fac.AntdDivider(
-                            '翻页+单字段排序驱动（pandas示例）',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
+                            fac.AntdDivider(
+                                '翻页+单字段排序驱动（pandas示例）',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
 
-                        fac.AntdCollapse(
-                            fmc.FefferySyntaxHighlighter(
-                                showCopyButton=True,
-                                showLineNumbers=True,
-                                language='python',
-                                codeTheme='coy-without-shadows',
-                                codeString='''
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
 fac.AntdSpin(
     fac.AntdTable(
         id='table-server-side-mode-pagination+sort-demo-pandas',
@@ -436,68 +439,68 @@ def table_server_side_mode_pagination_filter_demo_pandas(pagination, sorter):
 
     return dash.no_update
 '''
-                            ),
-                            title='点击查看代码',
-                            isOpen=False,
-                            ghost=True
-                        )
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='翻页+单字段排序驱动（pandas示例）',
-                    className='div-highlight'
-                ),
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='翻页+单字段排序驱动（pandas示例）',
+                        className='div-highlight'
+                    ),
 
-                html.Div(
-                    [
-                        fac.AntdSpin(
-                            fac.AntdTable(
-                                id='table-server-side-mode-pagination+multi-sort-demo-pandas',
-                                columns=[
-                                    {
-                                        'title': column,
-                                        'dataIndex': column,
-                                        'width': 'calc(100% / {})'.format(demo_df.shape[0])
+                    html.Div(
+                        [
+                            fac.AntdSpin(
+                                fac.AntdTable(
+                                    id='table-server-side-mode-pagination+multi-sort-demo-pandas',
+                                    columns=[
+                                        {
+                                            'title': column,
+                                            'dataIndex': column,
+                                            'width': 'calc(100% / {})'.format(demo_df.shape[0])
+                                        }
+                                        for column in demo_df.columns
+                                    ],
+                                    bordered=True,
+                                    # 关键参数
+                                    mode='server-side',
+                                    pagination={
+                                        'total': demo_df.shape[0],
+                                        'current': 1,
+                                        'pageSize': 5,
+                                        'showSizeChanger': True,
+                                        'pageSizeOptions': [5, 10],
+                                        'position': 'topCenter',
+                                        'showQuickJumper': True
+                                    },
+                                    sortOptions={
+                                        'sortDataIndexes': demo_df.columns,
+                                        'multiple': 'auto'
                                     }
-                                    for column in demo_df.columns
-                                ],
-                                bordered=True,
-                                # 关键参数
-                                mode='server-side',
-                                pagination={
-                                    'total': demo_df.shape[0],
-                                    'current': 1,
-                                    'pageSize': 5,
-                                    'showSizeChanger': True,
-                                    'pageSizeOptions': [5, 10],
-                                    'position': 'topCenter',
-                                    'showQuickJumper': True
-                                },
-                                sortOptions={
-                                    'sortDataIndexes': demo_df.columns,
-                                    'multiple': 'auto'
-                                }
+                                ),
+                                text='数据加载中',
+                                size='small'
                             ),
-                            text='数据加载中',
-                            size='small'
-                        ),
 
-                        fac.AntdDivider(
-                            '翻页+组合排序驱动（pandas示例）',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
+                            fac.AntdDivider(
+                                '翻页+组合排序驱动（pandas示例）',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
 
-                        fac.AntdCollapse(
-                            fmc.FefferySyntaxHighlighter(
-                                showCopyButton=True,
-                                showLineNumbers=True,
-                                language='python',
-                                codeTheme='coy-without-shadows',
-                                codeString='''
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
 fac.AntdSpin(
     fac.AntdTable(
         id='table-server-side-mode-pagination+multi-sort-demo-pandas',
@@ -574,74 +577,74 @@ def table_server_side_mode_pagination_multi_sort_demo_pandas(pagination, sorter)
 
     return dash.no_update
 '''
-                            ),
-                            title='点击查看代码',
-                            isOpen=False,
-                            ghost=True
-                        )
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='翻页+组合排序驱动（pandas示例）',
-                    className='div-highlight'
-                ),
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='翻页+组合排序驱动（pandas示例）',
+                        className='div-highlight'
+                    ),
 
-                html.Div(
-                    [
-                        fac.AntdSpin(
-                            fac.AntdTable(
-                                id='table-server-side-mode-pagination+filter-demo-pandas',
-                                columns=[
-                                    {
-                                        'title': column,
-                                        'dataIndex': column,
-                                        'width': 'calc(100% / {})'.format(demo_df.shape[0])
-                                    }
-                                    for column in demo_df.columns
-                                ],
-                                bordered=True,
-                                # 关键参数
-                                mode='server-side',
-                                pagination={
-                                    'total': demo_df.shape[0],
-                                    'current': 1,
-                                    'pageSize': 5,
-                                    'showSizeChanger': True,
-                                    'pageSizeOptions': [5, 10],
-                                    'position': 'topCenter',
-                                    'showQuickJumper': True
-                                },
-                                filterOptions={
-                                    '字段1': {
-                                        'filterMode': 'keyword'
+                    html.Div(
+                        [
+                            fac.AntdSpin(
+                                fac.AntdTable(
+                                    id='table-server-side-mode-pagination+filter-demo-pandas',
+                                    columns=[
+                                        {
+                                            'title': column,
+                                            'dataIndex': column,
+                                            'width': 'calc(100% / {})'.format(demo_df.shape[0])
+                                        }
+                                        for column in demo_df.columns
+                                    ],
+                                    bordered=True,
+                                    # 关键参数
+                                    mode='server-side',
+                                    pagination={
+                                        'total': demo_df.shape[0],
+                                        'current': 1,
+                                        'pageSize': 5,
+                                        'showSizeChanger': True,
+                                        'pageSizeOptions': [5, 10],
+                                        'position': 'topCenter',
+                                        'showQuickJumper': True
                                     },
-                                    '字段2': {
-                                        'filterCustomItems': demo_df['字段2'].unique(),
-                                        'filterMultiple': True,
-                                        'filterSearch': True
+                                    filterOptions={
+                                        '字段1': {
+                                            'filterMode': 'keyword'
+                                        },
+                                        '字段2': {
+                                            'filterCustomItems': demo_df['字段2'].unique(),
+                                            'filterMultiple': True,
+                                            'filterSearch': True
+                                        }
                                     }
-                                }
+                                ),
+                                text='数据加载中',
+                                size='small'
                             ),
-                            text='数据加载中',
-                            size='small'
-                        ),
 
-                        fac.AntdDivider(
-                            '翻页+筛选驱动（pandas示例）',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
+                            fac.AntdDivider(
+                                '翻页+筛选驱动（pandas示例）',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
 
-                        fac.AntdCollapse(
-                            fmc.FefferySyntaxHighlighter(
-                                showCopyButton=True,
-                                showLineNumbers=True,
-                                language='python',
-                                codeTheme='coy-without-shadows',
-                                codeString='''
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
 fac.AntdSpin(
     fac.AntdTable(
         id='table-server-side-mode-pagination+filter-demo-pandas',
@@ -760,72 +763,72 @@ def table_server_side_mode_pagination_filter_demo_pandas(pagination,
 
     return dash.no_update
 '''
-                            ),
-                            title='点击查看代码',
-                            isOpen=False,
-                            ghost=True
-                        )
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='翻页+筛选驱动（pandas示例）',
-                    className='div-highlight'
-                ),
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='翻页+筛选驱动（pandas示例）',
+                        className='div-highlight'
+                    ),
 
-                html.Div(
-                    id='基于数据库的远程数据加载示例'
-                ),
+                    html.Div(
+                        id='基于数据库的远程数据加载示例'
+                    ),
 
-                html.Div(
-                    [
-                        fac.AntdSpin(
-                            fac.AntdTable(
-                                id='table-server-side-mode-pagination-demo-sql',
-                                columns=[
-                                    {
-                                        'title': column,
-                                        'dataIndex': column,
-                                        'width': 'calc(100% / {})'.format(len(DemoTable._meta.fields))
+                    html.Div(
+                        [
+                            fac.AntdSpin(
+                                fac.AntdTable(
+                                    id='table-server-side-mode-pagination-demo-sql',
+                                    columns=[
+                                        {
+                                            'title': column,
+                                            'dataIndex': column,
+                                            'width': 'calc(100% / {})'.format(len(DemoTable._meta.fields))
+                                        }
+                                        for column in DemoTable._meta.fields.keys()
+                                    ],
+                                    bordered=True,
+                                    # 关键参数
+                                    mode='server-side',
+                                    pagination={
+                                        'total': (
+                                            DemoTable
+                                            .select(fn.count(DemoTable.id))
+                                            .scalar()
+                                        ),
+                                        'current': 1,
+                                        'pageSize': 5,
+                                        'showSizeChanger': True,
+                                        'pageSizeOptions': [5, 10],
+                                        'position': 'topCenter',
+                                        'showQuickJumper': True
                                     }
-                                    for column in DemoTable._meta.fields.keys()
-                                ],
-                                bordered=True,
-                                # 关键参数
-                                mode='server-side',
-                                pagination={
-                                    'total': (
-                                        DemoTable
-                                        .select(fn.count(DemoTable.id))
-                                        .scalar()
-                                    ),
-                                    'current': 1,
-                                    'pageSize': 5,
-                                    'showSizeChanger': True,
-                                    'pageSizeOptions': [5, 10],
-                                    'position': 'topCenter',
-                                    'showQuickJumper': True
-                                }
+                                ),
+                                text='数据加载中',
+                                size='small'
                             ),
-                            text='数据加载中',
-                            size='small'
-                        ),
 
-                        fac.AntdDivider(
-                            '翻页驱动（数据库示例）',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
+                            fac.AntdDivider(
+                                '翻页驱动（数据库示例）',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
 
-                        fac.AntdCollapse(
-                            fmc.FefferySyntaxHighlighter(
-                                showCopyButton=True,
-                                showLineNumbers=True,
-                                language='python',
-                                codeTheme='coy-without-shadows',
-                                codeString='''
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
 fac.AntdSpin(
     fac.AntdTable(
         id='table-server-side-mode-pagination-demo-sql',
@@ -881,71 +884,71 @@ def table_server_side_mode_pagination_demo_sql(pagination):
 
     return dash.no_update
 '''
-                            ),
-                            title='点击查看代码',
-                            isOpen=False,
-                            ghost=True
-                        )
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='翻页驱动（数据库示例）',
-                    className='div-highlight'
-                ),
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='翻页驱动（数据库示例）',
+                        className='div-highlight'
+                    ),
 
-                html.Div(
-                    [
-                        fac.AntdSpin(
-                            fac.AntdTable(
-                                id='table-server-side-mode-pagination+sort-demo-sql',
-                                columns=[
-                                    {
-                                        'title': column,
-                                        'dataIndex': column,
-                                        'width': 'calc(100% / {})'.format(len(DemoTable._meta.fields))
+                    html.Div(
+                        [
+                            fac.AntdSpin(
+                                fac.AntdTable(
+                                    id='table-server-side-mode-pagination+sort-demo-sql',
+                                    columns=[
+                                        {
+                                            'title': column,
+                                            'dataIndex': column,
+                                            'width': 'calc(100% / {})'.format(len(DemoTable._meta.fields))
+                                        }
+                                        for column in DemoTable._meta.fields.keys()
+                                    ],
+                                    bordered=True,
+                                    # 关键参数
+                                    mode='server-side',
+                                    pagination={
+                                        'total': (
+                                            DemoTable
+                                            .select(fn.count(DemoTable.id))
+                                            .scalar()
+                                        ),
+                                        'current': 1,
+                                        'pageSize': 5,
+                                        'showSizeChanger': True,
+                                        'pageSizeOptions': [5, 10],
+                                        'position': 'topCenter',
+                                        'showQuickJumper': True
+                                    },
+                                    sortOptions={
+                                        'sortDataIndexes': list(DemoTable._meta.fields.keys())
                                     }
-                                    for column in DemoTable._meta.fields.keys()
-                                ],
-                                bordered=True,
-                                # 关键参数
-                                mode='server-side',
-                                pagination={
-                                    'total': (
-                                        DemoTable
-                                        .select(fn.count(DemoTable.id))
-                                        .scalar()
-                                    ),
-                                    'current': 1,
-                                    'pageSize': 5,
-                                    'showSizeChanger': True,
-                                    'pageSizeOptions': [5, 10],
-                                    'position': 'topCenter',
-                                    'showQuickJumper': True
-                                },
-                                sortOptions={
-                                    'sortDataIndexes': list(DemoTable._meta.fields.keys())
-                                }
+                                ),
+                                text='数据加载中',
+                                size='small'
                             ),
-                            text='数据加载中',
-                            size='small'
-                        ),
 
-                        fac.AntdDivider(
-                            '翻页+单字段排序驱动（数据库示例）',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
+                            fac.AntdDivider(
+                                '翻页+单字段排序驱动（数据库示例）',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
 
-                        fac.AntdCollapse(
-                            fmc.FefferySyntaxHighlighter(
-                                showCopyButton=True,
-                                showLineNumbers=True,
-                                language='python',
-                                codeTheme='coy-without-shadows',
-                                codeString='''
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
 fac.AntdSpin(
     fac.AntdTable(
         id='table-server-side-mode-pagination+sort-demo-sql',
@@ -1025,72 +1028,72 @@ def table_server_side_mode_pagination_sort_demo_sql(pagination, sorter):
 
     return dash.no_update
 '''
-                            ),
-                            title='点击查看代码',
-                            isOpen=False,
-                            ghost=True
-                        )
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='翻页+单字段排序驱动（数据库示例）',
-                    className='div-highlight'
-                ),
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='翻页+单字段排序驱动（数据库示例）',
+                        className='div-highlight'
+                    ),
 
-                html.Div(
-                    [
-                        fac.AntdSpin(
-                            fac.AntdTable(
-                                id='table-server-side-mode-pagination+multi-sort-demo-sql',
-                                columns=[
-                                    {
-                                        'title': column,
-                                        'dataIndex': column,
-                                        'width': 'calc(100% / {})'.format(len(DemoTable._meta.fields))
+                    html.Div(
+                        [
+                            fac.AntdSpin(
+                                fac.AntdTable(
+                                    id='table-server-side-mode-pagination+multi-sort-demo-sql',
+                                    columns=[
+                                        {
+                                            'title': column,
+                                            'dataIndex': column,
+                                            'width': 'calc(100% / {})'.format(len(DemoTable._meta.fields))
+                                        }
+                                        for column in DemoTable._meta.fields.keys()
+                                    ],
+                                    bordered=True,
+                                    # 关键参数
+                                    mode='server-side',
+                                    pagination={
+                                        'total': (
+                                            DemoTable
+                                            .select(fn.count(DemoTable.id))
+                                            .scalar()
+                                        ),
+                                        'current': 1,
+                                        'pageSize': 5,
+                                        'showSizeChanger': True,
+                                        'pageSizeOptions': [5, 10],
+                                        'position': 'topCenter',
+                                        'showQuickJumper': True
+                                    },
+                                    sortOptions={
+                                        'sortDataIndexes': list(DemoTable._meta.fields.keys()),
+                                        'multiple': 'auto'
                                     }
-                                    for column in DemoTable._meta.fields.keys()
-                                ],
-                                bordered=True,
-                                # 关键参数
-                                mode='server-side',
-                                pagination={
-                                    'total': (
-                                        DemoTable
-                                        .select(fn.count(DemoTable.id))
-                                        .scalar()
-                                    ),
-                                    'current': 1,
-                                    'pageSize': 5,
-                                    'showSizeChanger': True,
-                                    'pageSizeOptions': [5, 10],
-                                    'position': 'topCenter',
-                                    'showQuickJumper': True
-                                },
-                                sortOptions={
-                                    'sortDataIndexes': list(DemoTable._meta.fields.keys()),
-                                    'multiple': 'auto'
-                                }
+                                ),
+                                text='数据加载中',
+                                size='small'
                             ),
-                            text='数据加载中',
-                            size='small'
-                        ),
 
-                        fac.AntdDivider(
-                            '翻页+组合排序驱动（数据库示例）',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
+                            fac.AntdDivider(
+                                '翻页+组合排序驱动（数据库示例）',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
 
-                        fac.AntdCollapse(
-                            fmc.FefferySyntaxHighlighter(
-                                showCopyButton=True,
-                                showLineNumbers=True,
-                                language='python',
-                                codeTheme='coy-without-shadows',
-                                codeString='''
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
 fac.AntdSpin(
     fac.AntdTable(
         id='table-server-side-mode-pagination+multi-sort-demo-sql',
@@ -1176,85 +1179,85 @@ def table_server_side_mode_pagination_multi_sort_demo_sql(pagination, sorter):
 
     return dash.no_update
 '''
-                            ),
-                            title='点击查看代码',
-                            isOpen=False,
-                            ghost=True
-                        )
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='翻页+组合排序驱动（数据库示例）',
-                    className='div-highlight'
-                ),
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='翻页+组合排序驱动（数据库示例）',
+                        className='div-highlight'
+                    ),
 
-                html.Div(
-                    [
-                        fac.AntdSpin(
-                            fac.AntdTable(
-                                id='table-server-side-mode-pagination+filter-demo-sql',
-                                columns=[
-                                    {
-                                        'title': column,
-                                        'dataIndex': column,
-                                        'width': 'calc(100% / {})'.format(len(DemoTable._meta.fields))
-                                    }
-                                    for column in DemoTable._meta.fields.keys()
-                                ],
-                                bordered=True,
-                                # 关键参数
-                                mode='server-side',
-                                pagination={
-                                    'total': (
-                                        DemoTable
-                                        .select(fn.count(DemoTable.id))
-                                        .scalar()
-                                    ),
-                                    'current': 1,
-                                    'pageSize': 5,
-                                    'showSizeChanger': True,
-                                    'pageSizeOptions': [5, 10],
-                                    'position': 'topCenter',
-                                    'showQuickJumper': True
-                                },
-                                filterOptions={
-                                    '字段1': {
-                                        'filterMode': 'keyword'
+                    html.Div(
+                        [
+                            fac.AntdSpin(
+                                fac.AntdTable(
+                                    id='table-server-side-mode-pagination+filter-demo-sql',
+                                    columns=[
+                                        {
+                                            'title': column,
+                                            'dataIndex': column,
+                                            'width': 'calc(100% / {})'.format(len(DemoTable._meta.fields))
+                                        }
+                                        for column in DemoTable._meta.fields.keys()
+                                    ],
+                                    bordered=True,
+                                    # 关键参数
+                                    mode='server-side',
+                                    pagination={
+                                        'total': (
+                                            DemoTable
+                                            .select(fn.count(DemoTable.id))
+                                            .scalar()
+                                        ),
+                                        'current': 1,
+                                        'pageSize': 5,
+                                        'showSizeChanger': True,
+                                        'pageSizeOptions': [5, 10],
+                                        'position': 'topCenter',
+                                        'showQuickJumper': True
                                     },
-                                    '字段2': {
-                                        'filterCustomItems': [
-                                            item.字段2
-                                            for item in (
-                                                DemoTable
-                                                .select(DemoTable.字段2)
-                                                .distinct()
-                                            )
-                                        ],
-                                        'filterMultiple': True,
-                                        'filterSearch': True
+                                    filterOptions={
+                                        '字段1': {
+                                            'filterMode': 'keyword'
+                                        },
+                                        '字段2': {
+                                            'filterCustomItems': [
+                                                item.字段2
+                                                for item in (
+                                                    DemoTable
+                                                    .select(DemoTable.字段2)
+                                                    .distinct()
+                                                )
+                                            ],
+                                            'filterMultiple': True,
+                                            'filterSearch': True
+                                        }
                                     }
-                                }
+                                ),
+                                text='数据加载中',
+                                size='small'
                             ),
-                            text='数据加载中',
-                            size='small'
-                        ),
 
-                        fac.AntdDivider(
-                            '翻页+筛选驱动（数据库示例）',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
+                            fac.AntdDivider(
+                                '翻页+筛选驱动（数据库示例）',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
 
-                        fac.AntdCollapse(
-                            fmc.FefferySyntaxHighlighter(
-                                showCopyButton=True,
-                                showLineNumbers=True,
-                                language='python',
-                                codeTheme='coy-without-shadows',
-                                codeString='''
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
 fac.AntdSpin(
     fac.AntdTable(
         id='table-server-side-mode-pagination+filter-demo-sql',
@@ -1394,83 +1397,85 @@ def table_server_side_mode_pagination_filter_demo_sql(pagination,
 
     return dash.no_update
 '''
-                            ),
-                            title='点击查看代码',
-                            isOpen=False,
-                            ghost=True
-                        )
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='翻页+筛选驱动（数据库示例）',
-                    className='div-highlight'
-                ),
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='翻页+筛选驱动（数据库示例）',
+                        className='div-highlight'
+                    ),
 
-                html.Div(style={'height': '100px'})
-            ],
-            style={
-                'flex': 'auto',
-                'padding': '25px'
-            }
-        ),
-        html.Div(
-            fac.AntdAnchor(
-                linkDict=[
-                    {
-                        'title': '基于pandas的远程数据加载示例',
-                        'href': '#基于pandas的远程数据加载示例',
-                        'children': [
-                            {'title': '翻页驱动（pandas示例）', 'href': '#翻页驱动（pandas示例）'},
-                            {
-                                'title': '翻页+单字段排序驱动（pandas示例）',
-                                'href': '#翻页+单字段排序驱动（pandas示例）'
-                            },
-                            {
-                                'title': '翻页+组合排序驱动（pandas示例）',
-                                'href': '#翻页+组合排序驱动（pandas示例）'
-                            },
-                            {
-                                'title': '翻页+筛选驱动（pandas示例）',
-                                'href': '#翻页+筛选驱动（pandas示例）'
-                            }
-                        ]
-                    },
-                    {
-                        'title': '基于数据库的远程数据加载示例',
-                        'href': '#基于数据库的远程数据加载示例',
-                        'children': [
-                            {'title': '翻页驱动（数据库示例）', 'href': '#翻页驱动（数据库示例）'},
-                            {
-                                'title': '翻页+单字段排序驱动（数据库示例）',
-                                'href': '#翻页+单字段排序驱动（数据库示例）'
-                            },
-                            {
-                                'title': '翻页+组合排序驱动（数据库示例）',
-                                'href': '#翻页+组合排序驱动（数据库示例）'
-                            },
-                            {
-                                'title': '翻页+筛选驱动（数据库示例）',
-                                'href': '#翻页+筛选驱动（数据库示例）'
-                            }
-                        ]
-                    }
+                    html.Div(style={'height': '100px'})
                 ],
-                offsetTop=0
+                style={
+                    'flex': 'auto',
+                    'padding': '25px'
+                }
             ),
-            style={
-                'flex': 'none',
-                'padding': '25px'
-            }
-        ),
-        # 侧边参数栏
-        render_side_props_layout(
-            component_name='AntdTable'
-        )
-    ],
-    style={
-        'display': 'flex'
-    }
-)
+            html.Div(
+                fac.AntdAnchor(
+                    linkDict=[
+                        {
+                            'title': '基于pandas的远程数据加载示例',
+                            'href': '#基于pandas的远程数据加载示例',
+                            'children': [
+                                {'title': '翻页驱动（pandas示例）',
+                                    'href': '#翻页驱动（pandas示例）'},
+                                {
+                                    'title': '翻页+单字段排序驱动（pandas示例）',
+                                    'href': '#翻页+单字段排序驱动（pandas示例）'
+                                },
+                                {
+                                    'title': '翻页+组合排序驱动（pandas示例）',
+                                    'href': '#翻页+组合排序驱动（pandas示例）'
+                                },
+                                {
+                                    'title': '翻页+筛选驱动（pandas示例）',
+                                    'href': '#翻页+筛选驱动（pandas示例）'
+                                }
+                            ]
+                        },
+                        {
+                            'title': '基于数据库的远程数据加载示例',
+                            'href': '#基于数据库的远程数据加载示例',
+                            'children': [
+                                {'title': '翻页驱动（数据库示例）', 'href': '#翻页驱动（数据库示例）'},
+                                {
+                                    'title': '翻页+单字段排序驱动（数据库示例）',
+                                    'href': '#翻页+单字段排序驱动（数据库示例）'
+                                },
+                                {
+                                    'title': '翻页+组合排序驱动（数据库示例）',
+                                    'href': '#翻页+组合排序驱动（数据库示例）'
+                                },
+                                {
+                                    'title': '翻页+筛选驱动（数据库示例）',
+                                    'href': '#翻页+筛选驱动（数据库示例）'
+                                }
+                            ]
+                        }
+                    ],
+                    offsetTop=0
+                ),
+                style={
+                    'flex': 'none',
+                    'padding': '25px'
+                }
+            ),
+            # 侧边参数栏
+            render_side_props_layout(
+                component_name='AntdTable',
+                language=language
+            )
+        ],
+        style={
+            'display': 'flex'
+        }
+    )

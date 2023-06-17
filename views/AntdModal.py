@@ -5,63 +5,66 @@ import feffery_markdown_components as fmc
 import callbacks.AntdModal
 from .side_props import render_side_props_layout
 
-docs_content = html.Div(
-    [
-        html.Div(
-            [
-                fac.AntdBackTop(
-                    duration=0.3
-                ),
 
-                fac.AntdBreadcrumb(
-                    items=[
-                        {
-                            'title': '组件介绍'
-                        },
-                        {
-                            'title': '反馈'
-                        },
-                        {
-                            'title': 'AntdModal 对话框'
-                        }
-                    ]
-                ),
+def docs_content(language: str = '中文'):
 
-                fac.AntdDivider(isDashed=True),
+    return html.Div(
+        [
+            html.Div(
+                [
+                    fac.AntdBackTop(
+                        duration=0.3
+                    ),
 
-                fac.AntdParagraph(
-                    [
-                        fac.AntdText('　　用于渲染弹出式对话框。')
-                    ]
-                ),
+                    fac.AntdBreadcrumb(
+                        items=[
+                            {
+                                'title': '组件介绍'
+                            },
+                            {
+                                'title': '反馈'
+                            },
+                            {
+                                'title': 'AntdModal 对话框'
+                            }
+                        ]
+                    ),
 
-                html.Div(
-                    [
-                        fac.AntdButton(
-                            '触发示例对话框',
-                            id='modal-basic-demo-open',
-                            type='primary'
-                        ),
+                    fac.AntdDivider(isDashed=True),
 
-                        fac.AntdModal(
-                            '示例内容',
-                            id='modal-basic-demo',
-                            title='对话框示例'
-                        ),
+                    fac.AntdParagraph(
+                        [
+                            fac.AntdText('　　用于渲染弹出式对话框。')
+                        ]
+                    ),
 
-                        fac.AntdDivider(
-                            '基础使用',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
+                    html.Div(
+                        [
+                            fac.AntdButton(
+                                '触发示例对话框',
+                                id='modal-basic-demo-open',
+                                type='primary'
+                            ),
 
-                        fac.AntdCollapse(
-                            fmc.FefferySyntaxHighlighter(
-                                showCopyButton=True,
-                                showLineNumbers=True,
-                                language='python',
-                                codeTheme='coy-without-shadows',
-                                codeString='''
+                            fac.AntdModal(
+                                '示例内容',
+                                id='modal-basic-demo',
+                                title='对话框示例'
+                            ),
+
+                            fac.AntdDivider(
+                                '基础使用',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
 fac.AntdButton(
     '触发示例对话框',
     id='modal-basic-demo-open',
@@ -85,49 +88,49 @@ def modal_basic_demo(nClicks):
 
     return True
 '''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='基础使用',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
+                            fac.AntdButton(
+                                '触发示例对话框',
+                                id='modal-footer-demo-open',
+                                type='primary'
                             ),
-                            title='点击查看代码',
-                            isOpen=False,
-                            ghost=True
-                        )
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='基础使用',
-                    className='div-highlight'
-                ),
 
-                html.Div(
-                    [
-                        fac.AntdButton(
-                            '触发示例对话框',
-                            id='modal-footer-demo-open',
-                            type='primary'
-                        ),
+                            fac.AntdModal(
+                                '示例内容',
+                                id='modal-footer-demo',
+                                title='对话框示例',
+                                renderFooter=True
+                            ),
 
-                        fac.AntdModal(
-                            '示例内容',
-                            id='modal-footer-demo',
-                            title='对话框示例',
-                            renderFooter=True
-                        ),
+                            fac.AntdDivider(
+                                '渲染底部操作区',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
 
-                        fac.AntdDivider(
-                            '渲染底部操作区',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
-
-                        fac.AntdCollapse(
-                            fmc.FefferySyntaxHighlighter(
-                                showCopyButton=True,
-                                showLineNumbers=True,
-                                language='python',
-                                codeTheme='coy-without-shadows',
-                                codeString='''
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
 fac.AntdButton(
     '触发示例对话框',
     id='modal-footer-demo-open',
@@ -152,54 +155,54 @@ def modal_footer_demo(nClicks):
 
     return True
 '''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='渲染底部操作区',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
+                            fac.AntdButton(
+                                '触发示例对话框',
+                                id='modal-custom-button-demo-open',
+                                type='primary'
                             ),
-                            title='点击查看代码',
-                            isOpen=False,
-                            ghost=True
-                        )
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='渲染底部操作区',
-                    className='div-highlight'
-                ),
 
-                html.Div(
-                    [
-                        fac.AntdButton(
-                            '触发示例对话框',
-                            id='modal-custom-button-demo-open',
-                            type='primary'
-                        ),
+                            fac.AntdModal(
+                                '示例内容',
+                                id='modal-custom-button-demo',
+                                title='对话框示例',
+                                renderFooter=True,
+                                okText='Ok',
+                                cancelText='Cancel',
+                                cancelButtonProps={
+                                    'danger': True
+                                }
+                            ),
 
-                        fac.AntdModal(
-                            '示例内容',
-                            id='modal-custom-button-demo',
-                            title='对话框示例',
-                            renderFooter=True,
-                            okText='Ok',
-                            cancelText='Cancel',
-                            cancelButtonProps={
-                                'danger': True
-                            }
-                        ),
+                            fac.AntdDivider(
+                                '自定义操作按钮',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
 
-                        fac.AntdDivider(
-                            '自定义操作按钮',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
-
-                        fac.AntdCollapse(
-                            fmc.FefferySyntaxHighlighter(
-                                showCopyButton=True,
-                                showLineNumbers=True,
-                                language='python',
-                                codeTheme='coy-without-shadows',
-                                codeString='''
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
 fac.AntdButton(
     '触发示例对话框',
     id='modal-custom-button-demo-open',
@@ -229,49 +232,49 @@ def modal_custom_button_demo(nClicks):
 
     return True
 '''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='自定义操作按钮',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
+                            fac.AntdButton(
+                                '触发示例对话框',
+                                id='modal-width-demo-open',
+                                type='primary'
                             ),
-                            title='点击查看代码',
-                            isOpen=False,
-                            ghost=True
-                        )
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='自定义操作按钮',
-                    className='div-highlight'
-                ),
 
-                html.Div(
-                    [
-                        fac.AntdButton(
-                            '触发示例对话框',
-                            id='modal-width-demo-open',
-                            type='primary'
-                        ),
+                            fac.AntdModal(
+                                '示例内容',
+                                id='modal-width-demo',
+                                title='对话框示例',
+                                width='75vw'
+                            ),
 
-                        fac.AntdModal(
-                            '示例内容',
-                            id='modal-width-demo',
-                            title='对话框示例',
-                            width='75vw'
-                        ),
+                            fac.AntdDivider(
+                                '自定义宽度',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
 
-                        fac.AntdDivider(
-                            '自定义宽度',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
-
-                        fac.AntdCollapse(
-                            fmc.FefferySyntaxHighlighter(
-                                showCopyButton=True,
-                                showLineNumbers=True,
-                                language='python',
-                                codeTheme='coy-without-shadows',
-                                codeString='''
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
 fac.AntdButton(
     '触发示例对话框',
     id='modal-width-demo-open',
@@ -302,49 +305,49 @@ def modal_width_demo(nClicks):
 
     return True
 '''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='自定义宽度',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
+                            fac.AntdButton(
+                                '触发示例对话框',
+                                id='modal-centered-demo-open',
+                                type='primary'
                             ),
-                            title='点击查看代码',
-                            isOpen=False,
-                            ghost=True
-                        )
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='自定义宽度',
-                    className='div-highlight'
-                ),
 
-                html.Div(
-                    [
-                        fac.AntdButton(
-                            '触发示例对话框',
-                            id='modal-centered-demo-open',
-                            type='primary'
-                        ),
+                            fac.AntdModal(
+                                '示例内容',
+                                id='modal-centered-demo',
+                                title='对话框示例',
+                                centered=True
+                            ),
 
-                        fac.AntdModal(
-                            '示例内容',
-                            id='modal-centered-demo',
-                            title='对话框示例',
-                            centered=True
-                        ),
+                            fac.AntdDivider(
+                                '垂直居中',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
 
-                        fac.AntdDivider(
-                            '垂直居中',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
-
-                        fac.AntdCollapse(
-                            fmc.FefferySyntaxHighlighter(
-                                showCopyButton=True,
-                                showLineNumbers=True,
-                                language='python',
-                                codeTheme='coy-without-shadows',
-                                codeString='''
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
 fac.AntdButton(
     '触发示例对话框',
     id='modal-centered-demo-open',
@@ -369,52 +372,52 @@ def modal_centered_demo(nClicks):
 
     return True
 '''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='垂直居中',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
+                            fac.AntdButton(
+                                '触发示例对话框',
+                                id='modal-loading-demo-open',
+                                type='primary'
                             ),
-                            title='点击查看代码',
-                            isOpen=False,
-                            ghost=True
-                        )
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='垂直居中',
-                    className='div-highlight'
-                ),
 
-                html.Div(
-                    [
-                        fac.AntdButton(
-                            '触发示例对话框',
-                            id='modal-loading-demo-open',
-                            type='primary'
-                        ),
+                            fac.AntdModal(
+                                '示例内容',
+                                id='modal-loading-demo',
+                                title='对话框示例',
+                                confirmAutoSpin=True,
+                                loadingOkText='运算中',
+                                okClickClose=False,
+                                renderFooter=True
+                            ),
 
-                        fac.AntdModal(
-                            '示例内容',
-                            id='modal-loading-demo',
-                            title='对话框示例',
-                            confirmAutoSpin=True,
-                            loadingOkText='运算中',
-                            okClickClose=False,
-                            renderFooter=True
-                        ),
+                            fac.AntdDivider(
+                                '利用加载中状态',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
 
-                        fac.AntdDivider(
-                            '利用加载中状态',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
-
-                        fac.AntdCollapse(
-                            fmc.FefferySyntaxHighlighter(
-                                showCopyButton=True,
-                                showLineNumbers=True,
-                                language='python',
-                                codeTheme='coy-without-shadows',
-                                codeString='''
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
 fac.AntdButton(
     '触发示例对话框',
     id='modal-loading-demo-open',
@@ -458,53 +461,53 @@ def modal_loading_reset(okCounts):
 
     return False
 '''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='利用加载中状态',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
+                            fac.AntdButton(
+                                '触发示例对话框',
+                                id='modal-callback-demo-open',
+                                type='primary'
                             ),
-                            title='点击查看代码',
-                            isOpen=False,
-                            ghost=True
-                        )
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='利用加载中状态',
-                    className='div-highlight'
-                ),
 
-                html.Div(
-                    [
-                        fac.AntdButton(
-                            '触发示例对话框',
-                            id='modal-callback-demo-open',
-                            type='primary'
-                        ),
+                            fac.AntdModal(
+                                '示例内容',
+                                id='modal-callback-demo',
+                                title='对话框示例',
+                                renderFooter=True
+                            ),
 
-                        fac.AntdModal(
-                            '示例内容',
-                            id='modal-callback-demo',
-                            title='对话框示例',
-                            renderFooter=True
-                        ),
+                            html.Pre(
+                                id='modal-callback-demo-output'
+                            ),
 
-                        html.Pre(
-                            id='modal-callback-demo-output'
-                        ),
+                            fac.AntdDivider(
+                                '回调示例',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
 
-                        fac.AntdDivider(
-                            '回调示例',
-                            lineColor='#f0f0f0',
-                            innerTextOrientation='left'
-                        ),
-
-                        fac.AntdCollapse(
-                            fmc.FefferySyntaxHighlighter(
-                                showCopyButton=True,
-                                showLineNumbers=True,
-                                language='python',
-                                codeTheme='coy-without-shadows',
-                                codeString='''
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
 fac.AntdButton(
     '触发示例对话框',
     id='modal-callback-demo-open',
@@ -547,52 +550,53 @@ def handle_modal_callback_demo(okCounts, cancelCounts, closeCounts):
         ensure_ascii=False
     )
 '''
-                            ),
-                            title='点击查看代码',
-                            isOpen=False,
-                            ghost=True
-                        )
-                    ],
-                    style={
-                        'marginBottom': '40px',
-                        'padding': '10px 10px 20px 10px',
-                        'border': '1px solid #f0f0f0'
-                    },
-                    id='回调示例',
-                    className='div-highlight'
-                ),
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='回调示例',
+                        className='div-highlight'
+                    ),
 
-                html.Div(style={'height': '100px'})
-            ],
-            style={
-                'flex': 'auto',
-                'padding': '25px'
-            }
-        ),
-        html.Div(
-            fac.AntdAnchor(
-                linkDict=[
-                    {'title': '基础使用', 'href': '#基础使用'},
-                    {'title': '渲染底部操作区', 'href': '#渲染底部操作区'},
-                    {'title': '自定义操作按钮', 'href': '#自定义操作按钮'},
-                    {'title': '自定义宽度', 'href': '#自定义宽度'},
-                    {'title': '垂直居中', 'href': '#垂直居中'},
-                    {'title': '利用加载中状态', 'href': '#利用加载中状态'},
-                    {'title': '回调示例', 'href': '#回调示例'},
+                    html.Div(style={'height': '100px'})
                 ],
-                offsetTop=0
+                style={
+                    'flex': 'auto',
+                    'padding': '25px'
+                }
             ),
-            style={
-                'flex': 'none',
-                'padding': '25px'
-            }
-        ),
-        # 侧边参数栏
-        render_side_props_layout(
-            component_name='AntdModal'
-        )
-    ],
-    style={
-        'display': 'flex'
-    }
-)
+            html.Div(
+                fac.AntdAnchor(
+                    linkDict=[
+                        {'title': '基础使用', 'href': '#基础使用'},
+                        {'title': '渲染底部操作区', 'href': '#渲染底部操作区'},
+                        {'title': '自定义操作按钮', 'href': '#自定义操作按钮'},
+                        {'title': '自定义宽度', 'href': '#自定义宽度'},
+                        {'title': '垂直居中', 'href': '#垂直居中'},
+                        {'title': '利用加载中状态', 'href': '#利用加载中状态'},
+                        {'title': '回调示例', 'href': '#回调示例'},
+                    ],
+                    offsetTop=0
+                ),
+                style={
+                    'flex': 'none',
+                    'padding': '25px'
+                }
+            ),
+            # 侧边参数栏
+            render_side_props_layout(
+                component_name='AntdModal',
+                language=language
+            )
+        ],
+        style={
+            'display': 'flex'
+        }
+    )
