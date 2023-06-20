@@ -277,7 +277,7 @@ app.layout = fuc.FefferyTopProgress(
                             style={
                                 'float': 'right',
                                 'paddingRight': '20px',
-                                'marginTop': '20.5px'
+                                'marginTop': '16px'
                             }
                         ),
                         flex='auto'
