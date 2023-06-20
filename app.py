@@ -694,7 +694,7 @@ app.clientside_callback(
 )
 
 app.clientside_callback(
-    '''(value) => value === "中文" ? "唤出搜索面板" : "To invoke the search panel"''',
+    '''(value) => value === "中文" ? "唤出搜索面板" : "to invoke the search panel"''',
     Output('ctrl+k-description', 'children'),
     Input('global-language', 'value')
 )

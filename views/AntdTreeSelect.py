@@ -17,24 +17,42 @@ def docs_content(language: str = '中文'):
                     ),
 
                     fac.AntdBreadcrumb(
-                        items=[
-                            {
-                                'title': '组件介绍'
-                            },
-                            {
-                                'title': '数据录入'
-                            },
-                            {
-                                'title': 'AntdTreeSelect 树选择'
-                            }
-                        ]
+                        items=(
+                            [
+                                {
+                                    'title': '组件介绍'
+                                },
+                                {
+                                    'title': '数据录入'
+                                },
+                                {
+                                    'title': 'AntdTreeSelect 树选择'
+                                }
+                            ]
+                            if language == '中文' else
+                            [
+                                {
+                                    'title': 'Component Introduction'
+                                },
+                                {
+                                    'title': 'Data Entry'
+                                },
+                                {
+                                    'title': 'AntdTreeSelect'
+                                }
+                            ]
+                        )
                     ),
 
                     fac.AntdDivider(isDashed=True),
 
                     fac.AntdParagraph(
                         [
-                            fac.AntdText('　　用于为用户提供在树形结构中选择若干项的功能。')
+                            fac.AntdText(
+                                '　　用于为用户提供在树形结构中选择若干项的功能。'
+                                if language == '中文' else
+                                '　　Used to provide users with the functionality to select multiple items in a tree-like structure.'
+                            )
                         ]
                     ),
 
@@ -68,7 +86,11 @@ def docs_content(language: str = '中文'):
                             ),
 
                             fac.AntdDivider(
-                                '基础使用',
+                                (
+                                    '基础使用'
+                                    if language == '中文' else
+                                    'Basic usage'
+                                ),
                                 lineColor='#f0f0f0',
                                 innerTextOrientation='left'
                             ),
@@ -108,7 +130,11 @@ fac.AntdTreeSelect(
 )
 '''
                                 ),
-                                title='点击查看代码',
+                                title=(
+                                    '点击查看代码'
+                                    if language == '中文' else
+                                    'Click to view code'
+                                ),
                                 isOpen=False,
                                 ghost=True
                             )
@@ -118,7 +144,11 @@ fac.AntdTreeSelect(
                             'padding': '10px 10px 20px 10px',
                             'border': '1px solid #f0f0f0'
                         },
-                        id='基础使用',
+                        id=(
+                            '基础使用'
+                            if language == '中文' else
+                            'Basic_usage'
+                        ),
                         className='div-highlight'
                     ),
 
@@ -161,7 +191,11 @@ fac.AntdTreeSelect(
                             ),
 
                             fac.AntdDivider(
-                                '不同的悬浮层展开方位',
+                                (
+                                    '不同的悬浮层展开方位'
+                                    if language == '中文' else
+                                    'Different positions for expanding pop-up layers'
+                                ),
                                 lineColor='#f0f0f0',
                                 innerTextOrientation='left'
                             ),
@@ -210,7 +244,11 @@ fac.AntdSpace(
 )
 '''
                                 ),
-                                title='点击查看代码',
+                                title=(
+                                    '点击查看代码'
+                                    if language == '中文' else
+                                    'Click to view code'
+                                ),
                                 isOpen=False,
                                 ghost=True
                             )
@@ -220,7 +258,11 @@ fac.AntdSpace(
                             'padding': '10px 10px 20px 10px',
                             'border': '1px solid #f0f0f0'
                         },
-                        id='不同的悬浮层展开方位',
+                        id=(
+                            '不同的悬浮层展开方位'
+                            if language == '中文' else
+                            'Different_positions_for_expanding_pop-up_layers'
+                        ),
                         className='div-highlight'
                     ),
 
@@ -255,7 +297,11 @@ fac.AntdSpace(
                             ),
 
                             fac.AntdDivider(
-                                '多选模式',
+                                (
+                                    '多选模式'
+                                    if language == '中文' else
+                                    'Multi-select mode'
+                                ),
                                 lineColor='#f0f0f0',
                                 innerTextOrientation='left'
                             ),
@@ -296,7 +342,11 @@ fac.AntdTreeSelect(
 )
 '''
                                 ),
-                                title='点击查看代码',
+                                title=(
+                                    '点击查看代码'
+                                    if language == '中文' else
+                                    'Click to view code'
+                                ),
                                 isOpen=False,
                                 ghost=True
                             )
@@ -306,7 +356,11 @@ fac.AntdTreeSelect(
                             'padding': '10px 10px 20px 10px',
                             'border': '1px solid #f0f0f0'
                         },
-                        id='多选模式',
+                        id=(
+                            '多选模式'
+                            if language == '中文' else
+                            'Multi-select_mode'
+                        ),
                         className='div-highlight'
                     ),
 
@@ -342,7 +396,11 @@ fac.AntdTreeSelect(
                             ),
 
                             fac.AntdDivider(
-                                '带勾选框的多选模式',
+                                (
+                                    '带勾选框的多选模式'
+                                    if language == '中文' else
+                                    'Multi-select mode with checkboxes'
+                                ),
                                 lineColor='#f0f0f0',
                                 innerTextOrientation='left'
                             ),
@@ -384,7 +442,11 @@ fac.AntdTreeSelect(
 )
 '''
                                 ),
-                                title='点击查看代码',
+                                title=(
+                                    '点击查看代码'
+                                    if language == '中文' else
+                                    'Click to view code'
+                                ),
                                 isOpen=False,
                                 ghost=True
                             )
@@ -394,7 +456,11 @@ fac.AntdTreeSelect(
                             'padding': '10px 10px 20px 10px',
                             'border': '1px solid #f0f0f0'
                         },
-                        id='带勾选框的多选模式',
+                        id=(
+                            '带勾选框的多选模式'
+                            if language == '中文' else
+                            'Multi-select_mode_with_checkboxes'
+                        ),
                         className='div-highlight'
                     ),
 
@@ -425,7 +491,11 @@ fac.AntdTreeSelect(
                             ),
 
                             fac.AntdDivider(
-                                '扁平treeData模式',
+                                (
+                                    '扁平treeData模式'
+                                    if language == '中文' else
+                                    'Flat treeData mode'
+                                ),
                                 lineColor='#f0f0f0',
                                 innerTextOrientation='left'
                             ),
@@ -462,7 +532,11 @@ fac.AntdTreeSelect(
 )
 '''
                                 ),
-                                title='点击查看代码',
+                                title=(
+                                    '点击查看代码'
+                                    if language == '中文' else
+                                    'Click to view code'
+                                ),
                                 isOpen=False,
                                 ghost=True
                             )
@@ -472,7 +546,11 @@ fac.AntdTreeSelect(
                             'padding': '10px 10px 20px 10px',
                             'border': '1px solid #f0f0f0'
                         },
-                        id='扁平treeData模式',
+                        id=(
+                            '扁平treeData模式'
+                            if language == '中文' else
+                            'Flat_treeData_mode'
+                        ),
                         className='div-highlight'
                     ),
 
@@ -508,7 +586,11 @@ fac.AntdTreeSelect(
                             ),
 
                             fac.AntdDivider(
-                                '添加连接线',
+                                (
+                                    '添加连接线'
+                                    if language == '中文' else
+                                    'Add connecting lines'
+                                ),
                                 lineColor='#f0f0f0',
                                 innerTextOrientation='left'
                             ),
@@ -550,7 +632,11 @@ fac.AntdTreeSelect(
 )
 '''
                                 ),
-                                title='点击查看代码',
+                                title=(
+                                    '点击查看代码'
+                                    if language == '中文' else
+                                    'Click to view code'
+                                ),
                                 isOpen=False,
                                 ghost=True
                             )
@@ -560,7 +646,11 @@ fac.AntdTreeSelect(
                             'padding': '10px 10px 20px 10px',
                             'border': '1px solid #f0f0f0'
                         },
-                        id='添加连接线',
+                        id=(
+                            '添加连接线'
+                            if language == '中文' else
+                            'Add_connecting_lines'
+                        ),
                         className='div-highlight'
                     ),
 
@@ -597,7 +687,11 @@ fac.AntdTreeSelect(
                             ),
 
                             fac.AntdDivider(
-                                '父子节点独立选择',
+                                (
+                                    '父子节点独立选择'
+                                    if language == '中文' else
+                                    'Independent selection of parent and child nodes'
+                                ),
                                 lineColor='#f0f0f0',
                                 innerTextOrientation='left'
                             ),
@@ -640,7 +734,11 @@ fac.AntdTreeSelect(
 )
 '''
                                 ),
-                                title='点击查看代码',
+                                title=(
+                                    '点击查看代码'
+                                    if language == '中文' else
+                                    'Click to view code'
+                                ),
                                 isOpen=False,
                                 ghost=True
                             )
@@ -650,7 +748,11 @@ fac.AntdTreeSelect(
                             'padding': '10px 10px 20px 10px',
                             'border': '1px solid #f0f0f0'
                         },
-                        id='父子节点独立选择',
+                        id=(
+                            '父子节点独立选择'
+                            if language == '中文' else
+                            'Independent_selection_of_parent_and_child_nodes'
+                        ),
                         className='div-highlight'
                     ),
 
@@ -685,7 +787,11 @@ fac.AntdTreeSelect(
                             ),
 
                             fac.AntdDivider(
-                                '禁用状态',
+                                (
+                                    '禁用状态'
+                                    if language == '中文' else
+                                    'Disabled state'
+                                ),
                                 lineColor='#f0f0f0',
                                 innerTextOrientation='left'
                             ),
@@ -726,7 +832,11 @@ fac.AntdTreeSelect(
 )
 '''
                                 ),
-                                title='点击查看代码',
+                                title=(
+                                    '点击查看代码'
+                                    if language == '中文' else
+                                    'Click to view code'
+                                ),
                                 isOpen=False,
                                 ghost=True
                             )
@@ -736,7 +846,11 @@ fac.AntdTreeSelect(
                             'padding': '10px 10px 20px 10px',
                             'border': '1px solid #f0f0f0'
                         },
-                        id='禁用状态',
+                        id=(
+                            '禁用状态'
+                            if language == '中文' else
+                            'Disabled_state'
+                        ),
                         className='div-highlight'
                     ),
 
@@ -844,7 +958,11 @@ fac.AntdTreeSelect(
                             ),
 
                             fac.AntdDivider(
-                                '已选项回填策略',
+                                (
+                                    '已选项回填策略'
+                                    if language == '中文' else
+                                    'Selected item fill-back policy'
+                                ),
                                 lineColor='#f0f0f0',
                                 innerTextOrientation='left'
                             ),
@@ -958,7 +1076,11 @@ fac.AntdTreeSelect(
 )
 '''
                                 ),
-                                title='点击查看代码',
+                                title=(
+                                    '点击查看代码'
+                                    if language == '中文' else
+                                    'Click to view code'
+                                ),
                                 isOpen=False,
                                 ghost=True
                             )
@@ -968,7 +1090,11 @@ fac.AntdTreeSelect(
                             'padding': '10px 10px 20px 10px',
                             'border': '1px solid #f0f0f0'
                         },
-                        id='已选项回填策略',
+                        id=(
+                            '已选项回填策略'
+                            if language == '中文' else
+                            'Selected_item_fill-back_policy'
+                        ),
                         className='div-highlight'
                     ),
 
@@ -1022,7 +1148,11 @@ fac.AntdTreeSelect(
                             ),
 
                             fac.AntdDivider(
-                                '多模式搜索',
+                                (
+                                    '多模式搜索'
+                                    if language == '中文' else
+                                    'Multi-mode search'
+                                ),
                                 lineColor='#f0f0f0',
                                 innerTextOrientation='left'
                             ),
@@ -1092,7 +1222,11 @@ def tree_select_multiple_mode_search_demo(value):
     return value
 '''
                                 ),
-                                title='点击查看代码',
+                                title=(
+                                    '点击查看代码'
+                                    if language == '中文' else
+                                    'Click to view code'
+                                ),
                                 isOpen=False,
                                 ghost=True
                             )
@@ -1102,7 +1236,11 @@ def tree_select_multiple_mode_search_demo(value):
                             'padding': '10px 10px 20px 10px',
                             'border': '1px solid #f0f0f0'
                         },
-                        id='多模式搜索',
+                        id=(
+                            '多模式搜索'
+                            if language == '中文' else
+                            'Multi-mode_search'
+                        ),
                         className='div-highlight'
                     ),
 
@@ -1138,7 +1276,11 @@ def tree_select_multiple_mode_search_demo(value):
                             ),
 
                             fac.AntdDivider(
-                                '只读状态',
+                                (
+                                    '只读状态'
+                                    if language == '中文' else
+                                    'Read-only state'
+                                ),
                                 lineColor='#f0f0f0',
                                 innerTextOrientation='left'
                             ),
@@ -1180,7 +1322,11 @@ fac.AntdTreeSelect(
 )
 '''
                                 ),
-                                title='点击查看代码',
+                                title=(
+                                    '点击查看代码'
+                                    if language == '中文' else
+                                    'Click to view code'
+                                ),
                                 isOpen=False,
                                 ghost=True
                             )
@@ -1190,7 +1336,11 @@ fac.AntdTreeSelect(
                             'padding': '10px 10px 20px 10px',
                             'border': '1px solid #f0f0f0'
                         },
-                        id='只读状态',
+                        id=(
+                            '只读状态'
+                            if language == '中文' else
+                            'Read-only_state'
+                        ),
                         className='div-highlight'
                     ),
 
@@ -1231,7 +1381,11 @@ fac.AntdTreeSelect(
                             ),
 
                             fac.AntdDivider(
-                                '强制状态渲染',
+                                (
+                                    '强制状态渲染'
+                                    if language == '中文' else
+                                    'Forced state rendering'
+                                ),
                                 lineColor='#f0f0f0',
                                 innerTextOrientation='left'
                             ),
@@ -1278,7 +1432,11 @@ fac.AntdSpace(
 )
 '''
                                 ),
-                                title='点击查看代码',
+                                title=(
+                                    '点击查看代码'
+                                    if language == '中文' else
+                                    'Click to view code'
+                                ),
                                 isOpen=False,
                                 ghost=True
                             )
@@ -1288,7 +1446,11 @@ fac.AntdSpace(
                             'padding': '10px 10px 20px 10px',
                             'border': '1px solid #f0f0f0'
                         },
-                        id='强制状态渲染',
+                        id=(
+                            '强制状态渲染'
+                            if language == '中文' else
+                            'Forced_state_rendering'
+                        ),
                         className='div-highlight'
                     ),
 
@@ -1375,7 +1537,11 @@ fac.AntdSpace(
                             ),
 
                             fac.AntdDivider(
-                                '回调示例',
+                                (
+                                    '回调示例'
+                                    if language == '中文' else
+                                    'Callback example'
+                                ),
                                 lineColor='#f0f0f0',
                                 innerTextOrientation='left'
                             ),
@@ -1495,7 +1661,11 @@ def tree_select_multiple_demo(value, treeExpandedKeys):
     ]
 '''
                                 ),
-                                title='点击查看代码',
+                                title=(
+                                    '点击查看代码'
+                                    if language == '中文' else
+                                    'Click to view code'
+                                ),
                                 isOpen=False,
                                 ghost=True
                             )
@@ -1505,7 +1675,11 @@ def tree_select_multiple_demo(value, treeExpandedKeys):
                             'padding': '10px 10px 20px 10px',
                             'border': '1px solid #f0f0f0'
                         },
-                        id='回调示例',
+                        id=(
+                            '回调示例'
+                            if language == '中文' else
+                            'Callback_example'
+                        ),
                         className='div-highlight'
                     ),
 
@@ -1518,21 +1692,72 @@ def tree_select_multiple_demo(value, treeExpandedKeys):
             ),
             html.Div(
                 fac.AntdAnchor(
-                    linkDict=[
-                        {'title': '基础使用', 'href': '#基础使用'},
-                        {'title': '不同的悬浮层展开方位', 'href': '#不同的悬浮层展开方位'},
-                        {'title': '多选模式', 'href': '#多选模式'},
-                        {'title': '带勾选框的多选模式', 'href': '#带勾选框的多选模式'},
-                        {'title': '扁平treeData模式', 'href': '#扁平treeData模式'},
-                        {'title': '添加连接线', 'href': '#添加连接线'},
-                        {'title': '父子节点独立选择', 'href': '#父子节点独立选择'},
-                        {'title': '禁用状态', 'href': '#禁用状态'},
-                        {'title': '已选项回填策略', 'href': '#已选项回填策略'},
-                        {'title': '多模式搜索', 'href': '#多模式搜索'},
-                        {'title': '只读状态', 'href': '#只读状态'},
-                        {'title': '强制状态渲染', 'href': '#强制状态渲染'},
-                        {'title': '回调示例', 'href': '#回调示例'},
-                    ],
+                    linkDict=(
+                        [
+                            {'title': '基础使用', 'href': '#基础使用'},
+                            {'title': '不同的悬浮层展开方位', 'href': '#不同的悬浮层展开方位'},
+                            {'title': '多选模式', 'href': '#多选模式'},
+                            {'title': '带勾选框的多选模式', 'href': '#带勾选框的多选模式'},
+                            {'title': '扁平treeData模式', 'href': '#扁平treeData模式'},
+                            {'title': '添加连接线', 'href': '#添加连接线'},
+                            {'title': '父子节点独立选择', 'href': '#父子节点独立选择'},
+                            {'title': '禁用状态', 'href': '#禁用状态'},
+                            {'title': '已选项回填策略', 'href': '#已选项回填策略'},
+                            {'title': '多模式搜索', 'href': '#多模式搜索'},
+                            {'title': '只读状态', 'href': '#只读状态'},
+                            {'title': '强制状态渲染', 'href': '#强制状态渲染'},
+                            {'title': '回调示例', 'href': '#回调示例'},
+                        ]
+                        if language == '中文' else
+                        [
+                            {'title': 'Basic usage', 'href': '#Basic_usage'},
+                            {
+                                'title': 'Different positions for expanding pop-up layers',
+                                'href': '#Different_positions_for_expanding_pop-up_layers'
+                            },
+                            {
+                                'title': 'Multi-select mode',
+                                'href': '#Multi-select_mode'
+                            },
+                            {
+                                'title': 'Multi-select mode with checkboxes',
+                                'href': '#Multi-select_mode_with_checkboxes'
+                            },
+                            {
+                                'title': 'Flat treeData mode',
+                                'href': '#Flat_treeData_mode'
+                            },
+                            {
+                                'title': 'Add connecting lines',
+                                'href': '#Add_connecting_lines'
+                            },
+                            {
+                                'title': 'Independent selection of parent and child nodes',
+                                'href': '#Independent_selection_of_parent_and_child_nodes'
+                            },
+                            {'title': 'Disabled state', 'href': '#Disabled_state'},
+                            {
+                                'title': 'Selected item fill-back policy',
+                                'href': '#Selected_item_fill-back_policy'
+                            },
+                            {
+                                'title': 'Multi-mode search',
+                                'href': '#Multi-mode_search'
+                            },
+                            {
+                                'title': 'Read-only state',
+                                'href': '#Read-only_state'
+                            },
+                            {
+                                'title': 'Forced state rendering',
+                                'href': '#Forced_state_rendering'
+                            },
+                            {
+                                'title': 'Callback example',
+                                'href': '#Callback_example'
+                            },
+                        ]
+                    ),
                     offsetTop=0
                 ),
                 style={
