@@ -98,3 +98,10 @@ code {
 #docs-content>div:last-child .ant-anchor-wrapper {
   max-width: 200px;
 }
+
+.common-problem-demo::before {
+  content: 'h3';
+  font-size: 15px;
+  color: #dee2e6;
+  margin-right: 5px;
+}

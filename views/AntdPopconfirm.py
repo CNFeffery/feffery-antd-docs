@@ -331,6 +331,174 @@ def popconfirm_demo(confirmCounts, cancelCounts):
                         className='div-highlight'
                     ),
 
+                    fac.AntdTitle(
+                        '常见问题',
+                        id='常见问题',
+                        level=3,
+                        className='common-problem-demo',
+                        style={
+                            'margin': '25px 0'
+                        }
+                    ),
+
+                    html.Div(
+                        [
+                            html.Div(
+                                [
+                                    html.Span(
+                                        fac.AntdPopconfirm(
+                                            fac.AntdButton(
+                                                '示例1',
+                                                type='primary'
+                                            ),
+                                            title='示例内容'
+                                        ),
+                                        style={
+                                            'position': 'absolute',
+                                            'left': 15,
+                                            'bottom': 15
+                                        }
+                                    ),
+                                    html.Span(
+                                        fac.AntdPopconfirm(
+                                            fac.AntdButton(
+                                                '示例2',
+                                                type='primary'
+                                            ),
+                                            title='示例内容'
+                                        ),
+                                        style={
+                                            'position': 'absolute',
+                                            'right': 15,
+                                            'top': 15
+                                        }
+                                    ),
+                                    html.Span(
+                                        fac.AntdPopconfirm(
+                                            fac.AntdButton(
+                                                '示例3',
+                                                type='primary'
+                                            ),
+                                            title='示例内容'
+                                        ),
+                                        style={
+                                            'position': 'absolute',
+                                            'right': 15,
+                                            'bottom': 15
+                                        }
+                                    )
+                                ],
+                                style={
+                                    'position': 'relative',
+                                    'height': 300,
+                                    'background': '#dee2e6'
+                                }
+                            ),
+
+                            fac.AntdDivider(
+                                '配合绝对定位',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdParagraph(
+                                [
+                                    '当直接将',
+                                    fac.AntdText(
+                                        'AntdPopconfirm',
+                                        strong=True
+                                    ),
+                                    '施加于具有绝对定位样式的元素之上时，可能会遇到悬浮层位置显示异常的问题，推荐的稳定做法是为对应的',
+                                    fac.AntdText(
+                                        'AntdPopconfirm',
+                                        strong=True
+                                    ),
+                                    '添加一层',
+                                    fac.AntdText(
+                                        'Span',
+                                        strong=True
+                                    ),
+                                    '父元素，并将原先的绝对定位相关样式转而施加于此父元素之上'
+                                ],
+                                style={
+                                    'textIndent': '2rem'
+                                }
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+html.Div(
+    [
+        html.Span(
+            fac.AntdPopconfirm(
+                fac.AntdButton(
+                    '示例1',
+                    type='primary'
+                ),
+                title='示例内容'
+            ),
+            style={
+                'position': 'absolute',
+                'left': 15,
+                'bottom': 15
+            }
+        ),
+        html.Span(
+            fac.AntdPopconfirm(
+                fac.AntdButton(
+                    '示例2',
+                    type='primary'
+                ),
+                title='示例内容'
+            ),
+            style={
+                'position': 'absolute',
+                'right': 15,
+                'top': 15
+            }
+        ),
+        html.Span(
+            fac.AntdPopconfirm(
+                fac.AntdButton(
+                    '示例3',
+                    type='primary'
+                ),
+                title='示例内容'
+            ),
+            style={
+                'position': 'absolute',
+                'right': 15,
+                'bottom': 15
+            }
+        )
+    ],
+    style={
+        'position': 'relative',
+        'height': 300,
+        'background': '#dee2e6'
+    }
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='常见问题|配合绝对定位',
+                        className='div-highlight'
+                    ),
+
                     html.Div(style={'height': '100px'})
                 ],
                 style={
@@ -346,6 +514,16 @@ def popconfirm_demo(confirmCounts, cancelCounts):
                         {'title': '自定义按钮', 'href': '#自定义按钮'},
                         {'title': '点击触发', 'href': '#点击触发'},
                         {'title': '回调示例', 'href': '#回调示例'},
+                        {
+                            'title': '常见问题',
+                            'href': '#常见问题',
+                            'children': [
+                                {
+                                    'title': '配合绝对定位',
+                                    'href': '#常见问题|配合绝对定位'
+                                }
+                            ]
+                        }
                     ],
                     offsetTop=0
                 ),
