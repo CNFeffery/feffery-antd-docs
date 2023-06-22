@@ -970,15 +970,15 @@ class Config:
                             'props': {
                                 'key': '/AntdSkeleton',
                                 'name': '/AntdSkeleton',
-                                'title': 'AntdSkeleton 骨骼屏',
+                                'title': 'AntdSkeleton 骨架屏',
                                 'href': '/AntdSkeleton'
                             }
                         },
                         {
                             'component': 'SubMenu',
                             'props': {
-                                'key': '反馈/自定义骨骼屏',
-                                'title': '自定义骨骼屏'
+                                'key': '反馈/自定义骨架屏',
+                                'title': '自定义骨架屏'
                             },
                             'children': [
                                 {
@@ -986,7 +986,7 @@ class Config:
                                     'props': {
                                         'key': '/AntdCustomSkeleton',
                                         'name': '/AntdCustomSkeleton',
-                                        'title': 'AntdCustomSkeleton 自定义骨骼屏',
+                                        'title': 'AntdCustomSkeleton 自定义骨架屏',
                                         'href': '/AntdCustomSkeleton'
                                     }
                                 },
@@ -1322,11 +1322,11 @@ class Config:
         '/AntdProgress': ['反馈'],
         '/AntdResult': ['反馈'],
         '/AntdSkeleton': ['反馈'],
-        '/AntdCustomSkeleton': ['反馈', '反馈/自定义骨骼屏'],
-        '/AntdSkeletonAvatar': ['反馈', '反馈/自定义骨骼屏'],
-        '/AntdSkeletonButton': ['反馈', '反馈/自定义骨骼屏'],
-        '/AntdSkeletonImage': ['反馈', '反馈/自定义骨骼屏'],
-        '/AntdSkeletonInput': ['反馈', '反馈/自定义骨骼屏'],
+        '/AntdCustomSkeleton': ['反馈', '反馈/自定义骨架屏'],
+        '/AntdSkeletonAvatar': ['反馈', '反馈/自定义骨架屏'],
+        '/AntdSkeletonButton': ['反馈', '反馈/自定义骨架屏'],
+        '/AntdSkeletonImage': ['反馈', '反馈/自定义骨架屏'],
+        '/AntdSkeletonInput': ['反馈', '反馈/自定义骨架屏'],
         '/AntdSpin': ['反馈'],
         '/AntdAnchor': ['其他'],
         '/AntdBackTop': ['其他'],
@@ -1353,7 +1353,7 @@ class Config:
         # '数据展示/选择卡片',
         # '数据展示/手风琴',
         # '反馈',
-        # '反馈/自定义骨骼屏',
+        # '反馈/自定义骨架屏',
     ]
 
     # AntdIcon中所有类型图标的名称

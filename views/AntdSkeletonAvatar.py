@@ -23,7 +23,7 @@ def docs_content(language: str = '中文'):
                                 'title': '反馈'
                             },
                             {
-                                'title': '自定义骨骼屏'
+                                'title': '自定义骨架屏'
                             },
                             {
                                 'title': 'AntdSkeletonAvatar 头像占位图'
@@ -35,7 +35,7 @@ def docs_content(language: str = '中文'):
 
                     fac.AntdParagraph(
                         [
-                            fac.AntdText('　　用于在自定义骨骼屏中构建头像占位相关内容，'),
+                            fac.AntdText('　　用于在自定义骨架屏中构建头像占位相关内容，'),
                             fac.AntdText('有关'),
                             fac.AntdText('AntdSkeletonAvatar', strong=True),
                             fac.AntdText('的使用示例请移步'),

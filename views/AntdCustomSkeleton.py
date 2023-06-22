@@ -25,10 +25,10 @@ def docs_content(language: str = '中文'):
                                 'title': '反馈'
                             },
                             {
-                                'title': '自定义骨骼屏'
+                                'title': '自定义骨架屏'
                             },
                             {
-                                'title': 'AntdCustomSkeleton 自定义骨骼屏'
+                                'title': 'AntdCustomSkeleton 自定义骨架屏'
                             }
                         ]
                     ),
@@ -37,7 +37,7 @@ def docs_content(language: str = '中文'):
 
                     fac.AntdParagraph(
                         [
-                            fac.AntdText('　　用于自由设计骨骼屏加载中内容。')
+                            fac.AntdText('　　用于自由设计骨架屏加载中内容。')
                         ]
                     ),
 
@@ -46,7 +46,7 @@ def docs_content(language: str = '中文'):
                             fac.AntdSpace(
                                 [
                                     fac.AntdButton(
-                                        '触发2秒自定义骨骼屏动画',
+                                        '触发2秒自定义骨架屏动画',
                                         id='skeleton-custom-demo-input',
                                         type='primary'
                                     ),
@@ -124,7 +124,7 @@ def docs_content(language: str = '中文'):
 fac.AntdSpace(
     [
         fac.AntdButton(
-            '触发2秒自定义骨骼屏动画',
+            '触发2秒自定义骨架屏动画',
             id='skeleton-custom-demo-input',
             type='primary'
         ),

@@ -25,7 +25,7 @@ def docs_content(language: str = '中文'):
                                 'title': '反馈'
                             },
                             {
-                                'title': 'AntdSkeleton 骨骼屏'
+                                'title': 'AntdSkeleton 骨架屏'
                             }
                         ]
                     ),
@@ -34,7 +34,7 @@ def docs_content(language: str = '中文'):
 
                     fac.AntdParagraph(
                         [
-                            fac.AntdText('　　用于为正在加载中的内容添加骨骼屏加载动画。')
+                            fac.AntdText('　　用于为正在加载中的内容添加骨架屏加载动画。')
                         ]
                     ),
 
