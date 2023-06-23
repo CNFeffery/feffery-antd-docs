@@ -293,8 +293,29 @@ if __name__ == '__main__':
                                 ),
                                 href='https://mp.weixin.qq.com/s/BvGJT7DPHP2dYExZgifgiw',
                                 target='_blank'
+                            ),
+
+                            html.A(
+                                fac.AntdCard(
+                                    title='Dash应用页面整体布局技巧',
+                                    coverImg={
+                                        'src': 'assets/imgs/getting-started配图/cover_Dash应用页面整体布局技巧.png',
+                                        'style': {
+                                            'width': 265,
+                                            'height': 325,
+                                            'objectFit': 'cover'
+                                        }
+                                    },
+                                    hoverable=True,
+                                    bodyStyle={
+                                        'padding': 0
+                                    }
+                                ),
+                                href='https://mp.weixin.qq.com/s/6Ee1FpCyjlHU4W3JjoL8sQ',
+                                target='_blank'
                             )
-                        ]
+                        ],
+                        size='large'
                     ),
 
                     fac.AntdDivider(
