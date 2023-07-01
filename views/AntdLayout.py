@@ -38,7 +38,14 @@ def docs_content(language: str = '中文'):
 
                     fac.AntdParagraph(
                         [
-                            fac.AntdText('　　用于在经典布局方案中作为容器。')
+                            '　　用于在经典布局方案中作为容器，更灵活易用的',
+                            fac.AntdText('Dash', strong=True),
+                            '应用页面整体布局技巧请参考：',
+                            html.A(
+                                'Dash应用页面整体布局技巧',
+                                href='https://mp.weixin.qq.com/s/6Ee1FpCyjlHU4W3JjoL8sQ',
+                                target='_blank'
+                            )
                         ]
                     ),
 
