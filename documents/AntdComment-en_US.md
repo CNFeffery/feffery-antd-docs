@@ -57,7 +57,7 @@
 
 　　Used to *set whether to render the delete button for the current comment*.
 
-**replyCounts:** *int*, default is `0`
+**replyClicks:** *int*, default is `0`
 
 　　Used to *listen to the number of times the "add reply" button is clicked*.
 

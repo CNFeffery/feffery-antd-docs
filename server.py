@@ -80,8 +80,7 @@ app = CustomDash(
         './documents',
         './change_logs'
     ],
-    compress=True,
-    assets_ignore='dark.css'
+    compress=True
 )
 
 app.title = 'feffery-antd-components在线文档'
