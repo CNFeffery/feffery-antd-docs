@@ -88,19 +88,37 @@ treeData = [
 ```python
 treeData = [
     {
-        'key': '节点1',
-        'title': '节点1',
-        'children': [
-            {
-                'key': f'节点1-{i}',
-                'title': f'节点1-{i}'
-            }
-            for i in range(1, 5)
-        ]
+        'title': '四川省',
+        'key': '四川省'
     },
     {
-        'key': '节点2',
-        'title': '节点2'
+        'title': '成都市',
+        'key': '成都市',
+        'parent': '四川省'
+    },
+    {
+        'title': '广安市',
+        'key': '广安市',
+        'parent': '四川省'
+    },
+    {
+        'title': '重庆市',
+        'key': '重庆市'
+    },
+    {
+        'title': '渝中区',
+        'key': '渝中区',
+        'parent': '重庆市'
+    },
+    {
+        'title': '渝北区',
+        'key': '渝北区',
+        'parent': '重庆市'
+    },
+    {
+        'title': '解放碑街道',
+        'key': '解放碑街道',
+        'parent': '渝中区'
     }
 ]
 ```
