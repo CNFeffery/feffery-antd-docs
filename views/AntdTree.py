@@ -680,7 +680,7 @@ fac.AntdTree(
                                         'title': '重庆市',
                                         'key': '重庆市',
                                         'tooltipProps': {
-                                            'title': 'tooltip示例�',
+                                            'title': 'tooltip示例😀',
                                             'placement': 'right'
                                         },
                                         'children': [
