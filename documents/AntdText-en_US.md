@@ -61,3 +61,9 @@
 **type:** String type
 
 　　Used to *set the overall state type of the text content*. Essentially, it presets the color of the text content. Options include `'secondary'`, `'success'`, `'warning'`, and `'danger'`. The default value is `None`, which means no state.
+
+**ellipsis:** *bool* or *dict* type, default is `False`
+
+　　Used to *enable content ellipsis functionality*. When passed as a dictionary type, the available key-value pair parameter is:
+
+- **suffix:** *string* type, used to *set an additional suffix for ellipsized content*.

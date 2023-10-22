@@ -456,6 +456,56 @@ fac.AntdInput(
 
                     html.Div(
                         [
+                            fac.AntdInput(
+                                value='Some demo words.',
+                                mode='text-area',
+                                showCount=True,
+                                countFormat='[a-zA-Z]+',
+                                style={
+                                    'width': 200
+                                }
+                            ),
+
+                            fac.AntdDivider(
+                                '自定义文字计数规则',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdInput(
+    value='Some demo words.',
+    mode='text-area',
+    showCount=True,
+    countFormat='[a-zA-Z]+',
+    style={
+        'width': 200
+    }
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='自定义文字计数规则',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
                             fac.AntdDivider(
                                 'autoSize=False（默认）',
                                 innerTextOrientation='left'
@@ -1126,6 +1176,7 @@ def input_search_dmeo(nClicksSearch):
                         {'title': '添加内嵌前后缀元素', 'href': '#添加内嵌前后缀元素'},
                         {'title': '限制输入框最大内容长度', 'href': '#限制输入框最大内容长度'},
                         {'title': '展示已输入文字数量', 'href': '#展示已输入文字数量'},
+                        {'title': '自定义文字计数规则', 'href': '#自定义文字计数规则'},
                         {'title': '文本域输入框自适应高度', 'href': '#文本域输入框自适应高度'},
                         {'title': '禁用状态', 'href': '#禁用状态'},
                         {'title': '只读状态', 'href': '#只读状态'},

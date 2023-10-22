@@ -1,4 +1,5 @@
 import json
+import random
 from dash.dependencies import Input, Output
 
 from server import app
@@ -55,3 +56,35 @@ def tree_context_menu_demo(clickedContextMenu):
         indent=4,
         ensure_ascii=False
     )
+
+
+app.clientside_callback(
+    '''(value) => value''',
+    Output('tree-search-demo', 'searchKeyword'),
+    Input('tree-search-demo-keyword', 'value')
+)
+
+
+@app.callback(
+    Output('tree-favorites-demo-output', 'children'),
+    Input('tree-favorites-demo', 'favoritedKeys')
+)
+def tree_favorites_demo(favoritedKeys):
+
+    return json.dumps(
+        dict(favoritedKeys=favoritedKeys),
+        indent=4,
+        ensure_ascii=False
+    )
+
+
+@app.callback(
+    Output('tree-scroll-demo', 'scrollTarget'),
+    Input('tree-scroll-demo-trigger', 'nClicks'),
+    prevent_initial_call=True
+)
+def tree_scroll_demo(nClicks):
+
+    return {
+        'key': f'节点{random.randint(1, 51)}'
+    }

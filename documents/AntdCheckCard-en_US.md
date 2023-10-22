@@ -42,6 +42,10 @@
 
 　　Used in conjunction with `AntdCheckCardGroup` to *set the value* associated with the current check card.
 
+**readOnly:** *bool* type
+
+　　Used to display the component in read-only mode.
+
 **persistence:** *bool*
 
 　　Used to *enable property persistence* for the current component.

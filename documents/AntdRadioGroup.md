@@ -50,6 +50,10 @@
 
 　　当`optionType='button'`时，用于*设置按钮的样式风格*，可选的有`'outline'`、`'solid'`
 
+**readOnly：** *bool*型
+
+　　用于*设置是否以只读模式进行展示*
+
 **persistence：** *bool*型
 
 　　用于*设置是否为当前组件开启属性持久化*

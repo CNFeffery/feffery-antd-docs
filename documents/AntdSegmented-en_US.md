@@ -26,6 +26,7 @@
 - **value:** *int*, *float*, or *string* type, required. Used to *set the selected value* for the current option.
 - **disabled:** *bool* type, default is `False`. Used to *set whether the current option is disabled*.
 - **icon:** *string* type. Used to *set the prefix icon* for the current option, same as the corresponding parameter in `AntdIcon`.
+- **iconRenderer:** A *string* type, defaulting to `'AntdIcon'`, is used to determine the *rendering method for setting prefix icons for the current option*. Available options include `'AntdIcon'` (built-in icons) and `'fontawesome'` (rendered based on CSS class names).
 
 **value:** *int*, *float*, or *string* type
 

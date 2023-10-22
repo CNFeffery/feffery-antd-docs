@@ -26,6 +26,15 @@
 
 　　 Used to *set the corresponding percentage of the progress bar*, the value should be between 0 and 100.
 
+**success:** *dict*
+
+　　 Used for configuring parameters related to the success state. The available key-value pairs are:
+
+- **percent:** *int*, used to customize the percentage corresponding to the success state.
+- **strokeColor:** *string* or *dict*, used to set the color for the success state. When passing a dictionary type, it is used to configure a gradient color. The available key-value pairs are:
+  - **from:** *string*, used to set the starting color.
+  - **to:** *string*, used to set the ending color.
+
 **format:** *dict* type
 
 　　 Used to *configure the percentage text content*, available key-value parameters are:

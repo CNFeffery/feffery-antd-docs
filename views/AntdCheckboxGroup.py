@@ -185,6 +185,60 @@ fac.AntdCheckboxGroup(
                     html.Div(
                         [
                             fac.AntdCheckboxGroup(
+                                options=[
+                                    {
+                                        'label': f'选项{i}',
+                                        'value': f'选项{i}'
+                                    }
+                                    for i in range(5)
+                                ],
+                                value=['选项1', '选项3'],
+                                readOnly=True
+                            ),
+
+                            fac.AntdDivider(
+                                '只读状态',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdCheckboxGroup(
+    options=[
+        {
+            'label': f'选项{i}',
+            'value': f'选项{i}'
+        }
+        for i in range(5)
+    ],
+    value=['选项1', '选项3'],
+    readOnly=True
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='只读状态',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
+                            fac.AntdCheckboxGroup(
                                 id='checkbox-group-demo1',
                                 options=[
                                     {
@@ -367,6 +421,7 @@ app.clientside_callback(
                     linkDict=[
                         {'title': '基础使用', 'href': '#基础使用'},
                         {'title': '部分选项及整体的禁用', 'href': '#部分选项及整体的禁用'},
+                        {'title': '只读状态', 'href': '#只读状态'},
                         {'title': '回调示例', 'href': '#回调示例'},
                         {'title': '基于回调实现全选', 'href': '#基于回调实现全选'},
                     ],

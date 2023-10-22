@@ -37,3 +37,7 @@
 **icon：** *string*型
 
 　　用于*自定义消息提示前缀图标*，同`AntdIcon`中的同名参数
+
+**iconRenderer：** *string*型，默认为`'AntdIcon'`
+
+　　用于*为自定义消息提示前缀图标设置渲染方式*，可选的有`'AntdIcon'`（内置图标）、`'fontawesome'`（基于css类名渲染）

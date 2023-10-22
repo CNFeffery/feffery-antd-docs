@@ -312,6 +312,89 @@ def drawer_extra_demo(nClicks):
 
                     html.Div(
                         [
+                            fac.AntdButton(
+                                '打开示例抽屉',
+                                id='drawer-footer-demo-open',
+                                type='primary'
+                            ),
+
+                            fac.AntdDrawer(
+                                html.Div(
+                                    '示例内容',
+                                    style={
+                                        'height': 10000
+                                    }
+                                ),
+                                id='drawer-footer-demo',
+                                title='抽屉示例',
+                                footer=fac.AntdButton(
+                                    '页脚内容示例',
+                                    type='primary'
+                                )
+                            ),
+
+                            fac.AntdDivider(
+                                '设置页脚内容',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdButton(
+    '打开示例抽屉',
+    id='drawer-footer-demo-open',
+    type='primary'
+),
+
+fac.AntdDrawer(
+    html.Div(
+        '示例内容',
+        style={
+            'height': 10000
+        }
+    ),
+    id='drawer-footer-demo',
+    title='抽屉示例',
+    footer=fac.AntdButton(
+        '页脚内容示例',
+        type='primary'
+    )
+)
+
+...
+
+@app.callback(
+    Output('drawer-footer-demo', 'visible'),
+    Input('drawer-footer-demo-open', 'nClicks'),
+    prevent_initial_call=True
+)
+def drawer_footer_demo(nClicks):
+
+    return True
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='设置页脚内容',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
                             html.Div(
                                 [
                                     fac.AntdButton(
@@ -399,6 +482,95 @@ def drawer_local_demo(nClicks):
                         className='div-highlight'
                     ),
 
+                    html.Div(
+                        [
+                            html.Div(
+                                [
+                                    fac.AntdButton(
+                                        '打开示例抽屉',
+                                        id='drawer-free-local-demo-open',
+                                        type='primary'
+                                    ),
+                                    fac.AntdDrawer(
+                                        '示例内容',
+                                        id='drawer-free-local-demo',
+                                        title='局部容器抽屉示例',
+                                        containerSelector="document.querySelector('.drawer-free-local-container')"
+                                    )
+                                ],
+                                className='drawer-free-local-container',
+                                style={
+                                    'height': 400,
+                                    'border': '1px solid #e9ecef',
+                                    'position': 'relative',
+                                    'padding': 25,
+                                    'overflowX': 'hidden'
+                                }
+                            ),
+
+                            fac.AntdDivider(
+                                '更自由地指定局部容器',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+html.Div(
+    [
+        fac.AntdButton(
+            '打开示例抽屉',
+            id='drawer-free-local-demo-open',
+            type='primary'
+        ),
+        fac.AntdDrawer(
+            '示例内容',
+            id='drawer-free-local-demo',
+            title='局部容器抽屉示例',
+            containerSelector="document.querySelector('.drawer-free-local-container')"
+        )
+    ],
+    className='drawer-free-local-container',
+    style={
+        'height': 400,
+        'border': '1px solid #e9ecef',
+        'position': 'relative',
+        'padding': 25,
+        'overflowX': 'hidden'
+    }
+)
+
+...
+
+@app.callback(
+    Output('drawer-free-local-demo', 'visible'),
+    Input('drawer-free-local-demo-open', 'nClicks'),
+    prevent_initial_call=True
+)
+def drawer_free_local_demo(nClicks):
+
+    return True
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='更自由地指定局部容器',
+                        className='div-highlight'
+                    ),
+
                     html.Div(style={'height': '100px'})
                 ],
                 style={
@@ -411,8 +583,10 @@ def drawer_local_demo(nClicks):
                     linkDict=[
                         {'title': '基础使用', 'href': '#基础使用'},
                         {'title': '不同的展开方位', 'href': '#不同的展开方位'},
+                        {'title': '设置页脚内容', 'href': '#设置页脚内容'},
                         {'title': '定义额外操作区元素', 'href': '#定义额外操作区元素'},
                         {'title': '在局部容器中使用', 'href': '#在局部容器中使用'},
+                        {'title': '更自由地指定局部容器', 'href': '#更自由地指定局部容器'}
                     ],
                     offsetTop=0
                 ),

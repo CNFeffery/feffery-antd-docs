@@ -28,9 +28,11 @@
 - **key:** *string*, required, used to uniquely identify the current node.
 - **disabled:** *bool*, default: `False`, used to set whether the current node is disabled.
 - **icon:** *string*, used to set the prefix icon for the current node, same as the corresponding parameter in `AntdIcon`.
+- **iconRenderer:** A *string* type, defaulting to `'AntdIcon'`, is used to define the *rendering method for the prefix icon of the current node*. Available options include `'AntdIcon'` (built-in icons) and `'fontawesome'` (rendered based on CSS class names).
 - **checkable:** *bool*, used to set whether the current node renders a checkbox.
 - **disableCheckbox:** *bool*, used to set whether the checkbox of the current node is disabled.
 - **selectable:** *bool*, used to set whether the current node can be selected.
+- **enableFavorites:** *boolean* type, used when `enableNodeFavorites=True` to *determine whether the current node can be favorited.*
 - **style:** *dict*, used to set the CSS style for the current node.
 - **className:** *string*, used to set the CSS class name for the current node.
 - **tooltipProps:** *dict*, used to configure tooltip-related functionality for the current node, available key-value pairs include:
@@ -40,6 +42,7 @@
   - **key:** *string*, used to set the unique ID for the current context menu item.
   - **label:** *string*, used to set the title content of the current context menu item.
   - **icon:** *string*, used to set the prefix icon for the current context menu item, same as the corresponding parameter in `AntdIcon`.
+  - **iconRenderer:** A *string* type, defaulting to `'AntdIcon'`, is used to define the *rendering method for the prefix icon of the current context menu item*. Available options include `'AntdIcon'` (built-in icons) and `'fontawesome'` (rendered based on CSS class names).
 
 　　Here's an example of tree-like `treeData`:
 
@@ -74,6 +77,7 @@ treeData = [
 - **checkable:** *bool*, used to set whether the current node renders a checkbox.
 - **disableCheckbox:** *bool*, used to set whether the checkbox of the current node is disabled.
 - **selectable:** *bool*, used to set whether the current node can be selected.
+- **enableFavorites:** *boolean* type, used when `enableNodeFavorites=True` to *determine whether the current node can be favorited.*
 - **style:** *dict*, used to set the CSS style for the current node.
 - **className:** *string*, used to set the CSS class name for the current node.
 - **tooltipProps:** *dict*, used to configure tooltip-related functionality for the current node, available key-value pairs include:
@@ -195,6 +199,10 @@ treeData = [
 
 　　When `treeDataMode="tree"`, used to *set whether to enable node dragging*. After each valid drag action, the new tree structure will be updated in the `treeData`.
 
+**dragInSameLevel:** *bool* type, default is `False`
+
+　　Used when `draggable=True` to *determine whether only nodes at the same level are allowed to be dragged*.
+
 **draggedNodeKey:** *string*
 
 　　Used to *listen to the node key of each valid node drag action*.
@@ -206,6 +214,46 @@ treeData = [
 - **nodeKey:** *string*, used to *listen to the key value of the tree node corresponding to the right-click menu item click event*.
 - **menuKey:** *string*, used to *listen to the key value of the option corresponding to the right-click menu item click event*.
 - **timestamp:** *int*, used to *listen to the timestamp of the right-click menu item click event*.
+
+**enableNodeFavorites:** *boolean* type, default is `False`
+
+　　Used to *enable or disable the tree node favorites functionality.*
+
+**favoritedKeys:** *list* type
+
+　　Used to *set or listen to the array of node key values currently in the favorited state.*
+
+**scrollTarget:** *dictionary* type
+
+　　Used to *configure parameters related to tree node scrolling actions*. Available key-value pairs include:
+
+- **key:** *string* type, required, used to *set the key value of the scroll target node.*
+- **align:** *string* type, used to *set the alignment position of the node after the scroll action*, with options such as `'top'`, `'bottom'`, `'auto'`.
+- **offset:** *integer* type, used to *set the pixel offset of the scroll action*.
+
+**searchKeyword:** *string* type
+
+　　Used for *implementing quick tree search functionality*, matching the `title` field of tree nodes.
+
+**highlightStyle:** *dict* type
+
+　　Used in conjunction with `searchKeyword` to *customize the CSS style for highlighting matching search content*.
+
+**nodeCheckedStyle:** *dict* type
+
+　　Used to *define the CSS style for checked nodes*.
+
+**nodeUncheckedStyle:** *dict* type
+
+　　Used to *define the CSS style for unchecked nodes*.
+
+**nodeCheckedSuffix:** *Component Type*
+
+　　Used to *set the suffix content for checked nodes.*
+
+**nodeUncheckedSuffix:** *Component Type*
+
+　　Used to *set the suffix content for unchecked nodes.*
 
 **persistence:** *bool*
 

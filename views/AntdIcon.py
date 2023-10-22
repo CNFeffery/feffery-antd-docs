@@ -77,7 +77,7 @@ def docs_content(language: str = '中文'):
                                     }
                                 ],
                                 optionType='button',
-                                defaultValue='antd',
+                                value='antd',
                                 size='small'
                             ),
 
@@ -140,7 +140,7 @@ fac.AntdRadioGroup(
         }
     ],
     optionType='button',
-    defaultValue='antd',
+    value='antd',
     size='small'
 ),
 

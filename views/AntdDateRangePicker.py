@@ -1178,6 +1178,62 @@ fac.AntdDateRangePicker(
 
                     html.Div(
                         [
+                            fac.AntdDateRangePicker(
+                                extraFooter=fac.AntdText(
+                                    '底部额外内容示例'
+                                )
+                            ),
+                            fac.AntdDateRangePicker(
+                                placeholder=['开始日期时间', '结束日期时间'],
+                                showTime=True,
+                                extraFooter=fac.AntdText(
+                                    '底部额外内容示例'
+                                )
+                            ),
+
+                            fac.AntdDivider(
+                                '底部添加额外内容',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdDateRangePicker(
+    extraFooter=fac.AntdText(
+        '底部额外内容示例'
+    )
+),
+fac.AntdDateRangePicker(
+    placeholder=['开始日期时间', '结束日期时间'],
+    showTime=True,
+    extraFooter=fac.AntdText(
+        '底部额外内容示例'
+    )
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='底部添加额外内容',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
                             fac.AntdSpace(
                                 [
                                     fac.AntdSpace(
@@ -1375,6 +1431,7 @@ def date_range_picker_demo3(value):
                         {'title': '强制状态渲染', 'href': '#强制状态渲染'},
                         {'title': '初始化停留日期位置', 'href': '#初始化停留日期位置'},
                         {'title': '自定义日期禁用策略', 'href': '#自定义日期禁用策略'},
+                        {'title': '底部添加额外内容', 'href': '#底部添加额外内容'},
                         {'title': '回调示例', 'href': '#回调示例'}
                     ],
                     offsetTop=0

@@ -36,7 +36,8 @@ def docs_content(language: str = '中文'):
                     fac.AntdParagraph(
                         [
                             fac.AntdText(
-                                '　　导航菜单用于引导用户在不同层级的页面之间进行跳转，一般分为顶部导航和侧边导航，顶部导航提供全局性的类目和功能，侧边导航提供多级结构来收纳和排列网站架构。')
+                                '　　导航菜单用于引导用户在不同层级的页面之间进行跳转，一般分为顶部导航和侧边导航，顶部导航提供全局性的类目和功能，侧边导航提供多级结构来收纳和排列网站架构。'
+                            )
                         ]
                     ),
 
@@ -435,6 +436,252 @@ html.Div(
                             'border': '1px solid #f0f0f0'
                         },
                         id='不同的显示模式',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
+                            fac.AntdMenu(
+                                menuItems=[
+                                    {
+                                        'component': 'Item',
+                                        'props': {
+                                            'title': '常规菜单项',
+                                            'key': '常规菜单项',
+                                        }
+                                    },
+                                    {
+                                        'component': 'Item',
+                                        'props': {
+                                            'key': '带标签菜单项',
+                                        }
+                                    },
+                                    {
+                                        'component': 'Item',
+                                        'props': {
+                                            'key': '带徽标菜单项',
+                                        }
+                                    },
+                                    {
+                                        'component': 'Item',
+                                        'props': {
+                                            'key': '分离徽标菜单项',
+                                        }
+                                    },
+                                    {
+                                        'component': 'Item',
+                                        'props': {
+                                            'key': '自定义图标',
+                                        }
+                                    },
+                                    {
+                                        'component': 'Item',
+                                        'props': {
+                                            'key': '单独右对齐',
+                                        }
+                                    },
+                                    {
+                                        'component': 'Item',
+                                        'props': {
+                                            'key': '单独居中',
+                                        }
+                                    }
+                                ],
+                                menuItemKeyToTitle={
+                                    '带标签菜单项': fac.AntdSpace(
+                                        [
+                                            '带标签菜单项',
+                                            fac.AntdTag(
+                                                content='我是标签',
+                                                color='green'
+                                            )
+                                        ]
+                                    ),
+                                    '带徽标菜单项': fac.AntdBadge(
+                                        '带徽标菜单项',
+                                        count=66,
+                                        offset=[15, 0]
+                                    ),
+                                    '分离徽标菜单项': fac.AntdRow(
+                                        [
+                                            fac.AntdCol(
+                                                '分离徽标菜单项'
+                                            ),
+                                            fac.AntdCol(
+                                                fac.AntdBadge(
+                                                    count=8,
+                                                    color='#1a73e8'
+                                                )
+                                            )
+                                        ],
+                                        justify='space-between'
+                                    ),
+                                    '自定义图标': fac.AntdSpace(
+                                        [
+                                            *[
+                                                fac.AntdIcon(
+                                                    icon=icon
+                                                )
+                                                for icon in [
+                                                    'antd-build', 'antd-bug', 'antd-repair', 'antd-setting'
+                                                ]
+                                            ],
+                                            '自定义图标'
+                                        ]
+                                    ),
+                                    '单独右对齐': html.Div(
+                                        '单独右对齐',
+                                        style={
+                                            'textAlign': 'end'
+                                        }
+                                    ),
+                                    '单独居中': html.Div(
+                                        '单独居中',
+                                        style={
+                                            'textAlign': 'center'
+                                        }
+                                    )
+                                },
+                                mode='inline',
+                                defaultSelectedKey='常规菜单项',
+                                style={
+                                    'width': 220
+                                }
+                            ),
+
+                            fac.AntdDivider(
+                                '组件型菜单项标题',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdMenu(
+    menuItems=[
+        {
+            'component': 'Item',
+            'props': {
+                'title': '常规菜单项',
+                'key': '常规菜单项',
+            }
+        },
+        {
+            'component': 'Item',
+            'props': {
+                'key': '带标签菜单项',
+            }
+        },
+        {
+            'component': 'Item',
+            'props': {
+                'key': '带徽标菜单项',
+            }
+        },
+        {
+            'component': 'Item',
+            'props': {
+                'key': '分离徽标菜单项',
+            }
+        },
+        {
+            'component': 'Item',
+            'props': {
+                'key': '自定义图标',
+            }
+        },
+        {
+            'component': 'Item',
+            'props': {
+                'key': '单独右对齐',
+            }
+        },
+        {
+            'component': 'Item',
+            'props': {
+                'key': '单独居中',
+            }
+        }
+    ],
+    menuItemKeyToTitle={
+        '带标签菜单项': fac.AntdSpace(
+            [
+                '带标签菜单项',
+                fac.AntdTag(
+                    content='我是标签',
+                    color='green'
+                )
+            ]
+        ),
+        '带徽标菜单项': fac.AntdBadge(
+            '带徽标菜单项',
+            count=66,
+            offset=[15, 0]
+        ),
+        '分离徽标菜单项': fac.AntdRow(
+            [
+                fac.AntdCol(
+                    '分离徽标菜单项'
+                ),
+                fac.AntdCol(
+                    fac.AntdBadge(
+                        count=8,
+                        color='#1a73e8'
+                    )
+                )
+            ],
+            justify='space-between'
+        ),
+        '自定义图标': fac.AntdSpace(
+            [
+                *[
+                    fac.AntdIcon(
+                        icon=icon
+                    )
+                    for icon in [
+                        'antd-build', 'antd-bug', 'antd-repair', 'antd-setting'
+                    ]
+                ],
+                '自定义图标'
+            ]
+        ),
+        '单独右对齐': html.Div(
+            '单独右对齐',
+            style={
+                'textAlign': 'end'
+            }
+        ),
+        '单独居中': html.Div(
+            '单独居中',
+            style={
+                'textAlign': 'center'
+            }
+        )
+    },
+    mode='inline',
+    defaultSelectedKey='常规菜单项',
+    style={
+        'width': 220
+    }
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='组件型菜单项标题',
                         className='div-highlight'
                     ),
 
@@ -1528,6 +1775,136 @@ app.clientside_callback(
                     html.Div(
                         [
                             fac.AntdMenu(
+                                id='menu-inline-indent-demo',
+                                menuItems=[
+                                    {
+                                        'component': 'SubMenu',
+                                        'props': {
+                                            'key': '子菜单1',
+                                            'title': '子菜单1'
+                                        },
+                                        'children': [
+                                            {
+                                                'component': 'SubMenu',
+                                                'props': {
+                                                    'key': '子菜单1-1',
+                                                    'title': '子菜单1-1',
+                                                },
+                                                'children': [
+                                                    {
+                                                        'component': 'SubMenu',
+                                                        'props': {
+                                                            'key': '子菜单1-1-1',
+                                                            'title': '子菜单1-1-1',
+                                                        },
+                                                        'children': [
+                                                            {
+                                                                'component': 'Item',
+                                                                'props': {
+                                                                    'key': '菜单项示例',
+                                                                    'title': '菜单项示例'
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ],
+                                defaultOpenKeys=[
+                                    '子菜单1',
+                                    '子菜单1-1',
+                                    '子菜单1-1-1'
+                                ],
+                                mode='inline',
+                                inlineIndent=50,
+                                style={
+                                    'width': 300
+                                }
+                            ),
+
+                            fac.AntdDivider(
+                                '调整子菜单缩进宽度',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdMenu(
+    id='menu-inline-indent-demo',
+    menuItems=[
+        {
+            'component': 'SubMenu',
+            'props': {
+                'key': '子菜单1',
+                'title': '子菜单1'
+            },
+            'children': [
+                {
+                    'component': 'SubMenu',
+                    'props': {
+                        'key': '子菜单1-1',
+                        'title': '子菜单1-1',
+                    },
+                    'children': [
+                        {
+                            'component': 'SubMenu',
+                            'props': {
+                                'key': '子菜单1-1-1',
+                                'title': '子菜单1-1-1',
+                            },
+                            'children': [
+                                {
+                                    'component': 'Item',
+                                    'props': {
+                                        'key': '菜单项示例',
+                                        'title': '菜单项示例'
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    defaultOpenKeys=[
+        '子菜单1',
+        '子菜单1-1',
+        '子菜单1-1-1'
+    ],
+    mode='inline',
+    inlineIndent=50,
+    style={
+        'width': 300
+    }
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='调整子菜单缩进宽度',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
+                            fac.AntdMenu(
                                 id='menu-demo',
                                 currentKey='1-1-1',
                                 menuItems=[
@@ -1674,6 +2051,7 @@ def menu_callback_demo(currentKey):
                 fac.AntdAnchor(
                     linkDict=[
                         {'title': '基础使用', 'href': '#基础使用'},
+                        {'title': '组件型菜单项标题', 'href': '#组件型菜单项标题'},
                         {'title': '不同的显示模式', 'href': '#不同的显示模式'},
                         {'title': '切换色彩风格', 'href': '#切换色彩风格'},
                         {'title': '设置默认展开项', 'href': '#设置默认展开项'},
@@ -1682,6 +2060,7 @@ def menu_callback_demo(currentKey):
                         {'title': '链接跳转功能', 'href': '#链接跳转功能'},
                         {'title': '使用自带的折叠功能', 'href': '#使用自带的折叠功能'},
                         {'title': '配合AntdSider的折叠功能', 'href': '#配合AntdSider的折叠功能'},
+                        {'title': '调整子菜单缩进宽度', 'href': '#调整子菜单缩进宽度'},
                         {'title': '回调示例', 'href': '#回调示例'},
                     ],
                     offsetTop=0

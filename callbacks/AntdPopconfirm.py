@@ -5,6 +5,16 @@ from server import app
 
 
 @app.callback(
+    Output('popconfirm-open-demo', 'open'),
+    Input('popconfirm-open', 'nClicks'),
+    prevent_initial_call=True
+)
+def popconfirm_open_demo(nClicks):
+
+    return True
+
+
+@app.callback(
     Output('popconfirm-demo-output', 'children'),
     [Input('popconfirm-demo', 'confirmCounts'),
      Input('popconfirm-demo', 'cancelCounts')],

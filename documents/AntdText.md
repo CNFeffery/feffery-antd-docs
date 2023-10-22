@@ -61,3 +61,9 @@
 **type：** *string*型
 
 　　用于*设置文字内容的整体状态类型*，本质上是对文字内容的颜色进行预设，可选的有`'secondary'`、`'success'`、`'warning'`及`'danger'`，默认为`None`即无状态
+
+**ellipsis：** *bool*或*dict*型，默认为`False`
+
+　　用于*设置是否开启内容省略功能*，当传入字典型时，可用的键值对参数有：
+
+- **suffix：** *string*型，用于*设置省略内容额外后缀*

@@ -25,6 +25,7 @@
   - **title：** *str*型，用于*设置当前元素的标题内容*
   - **disabled：** *bool*型，默认为`False`，用于*设置是否禁用当前元素*
   - **icon：** *str*型，用于*为当前元素添加前缀图标*，同`AntdIcon`中的`icon`参数
+  - **iconRenderer：** *string*型，默认为`'AntdIcon'`，用于*为当前元素的前缀图标设置渲染方式*，可选的有`'AntdIcon'`（内置图标）、`'fontawesome'`（基于css类名渲染）
   - **danger：** *bool*型，默认为`False`，用于*设置是否以危险状态显示当前元素*，此参数仅`Item`可用
   - **href：** *str*型，用于*为当前节点设置跳转链接url*，此参数仅`Item`可用
   - **target：** *str*型，用于*为当前节点设置跳转行为*，此参数仅`Item`可用
@@ -103,6 +104,10 @@ menuItems = [
 ]
 ```
 
+**menuItemKeyToTitle：** *dict*型
+
+　　用于*为指定菜单项设置对应的组件型标题内容*，以对应菜单项的`key`为键，组件型内容为值，优先级高于`menuItems`中对应菜单项的`props.title`
+
 **mode：** *str*型，默认为`'vertical'` 
 
 　　用于*设置导航菜单显示模式*，可选的有`'vertical'`（垂直模式）、`'inline'`（内嵌模式）、`'horizontal'`（水平模式）
@@ -137,7 +142,11 @@ menuItems = [
 
 **inlineCollapsed：** *bool*型，默认为`False`
 
-　　用于*设置当前菜单是否处于折叠状态*，进`mode='inline'`时有效
+　　用于*设置当前菜单是否处于折叠状态*，仅`mode='inline'`时有效
+
+**inlineIndent：** *int*型，默认为`24`
+
+　　用于*设置子菜单缩进像素宽度*，仅`mode='inline'`时有效
 
 **persistence：** *bool*型
 

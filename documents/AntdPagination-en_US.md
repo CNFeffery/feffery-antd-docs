@@ -58,6 +58,10 @@
 
 　　Used to enable the quick jump feature.
 
+**showLessItems:** *bool* (default: `False`)
+
+　　Used to *determine whether to display fewer pagination buttons*.
+
 **showTotalPrefix:** *str* (default: `'共 '`)
 
 　　Used to set the prefix text for the total number of records.

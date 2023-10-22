@@ -164,6 +164,180 @@ html.Div(
                     html.Div(
                         [
                             fac.AntdDivider(
+                                'AntdForm整体配置',
+                                innerTextOrientation='left'
+                            ),
+                            html.Div(
+                                fac.AntdForm(
+                                    [
+                                        fac.AntdFormItem(
+                                            fac.AntdInput(),
+                                            label='表单'+'项'*i
+                                        )
+                                        for i in range(1, 4)
+                                    ],
+                                    labelCol={
+                                        'flex': 'none'
+                                    },
+                                    wrapperCol={
+                                        'flex': 'auto'
+                                    },
+                                    style={
+                                        'width': '300px',
+                                        'margin': '0 auto'  # 以快捷实现居中布局效果
+                                    }
+                                )
+                            ),
+                            fac.AntdDivider(
+                                'AntdFormItem独立配置',
+                                innerTextOrientation='left'
+                            ),
+                            html.Div(
+                                fac.AntdForm(
+                                    [
+                                        fac.AntdFormItem(
+                                            fac.AntdInput(),
+                                            label='示例1',
+                                            labelCol={
+                                                'flex': '1'
+                                            },
+                                            wrapperCol={
+                                                'flex': '1'
+                                            }
+                                        ),
+                                        fac.AntdFormItem(
+                                            fac.AntdInput(),
+                                            label='示例2',
+                                            labelCol={
+                                                'flex': 'none'
+                                            },
+                                            wrapperCol={
+                                                'flex': 'auto'
+                                            }
+                                        )
+                                    ],
+                                    style={
+                                        'width': '300px',
+                                        'margin': '0 auto'  # 以快捷实现居中布局效果
+                                    }
+                                )
+                            ),
+
+                            fac.AntdDivider(
+                                '基于flex布局分配宽度',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdParagraph(
+                                [
+                                    '基于参数',
+                                    fac.AntdText(
+                                        'labelCol',
+                                        code=True
+                                    ),
+                                    '和',
+                                    fac.AntdText(
+                                        'wrapperCol',
+                                        code=True
+                                    ),
+                                    '的',
+                                    fac.AntdText(
+                                        'flex',
+                                        code=True
+                                    ),
+                                    '子参数，可以实现对表单标签部分及控件部分宽度的更灵活分配'
+                                ],
+                                style={
+                                    'textIndent': '2rem'
+                                }
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdDivider(
+    'AntdForm整体配置',
+    innerTextOrientation='left'
+),
+html.Div(
+    fac.AntdForm(
+        [
+            fac.AntdFormItem(
+                fac.AntdInput(),
+                label='表单'+'项'*i
+            )
+            for i in range(1, 4)
+        ],
+        labelCol={
+            'flex': 'none'
+        },
+        wrapperCol={
+            'flex': 'auto'
+        },
+        style={
+            'width': '300px',
+            'margin': '0 auto'  # 以快捷实现居中布局效果
+        }
+    )
+),
+fac.AntdDivider(
+    'AntdFormItem独立配置',
+    innerTextOrientation='left'
+),
+html.Div(
+    fac.AntdForm(
+        [
+            fac.AntdFormItem(
+                fac.AntdInput(),
+                label='示例1',
+                labelCol={
+                    'flex': '1'
+                },
+                wrapperCol={
+                    'flex': '1'
+                }
+            ),
+            fac.AntdFormItem(
+                fac.AntdInput(),
+                label='示例2',
+                labelCol={
+                    'flex': 'none'
+                },
+                wrapperCol={
+                    'flex': 'auto'
+                }
+            )
+        ],
+        style={
+            'width': '300px',
+            'margin': '0 auto'  # 以快捷实现居中布局效果
+        }
+    )
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='基于flex布局分配宽度',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
+                            fac.AntdDivider(
                                 'layout="vertical"',
                                 innerTextOrientation='left'
                             ),
@@ -414,6 +588,128 @@ html.Div(
                             'border': '1px solid #f0f0f0'
                         },
                         id='表单项标签左对齐',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
+                            fac.AntdDivider(
+                                'labelWrap=False（默认）',
+                                innerTextOrientation='left'
+                            ),
+                            html.Div(
+                                fac.AntdForm(
+                                    [
+                                        fac.AntdFormItem(
+                                            fac.AntdInput(),
+                                            label='超长标签'*2
+                                        )
+                                    ],
+                                    labelCol={
+                                        'span': 6
+                                    },
+                                    labelAlign='left',
+                                    style={
+                                        'width': 300,
+                                        'margin': '0 auto'
+                                    }
+                                )
+                            ),
+                            fac.AntdDivider(
+                                'labelWrap=True',
+                                innerTextOrientation='left'
+                            ),
+                            html.Div(
+                                fac.AntdForm(
+                                    [
+                                        fac.AntdFormItem(
+                                            fac.AntdInput(),
+                                            label='超长标签'*2
+                                        )
+                                    ],
+                                    labelCol={
+                                        'span': 6
+                                    },
+                                    labelAlign='left',
+                                    labelWrap=True,
+                                    style={
+                                        'width': 300,
+                                        'margin': '0 auto'
+                                    }
+                                )
+                            ),
+
+                            fac.AntdDivider(
+                                '表单项标签超长换行',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdDivider(
+    'labelWrap=False（默认）',
+    innerTextOrientation='left'
+),
+html.Div(
+    fac.AntdForm(
+        [
+            fac.AntdFormItem(
+                fac.AntdInput(),
+                label='超长标签'*2
+            )
+        ],
+        labelCol={
+            'span': 6
+        },
+        labelAlign='left',
+        style={
+            'width': 300,
+            'margin': '0 auto'
+        }
+    )
+),
+fac.AntdDivider(
+    'labelWrap=True',
+    innerTextOrientation='left'
+),
+html.Div(
+    fac.AntdForm(
+        [
+            fac.AntdFormItem(
+                fac.AntdInput(),
+                label='超长标签'*2
+            )
+        ],
+        labelCol={
+            'span': 6
+        },
+        labelAlign='left',
+        labelWrap=True,
+        style={
+            'width': 300,
+            'margin': '0 auto'
+        }
+    )
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='表单项标签超长换行',
                         className='div-highlight'
                     ),
 
@@ -935,7 +1231,9 @@ def form_item_validate_demo(nClicks, username, password):
                     linkDict=[
                         {'title': '基础使用', 'href': '#基础使用'},
                         {'title': '其他布局模式', 'href': '#其他布局模式'},
+                        {'title': '基于flex布局分配宽度', 'href': '#基于flex布局分配宽度'},
                         {'title': '表单项标签左对齐', 'href': '#表单项标签左对齐'},
+                        {'title': '表单项标签超长换行', 'href': '#表单项标签超长换行'},
                         {'title': '添加必填项标识', 'href': '#添加必填项标识'},
                         {'title': '添加额外提示信息框', 'href': '#添加额外提示信息框'},
                         {'title': '不同的校验状态', 'href': '#不同的校验状态'},

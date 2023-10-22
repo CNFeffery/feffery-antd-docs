@@ -38,6 +38,10 @@
 
 　　Used to set whether to render the loading state.
 
+**readOnly:** *bool* type
+
+　　Used to display the component in read-only mode.
+
 **persistence:** *bool* type
 
 　　Used to enable property persistence for the current component.

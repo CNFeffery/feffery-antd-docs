@@ -136,6 +136,48 @@ fac.AntdCheckbox(
 
                     html.Div(
                         [
+                            fac.AntdCheckbox(
+                                label='开启',
+                                checked=True,
+                                readOnly=True
+                            ),
+
+                            fac.AntdDivider(
+                                '只读状态',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdCheckbox(
+    label='开启',
+    checked=True,
+    readOnly=True
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='只读状态',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
                             fac.AntdSpace(
                                 [
                                     fac.AntdCheckbox(
@@ -210,6 +252,7 @@ def checkbox_demo(checked):
                     linkDict=[
                         {'title': '基础使用', 'href': '#基础使用'},
                         {'title': '半选样式状态', 'href': '#半选样式状态'},
+                        {'title': '只读状态', 'href': '#只读状态'},
                         {'title': '回调示例', 'href': '#回调示例'},
                     ],
                     offsetTop=0

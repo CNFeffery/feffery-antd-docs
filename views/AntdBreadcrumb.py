@@ -2,6 +2,7 @@ from dash import html
 import feffery_antd_components as fac
 import feffery_markdown_components as fmc
 
+import callbacks.AntdBreadcrumb
 from .side_props import render_side_props_layout
 
 
@@ -370,6 +371,92 @@ fac.AntdBreadcrumb(
                         className='div-highlight'
                     ),
 
+                    html.Div(
+                        [
+                            fac.AntdBreadcrumb(
+                                id='breadcrumnb-demo',
+                                items=[
+                                    {
+                                        'title': '首页'
+                                    },
+                                    {
+                                        'title': '下属页面1'
+                                    },
+                                    {
+                                        'title': '下属页面1-1'
+                                    }
+                                ]
+                            ),
+                            html.Pre(
+                                id='breadcrumnb-demo-output'
+                            ),
+
+                            fac.AntdDivider(
+                                '回调示例',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdBreadcrumb(
+    id='breadcrumnb-demo',
+    items=[
+        {
+            'title': '首页'
+        },
+        {
+            'title': '下属页面1'
+        },
+        {
+            'title': '下属页面1-1'
+        }
+    ]
+),
+html.Pre(
+    id='breadcrumnb-demo-output'
+)
+
+...
+
+import json
+
+...
+
+@app.callback(
+    Output('breadcrumnb-demo-output', 'children'),
+    Input('breadcrumnb-demo', 'clickedItem'),
+    prevent_initial_call=True
+)
+def breadcrumb_callback_demo(clickedItem):
+
+    return json.dumps(
+        dict(clickedItem=clickedItem),
+        indent=4,
+        ensure_ascii=False
+    )
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='回调示例',
+                        className='div-highlight'
+                    ),
+
+
                     html.Div(style={'height': '100px'})
                 ],
                 style={
@@ -384,6 +471,7 @@ fac.AntdBreadcrumb(
                         {'title': '添加链接跳转功能', 'href': '#添加链接跳转功能'},
                         {'title': '添加前缀图标', 'href': '#添加前缀图标'},
                         {'title': '节点添加悬浮菜单', 'href': '#节点添加悬浮菜单'},
+                        {'title': '回调示例', 'href': '#回调示例'},
                     ],
                     offsetTop=0
                 ),

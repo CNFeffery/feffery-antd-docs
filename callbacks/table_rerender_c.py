@@ -8,12 +8,14 @@ from server import app
     Output('table-rerender-button-demo-output', 'children'),
     Input('table-rerender-button-demo', 'nClicksButton'),
     [State('table-rerender-button-demo', 'clickedContent'),
+     State('table-rerender-button-demo', 'clickedCustom'),
      State('table-rerender-button-demo', 'recentlyButtonClickedDataIndex'),
      State('table-rerender-button-demo', 'recentlyButtonClickedRow')],
     prevent_initial_call=True
 )
 def table_rerender_button_demo(nClicksButton,
                                clickedContent,
+                               clickedCustom,
                                recentlyButtonClickedDataIndex,
                                recentlyButtonClickedRow):
 
@@ -21,6 +23,7 @@ def table_rerender_button_demo(nClicksButton,
         dict(
             nClicksButton=nClicksButton,
             clickedContent=clickedContent,
+            clickedCustom=clickedCustom,
             recentlyButtonClickedDataIndex=recentlyButtonClickedDataIndex,
             recentlyButtonClickedRow=recentlyButtonClickedRow
         ),

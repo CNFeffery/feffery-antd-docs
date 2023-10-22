@@ -14,10 +14,6 @@
 
 　　Used to set the CSS class name of the current component, supports [dynamic CSS](/advanced-classname).
 
-**children:** *component*
-
-　　Used to pass in nested child elements.
-
 **message:** *string*
 
 　　Used to set the main information content of the current notification.

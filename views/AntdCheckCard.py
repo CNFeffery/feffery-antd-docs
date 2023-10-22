@@ -173,6 +173,52 @@ fac.AntdSpace(
 
                     html.Div(
                         [
+                            fac.AntdCheckCard(
+                                fac.AntdText(
+                                    '选择卡片示例' * 10
+                                ),
+                                readOnly=True,
+                                checked=True
+                            ),
+
+                            fac.AntdDivider(
+                                '只读状态',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdCheckCard(
+    fac.AntdText(
+        '选择卡片示例' * 10
+    ),
+    readOnly=True,
+    checked=True
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='只读状态',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
                             fac.AntdSpace(
                                 [
                                     fac.AntdCheckCard(
@@ -310,6 +356,7 @@ def check_card_demo(checked):
                 fac.AntdAnchor(
                     linkDict=[
                         {'title': '基础使用', 'href': '#基础使用'},
+                        {'title': '只读状态', 'href': '#只读状态'},
                         {'title': '不同的尺寸规格', 'href': '#不同的尺寸规格'},
                         {'title': '回调示例', 'href': '#回调示例'},
                     ],

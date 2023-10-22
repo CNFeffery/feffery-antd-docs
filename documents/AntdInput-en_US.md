@@ -86,6 +86,10 @@
 
 　　Used to set whether to display the current character count.
 
+**countFormat:** *string* type
+
+　　When `showCount=True`, it is used to *customize the regular expression used for character counting matching*.
+
 **autoSize:** *bool* or *dict* type, default: `False`
 
 　　Used to configure the auto-adjustment of the input box height for the text area input box mode. When a *dict* type input is passed, the available key-value pairs are:

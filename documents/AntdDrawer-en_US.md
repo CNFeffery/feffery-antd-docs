@@ -10,6 +10,30 @@
 
 　　Used to set the CSS style of the current component.
 
+**drawerStyle:** *dict* type
+
+　　Used to *set the CSS styles for the drawer popup layer.*
+
+**bodyStyle:** *dict* type
+
+　　Used to *set the CSS styles for the drawer content section.*
+
+**contentWrapperStyle:** *dict* type
+
+　　Used to *set the CSS styles for the wrapper around the drawer content.*
+
+**headerStyle:** *dict* type
+
+　　Used to *set the CSS styles for the header section of the drawer.*
+
+**footerStyle:** *dict* type
+
+　　Used to *set the CSS styles for the footer section of the drawer.*
+
+**maskStyle:** *dict* type
+
+　　Used to *set the CSS styles for the background mask of the drawer.*
+
 **className:** *string* or *dict* type
 
 　　Used to set the CSS class name of the current component, supports [dynamic CSS](/advanced-classname).
@@ -62,6 +86,10 @@
 
 　　Used to set the z-index property of the current drawer.
 
+**Footer:** *Component Type*
+
+　　Used to *set footer content for the current drawer.*
+
 **extra:** *component* type
 
 　　Used to set additional action area elements for the current drawer.
@@ -69,3 +97,7 @@
 **containerId:** *string* type
 
 　　When the drawer needs to be displayed within a specific container, used to set the ID of the target container. Note that the `position` of the target container should be set to `relative`.
+
+**containerSelector:** *string* type
+
+　　Lower priority than `containerId`, used for *passing a JavaScript code string to configure the target local container*.

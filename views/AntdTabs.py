@@ -1079,6 +1079,9 @@ def tabs_demo(activeKey):
                                     }
                                 )
                             ),
+                            html.Div(
+                                id='tabs-add-delete-demo-tab-count'
+                            ),
 
                             fac.AntdDivider(
                                 '标签页自由增删示例',
@@ -1122,6 +1125,9 @@ fac.AntdTabs(
             'cursor': 'pointer'
         }
     )
+),
+html.Div(
+    id='tabs-add-delete-demo-tab-count'
 )
 
 ...
@@ -1177,6 +1183,19 @@ def tabs_add_delete_demo(nClicks,
         ]
 
     return dash.no_update
+
+
+@app.callback(
+    Output('tabs-add-delete-demo-tab-count', 'children'),
+    Input('tabs-add-delete-demo', 'tabCount'),
+    prevent_initial_call=True
+)
+def tabs_add_delete_demo_tab_count(tabCount):
+
+    return fac.AntdMessage(
+        content=f'标签页自由增删示例 tabCount: {tabCount}',
+        type='info'
+    )
 '''
                                 ),
                                 title='点击查看代码',
@@ -1190,6 +1209,130 @@ def tabs_add_delete_demo(nClicks,
                             'border': '1px solid #f0f0f0'
                         },
                         id='标签页自由增删示例',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
+                            fac.AntdSpace(
+                                [
+                                    fac.AntdTabs(
+                                        id='tabs-context-menu-demo',
+                                        items=[
+                                            {
+                                                'label': f'标签页{i}',
+                                                'key': f'标签页{i}',
+                                                'contextMenu': [
+                                                    {
+                                                        'key': f'菜单项{j}',
+                                                        'label': f'菜单项{j}'
+                                                    }
+                                                    for j in range(1, 6)
+                                                ]
+                                            }
+                                            for i in range(1, 6)
+                                        ],
+                                        size='large'
+                                    ),
+                                    html.Pre(
+                                        id='tabs-context-menu-demo-output'
+                                    )
+                                ],
+                                direction='vertical',
+                                style={
+                                    'width': '100%'
+                                }
+                            ),
+
+                            fac.AntdDivider(
+                                '标签页右键菜单示例',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdParagraph(
+                                [
+                                    '针对配置了右键菜单相关参数的标签项，可以通过监听属性',
+                                    fac.AntdText(
+                                        'clickedContextMenu',
+                                        code=True
+                                    ),
+                                    '进行对应右键菜单点击事件的捕获'
+                                ],
+                                style={
+                                    'textIndent': '2rem'
+                                }
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdTabs(
+            id='tabs-context-menu-demo',
+            items=[
+                {
+                    'label': f'标签页{i}',
+                    'key': f'标签页{i}',
+                    'contextMenu': [
+                        {
+                            'key': f'菜单项{j}',
+                            'label': f'菜单项{j}'
+                        }
+                        for j in range(1, 6)
+                    ]
+                }
+                for i in range(1, 6)
+            ],
+            size='large'
+        ),
+        html.Pre(
+            id='tabs-context-menu-demo-output'
+        )
+    ],
+    direction='vertical',
+    style={
+        'width': '100%'
+    }
+)
+
+...
+
+import json
+
+...
+
+@app.callback(
+    Output('tabs-context-menu-demo-output', 'children'),
+    Input('tabs-context-menu-demo', 'clickedContextMenu')
+)
+def tabs_context_menu_demo(clickedContextMenu):
+
+    return json.dumps(
+        dict(
+            clickedContextMenu=clickedContextMenu
+        ),
+        indent=4,
+        ensure_ascii=False
+    )
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='标签页右键菜单示例',
                         className='div-highlight'
                     ),
 
@@ -1217,6 +1360,7 @@ def tabs_add_delete_demo(nClicks,
                         {'title': '添加额外的前后缀内容', 'href': '#添加额外的前后缀内容'},
                         {'title': '回调示例', 'href': '#回调示例'},
                         {'title': '标签页自由增删示例', 'href': '#标签页自由增删示例'},
+                        {'title': '标签页右键菜单示例', 'href': '#标签页右键菜单示例'}
                     ],
                     offsetTop=0
                 ),

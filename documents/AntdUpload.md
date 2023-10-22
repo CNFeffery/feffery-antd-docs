@@ -125,6 +125,7 @@ def upload_file(uploadId: str, file: UploadFile = File(...)):
 - **size：** *string*型，默认为`'middle'`，用于*设置上传按钮的尺寸规格*，可选项有`'small'`、`'middle'`和`'large'`
 - **type：** *string*型，默认为`'default'`，用于*设置上传按钮的风格*，可选项有`'primary'`、`'ghost'`、`'dashed'`、`'link'`、`'text'`、`'default'`
 - **danger：** *bool*型，默认为`False`，用于*设置上传按钮是否渲染为危险警告状态*
+- **block：** *bool*型，默认为`False`，用于*设置上传按钮是否撑满父级元素*
 - **style：** *dict*型，用于*设置上传按钮的css样式*
 - **className：** *string*型，用于*设置上传按钮的css类名*
 

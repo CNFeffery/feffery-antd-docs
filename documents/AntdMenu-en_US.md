@@ -25,11 +25,12 @@
   - **title:** *str* - Used to set the title content for the current element.
   - **disabled:** *bool* (default: `False`) - Used to set whether the current element is disabled.
   - **icon:** *str* - Used to add a prefix icon to the current element, same as the `icon` parameter in `AntdIcon`.
+  - **iconRenderer:** *string* type, defaulting to `'AntdIcon'`, is used to define the *rendering method for setting prefix icons for the current element*. Available options include `'AntdIcon'` (built-in icons) and `'fontawesome'` (rendered based on CSS class names).
   - **danger:** *bool* (default: `False`) - Used to set whether to display the current element in a dangerous state. This parameter is only available for `'Item'`.
   - **href:** *str* - Used to set the URL for the current node's link. This parameter is only available for `'Item'`.
   - **target:** *str* - Used to set the target behavior for the current node's link. This parameter is only available for `'Item'`.
-  - **dashed:** *bool* (default: `False`) - Used to set whether the current horizontal divider element is dashed. This parameter is only available for `'Divider'`.
-
+- **dashed:** *bool* (default: `False`) - Used to set whether the current horizontal divider element is dashed. This parameter is only available for `'Divider'`.
+  
 - **children:** `list[dict]` - Used to pass other nested elements inside. This parameter is only available for `'SubMenu'` and `'ItemGroup'`.
 
 　　Users can freely configure any navigation menu structure based on the above parameter hierarchy. Here is an example:
@@ -105,6 +106,10 @@ menuItems = [
 mode = 'vertical'  # Default is 'vertical' mode
 ```
 
+**menuItemKeyToTitle:** *dict* type
+
+　　Used to *set the corresponding component-type title content for specified menu items*, with the `key` of the menu item as the key and the component-type content as the value. This takes precedence over the `props.title` of the corresponding menu item in `menuItems`.
+
 **mode:** *str* (default: `'vertical'`)
 
 　　Used to set the display mode of the navigation menu. Available options are `'vertical'` (vertical mode), `'inline'` (inline mode), `'horizontal'` (horizontal mode).
@@ -139,7 +144,11 @@ mode = 'vertical'  # Default is 'vertical' mode
 
 **inlineCollapsed:** *bool* (default: `False`)
 
-　　Used to set whether the current menu is in a collapsed state. This is only effective when `mode='inline'`.
+　　Used to set whether the current menu is in a collapsed state, only effective when `mode='inline'`.
+
+**inlineIndent:** *int*, default `24`
+
+　　Used to set the pixel width of submenu indentation, only effective when `mode='inline'`.
 
 **persistence:** *bool*
 

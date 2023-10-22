@@ -1,3 +1,6 @@
+import os
+
+
 class Config:
 
     caches_path = 'caches'
@@ -119,6 +122,15 @@ class Config:
                         'title': '布局'
                     },
                     'children': [
+                        {
+                            'component': 'Item',
+                            'props': {
+                                'key': '/AntdCenter',
+                                'name': '/AntdCenter',
+                                'title': 'AntdCenter 居中',
+                                'href': '/AntdCenter'
+                            }
+                        },
                         {
                             'component': 'Item',
                             'props': {
@@ -1144,15 +1156,6 @@ class Config:
                         'href': '/prop-persistence'
                     }
                 },
-                # {
-                #     'component': 'Item',
-                #     'props': {
-                #         'key': '/style-overwrite',
-                #         'name': '/style-overwrite',
-                #         'title': '自定义样式覆盖',
-                #         'href': '/style-overwrite'
-                #     }
-                # },
                 {
                     'component': 'Item',
                     'props': {
@@ -1162,15 +1165,24 @@ class Config:
                         'href': '/use-key-to-refresh'
                     }
                 },
-                # {
-                #     'component': 'Item',
-                #     'props': {
-                #         'key': '/responsive',
-                #         'name': '/responsive',
-                #         'title': '响应式',
-                #         'href': '/responsive'
-                #     }
-                # },
+                {
+                    'component': 'Item',
+                    'props': {
+                        'key': '/batch-props-values',
+                        'name': '/batch-props-values',
+                        'title': '属性批量监听',
+                        'href': '/batch-props-values'
+                    }
+                },
+                {
+                    'component': 'Item',
+                    'props': {
+                        'key': '/import-alias',
+                        'name': '/import-alias',
+                        'title': '组件按别名导入',
+                        'href': '/import-alias'
+                    }
+                }
             ]
         },
         {
@@ -1187,6 +1199,14 @@ class Config:
                         'title': 'v0.2.x'
                     },
                     'children': [
+                        {
+                            'component': 'Item',
+                            'props': {
+                                'key': '/change-log-v0.2.10',
+                                'title': 'v0.2.10',
+                                'href': '/change-log-v0.2.10'
+                            }
+                        },
                         {
                             'component': 'Item',
                             'props': {
@@ -1240,6 +1260,7 @@ class Config:
         '/AntdParagraph': ['通用', '通用/排版相关'],
         '/AntdText': ['通用', '通用/排版相关'],
         '/AntdTitle': ['通用', '通用/排版相关'],
+        '/AntdCenter': ['布局'],
         '/AntdDivider': ['布局'],
         '/AntdSpace': ['布局'],
         '/AntdCompact': ['布局'],

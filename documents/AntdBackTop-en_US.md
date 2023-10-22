@@ -25,3 +25,7 @@
 **containerId:** *string*
 
 　　Used to set the ID of the container to which the back-to-top button is bound.
+
+**containerSelector:** *string* type
+
+　　Lower priority than `containerId`, used for *passing a JavaScript code string to configure the target local container*.

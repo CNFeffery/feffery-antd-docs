@@ -23,3 +23,13 @@ def popover_color_demo(color):
             ]
         )
     ]
+
+
+@app.callback(
+    Output('popover-open-demo', 'open'),
+    Input('popover-open', 'nClicks'),
+    prevent_initial_call=True
+)
+def popover_open_demo(nClicks):
+
+    return True

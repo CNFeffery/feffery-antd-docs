@@ -90,6 +90,10 @@
 
 　　 Used to *set the display trigger behavior of the current popover card*, available options are `'hover'`, `'focus'`, `'click'`, and you can also pass a list of multiple behaviors to achieve multi-trigger behavior.
 
+**open:** *bool*, default is `False`
+
+　　 Used to *set or monitor whether the bubble card is open.*
+
 **popupContainer:** *string* type, default is `'body'`
 
 　　 Used to *set the reference container type for the floating layer elements involved in the current component*, available options are `'body'` (referenced to the root node of the page) and `'parent'` (referenced to the parent container of the current element). When the component is within a locally scrolling container, setting `popupContainer='parent'` can solve the problem of the floating layer not scrolling with the content.

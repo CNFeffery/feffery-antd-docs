@@ -28,9 +28,11 @@
 - **key：** *string*型，必填，用于*唯一标识当前节点*
 - **disabled：** *bool*型，默认为`False`，用于*设置是否禁用当前节点*
 - **icon：** *string*型，用于*为当前节点设置前缀图标*，同`AntdIcon`中的同名参数
+- **iconRenderer：** *string*型，默认为`'AntdIcon'`，用于*为当前节点前缀图标设置渲染方式*，可选的有`'AntdIcon'`（内置图标）、`'fontawesome'`（基于css类名渲染）
 - **checkable：** *bool*型，用于*设置是否为当前节点渲染勾选框*
 - **disableCheckbox：** *bool*型，用于*设置是否禁用当前节点的勾选框*
 - **selectable：** *bool*型，用于*设置当前节点是否可被选中*
+- **enableFavorites：** *bool*型，当`enableNodeFavorites=True`时，用于*设置当前节点是否可收藏*
 - **style：** *dict*型，用于*设置当前节点的css样式*
 - **className：** *string*型，用于*设置当前节点的css类名*
 - **tooltipProps：** *dict*型，用于*为当前节点配置信息提示相关功能*，可用的键值对参数有：
@@ -40,6 +42,7 @@
   - **key：** *string*型，用于*设置当前右键菜单项的唯一id*
   - **label：** *string*型，用于*设置当前右键菜单项的标题内容*
   - **icon：** *string*型，用于*为当前右键菜单项设置前缀图标*，同`AntdIcon`中的同名参数
+  - **iconRenderer：** *string*型，默认为`'AntdIcon'`，用于*为当前右键菜单项前缀图标设置渲染方式*，可选的有`'AntdIcon'`（内置图标）、`'fontawesome'`（基于css类名渲染）
 
 　　下面是树形`treeData`的示例：
 
@@ -72,6 +75,7 @@ treeData = [
 - **checkable：** *bool*型，用于*设置是否为当前节点渲染勾选框*
 - **disableCheckbox：** *bool*型，用于*设置是否禁用当前节点的勾选框*
 - **selectable：** *bool*型，用于*设置当前节点是否可被选中*
+- **enableFavorites：** *bool*型，当`enableNodeFavorites=True`时，用于*设置当前节点是否可收藏*
 - **style：** *dict*型，用于*设置当前节点的css样式*
 - **className：** *string*型，用于*设置当前节点的css类名*
 - **tooltipProps：** *dict*型，用于*为当前节点配置信息提示相关功能*，可用的键值对参数有：
@@ -193,6 +197,10 @@ treeData = [
 
 　　当`treeDataMode="tree"`时，用于*设置是否开启节点可拖拽功能*，每次有效拖拽行为完成后会将新的树结构更新到`treeData`中
 
+**dragInSameLevel：** *bool*型，默认为`False`
+
+　　当`draggable=True`时，用于*设置是否仅允许同级节点拖拽*
+
 **draggedNodeKey：** *string*型
 
 　　用于*监听每次有效节点拖拽行为对应的节点key值*
@@ -204,6 +212,46 @@ treeData = [
 - **nodeKey：** *string*型，用于*监听右键菜单点击事件对应的树节点key值*
 - **menuKey：** *string*型，用于*监听右键菜单点击事件对应的选项key值*
 - **timestamp：** *int*型，用于*监听右键菜单点击事件发生时间戳*
+
+**enableNodeFavorites：** *bool*型，默认为`False`
+
+　　用于*设置是否启用树节点收藏功能*
+
+**favoritedKeys：** *list*型
+
+　　用于*设置或监听当前处于收藏状态的节点key值数组*
+
+**scrollTarget：** *dict*型
+
+　　用于*配置树节点滚动动作相关参数*，可用的键值对参数有：
+
+- **key：** *string*型，必填，用于*设置滚动目标节点的key值*
+- **align：** *string*型，用于*设置滚动动作后的节点对齐位置*，可选的有`'top'`、`'bottom'`、`'auto'`
+- **offset：** *int*型，用于*设置滚动动作像素偏移量*
+
+**searchKeyword：** *string*型
+
+　　用于*实现快捷树搜索功能*，匹配目标为树节点`title`字段
+
+**highlightStyle：** *dict*型
+
+　　配合`searchKeyword`使用，用于*自定义搜索匹配高亮内容的css样式*
+
+**nodeCheckedStyle：** *dict*型
+
+　　用于*设置已勾选节点的css样式*
+
+**nodeUncheckedStyle：** *dict*型
+
+　　用于*设置未勾选节点的css样式*
+
+**nodeCheckedSuffix：** *组件型*
+
+　　用于*设置已勾选节点的后缀内容*
+
+**nodeUncheckedSuffix：** *组件型*
+
+　　用于*设置未勾选节点的后缀内容*
 
 **persistence：** *bool*型
 

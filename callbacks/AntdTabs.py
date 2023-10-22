@@ -1,5 +1,7 @@
+import json
 import dash
 from dash import html
+import feffery_antd_components as fac
 from dash.dependencies import Input, Output, State
 
 from server import app
@@ -80,3 +82,31 @@ def tabs_add_delete_demo(nClicks,
         ]
 
     return dash.no_update
+
+
+@app.callback(
+    Output('tabs-add-delete-demo-tab-count', 'children'),
+    Input('tabs-add-delete-demo', 'tabCount'),
+    prevent_initial_call=True
+)
+def tabs_add_delete_demo_tab_count(tabCount):
+
+    return fac.AntdMessage(
+        content=f'标签页自由增删示例 tabCount: {tabCount}',
+        type='info'
+    )
+
+
+@app.callback(
+    Output('tabs-context-menu-demo-output', 'children'),
+    Input('tabs-context-menu-demo', 'clickedContextMenu')
+)
+def tabs_context_menu_demo(clickedContextMenu):
+
+    return json.dumps(
+        dict(
+            clickedContextMenu=clickedContextMenu
+        ),
+        indent=4,
+        ensure_ascii=False
+    )

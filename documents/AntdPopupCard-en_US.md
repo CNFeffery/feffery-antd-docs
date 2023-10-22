@@ -53,3 +53,7 @@
 **bodyStyle:** *dict* type
 
 　　 Used to *set the CSS style of the content area of the current modal*.
+
+**dragClassName:** *string* or *dict*
+
+　　 Used to set the *CSS class name for the draggable area*, supports [dynamic CSS](/advanced-classname).

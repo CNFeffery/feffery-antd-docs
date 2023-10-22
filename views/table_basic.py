@@ -941,25 +941,34 @@ fac.AntdTable(
                                         'title': 'int型示例',
                                         'dataIndex': 'int型示例',
                                         'editable': True,
-                                        'width': '25%'
+                                        'width': '20%'
                                     },
                                     {
                                         'title': 'float型示例',
                                         'dataIndex': 'float型示例',
                                         'editable': True,
-                                        'width': '25%'
+                                        'width': '20%'
                                     },
                                     {
                                         'title': 'str型示例',
                                         'dataIndex': 'str型示例',
                                         'editable': True,
-                                        'width': '25%'
+                                        'width': '20%'
                                     },
                                     {
                                         'title': '日期时间示例',
                                         'dataIndex': '日期时间示例',
                                         'editable': True,
-                                        'width': '25%'
+                                        'width': '20%'
+                                    },
+                                    {
+                                        'title': 'placeholder示例',
+                                        'dataIndex': 'placeholder示例',
+                                        'editable': True,
+                                        'width': '20%',
+                                        'editOptions': {
+                                            'placeholder': '请输入内容'
+                                        }
                                     },
                                 ],
                                 data=[
@@ -992,25 +1001,34 @@ fac.AntdTable(
             'title': 'int型示例',
             'dataIndex': 'int型示例',
             'editable': True,
-            'width': '25%'
+            'width': '20%'
         },
         {
             'title': 'float型示例',
             'dataIndex': 'float型示例',
             'editable': True,
-            'width': '25%'
+            'width': '20%'
         },
         {
             'title': 'str型示例',
             'dataIndex': 'str型示例',
             'editable': True,
-            'width': '25%'
+            'width': '20%'
         },
         {
             'title': '日期时间示例',
             'dataIndex': '日期时间示例',
             'editable': True,
-            'width': '25%'
+            'width': '20%'
+        },
+        {
+            'title': 'placeholder示例',
+            'dataIndex': 'placeholder示例',
+            'editable': True,
+            'width': '20%',
+            'editOptions': {
+                'placeholder': '请输入内容'
+            }
         },
     ],
     data=[
@@ -1152,13 +1170,17 @@ import json
 
 @app.callback(
     Output('table-editable-demo-output', 'children'),
-    Input('table-editable-demo', 'recentlyChangedRow'),
+    [Input('table-editable-demo', 'recentlyChangedRow'),
+    Input('table-editable-demo', 'recentlyChangedColumn')],
     prevent_initial_call=True
 )
-def table_editable_demo(recentlyChangedRow):
+def table_editable_demo(recentlyChangedRow, recentlyChangedColumn):
 
     return json.dumps(
-        recentlyChangedRow,
+        dict(
+            recentlyChangedRow=recentlyChangedRow,
+            recentlyChangedColumn=recentlyChangedColumn
+        ),
         indent=4,
         ensure_ascii=False
     )
@@ -1314,6 +1336,10 @@ fac.AntdSpace(
 
                     html.Div(
                         [
+                            fac.AntdDivider(
+                                '单层分组',
+                                innerTextOrientation='left'
+                            ),
                             fac.AntdTable(
                                 columns=[
                                     {
@@ -1355,7 +1381,43 @@ fac.AntdSpace(
                                         '字段3-2': 1,
                                         '字段3-3': 1
                                     }
-                                ] * 5,
+                                ] * 3,
+                                bordered=True
+                            ),
+                            fac.AntdDivider(
+                                '多层分组',
+                                innerTextOrientation='left'
+                            ),
+                            fac.AntdTable(
+                                columns=[
+                                    {
+                                        'title': '字段1-1-1',
+                                        'dataIndex': '字段1-1-1',
+                                        'group': ['字段1', '字段1-1']
+                                    },
+                                    {
+                                        'title': '字段1-1-2',
+                                        'dataIndex': '字段1-1-2',
+                                        'group': ['字段1', '字段1-1']
+                                    },
+                                    {
+                                        'title': '字段1-2',
+                                        'dataIndex': '字段1-2',
+                                        'group': '字段1'
+                                    },
+                                    {
+                                        'title': '字段2',
+                                        'dataIndex': '字段2'
+                                    }
+                                ],
+                                data=[
+                                    {
+                                        '字段1-1-1': 1,
+                                        '字段1-1-2': 1,
+                                        '字段1-2': 1,
+                                        '字段2': 1
+                                    }
+                                ] * 3,
                                 bordered=True
                             ),
 
@@ -1372,6 +1434,10 @@ fac.AntdSpace(
                                     language='python',
                                     codeTheme='coy-without-shadows',
                                     codeString='''
+fac.AntdDivider(
+    '单层分组',
+    innerTextOrientation='left'
+),
 fac.AntdTable(
     columns=[
         {
@@ -1413,7 +1479,43 @@ fac.AntdTable(
             '字段3-2': 1,
             '字段3-3': 1
         }
-    ] * 5,
+    ] * 3,
+    bordered=True
+),
+fac.AntdDivider(
+    '多层分组',
+    innerTextOrientation='left'
+),
+fac.AntdTable(
+    columns=[
+        {
+            'title': '字段1-1-1',
+            'dataIndex': '字段1-1-1',
+            'group': ['字段1', '字段1-1']
+        },
+        {
+            'title': '字段1-1-2',
+            'dataIndex': '字段1-1-2',
+            'group': ['字段1', '字段1-1']
+        },
+        {
+            'title': '字段1-2',
+            'dataIndex': '字段1-2',
+            'group': '字段1'
+        },
+        {
+            'title': '字段2',
+            'dataIndex': '字段2'
+        }
+    ],
+    data=[
+        {
+            '字段1-1-1': 1,
+            '字段1-1-2': 1,
+            '字段1-2': 1,
+            '字段2': 1
+        }
+    ] * 3,
     bordered=True
 )
 '''

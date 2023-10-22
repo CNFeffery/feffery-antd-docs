@@ -30,6 +30,10 @@
 
    Used to control whether the current checkbox should be styled as indeterminate. This parameter only affects the style and is independent of the checked state.
 
+**readOnly:** *bool* type
+
+　　Used to display the component in read-only mode.
+
 **persistence:** *bool*
 
    Used to enable property persistence for the current component.

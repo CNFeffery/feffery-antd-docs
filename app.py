@@ -303,6 +303,22 @@ app.layout = fuc.FefferyTopProgress(
                                         menuItems=Config.menuItems,
                                         mode='inline',
                                         defaultOpenKeys=Config.side_menu_open_keys,
+                                        menuItemKeyToTitle={
+                                            '/AntdCenter': fac.AntdRow(
+                                                [
+                                                    fac.AntdCol(
+                                                        'AntdCenter 居中'
+                                                    ),
+                                                    fac.AntdCol(
+                                                        fac.AntdTag(
+                                                            content='新组件',
+                                                            color='green'
+                                                        )
+                                                    )
+                                                ],
+                                                justify='space-between'
+                                            )
+                                        },
                                         style={
                                             'height': '100%',
                                             'paddingBottom': '50px'
@@ -482,6 +498,18 @@ def render_docs_content(pathname, global_language):
             str(uuid.uuid4())
         ]
 
+    elif pathname == '/batch-props-values':
+        return [
+            views.batch_props_values.docs_content(language=global_language),
+            str(uuid.uuid4())
+        ]
+
+    elif pathname == '/import-alias':
+        return [
+            views.import_alias.docs_content(language=global_language),
+            str(uuid.uuid4())
+        ]
+
     # 若访问更新日志相关页面
     elif (
         re.fullmatch('/change-log-v\d+\.\d+\.\d+', pathname) and
@@ -586,7 +614,9 @@ def handle_other_router_interaction(pathname):
             '/popup-container',
             '/internationalization',
             '/prop-persistence',
-            '/use-key-to-refresh'
+            '/use-key-to-refresh',
+            '/batch-props-values',
+            '/import-alias'
         ]
     ):
         return [

@@ -150,6 +150,190 @@ fac.AntdCheckCardGroup(
 
                     html.Div(
                         [
+                            fac.AntdCheckCardGroup(
+                                [
+                                    fac.AntdCheckCard(
+                                        f'选项{i}',
+                                        value=i
+                                    )
+                                    for i in range(1, 6)
+                                ],
+                                defaultValue=[2, 3, 4],
+                                multiple=True,
+                                readOnly=True
+                            ),
+
+                            fac.AntdDivider(
+                                '只读状态',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdCheckCardGroup(
+    [
+        fac.AntdCheckCard(
+            f'选项{i}',
+            value=i
+        )
+        for i in range(1, 6)
+    ],
+    defaultValue=[2, 3, 4],
+    multiple=True,
+    readOnly=True
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='只读状态',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
+                            fac.AntdDivider(
+                                '单选',
+                                innerTextOrientation='left'
+                            ),
+                            fac.AntdCheckCardGroup(
+                                [
+                                    fac.AntdCheckCard(
+                                        f'选项{i}',
+                                        value=i
+                                    )
+                                    for i in range(1, 6)
+                                ],
+                                defaultValue=3,
+                                allowNoValue=False
+                            ),
+                            fac.AntdDivider(
+                                '多选',
+                                innerTextOrientation='left'
+                            ),
+                            fac.AntdCheckCardGroup(
+                                [
+                                    fac.AntdCheckCard(
+                                        f'选项{i}',
+                                        value=i
+                                    )
+                                    for i in range(1, 6)
+                                ],
+                                defaultValue=[3],
+                                multiple=True,
+                                allowNoValue=False
+                            ),
+
+                            fac.AntdDivider(
+                                '限制必须有选中值',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdParagraph(
+                                [
+                                    '设置',
+                                    fac.AntdText(
+                                        'allowNoValue=False',
+                                        code=True
+                                    ),
+                                    '后，将会阻止用户对唯一选中值的取消选择行为'
+                                ],
+                                style={
+                                    'textIndent': '2rem'
+                                }
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdDivider(
+    '单选',
+    innerTextOrientation='left'
+),
+fac.AntdCheckCardGroup(
+    [
+        fac.AntdCheckCard(
+            f'选项{i}',
+            value=i
+        )
+        for i in range(1, 6)
+    ],
+    defaultValue=3,
+    allowNoValue=False
+),
+fac.AntdDivider(
+    '多选',
+    innerTextOrientation='left'
+),
+fac.AntdCheckCardGroup(
+    [
+        fac.AntdCheckCard(
+            f'选项{i}',
+            value=i
+        )
+        for i in range(1, 6)
+    ],
+    defaultValue=[3],
+    multiple=True,
+    allowNoValue=False
+),
+
+fac.AntdDivider(
+    '限制必须有选中值',
+    lineColor='#f0f0f0',
+    innerTextOrientation='left'
+),
+
+fac.AntdParagraph(
+    [
+        '设置',
+        fac.AntdText(
+            'allowNoValue=False',
+            code=True
+        ),
+        '后，将会阻止用户对唯一选中值的取消选择行为'
+    ],
+    style={
+        'textIndent': '2rem'
+    }
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='限制必须有选中值',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
                             fuc.FefferyStyle(
                                 rawStyle='''
 #check-card-group-custom-style-demo .ant-pro-checkcard-content {
@@ -318,6 +502,8 @@ def check_card_group_demo(value):
                     linkDict=[
                         {'title': '基础使用', 'href': '#基础使用'},
                         {'title': '多选模式', 'href': '#多选模式'},
+                        {'title': '只读状态', 'href': '#只读状态'},
+                        {'title': '限制必须有选中值', 'href': '#限制必须有选中值'},
                         {'title': '自定义选项样式', 'href': '#自定义选项样式'},
                         {'title': '回调示例', 'href': '#回调示例'},
                     ],

@@ -74,34 +74,41 @@
 　　Customizes the strategy for disabling dates. Each dictionary represents a single strategy, and dates that satisfy at least one strategy will be disabled. Available key-value pairs for each strategy include:
 
   - **mode:** *str*, defines the strategy type. Options include `'eq'` (equal to), `'ne'` (not equal to), `'le'` (less than or equal to), `'lt'` (less than), `'ge'` (greater than or equal to), `'gt'` (greater than), `'in'` (in), `'not in'` (not in), `'in-enumerate-dates'` (in date string enumeration array), and `'not-in-enumerate-dates'` (not in date string enumeration array).
+  - **target:** *str*, defines the constraint target for the strategy. Options include `'day'` (by day), `'month'` (by month), `'quarter'` (by quarter), `'year'` (by year), `'dayOfYear'` (by day of the year), `'dayOfWeek'` (by day of the week), and `'specific-date'` (specific date).
+  - **value:** *int*, *string*, `list[int]`, or `list[str]`, defines the constraint value for the strategy. Strategies with `'in'` require a list-type input.
 
-    - **target:** *str*, defines the constraint target for the strategy. Options include `'day'` (by day), `'month'` (by month), `'quarter'` (by quarter), `'year'` (by year), `'dayOfYear'` (by day of the year), `'dayOfWeek'` (by day of the week), and `'specific-date'` (specific date).
-    - **value:** *int*, *string*, `list[int]`, or `list[str]`, defines the constraint value for the strategy. Strategies with `'in'` require a list-type input.
+**status:** *string*
 
-    **status:** *string*
+　　Forces the component's status. Options include `'error'` and `'warning'`.
 
-    　　Forces the component's status. Options include `'error'` and `'warning'`.
+**allowClear:** *bool*, default: `True`
 
-    **allowClear:** *bool*, default: `True`
+　　Sets whether to allow users to clear the selected option.
 
-    　　Sets whether to allow users to clear the selected option.
+**readOnly:** *bool*
 
-    **readOnly:** *bool*
+　　Sets whether to display the component in read-only mode.
 
-    　　Sets whether to display the component in read-only mode.
+**showToday:** *bool*, Default: `True`
 
-    **popupContainer:** *string*, default: `'body'`
+　　Used to *determine whether to render the "Today" shortcut button.*
 
-    　　Sets the reference container type for the floating elements associated with the current component. Options include `'body'` (root node of the page) and `'parent'` (parent container of the current element). When the component is inside a scrollable container, setting `popupContainer='parent'` resolves the issue of the floating panel not scrolling along.
+**extraFooter:** *Component*
 
-    **persistence:** *bool*
+　　Used to *set additional elements at the bottom of the selection panel.*
 
-    　　Sets whether to enable property persistence for the current component.
+**popupContainer:** *string*, default: `'body'`
 
-    **persisted_props:** *list*, default: `['value']`
+　　Sets the reference container type for the floating elements associated with the current component. Options include `'body'` (root node of the page) and `'parent'` (parent container of the current element). When the component is inside a scrollable container, setting `popupContainer='parent'` resolves the issue of the floating panel not scrolling along.
 
-    　　Sets which properties of the current component should be persisted. Options include `'value'`.
+**persistence:** *bool*
 
-    **persistence_type:** *string*, default: `'local'`
+　　Sets whether to enable property persistence for the current component.
 
-    　　Sets the storage type for property persistence of the current component. Options include `'local'` (browser local cache), `'session'` (current tab session cache), and `'memory'` (temporary memory cache).
+**persisted_props:** *list*, default: `['value']`
+
+　　Sets which properties of the current component should be persisted. Options include `'value'`.
+
+**persistence_type:** *string*, default: `'local'`
+
+　　Sets the storage type for property persistence of the current component. Options include `'local'` (browser local cache), `'session'` (current tab session cache), and `'memory'` (temporary memory cache).

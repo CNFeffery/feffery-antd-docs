@@ -1315,6 +1315,288 @@ fac.AntdTree(
                                         ]
                                     }
                                 ],
+                                defaultExpandAll=True,
+                                multiple=True,
+                                checkable=True,
+                                nodeCheckedStyle={
+                                    'fontWeight': 'bold'
+                                },
+                                nodeUncheckedStyle={
+                                    'textDecoration': 'line-through'
+                                }
+                            ),
+
+                            fac.AntdDivider(
+                                '节点勾选状态样式',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdParagraph(
+                                [
+                                    '通过参数',
+                                    fac.AntdText(
+                                        'nodeCheckedStyle',
+                                        code=True
+                                    ),
+                                    '、',
+                                    fac.AntdText(
+                                        'nodeUncheckedStyle',
+                                        code=True
+                                    ),
+                                    '可分别设置树节点已勾选、未勾选状态下的css样式'
+                                ],
+                                style={
+                                    'textIndent': '2rem'
+                                }
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdTree(
+    treeData=[
+        {
+            'title': '四川省',
+            'key': '四川省',
+            'children': [
+                {
+                    'title': '成都市',
+                    'key': '成都市'
+                },
+                {
+                    'title': '广安市',
+                    'key': '广安市'
+                }
+            ]
+        },
+        {
+            'title': '重庆市',
+            'key': '重庆市',
+            'children': [
+                {
+                    'title': '渝中区',
+                    'key': '渝中区',
+                    'children': [
+                        {
+                            'title': '解放碑街道',
+                            'key': '解放碑街道'
+                        }
+                    ]
+                },
+                {
+                    'title': '渝北区',
+                    'key': '渝北区'
+                }
+            ]
+        }
+    ],
+    defaultExpandAll=True,
+    multiple=True,
+    checkable=True,
+    nodeCheckedStyle={
+        'fontWeight': 'bold'
+    },
+    nodeUncheckedStyle={
+        'textDecoration': 'line-through'
+    }
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='节点勾选状态样式',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
+                            fac.AntdTree(
+                                treeData=[
+                                    {
+                                        'title': '四川省',
+                                        'key': '四川省',
+                                        'children': [
+                                            {
+                                                'title': '成都市',
+                                                'key': '成都市'
+                                            },
+                                            {
+                                                'title': '广安市',
+                                                'key': '广安市'
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        'title': '重庆市',
+                                        'key': '重庆市',
+                                        'children': [
+                                            {
+                                                'title': '渝中区',
+                                                'key': '渝中区',
+                                                'children': [
+                                                    {
+                                                        'title': '解放碑街道',
+                                                        'key': '解放碑街道'
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                'title': '渝北区',
+                                                'key': '渝北区'
+                                            }
+                                        ]
+                                    }
+                                ],
+                                defaultExpandAll=True,
+                                multiple=True,
+                                checkable=True,
+                                nodeCheckedSuffix='🙂',
+                                nodeUncheckedSuffix='🙃'
+                            ),
+
+                            fac.AntdDivider(
+                                '节点勾选状态后缀',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdParagraph(
+                                [
+                                    '通过参数',
+                                    fac.AntdText(
+                                        'nodeCheckedSuffix',
+                                        code=True
+                                    ),
+                                    '、',
+                                    fac.AntdText(
+                                        'nodeUncheckedSuffix',
+                                        code=True
+                                    ),
+                                    '可分别设置树节点已勾选、未勾选状态下的额外后缀内容'
+                                ],
+                                style={
+                                    'textIndent': '2rem'
+                                }
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdTree(
+    treeData=[
+        {
+            'title': '四川省',
+            'key': '四川省',
+            'children': [
+                {
+                    'title': '成都市',
+                    'key': '成都市'
+                },
+                {
+                    'title': '广安市',
+                    'key': '广安市'
+                }
+            ]
+        },
+        {
+            'title': '重庆市',
+            'key': '重庆市',
+            'children': [
+                {
+                    'title': '渝中区',
+                    'key': '渝中区',
+                    'children': [
+                        {
+                            'title': '解放碑街道',
+                            'key': '解放碑街道'
+                        }
+                    ]
+                },
+                {
+                    'title': '渝北区',
+                    'key': '渝北区'
+                }
+            ]
+        }
+    ],
+    defaultExpandAll=True,
+    multiple=True,
+    checkable=True,
+    nodeCheckedSuffix='🙂',
+    nodeUncheckedSuffix='🙃'
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='节点勾选状态后缀',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
+                            fac.AntdTree(
+                                treeData=[
+                                    {
+                                        'title': '四川省',
+                                        'key': '四川省',
+                                        'children': [
+                                            {
+                                                'title': '成都市',
+                                                'key': '成都市'
+                                            },
+                                            {
+                                                'title': '广安市',
+                                                'key': '广安市'
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        'title': '重庆市',
+                                        'key': '重庆市',
+                                        'children': [
+                                            {
+                                                'title': '渝中区',
+                                                'key': '渝中区',
+                                                'children': [
+                                                    {
+                                                        'title': '解放碑街道',
+                                                        'key': '解放碑街道'
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                'title': '渝北区',
+                                                'key': '渝北区'
+                                            }
+                                        ]
+                                    }
+                                ],
                                 multiple=True,
                                 checkable=True,
                                 checkStrictly=True
@@ -1626,6 +1908,74 @@ fac.AntdTree(
                             'border': '1px solid #f0f0f0'
                         },
                         id='节点可拖拽',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
+                            fac.AntdTree(
+                                treeData=[
+                                    {
+                                        'title': '根节点',
+                                        'key': '根节点',
+                                        'children': [
+                                            {
+                                                'title': f'节点{i}',
+                                                'key': f'节点{i}',
+                                            }
+                                            for i in range(1, 6)
+                                        ]
+                                    }
+                                ],
+                                draggable=True,
+                                dragInSameLevel=True,
+                                defaultExpandAll=True
+                            ),
+
+                            fac.AntdDivider(
+                                '限制仅允许同级拖拽',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdTree(
+    treeData=[
+        {
+            'title': '根节点',
+            'key': '根节点',
+            'children': [
+                {
+                    'title': f'节点{i}',
+                    'key': f'节点{i}',
+                }
+                for i in range(1, 6)
+            ]
+        }
+    ],
+    draggable=True,
+    dragInSameLevel=True,
+    defaultExpandAll=True
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='限制仅允许同级拖拽',
                         className='div-highlight'
                     ),
 
@@ -2106,11 +2456,455 @@ def tree_context_menu_demo(clickedContextMenu):
                         className='div-highlight'
                     ),
 
+                    html.Div(
+                        [
+                            fac.AntdSpace(
+                                [
+                                    fac.AntdInput(
+                                        id='tree-search-demo-keyword',
+                                        placeholder='请输入搜索关键词',
+                                        value='省',
+                                        style={
+                                            'width': '100%'
+                                        }
+                                    ),
+                                    fac.AntdTree(
+                                        id='tree-search-demo',
+                                        treeData=[
+                                            {
+                                                'title': '四川省',
+                                                'key': '四川省',
+                                                'children': [
+                                                    {
+                                                        'title': '成都市',
+                                                        'key': '成都市'
+                                                    },
+                                                    {
+                                                        'title': '广安市',
+                                                        'key': '广安市'
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                'title': '重庆市',
+                                                'key': '重庆市',
+                                                'children': [
+                                                    {
+                                                        'title': '渝中区',
+                                                        'key': '渝中区',
+                                                        'children': [
+                                                            {
+                                                                'title': '解放碑街道',
+                                                                'key': '解放碑街道'
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        'title': '渝北区',
+                                                        'key': '渝北区'
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                        defaultExpandAll=True,
+                                        highlightStyle={
+                                            'background': '#ffffb8',
+                                            'padding': 0
+                                        }
+                                    )
+                                ],
+                                direction='vertical',
+                                style={
+                                    'width': '100%'
+                                }
+                            ),
+
+                            fac.AntdDivider(
+                                '快捷树搜索',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdParagraph(
+                                [
+                                    '仅需设置有效参数',
+                                    fac.AntdText(
+                                        'searchKeyword',
+                                        code=True
+                                    ),
+                                    '即可实现针对树节点的快捷搜索高亮功能'
+                                ],
+                                style={
+                                    'textIndent': '2rem'
+                                }
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString="""
+fac.AntdSpace(
+    [
+        fac.AntdInput(
+            id='tree-search-demo-keyword',
+            placeholder='请输入搜索关键词',
+            value='省',
+            style={
+                'width': '100%'
+            }
+        ),
+        fac.AntdTree(
+            id='tree-search-demo',
+            treeData=[
+                {
+                    'title': '四川省',
+                    'key': '四川省',
+                    'children': [
+                        {
+                            'title': '成都市',
+                            'key': '成都市'
+                        },
+                        {
+                            'title': '广安市',
+                            'key': '广安市'
+                        }
+                    ]
+                },
+                {
+                    'title': '重庆市',
+                    'key': '重庆市',
+                    'children': [
+                        {
+                            'title': '渝中区',
+                            'key': '渝中区',
+                            'children': [
+                                {
+                                    'title': '解放碑街道',
+                                    'key': '解放碑街道'
+                                }
+                            ]
+                        },
+                        {
+                            'title': '渝北区',
+                            'key': '渝北区'
+                        }
+                    ]
+                }
+            ],
+            defaultExpandAll=True,
+            highlightStyle={
+                'background': '#ffffb8',
+                'padding': 0
+            }
+        )
+    ],
+    direction='vertical',
+    style={
+        'width': '100%'
+    }
+)
+
+...
+
+app.clientside_callback(
+    '''(value) => value''',
+    Output('tree-search-demo', 'searchKeyword'),
+    Input('tree-search-demo-keyword', 'value')
+)
+"""
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='快捷树搜索',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
+                            fac.AntdSpace(
+                                [
+                                    fac.AntdTree(
+                                        id='tree-favorites-demo',
+                                        treeData=[
+                                            {
+                                                'title': '四川省',
+                                                'key': '四川省',
+                                                'enableFavorites': False,
+                                                'children': [
+                                                    {
+                                                        'title': '成都市',
+                                                        'key': '成都市'
+                                                    },
+                                                    {
+                                                        'title': '广安市',
+                                                        'key': '广安市'
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                'title': '重庆市',
+                                                'key': '重庆市',
+                                                'enableFavorites': False,
+                                                'children': [
+                                                    {
+                                                        'title': '渝中区',
+                                                        'key': '渝中区',
+                                                        'children': [
+                                                            {
+                                                                'title': '解放碑街道',
+                                                                'key': '解放碑街道'
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        'title': '渝北区',
+                                                        'key': '渝北区'
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                        defaultExpandAll=True,
+                                        enableNodeFavorites=True
+                                    ),
+                                    html.Pre(
+                                        id='tree-favorites-demo-output'
+                                    )
+                                ],
+                                direction='vertical',
+                                style={
+                                    'width': '100%'
+                                }
+                            ),
+
+                            fac.AntdDivider(
+                                '节点收藏功能',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdTree(
+            id='tree-favorites-demo',
+            treeData=[
+                {
+                    'title': '四川省',
+                    'key': '四川省',
+                    'enableFavorites': False,
+                    'children': [
+                        {
+                            'title': '成都市',
+                            'key': '成都市'
+                        },
+                        {
+                            'title': '广安市',
+                            'key': '广安市'
+                        }
+                    ]
+                },
+                {
+                    'title': '重庆市',
+                    'key': '重庆市',
+                    'enableFavorites': False,
+                    'children': [
+                        {
+                            'title': '渝中区',
+                            'key': '渝中区',
+                            'children': [
+                                {
+                                    'title': '解放碑街道',
+                                    'key': '解放碑街道'
+                                }
+                            ]
+                        },
+                        {
+                            'title': '渝北区',
+                            'key': '渝北区'
+                        }
+                    ]
+                }
+            ],
+            defaultExpandAll=True,
+            enableNodeFavorites=True
+        ),
+        html.Pre(
+            id='tree-favorites-demo-output'
+        )
+    ],
+    direction='vertical',
+    style={
+        'width': '100%'
+    }
+)
+
+...
+
+import json
+
+...
+
+@app.callback(
+    Output('tree-favorites-demo-output', 'children'),
+    Input('tree-favorites-demo', 'favoritedKeys')
+)
+def tree_favorites_demo(favoritedKeys):
+
+    return json.dumps(
+        dict(favoritedKeys=favoritedKeys),
+        indent=4,
+        ensure_ascii=False
+    )
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='节点收藏功能',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
+                            fac.AntdSpace(
+                                [
+                                    fac.AntdButton(
+                                        '随机滚动',
+                                        id='tree-scroll-demo-trigger',
+                                        type='primary'
+                                    ),
+                                    fac.AntdTree(
+                                        id='tree-scroll-demo',
+                                        treeData=[
+                                            {
+                                                'title': '全部节点',
+                                                'key': '全部节点',
+                                                'children': [
+                                                    {
+                                                        'title': f'节点{i}',
+                                                        'key': f'节点{i}'
+                                                    }
+                                                    for i in range(1, 51)
+                                                ]
+                                            }
+                                        ],
+                                        defaultExpandAll=True,
+                                        height=200
+                                    )
+                                ],
+                                direction='vertical',
+                                style={
+                                    'width': '100%'
+                                }
+                            ),
+
+                            fac.AntdDivider(
+                                '节点滚动动作',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdButton(
+            '随机滚动',
+            id='tree-scroll-demo-trigger',
+            type='primary'
+        ),
+        fac.AntdTree(
+            id='tree-scroll-demo',
+            treeData=[
+                {
+                    'title': '全部节点',
+                    'key': '全部节点',
+                    'children': [
+                        {
+                            'title': f'节点{i}',
+                            'key': f'节点{i}'
+                        }
+                        for i in range(1, 51)
+                    ]
+                }
+            ],
+            defaultExpandAll=True,
+            height=200
+        )
+    ],
+    direction='vertical',
+    style={
+        'width': '100%'
+    }
+)
+
+...
+
+import random
+
+...
+
+@app.callback(
+    Output('tree-scroll-demo', 'scrollTarget'),
+    Input('tree-scroll-demo-trigger', 'nClicks'),
+    prevent_initial_call=True
+)
+def tree_scroll_demo(nClicks):
+
+    return {
+        'key': f'节点{random.randint(1, 51)}'
+    }
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='节点滚动动作',
+                        className='div-highlight'
+                    ),
+
                     html.Div(style={'height': '100px'})
                 ],
                 style={
                     'flex': 'auto',
-                    'padding': '25px'
+                    'padding': '25px',
+                    'width': 0
                 }
             ),
             html.Div(
@@ -2126,12 +2920,18 @@ def tree_context_menu_demo(clickedContextMenu):
                         {'title': '大数据量时开启虚拟滚动优化', 'href': '#大数据量时开启虚拟滚动优化'},
                         {'title': '多选模式', 'href': '#多选模式'},
                         {'title': '带勾选框的多选模式', 'href': '#带勾选框的多选模式'},
+                        {'title': '节点勾选状态样式', 'href': '#节点勾选状态样式'},
+                        {'title': '节点勾选状态后缀', 'href': '#节点勾选状态后缀'},
                         {'title': '父子节点独立选择', 'href': '#父子节点独立选择'},
                         {'title': '扁平treeData模式', 'href': '#扁平treeData模式'},
                         {'title': '节点可拖拽', 'href': '#节点可拖拽'},
+                        {'title': '限制仅允许同级拖拽', 'href': '#限制仅允许同级拖拽'},
                         {'title': '节点选择回调示例', 'href': '#节点选择回调示例'},
                         {'title': '节点拖拽回调示例', 'href': '#节点拖拽回调示例'},
                         {'title': '节点右键菜单回调示例', 'href': '#节点右键菜单回调示例'},
+                        {'title': '快捷树搜索', 'href': '#快捷树搜索'},
+                        {'title': '节点收藏功能', 'href': '#节点收藏功能'},
+                        {'title': '节点滚动动作', 'href': '#节点滚动动作'}
                     ],
                     offsetTop=0
                 ),

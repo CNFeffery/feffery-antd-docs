@@ -24,7 +24,7 @@
 
 - **title：** *组件型*，必填，用于*设置当前字段的标题内容*
 - **dataIndex：** *string*型，必填，用于*设置当前字段的唯一id信息*，该信息对应`data`中每条记录内的键值对
-- **group：** *string*型，用于*为当前字段设置所属的分组信息*，用于渲染双层表头使用
+- **group：** *string*或*list*型，用于*为当前字段设置所属的分组信息*，用于渲染多层表头使用
 - **renderOptions：** *dict*型，用于*为当前字段设置与再渲染模式相关的配置参数*，可用的键值对参数有：
   - **renderType：** *string*型，用于*为当前字段设置所需的再渲染模式类型*，可选的有`'link'`（链接模式）、`'ellipsis'`（长内容省略模式）、`'copyable'`（可复制模式）、`'ellipsis-copyable'`（长内容省略+可复制模式）、`'tags'`（标签模式）、`'status-badge'`（状态徽标模式）、`'image'`（图片模式）、`'custom-format'`（自定义格式模式）、`'corner-mark'`（角标模式）、`'row-merge'`（跨行合并单元格模式）、`'dropdown-links'`（下拉链接菜单模式）、`'image-avatar'`（图片型头像模式）、`'mini-line'`（迷你折线图模式）、`'mini-bar'`（迷你柱状图模式）、`'mini-progress'`（迷你进度图模式）、`'mini-ring-progress'`（迷你环形进度图模式）、`'mini-area'`（迷你面积图模式）、`'button'`（按钮模式）、`'checkbox'`（勾选框模式）、`'switch'`（开关模式）、`'dropdown'`（下拉选择菜单模式）、`'select'`（下拉选择模式）
   - **renderLinkText：** *string*型，当`renderType="link"`时，用于*统一为当前字段所渲染出的链接设置文字内容*
@@ -50,9 +50,11 @@
     - **minRows：** *int*型，用于*设置最小行数*
     - **maxRows：** *int*型，用于*设置对大行数*
   - **maxLength：** *int*型，用于*设置输入框最大允许输入的字符长度*，默认无限制
+  - **placeholder：** *string*型，用于*设置当单元格内容为空时输入模式下的占位提示文字*
 - **align：** *string*型，用于*设置当前字段内容的水平对齐方式*，可选的有`'left'`、`'center'`、`'right'`
 - **width：** *int*或*string*型，用于*设置当前字段的宽度*
 - **hidden：** *bool*型，默认为`False`，用于*设置是否需要隐藏当前字段*
+- **filterResetToDefaultFilteredValue：** *bool*型，用于设置当前字段对应筛选菜单，是否在重置后还原为参数`defaultFilteredValues`设置的默认选中项
 
 **data：** *list*型
 
@@ -60,8 +62,7 @@
 
 - **常规模式（不开启再渲染）：** *int*、*float*或*string*型
 - **link（链接模式）：** *dict*型，可用的键值对参数有：
-
-  - **content：** *string*型，用于*设置当前记录值所渲染链接的文字内容*，优先级高于`renderLinkText`
+- **content：** *string*型，用于*设置当前记录值所渲染链接的文字内容*，优先级高于`renderLinkText`
   - **href：** *string*型，用于*设置当前记录值所渲染链接的url*
   - **target：** *string*型，默认为`'_blank'`，用于*设置当前记录值所渲染链接的跳转行为*
   - **disabled：** *bool*型，默认为`False`，用于*设置是否禁用当前记录值所渲染的链接*
@@ -101,6 +102,7 @@
   - **href：** *string*型，用于*设置当前链接项的链接地址*
   - **disabled：** *bool*型，默认为`False`，用于*设置是否禁用当前链接项*
   - **icon：** *string*型，用于*为当前链接项设置前缀图标*，同`AntdIcon`中的同名参数
+  - **iconRenderer：** *string*型，默认为`'AntdIcon'`，用于*为当前链接项设置前缀图标设置渲染方式*，可选的有`'AntdIcon'`（内置图标）、`'fontawesome'`（基于css类名渲染）
   - **isDivider：** *bool*型，用于*设置当前链接项是否充当分割线角色*
 - **image-avatar（图片型头像模式）：** *dict*型，可用的键值对参数有：
 
@@ -122,6 +124,7 @@
   - **href：** *string*型，用于*设置当前按钮的链接url*
   - **target：** *string*型，默认为`'_blank'`，用于*设置当前按钮具有链接时的跳转行为*
   - **icon：** *string*型，用于*为当前按钮设置前缀图标*，同`AntdIcon`中的同名参数
+  - **iconRenderer：** *string*型，默认为`'AntdIcon'`，用于*为当前按钮前缀图标设置渲染方式*，可选的有`'AntdIcon'`（内置图标）、`'fontawesome'`（基于css类名渲染）
   - **custom：** *任意类型*，用于*存储辅助信息*
 - **checkbox（勾选框模式）：** *dict*型，可用的键值对参数有：
 
@@ -141,6 +144,7 @@
   - **title：** *string*型，用于*设置当前菜单项的标题文字*
   - **disabled：** *bool*型，默认为`False`，用于*设置是否禁用当前菜单项*
   - **icon：** *string*型，用于*为当前菜单项设置前缀图标*，同`AntdIcon`中的同名参数
+  - **iconRenderer：** *string*型，默认为`'AntdIcon'`，用于*为当前菜单项设置前缀图标设置渲染方式*，可选的有`'AntdIcon'`（内置图标）、`'fontawesome'`（基于css类名渲染）
   - **isDivider：** *bool*型，用于*设置当前菜单项是否充当分割线角色*
   - **custom：** *任意类型*，用于*存储辅助信息*
 - **select（下拉选择模式）：** `dict`型，可用的键值对参数有：
@@ -237,10 +241,15 @@
 
 　　用于*配置字段筛选相关功能*，键为相应字段的`dataIndex`，值为字典，可用的键值对参数有：
 
-- **filterMode：** *string*型，默认为`'checkbox'`，用于*设置当前字段筛选功能类型*，可选的有`'checkbox'`、`'keyword'`
+- **filterMode：** *string*型，默认为`'checkbox'`，用于*设置当前字段筛选功能类型*，可选的有`'checkbox'`、`'keyword'`、`'tree'`
 - **filterCustomItems：** *list*型，当`filterMode`为`'checkbox'`时，用于*手动设置筛选项值列表*
+- **filterCustomTreeItems：** *list*型，当`filterMode`为`'tree'`时，用于*设置树形筛选菜单结构*
 - **filterMultiple：** *bool*型，默认为`True`，当`filterMode`为`'checkbox'`时，用于*设置是否允许多选*
 - **filterSearch：** *bool*型，默认为`False`，当`filterMode`为`'checkbox'`时，用于*设置开启搜索框*
+
+**defaultFilteredValues：** *dict*型
+
+　　用于*为各字段筛选设置初始化时默认选中的若干筛选值*
 
 **filter：** *dict*型
 
@@ -261,6 +270,7 @@
 - **pageSizeOptions：** `list[int]`型，用于*设置可供切换的每页行记录数量选项*
 - **showTitle：** *bool*型，用于*设置是否显示分页控件附带的额外说明文字信息*
 - **showQuickJumper：** *bool*型，用于*设置是否开启快捷页码切换功能*
+- **showLessItems：** *bool*型，用于*设置是否展示较少的跳页按钮*
 - **showTotalPrefix：** *string*型，用于*设置额外说明文字信息中位于总记录数之前的内容*
 - **showTotalSuffix：** *string*型，用于*设置额外说明文字信息中位于总记录数之后的内容*
 - **hideOnSinglePage：** *bool*型，用于*设置分页控件是否在表格中总记录数不足一页时自动隐藏分页控件*
@@ -272,6 +282,10 @@
 **recentlyChangedRow：** *dict*型
 
 　　用于*监听最近一次可编辑单元格操作后发生变动的行记录字典*
+
+**recentlyChangedColumn：** *string*型
+
+　　用于*监听最近一次可编辑单元格操作后发生变动的单元格对应字段*
 
 **summaryRowContents：** `list[dict]`型
 
@@ -387,6 +401,10 @@
 **clickedContent：** *string*型
 
 　　用于*监听最近一次按钮模式相关点击事件对应的按钮内容*
+
+**clickedCustom：** *int*、*float*、*string*、*list*或*dict*型
+
+　　用于*监听最近一次按钮模式相关点击事件对应的按钮自定义custom字段信息*
 
 **recentlyButtonClickedDataIndex：** *string*型
 

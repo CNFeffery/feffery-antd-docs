@@ -82,6 +82,10 @@
 
 　　Used to set whether to display the component in read-only mode.
 
+**extraFooter:** *Component*
+
+　　Used to *set additional elements at the bottom of the selection panel.*
+
 **popupContainer:** *string* type, default: `'body'`
 
 　　Used to set the reference container type for the floating layer elements associated with the current component. Options include `'body'` (root node of the page) and `'parent'` (parent

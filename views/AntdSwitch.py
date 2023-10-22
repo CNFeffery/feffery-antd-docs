@@ -227,6 +227,60 @@ fac.AntdSpace(
                             fac.AntdSpace(
                                 [
                                     fac.AntdSwitch(
+                                        readOnly=True
+                                    ),
+                                    fac.AntdSwitch(
+                                        checked=True,
+                                        readOnly=True
+                                    )
+                                ]
+                            ),
+
+                            fac.AntdDivider(
+                                '只读状态',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdSwitch(
+            readOnly=True
+        ),
+        fac.AntdSwitch(
+            checked=True,
+            readOnly=True
+        )
+    ]
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='只读状态',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
+                            fac.AntdSpace(
+                                [
+                                    fac.AntdSwitch(
                                         loading=True
                                     ),
                                     fac.AntdSwitch(
@@ -346,6 +400,7 @@ def switch_demo(checked):
                         {'title': '自定义状态标签', 'href': '#自定义状态标签'},
                         {'title': '迷你尺寸', 'href': '#迷你尺寸'},
                         {'title': '禁用状态', 'href': '#禁用状态'},
+                        {'title': '只读状态', 'href': '#只读状态'},
                         {'title': '加载中状态', 'href': '#加载中状态'},
                         {'title': '回调示例', 'href': '#回调示例'},
                     ],

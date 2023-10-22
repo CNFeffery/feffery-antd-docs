@@ -62,6 +62,10 @@
 
 　　Listens to or sets the initial slider value.
 
+**readOnly:** *bool* type
+
+　　Used to display the component in read-only mode.
+
 **popupContainer:** *string* type, default: `'body'`
 
 　　Specifies the reference container type for the floating layer elements associated with the current component. Available options are `'body'` (uses the root node of the page as the reference) and `'parent'` (uses the parent container of the current element as the reference). When the component is inside a scrollable container, setting `popupContainer='parent'` can solve the issue of the floating layer not scrolling with the container.

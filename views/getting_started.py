@@ -108,7 +108,7 @@ conda activate dash-apps''',
                                 'children': html.Div(
                                     [
                                         fmc.FefferySyntaxHighlighter(
-                                            codeString='''pip install dash feffery-antd-components -U -i https://mirrors.aliyun.com/pypi/simple/''',
+                                            codeString='''pip install dash feffery-antd-components -U -i https://pypi.tuna.tsinghua.edu.cn/simple''',
                                             language='bash',
                                             showCopyButton=True
                                         )

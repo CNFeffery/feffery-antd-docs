@@ -292,17 +292,135 @@ html.Div(
                         className='div-highlight'
                     ),
 
+                    html.Div(
+                        [
+                            fac.AntdSpace(
+                                [
+                                    fac.AntdParagraph(
+                                        paragraph_demo,
+                                        ellipsis=True
+                                    ),
+                                    fac.AntdParagraph(
+                                        paragraph_demo,
+                                        ellipsis={
+                                            'expandable': True
+                                        }
+                                    ),
+                                    fac.AntdParagraph(
+                                        paragraph_demo,
+                                        ellipsis={
+                                            'expandable': True,
+                                            'rows': 3
+                                        }
+                                    ),
+                                    fac.AntdParagraph(
+                                        paragraph_demo,
+                                        ellipsis={
+                                            'suffix': '👉'
+                                        }
+                                    ),
+                                    fac.AntdParagraph(
+                                        paragraph_demo,
+                                        ellipsis={
+                                            'expandable': True,
+                                            'rows': 3,
+                                            'symbol': fac.AntdText(
+                                                '点我展开',
+                                                type='secondary'
+                                            )
+                                        }
+                                    ),
+                                ],
+                                direction='vertical',
+                                style={
+                                    'width': '100%'
+                                }
+                            ),
+
+                            fac.AntdDivider(
+                                '内容省略功能',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdParagraph(
+            paragraph_demo,
+            ellipsis=True
+        ),
+        fac.AntdParagraph(
+            paragraph_demo,
+            ellipsis={
+                'expandable': True
+            }
+        ),
+        fac.AntdParagraph(
+            paragraph_demo,
+            ellipsis={
+                'expandable': True,
+                'rows': 3
+            }
+        ),
+        fac.AntdParagraph(
+            paragraph_demo,
+            ellipsis={
+                'suffix': '👉'
+            }
+        ),
+        fac.AntdParagraph(
+            paragraph_demo,
+            ellipsis={
+                'expandable': True,
+                'rows': 3,
+                'symbol': fac.AntdText(
+                    '点我展开',
+                    type='secondary'
+                )
+            }
+        ),
+    ],
+    direction='vertical',
+    style={
+        'width': '100%'
+    }
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='内容省略功能',
+                        className='div-highlight'
+                    ),
+
                     html.Div(style={'height': '100px'})
                 ],
                 style={
                     'flex': 'auto',
-                    'padding': '25px'
+                    'padding': '25px',
+                    'width': 0
                 }
             ),
             html.Div(
                 fac.AntdAnchor(
                     linkDict=[
                         {'title': '不同的渲染模式', 'href': '#不同的渲染模式'},
+                        {'title': '内容省略功能', 'href': '#内容省略功能'},
                     ],
                     offsetTop=0
                 ),

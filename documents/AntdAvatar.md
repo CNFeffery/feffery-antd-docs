@@ -30,6 +30,10 @@
 
 　　当`mode="icon"`时，用于*设置头像内显示的图标*，同`AntdIcon`中的同名参数
 
+**iconRenderer：** *string*型，默认为`'AntdIcon'`
+
+　　用于*为当前节点的前缀图标设置渲染方式*，可选的有`'AntdIcon'`（内置图标）、`'fontawesome'`（基于css类名渲染）
+
 **alt：** *string*型
 
 　　当`mode="image"`时，用于*设置头像图片加载失败时的占位文字信息*

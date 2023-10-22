@@ -42,6 +42,14 @@
 
 　　Used to *set the overall size* of the check card group. Available options are `'small'`, `'default'`, `'large'`.
 
+**allowNoValue:** *bool* type, default is `True`
+
+　　Used to *determine whether the current combination selection card allows no selected value.*
+
+**readOnly:** *bool* type
+
+　　Used to display the component in read-only mode.
+
 **persistence:** *bool*
 
 　　Used to *enable property persistence* for the current component.

@@ -18,6 +18,18 @@
 
 　　Used to pass in nested description list items.
 
+**items:** `list[dict]` type
+
+　　Used to *set the data-driven approach for nested description list items*. Each dictionary element represents an item, and the available key-value pairs are:
+
+- **label:** *component*, used to *set the current sub-item's title content*.
+- **span:** *int*, default is `1`, used to *set the number of width units allocated to the current sub-item*.
+- **children:** *component*, used to *set the internal elements of the current sub-item*.
+- **labelStyle:** *dict*, used to *set the CSS style for the current sub-item's label*.
+- **contentStyle:** *dict*, used to *set the CSS style for the current sub-item's content container*.
+- **style:** *dict*, used to *set the CSS style for the current sub-item*.
+- **className:** *string*, used to *set the CSS class for the current sub-item*.
+
 **title:** *component* type
 
 　　Used to set the title content for the current description list.

@@ -7,6 +7,7 @@ from . import (
     AntdParagraph,
     AntdText,
     AntdTitle,
+    AntdCenter,
     AntdDivider,
     AntdSpace,
     AntdCompact,
@@ -101,5 +102,7 @@ from . import (
     internationalization,
     prop_persistence,
     use_key_to_refresh,
+    batch_props_values,
+    import_alias,
     generate_change_logs
 )

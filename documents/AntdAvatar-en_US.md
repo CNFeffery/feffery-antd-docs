@@ -30,6 +30,10 @@
 
 　　When `mode="icon"`, sets the icon displayed inside the avatar, same as the corresponding parameter in `AntdIcon`.
 
+**iconRenderer:** *string* type, defaulting to `'AntdIcon'`
+
+　　Used to specify the *rendering method for setting prefix icons for the current node*. Available options include `'AntdIcon'` (built-in icons) and `'fontawesome'` (rendered based on CSS class names).
+
 **alt:** *string*
 
 　　When `mode="image"`, sets the placeholder text when the avatar image fails to load.

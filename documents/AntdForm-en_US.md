@@ -37,3 +37,7 @@
 **labelAlign:** *string* type, default: `'right'`
 
 　　Used to set the alignment of the label contents for all form items below it. Available options are `'left'` and `'right'`.
+
+**labelWrap:** *bool* type, default:  `False`
+
+　　Used to *determine whether to automatically wrap the label content of internal form items when it exceeds the available space*.

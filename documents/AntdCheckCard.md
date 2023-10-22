@@ -42,6 +42,10 @@
 
 　　配合`AntdCheckCardGroup`使用，用于*设置当前选择卡片对应的值*
 
+**readOnly：** *bool*型
+
+　　用于*设置是否以只读模式进行展示*
+
 **persistence：** *bool*型
 
 　　用于*设置是否为当前组件开启属性持久化*

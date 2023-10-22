@@ -25,3 +25,7 @@
 **containerId：** *string*型
 
 　　用于*设置要绑定的局部容器id*
+
+**containerSelector：** *string*型
+
+　　优先级低于`containerId`，用于*传入js代码字符串进行目标局部容器的设置*

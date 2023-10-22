@@ -1279,22 +1279,27 @@ def table_sort_demo(sorter):
                                     {
                                         'title': '基础示例',
                                         'dataIndex': '基础示例',
-                                        'width': '25%'
+                                        'width': '20%'
                                     },
                                     {
                                         'title': '自定义选项',
                                         'dataIndex': '自定义选项',
-                                        'width': '25%'
+                                        'width': '20%'
                                     },
                                     {
                                         'title': '单选模式',
                                         'dataIndex': '单选模式',
-                                        'width': '25%'
+                                        'width': '20%'
                                     },
                                     {
                                         'title': '启用搜索框',
                                         'dataIndex': '启用搜索框',
-                                        'width': '25%'
+                                        'width': '20%'
+                                    },
+                                    {
+                                        'title': '树形筛选',
+                                        'dataIndex': '树形筛选',
+                                        'width': '20%'
                                     }
                                 ],
                                 data=[
@@ -1303,6 +1308,7 @@ def table_sort_demo(sorter):
                                         '自定义选项': s,
                                         '单选模式': s,
                                         '启用搜索框': s,
+                                        '树形筛选': s,
                                     }
                                     for s in list('abced')
                                 ],
@@ -1316,6 +1322,29 @@ def table_sort_demo(sorter):
                                     },
                                     '启用搜索框': {
                                         'filterSearch': True
+                                    },
+                                    '树形筛选': {
+                                        'filterMode': 'tree',
+                                        'filterCustomTreeItems': [
+                                            {
+                                                'text': 'a-c',
+                                                'children': [
+                                                    {
+                                                        'text': s,
+                                                        'value': s
+                                                    }
+                                                    for s in list('abc')
+                                                ]
+                                            },
+                                            {
+                                                'text': 'd',
+                                                'value': 'd'
+                                            },
+                                            {
+                                                'text': 'e',
+                                                'value': 'e'
+                                            }
+                                        ]
                                     }
                                 }
                             ),
@@ -1338,22 +1367,27 @@ fac.AntdTable(
         {
             'title': '基础示例',
             'dataIndex': '基础示例',
-            'width': '25%'
+            'width': '20%'
         },
         {
             'title': '自定义选项',
             'dataIndex': '自定义选项',
-            'width': '25%'
+            'width': '20%'
         },
         {
             'title': '单选模式',
             'dataIndex': '单选模式',
-            'width': '25%'
+            'width': '20%'
         },
         {
             'title': '启用搜索框',
             'dataIndex': '启用搜索框',
-            'width': '25%'
+            'width': '20%'
+        },
+        {
+            'title': '树形筛选',
+            'dataIndex': '树形筛选',
+            'width': '20%'
         }
     ],
     data=[
@@ -1362,6 +1396,7 @@ fac.AntdTable(
             '自定义选项': s,
             '单选模式': s,
             '启用搜索框': s,
+            '树形筛选': s,
         }
         for s in list('abced')
     ],
@@ -1375,6 +1410,29 @@ fac.AntdTable(
         },
         '启用搜索框': {
             'filterSearch': True
+        },
+        '树形筛选': {
+            'filterMode': 'tree',
+            'filterCustomTreeItems': [
+                {
+                    'text': 'a-c',
+                    'children': [
+                        {
+                            'text': s,
+                            'value': s
+                        }
+                        for s in list('abc')
+                    ]
+                },
+                {
+                    'text': 'd',
+                    'value': 'd'
+                },
+                {
+                    'text': 'e',
+                    'value': 'e'
+                }
+            ]
         }
     }
 )
@@ -1391,6 +1449,84 @@ fac.AntdTable(
                             'border': '1px solid #f0f0f0'
                         },
                         id='勾选型筛选',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
+                            fac.AntdTable(
+                                columns=[
+                                    {
+                                        'title': '基础示例',
+                                        'dataIndex': '基础示例'
+                                    }
+                                ],
+                                data=[
+                                    {
+                                        '基础示例': s
+                                    }
+                                    for s in list('abced')
+                                ],
+                                filterOptions={
+                                    '基础示例': {}
+                                },
+                                defaultFilteredValues={
+                                    '基础示例': ['a', 'c', 'e']
+                                },
+                                style={
+                                    'width': 200
+                                }
+                            ),
+
+                            fac.AntdDivider(
+                                '设置初始化选中值',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdTable(
+    columns=[
+        {
+            'title': '基础示例',
+            'dataIndex': '基础示例'
+        }
+    ],
+    data=[
+        {
+            '基础示例': s
+        }
+        for s in list('abced')
+    ],
+    filterOptions={
+        '基础示例': {}
+    },
+    defaultFilteredValues={
+        '基础示例': ['a', 'c', 'e']
+    },
+    style={
+        'width': 200
+    }
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='设置初始化选中值',
                         className='div-highlight'
                     ),
 
@@ -1974,6 +2110,136 @@ fac.AntdTable(
                             'border': '1px solid #f0f0f0'
                         },
                         id='开启快捷跳页功能',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
+                            fac.AntdDivider(
+                                'showLessItems=False（默认）',
+                                innerTextOrientation='left'
+                            ),
+                            fac.AntdTable(
+                                columns=[
+                                    {
+                                        'title': f'字段{i}',
+                                        'dataIndex': f'字段{i}',
+                                        'width': '20%'
+                                    }
+                                    for i in range(1, 6)
+                                ],
+                                data=[
+                                    {
+                                        f'字段{i}': '示例内容'
+                                        for i in range(1, 6)
+                                    }
+                                ] * 20,
+                                pagination={
+                                    'pageSize': 2,
+                                    'current': 5
+                                }
+                            ),
+                            fac.AntdDivider(
+                                'showLessItems=True',
+                                innerTextOrientation='left'
+                            ),
+                            fac.AntdTable(
+                                columns=[
+                                    {
+                                        'title': f'字段{i}',
+                                        'dataIndex': f'字段{i}',
+                                        'width': '20%'
+                                    }
+                                    for i in range(1, 6)
+                                ],
+                                data=[
+                                    {
+                                        f'字段{i}': '示例内容'
+                                        for i in range(1, 6)
+                                    }
+                                ] * 20,
+                                pagination={
+                                    'pageSize': 2,
+                                    'showLessItems': True,
+                                    'current': 5
+                                }
+                            ),
+
+                            fac.AntdDivider(
+                                '展示较少的跳页按钮',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdDivider(
+    'showLessItems=False（默认）',
+    innerTextOrientation='left'
+),
+fac.AntdTable(
+    columns=[
+        {
+            'title': f'字段{i}',
+            'dataIndex': f'字段{i}',
+            'width': '20%'
+        }
+        for i in range(1, 6)
+    ],
+    data=[
+        {
+            f'字段{i}': '示例内容'
+            for i in range(1, 6)
+        }
+    ] * 20,
+    pagination={
+        'pageSize': 2,
+        'current': 5
+    }
+),
+fac.AntdDivider(
+    'showLessItems=True',
+    innerTextOrientation='left'
+),
+fac.AntdTable(
+    columns=[
+        {
+            'title': f'字段{i}',
+            'dataIndex': f'字段{i}',
+            'width': '20%'
+        }
+        for i in range(1, 6)
+    ],
+    data=[
+        {
+            f'字段{i}': '示例内容'
+            for i in range(1, 6)
+        }
+    ] * 20,
+    pagination={
+        'pageSize': 2,
+        'showLessItems': True,
+        'current': 5
+    }
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='展示较少的跳页按钮',
                         className='div-highlight'
                     ),
 
@@ -3624,13 +3890,17 @@ fac.AntdTable(
                                     'href': '#勾选型筛选'
                                 },
                                 {
+                                    'title': '设置初始化选中值',
+                                    'href': '#设置初始化选中值'
+                                },
+                                {
                                     'title': '搜索型筛选',
                                     'href': '#搜索型筛选'
                                 },
                                 {
                                     'title': '监听筛选情况',
                                     'href': '#监听筛选情况'
-                                },
+                                }
                             ]
                         },
                         {
@@ -3652,6 +3922,10 @@ fac.AntdTable(
                                 {
                                     'title': '开启快捷跳页功能',
                                     'href': '#开启快捷跳页功能'
+                                },
+                                {
+                                    'title': '展示较少的跳页按钮',
+                                    'href': '#展示较少的跳页按钮'
                                 },
                                 {
                                     'title': '记录不足1页时隐藏分页控件',

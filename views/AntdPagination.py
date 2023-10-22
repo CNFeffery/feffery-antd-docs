@@ -200,6 +200,78 @@ fac.AntdPagination(
 
                     html.Div(
                         [
+                            fac.AntdDivider(
+                                'showLessItems=False（默认）',
+                                innerTextOrientation='left'
+                            ),
+                            fac.AntdPagination(
+                                defaultPageSize=10,
+                                total=100,
+                                current=5
+                            ),
+
+                            fac.AntdDivider(
+                                'showLessItems=True',
+                                innerTextOrientation='left'
+                            ),
+                            fac.AntdPagination(
+                                defaultPageSize=10,
+                                total=100,
+                                showLessItems=True,
+                                current=5
+                            ),
+
+                            fac.AntdDivider(
+                                '展示较少的跳页按钮',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdDivider(
+    'showLessItems=False（默认）',
+    innerTextOrientation='left'
+),
+fac.AntdPagination(
+    defaultPageSize=10,
+    total=100,
+    current=5
+),
+
+fac.AntdDivider(
+    'showLessItems=True',
+    innerTextOrientation='left'
+),
+fac.AntdPagination(
+    defaultPageSize=10,
+    total=100,
+    showLessItems=True,
+    current=5
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='展示较少的跳页按钮',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
                             fac.AntdPagination(
                                 defaultPageSize=10,
                                 total=100,
@@ -365,6 +437,7 @@ def pagination_callback_demo(current, pageSize):
                         {'title': '基础使用', 'href': '#基础使用'},
                         {'title': '仅有1页时自动隐藏分页组件', 'href': '#仅有1页时自动隐藏分页组件'},
                         {'title': '添加更多功能', 'href': '#添加更多功能'},
+                        {'title': '展示较少的跳页按钮', 'href': '#展示较少的跳页按钮'},
                         {'title': '极简模式', 'href': '#极简模式'},
                         {'title': '迷你模式', 'href': '#迷你模式'},
                         {'title': '回调示例', 'href': '#回调示例'},

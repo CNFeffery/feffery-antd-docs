@@ -18,16 +18,21 @@
 
 　　Used to pass *multiple nested AntdTabPane elements*.
 
-**items:** List[dict] type
+**items:** Type `list[dict]`
 
-　　Used to *define each tab panel*. Each dictionary represents a tab panel, and available key-value parameters are:
+　　Used to *define various tab panels*, where each dictionary represents a tab panel. The available key-value parameters include:
 
-- **label:** Component type, used to *set the title content of the current tab page*.
-- **key:** String type, used to *set the unique identifier for the current tab page*.
-- **children:** Component type, used to *set the nested child elements for the current tab page*.
-- **disabled:** Boolean type, used to *set whether the current tab page is disabled*.
-- **forceRender:** Boolean type, default is `False`, used to *set whether to forcefully render the elements inside the current tab page during initialization*.
-- **closable:** Boolean type, used in `editable-card` mode to *set whether the current tab panel can be closed*.
+- **label:** A *component type* used to *set the title content of the current tab*.
+- **key:** A *string* type used to *set a unique identifier for the current tab*.
+- **children:** A *component type* used to *define nested child elements within the current tab*.
+- **disabled:** A *bool* type used to *set whether the current tab is disabled*.
+- **forceRender:** A *bool* type, defaulting to `False`, used to *determine whether to forcefully render the elements within the current tab during initialization*.
+- **closable:** A *bool* type, used in the `editable-card` mode, to *specify whether the current tab panel can be closed*.
+- **contextMenu:** Type `list[dict]` used to *configure right-click menu-related parameters for the current tab item*. Each dictionary represents a menu item, and the available key-value parameters include:
+  - **key:** A *string* type used to set a unique key value for the current menu item.
+  - **label:** A *string* type used to set the title content for the current menu item.
+  - **icon:** A *string* type, same as the parameter with the same name in `AntdIcon`, used to *set the prefix icon for the current menu item*.
+  - **iconRenderer:** A *string* type, defaulting to `'AntdIcon'`, is used to determine the *rendering method for setting the prefix icon for the current menu item*. Available options include `'AntdIcon'` (built-in icons) and `'fontawesome'` (rendered based on CSS class names).
 
 **activeKey:** String type
 
@@ -79,9 +84,25 @@
 
 **tabBarRightExtraContent:** Component type
 
-　　Used to *set suffix content for the tab bar of the current
+　　Used to *set suffix content for the tab bar of the current*
 
- tab page*.
+ *tab page*.
+
+**clickedContextMenu:** *dict*
+
+　　Used to *listen for events triggered by right-clicking on tab titles*. It contains the following key-value pairs:
+
+- **tabKey:** *string* type, used to *record the key value information of the corresponding tab that was triggered*.
+- **menuKey:** *string* type, used to *record the key value of the corresponding right-click menu item that was triggered*.
+- **timestamp:** *int* type, used to *record the corresponding trigger timestamp*.
+
+**destroyInactiveTabPane:** *bool*, default is `False`
+
+　　Used to *set whether to automatically destroy the content of inactive tab pages*.
+
+**tabCount:** *int* type
+
+　　Used to *listen to the total number of current tab pages*.
 
 **persistence:** Boolean type
 

@@ -508,6 +508,78 @@ fac.AntdSlider(
                                 min=0,
                                 max=100,
                                 defaultValue=33,
+                                readOnly=True,
+                                style={
+                                    'width': 300
+                                }
+                            ),
+
+                            fac.AntdSlider(
+                                range=True,
+                                min=0,
+                                max=100,
+                                defaultValue=[10, 90],
+                                readOnly=True,
+                                style={
+                                    'width': 300
+                                }
+                            ),
+
+                            fac.AntdDivider(
+                                '只读状态',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdSlider(
+    min=0,
+    max=100,
+    defaultValue=33,
+    readOnly=True,
+    style={
+        'width': 300
+    }
+),
+
+fac.AntdSlider(
+    range=True,
+    min=0,
+    max=100,
+    defaultValue=[10, 90],
+    readOnly=True,
+    style={
+        'width': 300
+    }
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='只读状态',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
+                            fac.AntdSlider(
+                                min=0,
+                                max=100,
+                                defaultValue=33,
                                 style={
                                     'width': 300
                                 },
@@ -702,6 +774,7 @@ def slider_range_demo(value):
                         {'title': '滑动提示内容显示策略', 'href': '#滑动提示内容显示策略'},
                         {'title': '滑动提示内容前后缀', 'href': '#滑动提示内容前后缀'},
                         {'title': '禁用状态', 'href': '#禁用状态'},
+                        {'title': '只读状态', 'href': '#只读状态'},
                         {'title': '自定义滑轨样式', 'href': '#自定义滑轨样式'},
                         {'title': '回调示例', 'href': '#回调示例'},
                     ],

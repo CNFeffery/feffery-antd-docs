@@ -227,6 +227,124 @@ fac.AntdDescriptions(
                     html.Div(
                         [
                             fac.AntdDescriptions(
+                                items=[
+                                    {
+                                        'label': fac.AntdText('姓名'),
+                                        'children': '费弗里'
+                                    },
+                                    {
+                                        'label': fac.AntdText('个人Github地址'),
+                                        'children': html.A(
+                                            'https://github.com/CNFeffery',
+                                            href='https://github.com/CNFeffery'
+                                        )
+                                    },
+                                    {
+                                        'label': fac.AntdText('个人博客地址'),
+                                        'children': html.A(
+                                            'https://www.cnblogs.com/feffery/',
+                                            href='https://www.cnblogs.com/feffery/'
+                                        )
+                                    },
+                                    {
+                                        'label': fac.AntdText('fac框架官网'),
+                                        'children': html.A(
+                                            'http://fac.feffery.tech/',
+                                            href='http://fac.feffery.tech/'
+                                        )
+                                    }
+                                ],
+                                title='描述列表示例',
+                                labelStyle={
+                                    'fontWeight': 'bold'
+                                },
+                                bordered=True
+                            ),
+
+                            fac.AntdDivider(
+                                '基于items参数定义子项',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdParagraph(
+                                [
+                                    '推荐使用参数',
+                                    fac.AntdText(
+                                        'items',
+                                        code=True
+                                    ),
+                                    '定义子项，支持组件型',
+                                    fac.AntdText(
+                                        'label',
+                                        code=True
+                                    )
+                                ],
+                                style={
+                                    'textIndent': '2rem'
+                                }
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdDescriptions(
+    items=[
+        {
+            'label': fac.AntdText('姓名'),
+            'children': '费弗里'
+        },
+        {
+            'label': fac.AntdText('个人Github地址'),
+            'children': html.A(
+                'https://github.com/CNFeffery',
+                href='https://github.com/CNFeffery'
+            )
+        },
+        {
+            'label': fac.AntdText('个人博客地址'),
+            'children': html.A(
+                'https://www.cnblogs.com/feffery/',
+                href='https://www.cnblogs.com/feffery/'
+            )
+        },
+        {
+            'label': fac.AntdText('fac框架官网'),
+            'children': html.A(
+                'http://fac.feffery.tech/',
+                href='http://fac.feffery.tech/'
+            )
+        }
+    ],
+    title='描述列表示例',
+    labelStyle={
+        'fontWeight': 'bold'
+    },
+    bordered=True
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='基于items参数定义子项',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
+                            fac.AntdDescriptions(
                                 [
                                     fac.AntdDescriptionItem(
                                         '费弗里',
@@ -629,6 +747,7 @@ fac.AntdDescriptions(
                 fac.AntdAnchor(
                     linkDict=[
                         {'title': '基础使用', 'href': '#基础使用'},
+                        {'title': '基于items参数定义子项', 'href': '#基于items参数定义子项'},
                         {'title': '垂直布局模式', 'href': '#垂直布局模式'},
                         {'title': '设置每行宽度单位数量', 'href': '#设置每行宽度单位数量'},
                         {'title': '设置描述列表项单位宽度', 'href': '#设置描述列表项单位宽度'},

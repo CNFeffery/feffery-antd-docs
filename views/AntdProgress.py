@@ -594,6 +594,116 @@ fac.AntdSpace(
                         [
                             fac.AntdSpace(
                                 [
+                                    fac.AntdTooltip(
+                                        fac.AntdProgress(
+                                            percent=60,
+                                            success={
+                                                'percent': 30
+                                            }
+                                        ),
+                                        title='3 done / 3 in progress / 4 to do'
+                                    ),
+
+                                    fac.AntdTooltip(
+                                        fac.AntdProgress(
+                                            percent=60,
+                                            success={
+                                                'percent': 30
+                                            },
+                                            type='circle'
+                                        ),
+                                        title='3 done / 3 in progress / 4 to do'
+                                    ),
+
+                                    fac.AntdTooltip(
+                                        fac.AntdProgress(
+                                            percent=60,
+                                            success={
+                                                'percent': 30
+                                            },
+                                            type='dashboard'
+                                        ),
+                                        title='3 done / 3 in progress / 4 to do'
+                                    )
+                                ],
+                                direction='vertical',
+                                style={
+                                    'width': '100%'
+                                }
+                            ),
+
+                            fac.AntdDivider(
+                                '多阶段进度条',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdTooltip(
+            fac.AntdProgress(
+                percent=60,
+                success={
+                    'percent': 30
+                }
+            ),
+            title='3 done / 3 in progress / 4 to do'
+        ),
+
+        fac.AntdTooltip(
+            fac.AntdProgress(
+                percent=60,
+                success={
+                    'percent': 30
+                },
+                type='circle'
+            ),
+            title='3 done / 3 in progress / 4 to do'
+        ),
+
+        fac.AntdTooltip(
+            fac.AntdProgress(
+                percent=60,
+                success={
+                    'percent': 30
+                },
+                type='dashboard'
+            ),
+            title='3 done / 3 in progress / 4 to do'
+        )
+    ],
+    direction='vertical',
+    style={
+        'width': '100%'
+    }
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='多阶段进度条',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
+                            fac.AntdSpace(
+                                [
                                     fac.AntdProgress(
                                         percent=80,
                                         trailColor='#a5d8ff',
@@ -871,6 +981,7 @@ fac.AntdSpace(
                         {'title': '迷你尺寸进度条', 'href': '#迷你尺寸进度条'},
                         {'title': '自定义百分比内容', 'href': '#自定义百分比内容'},
                         {'title': '设置渐变色', 'href': '#设置渐变色'},
+                        {'title': '多阶段进度条', 'href': '#多阶段进度条'},
                         {'title': '设置未完成部分颜色', 'href': '#设置未完成部分颜色'},
                         {'title': '设置仪表盘开口方向', 'href': '#设置仪表盘开口方向'},
                         {'title': '分段line型进度条', 'href': '#分段line型进度条'}

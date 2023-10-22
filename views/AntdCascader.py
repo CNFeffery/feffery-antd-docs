@@ -928,6 +928,50 @@ fac.AntdCascader(
                                 innerTextOrientation='left'
                             ),
                             fac.AntdCascader(
+                                placeholder='请选择（单选）',
+                                options=[
+                                    {
+                                        'value': '节点1',
+                                        'label': '节点1',
+                                        'children': [
+                                            {
+                                                'value': '节点1-1',
+                                                'label': '节点1-1'
+                                            },
+                                            {
+                                                'value': '节点1-2',
+                                                'label': '节点1-2',
+                                                'children': [
+                                                    {
+                                                        'value': '节点1-2-1',
+                                                        'label': '节点1-2-1'
+                                                    },
+                                                    {
+                                                        'value': '节点1-2-2',
+                                                        'label': '节点1-2-2'
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        'value': '节点2',
+                                        'label': '节点2',
+                                        'children': [
+                                            {
+                                                'value': '节点2-1',
+                                                'label': '节点2-1'
+                                            },
+                                            {
+                                                'value': '节点2-2',
+                                                'label': '节点2-2'
+                                            }
+                                        ]
+                                    }
+                                ],
+                                showCheckedStrategy='show-child'
+                            ),
+                            fac.AntdCascader(
                                 placeholder='请选择',
                                 options=[
                                     {
@@ -1038,6 +1082,50 @@ fac.AntdCascader(
 fac.AntdDivider(
     'showCheckedStrategy="show-child"',
     innerTextOrientation='left'
+),
+fac.AntdCascader(
+    placeholder='请选择（单选）',
+    options=[
+        {
+            'value': '节点1',
+            'label': '节点1',
+            'children': [
+                {
+                    'value': '节点1-1',
+                    'label': '节点1-1'
+                },
+                {
+                    'value': '节点1-2',
+                    'label': '节点1-2',
+                    'children': [
+                        {
+                            'value': '节点1-2-1',
+                            'label': '节点1-2-1'
+                        },
+                        {
+                            'value': '节点1-2-2',
+                            'label': '节点1-2-2'
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            'value': '节点2',
+            'label': '节点2',
+            'children': [
+                {
+                    'value': '节点2-1',
+                    'label': '节点2-1'
+                },
+                {
+                    'value': '节点2-2',
+                    'label': '节点2-2'
+                }
+            ]
+        }
+    ],
+    showCheckedStrategy='show-child'
 ),
 fac.AntdCascader(
     placeholder='请选择',

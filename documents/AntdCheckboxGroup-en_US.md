@@ -30,6 +30,10 @@
 
    Used to listen to or set the currently selected value.
 
+**readOnly:** *bool* type
+
+　　Used to display the component in read-only mode.
+
 **persistence:** *bool*
 
    Used to enable property persistence for the current component.

@@ -26,6 +26,7 @@
 - **value：** *int*、*float*或*string*型，必填，用于*设置当前选项对应的选中值*
 - **disabled：** *bool*型，默认为`False`，用于*设置是否禁用当前选项*
 - **icon：** *string*型，用于*设置当前选项的前缀图标*，同`AntdIcon`中的同名参数
+- **iconRenderer：** *string*型，默认为`'AntdIcon'`，用于*为当前选项的前缀图标设置渲染方式*，可选的有`'AntdIcon'`（内置图标）、`'fontawesome'`（基于css类名渲染）
 
 **value：** *int*、*float*或*string*型
 

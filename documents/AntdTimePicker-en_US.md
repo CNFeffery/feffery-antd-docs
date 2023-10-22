@@ -78,6 +78,14 @@
 
 　　Used to set whether to display the component in read-only mode.
 
+**showNow:** *bool* type, default: `True`
+
+　　Used to *determine whether to render the "Now" shortcut button.*
+
+**extraFooter:** *Component*
+
+　　Used to *set additional elements at the bottom of the selection panel.*
+
 **popupContainer:** *string* type, default: `'body'`
 
 　　Used to set the reference container type for the floating layer elements associated with the current component. Options include `'body'` (root node of the page) and `'parent'` (parent container of the current element). When the component is inside a scrollable container, setting `popupContainer='parent'` can solve the problem of the floating layer not scrolling with it.

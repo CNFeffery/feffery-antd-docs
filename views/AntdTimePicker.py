@@ -78,6 +78,46 @@ fac.AntdTimePicker(
 
                     html.Div(
                         [
+                            fac.AntdTimePicker(
+                                placeholder='请选择时间',
+                                showNow=False
+                            ),
+
+                            fac.AntdDivider(
+                                '隐藏此刻按钮',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdTimePicker(
+    placeholder='请选择时间',
+    showNow=False
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='隐藏此刻按钮',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
                             fac.AntdSpace(
                                 [
                                     fac.AntdTimePicker(
@@ -412,6 +452,48 @@ fac.AntdTimePicker(
 
                     html.Div(
                         [
+                            fac.AntdTimePicker(
+                                extraFooter=fac.AntdText(
+                                    '底部额外内容示例'
+                                )
+                            ),
+
+                            fac.AntdDivider(
+                                '底部添加额外内容',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdTimePicker(
+    extraFooter=fac.AntdText(
+        '底部额外内容示例'
+    )
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='底部添加额外内容',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
                             fac.AntdSpace(
                                 [
                                     fac.AntdSpace(
@@ -540,6 +622,7 @@ def time_picker_format_demo(value):
                 fac.AntdAnchor(
                     linkDict=[
                         {'title': '基础使用', 'href': '#基础使用'},
+                        {'title': '隐藏此刻按钮', 'href': '#隐藏此刻按钮'},
                         {'title': '不同的悬浮层展开方位', 'href': '#不同的悬浮层展开方位'},
                         {'title': '自定义format', 'href': '#自定义format'},
                         {'title': '禁用状态', 'href': '#禁用状态'},
@@ -547,7 +630,8 @@ def time_picker_format_demo(value):
                         {'title': '强制状态渲染', 'href': '#强制状态渲染'},
                         {'title': '设置各部分时间间隔', 'href': '#设置各部分时间间隔'},
                         {'title': '12小时制', 'href': '#12小时制'},
-                        {'title': '回调示例', 'href': '#回调示例'},
+                        {'title': '底部添加额外内容', 'href': '#底部添加额外内容'},
+                        {'title': '回调示例', 'href': '#回调示例'}
                     ],
                     offsetTop=0
                 ),

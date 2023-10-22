@@ -74,38 +74,41 @@
 　　Used to customize the date disabling strategy. Each dictionary represents a single strategy, and dates that meet at least one strategy will be disabled. The available key-value parameters are:
 
 - **mode:** *str*, used to define the current strategy type. Options include `'eq'` (equals), `'ne'` (notequals), `'le'` (less than or equal to), `'lt'` (less than), `'ge'` (greater than or equal to), `'gt'` (greater than), `'in'` (in), `'not in'` (not in), `'in-enumerate-dates'` (in enumerated date strings array), and `'not-in-enumerate-dates'` (not in enumerated date strings array).
+- **target:** *str*, used to define the constraint target for the current strategy. Options include `'day'` (by day), `'month'` (by month), `'quarter'` (by quarter), `'year'` (by year), `'dayOfYear'` (by day of the year), `'dayOfWeek'` (by day of the week), and `'specific-date'` (specific date).
+- **value:** *int*, *string*, `list[int]`, or `list[str]`, used to define the constraint value corresponding to the current strategy. Strategies with `'in'` require a list-type input.
 
-  - **target:** *str*, used to define the constraint target for the current strategy. Options include `'day'` (by day), `'month'` (by month), `'quarter'` (by quarter), `'year'` (by year), `'dayOfYear'` (by day of the year), `'dayOfWeek'` (by day of the week), and `'specific-date'` (specific date).
-  - **value:** *int*, *string*, `list[int]`, or `list[str]`, used to define the constraint value corresponding to the current strategy. Strategies with `'in'` require a list-type input.
+**open:** *bool*
 
-  **open:** *bool*
+　　Used to set or listen to the expand/collapse state of the component's overlay.
 
-  　　Used to set or listen to the expand/collapse state of the component's overlay.
+**status:** *string*
 
-  **status:** *string*
+　　Forces the component's status. Options include `'error'` and `'warning'`.
 
-  　　Forces the component's status. Options include `'error'` and `'warning'`.
+**allowClear:** *bool*, default: `True`
 
-  **allowClear:** *bool*, default: `True`
+　　Sets whether to allow the user to clear the selected option.
 
-  　　Sets whether to allow the user to clear the selected option.
+**readOnly:** *bool*
 
-  **readOnly:** *bool*
+　　Sets whether to display the component in read-only mode.
 
-  　　Sets whether to display the component in read-only mode.
+**extraFooter:** *Component*
 
-  **popupContainer:** *string*, default: `'body'`
+　　Used to *set additional elements at the bottom of the selection panel.*
 
-  　　Sets the reference container type for the floating layer elements associated with the current component. Options include `'body'` (page root node) and `'parent'` (parent container of the current element). When the component is inside a scrollable container, setting `popupContainer='parent'` can solve the issue of the floating layer not scrolling along.
+**popupContainer:** *string*, default: `'body'`
 
-  **persistence:** *bool*
+　　Sets the reference container type for the floating layer elements associated with the current component. Options include `'body'` (page root node) and `'parent'` (parent container of the current element). When the component is inside a scrollable container, setting `popupContainer='parent'` can solve the issue of the floating layer not scrolling along.
 
-  　　Sets whether to enable property persistence for the current component.
+**persistence:** *bool*
 
-  **persisted_props:** *list*, default: `['value']`
+　　Sets whether to enable property persistence for the current component.
 
-  　　Sets which properties of the current component to persist. Options include `'value'`.
+**persisted_props:** *list*, default: `['value']`
 
-  **persistence_type:** *string*, default: `'local'`
+　　Sets which properties of the current component to persist. Options include `'value'`.
 
-  　　Sets the storage type for property persistence of the current component. Options include `'local'` (browser local cache), `'session'` (current tab session cache), and `'memory'` (temporary memory cache).
+**persistence_type:** *string*, default: `'local'`
+
+　　Sets the storage type for property persistence of the current component. Options include `'local'` (browser local cache), `'session'` (current tab session cache), and `'memory'` (temporary memory cache).

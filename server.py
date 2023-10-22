@@ -95,7 +95,7 @@ except FileExistsError:
 
 @app.server.before_request
 def ban_external_upload_request():
-    if 'upload' in request.path:
+    if 'upload' in request.path and 'feffery' not in request.path:
         if request.headers.get('X-Requested-With') != 'XMLHttpRequest':
             abort(403)
 

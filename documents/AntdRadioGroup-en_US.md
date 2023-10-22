@@ -50,6 +50,10 @@
 
 　　 When `optionType='button'`, used to *set the style of the buttons*. Available options are `'outline'` and `'solid'`.
 
+**readOnly:** *bool* type
+
+　　Used to display the component in read-only mode.
+
 **persistence:** *bool* type
 
 　　 Used to *set whether to enable attribute persistence* for the current component.

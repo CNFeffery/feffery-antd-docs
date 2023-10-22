@@ -10,6 +10,30 @@
 
 　　用于设置*当前组件的css样式*
 
+**drawerStyle：** *dict*型
+
+　　用于*设置抽屉弹出层的css样式*
+
+**bodyStyle：** *dict*型
+
+　　用于*设置抽屉内容部分的css样式*
+
+**contentWrapperStyle：** *dict*型
+
+　　用于*设置抽屉包裹内容部分的css样式*
+
+**headerStyle：** *dict*型
+
+　　用于*设置抽屉页首部分的css样式*
+
+**footerStyle：** *dict*型
+
+　　用于*设置抽屉页脚部分的css样式*
+
+**maskStyle：** *dict*型
+
+　　用于*设置抽屉背景遮罩部分的css样式*
+
 **className：** *string*或*dict*型
 
 　　用于设置*当前组件的css类名*，支持[动态css](/advanced-classname)
@@ -62,6 +86,10 @@
 
 　　用于*设置当前抽屉的z-index属性*
 
+**footer：** *组件型*
+
+　　用于*为当前抽屉设置页脚内容*
+
 **extra：** *组件型*
 
 　　用于*为当前抽屉设置额外操作区元素*
@@ -70,5 +98,6 @@
 
 　　当需要抽屉在局部容器内展示时，用于*设置目标局部容器的id*，注意，该目标局部容器`position`需为`relative`
 
+**containerSelector：** *string*型
 
-
+　　优先级低于`containerId`，用于*传入js代码字符串进行目标局部容器的设置*

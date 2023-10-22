@@ -1869,12 +1869,14 @@ import json
     Output('table-rerender-button-demo-output', 'children'),
     Input('table-rerender-button-demo', 'nClicksButton'),
     [State('table-rerender-button-demo', 'clickedContent'),
+     State('table-rerender-button-demo', 'clickedCustom'),
      State('table-rerender-button-demo', 'recentlyButtonClickedDataIndex'),
      State('table-rerender-button-demo', 'recentlyButtonClickedRow')],
     prevent_initial_call=True
 )
 def table_rerender_button_demo(nClicksButton,
                                clickedContent,
+                               clickedCustom,
                                recentlyButtonClickedDataIndex,
                                recentlyButtonClickedRow):
 
@@ -1882,6 +1884,7 @@ def table_rerender_button_demo(nClicksButton,
         dict(
             nClicksButton=nClicksButton,
             clickedContent=clickedContent,
+            clickedCustom=clickedCustom,
             recentlyButtonClickedDataIndex=recentlyButtonClickedDataIndex,
             recentlyButtonClickedRow=recentlyButtonClickedRow
         ),
@@ -2703,8 +2706,10 @@ import feffery_markdown_components as fmc
                             'href': '#mini-ring-progress迷你环形进度图模式'
                         },
                         {'title': 'button按钮模式及回调示例', 'href': '#button按钮模式及回调示例'},
-                        {'title': 'checkbox勾选框模式及回调示例',
-                            'href': '#checkbox勾选框模式及回调示例'},
+                        {
+                            'title': 'checkbox勾选框模式及回调示例',
+                            'href': '#checkbox勾选框模式及回调示例'
+                        },
                         {'title': 'switch开关模式及回调示例', 'href': '#switch开关模式及回调示例'},
                         {
                             'title': 'dropdown下拉选择菜单模式及回调示例',

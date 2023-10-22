@@ -125,6 +125,7 @@ def upload_file(uploadId: str, file: UploadFile = File(...)):
 - **size：** *string* type, default: `'middle'`. Used to set the size of the upload button. Available options are `'small'`, `'middle'`, and `'large'`.
 - **type：** *string* type, default: `'default'`. Used to set the style of the upload button. Available options are `'primary'`, `'ghost'`, `'dashed'`, `'link'`, `'text'`, and `'default'`.
 - **danger：** *bool* type, default: `False`. Used to set whether the upload button is rendered as a dangerous warning state.
+- **block:** A *boolean* (bool) value, with a default of `False`, used to *determine whether the upload button should stretch to fill its parent element*.
 - **style：** *dict* type. Used to set the CSS style of the upload button.
 - **className：** *string* type. Used to set the CSS class name of the upload button.
 

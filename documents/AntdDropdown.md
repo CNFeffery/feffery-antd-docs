@@ -61,6 +61,7 @@
 - **target：** *string*型，用于*设置当前选项的链接跳转行为*
 - **disabled：** *bool*型，默认为`False`，用于*设置是否禁用当前选项*
 - **icon：** *string*型，同`AntdIcon`中的同名参数，用于*设置当前选项的前缀图标*
+- **iconRenderer：** *string*型，默认为`'AntdIcon'`，用于*为当前选项的前缀图标设置渲染方式*，可选的有`'AntdIcon'`（内置图标）、`'fontawesome'`（基于css类名渲染）
 - **key：** *string*型，用于*设置当前选项的唯一key值*
 - **isDivider：** *bool*型，默认为`False`，用于*设置当前选项是否为水平分隔符*，设置为`True`后会忽略其他键值对参数
 

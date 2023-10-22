@@ -37,3 +37,7 @@
 **icon:** *string*
 
 　　Used to customize the prefix icon for the message prompt, same as the corresponding parameter in `AntdIcon`.
+
+**iconRenderer:**  *string* type, defaulting to `'AntdIcon'`
+
+　　Used to specify the *rendering method for setting prefix icons for custom message prompts*. Available options include `'AntdIcon'` (built-in icons) and `'fontawesome'` (rendered based on CSS class names).

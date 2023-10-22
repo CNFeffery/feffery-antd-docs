@@ -303,6 +303,79 @@ fac.AntdPopover(
                         className='div-highlight'
                     ),
 
+                    html.Div(
+                        [
+                            fac.AntdSpace(
+                                [
+                                    fac.AntdButton(
+                                        '手动展开',
+                                        id='popover-open'
+                                    ),
+                                    fac.AntdPopover(
+                                        fac.AntdButton(
+                                            '点击触发'
+                                        ),
+                                        id='popover-open-demo',
+                                        title='可控展开状态示例'
+                                    )
+                                ]
+                            ),
+
+                            fac.AntdDivider(
+                                '展开状态可控',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdSpace(
+    [
+        fac.AntdButton(
+            '手动展开',
+            id='popover-open'
+        ),
+        fac.AntdPopover(
+            fac.AntdButton(
+                '点击触发'
+            ),
+            id='popover-open-demo',
+            title='可控展开状态示例'
+        )
+    ]
+)
+
+...
+
+@app.callback(
+    Output('popover-open-demo', 'open'),
+    Input('popover-open', 'nClicks'),
+    prevent_initial_call=True
+)
+def popover_open_demo(nClicks):
+
+    return True
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='展开状态可控',
+                        className='div-highlight'
+                    ),
+
                     fac.AntdTitle(
                         '常见问题',
                         id='常见问题',
@@ -491,6 +564,7 @@ html.Div(
                         {'title': '不同的悬浮层展开方向', 'href': '#不同的悬浮层展开方向'},
                         {'title': '自定义背景色', 'href': '#自定义背景色'},
                         {'title': '自定义样式', 'href': '#自定义样式'},
+                        {'title': '展开状态可控', 'href': '#展开状态可控'},
                         {
                             'title': '常见问题',
                             'href': '#常见问题',

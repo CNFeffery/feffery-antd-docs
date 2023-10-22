@@ -28,6 +28,7 @@
 
 - **span:** *int* type, same as the corresponding parameter in `AntdCol`, used to set the number of columns the label part occupies in the current form item.
 - **offset:** *int* type, same as the corresponding parameter in `AntdCol`, used to set the number of columns the label part is shifted to the right.
+- **flex:** An *integer* (int) or *string* (string) type, used to *configure the width of a section of the tag based on the flex property in CSS*.
 
 **colon:** *bool* type, default: `True`
 
@@ -39,6 +40,7 @@
 
 - **span:** *int* type, same as the corresponding parameter in `AntdCol`, used to set the number of columns the control part occupies in the current form item.
 - **offset:** *int* type, same as the corresponding parameter in `AntdCol`, used to set the number of columns the control part is shifted to the right.
+- **flex:** An *integer* (int) or *string* (string) type, used to *configure the width of a form control element based on the flex property in CSS*.
 
 **label:** *component type*
 

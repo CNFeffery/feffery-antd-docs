@@ -54,5 +54,6 @@
 
 　　用于*设置当前弹出式卡片内容区域的css样式*
 
+**dragClassName：** *string*或*dict*型
 
-
+　　用于设置*可拖拽区域的css类名*，支持[动态css](/advanced-classname)

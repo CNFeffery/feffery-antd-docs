@@ -35,6 +35,14 @@ def draw_placement_demo(nClicks):
 
     return True
 
+@app.callback(
+    Output('drawer-footer-demo', 'visible'),
+    Input('drawer-footer-demo-open', 'nClicks'),
+    prevent_initial_call=True
+)
+def drawer_footer_demo(nClicks):
+
+    return True
 
 @app.callback(
     Output('drawer-extra-demo', 'visible'),
@@ -52,5 +60,15 @@ def drawer_extra_demo(nClicks):
     prevent_initial_call=True
 )
 def drawer_local_demo(nClicks):
+
+    return True
+
+
+@app.callback(
+    Output('drawer-free-local-demo', 'visible'),
+    Input('drawer-free-local-demo-open', 'nClicks'),
+    prevent_initial_call=True
+)
+def drawer_free_local_demo(nClicks):
 
     return True

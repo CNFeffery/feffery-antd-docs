@@ -61,6 +61,7 @@
 - **target:** *string* type, used to set the link target behavior of the current option.
 - **disabled:** *bool* type, default: `False`, used to set whether the current option is disabled.
 - **icon:** *string* type, same as the corresponding parameter in `AntdIcon`, used to set the prefix icon of the current option.
+- **iconRenderer:** *string* type, defaulting to `'AntdIcon'`, is used to specify the *rendering method for setting prefix icons for the current option*. Available options include `'AntdIcon'` (built-in icons) and `'fontawesome'` (rendered based on CSS class names).
 - **key:** *string* type, used to set the unique key value of the current option.
 - **isDivider:** *bool* type, default: `False`, used to set whether the current option is a horizontal separator. Setting it to `True` will ignore other key-value pairs.
 

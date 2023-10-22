@@ -83,6 +83,52 @@ fac.AntdUpload(
                             fac.AntdUpload(
                                 apiUrl='/upload/',
                                 fileMaxSize=1,
+                                buttonProps={
+                                    'block': True
+                                }
+                            ),
+
+                            fac.AntdDivider(
+                                '按钮撑满父级宽度',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdUpload(
+    apiUrl='/upload/',
+    fileMaxSize=1,
+    buttonProps={
+        'block': True
+    }
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='按钮撑满父级宽度',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
+                            fac.AntdUpload(
+                                apiUrl='/upload/',
+                                fileMaxSize=1,
                                 fileListMaxLength=1
                             ),
 
@@ -518,6 +564,7 @@ def upload_callback_demo(lastUploadTaskRecord, listUploadTaskRecord):
                 fac.AntdAnchor(
                     linkDict=[
                         {'title': '基础使用', 'href': '#基础使用'},
+                        {'title': '按钮撑满父级宽度', 'href': '#按钮撑满父级宽度'},
                         {'title': '限制上传列表最大数量', 'href': '#限制上传列表最大数量'},
                         {'title': '限制上传文件类型', 'href': '#限制上传文件类型'},
                         {'title': '多文件上传模式', 'href': '#多文件上传模式'},

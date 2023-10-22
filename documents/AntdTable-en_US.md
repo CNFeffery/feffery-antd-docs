@@ -24,7 +24,7 @@
 
 - **title:** *component type*, required. Used to set the title content of the current field.
 - **dataIndex:** *string* type, required. Used to set the unique id information of the current field, which corresponds to key-value pairs within each record in the `data`.
-- **group:** *string* type. Used to set the group information to which the current field belongs, for rendering double-layer table headers.
+- **group:** *string* or *list* type, used to *assign grouping information to the current field* for rendering multi-level headers.
 - **renderOptions:** *dict* type. Used to set the configuration parameters related to the re-rendering mode for the current field. The available key-value parameters are:
   - **renderType:** *string* type. Used to set the desired re-rendering mode type for the current field. Available options are `'link'` (link mode), `'ellipsis'` (long content truncation mode), `'copyable'` (copyable mode), `'ellipsis-copyable'` (long content truncation + copyable mode), `'tags'` (tag mode), `'status-badge'` (status badge mode), `'image'` (image mode), `'custom-format'` (custom format mode), `'corner-mark'` (corner mark mode), `'row-merge'` (row-spanning merged cell mode), `'dropdown-links'` (dropdown link menu mode), `'image-avatar'` (image avatar mode), `'mini-line'` (mini line chart mode), `'mini-bar'` (mini bar chart mode), `'mini-progress'` (mini progress chart mode), `'mini-ring-progress'` (mini ring progress chart mode), `'mini-area'` (mini area chart mode), `'button'` (button mode), `'checkbox'` (checkbox mode), `'switch'` (switch mode), `'dropdown'` (dropdown menu mode), `'select'` (select mode).
   - **renderLinkText:** *string* type. When `renderType="link"`, used to set the text content for the links rendered for the current field.
@@ -52,9 +52,11 @@ mini-bar'`, used to set a JavaScript function string for custom formatting the t
     - **minRows:** *int* type. Used to set the minimum number of rows.
     - **maxRows:** *int* type. Used to set the maximum number of rows.
   - **maxLength:** *int* type. Used to set the maximum number of characters allowed in the input box. There is no limit by default.
+  - **placeholder:** *string* type, Used to *set the placeholder text displayed in input mode when the cell content is empty.*
 - **align:** *string* type. Used to set the horizontal alignment of the content of the current field. Available options are `'left'`, `'center'`, `'right'`.
 - **width:** *int* or *string* type. Used to set the width of the current field.
 - **hidden:** *bool* type, default: `False`. Used to set whether the current field should be hidden.
+- **filterResetToDefaultFilteredValue:** *bool* type, used to determine whether the filter menu corresponding to the current field should be reset to the default selected items set by the `defaultFilteredValues` parameter after resetting.
 
 **data:** Type *list*
 
@@ -101,6 +103,7 @@ mini-bar'`, used to set a JavaScript function string for custom formatting the t
   - **href:** Type *string*. Used to *set the link address of the current link item*.
   - **disabled:** Type *bool*. Default is `False`. Used to *disable the current link item*.
   - **icon:** Type *string*. Used to *set the prefix icon of the current link item*, same as the corresponding parameter in `AntdIcon`.
+  - **iconRenderer:** A *string* type, defaulting to `'AntdIcon'`, is used to determine the *rendering method for setting prefix icons for the current link item*. Available options include `'AntdIcon'` (built-in icons) and `'fontawesome'` (rendered based on CSS class names).
   - **isDivider:** Type *bool*. Used to *indicate whether the current link item acts as a divider*.
 - **Image avatar mode:** Type *dict*. Available key-value parameters include:
 - **src:** Type *string*. Used to *set the URL address of the image avatar*.
@@ -120,6 +123,7 @@ mini-bar'`, used to set a JavaScript function string for custom formatting the t
   - **href:** Type *string*. Used to *set the URL of the current button*.
   - **target:** Type *string*, default is `'_blank'`. Used to *set the target behavior when the current button has a link*.
   - **icon:** Type *string*. Used to *set the prefix icon of the current button*, same as the corresponding parameter in `AntdIcon`.
+  - **iconRenderer:** A *string* type, defaulting to `'AntdIcon'`, is used to specify the *rendering method for the prefix icon of the current button*. Available options include `'AntdIcon'` (built-in icons) and `'fontawesome'` (rendered based on CSS class names).
   - **custom:** Type *any*. Used to *store auxiliary information*.
 - **Checkbox mode:** Type *dict*. Available key-value parameters include:
   - **checked:** Type *bool*. Used to *set whether the checkbox is checked*.
@@ -138,6 +142,7 @@ mini-bar'`, used to set a JavaScript function string for custom formatting the t
   - **title:** Type *string*. Used to *set the title text of the current menu item*.
   - **disabled:** Type *bool*, default is `False`. Used to *set whether the current menu item is disabled*.
   - **icon:** Type *string*. Used to *set the prefix icon of the current menu item*, same as the corresponding parameter in `AntdIcon`.
+  - **iconRenderer:** A *string* type, defaulting to `'AntdIcon'`, is used to determine the *rendering method for setting prefix icons for the current menu item*. Available options include `'AntdIcon'` (built-in icons) and `'fontawesome'` (rendered based on CSS class names).
   - **isDivider:** Type *bool*. Used to *set whether the current menu item acts as a divider*.
   - **custom:** Type *any*. Used to *store auxiliary information*.
 - **Select mode:** Type *dict*. Available key-value parameters include:
@@ -234,10 +239,15 @@ mini-bar'`, used to set a JavaScript function string for custom formatting the t
 
 　　Used to *configure the field filtering functionality*. The key is the corresponding `dataIndex` of the field, and the value is a dictionary with the following key-value pairs:
 
-- **filterMode:** *string* type, default is `'checkbox'`，used to *set the filter type for the field*. Options include `'checkbox'` and `'keyword'`.
+- **filterMode:** *string* type, default is `'checkbox'`, used to *set the filtering functionality type for the current field*, with options including `'checkbox'`, `'keyword'`, and `'tree'`.
 - **filterCustomItems:** *list* type. When `filterMode` is `'checkbox'`, it is used to *manually set the values of filter options*.
+- **filterCustomTreeItems:** *list* type, used when `filterMode` is `'tree'` to *configure the tree-like filter menu structure*.
 - **filterMultiple:** *bool* type, default is `True`. When `filterMode` is `'checkbox'`, it is used to *set whether multiple selections are allowed*.
 - **filterSearch:** *bool* type, default is `False`. When `filterMode` is `'checkbox'`, it is used to *enable the search box*.
+
+**defaultFilteredValues:** *dict*
+
+　　Used to *set the initial default selected filter values for various fields*.
 
 **filter:** *dict* type
 
@@ -258,6 +268,7 @@ mini-bar'`, used to set a JavaScript function string for custom formatting the t
 - **pageSizeOptions:** *list[int]* type, used to *set the options for changing the number of rows per page*.
 - **showTitle:** *bool* type, used to *set whether to display additional explanatory text with the pagination control*.
 - **showQuickJumper:** *bool* type, used to *set whether to enable the function of quickly jumping to a specific page*.
+- **showLessItems:** *bool* type, used to *determine whether to display fewer pagination buttons*.
 - **showTotalPrefix:** *string* type, used to *set the content displayed before the total number of records in the additional explanatory text*.
 - **showTotalSuffix:** *string* type, used to *set the content displayed after the total number of records in the additional explanatory text*.
 - **hideOnSinglePage:** *bool* type, used to *set whether to automatically hide the pagination control when the total number of records in the table is less than one page*.
@@ -269,6 +280,10 @@ mini-bar'`, used to set a JavaScript function string for custom formatting the t
 **recentlyChangedRow:** *dict* type
 
 　　Used to *monitor the row record dictionary that has changed after the most recent editable cell operation*.
+
+**recentlyChangedColumn:** *string*
+
+　　Used to *track the field corresponding to the cell that has changed after the most recent editable cell operation.*
 
 **summaryRowContents:** `list[dict]` type
 
@@ -382,6 +397,10 @@ mini-bar'`, used to set a JavaScript function string for custom formatting the t
 **clickedContent:** String type
 
 　　Used to *track the content of the most recent button mode related click event*.
+
+**clickedCustom:** *int*, *float*, *string*, *list*, or *dict* type
+
+　　Used to *listen to the custom field information of the button associated with the most recent button mode click event*.
 
 **recentlyButtonClickedDataIndex:** String type
 

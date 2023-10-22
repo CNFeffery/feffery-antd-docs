@@ -197,6 +197,126 @@ fac.AntdWatermark(
                         className='div-highlight'
                     ),
 
+                    html.Div(
+                        [
+                            fac.AntdWatermark(
+                                html.Div(
+                                    style={
+                                        'height': '500px',
+                                        'boxShadow': '0 6px 16px rgb(107 147 224 / 14%)',
+                                        'marginBottom': '25px'
+                                    }
+                                ),
+                                content=[
+                                    '第一行水印',
+                                    '第二行水印',
+                                    '第三行水印'
+                                ],
+                                fontSize=28
+                            ),
+
+                            fac.AntdDivider(
+                                '多行文字水印',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdWatermark(
+    html.Div(
+        style={
+            'height': '500px',
+            'boxShadow': '0 6px 16px rgb(107 147 224 / 14%)',
+            'marginBottom': '25px'
+        }
+    ),
+    content=[
+        '第一行水印',
+        '第二行水印',
+        '第三行水印'
+    ],
+    fontSize=28
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='多行文字水印',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
+                            fac.AntdWatermark(
+                                html.Div(
+                                    style={
+                                        'height': '500px',
+                                        'boxShadow': '0 6px 16px rgb(107 147 224 / 14%)',
+                                        'marginBottom': '25px'
+                                    }
+                                ),
+                                image='assets/imgs/fac-logo.svg',
+                                width=48,
+                                height=48,
+                                rotate=0
+                            ),
+
+                            fac.AntdDivider(
+                                '图片型水印',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdWatermark(
+    html.Div(
+        style={
+            'height': '500px',
+            'boxShadow': '0 6px 16px rgb(107 147 224 / 14%)',
+            'marginBottom': '25px'
+        }
+    ),
+    image='assets/imgs/fac-logo.svg',
+    width=48,
+    height=48,
+    rotate=0
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='图片型水印',
+                        className='div-highlight'
+                    ),
+
                     html.Div(style={'height': '100px'})
                 ],
                 style={
@@ -208,6 +328,8 @@ fac.AntdWatermark(
                 fac.AntdAnchor(
                     linkDict=[
                         {'title': '基础使用', 'href': '#基础使用'},
+                        {'title': '多行文字水印', 'href': '#多行文字水印'},
+                        {'title': '图片型水印', 'href': '#图片型水印'},
                     ],
                     offsetTop=0
                 ),

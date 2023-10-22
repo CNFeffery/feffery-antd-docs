@@ -62,6 +62,10 @@
 
 　　 Used to *set whether the arrow attached to the current popover card points to the center of the anchor element*.
 
+**open:** *bool*, default is `False`
+
+　　 Used to *set or monitor whether the bubble card is open.*
+
 **popupContainer:** *string* type, default is `'body'`
 
 　　 Used to *set the reference container type for the floating layer elements involved in the current component*, available options are `'body'` (referenced to the root node of the page) and `'parent'` (referenced to the parent container of the current element). When the component is within a locally scrolling container, setting `popupContainer='parent'` can solve the problem of the floating layer not scrolling with the content.

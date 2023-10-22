@@ -460,6 +460,50 @@ fac.AntdTimeRangePicker(
 
                     html.Div(
                         [
+                            fac.AntdTimeRangePicker(
+                                placeholder=['开始时间', '结束时间'],
+                                extraFooter=fac.AntdText(
+                                    '底部额外内容示例'
+                                )
+                            ),
+
+                            fac.AntdDivider(
+                                '底部添加额外内容',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdTimeRangePicker(
+    placeholder=['开始时间', '结束时间'],
+    extraFooter=fac.AntdText(
+        '底部额外内容示例'
+    )
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='底部添加额外内容',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
                             fac.AntdSpace(
                                 [
                                     fac.AntdSpace(
@@ -605,6 +649,7 @@ def time_range_picker_format_demo(value):
                         {'title': '强制状态渲染', 'href': '#强制状态渲染'},
                         {'title': '设置各部分时间间隔', 'href': '#设置各部分时间间隔'},
                         {'title': '12小时制', 'href': '#12小时制'},
+                        {'title': '底部添加额外内容', 'href': '#底部添加额外内容'},
                         {'title': '回调示例', 'href': '#回调示例'},
                     ],
                     offsetTop=0

@@ -83,6 +83,44 @@ fac.AntdDatePicker(
                     html.Div(
                         [
                             fac.AntdDatePicker(
+                                showToday=False
+                            ),
+
+                            fac.AntdDivider(
+                                '隐藏今天按钮',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdDatePicker(
+    showToday=False
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='隐藏今天按钮',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
+                            fac.AntdDatePicker(
                                 placeholder='请选择日期时间',
                                 showTime={
                                     'defaultValue': '18:33:33'
@@ -1048,6 +1086,62 @@ fac.AntdDatePicker(
 
                     html.Div(
                         [
+                            fac.AntdDatePicker(
+                                extraFooter=fac.AntdText(
+                                    '底部额外内容示例'
+                                )
+                            ),
+                            fac.AntdDatePicker(
+                                placeholder='请选择日期时间',
+                                showTime=True,
+                                extraFooter=fac.AntdText(
+                                    '底部额外内容示例'
+                                )
+                            ),
+
+                            fac.AntdDivider(
+                                '底部添加额外内容',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdDatePicker(
+    extraFooter=fac.AntdText(
+        '底部额外内容示例'
+    )
+),
+fac.AntdDatePicker(
+    placeholder='请选择日期时间',
+    showTime=True,
+    extraFooter=fac.AntdText(
+        '底部额外内容示例'
+    )
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='底部添加额外内容',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
                             fac.AntdSpace(
                                 [
                                     fac.AntdSpace(
@@ -1290,6 +1384,7 @@ def date_picker_dynamic_forbidden_demo(_):
                 fac.AntdAnchor(
                     linkDict=[
                         {'title': '基础使用', 'href': '#基础使用'},
+                        {'title': '隐藏今天按钮', 'href': '#隐藏今天按钮'},
                         {'title': '设置自动选定的时间值', 'href': '#设置自动选定的时间值'},
                         {'title': '不同的悬浮层展开方位', 'href': '#不同的悬浮层展开方位'},
                         {'title': '不同的日期选择粒度', 'href': '#不同的日期选择粒度'},
@@ -1299,6 +1394,7 @@ def date_picker_dynamic_forbidden_demo(_):
                         {'title': '强制状态渲染', 'href': '#强制状态渲染'},
                         {'title': '初始化停留日期位置', 'href': '#初始化停留日期位置'},
                         {'title': '自定义日期禁用策略', 'href': '#自定义日期禁用策略'},
+                        {'title': '底部添加额外内容', 'href': '#底部添加额外内容'},
                         {'title': '回调示例', 'href': '#回调示例'},
                         {'title': '基于回调的动态日期禁用', 'href': '#基于回调的动态日期禁用'},
                     ],

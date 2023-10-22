@@ -18,9 +18,9 @@
 
 　　Used to pass the child elements on which to apply the watermark effect.
 
-**content:** *string*
+**content:** *string* or `list[string]` type
 
-　　Used to set the watermark text content.
+　　Used to *set the watermark text content*, allowing for multiple lines of watermark text by passing a list input for rendering.
 
 **rotate:** *int* or *float*, default is `-22`
 
@@ -45,3 +45,11 @@
 **gapY:** *int*, default is `222`
 
 　　Used to set the vertical pixel spacing between watermarks.
+
+**width:** *int* type
+
+　　Used to *set the pixel width of image-type watermarks*.
+
+**height:** *int* type
+
+　　Used to *set the pixel height of image-type watermarks*.

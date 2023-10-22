@@ -75,6 +75,10 @@
 
 　　Used to *force set the status of the component*. Options include `'error'` and `'warning'`.
 
+**readOnly:** *bool* type
+
+　　Used to display the component in read-only mode.
+
 **persistence:** *bool* type
 
 　　Used to *set whether to enable property persistence for the current component*.

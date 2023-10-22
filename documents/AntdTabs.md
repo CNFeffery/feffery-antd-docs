@@ -28,6 +28,11 @@
 - **disabled：** *bool*型，用于*设置是否禁用当前标签页*
 - **forceRender：** *bool*型，默认为`False`，用于*设置初始化时是否强制对当前标签页内的元素进行渲染*
 - **closable：** *bool*型，在`editable-card`模式下，用于*设置当前标签页面板是否可关闭*
+- **contextMenu：** `list[dict]`型，用于*为当前标签项配置右键菜单相关参数*，每个字典表示一个菜单项，可用的键值对参数有：
+  - **key：** *string*型，为当前菜单项设置唯一key值
+  - **label：** *string*型，为当前菜单项设置标题内容
+  - **icon：** *string*型，同`AntdIcon`中同名参数，用于*设置当前菜单项前缀图标*
+  - **iconRenderer：** *string*型，默认为`'AntdIcon'`，用于*为当前菜单项的前缀图标设置渲染方式*，可选的有`'AntdIcon'`（内置图标）、`'fontawesome'`（基于css类名渲染）
 
 **activeKey：** *string*型
 
@@ -80,6 +85,22 @@
 **tabBarRightExtraContent：** *组件型*
 
 　　用于*为当前标签页的标签栏设置后缀内容*
+
+**clickedContextMenu：** *dict*型
+
+　　用于*监听标签页标题右键菜单触发事件*，包含的键值对属性有：
+
+- **tabKey：** *string*型，用于*记录对应被触发的标签页key值信息*
+- **menuKey：** *string*型，用于*记录对应被触发的右键菜单项key值*
+- **timestamp：** *int*型，用于*记录对应的触发时间戳*
+
+**destroyInactiveTabPane：** *bool*型，默认为`False`
+
+　　用于*设置是否自动销毁未激活状态下标签页的内容*
+
+**tabCount：** *int*型
+
+　　用于*监听当前标签页总数*
 
 **persistence：** *bool*型
 
