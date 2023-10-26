@@ -1602,7 +1602,31 @@ class Config:
             'antd-down',
             'antd-up',
             'antd-left',
-            'antd-right'
+            'antd-right',
+            'antd-caret-up',
+            'antd-caret-down',
+            'antd-caret-left',
+            'antd-caret-right',
+            'antd-up-circle',
+            'antd-down-circle',
+            'antd-left-circle',
+            'antd-right-circle',
+            'antd-enter',
+            'antd-retweet',
+            'antd-warning',
+            'antd-form',
+            'antd-copy',
+            'antd-scissor',
+            'antd-snippets',
+            'antd-diff',
+            'antd-ordered-list',
+            'antd-unordered-list',
+            'antd-sliders',
+            'antd-audit',
+            'antd-border',
+            'antd-contacts',
+            'antd-container',
+            'antd-delivered-procedure'
         ],
         'md': [
             'md-star-half',
@@ -1723,7 +1747,7 @@ class Config:
             'md-alarm-off',
             'md-alarm-add',
             'md-alarm',
-            'md-account-circle'
+            'md-account-circle',
         ],
         'fc': [
             'fc-vlc',
@@ -1821,7 +1845,7 @@ class Config:
             'fc-bearish',
             'fc-bookmark',
             'fc-approval',
-            'fc-advertising'
+            'fc-advertising',
         ],
         'di': [
             'di-linux',
@@ -1832,14 +1856,14 @@ class Config:
             'di-markdown',
             'di-postgresql',
             'di-terminal',
-            'di-windows'
+            'di-windows',
         ],
         'bi': [
             'bi-table',
             'bi-analyse',
             'bi-layer',
             'bi-layer-minus',
-            'bi-layer-plus'
+            'bi-layer-plus',
         ],
         'bs': [
             'bs-list-task',
@@ -1848,7 +1872,7 @@ class Config:
             'bs-link-45-deg',
             'bs-envelope-open',
             'bs-envelope',
-            'bs-alarm'
+            'bs-alarm',
         ],
         'gi': [
             'gi-mesh-network'
