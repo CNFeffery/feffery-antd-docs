@@ -98,13 +98,29 @@ def upload_file(uploadId: str, file: UploadFile = File(...)):
     return {"filename": file.filename}
 ```
 
+**apiUrlExtraParams：** *dict*型
+
+　　用于*设置文件上传服务所需额外参数*
+
 **headers：** *dict*型
 
 　　用于*为上传请求设置额外的headers信息*
 
+**withCredentials：** *bool*型，默认为`False`
+
+　　用于*设置上传请求时是否携带凭据信息如cookie*，当上传接口与前端页面同域时，该参数设置无效
+
 **downloadUrl：** *string*型
 
 　　当需要为已上传的文件添加下载链接时，用于*设置文件下载服务接口*，请求类型为`GET`，需接受参数`taskId`和`filename`，其中`taskId`自动传递当前组件的`uploadId`参数，`filename`传递目标下载文件的文件名
+
+**downloadUrlExtraParams：** *dict*型
+
+　　配合`downloadUrl`，用于*设置下载链接参数补充*，设置后下载链接会自动拼接参数
+
+**downloadUrlFromBackend：** *bool*型，默认为`False`
+
+　　用于*设置已上传完成文件的自定义后端下载接口*，接口响应必须要有`url`参数，优先级低于`downloadUrl`，当设置`downloadUrlFromBackend=True`且上传接口响应有`url`参数时，文件列表相关监听参数中的`url`参数会自动监听后端接口返回的`url`参数
 
 **fileListMaxLength：** *int*型，默认为`3`
 
@@ -190,6 +206,8 @@ def upload_file(uploadId: str, file: UploadFile = File(...)):
 - **completeTimestamp：** 用于*记录当前文件上传完成对应的时间戳信息*
 - **taskStatus：** 用于*记录当前文件的上传状态*，`'success'`表示上传成功，`'failed'`表示上传失败
 - **taskId：** 同当前上传组件的`uploadId`
+- **url：** *string*型，用于*设置当前文件的下载链接*
+- **uploadResponse：** 用于*监听上传接口的响应信息*
 
 **listUploadTaskRecord：** `list[dict]`型
 
@@ -201,7 +219,8 @@ def upload_file(uploadId: str, file: UploadFile = File(...)):
 - **taskStatus：** 用于*记录当前文件的上传状态*，`'success'`表示上传成功，`'failed'`表示上传失败
 - **taskId：** 同当前上传组件的`uploadId`
 - **uid：** 用于*唯一标识当前文件*
-- **url：** 当参数`downloadUrl`存在时，用于*记录当前文件的下载链接*
+- **url：** 当参数`downloadUrl`存在或`downloadUrlFromBackend=True`时，用于*记录当前文件的下载链接*
+- **uploadResponse：** 用于*监听上传接口的响应信息*
 
 **defaultFileList：** `list[dict]`型
 
@@ -211,6 +230,7 @@ def upload_file(uploadId: str, file: UploadFile = File(...)):
 - **status：** *string*型，用于*设置当前文件的展示状态*，可选的有`'done'`（成功上传状态）、`'error'`（上传失败状态）
 - **uid：** *string*型，用于*唯一表示当前文件*
 - **url：** *string*型，用于*设置当前文件的下载链接*
+- **uploadResponse：** 用于*监听上传接口的响应信息*
 - **taskId：** *string*型，用于*表示当前已上传记录对应的uploadId状态*，有值传入时，会在当前组件`uploadId`未设置时作为默认的`uploadId`使用
 - **fileSize：** *int*型，用于*设置当前文件的尺寸*
 

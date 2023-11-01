@@ -106,13 +106,29 @@ def upload_file(uploadId: str, file: UploadFile = File(...)):
     return {"filename": file.filename}
 ```
 
+**apiUrlExtraParams：** *dict* type
+
+　　Used to set additional parameters required for file upload services.
+
 **headers:** *dict*
 
 　　Used to set additional headers for the upload request.
 
+**withCredentials：** *bool* type, default: `False`
+
+　　Used to set whether to carry credential information such as cookies when making upload requests. This parameter setting is invalid when the upload interface is on the same domain as the front-end page.
+
 **downloadUrl:** *string* type
 
 　　 When you need to add a download link for an uploaded file, it is used to *set the file download service interface*. The request type is `GET`, and it requires the parameters `taskId` and `filename`. The `taskId` parameter is automatically passed with the current component's `uploadId` parameter, and the `filename` parameter is used to pass the file name of the target download file.
+
+**downloadUrlExtraParams：** *dict* type
+
+　　Used in conjunction with `downloadUrl` to set additional parameters for download links. After setting, the download link will automatically append the parameters.
+
+**downloadUrlFromBackend：** *bool* type, default: `False`
+
+　　Used to set a custom backend download interface for completed uploads. The interface response must have a `url` parameter, and its priority is lower than `downloadUrl`. When `downloadUrlFromBackend=True` is set and the upload interface response has a `url` parameter, the `url` parameter in the file list's related listener parameters will automatically listen for the `url` parameter returned by the backend interface.
 
 **editable:** *bool* type, default is `False`
 
@@ -215,6 +231,8 @@ def upload_file(uploadId: str, file: UploadFile = File(...)):
 - **completeTimestamp:** Used to *record the timestamp when the current file upload is completed*.
 - **taskStatus:** Used to *record the upload status of the current file*. `'success'` indicates a successful upload, `'failed'` indicates a failed upload.
 - **taskId:** Same as the `uploadId` of the current upload component.
+- **url：** *string* type. Used to set the download link of the current file.
+- **uploadResponse：** Used to listen to the response information from the upload interface.
 
 **listUploadTaskRecord:** `list[dict]` type
 
@@ -226,7 +244,8 @@ def upload_file(uploadId: str, file: UploadFile = File(...)):
 - **taskStatus:** Used to *record the upload status of the current file*. `'success'` indicates a successful upload, `'failed'` indicates a failed upload.
 - **taskId:** Same as the `uploadId` of the current upload component.
 - **uid:** Used to *uniquely identify the current file*.
-- **url:** Used to *record the download link of the current file* when the `downloadUrl` parameter is present.
+- **url:** Used to *record the download link of the current file* when the `downloadUrl` parameter is present or `downloadUrlFromBackend=True` is set.
+- **uploadResponse：** Used to listen to the response information from the upload interface.
 
 **defaultFileList:** `list[dict]` type
 
@@ -236,6 +255,7 @@ def upload_file(uploadId: str, file: UploadFile = File(...)):
 - **status:** *string* type, used to *set the display status of the current file*. Possible values are `'done'` (successful upload status) and `'error'` (upload failed status).
 - **uid:** *string* type, used to *uniquely identify the current file*.
 - **url:** *string* type, used to *set the download link of the current file*.
+- **uploadResponse：** Used to listen to the response information from the upload interface.
 - **taskId:** *string* type, used to *indicate the uploadId status corresponding to the current uploaded record*. When a value is provided, it will be used as the default `uploadId` if the `uploadId` of the current component is not set.
 - **fileSize:** *int* type, used to *set the size of the current file*.
 
