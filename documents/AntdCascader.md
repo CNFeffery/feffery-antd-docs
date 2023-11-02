@@ -185,6 +185,10 @@ options = [
 
 　　用于*设置是否允许用户清空已选项*
 
+**autoFocus：** *bool*型，默认为`False`
+
+　　用于*设置是否自动获取焦点*
+
 **showCheckedStrategy：** *string*型，默认为`'show-parent'`
 
 　　用于*设置已选项的回填显示策略*，可选的有`'show-parent'`（当所有子节点都被选中时，只显示父节点）、`'show-child'`（只显示选中的子节点）

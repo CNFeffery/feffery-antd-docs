@@ -46,6 +46,14 @@
 
 　　When `mode="image"`, sets the base64 format address of the avatar image as an alternative to `src`.
 
+**draggable:** *bool*, default: `False`
+
+　　When `mode="image"`, sets whether the profile picture is allowed to be dragged.
+
+**crossOrigin:** *string*
+
+　　When `mode="image"`, sets the CORS attribute for the profile picture. The available options are `'anonymous'`, `'use-credentials'`, `''`. `'anonymous'` indicates that cross-origin requests should not send credentials, `'use-credentials'` indicates that cross-origin requests should send credentials, `''` indicates that the cross-origin resource should not be returned and errors should be reported in the console instead of loading the cross-origin resource.
+
 **size:** *int*, *string*, or *dict*, default: `'default'`
 
 　　Used to set the size of the avatar. When an *int* value is provided, it sets the pixel size of the avatar. When a *string* value is provided, it selects from the preset sizes, with options `'small'`, `'default'`, `'large'`. When a *dict* value is provided, it sets the pixel sizes for different responsive breakpoints. Available responsive breakpoints are `'xs'`, `'sm'`, `'md'`, `'lg'`, `'xl'`, `'xxl'`.

@@ -14,6 +14,10 @@
 
    Used to set the CSS class name for the current component, supports [dynamic CSS](/advanced-classname).
 
+**autoFocus:** *bool* type, default: `False`
+
+　　Used to set whether to automatically focus.
+
 **disabled:** *bool*, default: `False`
 
    Used to enable or disable the current component.

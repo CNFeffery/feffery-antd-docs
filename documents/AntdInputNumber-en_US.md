@@ -22,6 +22,10 @@
 
 　　Used to set the additional element after the input box.
 
+**autoFocus:** *bool* type, default: `False`
+
+　　Used to set whether to automatically focus.
+
 **prefix:** *component type*
 
 　　Used to set the embedded prefix element inside the input box.

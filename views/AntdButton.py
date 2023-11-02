@@ -391,6 +391,64 @@ fac.AntdSpace(
 
                     html.Div(
                         [
+                            html.Div(
+                                [
+                                    fac.AntdButton(
+                                        type,
+                                        ghost=True,
+                                        type=type
+                                    ) for type in ['primary', 'ghost', 'dashed', 'link', 'text', 'default']
+                                ],
+                                style={
+                                    'padding': '26px 16px 16px',
+                                    'background': 'rgb(190, 200, 200)'
+                                }
+                            ),
+
+                            fac.AntdDivider(
+                                '设置按钮背景透明',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+html.Div(
+    [
+        fac.AntdButton(
+            type,
+            ghost=True,
+            type=type
+        ) for type in ['primary', 'ghost', 'dashed', 'link', 'text', 'default']
+    ],
+    style={
+        'padding': '26px 16px 16px',
+        'background': 'rgb(190, 200, 200)'
+    }
+),
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='设置按钮背景透明',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
                             fac.AntdSpace(
                                 [
                                     fac.AntdButton(
@@ -780,6 +838,7 @@ def button_auto_loading_demo(nClicks):
                         {'title': '充当链接跳转功能', 'href': '#充当链接跳转功能'},
                         {'title': '撑满父级元素宽度', 'href': '#撑满父级元素宽度'},
                         {'title': '渲染为危险警告状态', 'href': '#渲染为危险警告状态'},
+                        {'title': '设置按钮背景透明', 'href': '#设置按钮背景透明'},
                         {'title': '禁用状态', 'href': '#禁用状态'},
                         {'title': '不同的按钮形状', 'href': '#不同的按钮形状'},
                         {'title': '设置内嵌前缀元素', 'href': '#设置内嵌前缀元素'},

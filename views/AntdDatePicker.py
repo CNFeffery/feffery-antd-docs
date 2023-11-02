@@ -497,6 +497,44 @@ fac.AntdDatePicker(
                         id='只读状态',
                         className='div-highlight'
                     ),
+                    
+                    html.Div(
+                        [
+                            fac.AntdDatePicker(
+                                autoFocus=True
+                            ),
+
+                            fac.AntdDivider(
+                                '自动获取焦点',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdDatePicker(
+    autoFocus=True
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='自动获取焦点',
+                        className='div-highlight'
+                    ),
 
                     html.Div(
                         [
@@ -1391,6 +1429,7 @@ def date_picker_dynamic_forbidden_demo(_):
                         {'title': '自定义format', 'href': '#自定义format'},
                         {'title': '禁用状态', 'href': '#禁用状态'},
                         {'title': '只读状态', 'href': '#只读状态'},
+                        {'title': '自动获取焦点', 'href': '#自动获取焦点'},
                         {'title': '强制状态渲染', 'href': '#强制状态渲染'},
                         {'title': '初始化停留日期位置', 'href': '#初始化停留日期位置'},
                         {'title': '自定义日期禁用策略', 'href': '#自定义日期禁用策略'},

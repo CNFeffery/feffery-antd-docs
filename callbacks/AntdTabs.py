@@ -87,12 +87,13 @@ def tabs_add_delete_demo(nClicks,
 @app.callback(
     Output('tabs-add-delete-demo-tab-count', 'children'),
     Input('tabs-add-delete-demo', 'tabCount'),
+    State('tabs-add-delete-demo', 'tabCloseCounts'),
     prevent_initial_call=True
 )
-def tabs_add_delete_demo_tab_count(tabCount):
+def tabs_add_delete_demo_tab_count(tabCount, tabCloseCounts):
 
     return fac.AntdMessage(
-        content=f'标签页自由增删示例 tabCount: {tabCount}',
+        content=f'标签页自由增删示例 tabCount: {tabCount}，标签页关闭次数：{tabCloseCounts}',
         type='info'
     )
 

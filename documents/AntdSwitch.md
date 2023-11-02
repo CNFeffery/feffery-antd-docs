@@ -14,6 +14,10 @@
 
 　　用于设置*当前组件的css类名，支持[动态css](/advanced-classname)*
 
+**autoFocus：** *bool*型，默认为`False`
+
+　　用于*设置是否自动获取焦点*
+
 **disabled：** *bool*型，默认为`False`
 
 　　用于*设置是否禁用当前组件*
