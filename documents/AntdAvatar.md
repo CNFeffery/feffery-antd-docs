@@ -46,6 +46,14 @@
 
 　　当`mode="image"`时，用于*设置头像图片的base64格式地址*，是`src`的备选
 
+**draggable：** *bool*型，默认为`False`
+
+　　当`mode="image"`时，用于*设置头像图片是否允许拖动*
+
+**crossOrigin：** *string*型
+
+　　当`mode="image"`时，用于*设置头像CORS属性*，可选的有`'anonymous'`、`'use-credentials'`、`''`，`'anonymous'`表示跨域请求不发送凭证信息、`'use-credentials'`表示跨域请求发送凭证信息、`''`表示不返回跨域资源，并在控制台中报告错误，而不加载跨域资源
+
 **size：** *int*、*string*或*dict*型，默认为`'default'`
 
 　　用于*设置头像的大小*，当传入*int*型输入时，用于设置头像的像素大小；当传入*string*型输入时，用于在预设的规格中进行选择，可选的有`'small'`、`'default'`、`'large'`；当传入*dict*型输入时，用于设置不同响应式断点下的头像像素大小，可用的响应式断点有`'xs'`、`'sm'`、`'md'`、`'lg'`、`'xl'`、`'xxl'`

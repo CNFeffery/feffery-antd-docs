@@ -324,6 +324,46 @@ fac.AntdTimeRangePicker(
 
                     html.Div(
                         [
+                            fac.AntdTimeRangePicker(
+                                placeholder=['开始时间', '结束时间'],
+                                autoFocus=True
+                            ),
+
+                            fac.AntdDivider(
+                                '自动获取焦点',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdTimeRangePicker(
+    placeholder=['开始时间', '结束时间'],
+    autoFocus=True
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='自动获取焦点',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
                             fac.AntdSpace(
                                 [
                                     fac.AntdTimeRangePicker(
@@ -646,6 +686,7 @@ def time_range_picker_format_demo(value):
                         {'title': '自定义format', 'href': '#自定义format'},
                         {'title': '禁用状态', 'href': '#禁用状态'},
                         {'title': '只读状态', 'href': '#只读状态'},
+                        {'title': '自动获取焦点', 'href': '#自动获取焦点'},
                         {'title': '强制状态渲染', 'href': '#强制状态渲染'},
                         {'title': '设置各部分时间间隔', 'href': '#设置各部分时间间隔'},
                         {'title': '12小时制', 'href': '#12小时制'},

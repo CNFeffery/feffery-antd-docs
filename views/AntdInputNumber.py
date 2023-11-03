@@ -574,6 +574,50 @@ fac.AntdInputNumber(
 
                     html.Div(
                         [
+                            fac.AntdInputNumber(
+                                autoFocus=True,
+                                style={
+                                    'width': 150
+                                }
+                            ),
+
+                            fac.AntdDivider(
+                                '自动获取焦点',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdInputNumber(
+    autoFocus=True,
+    style={
+        'width': 150
+    }
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='自动获取焦点',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
                             fac.AntdSpace(
                                 [
                                     fac.AntdInputNumber(
@@ -793,6 +837,7 @@ def input_number_debounce_demo(debounceValue):
                         {'title': '高精度模式', 'href': '#高精度模式'},
                         {'title': '禁用状态', 'href': '#禁用状态'},
                         {'title': '只读状态', 'href': '#只读状态'},
+                        {'title': '自动获取焦点', 'href': '#自动获取焦点'},
                         {'title': '强制状态渲染', 'href': '#强制状态渲染'},
                         {'title': '回调示例', 'href': '#回调示例'},
                         {'title': '防抖回调示例', 'href': '#防抖回调示例'},

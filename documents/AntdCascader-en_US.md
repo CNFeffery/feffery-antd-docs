@@ -185,6 +185,10 @@ options = [
 
    Used to set whether the user is allowed to clear the selected options.
 
+**autoFocus:** *bool* type, default: `False`
+
+　　Used to set whether to automatically focus.
+
 **showCheckedStrategy:** *string*, default: `'show-parent'`
 
    Used to set the display strategy for selected options. Available options are `'show-parent'` (only show the parent node when all child nodes are selected) and `'show-child'` (only show the selected child nodes).

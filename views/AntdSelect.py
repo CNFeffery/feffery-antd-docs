@@ -667,6 +667,64 @@ fac.AntdSelect(
 
                     html.Div(
                         [
+                            fac.AntdSelect(
+                                options=[
+                                    {
+                                        'label': f'选项{i}',
+                                        'value': f'选项{i}'
+                                    }
+                                    for i in range(1, 6)
+                                ],
+                                style={
+                                    'width': 200
+                                },
+                                autoFocus=True
+                            ),
+
+                            fac.AntdDivider(
+                                '自动获取焦点',
+                                lineColor='#f0f0f0',
+                                innerTextOrientation='left'
+                            ),
+
+                            fac.AntdCollapse(
+                                fmc.FefferySyntaxHighlighter(
+                                    showCopyButton=True,
+                                    showLineNumbers=True,
+                                    language='python',
+                                    codeTheme='coy-without-shadows',
+                                    codeString='''
+fac.AntdSelect(
+    options=[
+        {
+            'label': f'选项{i}',
+            'value': f'选项{i}'
+        }
+        for i in range(1, 6)
+    ],
+    style={
+        'width': 200
+    },
+    autoFocus=True
+)
+'''
+                                ),
+                                title='点击查看代码',
+                                isOpen=False,
+                                ghost=True
+                            )
+                        ],
+                        style={
+                            'marginBottom': '40px',
+                            'padding': '10px 10px 20px 10px',
+                            'border': '1px solid #f0f0f0'
+                        },
+                        id='自动获取焦点',
+                        className='div-highlight'
+                    ),
+
+                    html.Div(
+                        [
                             fac.AntdSpace(
                                 [
                                     fac.AntdSelect(
@@ -1611,6 +1669,7 @@ def select_auto_spin_remote_load_options_demo(debounceSearchValue):
                         {'title': '色带选择模式', 'href': '#色带选择模式'},
                         {'title': '禁用状态', 'href': '#禁用状态'},
                         {'title': '只读状态', 'href': '#只读状态'},
+                        {'title': '自动获取焦点', 'href': '#自动获取焦点'},
                         {'title': '强制状态渲染', 'href': '#强制状态渲染'},
                         {'title': '不同的尺寸规格', 'href': '#不同的尺寸规格'},
                         {'title': '无边框', 'href': '#无边框'},

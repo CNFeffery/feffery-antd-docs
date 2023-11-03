@@ -78,6 +78,10 @@
 
 　　Available when `type="editable-card"`. Used to *listen to the key value of the most recent tab page deleted*.
 
+**tabCloseCounts:** Int type
+
+　　Available when `type="editable-card"`. Used to *set the accumulated click count of the close button on the tab*, which assists in monitoring tab closure actions.
+
 **tabBarLeftExtraContent:** Component type
 
 　　Used to *set prefix content for the tab bar of the current tab page*.

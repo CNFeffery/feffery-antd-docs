@@ -78,6 +78,10 @@
 
 　　Used to set whether users are allowed to clear the selected options.
 
+**autoFocus:** *bool* type, default: `False`
+
+　　Used to set whether to automatically focus.
+
 **readOnly:** *bool* type
 
 　　Used to set whether to display the component in read-only mode.

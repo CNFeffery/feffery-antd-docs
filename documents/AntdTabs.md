@@ -78,6 +78,10 @@
 
 　　`type="editable-card"`时可用，用于*监听最近一次发生删除操作的标签页key值*
 
+**tabCloseCounts：** *int*型
+
+　　`type="editable-card"`时可用，用于*设置标签页关闭按钮累积点击次数*，辅助监听标签页关闭行为
+
 **tabBarLeftExtraContent：** *组件型*
 
 　　用于*为当前标签页的标签栏设置前缀内容*

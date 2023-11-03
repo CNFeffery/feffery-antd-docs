@@ -46,6 +46,10 @@
 
 　　Used to disable the current component.
 
+**ghost:** *bool*, default: `False`
+
+　　Used to set the current button background transparent.
+
 **shape:** *string* or *None*, default: `None`
 
 　　Used to set the button shape. Available options are `'circle'` (circle) and `'round'` (rounded rectangle).
