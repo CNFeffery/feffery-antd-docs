@@ -5,6 +5,8 @@ import feffery_utils_components as fuc
 
 from server import app
 
+latest_deploy_datetime = datetime.today().strftime('%Y-%m-%d')
+
 
 def docs_content(language: str = '中文'):
 
@@ -29,8 +31,7 @@ def docs_content(language: str = '中文'):
                     fac.AntdParagraph(
                         [
                             fac.AntdText('文档最近更新：', strong=True),
-                            fac.AntdText(datetime.today().strftime(
-                                '%Y-%m-%d'), code=True)
+                            fac.AntdText(latest_deploy_datetime, code=True)
                         ]
                     ),
 
