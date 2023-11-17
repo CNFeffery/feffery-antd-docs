@@ -281,7 +281,7 @@ if __name__ == '__main__':
                                     coverImg={
                                         'src': 'assets/imgs/getting-started配图/cover_10分钟极速入门dash应用开发.png',
                                         'style': {
-                                            'width': 265,
+                                            'width': 275,
                                             'height': 325,
                                             'objectFit': 'cover'
                                         }
@@ -301,7 +301,7 @@ if __name__ == '__main__':
                                     coverImg={
                                         'src': 'assets/imgs/getting-started配图/cover_Dash应用页面整体布局技巧.png',
                                         'style': {
-                                            'width': 265,
+                                            'width': 275,
                                             'height': 325,
                                             'objectFit': 'cover'
                                         }
@@ -313,9 +313,66 @@ if __name__ == '__main__':
                                 ),
                                 href='https://mp.weixin.qq.com/s/6Ee1FpCyjlHU4W3JjoL8sQ',
                                 target='_blank'
+                            ),
+
+                            html.A(
+                                fac.AntdCard(
+                                    title=fac.AntdText(
+                                        '在Dash应用中更灵活地编写回调函数',
+                                        style={
+                                            'fontSize': '13px'
+                                        }
+                                    ),
+                                    coverImg={
+                                        'src': 'assets/imgs/getting-started配图/cover_在Dash应用中更灵活地编写回调函数.png',
+                                        'style': {
+                                            'width': 275,
+                                            'height': 325,
+                                            'objectFit': 'cover'
+                                        }
+                                    },
+                                    hoverable=True,
+                                    bodyStyle={
+                                        'padding': 0
+                                    },
+                                    style={
+                                        'width': 275
+                                    }
+                                ),
+                                href='https://mp.weixin.qq.com/s/IJGeAz5V8jqrtoVm3vHcUw',
+                                target='_blank'
+                            ),
+
+                            html.A(
+                                fac.AntdCard(
+                                    title=fac.AntdText(
+                                        'Dash应用浏览器端回调常用方法总结',
+                                        style={
+                                            'fontSize': '13px'
+                                        }
+                                    ),
+                                    coverImg={
+                                        'src': 'assets/imgs/getting-started配图/cover_Dash应用浏览器端回调常用方法总结.jpg',
+                                        'style': {
+                                            'width': 275,
+                                            'height': 325,
+                                            'objectFit': 'cover'
+                                        }
+                                    },
+                                    hoverable=True,
+                                    bodyStyle={
+                                        'padding': 0
+                                    },
+                                    style={
+                                        'width': 275
+                                    }
+                                ),
+                                href='https://mp.weixin.qq.com/s/WjhrxBuS_xL-kBkBEK2GCg',
+                                target='_blank'
                             )
                         ],
-                        size='large'
+                        size='large',
+                        wrap=True
                     ),
 
                     fac.AntdDivider(
