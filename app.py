@@ -225,23 +225,27 @@ app.layout = fuc.FefferyTopProgress(
                     fac.AntdCol(
                         html.Div(
                             [
-                                fac.AntdSegmented(
-                                    id='global-language',
-                                    options=[
-                                        {
-                                            'label': '中文',
-                                            'value': '中文'
-                                        },
-                                        {
-                                            'label': 'English',
-                                            'value': 'English'
+                                fac.AntdTooltip(
+                                    fac.AntdSegmented(
+                                        id='global-language',
+                                        options=[
+                                            {
+                                                'label': '中文',
+                                                'value': '中文'
+                                            },
+                                            {
+                                                'label': 'English',
+                                                'value': 'English'
+                                            }
+                                        ],
+                                        defaultValue='中文',
+                                        persistence=True,
+                                        style={
+                                            'marginRight': 25
                                         }
-                                    ],
-                                    defaultValue='中文',
-                                    persistence=True,
-                                    style={
-                                        'marginRight': 25
-                                    }
+                                    ),
+                                    id='global-language-tooltip',
+                                    placement='left'
                                 ),
 
                                 html.A(
@@ -724,8 +728,14 @@ app.clientside_callback(
 )
 
 app.clientside_callback(
-    '''(value) => value === "中文" ? "唤出搜索面板" : "to invoke the search panel"''',
-    Output('ctrl+k-description', 'children'),
+    '''(value) => {
+        return [
+            value === "中文" ? "唤出搜索面板" : "to invoke the search panel",
+            value === "中文" ? "Affects only the component documentation page side parameter description." : "仅影响组件文档页侧参数说明"
+        ]
+    }''',
+    [Output('ctrl+k-description', 'children'),
+     Output('global-language-tooltip', 'title')],
     Input('global-language', 'value')
 )
 
