@@ -731,7 +731,7 @@ app.clientside_callback(
     '''(value) => {
         return [
             value === "中文" ? "唤出搜索面板" : "to invoke the search panel",
-            value === "中文" ? "Affects only the component documentation page side parameter description." : "仅影响组件文档页侧参数说明"
+            value === "中文" ? "Affects only the component documentation page side parameter description" : "仅影响组件文档页侧参数说明"
         ]
     }''',
     [Output('ctrl+k-description', 'children'),
