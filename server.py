@@ -19,7 +19,7 @@ class CustomDash(dash.Dash):
 
         # 将原有的script标签内容替换为带备用地址错误切换的版本
         for external_script in external_scripts:
-            # 排除fuc被onmicrosoft封禁的情况
+            # 排除fmc被onmicrosoft封禁的情况
             if 'markdown' not in external_script:
                 scripts = scripts.replace(
                     external_script,
