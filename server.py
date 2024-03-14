@@ -9,11 +9,6 @@ from config import Config
 class CustomDash(dash.Dash):
 
     def interpolate_index(self, **kwargs):
-        # scripts = (
-        #     kwargs.pop('scripts').replace(
-        #         'https://unpkg.com/', 'https://npm.elemecdn.com/'
-        #     )
-        # )
         scripts = kwargs.pop('scripts')
 
         # 提取scripts部分符合条件的外部js资源
@@ -24,15 +19,16 @@ class CustomDash(dash.Dash):
 
         # 将原有的script标签内容替换为带备用地址错误切换的版本
         for external_script in external_scripts:
-            scripts = scripts.replace(
-                external_script,
-                '''<script src="{}" onerror='this.remove(); let fallbackScript = document.createElement("script"); fallbackScript.src = "{}"; document.querySelector("head").prepend(fallbackScript);'></script>'''.format(
-                    re.findall('"(.*?)"', external_script)[0]
-                    # .replace('https://unpkg.com/', 'https://npm.elemecdn.com/'),
-                    .replace('https://unpkg.com/', 'https://npm.onmicrosoft.cn/'),
-                    re.findall('"(.*?)"', external_script)[0]
+            # 排除fuc被onmicrosoft封禁的情况
+            if 'markdown' not in external_script:
+                scripts = scripts.replace(
+                    external_script,
+                    '''<script src="{}" onerror='this.remove(); let fallbackScript = document.createElement("script"); fallbackScript.src = "{}"; document.querySelector("head").prepend(fallbackScript);'></script>'''.format(
+                        re.findall('"(.*?)"', external_script)[0]
+                        .replace('https://unpkg.com/', 'https://npm.onmicrosoft.cn/'),
+                        re.findall('"(.*?)"', external_script)[0]
+                    )
                 )
-            )
 
         scripts = '''<script>
 window.onerror = async function(message, source, lineno, colno, error) {
