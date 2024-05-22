@@ -1,742 +1,254 @@
-import re
-import os
-import uuid
-import time
 import dash
-from dash import dcc, html
-from urllib.parse import unquote
+import time
+import uuid
+from dash import html, dcc
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
-from dash.dependencies import Input, Output, State, ClientsideFunction
+from dash.dependencies import Input, Output, State, MATCH, ClientsideFunction
 
 import views
-from views import (
-    table_basic,
-    table_advanced,
-    table_server_side_mode,
-    table_rerender
-)
-from config import Config
+from server import app
+from components import page_header, side_menu
+from config import AppConfig
 from utils import generate_shortcut_panel_data
-from server import app, server
 
-# 侧边菜单自动滚动动作基础参数
-router_menu_scroll_params = dict(
-    scrollMode='target',
-    executeScroll=True,
-    offset=-200,
-    containerId='router-menu'
-)
 
-app.layout = fuc.FefferyTopProgress(
-    html.Div(
+def render_layout():
+    return fuc.FefferyTopProgress(
         [
-            # 注入url监听
-            dcc.Location(id='url'),
-
-            # 全局页面重载动作
-            fuc.FefferyReload(
-                id='global-reload',
-                delay=300
+            # 根容器url监听
+            fuc.FefferyLocation(id='root-url'),
+            # 页面根容器
+            html.Div(
+                id='root-container',
             ),
-
-            # 注入侧边参数说明栏展开像素宽度记忆
-            dcc.Store(
-                id='side-props-width',
-                storage_type='local'
+            # 辅助内容
+            fac.Fragment(
+                [
+                    # 内容区刷新辅助动画锚点
+                    fac.AntdSpin(
+                        html.Div(
+                            id='global-spin-center',
+                            style={'position': 'fixed'},
+                        ),
+                        indicator=fuc.FefferyExtraSpinner(
+                            type='guard',
+                            color='#1890ff',
+                            style={
+                                'position': 'fixed',
+                                'top': '50%',
+                                'left': '50%',
+                                'width': 100,
+                                'height': 100,
+                                'transform': 'translate(-50%, -50%)',
+                                'zIndex': 999,
+                            },
+                        ),
+                    ),
+                ]
             ),
+        ],
+        listenPropsMode='include',
+        includeProps=[
+            'root-container.children',
+            'doc-layout-container.children',
+        ],
+        minimum=0.33,
+    )
 
+
+# 动态layout
+app.layout = render_layout
+
+
+@app.callback(
+    [Output('root-container', 'children'), Output('global-spin-center', 'key')],
+    Input('root-url', 'pathname'),
+    State('root-url', 'trigger'),
+)
+def root_router(pathname, trigger):
+    """根节点路由控制"""
+
+    if pathname.startswith('/~demo/'):
+        time.sleep(0.5)
+
+        try:
+            # 尝试提取单体示例对应的类别、路径信息
+            demo_type, demo_path = pathname.split('/')[2:4]
+
+            return [
+                html.Div(
+                    getattr(
+                        getattr(views, demo_type).demos, demo_path
+                    ).render(),
+                    style={'padding': 50},
+                ),
+                str(uuid.uuid4()),
+            ]
+
+        except ValueError:
+            return [
+                fac.AntdCenter(
+                    fac.AntdResult(status='404', title='演示示例不存在'),
+                    style={'height': '100vh'},
+                ),
+                str(uuid.uuid4()),
+            ]
+
+    # 动态路由切换时，阻止页面重复加载
+    if trigger == 'pushstate':
+        return dash.no_update
+
+    return [
+        [
             # 注入快捷搜索面板
             fuc.FefferyShortcutPanel(
                 placeholder='输入你想要搜索的组件...',
-                data=generate_shortcut_panel_data(
-                    Config.menuItems
-                ),
-                panelStyles={
-                    'accentColor': '#1890ff',
-                    'zIndex': 99999
-                }
+                data=generate_shortcut_panel_data(AppConfig.side_menu_items),
+                panelStyles={'accentColor': '#1890ff', 'zIndex': 99999},
             ),
-
-            # 注入侧边菜单栏自动滚动至选中项动作挂载点
-            html.Div(id='side-menu-scroll-to-current-key'),
-
-            # 注入基于url中hash信息的页面锚点滚动效果
-            html.Div(id='page-anchor-scroll-to-while-page-initial'),
-
-            # 注入快捷添加好友悬浮卡片
-            html.Div(
-                [
-                    fac.AntdSpace(
-                        [
-                            fac.AntdTooltip(
-                                fac.AntdButton(
-                                    fac.AntdIcon(icon='antd-bug'),
-                                    shape='circle',
-                                    href='https://github.com/CNFeffery/feffery-antd-components/issues',
-                                    target='_blank',
-                                    style={
-                                        'zoom': '1.25',
-                                        'boxShadow': '0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d'
-                                    }
-                                ),
-                                placement='left',
-                                title='问题反馈'
-                            ),
-
-                            fac.AntdPopover(
-                                fac.AntdButton(
-                                    fac.AntdIcon(icon='antd-bulb'),
-                                    shape='circle',
-                                    style={
-                                        'zoom': '1.25',
-                                        'boxShadow': '0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d'
-                                    }
-                                ),
-                                placement='left',
-                                content=[
-                                    fac.AntdText(
-                                        '微信扫码加我好友，备注【dash学习】加入学习交流群，更多灵感更快进步',
-                                        strong=True
-                                    ),
-                                    fac.AntdImage(
-                                        src=app.get_asset_url(
-                                            'imgs/feffery-添加好友二维码.jpg'),
-                                        width=250,
-                                        preview=False
-                                    )
-                                ],
-                                overlayStyle={
-                                    'width': '300px',
-                                    'height': '408px'
-                                }
-                            )
-                        ],
-                        direction='vertical'
-                    )
-                ],
-                style={
-                    'position': 'fixed',
-                    'right': '100px',
-                    'bottom': '200px',
-                    'zIndex': 999
-                }
-            ),
-
-            # 注入内容区刷新辅助动画锚点
-            fac.AntdSpin(
-                html.Div(
-                    id='docs-content-spin-center',
-                    style={
-                        'position': 'fixed'  # 强制脱离文档流
-                    }
-                ),
-                indicator=fuc.FefferyExtraSpinner(
-                    type='guard',
-                    color='#1890ff',
-                    style={
-                        'position': 'fixed',
-                        'top': '50%',
-                        'left': '50%',
-                        'width': 100,
-                        'height': 100,
-                        'transform': 'translate(-50%, -50%)',
-                        'zIndex': 999
-                    }
-                )
-            ),
-
-            # 页面结构
+            # 文档页面容器url监听
+            dcc.Location(id='doc-layout-url'),
+            # 页首
+            page_header.render(),
+            # 主体区域
             fac.AntdRow(
                 [
+                    # 侧边菜单
+                    side_menu.render(),
+                    # 内容区域
                     fac.AntdCol(
-                        fuc.FefferyMotion(
-                            html.Img(
-                                src=app.get_asset_url(
-                                    'imgs/fac-logo.svg'
-                                ),
-                                style={
-                                    'height': '50px',
-                                    'padding': '0 10px',
-                                    'marginTop': '7px',
-                                    'cursor': 'pointer'
-                                }
-                            ),
-                            whileTap={
-                                'scale': 1.2
-                            },
-                            transition={
-                                'duration': 0.5,
-                                'type': 'spring'
-                            }
-                        ),
+                        id='doc-layout-container',
+                        flex='auto',
+                        style={'width': 0, 'padding': '0 0 0 30px'},
                     ),
-                    fac.AntdCol(
-                        fac.AntdParagraph(
-                            [
-                                fac.AntdText(
-                                    'feffery-antd-components',
-                                    strong=True,
-                                    style={
-                                        'fontSize': '35px'
-                                    }
-                                ),
-                                fac.AntdText(
-                                    f'v{fac.__version__}',
-                                    style={
-                                        'fontSize': '10px',
-                                        'paddingLeft': '2px'
-                                    }
-                                )
-                            ]
-                        )
-                    ),
-                    fac.AntdCol(
-                        fac.AntdParagraph(
-                            [
-                                fac.AntdText(
-                                    'Ctrl',
-                                    keyboard=True,
-                                    style={
-                                        'color': '#8c8c8c'
-                                    }
-                                ),
-                                fac.AntdText(
-                                    'K',
-                                    keyboard=True,
-                                    style={
-                                        'color': '#8c8c8c'
-                                    }
-                                ),
-                                fac.AntdText(
-                                    id='ctrl+k-description',
-                                    style={
-                                        'color': '#8c8c8c'
-                                    }
-                                )
-                            ],
-                            style={
-                                'marginLeft': '50px',
-                                'marginTop': '21px'
-                            }
-                        ),
-                        flex='auto'
-                    ),
-                    fac.AntdCol(
-                        html.Div(
-                            [
-                                fac.AntdTooltip(
-                                    fac.AntdSegmented(
-                                        id='global-language',
-                                        options=[
-                                            {
-                                                'label': '中文',
-                                                'value': '中文'
-                                            },
-                                            {
-                                                'label': 'English',
-                                                'value': 'English'
-                                            }
-                                        ],
-                                        defaultValue='中文',
-                                        persistence=True,
-                                        style={
-                                            'marginRight': 25
-                                        }
-                                    ),
-                                    id='global-language-tooltip',
-                                    placement='left'
-                                ),
-
-                                html.A(
-                                    fac.AntdImage(
-                                        id='github-entry',
-                                        alt='fac源码仓库，欢迎star',
-                                        src='https://img.shields.io/github/stars/CNFeffery/feffery-antd-components?style=social',
-                                        preview=False,
-                                        fallback=None,
-                                        style={
-                                            'transform': 'translateY(-2px) scale(1.25)'
-                                        }
-                                    ),
-                                    href='https://github.com/CNFeffery/feffery-antd-components',
-                                    target='_blank',
-                                    style={
-                                        'cursor': 'pointer'
-                                    }
-                                ),
-
-                                html.A(
-                                    '皖ICP备2021012734号-1',
-                                    id='icp-info',
-                                    href='https://beian.miit.gov.cn/',
-                                    target='_blank',
-                                    style={
-                                        'fontSize': '10px',
-                                        'marginLeft': '50px',
-                                        'color': '#494f54'
-                                    }
-                                )
-                            ],
-                            style={
-                                'float': 'right',
-                                'paddingRight': '20px',
-                                'marginTop': '16px'
-                            }
-                        ),
-                        flex='auto'
-                    )
                 ],
-                align="middle",
-                style={
-                    'height': '64px',
-                    'boxShadow': 'rgb(240 241 242) 0px 2px 14px',
-                    'background': 'white',
-                    'marginBottom': '5px'
-                }
+                wrap=False,
             ),
-
-            fac.AntdRow(
-                [
-                    fac.AntdCol(
-                        fac.AntdAffix(
-                            html.Div(
-                                [
-                                    fac.AntdMenu(
-                                        id='router-menu',
-                                        menuItems=Config.menuItems,
-                                        mode='inline',
-                                        defaultOpenKeys=Config.side_menu_open_keys,
-                                        menuItemKeyToTitle={
-                                            '/AntdCenter': fac.AntdRow(
-                                                [
-                                                    fac.AntdCol(
-                                                        'AntdCenter 居中'
-                                                    ),
-                                                    fac.AntdCol(
-                                                        fac.AntdTag(
-                                                            content='新组件',
-                                                            color='green'
-                                                        )
-                                                    )
-                                                ],
-                                                justify='space-between'
-                                            )
-                                        },
-                                        style={
-                                            'height': '100%',
-                                            'paddingBottom': '50px'
-                                        }
-                                    ),
-
-                                    fac.AntdButton(
-                                        fac.AntdIcon(
-                                            id='fold-side-menu-icon',
-                                            icon='antd-arrow-left'
-                                        ),
-                                        id='fold-side-menu',
-                                        type='text',
-                                        shape='circle',
-                                        style={
-                                            'position': 'absolute',
-                                            'zIndex': 999,
-                                            'top': '10px',
-                                            'right': '-15px',
-                                            'boxShadow': '0 4px 10px 0 rgba(0,0,0,.1)',
-                                            'background': 'white'
-                                        }
-                                    )
-                                ],
-                                id='side-menu',
-                                style={
-                                    'width': '325px',
-                                    'height': '100vh',
-                                    'transition': 'width 0.2s',
-                                    'borderRight': '1px solid rgb(240, 240, 240)',
-                                    'paddingRight': 20
-                                }
-                            ),
-                            offsetTop=0
-                        ),
-                        flex='none'
-                    ),
-
-                    fac.AntdCol(
-                        [
-                            fuc.FefferyDiv(
-                                html.Div(
-                                    style={
-                                        'minHeight': '100vh'
-                                    }
-                                ),
-                                id='docs-content',
-                                style={
-                                    'backgroundColor': 'rgb(255, 255, 255)'
-                                }
-                            ),
-
-                            # 页尾信息
-                            fac.AntdSpace(
-                                [
-                                    fac.AntdTitle(
-                                        '更多组件库',
-                                        level=4,
-                                        style={
-                                            'color': '#1d1e1e',
-                                            'fontWeight': 'normal'
-                                        }
-                                    ),
-                                    fac.AntdSpace(
-                                        [
-                                            html.A(
-                                                'fuc: 实用工具组件库',
-                                                href='https://fuc.feffery.tech/',
-                                                target='_blank',
-                                                className='more-components-link'
-                                            ),
-                                            html.A(
-                                                'fmc: markdown渲染组件库',
-                                                href='https://fmc.feffery.tech/',
-                                                target='_blank',
-                                                className='more-components-link'
-                                            ),
-                                            # html.A(
-                                            #     'fact: 图表可视化组件库',
-                                            #     href='https://fact.feffery.tech/',
-                                            #     target='_blank',
-                                            #     className='more-components-link'
-                                            # ),
-                                            # html.A(
-                                            #     'flc: 交互式地图组件库',
-                                            #     href='https://flc.feffery.tech/',
-                                            #     target='_blank',
-                                            #     className='more-components-link'
-                                            # ),
-                                        ],
-                                        direction='vertical',
-                                        style={
-                                            'marginBottom': '75px'
-                                        }
-                                    ),
-                                    'Made with ❤ by CNFeffery'
-                                ],
-                                direction='vertical',
-                                style={
-                                    'width': '100%',
-                                    'background': '#f2f3f5',
-                                    'padding': '50px 75px',
-                                    'color': '#868e96',
-                                    'boxShadow': 'inset 0 106px 36px -116px rgb(0 0 0 / 14%)'
-                                }
-                            )
-                        ],
-                        flex='auto'
-                    ),
-
-                    fac.AntdBackTop(
-                        duration=0.5
-                    )
-                ],
-                wrap=False
-            )
-        ]
-    ),
-    listenPropsMode='include',
-    includeProps=Config.include_props,
-    minimum=0.33,
-    speed=800,
-    debug=True
-)
-
-
-@app.callback(
-    [Output('docs-content', 'children'),
-     Output('docs-content-spin-center', 'key')],
-    Input('url', 'pathname'),
-    State('global-language', 'value')
-)
-def render_docs_content(pathname, global_language):
-    '''
-    路由回调
-    '''
-
-    if pathname == '/what-is-fac' or pathname == '/':
-        return [
-            views.what_is_fac.docs_content(language=global_language),
-            str(uuid.uuid4())
-        ]
-
-    elif pathname == '/getting-started':
-        return [
-            views.getting_started.docs_content(language=global_language),
-            str(uuid.uuid4())
-        ]
-
-    elif pathname == '/advanced-classname':
-        return [
-            views.advanced_classname.docs_content(language=global_language),
-            str(uuid.uuid4())
-        ]
-
-    elif pathname == '/popup-container':
-        return [
-            views.popup_container.docs_content(language=global_language),
-            str(uuid.uuid4())
-        ]
-
-    elif pathname == '/internationalization':
-        return [
-            views.internationalization.docs_content(language=global_language),
-            str(uuid.uuid4())
-        ]
-
-    elif pathname == '/prop-persistence':
-        return [
-            views.prop_persistence.docs_content(language=global_language),
-            str(uuid.uuid4())
-        ]
-
-    elif pathname == '/use-key-to-refresh':
-        return [
-            views.use_key_to_refresh.docs_content(language=global_language),
-            str(uuid.uuid4())
-        ]
-
-    elif pathname == '/batch-props-values':
-        return [
-            views.batch_props_values.docs_content(language=global_language),
-            str(uuid.uuid4())
-        ]
-
-    elif pathname == '/import-alias':
-        return [
-            views.import_alias.docs_content(language=global_language),
-            str(uuid.uuid4())
-        ]
-
-    # 若访问更新日志相关页面
-    elif (
-        re.fullmatch('/change-log-v\d+\.\d+\.\d+', pathname) and
-        pathname[1:]+'.md' in os.listdir('./change_logs')
-    ):
-        return [
-            views.generate_change_logs.genarate_layout(
-                pathname
-            ),
-            str(uuid.uuid4())
-        ]
-
-    # 检查当前pathname是否在预设字典中
-    elif pathname in Config.key2open_keys.keys():
-
-        # 复杂内容渲染效果优化
-        time.sleep(0.5)
-
-        # 检查当前目标pathname中是否包含AntdTable
-        if 'AntdTable' in pathname:
-
-            if pathname == '/AntdTable-basic':
-
-                return [
-                    table_basic.docs_content(language=global_language),
-                    str(uuid.uuid4())
-                ]
-
-            elif pathname == '/AntdTable-advanced':
-
-                return [
-                    table_advanced.docs_content(language=global_language),
-                    str(uuid.uuid4())
-                ]
-
-            elif pathname == '/AntdTable-server-side-mode':
-
-                return [
-                    table_server_side_mode.docs_content(
-                        language=global_language),
-                    str(uuid.uuid4())
-                ]
-
-            elif pathname == '/AntdTable-rerender':
-
-                return [
-                    table_rerender.docs_content(language=global_language),
-                    str(uuid.uuid4())
-                ]
-
-        try:
-            return [
-                getattr(views, pathname[1:]).docs_content(
-                    language=global_language),
-                str(uuid.uuid4())
-            ]
-
-        except Exception as e:
-
-            pass
-
-    return [
-        fac.AntdResult(
-            status='404',
-            title='您访问的页面不存在或还在建设中',
-            style={
-                'height': 'calc(100vh - 65px)'
-            }
-        ),
-        str(uuid.uuid4())
+        ],
+        str(uuid.uuid4()),
     ]
 
 
 @app.callback(
-    [Output('router-menu', 'currentKey'),
-     Output('router-menu', 'openKeys'),
-     Output('side-menu-scroll-to-current-key', 'children')],
-    Input('url', 'pathname')
+    [
+        Output('doc-layout-container', 'children'),
+        Output('global-spin-center', 'key', allow_duplicate=True),
+    ],
+    Input('doc-layout-url', 'pathname'),
+    prevent_initial_call=True,
 )
-def handle_other_router_interaction(pathname):
-    '''
-    路由相关的交互效果优化
-    '''
+def doc_layout_router(pathname):
+    """路由控制"""
 
-    if pathname == '/what-is-fac' or pathname == '/':
-        return [
-            '/what-is-fac',
-            dash.no_update,
-            None
-        ]
+    time.sleep(0.5)
 
-    elif pathname == '/getting-started':
-        return [
-            '/getting-started',
-            dash.no_update,
-            None
-        ]
+    # 404页面
+    doc_layout = fac.AntdResult(
+        status='404',
+        title='您访问的页面不存在或还在建设中',
+        style={'height': 'calc(100vh - 65px)'},
+    )
 
-    elif (
-        pathname in [
-            '/advanced-classname',
-            '/popup-container',
-            '/internationalization',
-            '/prop-persistence',
-            '/use-key-to-refresh',
-            '/batch-props-values',
-            '/import-alias'
-        ]
-    ):
-        return [
-            pathname,
-            dash.no_update,
-            fuc.FefferyScroll(
-                scrollTargetId=pathname,
-                **router_menu_scroll_params
-            )
-        ]
-
-    elif (
-        re.fullmatch('/change-log-v\d+\.\d+\.\d+', pathname) and
-        pathname[1:]+'.md' in os.listdir('./change_logs')
-    ):
-        return [
-            pathname,
-            [re.findall('(v\d+\.\d+\.)', pathname)[0]+'x'],
-            fuc.FefferyScroll(
-                scrollTargetId=pathname,
-                **router_menu_scroll_params
-            )
-        ]
-
-    # 检查当前pathname是否在预设字典中
-    elif pathname in Config.key2open_keys.keys():
-
-        return [
-            pathname,
-            Config.key2open_keys[pathname],
-            fuc.FefferyScroll(
-                scrollTargetId=pathname,
-                **router_menu_scroll_params
-            )
-        ]
-
-    return [
-        pathname,
-        dash.no_update,
-        None
+    # 提取当前views下合法格式页面模块
+    valid_views = [
+        '/' + name for name in dir(views) if not name.startswith('__')
     ]
+
+    # 检测当前pathname是否符合单页组件文档页面模块
+    if pathname in valid_views:
+        doc_layout = getattr(views, pathname.replace('/', '')).render()
+
+    return [doc_layout, str(uuid.uuid4())]
+
+
+app.clientside_callback(
+    # 控制侧边菜单栏的展开/收起
+    ClientsideFunction(
+        namespace='clientside', function_name='toggleSideMenuVisible'
+    ),
+    Output('toggle-side-menu', 'id'),
+    Input('toggle-side-menu', 'nClicks'),
+    State('toggle-side-menu-icon', 'icon'),
+    prevent_initial_call=True,
+)
 
 
 @app.callback(
-    Output('page-anchor-scroll-to-while-page-initial', 'children'),
-    Input('docs-content-spin-center', 'key'),
-    State('url', 'hash')
+    [Output('side-menu', 'openKeys'), Output('side-menu', 'currentKey')],
+    Input('doc-layout-url', 'pathname'),
 )
-def page_anchor_scroll_to_while_page_initial(_, hash_):
+def update_side_menu_state(pathname):
+    """处理pathname变动时，对侧边菜单栏相关状态的更新"""
 
-    if _ and hash_:
+    if pathname == '/':
+        pathname = '/what-is-fac'
 
-        return fuc.FefferyScroll(
-            scrollTargetId=unquote(hash_)[1:],
-            scrollMode='target',
-            executeScroll=True,
-            offset=0
-        )
+    if AppConfig.side_menu_expand_keys.get(pathname):
+        return [AppConfig.side_menu_expand_keys[pathname], pathname]
+
+    return [None, pathname]
 
 
 app.clientside_callback(
+    # 侧边参数栏展开/收起控制
     ClientsideFunction(
-        namespace='clientside',
-        function_name='handleSideMenuCollapse'
+        namespace='clientside', function_name='toggleSidePropsVisible'
     ),
-    [Output('side-menu', 'style'),
-     Output('fold-side-menu-icon', 'icon')],
-    Input('fold-side-menu', 'nClicks'),
-    State('side-menu', 'style')
+    Output('side-props', 'style'),
+    Output('toggle-side-props-visible-icon', 'icon'),
+    Input('toggle-side-props-visible', 'nClicks'),
+    State('toggle-side-props-visible-icon', 'icon'),
+    prevent_initial_call=True,
 )
 
 
 app.clientside_callback(
+    # 侧边参数栏关键词搜索框展开/收起控制
     ClientsideFunction(
-        namespace='clientside',
-        function_name='handleSidePropsCollapse'
+        namespace='clientside', function_name='toggleSidePropsBarVisible'
     ),
-    [Output('side-props', 'style'),
-     Output('fold-side-props-icon', 'icon')],
-    Input('fold-side-props', 'nClicks'),
-    Input('side-props-width', 'data'),
-    State('side-props', 'style')
+    [
+        Output('side-props-search-bar', 'style'),
+        Output('side-props-search-bar-keyword', 'autoFocus'),
+        Output('side-props-search-bar-keyword', 'key'),
+    ],
+    Input('side-props-search-bar-toggle', 'nClicks'),
+    State('side-props-search-bar', 'style'),
+    prevent_initial_call=True,
 )
 
-
 app.clientside_callback(
+    # 侧边参数栏关键词搜索
     ClientsideFunction(
-        namespace='clientside',
-        function_name='handleSidePropsResize'
+        namespace='clientside', function_name='updateSidePropsMarkdownKeywords'
     ),
-    [Output('side-props-width', 'data'),
-     Output('side-props-width-plus', 'disabled'),
-     Output('side-props-width-minus', 'disabled')],
-    [Input('side-props-width-plus', 'nClicks'),
-     Input('side-props-width-minus', 'nClicks')],
-    State('side-props-width', 'data')
-)
-
-
-app.clientside_callback(
-    '''(value) => true''',
-    Output('global-reload', 'reload'),
-    Input('global-language', 'value'),
-    prevent_initial_call=True
+    Output('side-props-markdown', 'searchKeyword'),
+    Input('side-props-search-bar-keyword', 'debounceValue'),
+    prevent_initial_call=True,
 )
 
 app.clientside_callback(
-    '''(value) => {
-        return [
-            value === "中文" ? "唤出搜索面板" : "to invoke the search panel",
-            value === "中文" ? "Affects only the component documentation page side parameter description" : "仅影响组件文档页侧参数说明"
-        ]
-    }''',
-    [Output('ctrl+k-description', 'children'),
-     Output('global-language-tooltip', 'title')],
-    Input('global-language', 'value')
+    # 基于模式匹配，控制示例代码框的展开/收起
+    ClientsideFunction(
+        namespace='clientside', function_name='toggleDemoCodeVisible'
+    ),
+    Output({'type': 'demo-code', 'index': MATCH}, 'style'),
+    Input({'type': 'demo-code-toggle', 'index': MATCH}, 'nClicks'),
+    State({'type': 'demo-code', 'index': MATCH}, 'style'),
+    prevent_initial_call=True,
+)
+
+app.clientside_callback(
+    # 侧边参数栏展开/收起控制
+    ClientsideFunction(
+        namespace='clientside', function_name='toggleDocAnchorVisible'
+    ),
+    Output('doc-anchor', 'style'),
+    Output('toggle-doc-anchor-visible-icon', 'icon'),
+    Input('toggle-doc-anchor-visible', 'nClicks'),
+    State('toggle-doc-anchor-visible-icon', 'icon'),
+    prevent_initial_call=True,
 )
 
 if __name__ == '__main__':
