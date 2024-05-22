@@ -41,7 +41,7 @@ class AppConfig:
     doc_library_repo = 'https://github.com/CNFeffery/feffery-antd-docs'
 
     # 文档仓库分支名称
-    doc_library_branch = 'main'
+    doc_library_branch = 'fac0.3.x'
 
     # 侧边菜单栏数据结构
     side_menu_items = [
