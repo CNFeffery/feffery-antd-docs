@@ -13,7 +13,7 @@ class CustomDash(dash.Dash):
 
         scripts = kwargs.pop('scripts')
 
-        # 提取scripts部分符合条件的外部js资源
+        # 提取scripts中部分符合条件的外部js资源
         external_scripts = re.findall(
             '(<script src="http.*?"></script>)',
             scripts
