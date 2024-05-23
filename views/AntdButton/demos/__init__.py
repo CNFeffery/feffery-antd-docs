@@ -193,6 +193,7 @@ def render(component: Component) -> Component:
                                         item.get('language') or 'Python'
                                     ).lower(),
                                     codeTheme='coy-without-shadows',
+                                    codeBlockStyle={'overflowX': 'auto'},
                                 ),
                             }
                             for item in getattr(
