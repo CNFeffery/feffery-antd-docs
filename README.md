@@ -10,3 +10,9 @@ cd feffery-antd-docs
 pip install -r requirements.txt
 python app.py
 ```
+
+## 2 贡献者
+
+<a href = "https://github.com/CNFeffery/feffery-antd-docs/graphs/contributors">
+  <img src = "https://contrib.rocks/image?repo=CNFeffery/feffery-antd-docs"/>
+</a>
