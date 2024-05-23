@@ -66,6 +66,7 @@ def render():
                     style={'height': '100%'},
                 ),
                 id='doc-layout-header-standard-col1',
+                style={'display': 'none'},
             ),
             fac.AntdCol(
                 fac.AntdSpace(
@@ -100,6 +101,7 @@ def render():
                     style={'height': '100%'},
                 ),
                 id='doc-layout-header-standard-col2',
+                style={'display': 'none'},
             ),
             fac.AntdCol(
                 fac.AntdCenter(
