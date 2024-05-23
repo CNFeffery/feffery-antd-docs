@@ -122,5 +122,26 @@ window.dash_clientside = Object.assign({}, window.dash_clientside, {
                 'antd-menu-unfold'
             ]
         },
+        smallScreenSutoCollapseSide: (responsive, nClicksLeft, nClicksRight, iconLeft, iconRight) => {
+            // 满足较小屏幕尺寸规格要求
+            if (!responsive?.lg) {
+                return [
+                    // 根据先前的导航菜单折叠状态，选择要更新的新状态
+                    iconLeft === 'antd-arrow-left' ? (nClicksLeft || 0) + 1 : window.dash_clientside.no_update,
+                    // 根据先前的侧边参数栏折叠状态，选择要更新的新状态
+                    iconRight === 'antd-arrow-right' ? (nClicksRight || 0) + 1 : window.dash_clientside.no_update,
+                    { display: 'none' },
+                    { display: 'none' },
+                    {}
+                ]
+            }
+            return [
+                window.dash_clientside.no_update,
+                window.dash_clientside.no_update,
+                {},
+                {},
+                { display: 'none' }
+            ];
+        }
     }
 });

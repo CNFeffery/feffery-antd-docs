@@ -64,7 +64,8 @@ def render():
                         ),
                     ],
                     style={'height': '100%'},
-                )
+                ),
+                id='doc-layout-header-standard-col1',
             ),
             fac.AntdCol(
                 fac.AntdSpace(
@@ -97,7 +98,24 @@ def render():
                         ),
                     ],
                     style={'height': '100%'},
-                )
+                ),
+                id='doc-layout-header-standard-col2',
+            ),
+            fac.AntdCol(
+                fac.AntdCenter(
+                    fac.AntdText(
+                        AppConfig.page_header_title,
+                        style={
+                            'color': '#000000d9',
+                            'fontWeight': 500,
+                            'fontSize': 'calc(max(4vw, 28px))',
+                        },
+                    ),
+                    style={'height': '100%'},
+                ),
+                id='doc-layout-header-standard-col3',
+                span=24,
+                style={'display': 'none'},
             ),
         ],
         justify='space-between',

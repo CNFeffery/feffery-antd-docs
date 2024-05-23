@@ -251,5 +251,23 @@ app.clientside_callback(
     prevent_initial_call=True,
 )
 
+app.clientside_callback(
+    # 小屏幕下优化文档内容显示
+    ClientsideFunction(
+        namespace='clientside', function_name='smallScreenSutoCollapseSide'
+    ),
+    Output('toggle-side-menu', 'nClicks'),
+    Output('toggle-side-props-visible', 'nClicks'),
+    Output('doc-layout-header-standard-col1', 'style'),
+    Output('doc-layout-header-standard-col2', 'style'),
+    Output('doc-layout-header-standard-col3', 'style'),
+    Input('doc-layout-responsive', 'responsive'),
+    State('toggle-side-menu', 'nClicks'),
+    State('toggle-side-props-visible', 'nClicks'),
+    State('toggle-side-menu-icon', 'icon'),
+    State('toggle-side-props-visible-icon', 'icon'),
+    prevent_initial_call=True,
+)
+
 if __name__ == '__main__':
     app.run(debug=True)

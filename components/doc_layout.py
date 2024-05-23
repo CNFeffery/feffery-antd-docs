@@ -15,6 +15,8 @@ def render(
 
     return fac.AntdRow(
         [
+            # 文档页面响应式监听
+            fuc.FefferyResponsive(id='doc-layout-responsive'),
             fac.AntdCol(
                 fac.AntdRow(
                     [
