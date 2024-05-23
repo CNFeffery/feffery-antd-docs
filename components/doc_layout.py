@@ -1,5 +1,5 @@
 import uuid
-from dash import html
+from dash import html, dcc
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
 import feffery_markdown_components as fmc
@@ -162,14 +162,20 @@ def render(
                             ),
                             fuc.FefferyDiv(
                                 [
+                                    # 关键词搜索状态存储
+                                    dcc.Store(
+                                        id='side-props-markdown-search-status'
+                                    ),
                                     fmc.FefferyMarkdown(
                                         id='side-props-markdown',
                                         markdownStr=utils.parse_component_props(
                                             component=component
                                         ),
+                                        highlightClassName='side-props-keyword-highlight',
                                         style={'paddingBottom': 56},
                                     ),
                                 ],
+                                id='side-props-markdown-container',
                                 scrollbar='simple',
                                 style={
                                     'height': 'calc(100vh - 64px)',

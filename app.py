@@ -212,6 +212,8 @@ app.clientside_callback(
         Output('side-props-search-bar', 'style'),
         Output('side-props-search-bar-keyword', 'autoFocus'),
         Output('side-props-search-bar-keyword', 'key'),
+        Output('side-props-search-bar-keyword', 'value'),
+        Output('side-props-search-bar-keyword', 'debounceValue'),
     ],
     Input('side-props-search-bar-toggle', 'nClicks'),
     State('side-props-search-bar', 'style'),
@@ -266,6 +268,18 @@ app.clientside_callback(
     State('toggle-side-props-visible', 'nClicks'),
     State('toggle-side-menu-icon', 'icon'),
     State('toggle-side-props-visible-icon', 'icon'),
+    prevent_initial_call=True,
+)
+
+app.clientside_callback(
+    # 控制侧边参数栏关键词搜索滚动切换
+    ClientsideFunction(
+        namespace='clientside', function_name='handleSidePropsSearchScroll'
+    ),
+    Output('side-props-markdown-search-status', 'data'),
+    Input('side-props-search-bar-keyword', 'nSubmit'),
+    Input('side-props-markdown', 'searchKeyword'),
+    State('side-props-markdown-search-status', 'data'),
     prevent_initial_call=True,
 )
 
