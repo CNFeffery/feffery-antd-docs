@@ -16,7 +16,8 @@ def render() -> Component:
                 icon=fac.AntdIcon(icon='antd-search'),
                 iconPosition='end',
             ),
-        ]
+        ],
+        wrap=True,
     )
 
     return demo_contents
@@ -35,7 +36,8 @@ fac.AntdSpace(
             icon=fac.AntdIcon(icon='antd-search'),
             iconPosition='end',
         ),
-    ]
+    ],
+    wrap=True
 )
 """
     }

@@ -17,6 +17,7 @@ def render() -> Component:
                 'link',
             ]
         ],
+        wrap=True,
         style={'background': '#d9d9d9', 'padding': 8},
     )
 
@@ -36,7 +37,8 @@ fac.AntdSpace(
             'text',
             'link',
         ]
-    ],
+    ],,
+    wrap=True,
     style={'background': '#d9d9d9', 'padding': 8},
 )
 """

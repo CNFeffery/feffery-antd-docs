@@ -10,7 +10,8 @@ def render() -> Component:
         [
             fac.AntdButton(shape, type='primary', shape=shape)
             for shape in ['default', 'circle', 'round']
-        ]
+        ],
+        wrap=True,
     )
 
     return demo_contents
@@ -23,7 +24,8 @@ fac.AntdSpace(
     [
         fac.AntdButton(shape, type='primary', shape=shape)
         for shape in ['default', 'circle', 'round']
-    ]
+    ],
+    wrap=True
 )
 """
     }

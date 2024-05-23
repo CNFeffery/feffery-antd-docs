@@ -16,7 +16,8 @@ def render() -> Component:
                 'text',
                 'link',
             ]
-        ]
+        ],
+        wrap=True,
     )
 
     return demo_contents
@@ -35,7 +36,8 @@ fac.AntdSpace(
             'text',
             'link',
         ]
-    ]
+    ],
+    wrap=True
 )
 """
     }
