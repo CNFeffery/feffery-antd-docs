@@ -82,7 +82,7 @@ def render(
                                     for item in catalog
                                 ],
                                 id='doc-anchor',
-                                offsetTop=64.1,
+                                offsetTop=70,
                                 style={'width': 150},
                             ),
                             id='doc-anchor-col',

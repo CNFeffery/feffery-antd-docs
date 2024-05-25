@@ -7,6 +7,7 @@ import views
 from . import (
     basic_usage,  # noqa: F401
     button_types,  # noqa: F401
+    sizes,  # noqa: F401
     disabled_status,  # noqa: F401
     danger_status,  # noqa: F401
     ghost_background,  # noqa: F401
@@ -27,6 +28,11 @@ demos_config = [
         'path': 'button_types',
         'title': '按钮类型',
         'description': fac.AntdParagraph('不同类型的按钮。'),
+    },
+    {
+        'path': 'sizes',
+        'title': '尺寸规格',
+        'description': fac.AntdParagraph('不同尺寸的按钮。'),
     },
     {
         'path': 'disabled_status',
