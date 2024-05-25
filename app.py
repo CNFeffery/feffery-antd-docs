@@ -242,11 +242,11 @@ app.clientside_callback(
 )
 
 app.clientside_callback(
-    # 侧边参数栏展开/收起控制
+    # 侧边页面目录展开/收起控制
     ClientsideFunction(
         namespace='clientside', function_name='toggleDocAnchorVisible'
     ),
-    Output('doc-anchor', 'style'),
+    Output('doc-anchor-col', 'style'),
     Output('toggle-doc-anchor-visible-icon', 'icon'),
     Input('toggle-doc-anchor-visible', 'nClicks'),
     State('toggle-doc-anchor-visible-icon', 'icon'),

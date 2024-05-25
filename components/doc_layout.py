@@ -85,6 +85,7 @@ def render(
                                 offsetTop=64.1,
                                 style={'width': 150},
                             ),
+                            id='doc-anchor-col',
                             flex='none',
                         ),
                     ],

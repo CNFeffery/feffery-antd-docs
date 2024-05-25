@@ -131,9 +131,7 @@ window.dash_clientside = Object.assign({}, window.dash_clientside, {
             }
 
             return [
-                {
-                    width: 150
-                },
+                {},
                 'antd-menu-unfold'
             ]
         },
