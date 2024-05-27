@@ -16,23 +16,63 @@ def render():
                             id='side-menu',
                             menuItems=AppConfig.side_menu_items,
                             menuItemKeyToTitle={
-                                '/' + value.split(' ')[0]: fac.AntdRow(
-                                    [
-                                        fac.AntdCol(value),
-                                        fac.AntdCol(
-                                            fac.AntdTag(
-                                                content='新组件', color='green'
-                                            )
-                                        ),
-                                    ],
-                                    justify='space-between',
-                                    wrap=False,
-                                )
-                                for value in [
-                                    'AntdFloatButton 悬浮按钮',
-                                    'AntdCenter 居中',
-                                    'AntdFlex 弹性布局',
-                                ]
+                                **{
+                                    '/' + value.split(' ')[0]: fac.AntdRow(
+                                        [
+                                            fac.AntdCol(value),
+                                            fac.AntdCol(
+                                                fac.AntdTooltip(
+                                                    fac.AntdTag(
+                                                        content=fac.AntdIcon(
+                                                            icon='antd-app-store-add'
+                                                        ),
+                                                        color='green',
+                                                    ),
+                                                    title='0.3.x版本新增组件',
+                                                    placement='right',
+                                                )
+                                            ),
+                                        ],
+                                        justify='space-between',
+                                        wrap=False,
+                                    )
+                                    for value in [
+                                        'AntdFloatButton 悬浮按钮',
+                                        'AntdCenter 居中',
+                                        'AntdFlex 弹性布局',
+                                        'AntdColorPicker 颜色选择',
+                                        'AntdCheckableTag 可选择标签',
+                                        'AntdImageGroup 图片组合',
+                                        'AntdQRCode 二维码',
+                                        'AntdTour 漫游式引导',
+                                        'Fragment 空节点',
+                                    ]
+                                },
+                                **{
+                                    '/' + value.split(' ')[0]: fac.AntdRow(
+                                        [
+                                            fac.AntdCol(value),
+                                            fac.AntdCol(
+                                                fac.AntdTooltip(
+                                                    fac.AntdTag(
+                                                        content=fac.AntdIcon(
+                                                            icon='antd-experiment'
+                                                        ),
+                                                        color='blue',
+                                                    ),
+                                                    title='实验性质组件',
+                                                    placement='right',
+                                                )
+                                            ),
+                                        ],
+                                        justify='space-between',
+                                        wrap=False,
+                                    )
+                                    for value in [
+                                        'AntdDraggablePanel 可拖拽面板',
+                                        'AntdEditorLayout 编辑器布局',
+                                    ]
+                                },
                             },
                             mode='inline',
                             style={'borderRight': 'none'},
