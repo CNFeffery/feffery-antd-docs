@@ -135,7 +135,7 @@ window.dash_clientside = Object.assign({}, window.dash_clientside, {
                 'antd-menu-unfold'
             ]
         },
-        smallScreenSutoCollapseSide: (responsive, nClicksLeft, nClicksRight, iconLeft, iconRight) => {
+        smallScreenAutoCollapseSide: (responsive, nClicksLeft, nClicksRight, iconLeft, iconRight) => {
             // 满足较小屏幕尺寸规格要求
             if (!responsive?.lg) {
                 return [
@@ -151,6 +151,21 @@ window.dash_clientside = Object.assign({}, window.dash_clientside, {
             return [
                 window.dash_clientside.no_update,
                 window.dash_clientside.no_update,
+                {},
+                {},
+                { display: 'none' }
+            ];
+        },
+        smallScreenUpdateHeader: (responsive) => {
+            // 满足较小屏幕尺寸规格要求
+            if (!responsive?.lg) {
+                return [
+                    { display: 'none' },
+                    { display: 'none' },
+                    {}
+                ]
+            }
+            return [
                 {},
                 {},
                 { display: 'none' }

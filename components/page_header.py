@@ -1,13 +1,18 @@
 import dash
 from dash import html, dcc
 import feffery_antd_components as fac
+import feffery_utils_components as fuc
 
 from config import AppConfig
 
 
 def render():
+    """渲染页首"""
+
     return fac.AntdRow(
         [
+            # 文档页面响应式监听
+            fuc.FefferyResponsive(id='page-header-responsive'),
             fac.AntdCol(
                 fac.AntdSpace(
                     [
