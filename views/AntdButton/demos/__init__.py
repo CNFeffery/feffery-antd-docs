@@ -15,6 +15,11 @@ from . import (
     block_button,  # noqa: F401
     as_link,  # noqa: F401
     button_icon,  # noqa: F401
+    auto_insert_space,  # noqa: F401
+    button_loading,  # noqa: F401
+    auto_spin,  # noqa: F401
+    basic_callbacks,  # noqa: F401
+    auto_spin_callback,  # noqa: F401
 )
 from config import AppConfig
 
@@ -108,6 +113,65 @@ demos_config = [
                 '设置参数',
                 fac.AntdText('icon', code=True),
                 '添加自定义图标元素。',
+            ]
+        ),
+    },
+    {
+        'path': 'auto_insert_space',
+        'title': '汉字自动插入空格',
+        'description': fac.AntdParagraph(
+            [
+                '设置参数',
+                fac.AntdText('autoInsertSpace', code=True),
+                '控制是否在按钮内容为两个汉字时，自动插入空格。',
+            ]
+        ),
+    },
+    {
+        'path': 'button_loading',
+        'title': '加载中状态',
+        'description': fac.AntdParagraph(
+            [
+                '设置参数',
+                fac.AntdText('loading', code=True),
+                '控制是否将按钮渲染为加载中状态。',
+            ]
+        ),
+    },
+    {
+        'path': 'auto_spin',
+        'title': '点击自动进入加载中状态',
+        'description': fac.AntdParagraph(
+            [
+                '设置参数',
+                fac.AntdText('autoSpin', code=True),
+                '控制按钮是否在每次被点击后自动进入加载中状态。',
+            ]
+        ),
+    },
+    {
+        'path': 'basic_callbacks',
+        'title': '回调监听',
+        'description': fac.AntdParagraph(
+            [
+                '通过',
+                fac.AntdText('nClicks', code=True),
+                '进行按钮点击事件的监听，特别地，在有效设置参数',
+                fac.AntdText('debounceWait', code=True),
+                '后，将针对点击事件进行防抖监听，避免过于频繁的触发。',
+            ]
+        ),
+    },
+    {
+        'path': 'auto_spin_callback',
+        'title': '配合autoSpin的回调',
+        'description': fac.AntdParagraph(
+            [
+                '配合',
+                fac.AntdText('autoSpin', code=True),
+                '、',
+                fac.AntdText('loadingChildren', code=True),
+                '等参数优化点击按钮触发耗时计算任务执行的场景。',
             ]
         ),
     },

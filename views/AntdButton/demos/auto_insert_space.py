@@ -7,10 +7,7 @@ def render() -> Component:
 
     # 构造演示用例相关内容
     demo_contents = fac.AntdSpace(
-        [
-            fac.AntdButton(size, size=size)
-            for size in ['small', 'middle', 'large']
-        ],
+        [fac.AntdButton('汉字'), fac.AntdButton('汉字', autoInsertSpace=False)],
         wrap=True,
     )
 
@@ -21,10 +18,7 @@ code_string = [
     {
         'code': """
 fac.AntdSpace(
-    [
-        fac.AntdButton(size, size=size)
-        for size in ['small', 'middle', 'large']
-    ],
+    [fac.AntdButton('汉字'), fac.AntdButton('汉字', autoInsertSpace=False)],
     wrap=True,
 )
 """
