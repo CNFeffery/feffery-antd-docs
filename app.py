@@ -77,12 +77,23 @@ def root_router(pathname, trigger):
             demo_type, demo_path = pathname.split('/')[2:4]
 
             return [
-                html.Div(
-                    getattr(
-                        getattr(views, demo_type).demos, demo_path
-                    ).render(),
-                    style={'padding': 50},
-                ),
+                [
+                    fuc.FefferyStyle(
+                        rawStyle="""
+/* 隐藏debug模式工具图标 */
+.dash-debug-menu,
+.dash-debug-menu__outer--closed {
+    display: none;
+}
+"""
+                    ),
+                    html.Div(
+                        getattr(
+                            getattr(views, demo_type).demos, demo_path
+                        ).render(),
+                        style={'padding': 50},
+                    ),
+                ],
                 str(uuid.uuid4()),
             ]
 
