@@ -1,1 +1,1 @@
-from . import AntdButton, AntdFloatButton  # noqa: F403, F401
+from . import AntdButton, AntdFloatButton, AntdFloatButtonGroup  # noqa: F403, F401

@@ -38,6 +38,7 @@ def render():
                                     )
                                     for value in [
                                         'AntdFloatButton 悬浮按钮',
+                                        'AntdFloatButtonGroup 悬浮按钮组',
                                         'AntdCenter 居中',
                                         'AntdFlex 弹性布局',
                                         'AntdColorPicker 颜色选择',
@@ -75,6 +76,7 @@ def render():
                                 },
                             },
                             mode='inline',
+                            inlineIndent=12,
                             style={'borderRight': 'none'},
                         ),
                         id='side-menu-container',
