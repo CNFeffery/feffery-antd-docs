@@ -9,10 +9,10 @@ def render() -> Component:
             items=[
                 {'title': '组件介绍'},
                 {'title': '通用'},
-                {'title': 'AntdButton 按钮'},
+                {'title': 'AntdCenter 居中'},
             ],
             style={'marginBottom': 8},
         ),
-        fac.AntdTitle('AntdButton 按钮', level=2),
-        fac.AntdParagraph('按钮用于触发一个即时操作。'),
+        fac.AntdTitle('AntdCenter 居中', level=2),
+        fac.AntdParagraph('快捷实现内容在水平垂直方向上居中。'),
     ]

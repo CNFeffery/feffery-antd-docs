@@ -39,7 +39,6 @@ def render():
                                     for value in [
                                         'AntdFloatButton 悬浮按钮',
                                         'AntdFloatButtonGroup 悬浮按钮组',
-                                        'AntdCenter 居中',
                                         'AntdFlex 弹性布局',
                                         'AntdColorPicker 颜色选择',
                                         'AntdCheckableTag 可选择标签',
