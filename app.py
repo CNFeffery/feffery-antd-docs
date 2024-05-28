@@ -11,6 +11,7 @@ from server import app
 from components import page_header, side_menu
 from config import AppConfig
 from utils import generate_shortcut_panel_data
+import views.advanced_usage
 
 
 def render_layout():
@@ -172,9 +173,33 @@ def doc_layout_router(pathname):
         style={'height': 'calc(100vh - 65px)'},
     )
 
+    # 若当前页面指向“进阶使用”下属页面
+    if pathname == '/advanced-classname':
+        doc_layout = views.advanced_usage.advanced_classname.render()
+
+    elif pathname == '/popup-container':
+        doc_layout = views.advanced_usage.popup_container.render()
+
+    elif pathname == '/internationalization':
+        doc_layout = views.advanced_usage.internationalization.render()
+
+    elif pathname == '/prop-persistence':
+        doc_layout = views.advanced_usage.prop_persistence.render()
+
+    elif pathname == '/use-key-to-refresh':
+        doc_layout = views.advanced_usage.use_key_to_refresh.render()
+
+    elif pathname == '/batch-props-values':
+        doc_layout = views.advanced_usage.batch_props_values.render()
+
+    elif pathname == '/import-alias':
+        doc_layout = views.advanced_usage.import_alias.render()
+
     # 提取当前views下合法格式页面模块
     valid_views = [
-        '/' + name for name in dir(views) if not name.startswith('__')
+        '/' + name
+        for name in dir(views)
+        if not name.startswith('__') and name != 'advanced_usage'
     ]
 
     # 检测当前pathname是否符合单页组件文档页面模块

@@ -1178,6 +1178,75 @@ class AppConfig:
                 },
             ],
         },
+        {
+            'component': 'ItemGroup',
+            'props': {'key': '进阶使用', 'title': '进阶使用'},
+            'children': [
+                {
+                    'component': 'Item',
+                    'props': {
+                        'key': '/advanced-classname',
+                        'name': '/advanced-classname',
+                        'title': '进阶className的使用',
+                        'href': '/advanced-classname',
+                    },
+                },
+                {
+                    'component': 'Item',
+                    'props': {
+                        'key': '/popup-container',
+                        'name': '/popup-container',
+                        'title': '弹出层容器设置',
+                        'href': '/popup-container',
+                    },
+                },
+                {
+                    'component': 'Item',
+                    'props': {
+                        'key': '/internationalization',
+                        'name': '/internationalization',
+                        'title': '国际化',
+                        'href': '/internationalization',
+                    },
+                },
+                {
+                    'component': 'Item',
+                    'props': {
+                        'key': '/prop-persistence',
+                        'name': '/prop-persistence',
+                        'title': '属性持久化',
+                        'href': '/prop-persistence',
+                    },
+                },
+                {
+                    'component': 'Item',
+                    'props': {
+                        'key': '/use-key-to-refresh',
+                        'name': '/use-key-to-refresh',
+                        'title': '强制刷新组件',
+                        'href': '/use-key-to-refresh',
+                    },
+                },
+                {
+                    'component': 'Item',
+                    'props': {
+                        'key': '/batch-props-values',
+                        'name': '/batch-props-values',
+                        'title': '属性批量监听',
+                        'href': '/batch-props-values',
+                    },
+                },
+                {
+                    'component': 'Item',
+                    'props': {
+                        'key': '/import-alias',
+                        'name': '/import-alias',
+                        'title': '组件按别名导入',
+                        'href': '/import-alias',
+                    },
+                },
+            ],
+        },
     ]
 
     # 侧边菜单栏key值 -> 展开项节点key值数组
