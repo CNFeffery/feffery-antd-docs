@@ -125,7 +125,7 @@ def render() -> Component:
                     fac.AntdRow(
                         [
                             fac.AntdCol(
-                                fuc.FefferyDiv(
+                                html.Div(
                                     [
                                         fac.AntdSpace(
                                             [
@@ -161,7 +161,7 @@ def render() -> Component:
                                             style={'width': 175},
                                         )
                                     ],
-                                    shadow='hover-shadow',
+                                    className='hover-shadow-box',
                                     style={
                                         'height': 220,
                                         'borderRadius': 6,
@@ -174,7 +174,7 @@ def render() -> Component:
                                 span=6,
                             ),
                             fac.AntdCol(
-                                fuc.FefferyDiv(
+                                html.Div(
                                     [
                                         fac.AntdSpace(
                                             [
@@ -209,7 +209,7 @@ def render() -> Component:
                                             style={'width': 175},
                                         )
                                     ],
-                                    shadow='hover-shadow',
+                                    className='hover-shadow-box',
                                     style={
                                         'height': 220,
                                         'borderRadius': 6,
@@ -222,7 +222,7 @@ def render() -> Component:
                                 span=6,
                             ),
                             fac.AntdCol(
-                                fuc.FefferyDiv(
+                                html.Div(
                                     [
                                         fac.AntdSpace(
                                             [
@@ -266,7 +266,7 @@ def render() -> Component:
                                             style={'width': 175},
                                         )
                                     ],
-                                    shadow='hover-shadow',
+                                    className='hover-shadow-box',
                                     style={
                                         'height': 220,
                                         'borderRadius': 6,
@@ -279,7 +279,7 @@ def render() -> Component:
                                 span=6,
                             ),
                             fac.AntdCol(
-                                fuc.FefferyDiv(
+                                html.Div(
                                     [
                                         fac.AntdSpace(
                                             [
@@ -323,7 +323,7 @@ def render() -> Component:
                                             style={'width': 175},
                                         )
                                     ],
-                                    shadow='hover-shadow',
+                                    className='hover-shadow-box',
                                     style={
                                         'height': 220,
                                         'borderRadius': 6,
@@ -336,7 +336,7 @@ def render() -> Component:
                                 span=6,
                             ),
                             fac.AntdCol(
-                                fuc.FefferyDiv(
+                                html.Div(
                                     [
                                         fac.AntdSpace(
                                             [
@@ -385,7 +385,7 @@ def render() -> Component:
                                             style={'width': 175},
                                         )
                                     ],
-                                    shadow='hover-shadow',
+                                    className='hover-shadow-box',
                                     style={
                                         'height': 220,
                                         'borderRadius': 6,
@@ -398,7 +398,7 @@ def render() -> Component:
                                 span=6,
                             ),
                             fac.AntdCol(
-                                fuc.FefferyDiv(
+                                html.Div(
                                     [
                                         fac.AntdSpace(
                                             [
@@ -447,7 +447,7 @@ def render() -> Component:
                                             style={'width': 175},
                                         )
                                     ],
-                                    shadow='hover-shadow',
+                                    className='hover-shadow-box',
                                     style={
                                         'height': 220,
                                         'borderRadius': 6,
@@ -460,7 +460,7 @@ def render() -> Component:
                                 span=6,
                             ),
                             fac.AntdCol(
-                                fuc.FefferyDiv(
+                                html.Div(
                                     [
                                         fac.AntdSpace(
                                             [
@@ -495,7 +495,7 @@ def render() -> Component:
                                             style={'width': 175},
                                         )
                                     ],
-                                    shadow='hover-shadow',
+                                    className='hover-shadow-box',
                                     style={
                                         'height': 220,
                                         'borderRadius': 6,
@@ -508,7 +508,7 @@ def render() -> Component:
                                 span=6,
                             ),
                             fac.AntdCol(
-                                fuc.FefferyDiv(
+                                html.Div(
                                     [
                                         fac.AntdSpace(
                                             [
@@ -558,7 +558,7 @@ def render() -> Component:
                                             style={'width': 175},
                                         )
                                     ],
-                                    shadow='hover-shadow',
+                                    className='hover-shadow-box',
                                     style={
                                         'height': 220,
                                         'borderRadius': 6,

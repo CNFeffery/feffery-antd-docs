@@ -115,3 +115,12 @@ html::-webkit-scrollbar {
 .demo-code-tabs .ant-tabs-nav {
     margin: 0;
 }
+
+.hover-shadow-box {
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.hover-shadow-box:hover {
+    box-shadow: 0 8px 24px rgba(81, 87, 103, 0.16);
+    transition: box-shadow 0.3s ease-in-out;
+}
