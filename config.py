@@ -1,3 +1,4 @@
+import json
 import feffery_antd_components as fac
 
 
@@ -1290,3 +1291,11 @@ class AppConfig:
         '/AntdDraggablePanel': ['复杂交互'],
         '/AntdEditorLayout': ['复杂交互'],
     }
+
+
+class DemosConfig:
+    """
+    示例所需特殊参数配置
+    """
+
+    all_icons = json.load(open('./public/icons.json'))
