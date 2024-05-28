@@ -112,6 +112,17 @@ def root_router(pathname, trigger):
 
     return [
         [
+            # 悬浮按钮组功能
+            fac.AntdFloatButtonGroup(
+                [
+                    fac.AntdFloatButton(
+                        icon=fac.AntdIcon(icon='antd-bug'),
+                        tooltip='问题反馈',
+                        href=AppConfig.library_repo + '/issues/new',
+                    )
+                ],
+                style={'right': 100, 'bottom': 100},
+            ),
             # 注入快捷搜索面板
             fuc.FefferyShortcutPanel(
                 placeholder='输入你想要搜索的组件...',
