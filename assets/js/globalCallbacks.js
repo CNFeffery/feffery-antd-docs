@@ -23,8 +23,7 @@ window.dash_clientside = Object.assign({}, window.dash_clientside, {
                     'side-menu-affix',
                     {
                         style: {
-                            width: 20,
-                            transition: 'width 0.15s'
+                            width: 20
                         }
                     }
                 );
@@ -32,8 +31,7 @@ window.dash_clientside = Object.assign({}, window.dash_clientside, {
                     'side-menu-container',
                     {
                         style: {
-                            opacity: 0,
-                            transition: 'opacity 0s'
+                            opacity: 0
                         }
                     }
                 );
@@ -48,8 +46,7 @@ window.dash_clientside = Object.assign({}, window.dash_clientside, {
                     'side-menu-affix',
                     {
                         style: {
-                            width: 325,
-                            transition: 'width 0.15s'
+                            width: 325
                         }
                     }
                 );
@@ -57,8 +54,7 @@ window.dash_clientside = Object.assign({}, window.dash_clientside, {
                     'side-menu-container',
                     {
                         style: {
-                            opacity: 1,
-                            transition: 'opacity 0.15s'
+                            opacity: 1
                         }
                     }
                 );

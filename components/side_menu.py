@@ -80,7 +80,6 @@ def render():
                             style={'borderRight': 'none'},
                         ),
                         id='side-menu-container',
-                        style={'transition': 'opacity 0.15s'},
                     ),
                     fac.AntdButton(
                         fac.AntdIcon(
@@ -108,7 +107,9 @@ def render():
             ),
             id='side-menu-affix',
             offsetTop=64.1,
-            style={'width': 325, 'transition': 'width 0.15s'},
+            style={
+                'width': 325,
+            },
         ),
         flex='none',
     )
