@@ -12,6 +12,7 @@ from components import page_header, side_menu
 from config import AppConfig
 from utils import generate_shortcut_panel_data
 import views.advanced_usage
+import views.getting_started
 import views.what_is_fac
 
 
@@ -178,7 +179,10 @@ def doc_layout_router(pathname):
     if pathname in ['/what-is-fac', '/']:
         doc_layout = views.what_is_fac.render()
 
-    if pathname == '/advanced-classname':
+    elif pathname == '/getting-started':
+        doc_layout = views.getting_started.render()
+
+    elif pathname == '/advanced-classname':
         doc_layout = views.advanced_usage.advanced_classname.render()
 
     elif pathname == '/popup-container':

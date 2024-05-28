@@ -1,7 +1,6 @@
 from dash import html
 from datetime import datetime
 import feffery_antd_components as fac
-import feffery_utils_components as fuc
 from dash.dependencies import Component
 
 from server import app
