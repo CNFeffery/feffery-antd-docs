@@ -4,4 +4,5 @@ from . import (
     AntdFloatButtonGroup,  # noqa: F401
     AntdIcon,  # noqa: F401
     AntdCenter,  # noqa: F401
+    AntdDivider,  # noqa: F401
 )
