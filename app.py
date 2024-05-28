@@ -12,6 +12,7 @@ from components import page_header, side_menu
 from config import AppConfig
 from utils import generate_shortcut_panel_data
 import views.advanced_usage
+import views.what_is_fac
 
 
 def render_layout():
@@ -173,7 +174,10 @@ def doc_layout_router(pathname):
         style={'height': 'calc(100vh - 65px)'},
     )
 
-    # 若当前页面指向“进阶使用”下属页面
+    # 处理针对非常规单页组件的路由请求
+    if pathname in ['/what-is-fac', '/']:
+        doc_layout = views.what_is_fac.render()
+
     if pathname == '/advanced-classname':
         doc_layout = views.advanced_usage.advanced_classname.render()
 
