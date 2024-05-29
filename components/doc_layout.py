@@ -209,28 +209,33 @@ def render(
                                     'background': 'white',
                                 },
                             ),
-                            fac.AntdButton(
-                                fac.AntdIcon(
-                                    id='toggle-doc-anchor-visible-icon',
-                                    icon='antd-menu-unfold',
-                                ),
-                                id='toggle-doc-anchor-visible',
-                                type='text',
-                                shape='circle',
-                                style={
-                                    'position': 'absolute',
-                                    'zIndex': 999,
-                                    'top': '55px',
-                                    'left': '-15px',
-                                    'boxShadow': '0 4px 10px 0 rgba(0, 0, 0, .1)',
-                                    'background': 'white',
-                                },
+                            (
+                                fac.AntdButton(
+                                    fac.AntdIcon(
+                                        id='toggle-doc-anchor-visible-icon',
+                                        icon='antd-menu-unfold',
+                                    ),
+                                    id='toggle-doc-anchor-visible',
+                                    type='text',
+                                    shape='circle',
+                                    style={
+                                        'position': 'absolute',
+                                        'zIndex': 999,
+                                        'top': '55px',
+                                        'left': '-15px',
+                                        'boxShadow': '0 4px 10px 0 rgba(0, 0, 0, .1)',
+                                        'background': 'white',
+                                    },
+                                )
+                                if catalog
+                                else None
                             ),
                         ],
                         style={
-                            'padding': '0px 20px',
+                            'padding': '0px 0px 0px 20px',
                             'position': 'relative',
-                            'background': '#f2f3f5',
+                            'background': 'white',
+                            'borderLeft': '1px solid #e9ecef',
                         },
                     ),
                     id='side-props',
