@@ -15,5 +15,5 @@ def render() -> Component:
             style={'marginBottom': 8},
         ),
         fac.AntdTitle('AntdParagraph 段落', level=2),
-        fac.AntdParagraph('用于渲染具有丰富样式和功能的段落文字'),
+        fac.AntdParagraph('用于渲染具有丰富样式和功能的段落文字。'),
     ]
