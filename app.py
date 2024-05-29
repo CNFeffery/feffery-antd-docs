@@ -68,6 +68,7 @@ app.layout = render_layout
     [Output('root-container', 'children'), Output('global-spin-center', 'key')],
     Input('root-url', 'pathname'),
     State('root-url', 'trigger'),
+    prevent_initial_call=True,
 )
 def root_router(pathname, trigger):
     """根节点路由控制"""

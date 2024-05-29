@@ -5,4 +5,5 @@ from . import (
     AntdIcon,  # noqa: F401
     AntdCenter,  # noqa: F401
     AntdDivider,  # noqa: F401
+    AntdFlex,  # noqa: F401
 )

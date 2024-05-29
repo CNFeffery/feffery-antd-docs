@@ -67,6 +67,7 @@ def render(component: Component) -> Component:
                                             },
                                         ),
                                         height=350,
+                                        throttle=500,
                                     ),
                                 ],
                                 direction='vertical',

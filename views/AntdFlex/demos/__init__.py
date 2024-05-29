@@ -1,71 +1,45 @@
 from dash import html, dcc
 import feffery_antd_components as fac
-import feffery_utils_components as fuc
 from dash.dependencies import Component
 import feffery_markdown_components as fmc
 
 import views
 from . import (
     basic_usage,  # noqa: F401
-    button_types,  # noqa: F401
-    button_shapes,  # noqa: F401
-    button_icon,  # noqa: F401
-    button_description,  # noqa: F401
-    button_tooltip,  # noqa: F401
-    as_link,  # noqa: F401
-    basic_callbacks,  # noqa: F401
+    align,  # noqa: F401
+    gap,  # noqa: F401
+    wrap,  # noqa: F401
 )
 from config import AppConfig
-from components import mock_browser
 
 demos_config = [
     {
         'path': 'basic_usage',
         'title': '基础使用',
-        'description': fac.AntdParagraph('最基础的悬浮按钮。'),
-        'iframe': True,
+        'description': fac.AntdParagraph('基础的水平排布与垂直排布。'),
     },
     {
-        'path': 'button_types',
-        'title': '按钮类型',
-        'description': fac.AntdParagraph('不同类型的悬浮按钮。'),
-        'iframe': True,
+        'path': 'align',
+        'title': '对齐方式',
+        'description': fac.AntdParagraph(
+            [
+                '通过参数',
+                fac.AntdText('justify', code=True),
+                '与',
+                fac.AntdText('align', code=True),
+                '控制不同方向上的对齐方式。',
+            ]
+        ),
     },
     {
-        'path': 'button_shapes',
-        'title': '按钮形状',
-        'description': fac.AntdParagraph('不同形状的悬浮按钮。'),
-        'iframe': True,
+        'path': 'gap',
+        'title': '间距',
+        'description': fac.AntdParagraph('灵活控制子元素之间的间距。'),
     },
     {
-        'path': 'button_icon',
-        'title': '按钮图标',
-        'description': fac.AntdParagraph('为悬浮按钮自定义图标元素。'),
-        'iframe': True,
-    },
-    {
-        'path': 'button_description',
-        'title': '描述信息',
-        'description': fac.AntdParagraph('为悬浮按钮添加额外描述信息。'),
-        'iframe': True,
-    },
-    {
-        'path': 'button_tooltip',
-        'title': '气泡卡片',
-        'description': fac.AntdParagraph('为悬浮按钮添加额外气泡卡片信息。'),
-        'iframe': True,
-    },
-    {
-        'path': 'as_link',
-        'title': '链接跳转功能',
-        'description': fac.AntdParagraph('点击悬浮按钮进行链接跳转。'),
-        'iframe': True,
-    },
-    {
-        'path': 'basic_callbacks',
-        'title': '回调监听',
-        'description': fac.AntdParagraph('监听悬浮按钮的点击事件。'),
-        'iframe': True,
+        'path': 'wrap',
+        'title': '自动换行',
+        'description': fac.AntdParagraph('控制子元素超宽后是否自动换行。'),
     },
 ]
 
@@ -78,36 +52,7 @@ def render(component: Component) -> Component:
             html.Div(
                 [
                     html.Div(
-                        (
-                            fac.AntdSpace(
-                                [
-                                    mock_browser.render(),
-                                    # 懒加载优化
-                                    fuc.FefferyLazyLoad(
-                                        html.Iframe(
-                                            src='/~demo/{}/{}'.format(
-                                                component.__name__, item['path']
-                                            ),
-                                            style={
-                                                'border': '1px solid #f0f0f0',
-                                                'boxSizing': 'border-box',
-                                                'width': '100%',
-                                                'height': 350,
-                                            },
-                                        ),
-                                        height=350,
-                                        throttle=500,
-                                    ),
-                                ],
-                                direction='vertical',
-                                size=0,
-                                style={'width': '100%'},
-                            )
-                            if item.get('iframe')
-                            else getattr(
-                                views.AntdFloatButton.demos, item['path']
-                            ).render()
-                        ),
+                        getattr(views.AntdFlex.demos, item['path']).render(),
                         className='demo-box',
                     ),
                     html.Div(
@@ -188,7 +133,7 @@ def render(component: Component) -> Component:
                                 ),
                             }
                             for item in getattr(
-                                views.AntdFloatButton.demos, item['path']
+                                views.AntdFlex.demos, item['path']
                             ).code_string
                         ],
                         centered=True,
