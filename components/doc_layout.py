@@ -163,7 +163,7 @@ def render(
                                     'zIndex': 999,
                                     'top': 0,
                                     'left': 20,
-                                    'right': 20,
+                                    'right': 6,
                                     'background': 'white',
                                     'boxShadow': '0 4px 10px 0 rgba(0, 0, 0, .1)',
                                 },

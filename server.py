@@ -19,11 +19,21 @@ class CustomDash(dash.Dash):
 
         # 将原有的script标签内容替换为带备用地址错误切换的版本
         for external_script in external_scripts:
+            # 提取当前资源地址
+            origin_script_src = re.findall('"(.*?)"', external_script)[0]
+            # 抽取关键信息
+            library_name, library_version, library_file = re.findall(
+                'com/(.+)@(.+?)/(.+?)$', origin_script_src
+            )[0]
+            # 基于阿里cdn构建新的资源地址
+            new_library_src = f'https://registry.npmmirror.com/{library_name}/{library_version}/files/{library_file}'
+
             scripts = scripts.replace(
                 external_script,
                 """<script src="{}" onerror='this.remove(); let fallbackScript = document.createElement("script"); fallbackScript.src = "{}"; document.querySelector("head").prepend(fallbackScript);'></script>""".format(
                     re.findall('"(.*?)"', external_script)[0].replace(
-                        'https://unpkg.com/', 'https://npm.onmicrosoft.cn/'
+                        origin_script_src,
+                        new_library_src,
                     ),
                     re.findall('"(.*?)"', external_script)[0],
                 ),
@@ -57,6 +67,7 @@ app = CustomDash(
     extra_hot_reload_paths=['./documents', './change_logs'],
     compress=True,
     meta_tags=[
+        # 移动端显示优化
         {
             'name': 'viewport',
             'content': 'width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0',

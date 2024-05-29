@@ -8,11 +8,11 @@ def render() -> Component:
         fac.AntdBreadcrumb(
             items=[
                 {'title': '组件介绍'},
-                {'title': '通用'},
-                {'title': 'AntdFloatButton 悬浮按钮'},
+                {'title': '布局'},
+                {'title': 'AntdSpace 排列'},
             ],
             style={'marginBottom': 8},
         ),
-        fac.AntdTitle('AntdFloatButton 悬浮按钮', level=2),
-        fac.AntdParagraph('悬浮于页面固定位置的按钮。'),
+        fac.AntdTitle('AntdSpace 排列', level=2),
+        fac.AntdParagraph('用于快捷对一组元素进行水平或竖直方向上的规整排列。'),
     ]

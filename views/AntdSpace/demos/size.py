@@ -11,13 +11,13 @@ def render() -> Component:
     demo_contents = fac.AntdSpace(
         [
             fac.AntdRadioGroup(
-                id='flex-gap-demo-gap',
+                id='space-size-demo-size',
                 options=['small', 'middle', 'large', '66'],
                 value='small',
             ),
-            fac.AntdFlex(
+            fac.AntdSpace(
                 [fac.AntdButton('子元素', type='primary')] * 4,
-                id='flex-gap-demo',
+                id='space-size-demo',
             ),
         ],
         direction='vertical',
@@ -29,10 +29,10 @@ def render() -> Component:
 
 
 @app.callback(
-    Output('flex-gap-demo', 'gap'),
-    Input('flex-gap-demo-gap', 'value'),
+    Output('space-size-demo', 'size'),
+    Input('space-size-demo-size', 'value'),
 )
-def update_demo_gap(value):
+def update_demo_size(value):
     if value == '66':
         return 66
 
@@ -45,13 +45,13 @@ code_string = [
 fac.AntdSpace(
     [
         fac.AntdRadioGroup(
-            id='flex-gap-demo-gap',
+            id='space-size-demo-size',
             options=['small', 'middle', 'large', '66'],
             value='small',
         ),
-        fac.AntdFlex(
+        fac.AntdSpace(
             [fac.AntdButton('子元素', type='primary')] * 4,
-            id='flex-gap-demo',
+            id='space-size-demo',
         ),
     ],
     direction='vertical',
@@ -62,10 +62,10 @@ fac.AntdSpace(
 ...
 
 @app.callback(
-    Output('flex-gap-demo', 'gap'),
-    Input('flex-gap-demo-gap', 'value'),
+    Output('space-size-demo', 'size'),
+    Input('space-size-demo-size', 'value'),
 )
-def update_demo_gap(value):
+def update_demo_size(value):
     if value == '66':
         return 66
 

@@ -7,7 +7,7 @@ import feffery_utils_components as fuc
 from dash.dependencies import Input, Output, State, MATCH, ClientsideFunction
 
 import views
-from server import app, server
+from server import app, server  # noqa: F401
 from components import page_header, side_menu
 from config import AppConfig
 from utils import generate_shortcut_panel_data
