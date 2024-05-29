@@ -11,4 +11,5 @@ from . import (
     AntdFlex,  # noqa: F401
     AntdRow,  # noqa: F401
     AntdCol,  # noqa: F401
+    AntdAnchor,  # noqa: F401
 )
