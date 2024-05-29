@@ -9,4 +9,5 @@ from . import (
     AntdDivider,  # noqa: F401
     AntdFlex,  # noqa: F401
     AntdRow,  # noqa: F401
+    AntdCol,  # noqa: F401
 )

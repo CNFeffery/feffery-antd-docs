@@ -9,7 +9,10 @@ import utils
 
 
 def render(
-    component: Component, intro: Component, demos: Component, catalog: list
+    component: Component,
+    intro: Component,
+    demos: Component,
+    catalog: list = None,
 ) -> Component:
     """渲染组件文档页"""
 
@@ -70,23 +73,27 @@ def render(
                             ],
                             flex='auto',
                         ),
-                        fac.AntdCol(
-                            fac.AntdAnchor(
-                                linkDict=[
-                                    {
-                                        'title': item['title'],
-                                        'href': '#'
-                                        + 'demo-container-'
-                                        + item['path'],
-                                    }
-                                    for item in catalog
-                                ],
-                                id='doc-anchor',
-                                offsetTop=70,
-                                style={'width': 150},
-                            ),
-                            id='doc-anchor-col',
-                            flex='none',
+                        (
+                            fac.AntdCol(
+                                fac.AntdAnchor(
+                                    linkDict=[
+                                        {
+                                            'title': item['title'],
+                                            'href': '#'
+                                            + 'demo-container-'
+                                            + item['path'],
+                                        }
+                                        for item in catalog
+                                    ],
+                                    id='doc-anchor',
+                                    offsetTop=70,
+                                    style={'width': 150},
+                                ),
+                                id='doc-anchor-col',
+                                flex='none',
+                            )
+                            if catalog
+                            else None
                         ),
                     ],
                     wrap=False,
