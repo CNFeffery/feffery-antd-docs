@@ -12,4 +12,5 @@ from . import (
     AntdRow,  # noqa: F401
     AntdCol,  # noqa: F401
     AntdAnchor,  # noqa: F401
+    AntdBreadcrumb,  # noqa: F401
 )
