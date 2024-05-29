@@ -116,6 +116,17 @@ def root_router(pathname, trigger):
 
     return [
         [
+            # 控制非正式发布模式下的文档页初始化通知提示
+            (
+                None
+                if AppConfig.is_release
+                else fac.AntdNotification(
+                    type='info',
+                    message='提示信息',
+                    placement='bottomRight',
+                    description='当前文档网站尚未正式发布，相关文档持续补充建设中。',
+                )
+            ),
             # 悬浮按钮组功能
             fac.AntdFloatButtonGroup(
                 [

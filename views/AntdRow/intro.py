@@ -8,12 +8,12 @@ def render() -> Component:
         fac.AntdBreadcrumb(
             items=[
                 {'title': '组件介绍'},
-                {'title': '通用'},
-                {'title': '排版相关'},
-                {'title': 'AntdParagraph 段落'},
+                {'title': '布局'},
+                {'title': '网格系统'},
+                {'title': 'AntdRow 行'},
             ],
             style={'marginBottom': 8},
         ),
-        fac.AntdTitle('AntdParagraph 段落', level=2),
-        fac.AntdParagraph('用于渲染具有丰富样式和功能的段落文字。'),
+        fac.AntdTitle('AntdRow 行', level=2),
+        fac.AntdParagraph('在网格系统中构建单个行元素。'),
     ]

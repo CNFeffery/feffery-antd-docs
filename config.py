@@ -44,6 +44,9 @@ class AppConfig:
     # 文档仓库分支名称
     doc_library_branch = 'fac0.3.x'
 
+    # 当前应用是否为正式发布模式
+    is_release = False
+
     # 侧边菜单栏数据结构
     side_menu_items = [
         {

@@ -5,23 +5,67 @@ import feffery_markdown_components as fmc
 
 import views
 from . import (
-    different_render_mode,  # noqa: F401
-    content_ellipsis,  # noqa: F401
+    basic_usage,  # noqa: F401
+    responsive,  # noqa: F401
+    wrap,  # noqa: F401
+    align,  # noqa: F401
+    flex,  # noqa: F401
+    responsive_gutter,  # noqa: F401
 )
 from config import AppConfig
 
 demos_config = [
     {
-        'path': 'different_render_mode',
-        'title': '不同的渲染模式',
+        'path': 'basic_usage',
+        'title': '基础使用',
+        'description': fac.AntdParagraph('常规居中与行内居中。'),
+    },
+    {
+        'path': 'responsive',
+        'title': '响应式布局',
         'description': fac.AntdParagraph(
-            '使用不同的渲染模式展示不同样式的段落。'
+            '设置不同屏幕宽度断点下的列宽分配值。'
         ),
     },
     {
-        'path': 'content_ellipsis',
-        'title': '内容省略功能',
-        'description': fac.AntdParagraph('段落内容过长时可开启省略功能。'),
+        'path': 'wrap',
+        'title': '自动换行',
+        'description': fac.AntdParagraph('控制子元素宽度溢出时自动换行。'),
+    },
+    {
+        'path': 'align',
+        'title': '对齐方式',
+        'description': fac.AntdParagraph(
+            [
+                '通过参数',
+                fac.AntdText('justify', code=True),
+                '与',
+                fac.AntdText('align', code=True),
+                '控制不同方向上的对齐方式。',
+            ]
+        ),
+    },
+    {
+        'path': 'flex',
+        'title': '基于flex灵活控制列宽',
+        'description': fac.AntdParagraph(
+            [
+                '基于参数',
+                fac.AntdText('flex', code=True),
+                '实现更灵活的列宽分配。',
+            ]
+        ),
+    },
+    {
+        'path': 'responsive_gutter',
+        'title': '响应式gutter',
+        'description': fac.AntdParagraph(
+            [
+                '设置不同屏幕宽度断点下的',
+                fac.AntdText('gutter', code=True),
+                '值。',
+            ]
+        ),
     },
 ]
 
@@ -34,9 +78,7 @@ def render(component: Component) -> Component:
             html.Div(
                 [
                     html.Div(
-                        getattr(
-                            views.AntdParagraph.demos, item['path']
-                        ).render(),
+                        getattr(views.AntdRow.demos, item['path']).render(),
                         className='demo-box',
                     ),
                     html.Div(
@@ -117,7 +159,7 @@ def render(component: Component) -> Component:
                                 ),
                             }
                             for item in getattr(
-                                views.AntdParagraph.demos, item['path']
+                                views.AntdRow.demos, item['path']
                             ).code_string
                         ],
                         centered=True,
