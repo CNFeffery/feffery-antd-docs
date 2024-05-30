@@ -29,7 +29,7 @@ def render(component: Component) -> Component:
                                 src=AppConfig.doc_contributors['contributors'][
                                     contributor
                                 ]['avatar'],
-                                size='large',
+                                size=36,
                             ),
                             href=AppConfig.doc_contributors['contributors'][
                                 contributor

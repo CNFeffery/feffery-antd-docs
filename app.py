@@ -259,6 +259,16 @@ def update_side_menu_state(pathname):
 
 
 app.clientside_callback(
+    # 处理侧边菜单栏自动滚动到当前菜单项位置
+    ClientsideFunction(
+        namespace='clientside', function_name='handleMenuTargetScoll'
+    ),
+    Output('doc-layout-url', 'id'),
+    Input('doc-layout-url', 'pathname'),
+)
+
+
+app.clientside_callback(
     # 侧边参数栏展开/收起控制
     ClientsideFunction(
         namespace='clientside', function_name='toggleSidePropsVisible'

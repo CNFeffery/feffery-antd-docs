@@ -21,6 +21,23 @@ def render(
         [
             # 文档页面响应式监听
             fuc.FefferyResponsive(id='doc-layout-responsive'),
+            # 文档初始化锚点滚动
+            fuc.FefferyExecuteJs(
+                jsString="""
+setTimeout(() => {
+    if ( window.location.hash ) {
+        let hashTarget = window.location.hash.substring(1)
+        let scrollTarget = document.getElementById(hashTarget)
+        if ( scrollTarget ) {
+            window.location.hash = '';
+            window.location.hash = '#' + hashTarget;
+            scrollTarget.scrollIntoView({behavior: 'smooth'});
+            window.scrollBy(0, -80);
+        }
+    }
+}, 500)
+"""
+            ),
             fac.AntdCol(
                 fac.AntdRow(
                     [

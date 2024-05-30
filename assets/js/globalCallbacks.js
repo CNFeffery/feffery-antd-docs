@@ -61,6 +61,20 @@ window.dash_clientside = Object.assign({}, window.dash_clientside, {
             }
             return window.dash_clientside.no_update;
         },
+        handleMenuTargetScoll: (pathname) => {
+
+            // 处理侧边菜单项滚动
+            setTimeout(() => {
+                // 查找当前页面中name为pathname的元素
+                let scrollTarget = document.getElementsByName(pathname)
+                if (scrollTarget.length > 0) {
+                    // 滚动到该元素
+                    scrollTarget[0].scrollIntoView({ behavior: "smooth" });
+                }
+            }, 1000)
+
+            return window.dash_clientside.no_update;
+        },
         toggleSidePropsVisible: (nClicks, originIcon) => {
             // 若先前处于显示状态
             if (originIcon === 'antd-arrow-right') {
