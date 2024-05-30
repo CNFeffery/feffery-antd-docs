@@ -6,7 +6,11 @@ import feffery_markdown_components as fmc
 import views
 from . import (
     basic_usage,  # noqa: F401
-    custom_children,  # noqa: F401
+    auto_hide_on_single_page,  # noqa: F401
+    add_more_function,  # noqa: F401
+    show_less_items,  # noqa: F401
+    pagination_simple_mode,  # noqa: F401
+    pagination_size,  # noqa: F401
     basic_callbacks,  # noqa: F401
 )
 from config import AppConfig
@@ -15,21 +19,63 @@ demos_config = [
     {
         'path': 'basic_usage',
         'title': '基础使用',
+        'description': fac.AntdParagraph('最基础的分页。'),
+    },
+    {
+        'path': 'auto_hide_on_single_page',
+        'title': '单页自动隐藏',
         'description': fac.AntdParagraph(
-            '最基础的页头包含了自带浏览器后退功能的返回按钮、主标题及副标题信息。'
+            [
+                '设置参数',
+                fac.AntdText('hideOnSinglePage=True', code=True),
+                '，仅有1页时自动隐藏分页组件。',
+            ]
         ),
     },
     {
-        'path': 'custom_children',
-        'title': '传入子元素',
+        'path': 'add_more_function',
+        'title': '添加更多功能',
         'description': fac.AntdParagraph(
-            '自定义嵌套的子元素。'
+            '设置快速跳页、每页记录数选择器、前后缀信息等功能。'
+        ),
+    },
+    {
+        'path': 'show_less_items',
+        'title': '展示较少的跳页按钮',
+        'description': fac.AntdParagraph(
+            [
+                '设置参数',
+                fac.AntdText('showLessItems=True', code=True),
+                '时会展示较少的跳页按钮。',
+            ]
+        ),
+    },
+    {
+        'path': 'pagination_simple_mode',
+        'title': '极简模式',
+        'description': fac.AntdParagraph(
+            [
+                '设置参数',
+                fac.AntdText('simple=True', code=True),
+                '开启极简模式。',
+            ]
+        ),
+    },
+    {
+        'path': 'pagination_size',
+        'title': '迷你模式',
+        'description': fac.AntdParagraph(
+            [
+                '设置参数',
+                fac.AntdText("size='small'", code=True),
+                '开启迷你模式。',
+            ]
         ),
     },
     {
         'path': 'basic_callbacks',
         'title': '回调监听',
-        'description': fac.AntdParagraph('可用于单纯监听返回按钮的点击事件。'),
+        'description': fac.AntdParagraph('可用于监听分页相关事件。'),
     },
 ]
 
@@ -43,7 +89,7 @@ def render(component: Component) -> Component:
                 [
                     html.Div(
                         getattr(
-                            views.AntdPageHeader.demos, item['path']
+                            views.AntdPagination.demos, item['path']
                         ).render(),
                         className='demo-box',
                     ),
@@ -125,7 +171,7 @@ def render(component: Component) -> Component:
                                 ),
                             }
                             for item in getattr(
-                                views.AntdPageHeader.demos, item['path']
+                                views.AntdPagination.demos, item['path']
                             ).code_string
                         ],
                         centered=True,

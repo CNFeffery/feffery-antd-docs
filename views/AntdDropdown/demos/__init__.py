@@ -31,7 +31,7 @@ demos_config = [
             [
                 '设置参数',
                 fac.AntdText('buttonMode=True', code=True),
-                '后触发点显示为按钮样式。。',
+                '后触发点显示为按钮样式。',
             ]
         ),
     },
@@ -47,7 +47,7 @@ demos_config = [
             [
                 '自由位置模式的最典型应用场景是配合',
                 fac.AntdText('fuc.FefferyDiv', code=True),
-                '的右键事件监听功能，实现监听区域内鼠标右键触发自定义右键菜单',
+                '的右键事件监听功能，实现监听区域内鼠标右键触发自定义右键菜单。',
             ]
         ),
     },
@@ -69,7 +69,7 @@ demos_config = [
             [
                 '设置参数',
                 fac.AntdText('arrow=True', code=True),
-                '为展开的下拉菜单渲染连接箭头',
+                '为展开的下拉菜单渲染连接箭头。',
             ]
         ),
     },
