@@ -16,14 +16,14 @@ demos_config = [
         'path': 'basic_usage',
         'title': '基础使用',
         'description': fac.AntdParagraph(
-            '最基础的页头包含了自带浏览器后退功能的返回按钮、主标题及副标题信息'
+            '最基础的页头包含了自带浏览器后退功能的返回按钮、主标题及副标题信息。'
         ),
     },
     {
         'path': 'custom_children',
         'title': '传入子元素',
         'description': fac.AntdParagraph(
-            '自定义嵌套的子元素'
+            '自定义嵌套的子元素。'
         ),
     },
     {
