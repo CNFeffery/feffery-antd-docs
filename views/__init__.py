@@ -16,6 +16,7 @@ from . import (
     AntdLayout,  # noqa: F401
     AntdHeader,  # noqa: F401
     AntdContent,  # noqa: F401
+    AntdFooter,  # noqa: F401
     AntdAnchor,  # noqa: F401
     AntdBreadcrumb,  # noqa: F401
 )
