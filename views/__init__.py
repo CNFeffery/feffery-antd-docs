@@ -20,5 +20,6 @@ from . import (
     AntdSider,  # noqa: F401
     AntdAnchor,  # noqa: F401
     AntdBreadcrumb,  # noqa: F401
+    AntdDropdown,  # noqa: F401
     AntdMenu,  # noqa: F401
 )
