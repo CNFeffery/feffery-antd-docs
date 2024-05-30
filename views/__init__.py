@@ -13,6 +13,7 @@ from . import (
     AntdCol,  # noqa: F401
     AntdSpace,  # noqa: F401
     AntdCompact,  # noqa: F401
+    AntdLayout,  # noqa: F401
     AntdAnchor,  # noqa: F401
     AntdBreadcrumb,  # noqa: F401
 )

@@ -68,9 +68,10 @@ app.layout = render_layout
     [Output('root-container', 'children'), Output('global-spin-center', 'key')],
     Input('root-url', 'pathname'),
     State('root-url', 'trigger'),
+    State('root-url', 'search'),
     prevent_initial_call=True,
 )
-def root_router(pathname, trigger):
+def root_router(pathname, trigger, search):
     """根节点路由控制"""
 
     if pathname.startswith('/~demo/'):
@@ -95,7 +96,7 @@ def root_router(pathname, trigger):
                         getattr(
                             getattr(views, demo_type).demos, demo_path
                         ).render(),
-                        style={'padding': 50},
+                        style={'padding': 0 if 'padding=no' in search else 50},
                     ),
                 ],
                 str(uuid.uuid4()),
