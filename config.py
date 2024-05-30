@@ -47,6 +47,9 @@ class AppConfig:
     # 当前应用是否为正式发布模式
     is_release = False
 
+    # 文档贡献者信息
+    doc_contributors = json.load(open('./public/contributors.json'))
+
     # 侧边菜单栏数据结构
     side_menu_items = [
         {

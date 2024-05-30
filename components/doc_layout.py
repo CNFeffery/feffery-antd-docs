@@ -6,6 +6,7 @@ import feffery_markdown_components as fmc
 from dash.dependencies import Component
 
 import utils
+from components import contributors_avatar
 
 
 def render(
@@ -27,6 +28,8 @@ def render(
                             [
                                 # 组件介绍
                                 fac.Fragment(intro),
+                                # 文档贡献者
+                                contributors_avatar.render(component=component),
                                 # 组件使用示例
                                 fac.Fragment(demos),
                                 # 通用页尾信息
