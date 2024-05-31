@@ -22,7 +22,8 @@ from . import (
     AntdBreadcrumb,  # noqa: F401
     AntdDropdown,  # noqa: F401
     AntdMenu,  # noqa: F401
-    AntdCalendar,  # noqa: F401
     AntdPagination,  # noqa: F401
     AntdPageHeader,  # noqa: F401
+    AntdSteps,  # noqa: F401
+    AntdCalendar,  # noqa: F401
 )

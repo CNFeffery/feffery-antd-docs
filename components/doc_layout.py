@@ -31,7 +31,6 @@ setTimeout(() => {
         if ( scrollTarget ) {
             window.location.hash = '';
             window.location.hash = '#' + hashTarget;
-            scrollTarget.scrollIntoView({behavior: 'smooth'});
             window.scrollBy(0, -80);
         }
     }
