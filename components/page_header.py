@@ -115,7 +115,7 @@ def render():
                         style={
                             'color': '#000000d9',
                             'fontWeight': 500,
-                            'fontSize': 'calc(max(4vw, 28px))',
+                            'fontSize': 'calc(min(4vw, 32px))',
                         },
                     ),
                     style={'height': '100%'},

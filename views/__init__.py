@@ -26,4 +26,5 @@ from . import (
     AntdPageHeader,  # noqa: F401
     AntdSteps,  # noqa: F401
     AntdCalendar,  # noqa: F401
+    AntdCheckbox,  # noqa: F401
 )
