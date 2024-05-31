@@ -24,4 +24,5 @@ from . import (
     AntdMenu,  # noqa: F401
     AntdPageHeader,  # noqa: F401
     AntdPagination,  # noqa: F401
+    AntdSteps,  # noqa: F401
 )
