@@ -29,4 +29,5 @@ from . import (
     AntdCheckbox,  # noqa: F401
     AntdCheckboxGroup,  # noqa: F401
     AntdCheckCard,  # noqa: F401
+    AntdCheckCardGroup,  # noqa: F401
 )
