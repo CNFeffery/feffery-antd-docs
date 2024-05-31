@@ -27,4 +27,5 @@ from . import (
     AntdSteps,  # noqa: F401
     AntdCalendar,  # noqa: F401
     AntdCheckbox,  # noqa: F401
+    AntdCheckboxGroup,  # noqa: F401
 )
