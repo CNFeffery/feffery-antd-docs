@@ -28,4 +28,5 @@ from . import (
     AntdCalendar,  # noqa: F401
     AntdCheckbox,  # noqa: F401
     AntdCheckboxGroup,  # noqa: F401
+    AntdCheckCard,  # noqa: F401
 )
