@@ -36,6 +36,9 @@
         ],
         "AntdCalendar": [
             "insistence"
+        ],
+        "AntdCascader": [
+            "insistence"
         ]
     }
 }
