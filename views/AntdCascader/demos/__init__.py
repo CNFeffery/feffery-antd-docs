@@ -8,13 +8,16 @@ from . import (
     basic_usage,  # noqa: F401
     different_placement,  # noqa: F401
     expand_trigger,  # noqa: F401
+    flat_options_mode,  # noqa: F401
     multiple_mode,  # noqa: F401
     change_on_select,  # noqa: F401
-    flat_option_mode,  # noqa: F401
     disabled_status,  # noqa: F401
     show_checked_strategy,  # noqa: F401
     read_only_status,  # noqa: F401
     render_status,  # noqa: F401
+    options_node_to_label,  # noqa: F401
+    search_keyword,  # noqa: F401
+    panel_mode,  # noqa: F401
     basic_callbacks,  # noqa: F401
 )
 from config import AppConfig
@@ -76,7 +79,7 @@ demos_config = [
         ),
     },
     {
-        'path': 'flat_option_mode',
+        'path': 'flat_options_mode',
         'title': '扁平options模式',
         'description': fac.AntdParagraph(
             [
@@ -127,6 +130,39 @@ demos_config = [
                 '设置参数',
                 fac.AntdText('status', code=True),
                 '强制状态渲染。',
+            ]
+        ),
+    },
+    {
+        'path': 'options_node_to_label',
+        'title': '自定义选项label',
+        'description': fac.AntdParagraph(
+            [
+                '设置参数',
+                fac.AntdText('optionsNodeKeyToLabel', code=True),
+                '，针对级联结构中的指定节点，定义作为标题的组件型内容。',
+            ]
+        ),
+    },
+    {
+        'path': 'search_keyword',
+        'title': '关键词搜索',
+        'description': fac.AntdParagraph(
+            [
+                '设置参数',
+                fac.AntdText('optionFilterProp', code=True),
+                '指定选项关键词搜索时的目标字段。',
+            ]
+        ),
+    },
+    {
+        'path': 'panel_mode',
+        'title': '面板模式',
+        'description': fac.AntdParagraph(
+            [
+                '设置参数',
+                fac.AntdText('panelMode=True', code=True),
+                '开启面板模式，适用于一些需要内嵌适用的场景。',
             ]
         ),
     },
