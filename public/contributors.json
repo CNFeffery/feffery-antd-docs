@@ -43,6 +43,9 @@
         ],
         "AntdCascader": [
             "insistence"
+        ],
+        "AntdMentions": [
+            "insistence"
         ]
     }
 }
