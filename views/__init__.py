@@ -32,5 +32,6 @@ from . import (
     AntdCheckCard,  # noqa: F401
     AntdCheckCardGroup,  # noqa: F401
     AntdColorPicker,  # noqa: F401
+    AntdInput,  # noqa: F401
     AntdMentions,  # noqa: F401
 )
