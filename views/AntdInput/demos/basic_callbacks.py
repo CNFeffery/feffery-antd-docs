@@ -72,6 +72,7 @@ fac.AntdSpace(
     style={'width': 350},
 )
 
+...
 
 @app.callback(
     Output('input-demo-output', 'children'),

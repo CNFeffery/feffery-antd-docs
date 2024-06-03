@@ -29,28 +29,15 @@ code_string = [
 fac.AntdSpace(
     [
         fac.AntdInput(
-            placeholder='mode="default"（默认）'
+            variant='outlined', placeholder='variant="outlined"（默认）'
         ),
-
+        fac.AntdInput(variant='filled', placeholder='variant="filled"'),
         fac.AntdInput(
-            placeholder='mode="search"',
-            mode='search'
+            variant='borderless', placeholder='variant="borderless"'
         ),
-
-        fac.AntdInput(
-            placeholder='mode="text-area"',
-            mode='text-area'
-        ),
-
-        fac.AntdInput(
-            placeholder='mode="password"',
-            mode='password'
-        )
     ],
     direction='vertical',
-    style={
-        'width': '350px'
-    }
+    style={'width': '350px'},
 )
 """
     }

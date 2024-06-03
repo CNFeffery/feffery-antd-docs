@@ -6,24 +6,24 @@ import feffery_markdown_components as fmc
 import views
 from . import (
     basic_usage,  # noqa: F401
-    addon,  # noqa: F401
-    fix,  # noqa: F401
-    max_length,  # noqa: F401
-    show_count,  # noqa: F401
-    count_format,  # noqa: F401
-    size,  # noqa: F401
+    sizes,  # noqa: F401
     variant,  # noqa: F401
-    auto_size,  # noqa: F401
     border,  # noqa: F401
     disabled,  # noqa: F401
     read_only,  # noqa: F401
     status,  # noqa: F401
     allow_clear,  # noqa: F401
+    addon,  # noqa: F401
+    prefix_and_suffix,  # noqa: F401
+    max_length,  # noqa: F401
+    show_count,  # noqa: F401
+    count_format,  # noqa: F401
+    auto_size,  # noqa: F401
     basic_callbacks,  # noqa: F401
     debounce_callbacks,  # noqa: F401
+    md5_callbacks,  # noqa: F401
     n_submit_callbacks,  # noqa: F401
     n_click_search_callbacks,  # noqa: F401
-    md5_callbacks,  # noqa: F401
     focusing_callbacks,  # noqa: F401
     empty_as_none,  # noqa: F401
 )
@@ -36,8 +36,8 @@ demos_config = [
         'description': fac.AntdParagraph('使用基础的四种输入模式。'),
     },
     {
-        'path': 'size',
-        'title': '不同大小',
+        'path': 'sizes',
+        'title': '尺寸规格',
         'description': fac.AntdParagraph(
             [
                 '可设置三种不同大小：',
@@ -144,7 +144,7 @@ demos_config = [
         ),
     },
     {
-        'path': 'fix',
+        'path': 'prefix_and_suffix',
         'title': '添加内嵌的前/后置元素',
         'description': fac.AntdParagraph(
             [
@@ -206,7 +206,7 @@ demos_config = [
     },
     {
         'path': 'basic_callbacks',
-        'title': '常规回调示例',
+        'title': '回调监听',
         'description': fac.AntdParagraph(
             [
                 '展示常见的回调函数用法。',
@@ -215,7 +215,7 @@ demos_config = [
     },
     {
         'path': 'debounce_callbacks',
-        'title': '防抖回调示例',
+        'title': '防抖回调监听',
         'description': fac.AntdParagraph(
             [
                 '在回调函数中用debounceValue代替value可以实现对用户实时输入值变化的防抖监听，避免回调函数被频繁触发执行。在用户输入停顿超过',
@@ -226,7 +226,7 @@ demos_config = [
     },
     {
         'path': 'md5_callbacks',
-        'title': 'md5加密回调示例',
+        'title': 'md5加密回调监听',
         'description': fac.AntdParagraph(
             [
                 '当',
@@ -239,7 +239,7 @@ demos_config = [
     },
     {
         'path': 'n_submit_callbacks',
-        'title': '监听输入框内enter键盘事件',
+        'title': 'enter按键回调监听',
         'description': fac.AntdParagraph(
             [
                 '当聚焦于输入框时，可监听输入框内enter键盘事件。',
@@ -248,7 +248,7 @@ demos_config = [
     },
     {
         'path': 'n_click_search_callbacks',
-        'title': '监听搜索按钮点击事件',
+        'title': '搜索按钮点击回调监听',
         'description': fac.AntdParagraph(
             [
                 '当',

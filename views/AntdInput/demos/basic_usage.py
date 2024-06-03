@@ -25,29 +25,13 @@ code_string = [
         'code': """
 fac.AntdSpace(
     [
-        fac.AntdInput(
-            placeholder='mode="default"（默认）'
-        ),
-
-        fac.AntdInput(
-            placeholder='mode="search"',
-            mode='search'
-        ),
-
-        fac.AntdInput(
-            placeholder='mode="text-area"',
-            mode='text-area'
-        ),
-
-        fac.AntdInput(
-            placeholder='mode="password"',
-            mode='password'
-        )
+        fac.AntdInput(placeholder='mode="default"（默认）'),
+        fac.AntdInput(placeholder='mode="search"', mode='search'),
+        fac.AntdInput(placeholder='mode="text-area"', mode='text-area'),
+        fac.AntdInput(placeholder='mode="password"', mode='password'),
     ],
     direction='vertical',
-    style={
-        'width': '350px'
-    }
+    style={'width': '350px'},
 )
 """
     }

@@ -39,7 +39,9 @@ fac.AntdSpace(
             mode=mode,
             maxLength=10,
             showCount=True if mode == 'text-area' else False,
-            placeholder='请输入',
+            placeholder='请输入'
+            if mode != 'text-area'
+            else '请输入字符并注意下方计数',
             style={'width': 350},
         )
         for mode in [
