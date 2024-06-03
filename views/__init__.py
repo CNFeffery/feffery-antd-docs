@@ -31,4 +31,5 @@ from . import (
     AntdCheckboxGroup,  # noqa: F401
     AntdCheckCard,  # noqa: F401
     AntdCheckCardGroup,  # noqa: F401
+    AntdColorPicker,  # noqa: F401
 )
