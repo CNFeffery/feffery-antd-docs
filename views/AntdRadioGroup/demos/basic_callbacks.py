@@ -1,5 +1,4 @@
 import feffery_antd_components as fac
-from dash import html
 from dash.dependencies import Component, Input, Output
 
 from server import app
