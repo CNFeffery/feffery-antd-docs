@@ -55,6 +55,9 @@
         ],
         "AntdRate": [
             "insistence"
+        ],
+        "AntdSegmentedColoring": [
+            "insistence"
         ]
     }
 }
