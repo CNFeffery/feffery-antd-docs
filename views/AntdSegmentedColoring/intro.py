@@ -10,10 +10,10 @@ def render() -> Component:
                 {'title': '组件介绍'},
                 {'title': '通用'},
                 {'title': '排版相关'},
-                {'title': 'AntdMentions 提及'},
+                {'title': 'AntdSegmentedColoring 分段着色'},
             ],
             style={'marginBottom': 8},
         ),
-        fac.AntdTitle('AntdMentions 提及', level=2),
-        fac.AntdParagraph('用于实现在输入内容中对不同角色进行提及的功能，常用于构建论坛、协同办公等平台中的评论功能。'),
+        fac.AntdTitle('AntdSegmentedColoring 分段着色', level=2),
+        fac.AntdParagraph('用于配合数据可视化进行分段着色控制，或作为静态的图例进行展示。'),
     ]
