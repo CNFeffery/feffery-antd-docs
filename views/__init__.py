@@ -34,6 +34,7 @@ from . import (
     AntdColorPicker,  # noqa: F401
     AntdDatePicker,  # noqa: F401
     AntdDateRangePicker,  # noqa: F401
+    AntdForm,  # noqa: F401
     AntdInput,  # noqa: F401
     AntdMentions,  # noqa: F401
     AntdRadioGroup,  # noqa: F401
