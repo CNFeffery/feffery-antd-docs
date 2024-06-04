@@ -35,4 +35,5 @@ from . import (
     AntdDatePicker,  # noqa: F401
     AntdInput,  # noqa: F401
     AntdMentions,  # noqa: F401
+    AntdRadioGroup,  # noqa: F401
 )
