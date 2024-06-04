@@ -10,16 +10,10 @@ def render() -> Component:
                 {'title': '组件介绍'},
                 {'title': '数据录入'},
                 {'title': '表单'},
-                {'title': 'AntdForm 表单'},
+                {'title': 'AntdFormItem 表单项'},
             ],
             style={'marginBottom': 8},
         ),
-        fac.AntdTitle('AntdForm 表单', level=2),
-        fac.AntdParagraph(
-            [
-                '通过嵌套若干',
-                fac.AntdText('AntdFormItem', strong=True),
-                '的方式构建现代化表单。',
-            ]
-        ),
+        fac.AntdTitle('AntdFormItem 表单项', level=2),
+        fac.AntdParagraph('在表单中构建单个表单项。'),
     ]
