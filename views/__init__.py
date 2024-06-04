@@ -36,4 +36,5 @@ from . import (
     AntdInput,  # noqa: F401
     AntdMentions,  # noqa: F401
     AntdRadioGroup,  # noqa: F401
+    AntdRate,  # noqa: F401
 )

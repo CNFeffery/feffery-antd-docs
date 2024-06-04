@@ -52,6 +52,9 @@
         ],
         "AntdRadioGroup": [
             "insistence"
+        ],
+        "AntdRate": [
+            "insistence"
         ]
     }
 }
