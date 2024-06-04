@@ -6,7 +6,6 @@ import feffery_markdown_components as fmc
 import views
 from . import (
     basic_usage,  # noqa: F401
-    hide_today,  # noqa: F401
     time_default_value,  # noqa: F401
     different_placement,  # noqa: F401
     different_picker,  # noqa: F401
@@ -18,7 +17,6 @@ from . import (
     disabled_dates,  # noqa: F401
     extra_footer,  # noqa: F401
     basic_callbacks,  # noqa: F401
-    dynamic_disabled_dates,  # noqa: F401
 )
 from config import AppConfig
 
@@ -26,12 +24,9 @@ demos_config = [
     {
         'path': 'basic_usage',
         'title': '基础使用',
-        'description': fac.AntdParagraph('最基础的日期选择、日期时间选择。'),
-    },
-    {
-        'path': 'hide_today',
-        'title': '隐藏今天按钮',
-        'description': fac.AntdParagraph('隐藏“今天”快捷选择按钮。'),
+        'description': fac.AntdParagraph(
+            '最基础的日期范围选择、日期时间范围选择。'
+        ),
     },
     {
         'path': 'time_default_value',
@@ -57,12 +52,12 @@ demos_config = [
     },
     {
         'path': 'different_picker',
-        'title': '不同的日期选择粒度',
+        'title': '不同的日期范围选择粒度',
         'description': fac.AntdParagraph(
             [
                 '设置参数',
                 fac.AntdText('picker', code=True),
-                '选择不同的日期选择粒度。',
+                '选择不同的日期范围选择粒度。',
             ]
         ),
     },
@@ -83,7 +78,7 @@ demos_config = [
         'description': fac.AntdParagraph(
             [
                 '设置参数',
-                fac.AntdText('disabled=True', code=True),
+                fac.AntdText('disabled', code=True),
                 '开启禁用状态。',
             ]
         ),
@@ -138,13 +133,6 @@ demos_config = [
         'title': '回调监听',
         'description': None,
     },
-    {
-        'path': 'dynamic_disabled_dates',
-        'title': '基于回调的动态日期禁用',
-        'description': fac.AntdParagraph(
-            '通过回调函数实现基于当前日期时间的动态禁用策略，以“只允许选择未来7天内日期”为例。'
-        ),
-    },
 ]
 
 
@@ -157,7 +145,7 @@ def render(component: Component) -> Component:
                 [
                     html.Div(
                         getattr(
-                            views.AntdDatePicker.demos, item['path']
+                            views.AntdDateRangePicker.demos, item['path']
                         ).render(),
                         className='demo-box',
                     ),
@@ -239,7 +227,7 @@ def render(component: Component) -> Component:
                                 ),
                             }
                             for item in getattr(
-                                views.AntdDatePicker.demos, item['path']
+                                views.AntdDateRangePicker.demos, item['path']
                             ).code_string
                         ],
                         centered=True,

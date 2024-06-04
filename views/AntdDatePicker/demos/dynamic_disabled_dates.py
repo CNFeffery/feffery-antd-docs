@@ -19,7 +19,6 @@ def render() -> Component:
     Input('date-picker-dynamic-forbidden-demo', 'id'),
 )
 def date_picker_dynamic_forbidden_demo(_):
-
     return [
         {
             'mode': 'lt',
