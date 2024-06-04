@@ -37,4 +37,5 @@ from . import (
     AntdMentions,  # noqa: F401
     AntdRadioGroup,  # noqa: F401
     AntdRate,  # noqa: F401
+    AntdSwitch,  # noqa: F401
 )
