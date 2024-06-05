@@ -38,6 +38,7 @@ from . import (
     AntdFormItem,  # noqa: F401
     AntdInput,  # noqa: F401
     AntdOTP,  # noqa: F401
+    AntdInputNumber,  # noqa: F401
     AntdMentions,  # noqa: F401
     AntdRadioGroup,  # noqa: F401
     AntdRate,  # noqa: F401
