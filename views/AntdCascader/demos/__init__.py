@@ -124,7 +124,7 @@ demos_config = [
     },
     {
         'path': 'render_status',
-        'title': '状态渲染',
+        'title': '强制状态渲染',
         'description': fac.AntdParagraph(
             [
                 '设置参数',

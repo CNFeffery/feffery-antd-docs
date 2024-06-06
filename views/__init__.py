@@ -44,4 +44,5 @@ from . import (
     AntdRate,  # noqa: F401
     AntdSegmentedColoring,  # noqa: F401
     AntdSwitch,  # noqa: F401
+    AntdTimePicker,  # noqa: F401
 )
