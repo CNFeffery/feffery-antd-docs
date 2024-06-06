@@ -46,4 +46,5 @@ from . import (
     AntdSwitch,  # noqa: F401
     AntdTimePicker,  # noqa: F401
     AntdTimeRangePicker,  # noqa: F401
+    AntdSelect,  # noqa: F401
 )
