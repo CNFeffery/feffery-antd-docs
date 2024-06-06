@@ -43,6 +43,7 @@ from . import (
     AntdRadioGroup,  # noqa: F401
     AntdRate,  # noqa: F401
     AntdSegmentedColoring,  # noqa: F401
+    AntdSlider,  # noqa: F401
     AntdSwitch,  # noqa: F401
     AntdTimePicker,  # noqa: F401
     AntdTimeRangePicker,  # noqa: F401
