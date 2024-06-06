@@ -59,6 +59,9 @@
         "AntdSegmentedColoring": [
             "insistence"
         ],
+        "AntdSlider": [
+            "insistence"
+        ],
         "AntdSwitch": [
             "Wangnov"
         ]
