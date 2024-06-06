@@ -21,6 +21,8 @@ def render(
         [
             # 文档页面响应式监听
             fuc.FefferyResponsive(id='doc-layout-responsive'),
+            # 按键esc点击监听
+            fuc.FefferyKeyPress(id='doc-layout-listen-esc-press', keys='esc'),
             # 文档初始化锚点滚动
             fuc.FefferyExecuteJs(
                 jsString="""

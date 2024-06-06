@@ -93,7 +93,24 @@ window.dash_clientside = Object.assign({}, window.dash_clientside, {
                 'antd-arrow-right'
             ]
         },
-        toggleSidePropsBarVisible: (nClicks, originStyle) => {
+        toggleSidePropsBarVisible: (nClicks, pressedCounts, originStyle, focusing) => {
+            // 若先前聚焦于搜索框内，且本次回调由esc键点按触发，隐藏搜索框
+            if (window.dash_clientside.callback_context.triggered_id === 'doc-layout-listen-esc-press') {
+                if (focusing) {
+                    return [
+                        {
+                            paddingTop: 3,
+                            display: 'none'
+                        },
+                        false,
+                        Date.now().toString(),
+                        null,
+                        null
+                    ]
+                } else {
+                    return window.dash_clientside.no_update;
+                }
+            }
             // 若先前处于显示状态
             if (!originStyle.display) {
                 return [

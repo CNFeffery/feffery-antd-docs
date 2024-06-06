@@ -293,8 +293,12 @@ app.clientside_callback(
         Output('side-props-search-bar-keyword', 'value'),
         Output('side-props-search-bar-keyword', 'debounceValue'),
     ],
-    Input('side-props-search-bar-toggle', 'nClicks'),
+    [
+        Input('side-props-search-bar-toggle', 'nClicks'),
+        Input('doc-layout-listen-esc-press', 'pressedCounts'),
+    ],
     State('side-props-search-bar', 'style'),
+    State('side-props-search-bar-keyword', 'focusing'),
     prevent_initial_call=True,
 )
 
