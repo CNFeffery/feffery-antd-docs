@@ -49,4 +49,5 @@ from . import (
     AntdTimePicker,  # noqa: F401
     AntdTimeRangePicker,  # noqa: F401
     AntdTransfer,  # noqa: F401
+    AntdTreeSelect,  # noqa: F401
 )
