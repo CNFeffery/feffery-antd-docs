@@ -45,4 +45,5 @@ from . import (
     AntdSegmentedColoring,  # noqa: F401
     AntdSwitch,  # noqa: F401
     AntdTimePicker,  # noqa: F401
+    AntdTimeRangePicker,  # noqa: F401
 )
