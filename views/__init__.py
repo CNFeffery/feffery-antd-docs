@@ -50,4 +50,7 @@ from . import (
     AntdTimeRangePicker,  # noqa: F401
     AntdTransfer,  # noqa: F401
     AntdTreeSelect,  # noqa: F401
+    AntdCard,  # noqa: F401
+    AntdCardGrid,  # noqa: F401
+    AntdCardMeta,  # noqa: F401
 )
