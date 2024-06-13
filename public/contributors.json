@@ -67,6 +67,15 @@
         ],
         "AntdSelect": [
             "Wangnov"
-        ]
+        ],
+        "AntdCard": [
+            "Wangnov"
+        ],
+        "AntdCardGrid": [
+            "Wangnov"
+        ],
+        "AntdCardMeta": [
+            "Wangnov"
+        ],
     }
 }
