@@ -1,5 +1,6 @@
 import re
 import dash
+from flask import request, abort
 
 from config import DeployConfig, AppConfig
 
@@ -78,3 +79,26 @@ app = CustomDash(
 app.title = AppConfig.title
 
 server = app.server
+
+
+@app.server.before_request
+def ban_external_upload_request():
+    """拦截恶意请求"""
+
+    if 'upload' in request.path and 'feffery' not in request.path:
+        if request.headers.get('X-Requested-With') != 'XMLHttpRequest':
+            abort(403)
+
+
+# 这里的app即为Dash实例
+@app.server.route('/upload/', methods=['POST'])
+def upload():
+    """文档示例用文件上传服务"""
+
+    # 获取上传id参数，用于指向保存路径
+    uploadId = request.values.get('uploadId')  # noqa: F841
+
+    # 获取上传的文件名称
+    filename = request.files['file'].filename
+
+    return {'filename': filename}
