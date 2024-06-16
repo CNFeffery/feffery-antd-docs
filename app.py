@@ -261,7 +261,6 @@ app.clientside_callback(
     ClientsideFunction(
         namespace='clientside', function_name='handleMenuTargetScoll'
     ),
-    Output('doc-layout-url', 'id'),
     Input('doc-layout-url', 'pathname'),
 )
 

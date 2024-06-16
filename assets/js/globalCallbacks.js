@@ -72,7 +72,6 @@ window.dash_clientside = Object.assign({}, window.dash_clientside, {
                 }
             }, 1000)
 
-            return window.dash_clientside.no_update;
         },
         toggleSidePropsVisible: (nClicks, originIcon) => {
             // 若先前处于显示状态
