@@ -265,7 +265,7 @@ setTimeout(() => {
                 ),
                 flex='none',
             ),
-            fac.AntdBackTop(duration=0.5),
+            fac.AntdBackTop(id='doc-layout-back-top', duration=0.5),
         ],
         key=str(uuid.uuid4()),  # 强制刷新
         wrap=False,

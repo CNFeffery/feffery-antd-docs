@@ -374,5 +374,13 @@ app.clientside_callback(
     prevent_initial_call=True,
 )
 
+app.clientside_callback(
+    # 文档页点击回到顶部按钮，自动清除url中的hash
+    """(nClicks) => {
+        window.location.hash = '';
+    }""",
+    Input('doc-layout-back-top', 'nClicks'),
+)
+
 if __name__ == '__main__':
     app.run(debug=True)
