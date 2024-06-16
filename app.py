@@ -235,10 +235,8 @@ app.clientside_callback(
     ClientsideFunction(
         namespace='clientside', function_name='toggleSideMenuVisible'
     ),
-    Output('toggle-side-menu', 'id'),
     Input('toggle-side-menu', 'nClicks'),
     State('toggle-side-menu-icon', 'icon'),
-    prevent_initial_call=True,
 )
 
 
