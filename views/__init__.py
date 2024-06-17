@@ -53,6 +53,7 @@ from . import (
     AntdUpload,  # noqa: F401
     AntdDraggerUpload,  # noqa: F401
     AntdPictureUpload,  # noqa: F401
+    AntdAccordion,  # noqa: F401
     AntdCard,  # noqa: F401
     AntdCardGrid,  # noqa: F401
     AntdCardMeta,  # noqa: F401
