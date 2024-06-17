@@ -12,7 +12,6 @@ from . import (
     icon,  # noqa: F401
     close_icon,  # noqa: F401
     close_counts,  # noqa: F401
-    checkable,  # noqa: F401
     add_delete_tag,  # noqa: F401
     draggable_tag,  # noqa: F401
     as_link,  # noqa: F401
