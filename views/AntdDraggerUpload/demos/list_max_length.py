@@ -9,6 +9,7 @@ def render() -> Component:
     demo_contents = fac.AntdDraggerUpload(
         apiUrl='/upload/',
         fileMaxSize=1,
+        fileListMaxLength=1,
         text='拖拽上传示例',
         hint='点击或拖拽文件至此处进行上传',
     )
@@ -22,6 +23,7 @@ code_string = [
 fac.AntdDraggerUpload(
     apiUrl='/upload/',
     fileMaxSize=1,
+    fileListMaxLength=1,
     text='拖拽上传示例',
     hint='点击或拖拽文件至此处进行上传',
 )

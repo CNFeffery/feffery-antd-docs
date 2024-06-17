@@ -11,6 +11,10 @@ def render() -> Component:
         fileMaxSize=1,
         text='拖拽上传示例',
         hint='点击或拖拽文件至此处进行上传',
+        defaultFileList=[
+            {'name': f'demo{i}.txt', 'status': 'done'} for i in range(1, 6)
+        ],
+        confirmBeforeDelete=True,
     )
 
     return demo_contents
@@ -24,6 +28,10 @@ fac.AntdDraggerUpload(
     fileMaxSize=1,
     text='拖拽上传示例',
     hint='点击或拖拽文件至此处进行上传',
+    defaultFileList=[
+        {'name': f'demo{i}.txt', 'status': 'done'} for i in range(1, 6)
+    ],
+    confirmBeforeDelete=True,
 )
 """
     }

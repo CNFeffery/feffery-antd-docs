@@ -85,7 +85,7 @@ server = app.server
 def ban_external_upload_request():
     """拦截恶意请求"""
 
-    if 'upload' in request.path and 'feffery' not in request.path:
+    if 'upload' in request.path and 'Antd' not in request.path:
         if request.headers.get('X-Requested-With') != 'XMLHttpRequest':
             abort(403)
 

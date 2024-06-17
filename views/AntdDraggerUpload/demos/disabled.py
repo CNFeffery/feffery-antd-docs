@@ -11,6 +11,7 @@ def render() -> Component:
         fileMaxSize=1,
         text='拖拽上传示例',
         hint='点击或拖拽文件至此处进行上传',
+        disabled=True,
     )
 
     return demo_contents
@@ -24,6 +25,7 @@ fac.AntdDraggerUpload(
     fileMaxSize=1,
     text='拖拽上传示例',
     hint='点击或拖拽文件至此处进行上传',
+    disabled=True,
 )
 """
     }

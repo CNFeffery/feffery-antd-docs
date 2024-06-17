@@ -9,8 +9,9 @@ def render() -> Component:
     demo_contents = fac.AntdDraggerUpload(
         apiUrl='/upload/',
         fileMaxSize=1,
-        text='拖拽上传示例',
-        hint='点击或拖拽文件至此处进行上传',
+        directory=True,
+        text='文件夹拖拽上传示例',
+        hint='点击或拖拽文件夹至此处进行上传',
     )
 
     return demo_contents
@@ -22,8 +23,9 @@ code_string = [
 fac.AntdDraggerUpload(
     apiUrl='/upload/',
     fileMaxSize=1,
-    text='拖拽上传示例',
-    hint='点击或拖拽文件至此处进行上传',
+    directory=True,
+    text='文件夹拖拽上传示例',
+    hint='点击或拖拽文件夹至此处进行上传',
 )
 """
     }
