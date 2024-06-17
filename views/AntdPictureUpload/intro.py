@@ -12,12 +12,12 @@ def render() -> Component:
                 {'title': '组件介绍'},
                 {'title': '数据录入'},
                 {'title': '文件上传'},
-                {'title': 'AntdUpload 上传'},
+                {'title': 'AntdPictureUpload 图片上传'},
             ],
             style={'marginBottom': 8},
         ),
-        fac.AntdTitle('AntdUpload 上传', level=2),
-        fac.AntdParagraph('提供点击按钮触发的通用文件上传功能。'),
+        fac.AntdTitle('AntdPictureUpload 图片上传', level=2),
+        fac.AntdParagraph('专门的图片上传功能。'),
         # 上传接口示例小贴士
         tips.render(tip_type='upload api demo'),
     ]

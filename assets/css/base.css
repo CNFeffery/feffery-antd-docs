@@ -124,3 +124,20 @@ html::-webkit-scrollbar {
     box-shadow: 0 8px 24px rgba(81, 87, 103, 0.16);
     transition: box-shadow 0.3s ease-in-out;
 }
+
+.tip-collapse .ant-collapse-expand-icon {
+    color: #228be6;
+    padding-inline-end: 5px !important;
+}
+
+.tip-collapse .ant-collapse-header-text {
+    color: #228be6;
+}
+
+.tip-collapse .ant-collapse-content-box {
+    padding: 0 !important;
+}
+
+.tip-collapse .ant-collapse-header {
+    padding: 0 !important;
+}
