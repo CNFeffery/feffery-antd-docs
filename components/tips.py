@@ -46,7 +46,7 @@ def upload():
     return {'filename': filename}
 """,
                             language='python',
-                            codeTheme='coy-without-shadows',
+                            codeTheme='dracula',
                             codeBlockStyle={'overflowX': 'auto'},
                         ),
                     },
@@ -93,7 +93,7 @@ def upload_file(uploadId: str, file: UploadFile = File(...)):
     return {"filename": file.filename}
 """,
                             language='python',
-                            codeTheme='coy-without-shadows',
+                            codeTheme='dracula',
                             codeBlockStyle={'overflowX': 'auto'},
                         ),
                     },
