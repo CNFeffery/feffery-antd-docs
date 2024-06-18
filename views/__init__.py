@@ -63,5 +63,6 @@ from . import (
     AntdCarousel,  # noqa: F401
     AntdCheckableTag,  # noqa: F401
     AntdCollapse,  # noqa: F401
+    AntdComment,  # noqa: F401
     AntdTag,  # noqa: F401
 )
