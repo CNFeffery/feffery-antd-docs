@@ -62,5 +62,6 @@ from . import (
     AntdCardMeta,  # noqa: F401
     AntdCarousel,  # noqa: F401
     AntdCheckableTag,  # noqa: F401
+    AntdCollapse,  # noqa: F401
     AntdTag,  # noqa: F401
 )
