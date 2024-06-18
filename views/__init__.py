@@ -55,6 +55,7 @@ from . import (
     AntdPictureUpload,  # noqa: F401
     AntdAccordion,  # noqa: F401
     AntdAvatar,  # noqa: F401
+    AntdAvatarGroup,  # noqa: F401
     AntdCard,  # noqa: F401
     AntdCardGrid,  # noqa: F401
     AntdCardMeta,  # noqa: F401
