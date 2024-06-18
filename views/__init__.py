@@ -60,6 +60,7 @@ from . import (
     AntdCard,  # noqa: F401
     AntdCardGrid,  # noqa: F401
     AntdCardMeta,  # noqa: F401
-    AntdTag,  # noqa: F401
+    AntdCarousel,  # noqa: F401
     AntdCheckableTag,  # noqa: F401
+    AntdTag,  # noqa: F401
 )
