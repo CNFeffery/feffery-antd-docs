@@ -64,5 +64,6 @@ from . import (
     AntdCheckableTag,  # noqa: F401
     AntdCollapse,  # noqa: F401
     AntdComment,  # noqa: F401
+    AntdDescriptions,  # noqa: F401
     AntdTag,  # noqa: F401
 )
