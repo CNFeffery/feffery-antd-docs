@@ -10,10 +10,10 @@ def render() -> Component:
                 {'title': '组件介绍'},
                 {'title': '数据展示'},
                 {'title': '描述列表'},
-                {'title': 'AntdDescriptions 描述列表'},
+                {'title': 'AntdDescriptionItem 描述列表子项'},
             ],
             style={'marginBottom': 8},
         ),
-        fac.AntdTitle('AntdDescriptions 描述列表', level=2),
-        fac.AntdParagraph('用于配合AntdDescriptionItem进行一组属性的展示。'),
+        fac.AntdTitle('AntdDescriptionItem 描述列表子项', level=2),
+        fac.AntdParagraph('在描述列表中构建单个描述列表子项。'),
     ]
