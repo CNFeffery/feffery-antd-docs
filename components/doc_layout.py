@@ -107,7 +107,7 @@ setTimeout(() => {
                                         for item in catalog
                                     ],
                                     id='doc-anchor',
-                                    className='hidden-scroll-bar',
+                                    className='light-scroll-bar',
                                     offsetTop=70,
                                     style={
                                         'width': 150,
