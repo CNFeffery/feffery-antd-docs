@@ -107,8 +107,13 @@ setTimeout(() => {
                                         for item in catalog
                                     ],
                                     id='doc-anchor',
+                                    className='hidden-scroll-bar',
                                     offsetTop=70,
-                                    style={'width': 150},
+                                    style={
+                                        'width': 150,
+                                        'height': 'calc(100vh - 64px)',
+                                        'overflowY': 'auto',
+                                    },
                                 ),
                                 id='doc-anchor-col',
                                 flex='none',
