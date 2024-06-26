@@ -66,5 +66,6 @@ from . import (
     AntdComment,  # noqa: F401
     AntdDescriptions,  # noqa: F401
     AntdDescriptionItem,  # noqa: F401
+    AntdEmpty,  # noqa: F401
     AntdTag,  # noqa: F401
 )
