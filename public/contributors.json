@@ -82,6 +82,9 @@
         ],
         "AntdCheckableTag": [
             "Wangnov", "insistence"
+        ],
+        "AntdQRCode": [
+            "insistence"
         ]
     }
 }
