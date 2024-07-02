@@ -8,7 +8,7 @@ def render() -> Component:
         fac.AntdBreadcrumb(
             items=[
                 {'title': '组件介绍'},
-                {'title': '通用'},
+                {'title': '数据展示'},
                 {'title': 'AntdCheckableTag 可选择标签'},
             ],
             style={'marginBottom': 8},

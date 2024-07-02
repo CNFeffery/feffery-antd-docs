@@ -8,7 +8,8 @@ def render() -> Component:
         fac.AntdBreadcrumb(
             items=[
                 {'title': '组件介绍'},
-                {'title': '通用'},
+                {'title': '数据展示'},
+                {'title': '卡片'},
                 {'title': 'AntdCardGrid 卡片网格'},
             ],
             style={'marginBottom': 8},

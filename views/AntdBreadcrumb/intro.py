@@ -8,7 +8,7 @@ def render() -> Component:
         fac.AntdBreadcrumb(
             items=[
                 {'title': '组件介绍'},
-                {'title': '通用'},
+                {'title': '导航'},
                 {'title': 'AntdBreadcrumb 面包屑'},
             ],
             style={'marginBottom': 8},
