@@ -8,8 +8,7 @@ def render() -> Component:
         fac.AntdBreadcrumb(
             items=[
                 {'title': '组件介绍'},
-                {'title': '通用'},
-                {'title': '排版相关'},
+                {'title': '数据录入'},
                 {'title': 'AntdSegmentedColoring 分段着色'},
             ],
             style={'marginBottom': 8},

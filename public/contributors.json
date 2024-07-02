@@ -63,25 +63,25 @@
             "insistence"
         ],
         "AntdSwitch": [
-            "Wangnov"
+            "Wangnov", "insistence"
         ],
         "AntdSelect": [
             "Wangnov"
         ],
         "AntdCard": [
-            "Wangnov"
+            "Wangnov", "insistence"
         ],
         "AntdCardGrid": [
-            "Wangnov"
+            "Wangnov", "insistence"
         ],
         "AntdCardMeta": [
-            "Wangnov"
+            "Wangnov", "insistence"
         ],
         "AntdTag": [
-            "Wangnov"
+            "Wangnov", "insistence"
         ],
         "AntdCheckableTag": [
-            "Wangnov"
+            "Wangnov", "insistence"
         ]
     }
 }
