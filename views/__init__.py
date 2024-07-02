@@ -68,5 +68,6 @@ from . import (
     AntdDescriptionItem,  # noqa: F401
     AntdEmpty,  # noqa: F401
     AntdTag,  # noqa: F401
+    AntdQRCode,  # noqa: F401
     AntdTimeline,  # noqa: F401
 )
