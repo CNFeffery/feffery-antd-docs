@@ -89,6 +89,9 @@
         "AntdRibbon": [
             "insistence"
         ],
+        "AntdSegmented": [
+            "insistence"
+        ],
         "AntdTimeline": [
             "Wangnov"
         ]
