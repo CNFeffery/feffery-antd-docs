@@ -70,5 +70,6 @@ from . import (
     AntdTag,  # noqa: F401
     AntdQRCode,  # noqa: F401
     AntdRibbon,  # noqa: F401
+    AntdSegmented,  # noqa: F401
     AntdTimeline,  # noqa: F401
 )
