@@ -71,5 +71,6 @@ from . import (
     AntdQRCode,  # noqa: F401
     AntdRibbon,  # noqa: F401
     AntdSegmented,  # noqa: F401
+    AntdSpoiler,  # noqa: F401
     AntdTimeline,  # noqa: F401
 )
