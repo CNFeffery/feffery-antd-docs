@@ -4,4 +4,5 @@ feffery_markdown_components==0.3.0rc2
 feffery_utils_components==0.2.0rc20
 Flask==3.0.3
 mistune==3.0.2
+numpy==2.0.1
 palettable==3.3.3
