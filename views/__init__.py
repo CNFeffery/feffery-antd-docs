@@ -74,5 +74,6 @@ from . import (
     AntdSegmented,  # noqa: F401
     AntdSpoiler,  # noqa: F401
     AntdStatistic,  # noqa: F401
+    AntdCountdown,  # noqa: F401
     AntdTimeline,  # noqa: F401
 )
