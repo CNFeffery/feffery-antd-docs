@@ -76,5 +76,6 @@ from . import (
     AntdStatistic,  # noqa: F401
     AntdCountdown,  # noqa: F401
     AntdTimeline,  # noqa: F401
+    AntdTooltip,  # noqa: F401
     AntdAlert,  # noqa: F401
 )
