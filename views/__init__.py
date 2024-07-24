@@ -78,4 +78,5 @@ from . import (
     AntdTimeline,  # noqa: F401
     AntdTooltip,  # noqa: F401
     AntdAlert,  # noqa: F401
+    AntdPopconfirm,  # noqa: F401
 )
