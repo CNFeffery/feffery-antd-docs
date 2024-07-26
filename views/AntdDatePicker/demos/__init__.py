@@ -33,17 +33,17 @@ demos_config = [
         'title': '隐藏今天按钮',
         'description': fac.AntdParagraph('隐藏“今天”快捷选择按钮。'),
     },
-    {
-        'path': 'time_default_value',
-        'title': '设置自动选定的时间值',
-        'description': fac.AntdParagraph(
-            [
-                '由参数',
-                fac.AntdText('showTime.defaultValue', code=True),
-                '设定的默认值，将会在用户初次选中日期后，在时间选择面板中被自动选中。',
-            ]
-        ),
-    },
+    # {
+    #     'path': 'time_default_value',
+    #     'title': '设置自动选定的时间值',
+    #     'description': fac.AntdParagraph(
+    #         [
+    #             '由参数',
+    #             fac.AntdText('showTime.defaultValue', code=True),
+    #             '设定的默认值，将会在用户初次选中日期后，在时间选择面板中被自动选中。',
+    #         ]
+    #     ),
+    # },
     {
         'path': 'different_placement',
         'title': '悬浮层展开方位',
