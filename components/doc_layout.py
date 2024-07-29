@@ -14,6 +14,7 @@ def render(
     intro: Component,
     demos: Component,
     catalog: list = None,
+    section_name: str = None,
 ) -> Component:
     """渲染组件文档页"""
 
@@ -47,7 +48,10 @@ setTimeout(() => {
                                 # 组件介绍
                                 fac.Fragment(intro),
                                 # 文档贡献者
-                                contributors_avatar.render(component=component),
+                                contributors_avatar.render(
+                                    component=component,
+                                    section_name=section_name,
+                                ),
                                 # 组件使用示例
                                 fac.Fragment(demos),
                                 # 通用页尾信息

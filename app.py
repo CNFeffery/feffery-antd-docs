@@ -102,11 +102,16 @@ def root_router(pathname, trigger, search):
                 str(uuid.uuid4()),
             ]
 
-        except ValueError:
+        except (ValueError, AttributeError):
             return [
                 fac.AntdCenter(
-                    fac.AntdResult(status='404', title='演示示例不存在'),
-                    style={'height': '100vh'},
+                    fac.AntdResult(
+                        status='404',
+                        title=fac.AntdParagraph(
+                            ['演示示例不存在，', html.A('回到首页', href='/')]
+                        ),
+                    ),
+                    style={'height': 'calc(100vh - 200px)'},
                 ),
                 str(uuid.uuid4()),
             ]
@@ -215,6 +220,10 @@ def doc_layout_router(pathname):
 
     elif pathname == '/import-alias':
         doc_layout = views.advanced_usage.import_alias.render()
+
+    elif pathname in ['/AntdTable-basic']:
+        if pathname == '/AntdTable-basic':
+            doc_layout = views.AntdTableBasic.render()
 
     # 提取当前views下合法格式页面模块
     valid_views = [

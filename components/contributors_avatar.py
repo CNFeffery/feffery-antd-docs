@@ -5,14 +5,21 @@ from dash.dependencies import Component
 from config import AppConfig
 
 
-def render(component: Component) -> Component:
+def render(component: Component, section_name: str = None) -> Component:
     """渲染当页文档贡献者头像"""
 
     # 尝试获取当前组件更多文档贡献者信息
     contributors = [
         'CNFeffery',
         *(
-            AppConfig.doc_contributors['components'].get(component.__name__)
+            # 根据组件名称或章节名称获取贡献者信息
+            (
+                AppConfig.doc_contributors['components'].get(section_name)
+                if section_name
+                else AppConfig.doc_contributors['components'].get(
+                    component.__name__
+                )
+            )
             or []
         ),
     ]

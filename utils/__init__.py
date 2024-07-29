@@ -95,19 +95,38 @@ def generate_shortcut_panel_data(raw_menu_data: list) -> list:
                             )
                         elif level3['component'] == 'SubMenu':
                             for level4 in level3['children']:
-                                data.append(
-                                    {
-                                        'id': level4['props']['key'],
-                                        'title': level4['props']['title'],
-                                        'section': '{} / {} / {}'.format(
-                                            level1['props']['title'],
-                                            level2['props']['title'],
-                                            level3['props']['title'],
-                                        ),
-                                        'handler': '() => window.open("{}")'.format(
-                                            level4['props']['href']
-                                        ),
-                                    }
-                                )
+                                if level3['props']['title'].startswith(
+                                    'AntdTable'
+                                ):
+                                    data.append(
+                                        {
+                                            'id': level4['props']['key'],
+                                            'title': 'AntdTable 表格：'
+                                            + level4['props']['title'],
+                                            'section': '{} / {} / {}'.format(
+                                                level1['props']['title'],
+                                                level2['props']['title'],
+                                                level3['props']['title'],
+                                            ),
+                                            'handler': '() => window.open("{}")'.format(
+                                                level4['props']['href']
+                                            ),
+                                        }
+                                    )
+                                else:
+                                    data.append(
+                                        {
+                                            'id': level4['props']['key'],
+                                            'title': level4['props']['title'],
+                                            'section': '{} / {} / {}'.format(
+                                                level1['props']['title'],
+                                                level2['props']['title'],
+                                                level3['props']['title'],
+                                            ),
+                                            'handler': '() => window.open("{}")'.format(
+                                                level4['props']['href']
+                                            ),
+                                        }
+                                    )
 
     return data

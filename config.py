@@ -875,13 +875,22 @@ class AppConfig:
                             },
                         },
                         {
-                            'component': 'Item',
+                            'component': 'SubMenu',
                             'props': {
                                 'key': '/AntdTable',
-                                'name': '/AntdTable',
                                 'title': 'AntdTable 表格',
-                                'href': '/AntdTable',
                             },
+                            'children': [
+                                {
+                                    'component': 'Item',
+                                    'props': {
+                                        'key': '/AntdTable-basic',
+                                        'name': '/AntdTable-basic',
+                                        'title': '基础功能',
+                                        'href': '/AntdTable-basic',
+                                    },
+                                },
+                            ],
                         },
                         {
                             'component': 'Item',
@@ -1334,7 +1343,7 @@ class AppConfig:
         '/AntdSpoiler': ['数据展示'],
         '/AntdStatistic': ['数据展示'],
         '/AntdCountdown': ['数据展示'],
-        '/AntdTable': ['数据展示'],
+        '/AntdTable-basic': ['数据展示', '/AntdTable'],
         '/AntdTabs': ['数据展示'],
         '/AntdTag': ['数据展示'],
         '/AntdTimeline': ['数据展示'],
