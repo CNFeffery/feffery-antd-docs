@@ -890,6 +890,15 @@ class AppConfig:
                                         'href': '/AntdTable-basic',
                                     },
                                 },
+                                {
+                                    'component': 'Item',
+                                    'props': {
+                                        'key': '/AntdTable-advanced',
+                                        'name': '/AntdTable-advanced',
+                                        'title': '进阶功能',
+                                        'href': '/AntdTable-advanced',
+                                    },
+                                },
                             ],
                         },
                         {
@@ -1344,6 +1353,7 @@ class AppConfig:
         '/AntdStatistic': ['数据展示'],
         '/AntdCountdown': ['数据展示'],
         '/AntdTable-basic': ['数据展示', '/AntdTable'],
+        '/AntdTable-advanced': ['数据展示', '/AntdTable'],
         '/AntdTabs': ['数据展示'],
         '/AntdTag': ['数据展示'],
         '/AntdTimeline': ['数据展示'],

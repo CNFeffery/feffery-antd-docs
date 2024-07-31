@@ -141,3 +141,10 @@ html::-webkit-scrollbar {
 .tip-collapse .ant-collapse-header {
     padding: 0 !important;
 }
+
+.ant-anchor-link-title {
+    white-space: unset !important;
+    text-overflow: unset !important;
+    padding: 4px 2px;
+    line-height: 1.1em !important;
+}

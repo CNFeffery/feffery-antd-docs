@@ -2,6 +2,7 @@ import dash
 import time
 import uuid
 from dash import html, dcc
+from datetime import datetime
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
 from dash.dependencies import Input, Output, State, MATCH, ClientsideFunction
@@ -14,6 +15,9 @@ from utils import generate_shortcut_panel_data
 import views.advanced_usage
 import views.getting_started
 import views.what_is_fac
+
+# 记录应用最近启动时间
+boot_datetime = datetime.now().strftime('%Y-%m-%d')
 
 
 def render_layout():
@@ -130,7 +134,9 @@ def root_router(pathname, trigger, search):
                     type='info',
                     message='提示信息',
                     placement='bottomRight',
-                    description='当前文档网站尚未正式发布，相关文档持续补充建设中。',
+                    description='当前文档网站尚未正式发布，相关文档持续补充建设中。（最近更新时间：{}）'.format(
+                        boot_datetime
+                    ),
                 )
             ),
             # 悬浮按钮组功能
@@ -221,9 +227,11 @@ def doc_layout_router(pathname):
     elif pathname == '/import-alias':
         doc_layout = views.advanced_usage.import_alias.render()
 
-    elif pathname in ['/AntdTable-basic']:
+    elif pathname in ['/AntdTable-basic', '/AntdTable-advanced']:
         if pathname == '/AntdTable-basic':
             doc_layout = views.AntdTableBasic.render()
+        elif pathname == '/AntdTable-advanced':
+            doc_layout = views.AntdTableAdvanced.render()
 
     # 提取当前views下合法格式页面模块
     valid_views = [
