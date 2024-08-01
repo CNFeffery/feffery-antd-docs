@@ -41,6 +41,9 @@ class AppConfig:
     # 文档仓库地址
     doc_library_repo = 'https://github.com/CNFeffery/feffery-antd-docs'
 
+    # 文档Gitee仓库地址
+    doc_gitee_library_repo = 'https://gitee.com/cnfeffery/feffery-antd-docs'
+
     # 文档仓库分支名称
     doc_library_branch = 'fac0.3.x'
 

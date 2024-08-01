@@ -82,9 +82,7 @@ def render(component: Component) -> Component:
             html.Div(
                 [
                     html.Div(
-                        getattr(
-                            views.AntdRate.demos, item['path']
-                        ).render(),
+                        getattr(views.AntdRate.demos, item['path']).render(),
                         className='demo-box',
                     ),
                     html.Div(
@@ -144,6 +142,42 @@ def render(component: Component) -> Component:
                                         className='demo-operations-icon',
                                     ),
                                     title='展开/收起代码',
+                                ),
+                                fac.AntdTooltip(
+                                    dcc.Link(
+                                        fac.AntdIcon(icon='antd-github'),
+                                        href='{}/tree/{}/views/{}/demos/{}.py'.format(
+                                            AppConfig.doc_library_repo,
+                                            AppConfig.doc_library_branch,
+                                            component.__name__,
+                                            item['path'],
+                                        ),
+                                        target='_blank',
+                                        className='demo-operations-icon',
+                                    ),
+                                    title='在Github中查看完整代码',
+                                ),
+                                fac.AntdTooltip(
+                                    dcc.Link(
+                                        html.Img(
+                                            src='/assets/imgs/gitee-logo.svg',
+                                            width=18,
+                                            height=18,
+                                            style={
+                                                'display': 'block',
+                                                'transform': 'translate(-0.05em, 0.05em)',
+                                            },
+                                        ),
+                                        href='{}/blob/{}/views/{}/demos/{}.py'.format(
+                                            AppConfig.doc_gitee_library_repo,
+                                            AppConfig.doc_library_branch,
+                                            component.__name__,
+                                            item['path'],
+                                        ),
+                                        target='_blank',
+                                        className='demo-operations-img',
+                                    ),
+                                    title='在Gitee中查看完整代码',
                                 ),
                             ],
                             size=12,

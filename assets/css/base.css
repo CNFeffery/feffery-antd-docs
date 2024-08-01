@@ -108,6 +108,17 @@ html::-webkit-scrollbar {
     transition: all 0.2s;
 }
 
+.demo-operations-img {
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all 0.2s;
+}
+
+.demo-operations-img:hover {
+    opacity: 1;
+    transition: all 0.2s;
+}
+
 .demo-code-tabs {
     border-top: 1px solid #f4f4f4;
 }
