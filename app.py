@@ -12,6 +12,7 @@ from server import app, server  # noqa: F401
 from components import page_header, side_menu
 from config import AppConfig
 from utils import generate_shortcut_panel_data
+import views.AntdTableServerSideMode
 import views.advanced_usage
 import views.getting_started
 import views.what_is_fac
@@ -227,11 +228,17 @@ def doc_layout_router(pathname):
     elif pathname == '/import-alias':
         doc_layout = views.advanced_usage.import_alias.render()
 
-    elif pathname in ['/AntdTable-basic', '/AntdTable-advanced']:
+    elif pathname in [
+        '/AntdTable-basic',
+        '/AntdTable-advanced',
+        '/AntdTable-server-side-mode',
+    ]:
         if pathname == '/AntdTable-basic':
             doc_layout = views.AntdTableBasic.render()
         elif pathname == '/AntdTable-advanced':
             doc_layout = views.AntdTableAdvanced.render()
+        elif pathname == '/AntdTable-server-side-mode':
+            doc_layout = views.AntdTableServerSideMode.render()
 
     # 提取当前views下合法格式页面模块
     valid_views = [

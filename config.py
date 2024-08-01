@@ -899,6 +899,15 @@ class AppConfig:
                                         'href': '/AntdTable-advanced',
                                     },
                                 },
+                                {
+                                    'component': 'Item',
+                                    'props': {
+                                        'key': '/AntdTable-server-side-mode',
+                                        'name': '/AntdTable-server-side-mode',
+                                        'title': '服务端数据加载模式',
+                                        'href': '/AntdTable-server-side-mode',
+                                    },
+                                },
                             ],
                         },
                         {
@@ -1354,6 +1363,7 @@ class AppConfig:
         '/AntdCountdown': ['数据展示'],
         '/AntdTable-basic': ['数据展示', '/AntdTable'],
         '/AntdTable-advanced': ['数据展示', '/AntdTable'],
+        '/AntdTable-server-side-mode': ['数据展示', '/AntdTable'],
         '/AntdTabs': ['数据展示'],
         '/AntdTag': ['数据展示'],
         '/AntdTimeline': ['数据展示'],

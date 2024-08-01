@@ -77,6 +77,7 @@ from . import (
     AntdCountdown,  # noqa: F401
     AntdTableBasic,  # noqa: F401
     AntdTableAdvanced,  # noqa: F401
+    AntdTableServerSideMode,  # noqa: F401
     AntdTabs,  # noqa: F401
     AntdTimeline,  # noqa: F401
     AntdTooltip,  # noqa: F401
