@@ -82,6 +82,7 @@ from . import (
     AntdTabs,  # noqa: F401
     AntdTimeline,  # noqa: F401
     AntdTooltip,  # noqa: F401
+    AntdTree,  # noqa: F401
     AntdAlert,  # noqa: F401
     AntdPopconfirm,  # noqa: F401
 )
