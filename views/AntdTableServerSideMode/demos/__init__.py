@@ -177,7 +177,7 @@ def render(component: Component, section_name: str = None) -> Component:
                                         href='{}/tree/{}/views/{}/demos/{}.py'.format(
                                             AppConfig.doc_library_repo,
                                             AppConfig.doc_library_branch,
-                                            component.__name__,
+                                            section_name or component.__name__,
                                             item['path'],
                                         ),
                                         target='_blank',
@@ -199,7 +199,7 @@ def render(component: Component, section_name: str = None) -> Component:
                                         href='{}/blob/{}/views/{}/demos/{}.py'.format(
                                             AppConfig.doc_gitee_library_repo,
                                             AppConfig.doc_library_branch,
-                                            component.__name__,
+                                            section_name or component.__name__,
                                             item['path'],
                                         ),
                                         target='_blank',
