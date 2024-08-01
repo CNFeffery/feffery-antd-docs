@@ -911,6 +911,15 @@ class AppConfig:
                                         'href': '/AntdTable-server-side-mode',
                                     },
                                 },
+                                {
+                                    'component': 'Item',
+                                    'props': {
+                                        'key': '/AntdTable-rerender',
+                                        'name': '/AntdTable-rerender',
+                                        'title': '再渲染模式',
+                                        'href': '/AntdTable-rerender',
+                                    },
+                                },
                             ],
                         },
                         {

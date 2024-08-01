@@ -232,6 +232,7 @@ def doc_layout_router(pathname):
         '/AntdTable-basic',
         '/AntdTable-advanced',
         '/AntdTable-server-side-mode',
+        '/AntdTable-rerender',
     ]:
         if pathname == '/AntdTable-basic':
             doc_layout = views.AntdTableBasic.render()
@@ -239,6 +240,8 @@ def doc_layout_router(pathname):
             doc_layout = views.AntdTableAdvanced.render()
         elif pathname == '/AntdTable-server-side-mode':
             doc_layout = views.AntdTableServerSideMode.render()
+        elif pathname == '/AntdTable-rerender':
+            doc_layout = views.AntdTableRerender.render()
 
     # 提取当前views下合法格式页面模块
     valid_views = [
