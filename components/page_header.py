@@ -82,7 +82,7 @@ def render():
                                     *AppConfig.library_repo.split('/')[-2:]
                                 ),
                                 preview=False,
-                                fallback='',
+                                fallback='/assets/imgs/fac-github.svg',
                                 style={
                                     'transform': 'translateY(-2px) scale(1.25)'
                                 },
