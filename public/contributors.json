@@ -112,6 +112,9 @@
         ],
         "AntdAlert": [
             "insistence"
+        ],
+        "AntdProgress": [
+            "Wangnov"
         ]
     }
 }
