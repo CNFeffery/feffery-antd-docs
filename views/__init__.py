@@ -87,4 +87,5 @@ from . import (
     AntdDrawer,  # noqa: F401
     AntdModal,  # noqa: F401
     AntdPopconfirm,  # noqa: F401
+    AntdProgress,  # noqa: F401
 )
