@@ -88,4 +88,5 @@ from . import (
     AntdModal,  # noqa: F401
     AntdPopconfirm,  # noqa: F401
     AntdPopupCard,  # noqa: F401
+    AntdProgress,  # noqa: F401
 )
