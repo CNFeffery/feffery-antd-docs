@@ -94,13 +94,13 @@ demos_config = [
             ]
         ),
     },
-    {
-        'path': 'basic_callback',
-        'title': '回调实时更新进度条',
-        'description': fac.AntdParagraph(
-            '使用浏览器端回调，在耗时任务中实时更新进度条。'
-        ),
-    },
+    # {
+    #     'path': 'basic_callback',
+    #     'title': '回调实时更新进度条',
+    #     'description': fac.AntdParagraph(
+    #         '使用浏览器端回调，在耗时任务中实时更新进度条。'
+    #     ),
+    # },
 ]
 
 
