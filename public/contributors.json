@@ -11,13 +11,10 @@
         "Wangnov": {
             "url": "https://github.com/Wangnov",
             "avatar": "https://avatars.githubusercontent.com/u/48670012?s=40&v=4"
-<<<<<<< HEAD
         },
         "Riggle": {
             "url": "https://github.com/Riggle001",
-            "avatar": "https://avatars.githubusercontent.com/u/39793169?v=4&size=64"
-=======
->>>>>>> origin/fac0.3.x
+            "avatar": "https://avatars.githubusercontent.com/u/39793169?s=40&v=4"
         }
     },
     "components": {
@@ -99,12 +96,9 @@
         "AntdQRCode": [
             "insistence"
         ],
-<<<<<<< HEAD
         "AntdResult": [
             "Riggle"
         ],
-=======
->>>>>>> origin/fac0.3.x
         "AntdRibbon": [
             "insistence"
         ],
