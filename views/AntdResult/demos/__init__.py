@@ -20,8 +20,9 @@ demos_config = [
             [
                 '使用参数',
                 fac.AntdText('title', code=True),
+                '、',
                 fac.AntdText('subTitle', code=True),
-                '配置基础的结果提示信息',
+                '配置基础的结果提示信息。',
             ]
         ),
     },
@@ -32,7 +33,23 @@ demos_config = [
             [
                 '使用参数',
                 fac.AntdText('status', code=True),
-                '设置结果的状态类型，8种状态类型分别为：info、success、error、warning、404、403、500、loading',
+                '设置结果的状态类型，可用的内置状态有',
+                fac.AntdText('"info"', code=True),
+                '、',
+                fac.AntdText('"success"', code=True),
+                '、',
+                fac.AntdText('"error"', code=True),
+                '、',
+                fac.AntdText('"warning"', code=True),
+                '、',
+                fac.AntdText('"404"', code=True),
+                '、',
+                fac.AntdText('"403"', code=True),
+                '、',
+                fac.AntdText('"500"', code=True),
+                '、',
+                fac.AntdText('"loading"', code=True),
+                '。',
             ]
         ),
     },
@@ -45,7 +62,7 @@ demos_config = [
                 fac.AntdText('icon', code=True),
                 '参数和',
                 fac.AntdText('fac.AntdIcon()', code=True),
-                '组件设置自定义图标',
+                '组件设置自定义图标。',
             ]
         ),
     },
@@ -56,8 +73,9 @@ demos_config = [
             [
                 '使用组件型参数如',
                 fac.AntdText('title', code=True),
+                '、',
                 fac.AntdText('subTitle', code=True),
-                '添加更丰富的操作',
+                '添加更丰富的操作。',
             ]
         ),
     },
