@@ -70,6 +70,10 @@ from . import (
     AntdTag,  # noqa: F401
     AntdPopover,  # noqa: F401
     AntdQRCode,  # noqa: F401
+<<<<<<< HEAD
+    AntdResult,  # noqa: F401
+=======
+>>>>>>> origin/fac0.3.x
     AntdRibbon,  # noqa: F401
     AntdSegmented,  # noqa: F401
     AntdSpoiler,  # noqa: F401
