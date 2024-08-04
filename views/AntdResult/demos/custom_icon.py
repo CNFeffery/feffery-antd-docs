@@ -1,6 +1,7 @@
 import feffery_antd_components as fac
 from dash.dependencies import Component
 
+
 def render() -> Component:
     """渲染当前演示用例"""
 
@@ -9,28 +10,22 @@ def render() -> Component:
         title='标题示例',
         subTitle='副标题示例',
         icon=fac.AntdIcon(
-            icon='antd-bulb',
-            style={
-                'fontSize': 60,
-                'color': '#fcd53f'
-                }
-            )
+            icon='antd-bulb', style={'fontSize': 60, 'color': '#fcd53f'}
+        ),
     )
-    return demo_contents               
 
-code_string = [ 
+    return demo_contents
+
+
+code_string = [
     {
-       'code':"""
+        'code': """
 fac.AntdResult(
     title='标题示例',
     subTitle='副标题示例',
     icon=fac.AntdIcon(
-        icon='antd-bulb',
-        style={
-            'fontSize': 60,
-            'color': '#fcd53f'
-        }
-    )
+        icon='antd-bulb', style={'fontSize': 60, 'color': '#fcd53f'}
+    ),
 )
 """
     }
