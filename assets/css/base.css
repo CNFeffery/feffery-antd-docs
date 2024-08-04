@@ -1,0 +1,161 @@
+/* 初始加载动画 */
+._dash-loading {
+    color: transparent;
+    position: fixed;
+    width: calc(95px * 1);
+    height: calc(87px * 1);
+    top: calc(50vh - 30px);
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    background-image: url("/assets/imgs/init_loading.gif");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+._dash-loading::after {
+    content: "";
+}
+
+/* 滚动条美化 */
+/* chrome, edge */
+html::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    outline: none;
+    border-radius: 6px;
+}
+
+html::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+/* chrome, edge */
+.light-scroll-bar::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.1);
+    outline: none;
+    border-radius: 6px;
+}
+
+.light-scroll-bar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+/* chrome, edge */
+.hidden-scroll-bar::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    outline: none;
+    border-radius: 0;
+}
+
+.hidden-scroll-bar::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+/* 示例区块 */
+.demo-container {
+    border: 1px solid rgba(5, 5, 5, 0.06);
+    border-radius: 8px;
+    transition: border 0.3s;
+}
+
+.demo-container:target {
+    border: 1px solid #1677ff;
+}
+
+.demo-box {
+    padding: 42px 24px 50px;
+    border-bottom: 1px solid rgba(5, 5, 5, 0.06);
+}
+
+.demo-title {
+    position: absolute;
+    color: rgba(0, 0, 0, 0.88);
+    background: #fff;
+    top: -13px;
+    left: 20px;
+    padding: 1px 8px;
+    border-radius: 6px 6px 0 0;
+}
+
+.demo-github-link {
+    margin-left: 3px;
+    cursor: pointer;
+    transition: all 0.1s;
+    color: #8c8c8c;
+}
+
+.demo-github-link:hover {
+    color: rgba(0, 0, 0, 0.88);
+}
+
+.demo-operations {
+    border-top: 1px dashed #f4f4f4;
+    height: 42px;
+    color: #999999;
+    transition: all 0.2s;
+}
+
+.demo-operations-icon {
+    cursor: pointer;
+    color: #999999;
+    transition: all 0.2s;
+}
+
+.demo-operations-icon:hover {
+    color: #3a3a3a;
+    transition: all 0.2s;
+}
+
+.demo-operations-img {
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all 0.2s;
+}
+
+.demo-operations-img:hover {
+    opacity: 1;
+    transition: all 0.2s;
+}
+
+.demo-code-tabs {
+    border-top: 1px solid #f4f4f4;
+}
+
+.demo-code-tabs .ant-tabs-nav {
+    margin: 0;
+}
+
+.hover-shadow-box {
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.hover-shadow-box:hover {
+    box-shadow: 0 8px 24px rgba(81, 87, 103, 0.16);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.tip-collapse .ant-collapse-expand-icon {
+    color: #228be6;
+    padding-inline-end: 5px !important;
+}
+
+.tip-collapse .ant-collapse-header-text {
+    color: #228be6;
+}
+
+.tip-collapse .ant-collapse-content-box {
+    padding: 0 !important;
+}
+
+.tip-collapse .ant-collapse-header {
+    padding: 0 !important;
+}
+
+.ant-anchor-link-title {
+    white-space: unset !important;
+    text-overflow: unset !important;
+    padding: 4px 2px;
+    line-height: 1.1em !important;
+}
