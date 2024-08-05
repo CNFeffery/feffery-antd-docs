@@ -90,4 +90,5 @@ from . import (
     AntdPopconfirm,  # noqa: F401
     AntdPopupCard,  # noqa: F401
     AntdProgress,  # noqa: F401
+    AntdCopyText,  # noqa: F401
 )
