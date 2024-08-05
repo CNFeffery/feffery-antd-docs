@@ -91,4 +91,5 @@ from . import (
     AntdPopupCard,  # noqa: F401
     AntdProgress,  # noqa: F401
     AntdCopyText,  # noqa: F401
+    AntdBackTop,  # noqa: F401
 )
