@@ -16,6 +16,7 @@ from . import (
     sort_single,  # noqa: F401
     sort_multiple,  # noqa: F401
     sort_multiple_dynamic,  # noqa: F401
+    sort_tooltip,  # noqa: F401
     sort_callbacks,  # noqa: F401
     filter_checkbox,  # noqa: F401
     filter_default_filtered_values,  # noqa: F401
@@ -140,6 +141,19 @@ demos_config = [
                 '设置参数',
                 fac.AntdText('"multiple": "auto"', code=True),
                 '后，多字段组合排序的字段优先级顺序将动态遵循用户的排序点击顺序。',
+            ]
+        ),
+    },
+    {
+        'path': 'sort_tooltip',
+        'title': '字段排序：额外信息提示',
+        'description': fac.AntdParagraph(
+            [
+                '通过参数',
+                fac.AntdText('showSorterTooltip', code=True),
+                '、',
+                fac.AntdText('showSorterTooltipTarget', code=True),
+                '控制可排序字段表头的额外信息提示。',
             ]
         ),
     },
