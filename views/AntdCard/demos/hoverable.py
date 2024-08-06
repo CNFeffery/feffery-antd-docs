@@ -30,10 +30,10 @@ def render() -> Component:
 
 code_string = [
     {
-        'code': """
+        'code': '''
 fac.AntdCard(
-    '''
-从来就没有什么救世主，
+    """
+    从来就没有什么救世主，
 也不靠神仙皇帝。
 要创造人类的幸福，
 全靠我们自己。
@@ -44,11 +44,11 @@ fac.AntdCard(
 这是最后的斗争，
 团结起来，到明天，
 英特纳雄耐尔就一定要实现。
-''',
+    """,
     title='卡片示例',
-    hoveable=True,
+    hoverable=True,
     style={'width': 300, 'marginBottom': 10},
 )
-"""
+'''
     }
 ]
