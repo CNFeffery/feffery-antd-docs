@@ -86,6 +86,7 @@ from . import (
     AntdTree,  # noqa: F401
     AntdAlert,  # noqa: F401
     AntdDrawer,  # noqa: F401
+    AntdMessage,  # noqa: F401
     AntdModal,  # noqa: F401
     AntdPopconfirm,  # noqa: F401
     AntdPopupCard,  # noqa: F401
