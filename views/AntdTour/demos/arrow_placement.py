@@ -37,8 +37,6 @@ def render() -> Component:
                             'bottom',
                             'bottomLeft',
                             'bottomRight',
-                            'arrowPointAtCenter',
-                            'arrowIsFalse',
                         ]
                     ],
                     wrap=True,
@@ -87,7 +85,7 @@ def render() -> Component:
                             'bottomRight',
                         ]
                     ],
-                    id='tour-demo',
+                    id='placement-tour-demo',
                 ),
                 fac.AntdTour(
                     placement='topRight',

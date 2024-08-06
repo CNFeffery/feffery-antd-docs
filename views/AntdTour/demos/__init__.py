@@ -40,7 +40,7 @@ demos_config = [
         'path': 'buttons',
         'title': '设置上一步和下一步按钮',
         'description': fac.AntdParagraph(
-            '可传入任意Dash组件设置为上一步和下一步按钮。'
+            '可传入任意组件设置为上一步和下一步按钮的内容。'
         ),
     },
 ]
