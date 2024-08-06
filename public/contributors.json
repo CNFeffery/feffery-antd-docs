@@ -120,6 +120,9 @@
         "AntdAlert": [
             "insistence"
         ],
+        "AntdMessage": [
+            "insistence"
+        ],
         "AntdProgress": [
             "Wangnov"
         ],
