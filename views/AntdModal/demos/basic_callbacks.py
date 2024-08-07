@@ -27,6 +27,15 @@ def render() -> Component:
 
 
 @app.callback(
+    Output('modal-callback-demo', 'visible'),
+    Input('modal-callback-demo-open', 'nClicks'),
+    prevent_initial_call=True
+)
+def handle_modal_visible(nClicks):
+    return True
+
+
+@app.callback(
     Output('modal-callback-demo-output', 'children'),
     [
         Input('modal-callback-demo', 'okCounts'),
