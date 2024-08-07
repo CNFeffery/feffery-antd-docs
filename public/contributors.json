@@ -15,6 +15,10 @@
         "Riggle": {
             "url": "https://github.com/Riggle001",
             "avatar": "https://avatars.githubusercontent.com/u/39793169?s=40&v=4"
+        },
+        "DreamGery": {
+            "url": "https://github.com/DreamGery",
+            "avatar": "https://avatars.githubusercontent.com/u/135676439?s=40&v=4"
         }
     },
     "components": {
@@ -137,6 +141,9 @@
         ],
         "AntdTour": [
             "Wangnov"
+        ],
+        "AntdModal": [
+            "DreamGery"
         ]
     }
 }
