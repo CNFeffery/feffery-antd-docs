@@ -75,6 +75,7 @@ from . import (
     AntdCustomSkeleton,  # noqa: F401
     AntdSkeletonAvatar,  # noqa: F401
     AntdSkeletonButton,  # noqa: F401
+    AntdSkeletonInput,  # noqa: F401
     AntdRibbon,  # noqa: F401
     AntdSegmented,  # noqa: F401
     AntdSpoiler,  # noqa: F401
