@@ -127,6 +127,9 @@
         "AntdMessage": [
             "insistence"
         ],
+        "AntdNotification": [
+            "insistence"
+        ],
         "AntdProgress": [
             "Wangnov"
         ],
