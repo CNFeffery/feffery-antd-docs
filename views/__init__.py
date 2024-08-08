@@ -71,6 +71,7 @@ from . import (
     AntdPopover,  # noqa: F401
     AntdQRCode,  # noqa: F401
     AntdResult,  # noqa: F401
+    AntdSkeleton,  # noqa: F401
     AntdRibbon,  # noqa: F401
     AntdSegmented,  # noqa: F401
     AntdSpoiler,  # noqa: F401
