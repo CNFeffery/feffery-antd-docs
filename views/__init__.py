@@ -68,6 +68,7 @@ from . import (
     AntdDescriptionItem,  # noqa: F401
     AntdEmpty,  # noqa: F401
     AntdImage,  # noqa: F401
+    AntdImageGroup,  # noqa: F401
     AntdTag,  # noqa: F401
     AntdPopover,  # noqa: F401
     AntdQRCode,  # noqa: F401
