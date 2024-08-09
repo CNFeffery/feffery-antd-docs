@@ -99,8 +99,9 @@ from . import (
     AntdPopconfirm,  # noqa: F401
     AntdPopupCard,  # noqa: F401
     AntdProgress,  # noqa: F401
-    AntdCopyText,  # noqa: F401
+    AntdAffix,  # noqa: F401
     AntdBackTop,  # noqa: F401
-    AntdWatermark,  # noqa: F401
+    AntdCopyText,  # noqa: F401
     AntdTour,  # noqa: F401
+    AntdWatermark,  # noqa: F401
 )
