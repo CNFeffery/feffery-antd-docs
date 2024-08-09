@@ -105,4 +105,5 @@ from . import (
     AntdTour,  # noqa: F401
     AntdWatermark,  # noqa: F401
     AntdConfigProvider,  # noqa: F401
+    Fragment,  # noqa: F401
 )
