@@ -1197,30 +1197,30 @@ class AppConfig:
                         },
                     ],
                 },
-                {
-                    'component': 'SubMenu',
-                    'props': {'key': '复杂交互', 'title': '复杂交互'},
-                    'children': [
-                        {
-                            'component': 'Item',
-                            'props': {
-                                'key': '/AntdDraggablePanel',
-                                'name': '/AntdDraggablePanel',
-                                'title': 'AntdDraggablePanel 可拖拽面板',
-                                'href': '/AntdDraggablePanel',
-                            },
-                        },
-                        {
-                            'component': 'Item',
-                            'props': {
-                                'key': '/AntdEditorLayout',
-                                'name': '/AntdEditorLayout',
-                                'title': 'AntdEditorLayout 编辑器布局',
-                                'href': '/AntdEditorLayout',
-                            },
-                        },
-                    ],
-                },
+                # {
+                #     'component': 'SubMenu',
+                #     'props': {'key': '复杂交互', 'title': '复杂交互'},
+                #     'children': [
+                #         {
+                #             'component': 'Item',
+                #             'props': {
+                #                 'key': '/AntdDraggablePanel',
+                #                 'name': '/AntdDraggablePanel',
+                #                 'title': 'AntdDraggablePanel 可拖拽面板',
+                #                 'href': '/AntdDraggablePanel',
+                #             },
+                #         },
+                #         {
+                #             'component': 'Item',
+                #             'props': {
+                #                 'key': '/AntdEditorLayout',
+                #                 'name': '/AntdEditorLayout',
+                #                 'title': 'AntdEditorLayout 编辑器布局',
+                #                 'href': '/AntdEditorLayout',
+                #             },
+                #         },
+                #     ],
+                # },
             ],
         },
         {
