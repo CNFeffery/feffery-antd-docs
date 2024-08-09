@@ -104,4 +104,5 @@ from . import (
     AntdCopyText,  # noqa: F401
     AntdTour,  # noqa: F401
     AntdWatermark,  # noqa: F401
+    AntdConfigProvider,  # noqa: F401
 )
