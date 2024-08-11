@@ -1,107 +1,161 @@
+/* 初始加载动画 */
 ._dash-loading {
-  color: transparent;
-  position: fixed;
-  width: calc(95px * 1);
-  height: calc(87px * 1);
-  top: calc(50vh - 30px);
-  left: 50vw;
-  transform: translate(-50%, -50%);
-  background-image: url("/assets/imgs/loading1.gif");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+    color: transparent;
+    position: fixed;
+    width: calc(95px * 1);
+    height: calc(87px * 1);
+    top: calc(50vh - 30px);
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    background-image: url("/assets/imgs/init_loading.gif");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
 ._dash-loading::after {
-  content: "";
+    content: "";
 }
 
-div {
-  margin: 0;
+/* 滚动条美化 */
+/* chrome, edge */
+html::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    outline: none;
+    border-radius: 6px;
 }
 
-.div-highlight:target {
-  border: 1px solid #1890ff;
-  box-shadow: 0 6px 16px rgb(107 147 224 / 14%);
-  border-radius: 5px;
-  transition: 250ms ease-out;
-  transition-delay: 300ms;
-  position: relative;
+html::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
 }
 
-.ant-anchor-wrapper {
-  transform: translateY(8px) !important;
-  max-height: calc(100vh - 150px) !important;
+/* chrome, edge */
+.light-scroll-bar::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.1);
+    outline: none;
+    border-radius: 6px;
 }
 
-.ant-back-top {
-  z-index: 999;
+.light-scroll-bar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
 }
 
-.markdown-body pre {
-  padding: 0 !important;
-  background-color: transparent !important;
+/* chrome, edge */
+.hidden-scroll-bar::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    outline: none;
+    border-radius: 0;
 }
 
-/*滚动条自定义样式*/
-*::-webkit-scrollbar-thumb {
-  background-color: #bfbfbf;
-  outline: none;
-  border-radius: 6px;
+.hidden-scroll-bar::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
 
-*::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+/* 示例区块 */
+.demo-container {
+    border: 1px solid rgba(5, 5, 5, 0.06);
+    border-radius: 8px;
+    transition: border 0.3s;
 }
 
-/*火狐浏览器*/
-* {
-  scrollbar-width: thin;
+.demo-container:target {
+    border: 1px solid #1677ff;
 }
 
-.modal .visible {
-  z-index: 999;
+.demo-box {
+    padding: 42px 24px 50px;
+    border-bottom: 1px solid rgba(5, 5, 5, 0.06);
 }
 
-.ant-menu-inline,
-.ant-menu-vertical,
-.ant-menu-vertical-left {
-  border-right: none !important;
+.demo-title {
+    position: absolute;
+    color: rgba(0, 0, 0, 0.88);
+    background: #fff;
+    top: -13px;
+    left: 20px;
+    padding: 1px 8px;
+    border-radius: 6px 6px 0 0;
 }
 
-code {
-  white-space: pre-wrap !important;
+.demo-github-link {
+    margin-left: 3px;
+    cursor: pointer;
+    transition: all 0.1s;
+    color: #8c8c8c;
 }
 
-#router-menu:hover {
-  overflow: hidden auto;
+.demo-github-link:hover {
+    color: rgba(0, 0, 0, 0.88);
 }
 
-#router-menu {
-  overflow: hidden;
+.demo-operations {
+    border-top: 1px dashed #f4f4f4;
+    height: 42px;
+    color: #999999;
+    transition: all 0.2s;
 }
 
-#side-menu .ant-menu-item-divider {
-  margin-left: 10px !important;
+.demo-operations-icon {
+    cursor: pointer;
+    color: #999999;
+    transition: all 0.2s;
 }
 
-.more-components-link {
-  color: rgba(0, 0, 0, 0.88);
-  transition: all 0.3s;
+.demo-operations-icon:hover {
+    color: #3a3a3a;
+    transition: all 0.2s;
 }
 
-.more-components-link:hover {
-  transition: all 0.3s;
-  color: #40a9ff;
+.demo-operations-img {
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all 0.2s;
 }
 
-#docs-content>div:last-child .ant-anchor-wrapper {
-  max-width: 200px;
+.demo-operations-img:hover {
+    opacity: 1;
+    transition: all 0.2s;
 }
 
-.common-problem-demo::before {
-  content: 'h3';
-  font-size: 15px;
-  color: #dee2e6;
-  margin-right: 5px;
+.demo-code-tabs {
+    border-top: 1px solid #f4f4f4;
+}
+
+.demo-code-tabs .ant-tabs-nav {
+    margin: 0;
+}
+
+.hover-shadow-box {
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.hover-shadow-box:hover {
+    box-shadow: 0 8px 24px rgba(81, 87, 103, 0.16);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.tip-collapse .ant-collapse-expand-icon {
+    color: #228be6;
+    padding-inline-end: 5px !important;
+}
+
+.tip-collapse .ant-collapse-header-text {
+    color: #228be6;
+}
+
+.tip-collapse .ant-collapse-content-box {
+    padding: 0 !important;
+}
+
+.tip-collapse .ant-collapse-header {
+    padding: 0 !important;
+}
+
+.ant-anchor-link-title {
+    white-space: unset !important;
+    text-overflow: unset !important;
+    padding: 4px 2px;
+    line-height: 1.1em !important;
 }

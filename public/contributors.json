@@ -1,0 +1,152 @@
+{
+    "contributors": {
+        "CNFeffery": {
+            "url": "https://github.com/CNFeffery",
+            "avatar": "https://avatars.githubusercontent.com/u/49147660?s=40&v=4"
+        },
+        "insistence": {
+            "url": "https://github.com/insistence",
+            "avatar": "https://avatars.githubusercontent.com/u/92962165?s=40&v=4"
+        },
+        "Wangnov": {
+            "url": "https://github.com/Wangnov",
+            "avatar": "https://avatars.githubusercontent.com/u/48670012?s=40&v=4"
+        },
+        "Riggle": {
+            "url": "https://github.com/Riggle001",
+            "avatar": "https://avatars.githubusercontent.com/u/39793169?s=40&v=4"
+        },
+        "DreamGery": {
+            "url": "https://github.com/DreamGery",
+            "avatar": "https://avatars.githubusercontent.com/u/135676439?s=40&v=4"
+        }
+    },
+    "components": {
+        "AntdParagraph": [
+            "insistence"
+        ],
+        "AntdText": [
+            "insistence"
+        ],
+        "AntdTitle": [
+            "insistence"
+        ],
+        "AntdAnchor": [
+            "insistence"
+        ],
+        "AntdBreadcrumb": [
+            "insistence"
+        ],
+        "AntdDropdown": [
+            "insistence"
+        ],
+        "AntdPageHeader": [
+            "insistence"
+        ],
+        "AntdPagination": [
+            "insistence"
+        ],
+        "AntdCalendar": [
+            "insistence"
+        ],
+        "AntdCascader": [
+            "insistence"
+        ],
+        "AntdInput": [
+            "Wangnov"
+        ],
+        "AntdMentions": [
+            "insistence"
+        ],
+        "AntdRadioGroup": [
+            "insistence"
+        ],
+        "AntdRate": [
+            "insistence"
+        ],
+        "AntdSegmentedColoring": [
+            "insistence"
+        ],
+        "AntdSlider": [
+            "insistence"
+        ],
+        "AntdSwitch": [
+            "Wangnov",
+            "insistence"
+        ],
+        "AntdSelect": [
+            "Wangnov"
+        ],
+        "AntdCard": [
+            "Wangnov",
+            "insistence"
+        ],
+        "AntdCardGrid": [
+            "Wangnov",
+            "insistence"
+        ],
+        "AntdCardMeta": [
+            "Wangnov",
+            "insistence"
+        ],
+        "AntdTag": [
+            "Wangnov",
+            "insistence"
+        ],
+        "AntdCheckableTag": [
+            "Wangnov",
+            "insistence"
+        ],
+        "AntdQRCode": [
+            "insistence"
+        ],
+        "AntdResult": [
+            "Riggle"
+        ],
+        "AntdRibbon": [
+            "insistence"
+        ],
+        "AntdSegmented": [
+            "insistence"
+        ],
+        "AntdSpoiler": [
+            "insistence"
+        ],
+        "AntdStatistic": [
+            "insistence"
+        ],
+        "AntdCountdown": [
+            "insistence"
+        ],
+        "AntdTimeline": [
+            "Wangnov"
+        ],
+        "AntdAlert": [
+            "insistence"
+        ],
+        "AntdMessage": [
+            "insistence"
+        ],
+        "AntdNotification": [
+            "insistence"
+        ],
+        "AntdProgress": [
+            "Wangnov"
+        ],
+        "AntdCopyText": [
+            "Wangnov"
+        ],
+        "AntdBackTop": [
+            "Wangnov"
+        ],
+        "AntdWatermark": [
+            "Wangnov"
+        ],
+        "AntdTour": [
+            "Wangnov"
+        ],
+        "AntdModal": [
+            "DreamGery"
+        ]
+    }
+}

@@ -1,41 +1,29 @@
 from dash import html
 import feffery_antd_components as fac
 import feffery_markdown_components as fmc
+from dash.dependencies import Component
 
 
-def docs_content(language: str = '中文'):
+def render() -> Component:
+    """渲染“Dash+fac快速上手”文档页"""
 
     return html.Div(
         [
+            fac.AntdBackTop(),
             html.Div(
                 [
-                    fac.AntdTitle(
-                        '环境搭建',
-                        id='环境搭建',
-                        level=3
-                    ),
+                    fac.AntdTitle('环境搭建', id='环境搭建', level=3),
                     fac.AntdParagraph(
                         [
                             '在基于',
-                            fac.AntdText(
-                                'dash',
-                                strong=True
-                            ),
+                            fac.AntdText('dash', strong=True),
                             '和',
-                            fac.AntdText(
-                                'fac',
-                                strong=True
-                            ),
+                            fac.AntdText('fac', strong=True),
                             '进行应用开发之前，我们需要先搭建好所需的环境，推荐使用',
-                            fac.AntdText(
-                                'conda',
-                                strong=True
-                            ),
-                            '作为环境管理工具，这里以Python 3.8版本为例，在终端执行下列命令进行相关环境的创建及激活：'
+                            fac.AntdText('conda', strong=True),
+                            '作为环境管理工具，这里以Python 3.9版本为例，在终端执行下列命令进行相关环境的创建及激活：',
                         ],
-                        style={
-                            'textIndent': '2rem'
-                        }
+                        style={'textIndent': '2rem'},
                     ),
                     fac.AntdParagraph(
                         [
@@ -43,9 +31,7 @@ def docs_content(language: str = '中文'):
                                 '注：由于国内pypi相关镜像的更新延迟，通过其进行相关库的安装，版本可能滞后于原始pypi中的最新版本'
                             )
                         ],
-                        style={
-                            'textIndent': '2rem'
-                        }
+                        style={'textIndent': '2rem'},
                     ),
                     fac.AntdTabs(
                         items=[
@@ -55,13 +41,13 @@ def docs_content(language: str = '中文'):
                                 'children': html.Div(
                                     [
                                         fmc.FefferySyntaxHighlighter(
-                                            codeString='''conda create -n dash-apps python=3.8 -y
-conda activate dash-apps''',
+                                            codeString="""conda create -n dash-apps python=3.9 -y
+conda activate dash-apps""",
                                             language='bash',
-                                            showCopyButton=True
+                                            showCopyButton=True,
                                         )
                                     ]
-                                )
+                                ),
                             },
                             {
                                 'label': '国内使用镜像',
@@ -69,23 +55,21 @@ conda activate dash-apps''',
                                 'children': html.Div(
                                     [
                                         fmc.FefferySyntaxHighlighter(
-                                            codeString='''conda create -n dash-apps python=3.8 -c https://mirrors.aliyun.com/anaconda/pkgs/main/ -y
-conda activate dash-apps''',
+                                            codeString="""conda create -n dash-apps python=3.9 -c https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main -y
+conda activate dash-apps""",
                                             language='bash',
-                                            showCopyButton=True
+                                            showCopyButton=True,
                                         )
                                     ]
-                                )
-                            }
+                                ),
+                            },
                         ]
                     ),
                     fac.AntdParagraph(
                         [
                             '完成环境的创建及激活后，我们在对应环境中直接通过pip进行相关基础依赖库的安装即可：'
                         ],
-                        style={
-                            'textIndent': '2rem'
-                        }
+                        style={'textIndent': '2rem'},
                     ),
                     fac.AntdTabs(
                         items=[
@@ -95,12 +79,12 @@ conda activate dash-apps''',
                                 'children': html.Div(
                                     [
                                         fmc.FefferySyntaxHighlighter(
-                                            codeString='''pip install dash feffery-antd-components -U''',
+                                            codeString="""pip install dash feffery-antd-components -U""",
                                             language='bash',
-                                            showCopyButton=True
+                                            showCopyButton=True,
                                         )
                                     ]
-                                )
+                                ),
                             },
                             {
                                 'label': '国内使用镜像',
@@ -108,60 +92,44 @@ conda activate dash-apps''',
                                 'children': html.Div(
                                     [
                                         fmc.FefferySyntaxHighlighter(
-                                            codeString='''pip install dash feffery-antd-components -U -i https://pypi.tuna.tsinghua.edu.cn/simple''',
+                                            codeString="""pip install dash feffery-antd-components -U -i https://pypi.tuna.tsinghua.edu.cn/simple""",
                                             language='bash',
-                                            showCopyButton=True
+                                            showCopyButton=True,
                                         )
                                     ]
-                                )
-                            }
+                                ),
+                            },
                         ]
                     ),
-                    fac.AntdTitle(
-                        '构建示例应用',
-                        id='构建示例应用',
-                        level=3
-                    ),
+                    fac.AntdTitle('构建示例应用', id='构建示例应用', level=3),
                     fac.AntdParagraph(
                         [
                             '完成前面所述的环境部署后，下面我们来开发一个简单的小应用，实现根据用户输入的目标值和实际值来生成对应的环形进度条，操作效果如下面动图所示：'
                         ],
-                        style={
-                            'textIndent': '2rem'
-                        }
+                        style={'textIndent': '2rem'},
                     ),
-
                     html.Div(
                         fac.AntdImage(
-                            src='assets/imgs/dash+fac上手示例应用.gif',
-                            preview=False
+                            src='assets/imgs/getting_started/dash+fac上手示例应用.gif',
+                            preview=False,
                         ),
-                        style={
-                            'textAlign': 'center'
-                        }
+                        style={'textAlign': 'center'},
                     ),
-
                     fac.AntdParagraph(
                         [
                             '对应代码如下，在激活对应环境的前提下，终端执行',
-                            fac.AntdText(
-                                'python app.py',
-                                code=True
-                            ),
-                            '即可启动该示例应用：'
+                            fac.AntdText('python app.py', code=True),
+                            '即可启动该示例应用：',
                         ],
-                        style={
-                            'textIndent': '2rem'
-                        }
+                        style={'textIndent': '2rem'},
                     ),
-
                     fac.AntdTabs(
                         items=[
                             {
                                 'label': 'app.py',
                                 'key': 'app.py',
                                 'children': fmc.FefferySyntaxHighlighter(
-                                    codeString='''
+                                    codeString="""
 import dash
 from dash import html
 import feffery_antd_components as fac
@@ -252,220 +220,150 @@ def handle_progress_render(target_value, actual_value):
 
 if __name__ == '__main__':
     app.run(debug=False)
-''',
+""",
                                     language='python',
                                     showCopyButton=True,
-                                    codeBlockStyle={
-                                        'height': 600
-                                    }
-                                )
+                                    codeBlockStyle={'height': 600},
+                                ),
                             }
                         ]
                     ),
-
-                    fac.AntdDivider(
-                        isDashed=True
-                    ),
-
-                    fac.AntdTitle(
-                        '拓展阅读',
-                        id='拓展阅读',
-                        level=3
-                    ),
-
+                    fac.AntdDivider(isDashed=True),
+                    fac.AntdTitle('拓展阅读', id='拓展阅读', level=3),
                     fac.AntdSpace(
                         [
                             html.A(
                                 fac.AntdCard(
                                     title='10分钟极速入门dash应用开发',
                                     coverImg={
-                                        'src': 'assets/imgs/getting-started配图/cover_10分钟极速入门dash应用开发.png',
+                                        'src': 'assets/imgs/getting_started/cover_10分钟极速入门dash应用开发.png',
                                         'style': {
                                             'width': 275,
                                             'height': 325,
-                                            'objectFit': 'cover'
-                                        }
+                                            'objectFit': 'cover',
+                                        },
                                     },
                                     hoverable=True,
-                                    bodyStyle={
-                                        'padding': 0
-                                    }
+                                    bodyStyle={'padding': 0},
                                 ),
                                 href='https://mp.weixin.qq.com/s/BvGJT7DPHP2dYExZgifgiw',
-                                target='_blank'
+                                target='_blank',
                             ),
-
                             html.A(
                                 fac.AntdCard(
                                     title='Dash应用页面整体布局技巧',
                                     coverImg={
-                                        'src': 'assets/imgs/getting-started配图/cover_Dash应用页面整体布局技巧.png',
+                                        'src': 'assets/imgs/getting_started/cover_Dash应用页面整体布局技巧.png',
                                         'style': {
                                             'width': 275,
                                             'height': 325,
-                                            'objectFit': 'cover'
-                                        }
+                                            'objectFit': 'cover',
+                                        },
                                     },
                                     hoverable=True,
-                                    bodyStyle={
-                                        'padding': 0
-                                    }
+                                    bodyStyle={'padding': 0},
                                 ),
                                 href='https://mp.weixin.qq.com/s/6Ee1FpCyjlHU4W3JjoL8sQ',
-                                target='_blank'
+                                target='_blank',
                             ),
-
                             html.A(
                                 fac.AntdCard(
                                     title=fac.AntdText(
                                         '在Dash应用中更灵活地编写回调函数',
-                                        style={
-                                            'fontSize': '13px'
-                                        }
+                                        style={'fontSize': '13px'},
                                     ),
                                     coverImg={
-                                        'src': 'assets/imgs/getting-started配图/cover_在Dash应用中更灵活地编写回调函数.png',
+                                        'src': 'assets/imgs/getting_started/cover_在Dash应用中更灵活地编写回调函数.png',
                                         'style': {
                                             'width': 275,
                                             'height': 325,
-                                            'objectFit': 'cover'
-                                        }
+                                            'objectFit': 'cover',
+                                        },
                                     },
                                     hoverable=True,
-                                    bodyStyle={
-                                        'padding': 0
-                                    },
-                                    style={
-                                        'width': 275
-                                    }
+                                    bodyStyle={'padding': 0},
+                                    style={'width': 275},
                                 ),
                                 href='https://mp.weixin.qq.com/s/IJGeAz5V8jqrtoVm3vHcUw',
-                                target='_blank'
+                                target='_blank',
                             ),
-
                             html.A(
                                 fac.AntdCard(
                                     title=fac.AntdText(
                                         'Dash应用浏览器端回调常用方法总结',
-                                        style={
-                                            'fontSize': '13px'
-                                        }
+                                        style={'fontSize': '13px'},
                                     ),
                                     coverImg={
-                                        'src': 'assets/imgs/getting-started配图/cover_Dash应用浏览器端回调常用方法总结.jpg',
+                                        'src': 'assets/imgs/getting_started/cover_Dash应用浏览器端回调常用方法总结.jpg',
                                         'style': {
                                             'width': 275,
                                             'height': 325,
-                                            'objectFit': 'cover'
-                                        }
+                                            'objectFit': 'cover',
+                                        },
                                     },
                                     hoverable=True,
-                                    bodyStyle={
-                                        'padding': 0
-                                    },
-                                    style={
-                                        'width': 275
-                                    }
+                                    bodyStyle={'padding': 0},
+                                    style={'width': 275},
                                 ),
                                 href='https://mp.weixin.qq.com/s/WjhrxBuS_xL-kBkBEK2GCg',
-                                target='_blank'
-                            )
+                                target='_blank',
+                            ),
                         ],
                         size='large',
-                        wrap=True
+                        wrap=True,
                     ),
-
-                    fac.AntdDivider(
-                        isDashed=True
-                    ),
-
+                    fac.AntdDivider(isDashed=True),
                     fac.AntdTitle(
-                        '更多dash专业知识',
-                        id='更多dash专业知识',
-                        level=3
+                        '更多dash专业知识', id='更多dash专业知识', level=3
                     ),
-
                     fac.AntdParagraph(
                         [
-                            fac.AntdText(
-                                'fac',
-                                strong=True
-                            ),
+                            fac.AntdText('fac', strong=True),
                             '中有将近100种具有不同功能特点的组件，你可以通过左侧菜单栏浏览它们各自的文档说明和使用示例，从而组合构建出具有任意功能的',
-                            fac.AntdText(
-                                'dash',
-                                strong=True
-                            ),
-                            '应用✨。'
+                            fac.AntdText('dash', strong=True),
+                            '应用✨。',
                         ],
-                        style={
-                            'textIndent': '2rem'
-                        }
+                        style={'textIndent': '2rem'},
                     ),
-
                     fac.AntdParagraph(
                         [
                             '同时我也在持续运营名为',
-                            fac.AntdText(
-                                '玩转dash',
-                                italic=True
-                            ),
+                            fac.AntdText('玩转dash', italic=True),
                             '的知识星球学习社区，目前已经更新了数套系统性的',
-                            fac.AntdText(
-                                'dash',
-                                strong=True
-                            ),
+                            fac.AntdText('dash', strong=True),
                             '应用开发教程，以及围绕',
-                            fac.AntdText(
-                                'dash',
-                                strong=True
-                            ),
+                            fac.AntdText('dash', strong=True),
                             '应用开发相关的各种前沿知识和使用技巧，是国内最专业的',
-                            fac.AntdText(
-                                'dash',
-                                strong=True
-                            ),
-                            '应用知识社区，如果你对此感兴趣，欢迎扫描下方二维码加入我的学习社区：'
+                            fac.AntdText('dash', strong=True),
+                            '应用知识社区，如果你对此感兴趣，欢迎扫描下方二维码加入我的学习社区：',
                         ],
-                        style={
-                            'textIndent': '2rem'
-                        }
+                        style={'textIndent': '2rem'},
                     ),
-
                     html.Div(
                         fac.AntdImage(
-                            src='assets/imgs/玩转dash星球二维码.jpg',
-                            style={
-                                'height': 450
-                            }
+                            src='assets/imgs/index/玩转dash星球二维码.jpg',
+                            style={'height': 450},
                         ),
-                        style={
-                            'textAlign': 'center'
-                        }
-                    )
+                        style={'textAlign': 'center'},
+                    ),
                 ],
-                style={
-                    'flex': 'auto'
-                }
+                style={'flex': 'auto'},
             ),
-
             html.Div(
                 fac.AntdAnchor(
                     linkDict=[
                         {'title': '环境搭建', 'href': '#环境搭建'},
                         {'title': '构建示例应用', 'href': '#构建示例应用'},
                         {'title': '拓展阅读', 'href': '#拓展阅读'},
-                        {'title': '更多dash专业知识', 'href': '#更多dash专业知识'}
+                        {
+                            'title': '更多dash专业知识',
+                            'href': '#更多dash专业知识',
+                        },
                     ],
-                    offsetTop=0
+                    offsetTop=65,
                 ),
-                style={
-                    'flex': 'none'
-                }
-            )
+                style={'flex': 'none'},
+            ),
         ],
-        style={
-            'display': 'flex',
-            'padding': 25
-        }
+        style={'display': 'flex', 'padding': 25},
     )
