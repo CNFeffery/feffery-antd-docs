@@ -45,10 +45,10 @@ class AppConfig:
     doc_gitee_library_repo = 'https://gitee.com/cnfeffery/feffery-antd-docs'
 
     # 文档仓库分支名称
-    doc_library_branch = 'fac0.3.x'
+    doc_library_branch = 'main'
 
     # 当前应用是否为正式发布模式
-    is_release = False
+    is_release = True
 
     # 文档贡献者信息
     doc_contributors = json.load(open('./public/contributors.json'))
