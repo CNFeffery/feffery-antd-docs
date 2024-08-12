@@ -60,21 +60,6 @@ def render() -> Component:
                         fac.AntdButton('气泡确认测试'), title='气泡确认测试'
                     ),
                     fac.AntdSelect(placeholder='下拉选择测试', options=[]),
-                    fac.AntdTable(
-                        columns=[
-                            {'title': '表格测试', 'dataIndex': '表格测试'}
-                        ],
-                        bordered=True,
-                        style={'width': 300},
-                    ),
-                    fac.AntdTable(
-                        columns=[
-                            {'title': '表格测试', 'dataIndex': '表格测试'}
-                        ],
-                        data=[{'表格测试': 999}],
-                        bordered=True,
-                        style={'width': 300},
-                    ),
                     fac.AntdTimePicker(),
                     fac.AntdTimeRangePicker(),
                     fac.AntdTransfer(dataSource=[], style={'width': 500}),
@@ -161,21 +146,6 @@ code_string = [
                     fac.AntdButton('气泡确认测试'), title='气泡确认测试'
                 ),
                 fac.AntdSelect(placeholder='下拉选择测试', options=[]),
-                fac.AntdTable(
-                    columns=[
-                        {'title': '表格测试', 'dataIndex': '表格测试'}
-                    ],
-                    bordered=True,
-                    style={'width': 300},
-                ),
-                fac.AntdTable(
-                    columns=[
-                        {'title': '表格测试', 'dataIndex': '表格测试'}
-                    ],
-                    data=[{'表格测试': 999}],
-                    bordered=True,
-                    style={'width': 300},
-                ),
                 fac.AntdTimePicker(),
                 fac.AntdTimeRangePicker(),
                 fac.AntdTransfer(dataSource=[], style={'width': 500}),
