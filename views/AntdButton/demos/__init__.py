@@ -18,6 +18,7 @@ from . import (
     auto_insert_space,  # noqa: F401
     button_loading,  # noqa: F401
     auto_spin,  # noqa: F401
+    motion_type,  # noqa: F401
     basic_callbacks,  # noqa: F401
     auto_spin_callback,  # noqa: F401
 )
@@ -146,6 +147,17 @@ demos_config = [
                 '设置参数',
                 fac.AntdText('autoSpin', code=True),
                 '控制按钮是否在每次被点击后自动进入加载中状态。',
+            ]
+        ),
+    },
+    {
+        'path': 'motion_type',
+        'title': '特殊交互动效',
+        'description': fac.AntdParagraph(
+            [
+                '设置参数',
+                fac.AntdText('motionType="happy-work"', code=True),
+                '为按钮点击交互行为开启特殊交互动效。',
             ]
         ),
     },
