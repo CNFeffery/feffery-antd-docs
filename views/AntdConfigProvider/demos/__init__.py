@@ -11,6 +11,7 @@ from . import (
     locale,  # noqa: F401
     algorithm,  # noqa: F401
     waves_disabled,  # noqa: F401
+    use_old_theme,  # noqa: F401
 )
 from config import AppConfig
 
@@ -92,6 +93,21 @@ demos_config = [
                 '内部相关元素的水波纹交互动效进行禁用，典型如',
                 fac.AntdText('AntdButton', strong=True),
                 '。',
+            ]
+        ),
+    },
+    {
+        'path': 'use_old_theme',
+        'title': '使用旧版主题样式',
+        'description': fac.AntdParagraph(
+            [
+                '通过参数',
+                fac.AntdText('useOldTheme', code=True),
+                '对',
+                fac.AntdText('AntdConfigProvider', strong=True),
+                '内部相关元素应用内置的',
+                fac.AntdText('fac<0.3.0', code=True),
+                '旧版本主题样式算法。',
             ]
         ),
     },
