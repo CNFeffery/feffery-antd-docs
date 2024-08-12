@@ -155,14 +155,9 @@ def render(component: Component) -> Component:
                                 ),
                                 fac.AntdTooltip(
                                     dcc.Link(
-                                        html.Img(
-                                            src='/assets/imgs/gitee-logo.svg',
-                                            width=18,
-                                            height=18,
-                                            style={
-                                                'display': 'block',
-                                                'transform': 'translate(-0.05em, 0.05em)',
-                                            },
+                                        fac.AntdIcon(
+                                            icon='si-gitee',
+                                            style={'verticalAlign': '-0.3em'},
                                         ),
                                         href='{}/blob/{}/views/{}/demos/{}.py'.format(
                                             AppConfig.doc_gitee_library_repo,
@@ -171,7 +166,7 @@ def render(component: Component) -> Component:
                                             item['path'],
                                         ),
                                         target='_blank',
-                                        className='demo-operations-img',
+                                        className='demo-operations-icon',
                                     ),
                                     title='在Gitee中查看完整代码',
                                 ),
