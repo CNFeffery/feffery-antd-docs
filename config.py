@@ -1376,6 +1376,7 @@ class AppConfig:
         '/AntdTable-basic': ['数据展示', '/AntdTable'],
         '/AntdTable-advanced': ['数据展示', '/AntdTable'],
         '/AntdTable-server-side-mode': ['数据展示', '/AntdTable'],
+        '/AntdTable-rerender': ['数据展示', '/AntdTable'],
         '/AntdTabs': ['数据展示'],
         '/AntdTag': ['数据展示'],
         '/AntdTimeline': ['数据展示'],
