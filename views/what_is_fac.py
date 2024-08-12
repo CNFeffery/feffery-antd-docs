@@ -144,7 +144,7 @@ def render() -> Component:
                                                 ),
                                                 html.Div(
                                                     fac.AntdText(
-                                                        '基于Dash框架，只需编写Python\n即可完成应用开发全过程',
+                                                        '基于Dash框架，只需编写Python\n即可完成企业级应用开发全过程',
                                                         style={
                                                             'color': '#697b8c',
                                                             'whiteSpace': 'pre',
