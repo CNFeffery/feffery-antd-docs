@@ -102,8 +102,3 @@ def upload():
     filename = request.files['file'].filename
 
     return {'filename': filename}
-
-@app.server.route('/tencent16147451910431238971.txt')
-def fuck_tencent():
-
-    return '11483620902208603177'

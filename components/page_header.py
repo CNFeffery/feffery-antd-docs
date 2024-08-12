@@ -49,23 +49,28 @@ def render():
                             size=4,
                             align='end',
                         ),
-                        fac.AntdParagraph(
-                            [
-                                fac.AntdText(
-                                    'Ctrl',
-                                    keyboard=True,
-                                    style={'color': '#8c8c8c'},
-                                ),
-                                fac.AntdText(
-                                    'K',
-                                    keyboard=True,
-                                    style={'color': '#8c8c8c'},
-                                ),
-                                fac.AntdText(
-                                    '唤出搜索面板', style={'color': '#8c8c8c'}
-                                ),
-                            ],
-                            style={'margin': '0 0 0 16px'},
+                        html.Div(
+                            fac.AntdParagraph(
+                                [
+                                    fac.AntdText(
+                                        'Ctrl',
+                                        keyboard=True,
+                                        style={'color': '#8c8c8c'},
+                                    ),
+                                    fac.AntdText(
+                                        'K',
+                                        keyboard=True,
+                                        style={'color': '#8c8c8c'},
+                                    ),
+                                    fac.AntdText(
+                                        '唤出搜索面板',
+                                        style={'color': '#8c8c8c'},
+                                    ),
+                                ],
+                                style={'margin': '0 0 0 16px'},
+                            ),
+                            id='open-global-search-panel',
+                            style={'cursor': 'pointer'},
                         ),
                     ],
                     style={'height': '100%'},

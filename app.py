@@ -153,6 +153,7 @@ def root_router(pathname, trigger, search):
             ),
             # 注入快捷搜索面板
             fuc.FefferyShortcutPanel(
+                id='global-search-panel',
                 placeholder='输入你想要搜索的组件...',
                 data=generate_shortcut_panel_data(AppConfig.side_menu_items),
                 panelStyles={'accentColor': '#1890ff', 'zIndex': 99999},
@@ -404,6 +405,14 @@ app.clientside_callback(
         window.location.hash = '';
     }""",
     Input('doc-layout-back-top', 'nClicks'),
+)
+
+app.clientside_callback(
+    # 控制点击触发的搜索面板展开
+    '(n_clicks) => true',
+    Output('global-search-panel', 'open'),
+    Input('open-global-search-panel', 'n_clicks'),
+    prevent_initial_call=True,
 )
 
 if __name__ == '__main__':
