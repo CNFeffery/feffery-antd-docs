@@ -10,6 +10,7 @@ from . import (
     size,  # noqa: F401
     locale,  # noqa: F401
     algorithm,  # noqa: F401
+    waves_disabled,  # noqa: F401
 )
 from config import AppConfig
 
@@ -76,6 +77,21 @@ demos_config = [
                 '对',
                 fac.AntdText('AntdConfigProvider', strong=True),
                 '内部相关元素应用内置的主题样式算法。',
+            ]
+        ),
+    },
+    {
+        'path': 'waves_disabled',
+        'title': '禁用水波纹动效',
+        'description': fac.AntdParagraph(
+            [
+                '设置参数',
+                fac.AntdText('wavesDisabled=True', code=True),
+                '对',
+                fac.AntdText('AntdConfigProvider', strong=True),
+                '内部相关元素的水波纹交互动效进行禁用，典型如',
+                fac.AntdText('AntdButton', strong=True),
+                '。',
             ]
         ),
     },
