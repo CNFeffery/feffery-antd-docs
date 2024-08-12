@@ -9,6 +9,7 @@ from . import (
     disabled,  # noqa: F401
     size,  # noqa: F401
     locale,  # noqa: F401
+    algorithm,  # noqa: F401
 )
 from config import AppConfig
 
@@ -62,6 +63,19 @@ demos_config = [
                 '对',
                 fac.AntdText('AntdConfigProvider', strong=True),
                 '内部相关元素的国际化语种进行快捷切换。',
+            ]
+        ),
+    },
+    {
+        'path': 'algorithm',
+        'title': '使用主题样式算法',
+        'description': fac.AntdParagraph(
+            [
+                '通过参数',
+                fac.AntdText('algorithm', code=True),
+                '对',
+                fac.AntdText('AntdConfigProvider', strong=True),
+                '内部相关元素应用内置的主题样式算法。',
             ]
         ),
     },

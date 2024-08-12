@@ -11,20 +11,35 @@ def render() -> Component:
     demo_contents = [
         fac.AntdFormItem(
             fac.AntdRadioGroup(
-                id='config-provider-locale',
+                id='config-provider-algorithm',
                 options=[
-                    {'label': locale, 'value': locale}
-                    for locale in ['zh-cn', 'en-us']
+                    {'label': algorithm, 'value': algorithm}
+                    for algorithm in ['default', 'dark', 'compact']
                 ],
                 optionType='button',
-                defaultValue='zh-cn',
+                defaultValue='default',
             ),
-            label='locale',
+            label='algorithm',
         ),
         fac.AntdDivider(isDashed=True),
         fac.AntdConfigProvider(
             fac.AntdSpace(
                 [
+                    fac.AntdTable(
+                        columns=[
+                            {'title': '表格测试', 'dataIndex': '表格测试'}
+                        ],
+                        bordered=True,
+                        style={'width': 300},
+                    ),
+                    fac.AntdTable(
+                        columns=[
+                            {'title': '表格测试', 'dataIndex': '表格测试'}
+                        ],
+                        data=[{'表格测试': 999}],
+                        bordered=True,
+                        style={'width': 300},
+                    ),
                     fac.AntdCalendar(
                         defaultValue='2023-01-01', style={'width': '300px'}
                     ),
@@ -71,8 +86,8 @@ def render() -> Component:
                 direction='vertical',
                 style={'width': '100%'},
             ),
-            id='config-provider-locale-demo',
-            locale='zh-cn',
+            id='config-provider-algorithm-demo',
+            algorithm='default',
         ),
     ]
 
@@ -81,10 +96,11 @@ def render() -> Component:
 
 app.clientside_callback(
     '(value) => value',
-    Output('config-provider-locale-demo', 'locale'),
-    Input('config-provider-locale', 'value'),
+    Output('config-provider-algorithm-demo', 'algorithm'),
+    Input('config-provider-algorithm', 'value'),
     prevent_initial_call=True,
 )
+
 
 code_string = [
     {
@@ -92,20 +108,35 @@ code_string = [
 [
     fac.AntdFormItem(
         fac.AntdRadioGroup(
-            id='config-provider-locale',
+            id='config-provider-algorithm',
             options=[
-                {'label': locale, 'value': locale}
-                for locale in ['zh-cn', 'en-us']
+                {'label': algorithm, 'value': algorithm}
+                for algorithm in ['default', 'dark', 'compact']
             ],
             optionType='button',
-            defaultValue='zh-cn',
+            defaultValue='default',
         ),
-        label='locale',
+        label='algorithm',
     ),
     fac.AntdDivider(isDashed=True),
     fac.AntdConfigProvider(
         fac.AntdSpace(
             [
+                fac.AntdTable(
+                    columns=[
+                        {'title': '表格测试', 'dataIndex': '表格测试'}
+                    ],
+                    bordered=True,
+                    style={'width': 300},
+                ),
+                fac.AntdTable(
+                    columns=[
+                        {'title': '表格测试', 'dataIndex': '表格测试'}
+                    ],
+                    data=[{'表格测试': 999}],
+                    bordered=True,
+                    style={'width': 300},
+                ),
                 fac.AntdCalendar(
                     defaultValue='2023-01-01', style={'width': '300px'}
                 ),
@@ -152,8 +183,8 @@ code_string = [
             direction='vertical',
             style={'width': '100%'},
         ),
-        id='config-provider-locale-demo',
-        locale='zh-cn',
+        id='config-provider-algorithm-demo',
+        algorithm='default',
     ),
 ]
 
@@ -161,8 +192,8 @@ code_string = [
 
 app.clientside_callback(
     '(value) => value',
-    Output('config-provider-locale-demo', 'locale'),
-    Input('config-provider-locale', 'value'),
+    Output('config-provider-algorithm-demo', 'algorithm'),
+    Input('config-provider-algorithm', 'value'),
     prevent_initial_call=True,
 )
 """
