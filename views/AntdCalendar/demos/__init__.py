@@ -4,6 +4,7 @@ from dash.dependencies import Component
 from . import (
     basic_usage,  # noqa: F401
     calendar_size,  # noqa: F401
+    custom_cells,  # noqa: F401
     basic_callbacks,  # noqa: F401
 )
 from components import demos_render
@@ -22,6 +23,17 @@ demos_config = [
                 '设置参数',
                 fac.AntdText('size', code=True),
                 '调整日历的尺寸规格。',
+            ]
+        ),
+    },
+    {
+        'path': 'custom_cells',
+        'title': '自定义单元格内容',
+        'description': fac.AntdParagraph(
+            [
+                '通过参数',
+                fac.AntdText('customCells', code=True),
+                '为指定模式下的指定日期单元格添加自定义内容。',
             ]
         ),
     },
