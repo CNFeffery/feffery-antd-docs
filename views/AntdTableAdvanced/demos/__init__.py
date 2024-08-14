@@ -166,7 +166,7 @@ demos_config = [
     },
     {
         'path': 'filter_default_filtered_values',
-        'title': '行选择：默认选中项',
+        'title': '字段筛选：默认选中项',
         'description': fac.AntdParagraph('为字段筛选功能设置默认选中项。'),
     },
     {
