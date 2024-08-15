@@ -25,7 +25,7 @@ def render() -> Component:
                 style={'backgroundColor': 'rgb(240, 242, 245)'},
             ),
         ],
-        style={'height': 500},
+        style={'height': '100vh'},
     )
 
     return demo_contents
@@ -53,7 +53,7 @@ fac.AntdLayout(
             style={'backgroundColor': 'rgb(240, 242, 245)'},
         ),
     ],
-    style={'height': 500},
+    style={'height': '100vh'},
 )
 """
     }

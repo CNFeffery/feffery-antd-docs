@@ -22,11 +22,15 @@ demos_config = [
                 '包裹嵌套其他经典布局组件，从而构建出常用的各种经典页面布局方案。',
             ]
         ),
+        'iframe': True,
+        'query': {'padding': 'no'},
     },
     {
         'path': 'right_sider',
         'title': '右侧侧边栏',
         'description': fac.AntdParagraph('侧边栏方位可调整。'),
+        'iframe': True,
+        'query': {'padding': 'no'},
     },
     {
         'path': 'collapsible_sider',
@@ -41,7 +45,7 @@ demos_config = [
             ]
         ),
         'iframe': True,
-        'no_padding': True,
+        'query': {'padding': 'no'},
     },
     {
         'path': 'responsive_collapsible_sider',
@@ -50,7 +54,7 @@ demos_config = [
             '侧边栏可以指定屏幕宽度断点为阈值进行自动折叠及展开。'
         ),
         'iframe': True,
-        'no_padding': True,
+        'query': {'padding': 'no'},
     },
     {
         'path': 'collapsible_sider_with_menu',
@@ -59,7 +63,7 @@ demos_config = [
             '侧边栏折叠可联动内部的导航菜单组件。'
         ),
         'iframe': True,
-        'no_padding': True,
+        'query': {'padding': 'no'},
     },
     {
         'path': 'collapsible_sider_custom_trigger',
@@ -72,7 +76,7 @@ demos_config = [
             ]
         ),
         'iframe': True,
-        'no_padding': True,
+        'query': {'padding': 'no'},
     },
 ]
 

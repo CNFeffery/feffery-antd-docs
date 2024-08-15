@@ -69,9 +69,10 @@ def render() -> Component:
                         ]
                     ),
                 ],
-                style={'height': '536px'},
+                style={'height': '100%'},
             ),
-        ]
+        ],
+        style={'height': '100vh'},
     )
 
     return demo_contents
@@ -143,9 +144,10 @@ fac.AntdLayout(
                     ]
                 ),
             ],
-            style={'height': '536px'},
+            style={'height': '100%'},
         ),
-    ]
+    ],
+    style={'height': '100vh'},
 )
 """
     }
