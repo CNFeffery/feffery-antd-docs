@@ -57,6 +57,7 @@ demos_config = [
     },
     {
         'path': 'top_notice',
+        'query': {'padding': 'no'},
         'title': '顶部公告',
         'description': fac.AntdParagraph('页面顶部通告形式。'),
         'iframe': True,

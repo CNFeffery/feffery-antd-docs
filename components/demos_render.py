@@ -26,8 +26,23 @@ def render(
                                     # 懒加载优化
                                     fuc.FefferyLazyLoad(
                                         html.Iframe(
-                                            src='/~demo/{}/{}'.format(
-                                                component.__name__, item['path']
+                                            src='/~demo/{}/{}{}'.format(
+                                                component.__name__,
+                                                item['path'],
+                                                '?'
+                                                + '&'.join(
+                                                    [
+                                                        '{}={}'.format(k, v)
+                                                        for k, v in item.get(
+                                                            'query'
+                                                        ).items()
+                                                    ]
+                                                )
+                                                if item.get('query')
+                                                and isinstance(
+                                                    item.get('query'), dict
+                                                )
+                                                else '',
                                             ),
                                             style={
                                                 'border': '1px solid #f0f0f0',
@@ -92,9 +107,23 @@ def render(
                                 fac.AntdTooltip(
                                     dcc.Link(
                                         fac.AntdIcon(icon='antd-export'),
-                                        href='/~demo/{}/{}'.format(
+                                        href='/~demo/{}/{}{}'.format(
                                             section_name or component.__name__,
                                             item['path'],
+                                            '?'
+                                            + '&'.join(
+                                                [
+                                                    '{}={}'.format(k, v)
+                                                    for k, v in item.get(
+                                                        'query'
+                                                    ).items()
+                                                ]
+                                            )
+                                            if item.get('query')
+                                            and isinstance(
+                                                item.get('query'), dict
+                                            )
+                                            else '',
                                         ),
                                         target='_blank',
                                         className='demo-operations-icon',
