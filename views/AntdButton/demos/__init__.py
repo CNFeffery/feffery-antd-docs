@@ -16,6 +16,7 @@ from . import (
     button_loading,  # noqa: F401
     auto_spin,  # noqa: F401
     motion_type,  # noqa: F401
+    click_execute_js,  # noqa: F401
     basic_callbacks,  # noqa: F401
     auto_spin_callback,  # noqa: F401
 )
@@ -155,6 +156,19 @@ demos_config = [
                 '设置参数',
                 fac.AntdText('motionType="happy-work"', code=True),
                 '为按钮点击交互行为开启特殊交互动效。',
+            ]
+        ),
+    },
+    {
+        'path': 'click_execute_js',
+        'title': '点击直接执行js',
+        'description': fac.AntdParagraph(
+            [
+                '通过参数',
+                fac.AntdText('clickExecuteJsString', code=True),
+                '为按钮设置每次点击后直接触发的',
+                fac.AntdText('javascript', strong=True),
+                '代码，从而在简单场景下省略编写回调函数。',
             ]
         ),
     },
