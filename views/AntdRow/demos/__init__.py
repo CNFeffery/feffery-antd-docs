@@ -1,3 +1,4 @@
+from dash import dcc
 import feffery_antd_components as fac
 from dash.dependencies import Component
 
@@ -8,6 +9,7 @@ from . import (
     align,  # noqa: F401
     flex,  # noqa: F401
     responsive_gutter,  # noqa: F401
+    with_resizable,  # noqa: F401
 )
 from components import demos_render
 
@@ -61,6 +63,21 @@ demos_config = [
                 '设置不同屏幕宽度断点下的',
                 fac.AntdText('gutter', code=True),
                 '值。',
+            ]
+        ),
+    },
+    {
+        'path': 'with_resizable',
+        'title': '尺寸可调整',
+        'description': fac.AntdParagraph(
+            [
+                '配合',
+                dcc.Link(
+                    'fuc.FefferyResizable',
+                    href='https://fuc.feffery.tech/FefferyResizable',
+                    target='_blank',
+                ),
+                '实现两侧宽度可调整。',
             ]
         ),
     },
