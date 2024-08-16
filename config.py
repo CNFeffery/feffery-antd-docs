@@ -1292,6 +1292,27 @@ class AppConfig:
                 },
             ],
         },
+        {
+            'component': 'ItemGroup',
+            'props': {'key': '更新日志', 'title': '更新日志'},
+            'children': [
+                {
+                    'component': 'SubMenu',
+                    'props': {'key': '0.3.x版本', 'title': '0.3.x版本'},
+                    'children': [
+                        {
+                            'component': 'Item',
+                            'props': {
+                                'key': '/changelog-0.3.1',
+                                'name': '/changelog-0.3.1',
+                                'title': '0.3.1版本',
+                                'href': '/changelog-0.3.1',
+                            },
+                        },
+                    ],
+                }
+            ],
+        },
     ]
 
     # 侧边菜单栏key值 -> 展开项节点key值数组

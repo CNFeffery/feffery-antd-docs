@@ -1,3 +1,4 @@
+import os
 import dash
 import time
 import uuid
@@ -9,7 +10,7 @@ from dash.dependencies import Input, Output, State, MATCH, ClientsideFunction
 
 import views
 from server import app, server  # noqa: F401
-from components import page_header, side_menu
+from components import page_header, side_menu, changelog_render
 from config import AppConfig
 from utils import generate_shortcut_panel_data
 import views.AntdTableServerSideMode
@@ -243,6 +244,13 @@ def doc_layout_router(pathname):
             doc_layout = views.AntdTableServerSideMode.render()
         elif pathname == '/AntdTable-rerender':
             doc_layout = views.AntdTableRerender.render()
+
+    elif pathname.startswith('/changelog'):
+        # 尝试提取命中的版本号
+        match_version = pathname.split('-')[-1]
+        # 检查提取的版本号对应更新日志是否存在
+        if match_version + '.md' in os.listdir('changelogs'):
+            doc_layout = changelog_render.render(version=match_version)
 
     # 提取当前views下合法格式页面模块
     valid_views = [
