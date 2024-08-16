@@ -10,6 +10,7 @@ from . import (
     read_only_status,  # noqa: F401
     color_block_position,  # noqa: F401
     basic_callbacks,  # noqa: F401
+    color_block_click_event,  # noqa: F401
 )
 from components import demos_render
 
@@ -89,6 +90,17 @@ demos_config = [
         'path': 'basic_callbacks',
         'title': '回调监听',
         'description': fac.AntdParagraph('可用于监听当前的各分段断点值。'),
+    },
+    {
+        'path': 'color_block_click_event',
+        'title': '监听色块点击事件',
+        'description': fac.AntdParagraph(
+            [
+                '通过监听属性',
+                fac.AntdText('colorBlockClickEvent', code=True),
+                '变化来获取色块点击事件。',
+            ]
+        ),
     },
 ]
 
