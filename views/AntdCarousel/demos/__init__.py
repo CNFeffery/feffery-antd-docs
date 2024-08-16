@@ -9,6 +9,8 @@ from . import (
     fade_effect,  # noqa: F401
     transition_speed,  # noqa: F401
     show_arrows,  # noqa: F401
+    slides_to_show,  # noqa: F401
+    slides_to_scroll,  # noqa: F401
 )
 from components import demos_render
 
@@ -81,6 +83,28 @@ demos_config = [
                 '设置参数',
                 fac.AntdText('arrows=True', code=True),
                 '开启额外的切换用箭头。',
+            ]
+        ),
+    },
+    {
+        'path': 'slides_to_show',
+        'title': '同时展示的子项数量',
+        'description': fac.AntdParagraph(
+            [
+                '通过参数',
+                fac.AntdText('slidesToShow', code=True),
+                '控制同时展示的子项数量。',
+            ]
+        ),
+    },
+    {
+        'path': 'slides_to_scroll',
+        'title': '轮播划过的子项数量',
+        'description': fac.AntdParagraph(
+            [
+                '通过参数',
+                fac.AntdText('slidesToScroll', code=True),
+                '控制每次轮播划过的子项数量。',
             ]
         ),
     },
