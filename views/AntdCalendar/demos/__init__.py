@@ -6,6 +6,7 @@ from . import (
     calendar_size,  # noqa: F401
     custom_cells,  # noqa: F401
     basic_callbacks,  # noqa: F401
+    cell_click_event,  # noqa: F401
 )
 from components import demos_render
 
@@ -41,6 +42,17 @@ demos_config = [
         'path': 'basic_callbacks',
         'title': '回调监听',
         'description': fac.AntdParagraph('用于监听日历的点击事件。'),
+    },
+    {
+        'path': 'cell_click_event',
+        'title': '监听日期单元格点击事件',
+        'description': fac.AntdParagraph(
+            [
+                '通过监听属性',
+                fac.AntdText('cellClickEvent', code=True),
+                '变化来获取日期单元格的点击事件。',
+            ]
+        ),
     },
 ]
 
