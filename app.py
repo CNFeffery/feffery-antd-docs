@@ -1,3 +1,4 @@
+import re
 import os
 import dash
 import time
@@ -288,6 +289,13 @@ def update_side_menu_state(pathname):
 
     if AppConfig.side_menu_expand_keys.get(pathname):
         return [AppConfig.side_menu_expand_keys[pathname], pathname]
+
+    elif pathname.startswith('/changelog-'):
+        # 尝试提取命中的版本号
+        match_version = pathname.split('-')[-1]
+        # 检查提取的版本号对应更新日志是否存在
+        if match_version + '.md' in os.listdir('changelogs'):
+            return [[re.sub('\.\d+$', '', match_version) + '.x版本'], pathname]
 
     return [None, pathname]
 
