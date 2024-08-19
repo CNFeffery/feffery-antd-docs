@@ -65,7 +65,7 @@ app = CustomDash(
     suppress_callback_exceptions=True,
     update_title=None,
     serve_locally=False,
-    extra_hot_reload_paths=['./changelogs'],
+    extra_hot_reload_paths=['./changelogs', './public'],
     compress=True,
     meta_tags=[
         # 移动端显示优化

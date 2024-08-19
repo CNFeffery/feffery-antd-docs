@@ -1,0 +1,551 @@
+{
+    "root_locale": "zh-cn",
+    "contents": {
+        "演示示例不存在，": {
+            "en-us": "This demo does not exist, "
+        },
+        "回到首页": {
+            "en-us": "back to home"
+        },
+        "当前文档网站尚未正式发布，相关文档持续补充建设中。（最近更新时间：{}）": {
+            "en-us": "The documentation site is not yet released. (Latest update time: {})"
+        },
+        "问题反馈": {
+            "en-us": "Bug report"
+        },
+        "输入你想要搜索的组件...": {
+            "en-us": "Input the component you want to search..."
+        },
+        "唤出搜索面板": {
+            "en-us": "Open the search panel"
+        },
+        "English / 中文": {
+            "en-us": "中文 / English"
+        },
+        "0.3.x版本新增组件": {
+            "en-us": "0.3.x version added components"
+        },
+        "实验性质组件": {
+            "en-us": "Experimental components"
+        },
+        "快速入门": {
+            "en-us": "Quick start"
+        },
+        "fac是什么": {
+            "en-us": "What is fac"
+        },
+        "Dash+fac快速上手": {
+            "en-us": "Quick start with Dash+fac"
+        },
+        "组件介绍": {
+            "en-us": "Components introduction"
+        },
+        "通用": {
+            "en-us": "General"
+        },
+        "AntdButton 按钮": {
+            "en-us": "AntdButton"
+        },
+        "AntdFloatButton 悬浮按钮": {
+            "en-us": "AntdFloatButton"
+        },
+        "AntdFloatButtonGroup 悬浮按钮组": {
+            "en-us": "AntdFloatButtonGroup"
+        },
+        "AntdIcon 图标": {
+            "en-us": "AntdIcon"
+        },
+        "排版相关": {
+            "en-us": "Typography"
+        },
+        "AntdParagraph 段落": {
+            "en-us": "AntdParagraph"
+        },
+        "AntdText 文字": {
+            "en-us": "AntdText"
+        },
+        "AntdTitle 标题": {
+            "en-us": "AntdTitle"
+        },
+        "布局": {
+            "en-us": "Layout"
+        },
+        "AntdCenter 居中": {
+            "en-us": "AntdCenter"
+        },
+        "AntdDivider 分割线": {
+            "en-us": "AntdDivider"
+        },
+        "AntdFlex 弹性布局": {
+            "en-us": "AntdFlex"
+        },
+        "网格系统": {
+            "en-us": "Grid system"
+        },
+        "AntdRow 行": {
+            "en-us": "AntdRow"
+        },
+        "AntdCol 列": {
+            "en-us": "AntdCol"
+        },
+        "AntdSpace 排列": {
+            "en-us": "AntdSpace"
+        },
+        "AntdCompact 紧凑排列": {
+            "en-us": "AntdCompact"
+        },
+        "经典布局": {
+            "en-us": "Classic layout"
+        },
+        "AntdLayout 布局容器": {
+            "en-us": "AntdLayout"
+        },
+        "AntdHeader 页首": {
+            "en-us": "AntdHeader"
+        },
+        "AntdContent 内容区": {
+            "en-us": "AntdContent"
+        },
+        "AntdFooter 页尾": {
+            "en-us": "AntdFooter"
+        },
+        "AntdSider 侧边栏": {
+            "en-us": "AntdSider"
+        },
+        "导航": {
+            "en-us": "Navigation"
+        },
+        "AntdAnchor 锚点": {
+            "en-us": "AntdAnchor"
+        },
+        "AntdBreadcrumb 面包屑": {
+            "en-us": "AntdBreadcrumb"
+        },
+        "AntdDropdown 下拉菜单": {
+            "en-us": "AntdDropdown"
+        },
+        "AntdMenu 导航菜单": {
+            "en-us": "AntdMenu"
+        },
+        "AntdPageHeader 页头": {
+            "en-us": "AntdPageHeader"
+        },
+        "AntdPagination 分页": {
+            "en-us": "AntdPagination"
+        },
+        "AntdSteps 步骤条": {
+            "en-us": "AntdSteps"
+        },
+        "数据录入": {
+            "en-us": "Data entry"
+        },
+        "AntdCalendar 日历": {
+            "en-us": "AntdCalendar"
+        },
+        "AntdCascader 级联选择": {
+            "en-us": "AntdCascader"
+        },
+        "AntdCheckbox 选择框": {
+            "en-us": "AntdCheckbox"
+        },
+        "AntdCheckboxGroup 组合选择框": {
+            "en-us": "AntdCheckboxGroup"
+        },
+        "选择卡片": {
+            "en-us": "Check card"
+        },
+        "AntdCheckCard 选择卡片": {
+            "en-us": "AntdCheckCard"
+        },
+        "AntdCheckCardGroup 组合选择卡片": {
+            "en-us": "AntdCheckCardGroup"
+        },
+        "AntdColorPicker 颜色选择": {
+            "en-us": "AntdColorPicker"
+        },
+        "AntdDatePicker 日期选择": {
+            "en-us": "AntdDatePicker"
+        },
+        "AntdDateRangePicker 日期范围选择": {
+            "en-us": "AntdDateRangePicker"
+        },
+        "表单": {
+            "en-us": "Form"
+        },
+        "AntdForm 表单": {
+            "en-us": "AntdForm"
+        },
+        "AntdFormItem 表单项": {
+            "en-us": "AntdFormItem"
+        },
+        "AntdInput 输入框": {
+            "en-us": "AntdInput"
+        },
+        "AntdOTP 一次性密码框": {
+            "en-us": "AntdOTP"
+        },
+        "AntdInputNumber 数值输入框": {
+            "en-us": "AntdInputNumber"
+        },
+        "AntdMentions 提及": {
+            "en-us": "AntdMentions"
+        },
+        "AntdRadioGroup 单选框": {
+            "en-us": "AntdRadioGroup"
+        },
+        "AntdRate 评分": {
+            "en-us": "AntdRate"
+        },
+        "AntdSegmentedColoring 分段着色": {
+            "en-us": "AntdSegmentedColoring"
+        },
+        "AntdSelect 下拉选择": {
+            "en-us": "AntdSelect"
+        },
+        "AntdSlider 滑动输入条": {
+            "en-us": "AntdSlider"
+        },
+        "AntdSwitch 开关": {
+            "en-us": "AntdSwitch"
+        },
+        "AntdTimePicker 时间选择": {
+            "en-us": "AntdTimePicker"
+        },
+        "AntdTimeRangePicker 时间范围选择": {
+            "en-us": "AntdTimeRangePicker"
+        },
+        "AntdTransfer 穿梭框": {
+            "en-us": "AntdTransfer"
+        },
+        "AntdTreeSelect 树选择": {
+            "en-us": "AntdTreeSelect"
+        },
+        "文件上传": {
+            "en-us": "File upload"
+        },
+        "AntdUpload 上传": {
+            "en-us": "AntdUpload"
+        },
+        "AntdDraggerUpload 拖拽上传": {
+            "en-us": "AntdDraggerUpload"
+        },
+        "AntdPictureUpload 图片上传": {
+            "en-us": "AntdPictureUpload"
+        },
+        "数据展示": {
+            "en-us": "Data display"
+        },
+        "AntdAccordion 手风琴": {
+            "en-us": "AntdAccordion"
+        },
+        "AntdAvatar 头像": {
+            "en-us": "AntdAvatar"
+        },
+        "AntdAvatarGroup 头像组合": {
+            "en-us": "AntdAvatarGroup"
+        },
+        "AntdBadge 徽标": {
+            "en-us": "AntdBadge"
+        },
+        "卡片": {
+            "en-us": "Card"
+        },
+        "AntdCard 卡片": {
+            "en-us": "AntdCard"
+        },
+        "AntdCardGrid 卡片网格": {
+            "en-us": "AntdCardGrid"
+        },
+        "AntdCardMeta 结构化卡片": {
+            "en-us": "AntdCardMeta"
+        },
+        "AntdCarousel 走马灯": {
+            "en-us": "AntdCarousel"
+        },
+        "AntdCheckableTag 可选择标签": {
+            "en-us": "AntdCheckableTag"
+        },
+        "AntdCollapse 折叠面板": {
+            "en-us": "AntdCollapse"
+        },
+        "AntdComment 评论": {
+            "en-us": "AntdComment"
+        },
+        "描述列表": {
+            "en-us": "Descriptions"
+        },
+        "AntdDescriptions 描述列表": {
+            "en-us": "AntdDescriptions"
+        },
+        "AntdDescriptionItem 描述列表子项": {
+            "en-us": "AntdDescriptionItem"
+        },
+        "AntdEmpty 空状态": {
+            "en-us": "AntdEmpty"
+        },
+        "AntdImage 图片": {
+            "en-us": "AntdImage"
+        },
+        "AntdImageGroup 图片组合": {
+            "en-us": "AntdImageGroup"
+        },
+        "AntdPopover 气泡卡片": {
+            "en-us": "AntdPopover"
+        },
+        "AntdQRCode 二维码": {
+            "en-us": "AntdQRCode"
+        },
+        "AntdRibbon 缎带": {
+            "en-us": "AntdRibbon"
+        },
+        "AntdSegmented 分段控制器": {
+            "en-us": "AntdSegmented"
+        },
+        "AntdSpoiler 展开收起": {
+            "en-us": "AntdSpoiler"
+        },
+        "AntdStatistic 统计数值": {
+            "en-us": "AntdStatistic"
+        },
+        "AntdCountdown 倒计时": {
+            "en-us": "AntdCountdown"
+        },
+        "AntdTable 表格": {
+            "en-us": "AntdTable"
+        },
+        "基础功能": {
+            "en-us": "Basic usage"
+        },
+        "进阶功能": {
+            "en-us": "Advanced usage"
+        },
+        "服务端数据加载模式": {
+            "en-us": "Server-side data mode"
+        },
+        "再渲染模式": {
+            "en-us": "Re-render mode"
+        },
+        "AntdTabs 标签页": {
+            "en-us": "AntdTabs"
+        },
+        "AntdTag 标签": {
+            "en-us": "AntdTag"
+        },
+        "AntdTimeline 时间轴": {
+            "en-us": "AntdTimeline"
+        },
+        "AntdTooltip 文字提示": {
+            "en-us": "AntdTooltip"
+        },
+        "AntdTree 树形控件": {
+            "en-us": "AntdTree"
+        },
+        "反馈": {
+            "en-us": "Feedback"
+        },
+        "AntdAlert 警告提示": {
+            "en-us": "AntdAlert"
+        },
+        "AntdDrawer 抽屉": {
+            "en-us": "AntdDrawer"
+        },
+        "AntdMessage 全局提示": {
+            "en-us": "AntdMessage"
+        },
+        "AntdModal 对话框": {
+            "en-us": "AntdModal"
+        },
+        "AntdNotification 通知提醒框": {
+            "en-us": "AntdNotification"
+        },
+        "AntdPopconfirm 气泡确认框": {
+            "en-us": "AntdPopconfirm"
+        },
+        "AntdPopupCard 弹出式卡片": {
+            "en-us": "AntdPopupCard"
+        },
+        "AntdProgress 进度条": {
+            "en-us": "AntdProgress"
+        },
+        "AntdResult 结果": {
+            "en-us": "AntdResult"
+        },
+        "骨架屏": {
+            "en-us": "Skeleton"
+        },
+        "AntdSkeleton 骨架屏": {
+            "en-us": "AntdSkeleton"
+        },
+        "AntdCustomSkeleton 自定义骨架屏": {
+            "en-us": "AntdCustomSkeleton"
+        },
+        "AntdSkeletonAvatar 头像占位图": {
+            "en-us": "AntdSkeletonAvatar"
+        },
+        "AntdSkeletonButton 按钮占位图": {
+            "en-us": "AntdSkeletonButton"
+        },
+        "AntdSkeletonInput 输入框占位图": {
+            "en-us": "AntdSkeletonInput"
+        },
+        "AntdSkeletonImage 图片占位图": {
+            "en-us": "AntdSkeletonImage"
+        },
+        "AntdSpin 加载动画": {
+            "en-us": "AntdSpin"
+        },
+        "其他": {
+            "en-us": "Other"
+        },
+        "AntdAffix 固钉": {
+            "en-us": "AntdAffix"
+        },
+        "AntdBackTop 回到顶部": {
+            "en-us": "AntdBackTop"
+        },
+        "AntdCopyText 文本复制": {
+            "en-us": "AntdCopyText"
+        },
+        "AntdTour 漫游式引导": {
+            "en-us": "AntdTour"
+        },
+        "AntdWatermark 水印": {
+            "en-us": "AntdWatermark"
+        },
+        "AntdConfigProvider 参数配置": {
+            "en-us": "AntdConfigProvider"
+        },
+        "Fragment 空节点": {
+            "en-us": "Fragment"
+        },
+        "进阶使用": {
+            "en-us": "Advanced usage"
+        },
+        "进阶className的使用": {
+            "en-us": "Advanced className usage"
+        },
+        "弹出层容器设置": {
+            "en-us": "Popup container setting"
+        },
+        "国际化": {
+            "en-us": "Internationalization"
+        },
+        "属性持久化": {
+            "en-us": "Prop persistence"
+        },
+        "强制刷新组件": {
+            "en-us": "Force refresh component"
+        },
+        "属性批量监听": {
+            "en-us": "Prop batch listening"
+        },
+        "组件按别名导入": {
+            "en-us": "Component import by alias"
+        },
+        "更新日志": {
+            "en-us": "Changelog"
+        },
+        "0.3.x版本": {
+            "en-us": "0.3.x version"
+        },
+        "0.3.1版本": {
+            "en-us": "0.3.1 version"
+        },
+        "您访问的页面不存在或还在建设中": {
+            "en-us": "The page you visited does not exist or is under construction"
+        },
+        "feffery-antd-components: Ant Design在Dash中的最佳实现": {
+            "en-us": "feffery-antd-components: Best implementation of Ant Design in Dash"
+        },
+        "文档最近更新：": {
+            "en-us": "Documentation last updated: "
+        },
+        "简介": {
+            "en-us": "Introduction"
+        },
+        "特性": {
+            "en-us": "Features"
+        },
+        "纯Python开发": {
+            "en-us": "Pure Python development"
+        },
+        "组件种类齐全": {
+            "en-us": "Components of all kinds"
+        },
+        "丰富的表格功能": {
+            "en-us": "Advanced table function"
+        },
+        "强大的树形控件": {
+            "en-us": "Powerful tree control"
+        },
+        "实用的日期选择器": {
+            "en-us": "Useful date picker"
+        },
+        "便捷的表单功能": {
+            "en-us": "Easy form function"
+        },
+        "支持中英双语言": {
+            "en-us": "Support Chinese and English"
+        },
+        "联动更多组件库": {
+            "en-us": "More component libraries"
+        },
+        "基于Dash框架，只需编写Python\n即可完成企业级应用开发全过程": {
+            "en-us": "Based on Dash framework, only need to write Python\nfor enterprise-level application development"
+        },
+        "内置上百种网页功能组件\n满足通用场景需求": {
+            "en-us": "Built in over 100 web page components\nsatisfy common scenario requirements"
+        },
+        "内置功能强大的表格组件": {
+            "en-us": "Built in powerful table component "
+        },
+        "\n充分展示交互表格数据": {
+            "en-us": "\nshow the interaction table data in full"
+        },
+        "内置功能强大的树形控件": {
+            "en-us": "Built in powerful tree control "
+        },
+        "\n树形结构交互展示能力拉满": {
+            "en-us": "\ntree structure interaction display ability fills up"
+        },
+        "内置日期及日期范围选择组件\n": {
+            "en-us": "Built in date and date range selection component\n"
+        },
+        "、": {
+            "en-us": ", "
+        },
+        "\n可灵活配置使用策略": {
+            "en-us": "\nflexible configuration of use strategy"
+        },
+        "基于内置表单整合组件\n": {
+            "en-us": "Based on built-in form integration component\n"
+        },
+        "\n轻松构建整张表单": {
+            "en-us": "\neasily build a form of all kinds"
+        },
+        "内置各组件文案信息支持在\n简体中文与英文之间进行设置切换": {
+            "en-us": "Built in component text information support \nswitching between Chinese and English"
+        },
+        "高效联动feffery-components生态中\n": {
+            "en-us": "Efficiently link feffery-components ecology with\n"
+        },
+        "等组件库，实现更多功能": {
+            "en-us": "\nand more components"
+        },
+        "版本": {
+            "en-us": "Version"
+        },
+        "pypi最新稳定版本：": {
+            "en-us": "The latest stable version of pypi: "
+        },
+        "安装": {
+            "en-us": "Install"
+        },
+        "最新稳定版本：": {
+            "en-us": "The latest stable version: "
+        },
+        "最新预发布版本：": {
+            "en-us": "The latest pre-release version: "
+        }
+    }
+}

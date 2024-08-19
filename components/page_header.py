@@ -5,8 +5,11 @@ import feffery_utils_components as fuc
 
 from config import AppConfig
 
+# 国际化
+from i18n import translator
 
-def render():
+
+def render(locale: str = 'zh-cn'):
     """渲染页首"""
 
     return fac.AntdRow(
@@ -63,7 +66,7 @@ def render():
                                         style={'color': '#8c8c8c'},
                                     ),
                                     fac.AntdText(
-                                        '唤出搜索面板',
+                                        translator.t('唤出搜索面板'),
                                         style={'color': '#8c8c8c'},
                                     ),
                                 ],
@@ -81,6 +84,40 @@ def render():
             fac.AntdCol(
                 fac.AntdSpace(
                     [
+                        fac.AntdTooltip(
+                            fac.AntdButton(
+                                id='global-locale-switch',
+                                icon=fac.AntdIcon(
+                                    icon='md-translate',
+                                    style={
+                                        'fontSize': 18,
+                                        'verticalAlign': '-0.4em',
+                                    },
+                                ),
+                                type='text',
+                                clickExecuteJsString=(
+                                    """
+window.dash_clientside.set_props('global-locale', { value: '%s' })
+window.dash_clientside.set_props('global-reload', { reload: true })
+"""
+                                    % (
+                                        'zh-cn'
+                                        if locale == 'en-us'
+                                        else 'en-us'
+                                    )
+                                ),
+                            ),
+                            placement='bottom',
+                            title=translator.t('English / 中文'),
+                        ),
+                        html.Div(
+                            style={
+                                'width': 1,
+                                'height': 10,
+                                'backgroundColor': '#ccc',
+                                'marginRight': 22,
+                            }
+                        ),
                         html.A(
                             fac.AntdImage(
                                 src='https://img.shields.io/github/stars/{}/{}?style=social'.format(
@@ -105,7 +142,9 @@ def render():
                                 'fontSize': '10px',
                                 'marginLeft': '42px',
                                 'color': '#494f54',
-                                'display': 'block',
+                                'display': (
+                                    'block' if locale == 'zh-cn' else 'none'
+                                ),
                             },
                         ),
                     ],

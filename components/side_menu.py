@@ -3,8 +3,11 @@ import feffery_antd_components as fac
 
 from config import AppConfig
 
+# 国际化
+from i18n import translator
 
-def render():
+
+def render(locale: str = 'zh-cn'):
     """渲染侧边导航菜单"""
 
     return fac.AntdCol(
@@ -14,7 +17,7 @@ def render():
                     html.Div(
                         fac.AntdMenu(
                             id='side-menu',
-                            menuItems=AppConfig.side_menu_items,
+                            menuItems=AppConfig.side_menu_items(),
                             menuItemKeyToTitle={
                                 **{
                                     '/' + value.split(' ')[0]: fac.AntdRow(
@@ -28,7 +31,9 @@ def render():
                                                         ),
                                                         color='green',
                                                     ),
-                                                    title='0.3.x版本新增组件',
+                                                    title=translator.t(
+                                                        '0.3.x版本新增组件'
+                                                    ),
                                                     placement='right',
                                                 )
                                             ),
@@ -37,15 +42,23 @@ def render():
                                         wrap=False,
                                     )
                                     for value in [
-                                        'AntdFloatButton 悬浮按钮',
-                                        'AntdFloatButtonGroup 悬浮按钮组',
-                                        'AntdFlex 弹性布局',
-                                        'AntdColorPicker 颜色选择',
-                                        'AntdCheckableTag 可选择标签',
-                                        'AntdImageGroup 图片组合',
-                                        'AntdQRCode 二维码',
-                                        'AntdTour 漫游式引导',
-                                        'Fragment 空节点',
+                                        translator.t(
+                                            'AntdFloatButton 悬浮按钮'
+                                        ),
+                                        translator.t(
+                                            'AntdFloatButtonGroup 悬浮按钮组'
+                                        ),
+                                        translator.t('AntdFlex 弹性布局'),
+                                        translator.t(
+                                            'AntdColorPicker 颜色选择'
+                                        ),
+                                        translator.t(
+                                            'AntdCheckableTag 可选择标签'
+                                        ),
+                                        translator.t('AntdImageGroup 图片组合'),
+                                        translator.t('AntdQRCode 二维码'),
+                                        translator.t('AntdTour 漫游式引导'),
+                                        translator.t('Fragment 空节点'),
                                     ]
                                 },
                                 **{
@@ -60,7 +73,9 @@ def render():
                                                         ),
                                                         color='blue',
                                                     ),
-                                                    title='实验性质组件',
+                                                    title=translator.t(
+                                                        '实验性质组件'
+                                                    ),
                                                     placement='right',
                                                 )
                                             ),

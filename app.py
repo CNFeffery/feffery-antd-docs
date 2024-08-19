@@ -3,6 +3,7 @@ import os
 import dash
 import time
 import uuid
+from flask import request
 from dash import html, dcc
 from datetime import datetime
 import feffery_antd_components as fac
@@ -19,6 +20,9 @@ import views.advanced_usage
 import views.getting_started
 import views.what_is_fac
 
+# 国际化
+from i18n import translator
+
 # 记录应用最近启动时间
 boot_datetime = datetime.now().strftime('%Y-%m-%d')
 
@@ -28,6 +32,29 @@ def render_layout():
         [
             # 根容器url监听
             fuc.FefferyLocation(id='root-url'),
+            # 全局状态存储
+            fac.Fragment(
+                [
+                    # 国际化语种
+                    fuc.FefferyCookie(
+                        id='global-locale',
+                        expires=3600 * 24 * 365,
+                        cookieKey=translator.cookie_name,
+                    )
+                ]
+            ),
+            # 全局页面重载
+            fuc.FefferyReload(id='global-reload'),
+            # 国际化初始自动判断
+            fuc.FefferyExecuteJs(
+                jsString="""
+if ( !document.cookie.includes('dash-i18n=') ) {
+    if ( !navigator.language.startsWith('zh-') ) {
+        window.dash_clientside.set_props('global-locale', { value: 'en-us' })
+    }
+}
+                """
+            ),
             # 页面根容器
             html.Div(
                 id='root-container',
@@ -74,12 +101,19 @@ app.layout = render_layout
 @app.callback(
     [Output('root-container', 'children'), Output('global-spin-center', 'key')],
     Input('root-url', 'pathname'),
-    State('root-url', 'trigger'),
-    State('root-url', 'search'),
+    [
+        State('root-url', 'trigger'),
+        State('root-url', 'search'),
+    ],
     prevent_initial_call=True,
 )
 def root_router(pathname, trigger, search):
     """根节点路由控制"""
+
+    current_locale = request.cookies.get(translator.cookie_name)
+
+    # 赋值默认国际化语种
+    current_locale = current_locale or 'zh-cn'
 
     if pathname.startswith('/~demo/'):
         time.sleep(0.5)
@@ -115,7 +149,10 @@ def root_router(pathname, trigger, search):
                     fac.AntdResult(
                         status='404',
                         title=fac.AntdParagraph(
-                            ['演示示例不存在，', html.A('回到首页', href='/')]
+                            [
+                                translator.t('演示示例不存在，'),
+                                html.A(translator.t('回到首页'), href='/'),
+                            ]
                         ),
                     ),
                     style={'height': 'calc(100vh - 200px)'},
@@ -137,8 +174,10 @@ def root_router(pathname, trigger, search):
                     type='info',
                     message='提示信息',
                     placement='bottomRight',
-                    description='当前文档网站尚未正式发布，相关文档持续补充建设中。（最近更新时间：{}）'.format(
-                        boot_datetime
+                    description=(
+                        translator.t(
+                            '当前文档网站尚未正式发布，相关文档持续补充建设中。（最近更新时间：{}）'
+                        ).format(boot_datetime)
                     ),
                 )
             ),
@@ -147,7 +186,7 @@ def root_router(pathname, trigger, search):
                 [
                     fac.AntdFloatButton(
                         icon=fac.AntdIcon(icon='antd-bug'),
-                        tooltip='问题反馈',
+                        tooltip=translator.t('问题反馈'),
                         href=AppConfig.library_repo + '/issues/new',
                     )
                 ],
@@ -156,19 +195,20 @@ def root_router(pathname, trigger, search):
             # 注入快捷搜索面板
             fuc.FefferyShortcutPanel(
                 id='global-search-panel',
-                placeholder='输入你想要搜索的组件...',
-                data=generate_shortcut_panel_data(AppConfig.side_menu_items),
+                placeholder=translator.t('输入你想要搜索的组件...'),
+                data=generate_shortcut_panel_data(AppConfig.side_menu_items()),
                 panelStyles={'accentColor': '#1890ff', 'zIndex': 99999},
+                locale=('zh' if current_locale == 'zh-cn' else 'en'),
             ),
             # 文档页面容器url监听
             dcc.Location(id='doc-layout-url'),
             # 页首
-            page_header.render(),
+            page_header.render(locale=current_locale),
             # 主体区域
             fac.AntdRow(
                 [
                     # 侧边菜单
-                    side_menu.render(),
+                    side_menu.render(locale=current_locale),
                     # 内容区域
                     fac.AntdCol(
                         id='doc-layout-container',
@@ -199,7 +239,7 @@ def doc_layout_router(pathname):
     # 404页面
     doc_layout = fac.AntdResult(
         status='404',
-        title='您访问的页面不存在或还在建设中',
+        title=translator.t('您访问的页面不存在或还在建设中'),
         style={'height': 'calc(100vh - 65px)'},
     )
 
