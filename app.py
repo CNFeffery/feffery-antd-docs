@@ -48,6 +48,7 @@ def render_layout():
             # 国际化初始自动判断
             fuc.FefferyExecuteJs(
                 jsString="""
+// 初始化语种自动赋值策略
 if ( !document.cookie.includes('dash-i18n=') ) {
     if ( !navigator.language.startsWith('zh-') ) {
         window.dash_clientside.set_props('global-locale', { value: 'en-us' })

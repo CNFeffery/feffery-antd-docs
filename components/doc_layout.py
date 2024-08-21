@@ -1,5 +1,6 @@
 import uuid
 from dash import html, dcc
+from typing import Callable, Union
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
 import feffery_markdown_components as fmc
@@ -8,15 +9,22 @@ from dash.dependencies import Component
 import utils
 from components import contributors_avatar
 
+# 国际化
+from i18n import translator
+
 
 def render(
     component: Component,
     intro: Component,
     demos: Component,
-    catalog: list = None,
+    catalog: Union[list, Callable] = None,
     section_name: str = None,
 ) -> Component:
     """渲染组件文档页"""
+
+    # 处理函数型catalog
+    if not isinstance(catalog, list):
+        catalog = catalog()
 
     return fac.AntdRow(
         [
@@ -58,7 +66,7 @@ setTimeout(() => {
                                 fac.AntdSpace(
                                     [
                                         fac.AntdTitle(
-                                            '更多组件库',
+                                            translator.t('更多组件库'),
                                             level=4,
                                             style={
                                                 'color': '#1d1e1e',
@@ -68,13 +76,17 @@ setTimeout(() => {
                                         fac.AntdSpace(
                                             [
                                                 html.A(
-                                                    'fuc: 实用工具组件库',
+                                                    translator.t(
+                                                        'fuc: 实用工具组件库'
+                                                    ),
                                                     href='https://fuc.feffery.tech/',
                                                     target='_blank',
                                                     className='more-components-link',
                                                 ),
                                                 html.A(
-                                                    'fmc: markdown渲染组件库',
+                                                    translator.t(
+                                                        'fmc: markdown渲染组件库'
+                                                    ),
                                                     href='https://fmc.feffery.tech/',
                                                     target='_blank',
                                                     className='more-components-link',
@@ -140,7 +152,8 @@ setTimeout(() => {
                                 [
                                     fac.AntdCol(
                                         fac.AntdText(
-                                            f'{component.__name__} API参数说明',
+                                            f'{component.__name__} '
+                                            + translator.t('API参数说明'),
                                             style={
                                                 'color': 'white',
                                                 'background': '#1890ff',
@@ -169,7 +182,9 @@ setTimeout(() => {
                                         fac.AntdConfigProvider(
                                             fac.AntdInput(
                                                 id='side-props-search-bar-keyword',
-                                                placeholder='请输入搜索关键词',
+                                                placeholder=translator.t(
+                                                    '请输入搜索关键词'
+                                                ),
                                                 variant='filled',
                                                 debounceWait=200,
                                                 allowClear=True,

@@ -1,4 +1,5 @@
 from dash import html, dcc
+from typing import Callable, Union
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
 from dash.dependencies import Component
@@ -7,12 +8,24 @@ import feffery_markdown_components as fmc
 import views
 from config import AppConfig
 from components import mock_browser
+from utils.doc_renderer import MarkdownRenderer
+
+# 国际化
+from i18n import translator
+
+description_renderer = MarkdownRenderer()
 
 
 def render(
-    component: Component, demos_config: list, section_name: str = None
+    component: Component,
+    demos_config: Union[list, Callable],
+    section_name: str = None,
 ) -> Component:
     """渲染组件文档页示例内容"""
+
+    # 处理函数型demos_config
+    if not isinstance(demos_config, list):
+        demos_config = demos_config()
 
     return fac.AntdSpace(
         [
@@ -28,19 +41,19 @@ def render(
                                         html.Iframe(
                                             src='/~demo/{}/{}{}'.format(
                                                 component.__name__,
-                                                item['path'],
+                                                demo['path'],
                                                 '?'
                                                 + '&'.join(
                                                     [
                                                         '{}={}'.format(k, v)
-                                                        for k, v in item.get(
+                                                        for k, v in demo.get(
                                                             'query'
                                                         ).items()
                                                     ]
                                                 )
-                                                if item.get('query')
+                                                if demo.get('query')
                                                 and isinstance(
-                                                    item.get('query'), dict
+                                                    demo.get('query'), dict
                                                 )
                                                 else '',
                                             ),
@@ -59,12 +72,12 @@ def render(
                                 size=0,
                                 style={'width': '100%'},
                             )
-                            if item.get('iframe')
+                            if demo.get('iframe')
                             else getattr(
                                 getattr(
                                     views, section_name or component.__name__
                                 ).demos,
-                                item['path'],
+                                demo['path'],
                             ).render()
                         ),
                         className='demo-box',
@@ -73,7 +86,7 @@ def render(
                         [
                             fac.AntdText(
                                 [
-                                    item['title'],
+                                    demo['title'],
                                     fac.AntdTooltip(
                                         html.A(
                                             fac.AntdIcon(
@@ -85,17 +98,27 @@ def render(
                                                 AppConfig.doc_library_branch,
                                                 section_name
                                                 or component.__name__,
-                                                item['path'],
+                                                demo['path'],
                                             ),
                                             target='_blank',
                                         ),
-                                        title='在Github上编辑此示例',
+                                        title=translator.t(
+                                            '在Github上编辑此示例'
+                                        ),
                                     ),
                                 ],
                                 className='demo-title',
                             ),
                             html.Div(
-                                item['description'],
+                                (
+                                    demo['description']
+                                    if isinstance(
+                                        demo['description'], Component
+                                    )
+                                    else description_renderer.render(
+                                        demo['description']
+                                    )
+                                ),
                                 style={'padding': '18px 24px 12px 28px'},
                             ),
                         ],
@@ -109,26 +132,26 @@ def render(
                                         fac.AntdIcon(icon='antd-export'),
                                         href='/~demo/{}/{}{}'.format(
                                             section_name or component.__name__,
-                                            item['path'],
+                                            demo['path'],
                                             '?'
                                             + '&'.join(
                                                 [
                                                     '{}={}'.format(k, v)
-                                                    for k, v in item.get(
+                                                    for k, v in demo.get(
                                                         'query'
                                                     ).items()
                                                 ]
                                             )
-                                            if item.get('query')
+                                            if demo.get('query')
                                             and isinstance(
-                                                item.get('query'), dict
+                                                demo.get('query'), dict
                                             )
                                             else '',
                                         ),
                                         target='_blank',
                                         className='demo-operations-icon',
                                     ),
-                                    title='在新窗口打开',
+                                    title=translator.t('在新窗口打开'),
                                 ),
                                 fac.AntdTooltip(
                                     fac.AntdIcon(
@@ -136,13 +159,13 @@ def render(
                                             'type': 'demo-code-toggle',
                                             'index': '{}/{}'.format(
                                                 component.__name__,
-                                                item['path'],
+                                                demo['path'],
                                             ),
                                         },
                                         icon='antd-code',
                                         className='demo-operations-icon',
                                     ),
-                                    title='展开/收起代码',
+                                    title=translator.t('展开/收起代码'),
                                 ),
                                 fac.AntdTooltip(
                                     dcc.Link(
@@ -151,12 +174,14 @@ def render(
                                             AppConfig.doc_library_repo,
                                             AppConfig.doc_library_branch,
                                             section_name or component.__name__,
-                                            item['path'],
+                                            demo['path'],
                                         ),
                                         target='_blank',
                                         className='demo-operations-icon',
                                     ),
-                                    title='在Github中查看完整代码',
+                                    title=translator.t(
+                                        '在Github中查看完整代码'
+                                    ),
                                 ),
                                 fac.AntdTooltip(
                                     dcc.Link(
@@ -168,12 +193,12 @@ def render(
                                             AppConfig.doc_gitee_library_repo,
                                             AppConfig.doc_library_branch,
                                             section_name or component.__name__,
-                                            item['path'],
+                                            demo['path'],
                                         ),
                                         target='_blank',
                                         className='demo-operations-icon',
                                     ),
-                                    title='在Gitee中查看完整代码',
+                                    title=translator.t('在Gitee中查看完整代码'),
                                 ),
                             ],
                             size=12,
@@ -194,28 +219,38 @@ def render(
                                     codeBlockStyle={'overflowX': 'auto'},
                                 ),
                             }
-                            for item in getattr(
-                                getattr(
-                                    views, section_name or component.__name__
-                                ).demos,
-                                item['path'],
-                            ).code_string
+                            # 兼容处理不同类型的code_string
+                            for item in (
+                                lambda code_string: code_string
+                                if isinstance(code_string, list)
+                                else code_string()
+                            )(
+                                (
+                                    getattr(
+                                        getattr(
+                                            views,
+                                            section_name or component.__name__,
+                                        ).demos,
+                                        demo['path'],
+                                    ).code_string
+                                )
+                            )
                         ],
                         centered=True,
                         className='demo-code-tabs',
                         id={
                             'type': 'demo-code',
                             'index': '{}/{}'.format(
-                                component.__name__, item['path']
+                                component.__name__, demo['path']
                             ),
                         },
                         style={'display': 'none'},
                     ),
                 ],
                 className='demo-container',
-                id='demo-container-' + item['path'],
+                id='demo-container-' + demo['path'],
             )
-            for item in demos_config
+            for demo in demos_config
         ],
         direction='vertical',
         size='large',

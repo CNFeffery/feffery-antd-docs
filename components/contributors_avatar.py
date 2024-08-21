@@ -4,6 +4,9 @@ from dash.dependencies import Component
 
 from config import AppConfig
 
+# 国际化
+from i18n import translator
+
 
 def render(component: Component, section_name: str = None) -> Component:
     """渲染当页文档贡献者头像"""
@@ -26,7 +29,7 @@ def render(component: Component, section_name: str = None) -> Component:
 
     return fac.AntdFlex(
         [
-            fac.AntdText('当页文档贡献者', type='secondary'),
+            fac.AntdText(translator.t('当页文档贡献者'), type='secondary'),
             fac.AntdSpace(
                 [
                     fac.AntdTooltip(

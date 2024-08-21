@@ -1,0 +1,108 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdButton",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "最基础的按钮。": {
+            "en-us": "The basic button."
+        },
+        "按钮类型": {
+            "en-us": "Button type"
+        },
+        "不同类型的按钮。": {
+            "en-us": "Different types of buttons."
+        },
+        "尺寸规格": {
+            "en-us": "Sizes"
+        },
+        "不同尺寸的按钮。": {
+            "en-us": "Different sizes of buttons."
+        },
+        "禁用状态": {
+            "en-us": "Disabled"
+        },
+        "设置参数`disabled=True`开启禁用状态。": {
+            "en-us": "Set the parameter `disabled=True` to enable the disabled state."
+        },
+        "危险状态": {
+            "en-us": "Danger status"
+        },
+        "设置参数`danger=True`开启危险状态。": {
+            "en-us": "Set the parameter `danger=True` to enable the danger status."
+        },
+        "透明背景": {
+            "en-us": "Transparent background"
+        },
+        "设置参数`ghost=True`开启透明背景。": {
+            "en-us": "Set the parameter `ghost=True` to enable the transparent background."
+        },
+        "按钮形状": {
+            "en-us": "Button shape"
+        },
+        "设置参数`shape`控制按钮形状。": {
+            "en-us": "Set the parameter `shape` to control the button shape."
+        },
+        "撑满父元素": {
+            "en-us": "Fill up the parent element"
+        },
+        "设置参数`block=True`撑满父元素。": {
+            "en-us": "Set the parameter `block=True` to fill up the parent element."
+        },
+        "链接跳转功能": {
+            "en-us": "Link jump function"
+        },
+        "设置参数`href`添加链接跳转功能。": {
+            "en-us": "Set the parameter `href` to add the link jump function."
+        },
+        "额外图标": {
+            "en-us": "Extra icon"
+        },
+        "设置参数`icon`添加自定义图标元素。": {
+            "en-us": "Set the parameter `icon` to add the custom icon element."
+        },
+        "汉字自动插入空格": {
+            "en-us": "Chinese character auto-insert space"
+        },
+        "设置参数`autoInsertSpace`控制是否在按钮内容为两个汉字时，自动插入空格。": {
+            "en-us": "Set the parameter `autoInsertSpace` to control whether to insert spaces automatically when the button content is two Chinese characters."
+        },
+        "加载中状态": {
+            "en-us": "Loading status"
+        },
+        "设置参数`loading`控制是否将按钮渲染为加载中状态。": {
+            "en-us": "Set the parameter `loading` to control whether the button is rendered as loading status."
+        },
+        "点击自动进入加载中状态": {
+            "en-us": "Click automatically enters the loading status"
+        },
+        "设置参数`autoSpin`控制按钮是否在每次被点击后自动进入加载中状态。": {
+            "en-us": "Set the parameter `autoSpin` to control whether the button is automatically entered into the loading status after each click."
+        },
+        "特殊交互动效": {
+            "en-us": "Special interaction effects"
+        },
+        "设置参数`motionType='happy-work'`为按钮点击交互行为开启特殊交互动效。": {
+            "en-us": "Set the parameter `motionType='happy-work'` to enable special interaction effects when the button is clicked."
+        },
+        "点击直接执行js": {
+            "en-us": "Click directly executes js"
+        },
+        "通过参数`clickExecuteJsString`为按钮设置每次点击后直接触发的**javascript**代码，从而在简单场景下省略编写回调函数。": {
+            "en-us": "Set the parameter `clickExecuteJsString` to set the javascript code that is triggered directly after each click in a simple scenario, to avoid writing callback functions."
+        },
+        "回调监听": {
+            "en-us": "Callback listening"
+        },
+        "通过`nClicks`进行按钮点击事件的监听，特别地，在有效设置参数`debounceWait`后，将针对点击事件进行防抖监听，避免过于频繁的触发。": {
+            "en-us": "Listen to the `nClicks` event of the button for special listeners when the parameter `debounceWait` is set, to avoid triggering too many clicks in a short time."
+        },
+        "配合autoSpin的回调": {
+            "en-us": "Callback with autoSpin"
+        },
+        "配合`autoSpin`、`loadingChildren`等参数优化点击按钮触发耗时计算任务执行的场景。": {
+            "en-us": "Optimize the click button to trigger the time-consuming task execution in scenarios where `autoSpin` and `loadingChildren` are used."
+        }
+    }
+}

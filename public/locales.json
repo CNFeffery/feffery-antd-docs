@@ -451,6 +451,9 @@
         "0.3.1版本": {
             "en-us": "0.3.1 version"
         },
+        "AntdTable 表格：": {
+            "en-us": "AntdTable: "
+        },
         "您访问的页面不存在或还在建设中": {
             "en-us": "The page you visited does not exist or is under construction"
         },
@@ -546,6 +549,42 @@
         },
         "最新预发布版本：": {
             "en-us": "The latest pre-release version: "
+        },
+        "当页文档贡献者": {
+            "en-us": "Documentation contributors of current page"
+        },
+        "在Github上编辑此示例": {
+            "en-us": "Edit this example on Github"
+        },
+        "在新窗口打开": {
+            "en-us": "Open in new window"
+        },
+        "展开/收起代码": {
+            "en-us": "Expand / collapse code"
+        },
+        "在Github中查看完整代码": {
+            "en-us": "View the full code on Github"
+        },
+        "在Gitee中查看完整代码": {
+            "en-us": "View the full code on Gitee"
+        },
+        "API参数说明": {
+            "en-us": "API"
+        },
+        "请输入搜索关键词": {
+            "en-us": "Input search keywords"
+        },
+        "更多组件库": {
+            "en-us": "More components libraries"
+        },
+        "fuc: 实用工具组件库": {
+            "en-us": "fuc: useful utils components library"
+        },
+        "fmc: markdown渲染组件库": {
+            "en-us": "fmc: markdown rendering components library"
+        },
+        "按钮用于触发一个即时操作。": {
+            "en-us": "Button is used to trigger an instant operation."
         }
     }
 }
