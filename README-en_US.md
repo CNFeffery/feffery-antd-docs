@@ -2,7 +2,7 @@
 
 [简体中文](./README.md) | English
 
-<a href='https://github.com/CNFeffery/feffery-antd-components' target='_blank'>feffery-antd-components</a>online documentation source code(`fac>=0.3.0`)
+<a href='https://github.com/CNFeffery/feffery-antd-components' target='_blank'>feffery-antd-components</a> online documentation source code(`fac>=0.3.0`)
 
 ## 1 Install & Run
 
