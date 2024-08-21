@@ -21,11 +21,14 @@ def parse_component_props(component: Component) -> str:
     if current_locale == 'zh-cn':
         raw_docstring = component.__doc__ + '\n'
     elif current_locale == 'en-us':
-        with open(
-            './public/api_documents/en_us/{}.md'.format(component.__name__),
-            encoding='utf-8',
-        ) as f:
-            raw_docstring = f.read()
+        try:
+            with open(
+                './public/api_documents/en_us/{}.md'.format(component.__name__),
+                encoding='utf-8',
+            ) as f:
+                raw_docstring = f.read()
+        except FileNotFoundError:
+            raw_docstring = component.__doc__ + '\n'
 
     # 去除开头多余内容
     raw_docstring = re.sub(
