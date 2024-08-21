@@ -1,10 +1,10 @@
 # feffery-antd-docs
 
-简体中文 | [English](./README-en_US.md)
+[简体中文](./README.md) | English
 
-<a href='https://github.com/CNFeffery/feffery-antd-components' target='_blank'>feffery-antd-components</a>在线文档源码（`fac版本>=0.3.0`）
+<a href='https://github.com/CNFeffery/feffery-antd-components' target='_blank'>feffery-antd-components</a>online documentation source code(`fac>=0.3.0`)
 
-## 1 使用方式
+## 1 Install & Run
 
 ```bash
 git clone https://github.com/CNFeffery/feffery-antd-docs.git
@@ -14,7 +14,7 @@ pip install -r requirements.txt
 python app.py
 ```
 
-## 2 贡献者
+## 2 Contributors
 
 <a href = "https://github.com/CNFeffery/feffery-antd-docs/graphs/contributors">
   <img src = "https://contrib.rocks/image?repo=CNFeffery/feffery-antd-docs"/>
