@@ -162,7 +162,7 @@ def root_router(pathname, trigger, search):
             ]
 
     # 动态路由切换时，阻止页面重复加载
-    if trigger == 'pushstate':
+    if trigger in ['pushstate', 'popstate']:
         return dash.no_update
 
     return [
