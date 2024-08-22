@@ -1,0 +1,18 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdIcon",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "通过参数`icon`来使用对应的不同类别的图标。": {
+            "en-us": "Use the parameter `icon` to use the corresponding category of icons."
+        },
+        "回调监听": {
+            "en-us": "Callback listener"
+        },
+        "通过`nClicks`进行图标点击事件的监听，特别地，在有效设置参数`debounceWait`后，将针对点击事件进行防抖监听，避免过于频繁的触发。": {
+            "en-us": "Listening to the icon click event through `nClicks`. Specifically, after setting the parameter `debounceWait` effectively, a debounced listening will be applied to the click event to prevent it from being triggered too frequently."
+        }
+    }
+}

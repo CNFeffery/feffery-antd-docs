@@ -1,4 +1,4 @@
-import feffery_antd_components as fac
+from functools import partial
 from dash.dependencies import Component
 
 from . import (
@@ -7,32 +7,26 @@ from . import (
 )
 from components import demos_render
 
-demos_config = [
-    {
-        'path': 'basic_usage',
-        'title': '基础使用',
-        'description': fac.AntdParagraph(
-            [
-                '通过参数',
-                fac.AntdText('icon', code=True),
-                '来使用对应的不同类别的图标。',
-            ]
-        ),
-    },
-    {
-        'path': 'basic_callbacks',
-        'title': '回调监听',
-        'description': fac.AntdParagraph(
-            [
-                '通过',
-                fac.AntdText('nClicks', code=True),
-                '进行图标点击事件的监听，特别地，在有效设置参数',
-                fac.AntdText('debounceWait', code=True),
-                '后，将针对点击事件进行防抖监听，避免过于频繁的触发。',
-            ]
-        ),
-    },
-]
+# 国际化
+from i18n import translator
+
+
+def demos_config() -> list:
+    t = partial(translator.t, locale_topic='AntdIcon')
+    return [
+        {
+            'path': 'basic_usage',
+            'title': t('基础使用'),
+            'description': t('通过参数`icon`来使用对应的不同类别的图标。'),
+        },
+        {
+            'path': 'basic_callbacks',
+            'title': t('回调监听'),
+            'description': t(
+                '通过`nClicks`进行图标点击事件的监听，特别地，在有效设置参数`debounceWait`后，将针对点击事件进行防抖监听，避免过于频繁的触发。'
+            ),
+        },
+    ]
 
 
 def render(component: Component, section_name: str = None) -> Component:

@@ -594,6 +594,9 @@
         },
         "用于承载一组悬浮按钮。": {
             "en-us": "Used to carry out a group of floating buttons."
+        },
+        "用于提示不同的功能及场景。": {
+            "en-us": "Used to prompt for different functions and scenes."
         }
     }
 }
