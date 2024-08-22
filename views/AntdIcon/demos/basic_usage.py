@@ -25,6 +25,7 @@ def render() -> Component:
                             ),
                             fac.AntdText(
                                 icon,
+                                locale='zh-cn',
                                 copyable=True,
                                 style={'borderBottom': '1px dashed #e1dfdd'},
                             ),
@@ -64,6 +65,7 @@ def render() -> Component:
                             ),
                             fac.AntdText(
                                 icon,
+                                locale='en-us',
                                 copyable=True,
                                 style={'borderBottom': '1px dashed #e1dfdd'},
                             ),
@@ -89,7 +91,7 @@ def render() -> Component:
             ]
         )
 
-    return fac.AntdConfigProvider(demo_contents, locale=current_locale)
+    return demo_contents
 
 
 def code_string() -> list:
@@ -113,6 +115,7 @@ fac.AntdRow(
                     ),
                     fac.AntdText(
                         icon,
+                        locale='zh-cn',
                         copyable=True,
                         style={'borderBottom': '1px dashed #e1dfdd'},
                     ),
@@ -157,6 +160,7 @@ fac.AntdRow(
                     ),
                     fac.AntdText(
                         icon,
+                        locale='en-us',
                         copyable=True,
                         style={'borderBottom': '1px dashed #e1dfdd'},
                     ),
