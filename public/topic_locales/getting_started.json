@@ -1,0 +1,27 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "getting_started",
+    "contents": {
+        "环境搭建": {
+            "en-us": "Environment setup"
+        },
+        "在基于**Dash**和**fac**进行应用开发之前，我们需要先搭建好所需的环境，推荐使用**conda**或**mamba**作为环境管理工具，这里以Python 3.9版本为例，在终端执行下列命令进行相关环境的创建及激活：": {
+            "en-us": "Before starting application development with **Dash** and **fac**, we need to set up the required environment first. It is recommended to use **conda** or **mamba** as the environment management tool. Here, we take Python 3.9 as an example and execute the following commands in the terminal to create and activate the relevant environment:"
+        },
+        "默认方式": {
+            "en-us": "Default method"
+        },
+        "完成环境的创建及激活后，我们在对应环境中直接通过pip进行相关基础依赖库的安装即可：": {
+            "en-us": "After creating and activating the environment, we can install the relevant basic dependency libraries through pip:"
+        },
+        "构建示例应用": {
+            "en-us": "Build an example application"
+        },
+        "完成前面所述的环境部署后，下面我们来开发一个简单的小应用，实现根据用户输入的目标值和实际值来生成对应的环形进度条，操作效果如下面动图所示：": {
+            "en-us": "After completing the environment deployment as described earlier, let's now develop a simple application that generates a corresponding circular progress bar based on the user's input of target and actual values. The operation effect is shown in the following animated image:"
+        },
+        "对应代码如下，在激活对应环境的前提下，终端执行`python app.py`即可启动该示例应用：": {
+            "en-us": "The corresponding code is as follows. With the appropriate environment activated, you can start the example application by running `python app.py` in the terminal:"
+        }
+    }
+}

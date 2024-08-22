@@ -8,8 +8,8 @@ translator = Translator(
         './public/locales.json',
         # 各组件文档主题文案
         *[
-            os.path.join('./public/component_locales', path)
-            for path in os.listdir('./public/component_locales')
+            os.path.join('./public/topic_locales', path)
+            for path in os.listdir('./public/topic_locales')
         ],
     ]
 )
