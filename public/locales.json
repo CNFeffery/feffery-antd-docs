@@ -591,6 +591,9 @@
         },
         "悬浮于页面固定位置的按钮。": {
             "en-us": "Floating button on the fixed position on the page."
+        },
+        "用于承载一组悬浮按钮。": {
+            "en-us": "Used to carry out a group of floating buttons."
         }
     }
 }

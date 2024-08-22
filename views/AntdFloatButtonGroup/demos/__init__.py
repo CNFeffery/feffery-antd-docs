@@ -1,4 +1,4 @@
-import feffery_antd_components as fac
+from functools import partial
 from dash.dependencies import Component
 
 from . import (
@@ -8,32 +8,34 @@ from . import (
 )
 from components import demos_render
 
-demos_config = [
-    {
-        'path': 'basic_usage',
-        'title': '基础使用',
-        'description': fac.AntdParagraph('最基础的悬浮按钮组。'),
-        'iframe': True,
-    },
-    {
-        'path': 'menu_mode',
-        'title': '菜单模式',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('trigger', code=True),
-                '开启不同触发方式对应的菜单模式。',
-            ]
-        ),
-        'iframe': True,
-    },
-    {
-        'path': 'basic_callbacks',
-        'title': '回调监听',
-        'description': '监听悬浮按钮组菜单模式下的展开状态。',
-        'iframe': True,
-    },
-]
+# 国际化
+from i18n import translator
+
+
+def demos_config() -> list:
+    t = partial(translator.t, locale_topic='AntdFloatButtonGroup')
+    return [
+        {
+            'path': 'basic_usage',
+            'title': t('基础使用'),
+            'description': t('最基础的悬浮按钮组。'),
+            'iframe': True,
+        },
+        {
+            'path': 'menu_mode',
+            'title': t('菜单模式'),
+            'description': t(
+                '设置参数`trigger`开启不同触发方式对应的菜单模式。'
+            ),
+            'iframe': True,
+        },
+        {
+            'path': 'basic_callbacks',
+            'title': t('回调监听'),
+            'description': t('监听悬浮按钮组菜单模式下的展开状态。'),
+            'iframe': True,
+        },
+    ]
 
 
 def render(component: Component, section_name: str = None) -> Component:

@@ -1,0 +1,24 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdFloatButtonGroup",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "最基础的悬浮按钮组。": {
+            "en-us": "The basic floating button group."
+        },
+        "菜单模式": {
+            "en-us": "Menu mode"
+        },
+        "设置参数`trigger`开启不同触发方式对应的菜单模式。": {
+            "en-us": "Set the parameter `trigger` to open the menu mode corresponding to different trigger methods."
+        },
+        "回调监听": {
+            "en-us": "Callback listener"
+        },
+        "监听悬浮按钮组菜单模式下的展开状态。": {
+            "en-us": "Listen to the expansion status of the menu mode of the floating button group."
+        }
+    }
+}
