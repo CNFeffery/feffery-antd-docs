@@ -58,7 +58,7 @@
 > [basic_usage.py](https://github.com/CNFeffery/feffery-antd-docs/blob/main/views/AntdButton/demos/basic_usage.py)<br>
 > [basic_callbacks.py](https://github.com/CNFeffery/feffery-antd-docs/blob/main/views/AntdButton/demos/basic_callbacks.py)
 
-譬如针对`AntdParagraph`的中文示例中使用到中国古代著名诗人*李白*所著的*《将进酒》* ，你可以在`en-us`模式下替换为*莎士比亚*的诗句：
+譬如针对`AntdParagraph`的中文示例中使用到中国古代著名诗人*李白*所著的 *《将进酒》* ，你可以在`en-us`模式下替换为*莎士比亚*的诗句：
 
 > [different_render_mode.py](https://github.com/CNFeffery/feffery-antd-docs/blob/main/views/AntdParagraph/demos/different_render_mode.py)<br>
 > [content_ellipsis.py](https://github.com/CNFeffery/feffery-antd-docs/blob/main/views/AntdParagraph/demos/content_ellipsis.py)
