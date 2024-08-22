@@ -1,0 +1,12 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdCenter",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "常规居中与行内居中。": {
+            "en-us": "Regular centering and inline centering."
+        }
+    }
+}

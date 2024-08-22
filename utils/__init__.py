@@ -1,3 +1,4 @@
+import os
 import re
 import mistune
 from flask import request
@@ -21,13 +22,16 @@ def parse_component_props(component: Component) -> str:
     if current_locale == 'zh-cn':
         raw_docstring = component.__doc__ + '\n'
     elif current_locale == 'en-us':
-        try:
+        # 检查目标英文文档文件是否存在
+        if f'{component.__name__}.md' in os.listdir(
+            './public/api_documents/en_us'
+        ):
             with open(
                 './public/api_documents/en_us/{}.md'.format(component.__name__),
                 encoding='utf-8',
             ) as f:
                 raw_docstring = f.read()
-        except FileNotFoundError:
+        else:
             raw_docstring = component.__doc__ + '\n'
 
     # 去除开头多余内容

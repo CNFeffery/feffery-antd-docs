@@ -585,6 +585,9 @@
         },
         "按钮用于触发一个即时操作。": {
             "en-us": "Button is used to trigger an instant operation."
+        },
+        "快捷实现内容在水平垂直方向上居中。": {
+            "en-us": "Quickly implement content in the horizontal and vertical direction."
         }
     }
 }
