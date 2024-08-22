@@ -1,4 +1,3 @@
-import feffery_antd_components as fac
 from dash.dependencies import Component
 
 from . import (
@@ -16,64 +15,32 @@ demos_config = [
     {
         'path': 'basic_usage',
         'title': '基础使用',
-        'description': fac.AntdParagraph(
-            '默认的手风琴模式下，最多只能展开一个面板。'
-        ),
+        'description': '默认的手风琴模式下，最多只能展开一个面板。',
     },
     {
         'path': 'accordion_off',
         'title': '关闭手风琴模式',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('accordion=False', code=True),
-                '关闭手风琴模式。',
-            ]
-        ),
+        'description': '设置参数`accordion=False`关闭手风琴模式。',
     },
     {
         'path': 'default_active_key',
         'title': '设置默认展开项',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('defaultActiveKey', code=True),
-                '控制默认展开项。',
-            ]
-        ),
+        'description': '设置参数`defaultActiveKey`控制默认展开项。',
     },
     {
         'path': 'expand_icon_right',
         'title': '展开图标靠右',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('expandIconPosition="right"', code=True),
-                '控制展开图标靠右。',
-            ]
-        ),
+        'description': "设置参数`expandIconPosition='right'`控制展开图标靠右。",
     },
     {
         'path': 'extra',
         'title': '子项额外内容',
-        'description': fac.AntdParagraph(
-            [
-                '为子项设置参数',
-                fac.AntdText('extra', code=True),
-                '添加额外内容。',
-            ]
-        ),
+        'description': '为子项设置参数`extra`添加额外内容。',
     },
     {
         'path': 'ghost',
         'title': '透明面板模式',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('ghost=True', code=True),
-                '开启透明面板格式。',
-            ]
-        ),
+        'description': '设置参数`ghost=True`开启透明面板格式。',
     },
     {'path': 'basic_callbacks', 'title': '回调监听', 'description': None},
 ]

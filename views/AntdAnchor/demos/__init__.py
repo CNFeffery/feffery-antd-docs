@@ -1,4 +1,3 @@
-import feffery_antd_components as fac
 from dash.dependencies import Component
 
 from . import (
@@ -10,7 +9,7 @@ demos_config = [
     {
         'path': 'basic_usage',
         'title': '基础使用',
-        'description': fac.AntdParagraph('最基础的锚点。'),
+        'description': '最基础的锚点。',
         'iframe': True,
     },
 ]
