@@ -588,6 +588,9 @@
         },
         "快捷实现内容在水平垂直方向上居中。": {
             "en-us": "Quickly implement content in the horizontal and vertical direction."
+        },
+        "悬浮于页面固定位置的按钮。": {
+            "en-us": "Floating button on the fixed position on the page."
         }
     }
 }
