@@ -597,6 +597,9 @@
         },
         "用于提示不同的功能及场景。": {
             "en-us": "Used to prompt for different functions and scenes."
+        },
+        "用于渲染具有丰富样式和功能的段落文字。": {
+            "en-us": "Used to render paragraphs with rich styles and functions."
         }
     }
 }

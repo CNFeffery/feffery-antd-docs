@@ -1,4 +1,4 @@
-import feffery_antd_components as fac
+from functools import partial
 from dash.dependencies import Component
 
 from . import (
@@ -7,20 +7,24 @@ from . import (
 )
 from components import demos_render
 
-demos_config = [
-    {
-        'path': 'different_render_mode',
-        'title': '不同的渲染模式',
-        'description': fac.AntdParagraph(
-            '使用不同的渲染模式展示不同样式的段落。'
-        ),
-    },
-    {
-        'path': 'content_ellipsis',
-        'title': '内容省略功能',
-        'description': fac.AntdParagraph('段落内容过长时可开启省略功能。'),
-    },
-]
+# 国际化
+from i18n import translator
+
+
+def demos_config() -> list:
+    t = partial(translator.t, locale_topic='AntdParagraph')
+    return [
+        {
+            'path': 'different_render_mode',
+            'title': t('不同的渲染模式'),
+            'description': t('使用不同的渲染模式展示不同样式的段落。'),
+        },
+        {
+            'path': 'content_ellipsis',
+            'title': t('内容省略功能'),
+            'description': t('段落内容过长时可开启省略功能。'),
+        },
+    ]
 
 
 def render(component: Component, section_name: str = None) -> Component:

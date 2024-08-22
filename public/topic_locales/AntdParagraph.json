@@ -1,0 +1,18 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdParagraph",
+    "contents": {
+        "不同的渲染模式": {
+            "en-us": "Different render modes"
+        },
+        "使用不同的渲染模式展示不同样式的段落。": {
+            "en-us": "Use different render modes to display different styles of paragraphs."
+        },
+        "内容省略功能": {
+            "en-us": "Content ellipsis function"
+        },
+        "段落内容过长时可开启省略功能。": {
+            "en-us": "Enable ellipsis function when the paragraph content is too long."
+        }
+    }
+}
