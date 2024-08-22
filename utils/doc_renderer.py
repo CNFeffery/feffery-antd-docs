@@ -22,6 +22,10 @@ class MarkdownRenderer:
             List[Component]: 结果渲染内容
         """
 
+        # 处理空内容输入
+        if not raw_markdown:
+            return raw_markdown
+
         # 从markdown内容原文解析ast数据结构
         markdown_ast = self.markdown_parser.parse(raw_markdown)[0]
 
