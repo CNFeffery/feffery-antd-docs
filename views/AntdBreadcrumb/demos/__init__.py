@@ -1,4 +1,3 @@
-import feffery_antd_components as fac
 from dash.dependencies import Component
 
 from . import (
@@ -14,48 +13,27 @@ demos_config = [
     {
         'path': 'basic_usage',
         'title': '基础使用',
-        'description': fac.AntdParagraph('最基础的面包屑。'),
+        'description': '最基础的面包屑。',
     },
     {
         'path': 'as_link',
         'title': '添加链接跳转功能',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('href', code=True),
-                '添加链接跳转功能。',
-            ]
-        ),
+        'description': '设置参数`href`添加链接跳转功能。',
     },
     {
         'path': 'breadcrumb_icon',
         'title': '添加前缀图标',
-        'description': fac.AntdParagraph(
-            [
-                '通过参数',
-                fac.AntdText('icon', code=True),
-                '，可基于图标代号直接使用',
-                fac.AntdText('AntdIcon', strong=True),
-                '中的各种图标作为节点的前缀图标。',
-            ],
-            style={'textIndent': '2rem'},
-        ),
+        'description': '通过参数`icon`，可基于图标代号直接使用**AntdIcon**中的各种图标作为节点的前缀图标。',
     },
     {
         'path': 'breadcrumb_hover_menu',
         'title': '节点添加悬浮菜单',
-        'description': fac.AntdParagraph('在面包屑的节点添加悬浮菜单。'),
+        'description': '在面包屑的节点添加悬浮菜单。',
     },
     {
         'path': 'basic_callbacks',
         'title': '回调监听',
-        'description': fac.AntdParagraph(
-            [
-                '通过',
-                fac.AntdText('clickedItem', code=True),
-                '进行面包屑节点点击事件的监听。',
-            ]
-        ),
+        'description': '通过`clickedItem`进行面包屑节点点击事件的监听。',
     },
 ]
 
