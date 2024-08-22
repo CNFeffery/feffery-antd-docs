@@ -118,6 +118,8 @@ def render(
                                     else description_renderer.render(
                                         demo['description']
                                     )
+                                    if isinstance(demo['description'], str)
+                                    else None
                                 ),
                                 style={'padding': '18px 24px 12px 28px'},
                             ),
