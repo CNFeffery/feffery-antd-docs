@@ -23,7 +23,7 @@ def render(
     """渲染组件文档页"""
 
     # 处理函数型catalog
-    if not isinstance(catalog, list):
+    if not isinstance(catalog, list) and catalog:
         catalog = catalog()
 
     return fac.AntdRow(
