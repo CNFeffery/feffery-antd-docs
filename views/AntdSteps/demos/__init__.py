@@ -5,6 +5,7 @@ from . import (
     basic_usage,  # noqa: F401
     with_more_info,  # noqa: F401
     custom_icon,  # noqa: F401
+    percent,  # noqa: F401
     set_current,  # noqa: F401
     vertical,  # noqa: F401
     vertical_info,  # noqa: F401
@@ -35,6 +36,11 @@ demos_config = [
         'path': 'custom_icon',
         'title': '自定义图标',
         'description': fac.AntdParagraph('步骤图标可传入任意组件型内容。'),
+    },
+    {
+        'path': 'percent',
+        'title': '当前步骤环状进度',
+        'description': '通过设置参数`percent`控制当前步骤的环状进度显示效果。',
     },
     {
         'path': 'set_current',
