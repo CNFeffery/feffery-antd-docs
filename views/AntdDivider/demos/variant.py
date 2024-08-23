@@ -1,0 +1,40 @@
+import feffery_antd_components as fac
+from dash.dependencies import Component
+
+
+def render() -> Component:
+    """渲染当前演示用例"""
+
+    # 构造演示用例相关内容
+    demo_contents = [
+        fac.AntdDivider(
+            'variant="dashed"', variant='dashed', lineColor='#595959'
+        ),
+        fac.AntdDivider(
+            'variant="dotted"', variant='dotted', lineColor='#595959'
+        ),
+        fac.AntdDivider(
+            'variant="solid"', variant='solid', lineColor='#595959'
+        ),
+    ]
+
+    return demo_contents
+
+
+code_string = [
+    {
+        'code': """
+[
+    fac.AntdDivider(
+        'variant="dashed"', variant='dashed', lineColor='#595959'
+    ),
+    fac.AntdDivider(
+        'variant="dotted"', variant='dotted', lineColor='#595959'
+    ),
+    fac.AntdDivider(
+        'variant="solid"', variant='solid', lineColor='#595959'
+    ),
+]
+"""
+    }
+]

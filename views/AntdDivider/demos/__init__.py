@@ -5,6 +5,7 @@ from . import (
     basic_usage,  # noqa: F401
     inner_text,  # noqa: F401
     vertical,  # noqa: F401
+    variant,  # noqa: F401
 )
 from components import demos_render
 
@@ -23,6 +24,11 @@ demos_config = [
         'path': 'vertical',
         'title': '竖直分割线',
         'description': fac.AntdParagraph('用竖直分割线水平排布若干元素。'),
+    },
+    {
+        'path': 'variant',
+        'title': '形态变体',
+        'description': '设置参数`variant`使用不同的形态变体。',
     },
 ]
 
