@@ -6,6 +6,7 @@ from . import (
     default_expand_all,  # noqa: F401
     not_show_line,  # noqa: F401
     show_icon,  # noqa: F401
+    switcher_icon,  # noqa: F401
     custom_node_style,  # noqa: F401
     node_tooltip,  # noqa: F401
     node_context_menu,  # noqa: F401
@@ -65,6 +66,11 @@ demos_config = [
                 '后，将显示各节点所定义的前缀图标。',
             ]
         ),
+    },
+    {
+        'path': 'switcher_icon',
+        'title': '自定义展开图标',
+        'description': "通过参数`switcherIcon`可以传入**AntdIcon**中的`'antd-*'`类型图标组件，作为节点展开/收起控制图标。",
     },
     {
         'path': 'custom_node_style',
