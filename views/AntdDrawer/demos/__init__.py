@@ -63,17 +63,6 @@ demos_config = [
         ),
     },
     {
-        'path': 'local_container',
-        'title': '局部容器中展示抽屉',
-        'description': fac.AntdParagraph(
-            [
-                '配合',
-                fac.AntdText('相对-绝对', strong=True),
-                '定位，在局部容器中展示抽屉。',
-            ]
-        ),
-    },
-    {
         'path': 'local_container_selector',
         'title': '更自由地指定局部容器',
         'description': fac.AntdParagraph(
