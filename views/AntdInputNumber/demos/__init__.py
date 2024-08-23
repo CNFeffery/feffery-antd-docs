@@ -10,6 +10,7 @@ from . import (
     status,  # noqa: F401
     addon,  # noqa: F401
     prefix,  # noqa: F401
+    suffix,  # noqa: F401
     limit_min_max,  # noqa: F401
     step,  # noqa: F401
     precision,  # noqa: F401
@@ -74,6 +75,11 @@ demos_config = [
     {
         'path': 'prefix',
         'title': '添加内嵌前缀元素',
+        'description': None,
+    },
+    {
+        'path': 'suffix',
+        'title': '添加内嵌后缀元素',
         'description': None,
     },
     {
