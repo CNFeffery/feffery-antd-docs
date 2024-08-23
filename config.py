@@ -1461,12 +1461,13 @@ class AppConfig:
                             {
                                 'component': 'Item',
                                 'props': {
-                                    'key': '/changelog-0.3.1',
-                                    'name': '/changelog-0.3.1',
-                                    'title': '0.3.1',
-                                    'href': '/changelog-0.3.1',
+                                    'key': '/changelog-' + version,
+                                    'name': '/changelog-' + version,
+                                    'title': version,
+                                    'href': '/changelog-' + version,
                                 },
-                            },
+                            }
+                            for version in ['0.3.1', '0.3.2']
                         ],
                     }
                 ],

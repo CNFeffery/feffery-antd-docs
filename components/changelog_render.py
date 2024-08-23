@@ -1,3 +1,4 @@
+import os
 from dash import html
 import feffery_markdown_components as fmc
 
@@ -9,14 +10,19 @@ def render(version: str):
 
     current_locale = get_current_locale()
 
-    if current_locale == 'zh-cn':
+    changelog = None
+    if current_locale == 'en-us':
+        if os.path.exists('./changelogs/en_us/{}.md'.format(version)):
+            with open(
+                './changelogs/en_us/{}.md'.format(version),
+                'r',
+                encoding='utf-8',
+            ) as f:
+                changelog = f.read()
+
+    if not changelog or current_locale == 'zh-cn':
         with open(
             './changelogs/{}.md'.format(version), 'r', encoding='utf-8'
-        ) as f:
-            changelog = f.read()
-    elif current_locale == 'en-us':
-        with open(
-            './changelogs/en_us/{}.md'.format(version), 'r', encoding='utf-8'
         ) as f:
             changelog = f.read()
 
