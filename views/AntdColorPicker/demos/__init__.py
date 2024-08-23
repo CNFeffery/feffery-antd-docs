@@ -8,6 +8,7 @@ from . import (
     allow_clear,  # noqa: F401
     enable_alpha,  # noqa: F401
     different_placement,  # noqa: F401
+    mode,  # noqa: F401
     show_text,  # noqa: F401
     trigger,  # noqa: F401
     presets,  # noqa: F401
@@ -71,6 +72,11 @@ demos_config = [
                 '控制悬浮层展开方位。',
             ]
         ),
+    },
+    {
+        'path': 'mode',
+        'title': '颜色选择模式',
+        'description': '设置参数`mode`控制颜色选择模式。',
     },
     {
         'path': 'show_text',
