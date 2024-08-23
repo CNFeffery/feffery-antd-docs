@@ -1455,7 +1455,7 @@ class AppConfig:
                         'component': 'SubMenu',
                         'props': {
                             'key': '0.3.x版本',
-                            'title': translator.t('0.3.x版本'),
+                            'title': '0.3.x',
                         },
                         'children': [
                             {
@@ -1463,7 +1463,7 @@ class AppConfig:
                                 'props': {
                                     'key': '/changelog-0.3.1',
                                     'name': '/changelog-0.3.1',
-                                    'title': translator.t('0.3.1版本'),
+                                    'title': '0.3.1',
                                     'href': '/changelog-0.3.1',
                                 },
                             },
