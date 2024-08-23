@@ -1,0 +1,18 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdText",
+    "contents": {
+        "不同的渲染模式": {
+            "en-us": "Different render modes"
+        },
+        "使用不同的渲染模式展示不同样式的文字。": {
+            "en-us": "Use different render modes to display different styles of text."
+        },
+        "内容省略功能": {
+            "en-us": "Content ellipsis function"
+        },
+        "文字内容过长时可开启省略功能。": {
+            "en-us": "Enable ellipsis function when the text content is too long."
+        }
+    }
+}
