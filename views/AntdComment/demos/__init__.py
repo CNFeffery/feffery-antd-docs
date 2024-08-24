@@ -1,4 +1,3 @@
-import feffery_antd_components as fac
 from dash.dependencies import Component
 
 from . import (
@@ -15,47 +14,27 @@ demos_config = [
     {
         'path': 'basic_usage',
         'title': '基础使用',
-        'description': fac.AntdParagraph('最基础的单条评论信息。'),
+        'description': '最基础的单条评论信息。',
     },
     {
         'path': 'custom_avatar',
         'title': '自定义头像',
-        'description': fac.AntdParagraph(
-            [
-                '通过参数',
-                fac.AntdText('avatarProps', code=True),
-                '进行头像的自定义配置。',
-            ]
-        ),
+        'description': '通过参数`avatarProps`进行头像的自定义配置。',
     },
     {
         'path': 'from_now',
         'title': '显示相对发布时间',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('fromNow=True', code=True),
-                '后，评论中的发布时间将以相对现在的时间形式进行展示。',
-            ]
-        ),
+        'description': '设置参数`fromNow=True`后，评论中的发布时间将以相对现在的时间形式进行展示。',
     },
     {
         'path': 'nested',
         'title': '嵌套评论',
-        'description': fac.AntdParagraph(
-            ['评论本身可以作为其他评论的子元素呈现出嵌套效果。']
-        ),
+        'description': '评论本身可以作为其他评论的子元素呈现出嵌套效果。',
     },
     {
         'path': 'initial_status',
         'title': '初始化点赞反对状态',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('defaultAction', code=True),
-                '控制初始化时所处的的点赞反对状态。',
-            ]
-        ),
+        'description': '设置参数`defaultAction`控制初始化时所处的的点赞反对状态。',
     },
     {
         'path': 'basic_callbacks',

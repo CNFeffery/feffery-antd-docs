@@ -1,4 +1,3 @@
-import feffery_antd_components as fac
 from dash.dependencies import Component
 
 from . import (
@@ -11,20 +10,12 @@ demos_config = [
     {
         'path': 'basic_usage',
         'title': '基础使用',
-        'description': fac.AntdParagraph(
-            [
-                '基于',
-                fac.AntdText('AntdCompact', strong=True),
-                '对子元素进行排列，可以实现相邻紧贴元素边框线合并效果。',
-            ]
-        ),
+        'description': '基于**AntdCompact**对子元素进行排列，可以实现相邻紧贴元素边框线合并效果。',
     },
     {
         'path': 'classic_usage',
         'title': '经典用法',
-        'description': fac.AntdParagraph(
-            '输入框搭配其他控件是紧凑排列经典使用场景。'
-        ),
+        'description': '输入框搭配其他控件是紧凑排列经典使用场景。',
     },
 ]
 

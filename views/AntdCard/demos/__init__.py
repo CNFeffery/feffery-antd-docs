@@ -1,4 +1,3 @@
-import feffery_antd_components as fac
 from dash.dependencies import Component
 
 from . import (
@@ -21,88 +20,62 @@ demos_config = [
     {
         'path': 'basic_usage',
         'title': '基础使用',
-        'description': fac.AntdParagraph('基本的使用示例。'),
+        'description': '基本的使用示例。',
     },
     {
         'path': 'size',
         'title': '尺寸规格',
-        'description': fac.AntdParagraph(
-            [
-                '可设置两种不同大小：',
-                fac.AntdText("'default'", code=True),
-                '、',
-                fac.AntdText("'small'", code=True),
-                '，默认值：',
-                fac.AntdText("'default'", code=True),
-                '。',
-            ]
-        ),
+        'description': "可设置两种不同大小：`'default'`、`'small'`、`'default'`",
     },
     {
         'path': 'extra_link',
         'title': '添加右上角链接',
-        'description': fac.AntdParagraph('可在卡片右上角添加自定义链接。'),
+        'description': '可在卡片右上角添加自定义链接。',
     },
     {
         'path': 'extra',
         'title': '添加右上角额外内容',
-        'description': fac.AntdParagraph(
-            [
-                '可在卡片右上角添加自定义组件，优先级比',
-                fac.AntdText('extraLink', strong=True),
-                '更高，所以设置的',
-                fac.AntdText('extraLink', strong=True),
-                '将不会生效。',
-            ],
-        ),
+        'description': '可在卡片右上角添加自定义组件，优先级比**extraLink**更高，所以设置的**extraLink**将不会生效。',
     },
     {
         'path': 'hoverable',
         'title': '悬停效果',
-        'description': fac.AntdParagraph(
-            '可设置是否在鼠标悬停时显示特殊样式。'
-        ),
+        'description': '可设置是否在鼠标悬停时显示特殊样式。',
     },
     {
         'path': 'head_style',
         'title': '标题栏CSS样式',
-        'description': fac.AntdParagraph('可设置标题栏的CSS样式。'),
+        'description': '可设置标题栏的CSS样式。',
     },
     {
         'path': 'body_style',
         'title': '内容区CSS样式',
-        'description': fac.AntdParagraph('可设置内容区的CSS样式。'),
+        'description': '可设置内容区的CSS样式。',
     },
     {
         'path': 'cover',
         'title': '添加封面图片',
-        'description': fac.AntdParagraph(
-            '可在卡片的标题栏与内容区之间插入封面图片。'
-        ),
+        'description': '可在卡片的标题栏与内容区之间插入封面图片。',
     },
     {
         'path': 'card_grid',
         'title': '卡片网格',
-        'description': fac.AntdParagraph('使用内嵌网格模式来分隔卡片内容。'),
+        'description': '使用内嵌网格模式来分隔卡片内容。',
     },
     {
         'path': 'card_meta',
         'title': '结构化卡片',
-        'description': fac.AntdParagraph(
-            '用于为卡片添加结构化信息，如头像、标题、描述等，更灵活地展示卡片内容。'
-        ),
+        'description': '用于为卡片添加结构化信息，如头像、标题、描述等，更灵活地展示卡片内容。',
     },
     {
         'path': 'actions',
         'title': '添加底部操作栏',
-        'description': fac.AntdParagraph(
-            '可添加底部操作栏，实现更复杂的功能。'
-        ),
+        'description': '可添加底部操作栏，实现更复杂的功能。',
     },
     {
         'path': 'basic_callbacks',
         'title': '卡片点击回调监听',
-        'description': fac.AntdParagraph('可监听卡片点击事件触发回调。'),
+        'description': '可监听卡片点击事件触发回调。',
     },
 ]
 

@@ -1,4 +1,3 @@
-import feffery_antd_components as fac
 from dash.dependencies import Component
 
 from . import (
@@ -12,23 +11,17 @@ demos_config = [
     {
         'path': 'basic_usage',
         'title': '基础使用',
-        'description': fac.AntdParagraph('倒计时组件。'),
+        'description': '倒计时组件。',
     },
     {
         'path': 'unit',
         'title': '单位',
-        'description': fac.AntdParagraph('通过前缀和后缀添加单位。'),
+        'description': '通过前缀和后缀添加单位。',
     },
     {
         'path': 'title_tooltip',
         'title': '标题额外信息提示',
-        'description': fac.AntdParagraph(
-            [
-                fac.AntdText('通过设置参数'),
-                fac.AntdText('titleTooltip', code=True),
-                fac.AntdText('为标题添加额外信息提示。'),
-            ]
-        ),
+        'description': '通过设置参数`titleTooltip`为标题添加额外信息提示。',
     },
 ]
 

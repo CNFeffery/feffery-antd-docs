@@ -1,4 +1,3 @@
-import feffery_antd_components as fac
 from dash.dependencies import Component
 
 from . import (
@@ -18,95 +17,47 @@ demos_config = [
     {
         'path': 'basic_usage',
         'title': '基础使用',
-        'description': fac.AntdParagraph('对一组平级的元素进行轮播切换。'),
+        'description': '对一组平级的元素进行轮播切换。',
     },
     {
         'path': 'auto_play',
         'title': '自动轮播',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('autoplay=True', code=True),
-                '开启自动轮播。',
-            ]
-        ),
+        'description': '设置参数`autoplay=True`开启自动轮播。',
     },
     {
         'path': 'auto_play_speed',
         'title': '自动轮播速度',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('autoplaySpeed', code=True),
-                '控制自动轮播间隔时长。',
-            ]
-        ),
+        'description': '设置参数`autoplaySpeed`控制自动轮播间隔时长。',
     },
     {
         'path': 'dot_position',
         'title': '指示器位置',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('dotPosition', code=True),
-                '控制走马灯指示器位置。',
-            ]
-        ),
+        'description': '设置参数`dotPosition`控制走马灯指示器位置。',
     },
     {
         'path': 'fade_effect',
         'title': '渐显切换效果',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('effect="fade"', code=True),
-                '启用渐显切换效果。',
-            ]
-        ),
+        'description': "设置参数`effect='fade'`启用渐显切换效果。",
     },
     {
         'path': 'transition_speed',
         'title': '动画过渡时长',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('speed', code=True),
-                '控制切换动画过程毫秒耗时。',
-            ]
-        ),
+        'description': '设置参数`speed`控制切换动画过程毫秒耗时。',
     },
     {
         'path': 'show_arrows',
         'title': '显示切换箭头',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('arrows=True', code=True),
-                '开启额外的切换用箭头。',
-            ]
-        ),
+        'description': '设置参数`arrows=True`开启额外的切换用箭头。',
     },
     {
         'path': 'slides_to_show',
         'title': '同时展示的子项数量',
-        'description': fac.AntdParagraph(
-            [
-                '通过参数',
-                fac.AntdText('slidesToShow', code=True),
-                '控制同时展示的子项数量。',
-            ]
-        ),
+        'description': '通过参数`slidesToShow`控制同时展示的子项数量。',
     },
     {
         'path': 'slides_to_scroll',
         'title': '轮播划过的子项数量',
-        'description': fac.AntdParagraph(
-            [
-                '通过参数',
-                fac.AntdText('slidesToScroll', code=True),
-                '控制每次轮播划过的子项数量。',
-            ]
-        ),
+        'description': '通过参数`slidesToScroll`控制每次轮播划过的子项数量。',
     },
 ]
 

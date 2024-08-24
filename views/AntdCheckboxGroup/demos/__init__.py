@@ -1,4 +1,3 @@
-import feffery_antd_components as fac
 from dash.dependencies import Component
 
 from . import (
@@ -24,7 +23,7 @@ demos_config = [
     {
         'path': 'read_only',
         'title': '只读状态',
-        'description': fac.AntdParagraph('只读状态适用于单纯的数据展示场景。'),
+        'description': '只读状态适用于单纯的数据展示场景。',
     },
     {
         'path': 'basic_callbacks',
@@ -34,9 +33,7 @@ demos_config = [
     {
         'path': 'select_all_with_callbacks',
         'title': '基于回调实现全选',
-        'description': fac.AntdParagraph(
-            '本例基于浏览器端回调，以实现更流畅的交互响应速度。'
-        ),
+        'description': '本例基于浏览器端回调，以实现更流畅的交互响应速度。',
     },
 ]
 

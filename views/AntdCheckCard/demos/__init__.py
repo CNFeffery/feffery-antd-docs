@@ -1,4 +1,3 @@
-import feffery_antd_components as fac
 from dash.dependencies import Component
 
 from . import (
@@ -14,7 +13,7 @@ demos_config = [
     {
         'path': 'basic_usage',
         'title': '基础使用',
-        'description': fac.AntdParagraph('选择卡片中可以放入任何组件型内容。'),
+        'description': '选择卡片中可以放入任何组件型内容。',
     },
     {
         'path': 'disabled',
@@ -24,7 +23,7 @@ demos_config = [
     {
         'path': 'read_only',
         'title': '只读状态',
-        'description': fac.AntdParagraph('只读状态适用于单纯的数据展示场景。'),
+        'description': '只读状态适用于单纯的数据展示场景。',
     },
     {
         'path': 'sizes',

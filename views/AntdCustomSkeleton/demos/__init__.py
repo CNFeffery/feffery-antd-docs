@@ -1,4 +1,3 @@
-import feffery_antd_components as fac
 from dash.dependencies import Component
 
 from . import (
@@ -10,13 +9,7 @@ demos_config = [
     {
         'path': 'basic_usage',
         'title': '基础使用',
-        'description': fac.AntdParagraph(
-            [
-                '传入参数',
-                fac.AntdText('skeletonContent', code=True),
-                '的任何组件内容都将作为骨架屏加载动画进行渲染。',
-            ]
-        ),
+        'description': '传入参数`skeletonContent`的任何组件内容都将作为骨架屏加载动画进行渲染。',
     }
 ]
 

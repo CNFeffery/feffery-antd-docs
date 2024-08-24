@@ -1,4 +1,3 @@
-import feffery_antd_components as fac
 from dash.dependencies import Component
 
 from . import (
@@ -12,19 +11,17 @@ demos_config = [
     {
         'path': 'basic_usage',
         'title': '基础使用',
-        'description': fac.AntdParagraph('基本的使用示例。'),
+        'description': '基本的使用示例。',
     },
     {
         'path': 'checked_unchecked_content',
         'title': '不同状态下的组件内容',
-        'description': fac.AntdParagraph(
-            '可设置选中状态下和未选中状态下的组件内容。'
-        ),
+        'description': '可设置选中状态下和未选中状态下的组件内容。',
     },
     {
         'path': 'basic_callbacks',
         'title': '回调监听',
-        'description': fac.AntdParagraph('监听标签的选择状态。'),
+        'description': '监听标签的选择状态。',
     },
 ]
 

@@ -1,4 +1,3 @@
-import feffery_antd_components as fac
 from dash.dependencies import Component
 
 from . import (
@@ -19,9 +18,7 @@ demos_config = [
     {
         'path': 'indeterminate',
         'title': '半选中状态',
-        'description': fac.AntdParagraph(
-            '开启半选中状态后，仅改变勾选框显示样式，与实际勾选状态无关。'
-        ),
+        'description': '开启半选中状态后，仅改变勾选框显示样式，与实际勾选状态无关。',
     },
     {
         'path': 'disabled',
@@ -31,7 +28,7 @@ demos_config = [
     {
         'path': 'read_only',
         'title': '只读状态',
-        'description': fac.AntdParagraph('只读状态适用于单纯的数据展示场景。'),
+        'description': '只读状态适用于单纯的数据展示场景。',
     },
     {
         'path': 'basic_callbacks',
