@@ -1,4 +1,3 @@
-import feffery_antd_components as fac
 from dash.dependencies import Component
 
 from . import (
@@ -14,53 +13,27 @@ demos_config = [
     {
         'path': 'basic_usage',
         'title': '基础使用',
-        'description': fac.AntdParagraph('基础的无边框、无边框描述列表。'),
+        'description': '基础的无边框、无边框描述列表。',
     },
     {
         'path': 'use_items',
         'title': '使用items定义子项',
-        'description': fac.AntdParagraph(
-            [
-                '推荐使用参数',
-                fac.AntdText('items', code=True),
-                '代替',
-                fac.AntdText('children', code=True),
-                '进行子项的定义。',
-            ]
-        ),
+        'description': '推荐使用参数`items`代替`children`进行子项的定义。',
     },
     {
         'path': 'vertical_layout',
         'title': '垂直布局模式',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('layout="vertical"', code=True),
-                '开启垂直布局模式。',
-            ]
-        ),
+        'description': "设置参数`layout='vertical'`开启垂直布局模式。",
     },
     {
         'path': 'column',
         'title': '控制每行宽度份数',
-        'description': fac.AntdParagraph(
-            [
-                '通过参数',
-                fac.AntdText('column', code=True),
-                '控制每行宽度份数。',
-            ]
-        ),
+        'description': '通过参数`column`控制每行宽度份数。',
     },
     {
         'path': 'item_span',
         'title': '控制子项所占单位宽度',
-        'description': fac.AntdParagraph(
-            [
-                '通过参数',
-                fac.AntdText('span', code=True),
-                '控制子项所占单位宽度。',
-            ]
-        ),
+        'description': '通过参数`span`控制子项所占单位宽度。',
     },
 ]
 
