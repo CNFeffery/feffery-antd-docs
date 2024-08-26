@@ -1,4 +1,3 @@
-import feffery_antd_components as fac
 from dash.dependencies import Component
 
 from . import (
@@ -14,51 +13,27 @@ demos_config = [
     {
         'path': 'basic_usage',
         'title': '基础使用',
-        'description': fac.AntdParagraph('默认的空状态。'),
+        'description': '默认的空状态。',
     },
     {
         'path': 'simple',
         'title': '简洁占位图',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('image="simple"', code=True),
-                '启用内置的简洁风格占位图。',
-            ]
-        ),
+        'description': "设置参数`image='simple'`启用内置的简洁风格占位图。",
     },
     {
         'path': 'custom_image',
         'title': '自定义占位图',
-        'description': fac.AntdParagraph(
-            [
-                '向参数',
-                fac.AntdText('image', code=True),
-                '传入合法的图片地址，进行占位图的自定义。',
-            ]
-        ),
+        'description': '向参数`image`传入合法的图片地址，进行占位图的自定义。',
     },
     {
         'path': 'image_style',
         'title': '占位图样式',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('imageStyle', code=True),
-                '控制占位图样式。',
-            ]
-        ),
+        'description': '设置参数`imageStyle`控制占位图样式。',
     },
     {
         'path': 'hide_description',
         'title': '隐藏描述内容',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('description=False', code=True),
-                '隐藏描述内容。',
-            ]
-        ),
+        'description': '设置参数`description=False`隐藏描述内容。',
     },
 ]
 
