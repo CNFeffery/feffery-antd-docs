@@ -8,6 +8,7 @@ from . import (
     variant,  # noqa: F401
     disabled,  # noqa: F401
     status,  # noqa: F401
+    # custom_display_character,  # noqa: F401
     basic_callbacks,  # noqa: F401
 )
 from components import demos_render
@@ -75,6 +76,17 @@ demos_config = [
             ]
         ),
     },
+    # {
+    #     'path': 'custom_display_character',
+    #     'title': '自定义遮罩字符',
+    #     'description': fac.AntdParagraph(
+    #         [
+    #             '设置参数',
+    #             fac.AntdText('mask', code=True),
+    #             '自定义遮罩显示字符。',
+    #         ]
+    #     ),
+    # },
     {
         'path': 'basic_callbacks',
         'title': '回调监听',
