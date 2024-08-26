@@ -8,6 +8,7 @@ from . import (
     custom_indicator,  # noqa: F401
     percent,  # noqa: F401
     fullscreen,  # noqa: F401
+    custom_wrapper_css,  # noqa: F401
 )
 from components import demos_render
 
@@ -77,6 +78,11 @@ demos_config = [
                 '启用全屏遮罩形式的加载动画。',
             ]
         ),
+    },
+    {
+        'path': 'custom_wrapper_css',
+        'title': '自定义包裹层css类名',
+        'description': '通过参数`wrapperClassName`控制包裹层的**css**类名，来实现更丰富的样式控制，譬如此例中令高度撑满所在父容器。',
     },
 ]
 
