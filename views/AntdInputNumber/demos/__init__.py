@@ -1,4 +1,3 @@
-import feffery_antd_components as fac
 from dash.dependencies import Component
 
 from . import (
@@ -29,43 +28,27 @@ demos_config = [
     {
         'path': 'sizes',
         'title': '尺寸规格',
-        'description': fac.AntdParagraph(
-            ['通过参数', fac.AntdText('size', code=True), '控制尺寸规格。']
-        ),
+        'description': '通过参数`size`控制数值输入框的尺寸规格。',
     },
     {
         'path': 'variant',
         'title': '形态变体',
-        'description': fac.AntdParagraph(
-            ['通过参数', fac.AntdText('variant', code=True), '控制形态变体。']
-        ),
+        'description': '通过参数`variant`控制数值输入框的形态变体。',
     },
     {
         'path': 'disabled',
         'title': '禁用状态',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('disabled=True', code=True),
-                '禁用当前组件。',
-            ]
-        ),
+        'description': '设置参数`disabled=True`禁用当前组件。',
     },
     {
         'path': 'read_only',
         'title': '只读状态',
-        'description': fac.AntdParagraph('只读状态适合数据静态展示场景。'),
+        'description': '通过参数`readOnly`控制数值输入框是否呈现只读状态。',
     },
     {
         'path': 'status',
         'title': '强制渲染校验状态',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('status', code=True),
-                '控制强制渲染校验状态。',
-            ]
-        ),
+        'description': '通过参数`status`控制数值输入框强制渲染校验状态。',
     },
     {
         'path': 'addon',
@@ -100,13 +83,7 @@ demos_config = [
     {
         'path': 'string_mode',
         'title': '高精度模式',
-        'description': fac.AntdParagraph(
-            [
-                '针对超高精度数值的输入场景，通过设置参数',
-                fac.AntdText('stringMode=True', code=True),
-                '后，数值将以字符串形式进行监听，从而确保数值精度不丢失。',
-            ]
-        ),
+        'description': '针对超高精度数值的输入场景，通过设置参数`stringMode=True`后，数值将以字符串形式进行监听，从而确保数值精度不丢失。',
     },
     {
         'path': 'basic_callbacks',
@@ -116,9 +93,7 @@ demos_config = [
     {
         'path': 'debounce_callbacks',
         'title': '防抖回调监听',
-        'description': fac.AntdParagraph(
-            '通过监听施加了防抖效果的输入值，以避免回调函数过于频繁的被触发。'
-        ),
+        'description': '通过监听施加了防抖效果的输入值，以避免回调函数过于频繁的被触发。',
     },
 ]
 
