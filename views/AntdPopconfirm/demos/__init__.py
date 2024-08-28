@@ -1,4 +1,3 @@
-import feffery_antd_components as fac
 from dash.dependencies import Component
 
 from . import (
@@ -18,85 +17,47 @@ demos_config = [
     {
         'path': 'basic_usage',
         'title': '基础使用',
-        'description': fac.AntdParagraph('为子元素添加气泡确认框。'),
+        'description': '为子元素添加气泡确认框。',
     },
     {
         'path': 'custom_description',
         'title': '自定义描述信息',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('description', code=True),
-                '控制描述信息内容。',
-            ]
-        ),
+        'description': '设置参数`description`控制描述信息内容。',
     },
     {
         'path': 'custom_icon',
         'title': '自定义图标',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('icon', code=True),
-                '控制图标内容。',
-            ]
-        ),
+        'description': '设置参数`icon`控制图标内容。',
     },
     {
         'path': 'hide_arrow',
         'title': '隐藏附带箭头',
-        'description': fac.AntdParagraph(
-            [
-                '控制参数',
-                fac.AntdText('arrow', code=True),
-                '隐藏气泡确认框附带的箭头。',
-            ]
-        ),
+        'description': '控制参数`arrow`隐藏气泡确认框附带的箭头。',
     },
     {
         'path': 'placement',
         'title': '悬浮层展开方向',
-        'description': fac.AntdParagraph(
-            [
-                '控制参数',
-                fac.AntdText('placement', code=True),
-                '设置不同的悬浮层展开方向。',
-            ]
-        ),
+        'description': '控制参数`placement`设置不同的悬浮层展开方向。',
     },
     {
         'path': 'custom_style',
         'title': '自定义样式',
-        'description': fac.AntdParagraph('控制不用部分的样式。'),
+        'description': '控制不用部分的样式。',
     },
     {
         'path': 'control_open',
         'title': '展开状态受控',
-        'description': fac.AntdParagraph(
-            '气泡确认框的展开状态可通过回调进行控制。'
-        ),
+        'description': '气泡确认框的展开状态可通过回调进行控制。',
     },
     {
         'path': 'basic_callbacks',
         'title': '回调监听',
-        'description': fac.AntdParagraph(
-            '通过回调函数监听确认、取消按钮的点击事件。'
-        ),
+        'description': '通过回调函数监听确认、取消按钮的点击事件。',
     },
     {
         'path': 'question_with_absolute_position',
         'title': '常见问题：配合绝对定位',
-        'description': fac.AntdParagraph(
-            [
-                '当直接将',
-                fac.AntdText('AntdPopconfirm', strong=True),
-                '施加于具有绝对定位样式的元素之上时，可能会遇到悬浮层位置显示异常的问题，推荐的稳定做法是为对应的',
-                fac.AntdText('AntdPopconfirm', strong=True),
-                '添加一层',
-                fac.AntdText('Span', strong=True),
-                '父元素，并将原先的绝对定位相关样式转而施加于此父元素之上。',
-            ]
-        ),
+        'description': '当直接将**AntdPopconfirm**施加于具有绝对定位样式的元素之上时，可能会遇到悬浮层位置显示异常的问题，推荐的稳定做法是为对应的**AntdPopconfirm**添加一层**Span**父元素，并将原先的绝对定位相关样式转而施加于此父元素之上。',
     },
 ]
 

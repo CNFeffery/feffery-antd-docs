@@ -1,4 +1,3 @@
-import feffery_antd_components as fac
 from dash.dependencies import Component
 
 from . import (
@@ -18,89 +17,47 @@ demos_config = [
     {
         'path': 'basic_usage',
         'title': '基础使用',
-        'description': fac.AntdParagraph('最简单的分段着色。'),
+        'description': '最简单的分段着色。',
     },
     {
         'path': 'sizes',
         'title': '不同的尺寸规格',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('size', code=True),
-                '控制尺寸规格。',
-            ]
-        ),
+        'description': '设置参数`size`控制尺寸规格。',
     },
     {
         'path': 'border',
         'title': '边框',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('bordered', code=True),
-                '显示或隐藏边框。',
-            ]
-        ),
+        'description': '设置参数`bordered`显示或隐藏边框。',
     },
     {
         'path': 'auxiliary_button',
         'title': '辅助按钮',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('controls', code=True),
-                '显示或隐藏数字输入框右侧内部辅助快捷增减按钮。',
-            ]
-        ),
+        'description': '设置参数`controls`显示或隐藏数字输入框右侧内部辅助快捷增减按钮。',
     },
     {
         'path': 'disabled_status',
         'title': '禁用状态',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('disabled=True', code=True),
-                '开启禁用状态。',
-            ]
-        ),
+        'description': '设置参数`disabled=True`开启禁用状态。',
     },
     {
         'path': 'read_only_status',
         'title': '只读状态',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('readOnly=True', code=True),
-                '开启只读状态。',
-            ]
-        ),
+        'description': '设置参数`readOnly=True`开启只读状态。',
     },
     {
         'path': 'color_block_position',
         'title': '颜色块位置',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('colorBlockPosition', code=True),
-                '控制颜色块位置。',
-            ]
-        ),
+        'description': '设置参数`colorBlockPosition`控制颜色块位置。',
     },
     {
         'path': 'basic_callbacks',
         'title': '回调监听',
-        'description': fac.AntdParagraph('可用于监听当前的各分段断点值。'),
+        'description': '可用于监听当前的各分段断点值。',
     },
     {
         'path': 'color_block_click_event',
         'title': '监听色块点击事件',
-        'description': fac.AntdParagraph(
-            [
-                '通过监听属性',
-                fac.AntdText('colorBlockClickEvent', code=True),
-                '变化来获取色块点击事件。',
-            ]
-        ),
+        'description': '通过监听属性`colorBlockClickEvent`变化来获取色块点击事件。',
     },
 ]
 

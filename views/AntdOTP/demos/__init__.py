@@ -1,4 +1,3 @@
-import feffery_antd_components as fac
 from dash.dependencies import Component
 
 from . import (
@@ -17,87 +16,42 @@ demos_config = [
     {
         'path': 'basic_usage',
         'title': '基础使用',
-        'description': fac.AntdParagraph(
-            '英文输入法下默认接收6位数字或字母输入。'
-        ),
+        'description': '英文输入法下默认接收6位数字或字母输入。',
     },
     {
         'path': 'length',
         'title': '输入框数量',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('length', code=True),
-                '控制单体输入框的数量。',
-            ]
-        ),
+        'description': '设置参数`length`控制单体输入框的数量。',
     },
     {
         'path': 'sizes',
         'title': '尺寸规格',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('size', code=True),
-                '控制尺寸规格。',
-            ]
-        ),
+        'description': '设置参数`size`控制尺寸规格。',
     },
     {
         'path': 'variant',
         'title': '形态变体',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('variant', code=True),
-                '控制形态变体风格。',
-            ]
-        ),
+        'description': '设置参数`variant`控制形态变体风格。',
     },
     {
         'path': 'disabled',
         'title': '禁用状态',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('disabled', code=True),
-                '控制是否禁用当前组件。',
-            ]
-        ),
+        'description': '设置参数`disabled`控制是否禁用当前组件。',
     },
     {
         'path': 'status',
         'title': '强制渲染校验状态',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('status', code=True),
-                '控制强制校验状态渲染。',
-            ]
-        ),
+        'description': '设置参数`status`控制强制校验状态渲染。',
     },
     # {
     #     'path': 'custom_display_character',
     #     'title': '自定义遮罩字符',
-    #     'description': fac.AntdParagraph(
-    #         [
-    #             '设置参数',
-    #             fac.AntdText('mask', code=True),
-    #             '自定义遮罩显示字符。',
-    #         ]
-    #     ),
+    #     'description': '设置参数`mask`自定义遮罩显示字符。',
     # },
     {
         'path': 'basic_callbacks',
         'title': '回调监听',
-        'description': fac.AntdParagraph(
-            [
-                fac.AntdText('AntdOTP', strong=True),
-                '的属性',
-                fac.AntdText('value', code=True),
-                '将在全部输入框均输入完毕的情况下触发更新。',
-            ]
-        ),
+        'description': '**AntdOTP**的属性`value`将在全部输入框均输入完毕的情况下触发更新。',
     },
 ]
 

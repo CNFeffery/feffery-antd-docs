@@ -1,4 +1,3 @@
-import feffery_antd_components as fac
 from dash.dependencies import Component
 
 from . import (
@@ -16,60 +15,37 @@ demos_config = [
     {
         'path': 'basic_usage',
         'title': '基础使用',
-        'description': fac.AntdParagraph('最简单的用法。'),
+        'description': '最简单的用法。',
     },
     {
         'path': 'block',
         'title': '撑满父级元素宽度',
-        'description': fac.AntdParagraph(
-            [
-                fac.AntdText('block', code=True),
-                fac.AntdText('属性使其适应父元素宽度。'),
-            ]
-        ),
+        'description': '设置参数`block=True`后分段控制器将撑满父元素宽度。',
     },
     {
         'path': 'size',
         'title': '不同的尺寸规格',
-        'description': fac.AntdParagraph(
-            [
-                fac.AntdText('size', code=True),
-                fac.AntdText('支持三种尺寸（小、默认、大）。'),
-            ]
-        ),
+        'description': '通过参数`size`控制分段控制器的尺寸规格。',
     },
     {
         'path': 'icon',
         'title': '设置图标',
-        'description': fac.AntdParagraph('为选项添加前缀图标。'),
+        'description': '为选项添加前缀图标。',
     },
     {
         'path': 'custom_render',
         'title': '自定义渲染',
-        'description': fac.AntdParagraph(
-            [
-                fac.AntdText('给'),
-                fac.AntdText('options', code=True),
-                fac.AntdText('中的'),
-                fac.AntdText('label', code=True),
-                fac.AntdText('传入组件型内容即可完成自定义渲染。'),
-            ]
-        ),
+        'description': '选项的`label`参数可传入自定义组件。',
     },
     {
         'path': 'disabled',
         'title': '禁用状态',
-        'description': fac.AntdParagraph(
-            [
-                fac.AntdText('AntdSegmented', code=True),
-                fac.AntdText('不可用。'),
-            ]
-        ),
+        'description': '设置参数`disabled=True`禁用当前分段控制器。',
     },
     {
         'path': 'basic_callbacks',
         'title': '回调监听',
-        'description': fac.AntdParagraph('监听当前所选项的值。'),
+        'description': '监听当前所选项的值。',
     },
 ]
 

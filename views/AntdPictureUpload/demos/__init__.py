@@ -1,4 +1,3 @@
-import feffery_antd_components as fac
 from dash.dependencies import Component
 
 from . import (
@@ -15,55 +14,27 @@ demos_config = [
     {
         'path': 'basic_usage',
         'title': '基础使用',
-        'description': fac.AntdParagraph('点击触发图片文件上传功能。'),
+        'description': '点击触发图片文件上传功能。',
     },
     {
         'path': 'disabled',
         'title': '禁用状态',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('disabled=True', code=True),
-                '开启禁用状态。',
-            ]
-        ),
+        'description': '设置参数`disabled=True`开启禁用状态。',
     },
     {
         'path': 'editable',
         'title': '图片编辑功能',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('editable=True', code=True),
-                '后，可配合参数',
-                fac.AntdText('editConfig', code=True),
-                '进行图片编辑相关功能的配置。',
-            ]
-        ),
+        'description': '设置参数`editable=True`后，可配合参数`editConfig`进行图片编辑相关功能的配置。',
     },
     {
         'path': 'confirm_before_delete',
         'title': '删除前确认',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('confirmBeforeDelete=True', code=True),
-                '为已上传文件记录的删除操作添加二次确认功能。',
-            ]
-        ),
+        'description': '设置参数`confirmBeforeDelete=True`为已上传文件记录的删除操作添加二次确认功能。',
     },
     {
         'path': 'icons_visible',
         'title': '预览及删除图标的显隐',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('showPreviewIcon', code=True),
-                '、',
-                fac.AntdText('showRemoveIcon', code=True),
-                '控制已上传图片记录预览及删除图标的显隐。',
-            ]
-        ),
+        'description': '设置参数`showPreviewIcon`、`showRemoveIcon`控制已上传图片记录预览及删除图标的显隐。',
     },
     {
         'path': 'basic_callbacks',
