@@ -8,6 +8,10 @@ from . import (
     status,  # noqa: F401
     different_placement,  # noqa: F401
     multiple,  # noqa: F401
+    # max_tag_placeholder,  # noqa: F401
+    # max_tag_text_length,  # noqa: F401
+    # suffix_icon,  # noqa: F401
+    # switcher_icon,  # noqa: F401
     multiple_checkable,  # noqa: F401
     flat_tree_data,  # noqa: F401
     tree_line,  # noqa: F401
@@ -79,6 +83,50 @@ demos_config = [
             ]
         ),
     },
+    # {
+    #     'path': 'max_tag_placeholder',
+    #     'title': '隐藏已选值时显示内容',
+    #     'description': fac.AntdParagraph(
+    #         [
+    #             '多选模式下，设置参数',
+    #             fac.AntdText('maxTagPlaceholder', code=True),
+    #             '控制隐藏已选值tag时显示的内容。',
+    #         ]
+    #     ),
+    # },
+    # {
+    #     'path': 'max_tag_text_length',
+    #     'title': '已选值最大显示文本长度',
+    #     'description': fac.AntdParagraph(
+    #         [
+    #             '多选模式下，设置参数',
+    #             fac.AntdText('maxTagTextLength', code=True),
+    #             '控制最大显示的已选值tag文本长度。',
+    #         ]
+    #     ),
+    # },
+    # {
+    #     'path': 'suffix_icon',
+    #     'title': '自定义选择框后缀图标',
+    #     'description': fac.AntdParagraph(
+    #         [
+    #             '设置参数',
+    #             fac.AntdText('suffixIcon', code=True),
+    #             '自定义选择框后缀图标。',
+    #         ]
+    #     ),
+    # },
+    # {
+    #     'path': 'switcher_icon',
+    #     'title': '自定义树节点的展开/折叠图标',
+    #     'description': fac.AntdParagraph(
+    #         [
+    #             '设置参数',
+    #             fac.AntdText('switcherIcon', code=True),
+    #             '自定义树节点的展开/折叠图标。',
+    #         ]
+    #     ),
+    # },
     {
         'path': 'multiple_checkable',
         'title': '带勾选框的多选模式',
