@@ -52,6 +52,9 @@
         "AntdCascader": [
             "insistence"
         ],
+        "AntdOTP": [
+            "insistence"
+        ],
         "AntdInput": [
             "Wangnov"
         ],
@@ -76,6 +79,9 @@
         ],
         "AntdSelect": [
             "Wangnov"
+        ],
+        "AntdTreeSelect": [
+            "insistence"
         ],
         "AntdCard": [
             "Wangnov",
