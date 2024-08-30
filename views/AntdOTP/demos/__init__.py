@@ -7,7 +7,7 @@ from . import (
     variant,  # noqa: F401
     disabled,  # noqa: F401
     status,  # noqa: F401
-    # custom_display_character,  # noqa: F401
+    custom_display_character,  # noqa: F401
     basic_callbacks,  # noqa: F401
 )
 from components import demos_render
@@ -43,11 +43,11 @@ demos_config = [
         'title': '强制渲染校验状态',
         'description': '设置参数`status`控制强制校验状态渲染。',
     },
-    # {
-    #     'path': 'custom_display_character',
-    #     'title': '自定义遮罩字符',
-    #     'description': '设置参数`mask`自定义遮罩显示字符。',
-    # },
+    {
+        'path': 'custom_display_character',
+        'title': '自定义遮罩字符',
+        'description': '设置参数`mask`自定义遮罩显示字符。',
+    },
     {
         'path': 'basic_callbacks',
         'title': '回调监听',
