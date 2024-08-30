@@ -14,6 +14,12 @@ def render() -> Component:
                 style={'width': 300},
             ),
             fac.AntdDateRangePicker(
+                placeholder=['picker="week"', ''],
+                picker='week',
+                format='YYYY年第w周',
+                style={'width': 300},
+            ),
+            fac.AntdDateRangePicker(
                 placeholder=['picker="month"', ''],
                 picker='month',
                 format='YYYY-MM',
@@ -40,6 +46,12 @@ fac.AntdSpace(
         fac.AntdDateRangePicker(
             placeholder=['picker="date"', ''],
             format='YYYY年MM月DD日',
+            style={'width': 300},
+        ),
+        fac.AntdDateRangePicker(
+            placeholder=['picker="week"', ''],
+            picker='week',
+            format='YYYY年第w周',
             style={'width': 300},
         ),
         fac.AntdDateRangePicker(
