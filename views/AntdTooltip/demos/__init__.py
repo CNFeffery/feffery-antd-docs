@@ -1,4 +1,3 @@
-import feffery_antd_components as fac
 from dash.dependencies import Component
 
 from . import (
@@ -16,67 +15,37 @@ demos_config = [
     {
         'path': 'basic_usage',
         'title': '基础使用',
-        'description': fac.AntdParagraph('为子元素添加信息提示。'),
+        'description': '为子元素添加信息提示。',
     },
     {
         'path': 'hide_arrow',
         'title': '隐藏附带箭头',
-        'description': fac.AntdParagraph(
-            [
-                '控制参数',
-                fac.AntdText('arrow', code=True),
-                '隐藏信息提示附带的箭头。',
-            ]
-        ),
+        'description': '控制参数`arrow`隐藏信息提示附带的箭头。',
     },
     {
         'path': 'placement',
         'title': '悬浮层展开方向',
-        'description': fac.AntdParagraph(
-            [
-                '控制参数',
-                fac.AntdText('placement', code=True),
-                '设置不同的悬浮层展开方向。',
-            ]
-        ),
+        'description': '控制参数`placement`设置不同的悬浮层展开方向。',
     },
     {
         'path': 'color',
         'title': '自定义背景色',
-        'description': fac.AntdParagraph(
-            [
-                '控制参数',
-                fac.AntdText('color', code=True),
-                '设置不同的背景色。',
-            ]
-        ),
+        'description': '控制参数`color`设置不同的背景色。',
     },
     {
         'path': 'custom_style',
         'title': '自定义样式',
-        'description': fac.AntdParagraph('控制不用部分的样式。'),
+        'description': '控制不用部分的样式。',
     },
     {
         'path': 'control_open',
         'title': '展开状态受控',
-        'description': fac.AntdParagraph(
-            '信息提示的展开状态可通过回调进行控制。'
-        ),
+        'description': '信息提示的展开状态可通过回调进行控制。',
     },
     {
         'path': 'question_with_absolute_position',
         'title': '常见问题：配合绝对定位',
-        'description': fac.AntdParagraph(
-            [
-                '当直接将',
-                fac.AntdText('AntdTooltip', strong=True),
-                '施加于具有绝对定位样式的元素之上时，可能会遇到悬浮层位置显示异常的问题，推荐的稳定做法是为对应的',
-                fac.AntdText('AntdTooltip', strong=True),
-                '添加一层',
-                fac.AntdText('Span', strong=True),
-                '父元素，并将原先的绝对定位相关样式转而施加于此父元素之上。',
-            ]
-        ),
+        'description': '当直接将**AntdTooltip**施加于具有绝对定位样式的元素之上时，可能会遇到悬浮层位置显示异常的问题，推荐的稳定做法是为对应的**AntdTooltip**添加一层**Span**父元素，并将原先的绝对定位相关样式转而施加于此父元素之上。',
     },
 ]
 

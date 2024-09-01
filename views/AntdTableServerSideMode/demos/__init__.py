@@ -1,4 +1,3 @@
-import feffery_antd_components as fac
 from dash.dependencies import Component
 
 from . import (
@@ -17,80 +16,42 @@ demos_config = [
     {
         'path': 'pandas_pagination',
         'title': '翻页驱动（pandas示例）',
-        'description': fac.AntdParagraph(
-            [
-                '此例展示了在服务端数据加载模式下，针对',
-                fac.AntdText('pandas', strong=True),
-                '数据框，联动表格翻页相关事件实现远程数据加载。',
-            ]
-        ),
+        'description': '此例展示了在服务端数据加载模式下，针对**pandas**数据框，联动表格翻页相关事件实现远程数据加载。',
     },
     {
         'path': 'pandas_pagination_single_sort',
         'title': '翻页+单字段排序驱动（pandas示例）',
-        'description': fac.AntdParagraph(
-            [
-                '此例展示了在服务端数据加载模式下，针对',
-                fac.AntdText('pandas', strong=True),
-                '数据框，联动表格翻页+单字段排序相关事件实现远程数据加载。',
-            ]
-        ),
+        'description': '此例展示了在服务端数据加载模式下，针对**pandas**数据框，联动表格翻页+单字段排序相关事件实现远程数据加载。',
     },
     {
         'path': 'pandas_pagination_multiple_sort',
         'title': '翻页+组合排序驱动（pandas示例）',
-        'description': fac.AntdParagraph(
-            [
-                '此例展示了在服务端数据加载模式下，针对',
-                fac.AntdText('pandas', strong=True),
-                '数据框，联动表格翻页+多字段组合排序相关事件实现远程数据加载。',
-            ]
-        ),
+        'description': '此例展示了在服务端数据加载模式下，针对**pandas**多字段组合排序相关事件实现远程数据加载。',
     },
     {
         'path': 'pandas_pagination_filter',
         'title': '翻页+筛选驱动（pandas示例）',
-        'description': fac.AntdParagraph(
-            [
-                '此例展示了在服务端数据加载模式下，针对',
-                fac.AntdText('pandas', strong=True),
-                '数据框，联动表格翻页+字段筛选相关事件实现远程数据加载。',
-            ]
-        ),
+        'description': '此例展示了在服务端数据加载模式下，针对**pandas**数据框，联动表格翻页+字段筛选相关事件实现远程数据加载。',
     },
     {
         'path': 'database_pagination',
         'title': '翻页驱动（数据库示例）',
-        'description': fac.AntdParagraph(
-            '此例展示了在服务端数据加载模式下，针对数据库表格，联动表格翻页相关事件实现远程数据加载。'
-        ),
+        'description': '此例展示了在服务端数据加载模式下，针对数据库表格，联动表格翻页相关事件实现远程数据加载。',
     },
     {
         'path': 'database_pagination_single_sort',
         'title': '翻页+单字段排序驱动（数据库示例）',
-        'description': fac.AntdParagraph(
-            [
-                '此例展示了在服务端数据加载模式下，针对数据库表格，联动表格翻页+单字段排序相关事件实现远程数据加载。',
-            ]
-        ),
+        'description': '此例展示了在服务端数据加载模式下，针对数据库表格，联动表格翻页+单字段排序相关事件实现远程数据加载。',
     },
     {
         'path': 'database_pagination_multiple_sort',
         'title': '翻页+组合排序驱动（数据库示例）',
-        'description': fac.AntdParagraph(
-            [
-                '此例展示了在服务端数据加载模式下，针对数据库表格，联动表格翻页+多字段组合排序相关事件实现远程数据加载。',
-            ]
-        ),
+        'description': '此例展示了在服务端数据加载模式下，针对数据库表格，联动表格翻页+多字段组合排序相关事件实现远程数据加载。',
     },
     {
         'path': 'database_pagination_filter',
         'title': '翻页+筛选驱动（数据库示例）',
-        'description': fac.AntdParagraph(
-            [
-                '此例展示了在服务端数据加载模式下，针对数据库表格，联动表格翻页+字段筛选相关事件实现远程数据加载。',
-            ]
-        ),
+        'description': '此例展示了在服务端数据加载模式下，针对数据库表格，联动表格翻页+字段筛选相关事件实现远程数据加载。',
     },
 ]
 

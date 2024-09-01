@@ -1,4 +1,3 @@
-import feffery_antd_components as fac
 from dash.dependencies import Component
 
 from . import (
@@ -19,95 +18,47 @@ demos_config = [
     {
         'path': 'basic_usage',
         'title': '基础使用',
-        'description': fac.AntdParagraph('点击按钮触发文件上传功能。'),
+        'description': '点击按钮触发文件上传功能。',
     },
     {
         'path': 'disabled',
         'title': '禁用状态',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('disabled=True', code=True),
-                '开启禁用状态。',
-            ]
-        ),
+        'description': '设置参数`disabled=True`开启禁用状态。',
     },
     {
         'path': 'block_button',
         'title': '撑满父元素',
-        'description': fac.AntdParagraph(
-            [
-                '通过参数',
-                fac.AntdText('buttonProps', code=True),
-                '控制上传按钮相关参数，以撑满父元素为例。',
-            ]
-        ),
+        'description': '通过参数`buttonProps`控制上传按钮相关参数，以撑满父元素为例。',
     },
     {
         'path': 'list_max_length',
         'title': '限制上传列表记录数量',
-        'description': fac.AntdParagraph(
-            [
-                '通过参数',
-                fac.AntdText('fileListMaxLength', code=True),
-                '限制上传列表中的文件上传记录最大数量。',
-            ]
-        ),
+        'description': '通过参数`fileListMaxLength`限制上传列表中的文件上传记录最大数量。',
     },
     {
         'path': 'file_types',
         'title': '限制上传文件类型',
-        'description': fac.AntdParagraph(
-            [
-                '通过参数',
-                fac.AntdText('fileTypes', code=True),
-                '限制可上传的文件类型。',
-            ]
-        ),
+        'description': '通过参数`fileTypes`限制可上传的文件类型。',
     },
     {
         'path': 'multiple_upload',
         'title': '多文件上传',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('multiple=True', code=True),
-                '后可一次性上传多个文件。',
-            ]
-        ),
+        'description': '设置参数`multiple=True`后可一次性上传多个文件。',
     },
     {
         'path': 'directory_upload',
         'title': '文件夹上传',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('directory=True', code=True),
-                '后可选择文件夹进行内部文件的批量上传。',
-            ]
-        ),
+        'description': '设置参数`directory=True`后可选择文件夹进行内部文件的批量上传。',
     },
     {
         'path': 'failed_tooltip',
         'title': '自定义失败文件提示',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('failedTooltipInfo', code=True),
-                '进行上传失败文件的错误提示信息自定义。',
-            ]
-        ),
+        'description': '设置参数`failedTooltipInfo`进行上传失败文件的错误提示信息自定义。',
     },
     {
         'path': 'confirm_before_delete',
         'title': '删除前确认',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('confirmBeforeDelete=True', code=True),
-                '为已上传文件记录的删除操作添加二次确认功能。',
-            ]
-        ),
+        'description': '设置参数`confirmBeforeDelete=True`为已上传文件记录的删除操作添加二次确认功能。',
     },
     {
         'path': 'basic_callbacks',

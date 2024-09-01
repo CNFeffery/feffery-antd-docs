@@ -1,4 +1,3 @@
-import feffery_antd_components as fac
 from dash.dependencies import Component
 
 from . import (
@@ -32,159 +31,117 @@ demos_config = [
     {
         'path': 'link_mode',
         'title': 'link链接模式',
-        'description': fac.AntdParagraph('将单元格内容快捷渲染为链接形式。'),
+        'description': '将单元格内容快捷渲染为链接形式。',
     },
     {
         'path': 'ellipsis_mode',
         'title': 'ellipsis长内容省略模式',
-        'description': fac.AntdParagraph(
-            '将单元格内容快捷渲染为长内容省略形式。'
-        ),
+        'description': '将单元格内容快捷渲染为长内容省略形式。',
     },
     {
         'path': 'copyable_mode',
         'title': 'copyable可复制模式',
-        'description': fac.AntdParagraph('将单元格内容快捷渲染为可复制形式。'),
+        'description': '将单元格内容快捷渲染为可复制形式。',
     },
     {
         'path': 'ellipsis_copyable_mode',
         'title': 'ellipsis-copyable长内容省略+可复制模式',
-        'description': fac.AntdParagraph(
-            '将单元格内容快捷渲染为长内容省略+可复制形式。'
-        ),
+        'description': '将单元格内容快捷渲染为长内容省略+可复制形式。',
     },
     {
         'path': 'tags_mode',
         'title': 'tags标签模式',
-        'description': fac.AntdParagraph('将单元格内容快捷渲染为标签形式。'),
+        'description': '将单元格内容快捷渲染为标签形式。',
     },
     {
         'path': 'status_badge_mode',
         'title': 'status-badge状态徽标模式',
-        'description': fac.AntdParagraph(
-            '将单元格内容快捷渲染为状态徽标形式。'
-        ),
+        'description': '将单元格内容快捷渲染为状态徽标形式。',
     },
     {
         'path': 'image_mode',
         'title': 'image图片模式',
-        'description': fac.AntdParagraph('将单元格内容快捷渲染为图片形式。'),
+        'description': '将单元格内容快捷渲染为图片形式。',
     },
     {
         'path': 'custom_format_mode',
         'title': 'custom-format自定义格式模式',
-        'description': fac.AntdParagraph(
-            [
-                '在这个例子中，数值测试1与数值测试2字段本质上都是数值型，但在',
-                fac.AntdText("'custom-format'", code=True),
-                '模式下，可通过参数',
-                fac.AntdText('customFormatFuncs', code=True),
-                '自定义的js函数来改变单元格中表面上所渲染出的内容格式。',
-            ]
-        ),
+        'description': '在这个例子中，数值测试1与数值测试2字段本质上都是数值型，但在`"custom-format"`模式下，可通过参数`customFormatFuncs`自定义的js函数来改变单元格中表面上所渲染出的内容格式。',
     },
     {
         'path': 'corner_mark_mode',
         'title': 'corner-mark角标模式',
-        'description': fac.AntdParagraph('将单元格内容快捷渲染为角标形式。'),
+        'description': '将单元格内容快捷渲染为角标形式。',
     },
     {
         'path': 'row_merge_mode',
         'title': 'row-merge跨行单元格合并模式',
-        'description': fac.AntdParagraph(
-            '将单元格内容快捷渲染为跨行单元格合并形式。'
-        ),
+        'description': '将单元格内容快捷渲染为跨行单元格合并形式。',
     },
     {
         'path': 'dropdown_links_mode',
         'title': 'dropdown-links下拉链接菜单模式',
-        'description': fac.AntdParagraph(
-            '将单元格内容快捷渲染为下拉链接菜单形式。'
-        ),
+        'description': '将单元格内容快捷渲染为下拉链接菜单形式。',
     },
     {
         'path': 'image_avatar_mode',
         'title': 'image-avatar图片型头像模式',
-        'description': fac.AntdParagraph(
-            '将单元格内容快捷渲染为图片型头像形式。'
-        ),
+        'description': '将单元格内容快捷渲染为图片型头像形式。',
     },
     {
         'path': 'mini_line_mode',
         'title': 'mini-line迷你折线图模式',
-        'description': fac.AntdParagraph(
-            '将单元格内容快捷渲染为迷你折线图形式。'
-        ),
+        'description': '将单元格内容快捷渲染为迷你折线图形式。',
     },
     {
         'path': 'mini_bar_mode',
         'title': 'mini-bar迷你柱状图模式',
-        'description': fac.AntdParagraph(
-            '将单元格内容快捷渲染为迷你柱状图形式。'
-        ),
+        'description': '将单元格内容快捷渲染为迷你柱状图形式。',
     },
     {
         'path': 'mini_area_mode',
         'title': 'mini-area迷你面积图模式',
-        'description': fac.AntdParagraph(
-            '将单元格内容快捷渲染为迷你面积图形式。'
-        ),
+        'description': '将单元格内容快捷渲染为迷你面积图形式。',
     },
     {
         'path': 'mini_progress_mode',
         'title': 'mini-progress迷你进度图模式',
-        'description': fac.AntdParagraph(
-            '将单元格内容快捷渲染为迷你进度图形式。'
-        ),
+        'description': '将单元格内容快捷渲染为迷你进度图形式。',
     },
     {
         'path': 'mini_ring_progress_mode',
         'title': 'mini-ring-progress迷你环形进度图模式',
-        'description': fac.AntdParagraph(
-            '将单元格内容快捷渲染为迷你环形进度图形式。'
-        ),
+        'description': '将单元格内容快捷渲染为迷你环形进度图形式。',
     },
     {
         'path': 'button_mode_and_callbacks',
         'title': 'button按钮模式及回调监听',
-        'description': fac.AntdParagraph(
-            '将单元格内容快捷渲染为按钮形式，并通过回调监听相关事件。'
-        ),
+        'description': '将单元格内容快捷渲染为按钮形式，并通过回调监听相关事件。',
     },
     {
         'path': 'checkbox_mode_and_callbacks',
         'title': 'checkbox勾选框模式及回调监听',
-        'description': fac.AntdParagraph(
-            '将单元格内容快捷渲染为勾选框形式，并通过回调监听相关事件。'
-        ),
+        'description': '将单元格内容快捷渲染为勾选框形式，并通过回调监听相关事件。',
     },
     {
         'path': 'switch_mode_and_callbacks',
         'title': 'switch开关模式及回调监听',
-        'description': fac.AntdParagraph(
-            '将单元格内容快捷渲染为开关形式，并通过回调监听相关事件。'
-        ),
+        'description': '将单元格内容快捷渲染为开关形式，并通过回调监听相关事件。',
     },
     {
         'path': 'dropdown_mode_and_callbacks',
         'title': 'dropdown下拉菜单模式及回调监听',
-        'description': fac.AntdParagraph(
-            '将单元格内容快捷渲染为下拉菜单形式，并通过回调监听相关事件。'
-        ),
+        'description': '将单元格内容快捷渲染为下拉菜单形式，并通过回调监听相关事件。',
     },
     {
         'path': 'select_mode_and_callbacks',
         'title': 'select下拉选择模式及回调监听',
-        'description': fac.AntdParagraph(
-            '将单元格内容快捷渲染为下拉选择形式，并通过回调监听相关事件。'
-        ),
+        'description': '将单元格内容快捷渲染为下拉选择形式，并通过回调监听相关事件。',
     },
     {
         'path': 'custom_component_cell_render',
         'title': '自定义单元格元素',
-        'description': fac.AntdParagraph(
-            '目前已有的快捷再渲染模式满足不了你的需求？没关系，任何组件元素都可以作为单元格值被传入😉！（此特性建议仅用作静态展示使用）'
-        ),
+        'description': '目前已有的快捷再渲染模式满足不了你的需求？没关系，任何组件元素都可以作为单元格值被传入😉！（此特性建议仅用作静态展示使用）',
     },
 ]
 

@@ -1,4 +1,3 @@
-import feffery_antd_components as fac
 from dash.dependencies import Component
 
 from . import (
@@ -23,19 +22,17 @@ demos_config = [
     {
         'path': 'basic_usage',
         'title': '基础使用',
-        'description': fac.AntdParagraph('基础的静态步骤条。'),
+        'description': '基础的静态步骤条。',
     },
     {
         'path': 'with_more_info',
         'title': '带说明信息的步骤条',
-        'description': fac.AntdParagraph(
-            '步骤条节点可额外设置副标题及描述信息。'
-        ),
+        'description': '步骤条节点可额外设置副标题及描述信息。',
     },
     {
         'path': 'custom_icon',
         'title': '自定义图标',
-        'description': fac.AntdParagraph('步骤图标可传入任意组件型内容。'),
+        'description': '步骤图标可传入任意组件型内容。',
     },
     {
         'path': 'percent',
@@ -45,39 +42,27 @@ demos_config = [
     {
         'path': 'set_current',
         'title': '设置当前所在步骤',
-        'description': fac.AntdParagraph(
-            [
-                '通过参数',
-                fac.AntdText('current', code=True),
-                '可控制当前步骤条所在步骤。',
-            ]
-        ),
+        'description': '通过参数`current`可控制当前步骤条所在步骤。',
     },
     {
         'path': 'vertical',
         'title': '垂直步骤条',
-        'description': fac.AntdParagraph('从上往下垂直展示步骤条信息。'),
+        'description': '从上往下垂直展示步骤条信息。',
     },
     {
         'path': 'vertical_info',
         'title': '垂直展示步骤条信息',
-        'description': fac.AntdParagraph(
-            [
-                '通过参数',
-                fac.AntdText('labelPlacement', code=True),
-                '可控制步骤条额外信息的展示形式。',
-            ]
-        ),
+        'description': '通过参数`labelPlacement`可控制步骤条额外信息的展示形式。',
     },
     {
         'path': 'dot',
         'title': '点状步骤条',
-        'description': fac.AntdParagraph('简洁风格的点状步骤条。'),
+        'description': '简洁风格的点状步骤条。',
     },
     {
         'path': 'sizes',
         'title': '尺寸规格',
-        'description': fac.AntdParagraph('不同尺寸的步骤条。'),
+        'description': '不同尺寸的步骤条。',
     },
     {
         'path': 'current_status',
@@ -97,20 +82,12 @@ demos_config = [
     {
         'path': 'click_switch',
         'title': '允许点击切换步骤',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('allowClick=True', code=True),
-                '后可直接点击步骤进行步骤切换。',
-            ]
-        ),
+        'description': '设置参数`allowClick=True`后可直接点击步骤进行步骤切换。',
     },
     {
         'path': 'basic_callbacks',
         'title': '回调监听',
-        'description': fac.AntdParagraph(
-            ['通过回调函数监听并控制步骤条功能。']
-        ),
+        'description': '通过回调函数监听并控制步骤条功能。',
     },
 ]
 

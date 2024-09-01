@@ -1,4 +1,3 @@
-import feffery_antd_components as fac
 from dash.dependencies import Component
 
 from . import (
@@ -13,32 +12,22 @@ demos_config = [
     {
         'path': 'basic_usage',
         'title': '基础使用',
-        'description': fac.AntdParagraph('最简单的用法。'),
+        'description': '最简单的用法。',
     },
     {
         'path': 'mask',
         'title': '设置遮罩层',
-        'description': fac.AntdParagraph(
-            [
-                '可对遮罩层的样式进行修改，或设置为非模态引导（即无遮罩，同时为了强调引导本身，建议与',
-                fac.AntdText('type="primary"', code=True),
-                '配合使用）。',
-            ]
-        ),
+        'description': "可对遮罩层的样式进行修改，或设置为非模态引导（即无遮罩，同时为了强调引导本身，建议与`type='primary'`配合使用）。",
     },
     {
         'path': 'arrow_placement',
         'title': '设置引导弹框位置和箭头',
-        'description': fac.AntdParagraph(
-            '可设置引导弹框相对于元素的位置，以及箭头的方向及是否指向中心。'
-        ),
+        'description': '可设置引导弹框相对于元素的位置，以及箭头的方向及是否指向中心。',
     },
     {
         'path': 'buttons',
         'title': '设置上一步和下一步按钮',
-        'description': fac.AntdParagraph(
-            '可传入任意组件设置为上一步和下一步按钮的内容。'
-        ),
+        'description': '可传入任意组件设置为上一步和下一步按钮的内容。',
     },
 ]
 

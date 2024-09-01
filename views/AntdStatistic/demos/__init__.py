@@ -1,4 +1,3 @@
-import feffery_antd_components as fac
 from dash.dependencies import Component
 
 from . import (
@@ -17,72 +16,42 @@ demos_config = [
     {
         'path': 'basic_usage',
         'title': '基础使用',
-        'description': fac.AntdParagraph('简单的展示。'),
+        'description': '简单的展示。',
     },
     {
         'path': 'group_separator',
         'title': '千分位分割符',
-        'description': fac.AntdParagraph(
-            [
-                fac.AntdText('通过设置参数'),
-                fac.AntdText('showGroupSeparator', code=True),
-                fac.AntdText('控制千分位分割符显隐。'),
-            ]
-        ),
+        'description': '通过设置参数`showGroupSeparator`控制千分位分割符显隐。',
     },
     {
         'path': 'precision',
         'title': '限制精度',
-        'description': fac.AntdParagraph(
-            [
-                fac.AntdText('通过设置参数'),
-                fac.AntdText('precision', code=True),
-                fac.AntdText('控制显示精度。'),
-            ]
-        ),
+        'description': '通过设置参数`precision`控制显示精度。',
     },
     {
         'path': 'unit',
         'title': '单位',
-        'description': fac.AntdParagraph('通过前缀和后缀添加单位。'),
+        'description': '通过前缀和后缀添加单位。',
     },
     {
         'path': 'title_tooltip',
         'title': '标题额外信息提示',
-        'description': fac.AntdParagraph(
-            [
-                fac.AntdText('通过设置参数'),
-                fac.AntdText('titleTooltip', code=True),
-                fac.AntdText('为标题添加额外信息提示。'),
-            ]
-        ),
+        'description': '通过设置参数`titleTooltip`为标题添加额外信息提示。',
     },
     {
         'path': 'countup',
         'title': '动画效果',
-        'description': fac.AntdParagraph(
-            [
-                fac.AntdText('给数值添加动画进入效果，需要配合'),
-                fac.AntdText('fuc', code=True),
-                fac.AntdText('的数字递增组件。'),
-            ]
-        ),
+        'description': '给数值添加动画进入效果，需要配合**fuc**的数字递增组件。',
     },
     {
         'path': 'used_in_card',
         'title': '在卡片中使用',
-        'description': fac.AntdParagraph('在卡片中展示统计数值。'),
+        'description': '在卡片中展示统计数值。',
     },
     {
         'path': 'basic_callbacks',
         'title': '回调监听',
-        'description': fac.AntdParagraph(
-            [
-                fac.AntdText('简单演示'),
-                fac.AntdText('AntdStatistic', code=True),
-                fac.AntdText('在回调中的使用。'),
-            ]
-        ),
+        'description': '简单演示`AntdStatistic`在回调中的使用。',
     },
 ]
 

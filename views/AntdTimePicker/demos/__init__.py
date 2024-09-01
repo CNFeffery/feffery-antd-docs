@@ -1,4 +1,3 @@
-import feffery_antd_components as fac
 from dash.dependencies import Component
 
 from . import (
@@ -20,99 +19,47 @@ demos_config = [
     {
         'path': 'basic_usage',
         'title': '基础使用',
-        'description': fac.AntdParagraph('常规的时间选择。'),
+        'description': '常规的时间选择。',
     },
     {
         'path': 'hide_now',
         'title': '隐藏此刻按钮',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('showNow=False', code=True),
-                '对选择面板中的“此刻”按钮进行隐藏。',
-            ]
-        ),
+        'description': '设置参数`showNow=False`对选择面板中的“此刻”按钮进行隐藏。',
     },
     {
         'path': 'different_placement',
         'title': '悬浮层展开方位',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('placement', code=True),
-                '控制悬浮层展开方位。',
-            ]
-        ),
+        'description': '设置参数`placement`控制悬浮层展开方位。',
     },
     {
         'path': 'custom_format',
         'title': '自定义format',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('format', code=True),
-                '以实现不同粒度设置下适合的已选内容回填格式化。',
-            ]
-        ),
+        'description': '设置参数`format`以实现不同粒度设置下适合的已选内容回填格式化。',
     },
     {
         'path': 'disabled',
         'title': '禁用状态',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('disabled=True', code=True),
-                '开启禁用状态。',
-            ]
-        ),
+        'description': '设置参数`disabled=True`开启禁用状态。',
     },
     {
         'path': 'read_only',
         'title': '只读状态',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('readOnly=True', code=True),
-                '开启只读状态。',
-            ]
-        ),
+        'description': '设置参数`readOnly=True`开启只读状态。',
     },
     {
         'path': 'status',
         'title': '强制状态渲染',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('status', code=True),
-                '强制状态渲染。',
-            ]
-        ),
+        'description': '设置参数`status`强制状态渲染。',
     },
     {
         'path': 'time_step',
         'title': '控制各部分时间间隔',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('hourStep', code=True),
-                '、',
-                fac.AntdText('minuteStep', code=True),
-                '、',
-                fac.AntdText('secondStep', code=True),
-                '分别控制不同部分的时间间隔。',
-            ]
-        ),
+        'description': '设置参数`hourStep`、`minuteStep`、`secondStep`分别控制不同部分的时间间隔。',
     },
     {
         'path': '_12_hours',
         'title': '使用12小时制',
-        'description': fac.AntdParagraph(
-            [
-                '设置参数',
-                fac.AntdText('use12Hours=True', code=True),
-                '开启12小时制。',
-            ]
-        ),
+        'description': '设置参数`use12Hours=True`开启12小时制。',
     },
     {
         'path': 'extra_footer',

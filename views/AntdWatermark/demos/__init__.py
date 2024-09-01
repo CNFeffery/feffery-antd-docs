@@ -1,4 +1,3 @@
-import feffery_antd_components as fac
 from dash.dependencies import Component
 
 from . import (
@@ -12,17 +11,17 @@ demos_config = [
     {
         'path': 'basic_usage',
         'title': '基础使用',
-        'description': fac.AntdParagraph('基础的水印用法。'),
+        'description': '基础的水印用法。',
     },
     {
         'path': 'multiline_text',
         'title': '多行文本水印',
-        'description': fac.AntdParagraph('使用多行文本作为水印内容。'),
+        'description': '使用多行文本作为水印内容。',
     },
     {
         'path': 'image_watermark',
         'title': '图片型水印',
-        'description': fac.AntdParagraph('使用图片作为水印内容。'),
+        'description': '使用图片作为水印内容。',
     },
 ]
 
