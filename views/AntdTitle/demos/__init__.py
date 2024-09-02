@@ -1,3 +1,4 @@
+from functools import partial
 from dash.dependencies import Component
 
 from . import (
@@ -5,13 +6,21 @@ from . import (
 )
 from components import demos_render
 
-demos_config = [
-    {
-        'path': 'different_title_level',
-        'title': '不同的标题级别',
-        'description': '**AntdTitle**具有**AntdText**的所有常规渲染模式，参数同样适用，这里就不再赘述，仅展示不同`level`参数下的效果。',
-    },
-]
+# 国际化
+from i18n import translator
+
+
+def demos_config() -> list:
+    t = partial(translator.t, locale_topic='AntdTitle')
+    return [
+        {
+            'path': 'different_title_level',
+            'title': t('不同的标题级别'),
+            'description': t(
+                '**AntdTitle**具有**AntdText**的所有常规渲染模式，参数同样适用，这里就不再赘述，仅展示不同`level`参数下的效果。'
+            ),
+        },
+    ]
 
 
 def render(component: Component, section_name: str = None) -> Component:

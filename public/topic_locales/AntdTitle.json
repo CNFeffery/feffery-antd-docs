@@ -1,0 +1,12 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdTitle",
+    "contents": {
+        "不同的标题级别": {
+            "en-us": "Different title levels"
+        },
+        "**AntdTitle**具有**AntdText**的所有常规渲染模式，参数同样适用，这里就不再赘述，仅展示不同`level`参数下的效果。": {
+            "en-us": "**AntdTitle** has all the regular rendering modes of **AntdText**, and the parameters are equally applicable. There is no need to repeat them here; only the effects under different `level` parameters are shown."
+        }
+    }
+}

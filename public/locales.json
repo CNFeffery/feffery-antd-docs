@@ -597,6 +597,9 @@
         },
         "用于渲染具有丰富样式和功能的行内文字。": {
             "en-us": "Used to render inline text with rich styles and functions."
+        },
+        "用于渲染具有丰富样式和功能的标题。": {
+            "en-us": "Used to render titles with rich styles and functions."
         }
     }
 }
