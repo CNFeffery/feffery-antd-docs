@@ -1,0 +1,30 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdDivider",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "常规水平实线、虚线分割。": {
+            "en-us": "Regular horizontal solid and dashed line."
+        },
+        "内嵌文字": {
+            "en-us": "Inner text"
+        },
+        "内嵌文字内容，并控制对齐方式。": {
+            "en-us": "Inner text content and control alignment."
+        },
+        "竖直分割线": {
+            "en-us": "Vertical"
+        },
+        "用竖直分割线水平排布若干元素。": {
+            "en-us": "Layout elements horizontally with a vertical line."
+        },
+        "形态变体": {
+            "en-us": "Variant"
+        },
+        "设置参数`variant`使用不同的形态变体。": {
+            "en-us": "Use different `variant` parameters."
+        }
+    }
+}

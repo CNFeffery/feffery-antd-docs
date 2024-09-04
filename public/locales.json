@@ -600,6 +600,9 @@
         },
         "用于渲染具有丰富样式和功能的标题。": {
             "en-us": "Used to render titles with rich styles and functions."
+        },
+        "对控件或功能区进行水平或竖直方向上的分割。": {
+            "en-us": "Divide the control or function area in the horizontal or vertical direction."
         }
     }
 }
