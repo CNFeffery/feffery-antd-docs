@@ -606,6 +606,9 @@
         },
         "基于css中的flex布局原理，对一组元素进行水平或垂直方向上的排列。": {
             "en-us": "Based on the principle of flex layout in css, arrange elements in the horizontal or vertical direction."
+        },
+        "在网格系统中构建单个行元素。": {
+            "en-us": "Construct a single row element in the grid system."
         }
     }
 }

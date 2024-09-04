@@ -1,0 +1,48 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdRow",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "常规居中与行内居中。": {
+            "en-us": "Regular centering and inline centering."
+        },
+        "响应式布局": {
+            "en-us": "Responsive layout"
+        },
+        "设置不同屏幕宽度断点下的列宽分配值。": {
+            "en-us": "Set the column width distribution value for different screen width breakpoints."
+        },
+        "自动换行": {
+            "en-us": "Auto wrap"
+        },
+        "控制子元素宽度溢出时自动换行。": {
+            "en-us": "Whether to automatically wrap when the child element is too wide."
+        },
+        "对齐方式": {
+            "en-us": "Alignment"
+        },
+        "通过参数`justify`与`align`控制不同方向上的对齐方式。": {
+            "en-us": "By setting the parameter `justify` and `align` control the alignment in different directions."
+        },
+        "基于flex灵活控制列宽": {
+            "en-us": "Flex-based flexible control of column width"
+        },
+        "基于参数`flex`实现更灵活的列宽分配。": {
+            "en-us": "By setting the parameter `flex` implement more flexible column width distribution."
+        },
+        "响应式gutter": {
+            "en-us": "Responsive gutter"
+        },
+        "设置不同屏幕宽度断点下的`gutter`值。": {
+            "en-us": "Set the `gutter` value for different screen width breakpoints."
+        },
+        "尺寸可调整": {
+            "en-us": "Size adjustable"
+        },
+        "配合[fuc.FefferyResizable](https://fuc.feffery.tech/FefferyResizable)实现两侧宽度可调整。": {
+            "en-us": "With [fuc.FefferyResizable](https://fuc.feffery.tech/FefferyResizable) to implement two sides width adjustable."
+        }
+    }
+}

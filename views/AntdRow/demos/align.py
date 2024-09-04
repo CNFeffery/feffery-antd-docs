@@ -31,7 +31,7 @@ def render() -> Component:
             fac.AntdRow(
                 [
                     fac.AntdCol(
-                        fac.AntdButton('子元素', type='primary'),
+                        fac.AntdButton('child', type='primary'),
                         flex='none',
                         style={'height': 'fit-content'},
                     )
@@ -96,7 +96,7 @@ fac.AntdSpace(
         fac.AntdRow(
             [
                 fac.AntdCol(
-                    fac.AntdButton('子元素', type='primary'),
+                    fac.AntdButton('child', type='primary'),
                     flex='none',
                     style={'height': 'fit-content'},
                 )
