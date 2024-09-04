@@ -1,0 +1,30 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdFlex",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "基础的水平排布与垂直排布。": {
+            "en-us": "Basic horizontal and vertical arrangement."
+        },
+        "对齐方式": {
+            "en-us": "Alignment"
+        },
+        "通过参数`justify`与`align`控制不同方向上的对齐方式。": {
+            "en-us": "By setting the parameter `justify` and `align` control the alignment in different directions."
+        },
+        "间距": {
+            "en-us": "Gap"
+        },
+        "灵活控制子元素之间的间距。": {
+            "en-us": "Flexible control the spacing between the child elements."
+        },
+        "自动换行": {
+            "en-us": "Auto wrap"
+        },
+        "控制子元素超宽后是否自动换行。": {
+            "en-us": "Whether to automatically wrap when the child element is too wide."
+        }
+    }
+}

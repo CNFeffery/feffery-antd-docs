@@ -603,6 +603,9 @@
         },
         "对控件或功能区进行水平或竖直方向上的分割。": {
             "en-us": "Divide the control or function area in the horizontal or vertical direction."
+        },
+        "基于css中的flex布局原理，对一组元素进行水平或垂直方向上的排列。": {
+            "en-us": "Based on the principle of flex layout in css, arrange elements in the horizontal or vertical direction."
         }
     }
 }
