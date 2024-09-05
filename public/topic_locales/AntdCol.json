@@ -1,0 +1,9 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdCol",
+    "contents": {
+        "注：**AntdCol**使用需配合**AntdRow**，请前往[AntdRow文档页](/AntdRow)查看具体使用示例。": {
+            "en-us": "Note: **AntdCol** is used with **AntdRow**. Please refer to the [AntdRow documentation page](/AntdRow) for detailed usage examples."
+        }
+    }
+}
