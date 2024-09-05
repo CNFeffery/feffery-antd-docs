@@ -1,0 +1,42 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdSpace",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "**AntdSpace**可以视作页面元素排列的快捷方式，用于解决基础的多个组件水平方向或竖直方向上单一的等间距排列需求，更复杂的网格排列布局需求请前往**AntdRow/AntdCol**进行进一步学习。": {
+            "en-us": "**AntdSpace** can be considered a shortcut for arranging page elements, used to solve the basic need for single, equal spacing of multiple components in horizontal or vertical directions. For more complex grid layout requirements, please proceed to **AntdRow/AntdCol** for further learning."
+        },
+        "对齐方式": {
+            "en-us": "Alignment"
+        },
+        "不同的子元素对齐方式。": {
+            "en-us": "Different alignments of child elements."
+        },
+        "间距大小": {
+            "en-us": "Gap size"
+        },
+        "控制子元素间的间距大小。": {
+            "en-us": "Control the spacing between the child elements."
+        },
+        "添加分割线": {
+            "en-us": "Add a divider"
+        },
+        "水平排列下可在子元素之间添加分割线。": {
+            "en-us": "Horizontal arrangement can add a divider between the child elements."
+        },
+        "自定义分割线": {
+            "en-us": "Custom divider"
+        },
+        "分割线可设置为任意的内容。": {
+            "en-us": "The divider can be set to any content."
+        },
+        "自动换行": {
+            "en-us": "Auto wrap"
+        },
+        "控制子元素超宽后是否自动换行。": {
+            "en-us": "Whether to automatically wrap when the child element is too wide."
+        }
+    }
+}

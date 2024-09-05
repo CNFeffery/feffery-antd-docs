@@ -16,7 +16,7 @@ def render() -> Component:
                 value='small',
             ),
             fac.AntdSpace(
-                [fac.AntdButton('子元素', type='primary')] * 4,
+                [fac.AntdButton('child', type='primary')] * 4,
                 id='space-size-demo',
             ),
         ],
@@ -50,7 +50,7 @@ fac.AntdSpace(
             value='small',
         ),
         fac.AntdSpace(
-            [fac.AntdButton('子元素', type='primary')] * 4,
+            [fac.AntdButton('child', type='primary')] * 4,
             id='space-size-demo',
         ),
     ],

@@ -612,6 +612,9 @@
         },
         "在网格系统中构建单个列元素。": {
             "en-us": "Construct a single column element in the grid system."
+        },
+        "用于快捷对一组元素进行水平或竖直方向上的规整排列。": {
+            "en-us": "Quickly arrange elements in the horizontal or vertical direction."
         }
     }
 }
