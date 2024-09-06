@@ -624,6 +624,9 @@
         },
         "用于在经典布局方案中作为容器。": {
             "en-us": "Used in classic layout scheme as a container."
+        },
+        "用于在经典布局方案中构建页首部分。": {
+            "en-us": "Used in classic layout scheme to build page header."
         }
     }
 }
