@@ -630,6 +630,9 @@
         },
         "用于在经典布局方案中构建内容区部分。": {
             "en-us": "Used in classic layout scheme to build content area."
+        },
+        "用于在经典布局方案中构建页尾部分。": {
+            "en-us": "Used in classic layout scheme to build page footer."
         }
     }
 }
