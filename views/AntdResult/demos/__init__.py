@@ -4,6 +4,7 @@ from . import (
     basic_usage,  # noqa: F401
     status_usage,  # noqa: F401
     custom_icon,  # noqa: F401
+    extra,  # noqa: F401
     complex_usage,  # noqa: F401
 )
 from components import demos_render
@@ -23,6 +24,11 @@ demos_config = [
         'path': 'custom_icon',
         'title': '自定义图标',
         'description': '使用`icon`参数和**fac.AntdIcon**组件设置自定义图标。',
+    },
+    {
+        'path': 'extra',
+        'title': '额外内容',
+        'description': '通过参数`extra`设置额外内容。',
     },
     {
         'path': 'complex_usage',
