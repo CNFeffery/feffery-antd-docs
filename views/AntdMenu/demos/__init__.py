@@ -12,7 +12,10 @@ from . import (
     builtin_collapse,  # noqa: F401
     collapse_with_sider,  # noqa: F401
     indent,  # noqa: F401
+    expand_icon,  # noqa: F401
+    trigger_sub_menu_action,  # noqa: F401
     basic_callbacks,  # noqa: F401
+    advanced_callbacks,  # noqa: F401
 )
 from components import demos_render
 
@@ -73,9 +76,24 @@ demos_config = [
         'description': '子菜单逐级缩进的像素宽度可调整。',
     },
     {
+        'path': 'expand_icon',
+        'title': '自定义子菜单展开图标',
+        'description': '设置参数`expandIcon`自定义树节点的展开/折叠图标。',
+    },
+    {
+        'path': 'trigger_sub_menu_action',
+        'title': '控制子菜单展开触发行为',
+        'description': "设置参数`triggerSubMenuAction='click'`控制子菜单展开触发行为为“点击”。",
+    },
+    {
         'path': 'basic_callbacks',
         'title': '回调监听',
         'description': '通过回调监听当前选中的菜单项。',
+    },
+    {
+        'path': 'advanced_callbacks',
+        'title': '进阶回调监听',
+        'description': '通过回调监听参数`currentItem`、`currentKeyPath`、`currentItemPath`获取更多选中项相关信息。',
     },
 ]
 
