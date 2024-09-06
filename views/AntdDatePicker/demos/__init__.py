@@ -13,6 +13,7 @@ from . import (
     default_picker_value,  # noqa: F401
     disabled_dates,  # noqa: F401
     extra_footer,  # noqa: F401
+    custom_cells,  # noqa: F401
     basic_callbacks,  # noqa: F401
     dynamic_disabled_dates,  # noqa: F401
 )
@@ -78,6 +79,11 @@ demos_config = [
         'path': 'extra_footer',
         'title': '底部添加额外内容',
         'description': '通过参数`extraFooter`自定义选择面板底部额外的内容。',
+    },
+    {
+        'path': 'custom_cells',
+        'title': '控制指定日期单元格样式',
+        'description': '通过参数`customCells`对指定规则对应的日期单元格添加额外样式，未填写条件的部分将视作通配规则。',
     },
     {
         'path': 'basic_callbacks',
