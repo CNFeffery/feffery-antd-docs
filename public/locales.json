@@ -621,6 +621,9 @@
         },
         "注：目前支持进行紧凑布局的组件有AntdButton、AntdCascader、AntdDatePicker、AntdInput、AntdSelect、AntdTimePicker、AntdTreeSelect": {
             "en-us": "Note: Currently supported compact layout components are AntdButton、AntdCascader、AntdDatePicker、AntdInput、AntdSelect、AntdTimePicker、AntdTreeSelect"
+        },
+        "用于在经典布局方案中作为容器。": {
+            "en-us": "Used in classic layout scheme as a container."
         }
     }
 }

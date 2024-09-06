@@ -1,86 +1,172 @@
 import feffery_antd_components as fac
 from dash.dependencies import Component
 
+from i18n import get_current_locale
+
 
 def render() -> Component:
     """渲染当前演示用例"""
 
-    # 构造演示用例相关内容
-    demo_contents = fac.AntdLayout(
-        [
-            fac.AntdHeader(
-                fac.AntdTitle(
-                    '页首示例', level=2, style={'color': 'white', 'margin': '0'}
-                ),
-                style={
-                    'display': 'flex',
-                    'justifyContent': 'center',
-                    'alignItems': 'center',
-                },
-            ),
-            fac.AntdLayout(
-                [
-                    fac.AntdSider(
-                        fac.AntdCenter(
-                            fac.AntdTitle(
-                                '侧边栏示例', level=2, style={'margin': '0'}
-                            ),
-                            style={
-                                'height': '100%',
-                            },
-                        ),
-                        style={
-                            'backgroundColor': 'rgb(240, 242, 245)',
-                            'display': 'flex',
-                            'justifyContent': 'center',
-                        },
+    current_locale = get_current_locale()
+
+    if current_locale == 'zh-cn':
+        # 构造演示用例相关内容
+        demo_contents = fac.AntdLayout(
+            [
+                fac.AntdHeader(
+                    fac.AntdTitle(
+                        '页首示例',
+                        level=2,
+                        style={'color': 'white', 'margin': '0'},
                     ),
-                    fac.AntdLayout(
-                        [
-                            fac.AntdContent(
-                                fac.AntdCenter(
-                                    fac.AntdTitle(
-                                        '内容区示例',
-                                        level=2,
-                                        style={'margin': '0'},
-                                    ),
-                                    style={
-                                        'height': '100%',
-                                    },
-                                ),
-                                style={'backgroundColor': 'white'},
-                            ),
-                            fac.AntdFooter(
-                                fac.AntdCenter(
-                                    fac.AntdTitle(
-                                        '页尾示例',
-                                        level=2,
-                                        style={'margin': '0'},
-                                    ),
-                                    style={
-                                        'height': '100%',
-                                    },
+                    style={
+                        'display': 'flex',
+                        'justifyContent': 'center',
+                        'alignItems': 'center',
+                    },
+                ),
+                fac.AntdLayout(
+                    [
+                        fac.AntdSider(
+                            fac.AntdCenter(
+                                fac.AntdTitle(
+                                    '侧边栏示例', level=2, style={'margin': '0'}
                                 ),
                                 style={
-                                    'backgroundColor': 'rgb(193, 193, 193)',
-                                    'height': '40px',
+                                    'height': '100%',
                                 },
                             ),
-                        ]
+                            style={
+                                'backgroundColor': 'rgb(240, 242, 245)',
+                                'display': 'flex',
+                                'justifyContent': 'center',
+                            },
+                        ),
+                        fac.AntdLayout(
+                            [
+                                fac.AntdContent(
+                                    fac.AntdCenter(
+                                        fac.AntdTitle(
+                                            '内容区示例',
+                                            level=2,
+                                            style={'margin': '0'},
+                                        ),
+                                        style={
+                                            'height': '100%',
+                                        },
+                                    ),
+                                    style={'backgroundColor': 'white'},
+                                ),
+                                fac.AntdFooter(
+                                    fac.AntdCenter(
+                                        fac.AntdTitle(
+                                            '页尾示例',
+                                            level=2,
+                                            style={'margin': '0'},
+                                        ),
+                                        style={
+                                            'height': '100%',
+                                        },
+                                    ),
+                                    style={
+                                        'backgroundColor': 'rgb(193, 193, 193)',
+                                        'height': '40px',
+                                    },
+                                ),
+                            ]
+                        ),
+                    ],
+                    style={'height': '100%'},
+                ),
+            ],
+            style={'height': '100vh'},
+        )
+
+    elif current_locale == 'en-us':
+        # construct demo contents
+        demo_contents = fac.AntdLayout(
+            [
+                fac.AntdHeader(
+                    fac.AntdTitle(
+                        'Header Demo',
+                        level=2,
+                        style={'color': 'white', 'margin': '0'},
                     ),
-                ],
-                style={'height': '100%'},
-            ),
-        ],
-        style={'height': '100vh'},
-    )
+                    style={
+                        'display': 'flex',
+                        'justifyContent': 'center',
+                        'alignItems': 'center',
+                    },
+                ),
+                fac.AntdLayout(
+                    [
+                        fac.AntdSider(
+                            fac.AntdCenter(
+                                fac.AntdTitle(
+                                    'Sider Demo', level=2, style={'margin': '0'}
+                                ),
+                                style={
+                                    'height': '100%',
+                                },
+                            ),
+                            style={
+                                'backgroundColor': 'rgb(240, 242, 245)',
+                                'display': 'flex',
+                                'justifyContent': 'center',
+                            },
+                        ),
+                        fac.AntdLayout(
+                            [
+                                fac.AntdContent(
+                                    fac.AntdCenter(
+                                        fac.AntdTitle(
+                                            'Content Demo',
+                                            level=2,
+                                            style={'margin': '0'},
+                                        ),
+                                        style={
+                                            'height': '100%',
+                                        },
+                                    ),
+                                    style={'backgroundColor': 'white'},
+                                ),
+                                fac.AntdFooter(
+                                    fac.AntdCenter(
+                                        fac.AntdTitle(
+                                            'Footer Demo',
+                                            level=2,
+                                            style={'margin': '0'},
+                                        ),
+                                        style={
+                                            'height': '100%',
+                                        },
+                                    ),
+                                    style={
+                                        'backgroundColor': 'rgb(193, 193, 193)',
+                                        'height': '40px',
+                                    },
+                                ),
+                            ]
+                        ),
+                    ],
+                    style={'height': '100%'},
+                ),
+            ],
+            style={'height': '100vh'},
+        )
 
     return demo_contents
 
 
-code_string = [
-    {
-        'code': """
+def code_string() -> list:
+    """返回当前语种对应的演示代码"""
+
+    current_locale = get_current_locale()
+
+    if current_locale == 'zh-cn':
+        return [
+            {
+                'code': """
 fac.AntdLayout(
     [
         fac.AntdHeader(
@@ -150,5 +236,83 @@ fac.AntdLayout(
     style={'height': '100vh'},
 )
 """
-    }
-]
+            }
+        ]
+
+    elif current_locale == 'en-us':
+        return [
+            {
+                'code': """
+fac.AntdLayout(
+    [
+        fac.AntdHeader(
+            fac.AntdTitle(
+                'Header Demo',
+                level=2,
+                style={'color': 'white', 'margin': '0'},
+            ),
+            style={
+                'display': 'flex',
+                'justifyContent': 'center',
+                'alignItems': 'center',
+            },
+        ),
+        fac.AntdLayout(
+            [
+                fac.AntdSider(
+                    fac.AntdCenter(
+                        fac.AntdTitle(
+                            'Sider Demo', level=2, style={'margin': '0'}
+                        ),
+                        style={
+                            'height': '100%',
+                        },
+                    ),
+                    style={
+                        'backgroundColor': 'rgb(240, 242, 245)',
+                        'display': 'flex',
+                        'justifyContent': 'center',
+                    },
+                ),
+                fac.AntdLayout(
+                    [
+                        fac.AntdContent(
+                            fac.AntdCenter(
+                                fac.AntdTitle(
+                                    'Content Demo',
+                                    level=2,
+                                    style={'margin': '0'},
+                                ),
+                                style={
+                                    'height': '100%',
+                                },
+                            ),
+                            style={'backgroundColor': 'white'},
+                        ),
+                        fac.AntdFooter(
+                            fac.AntdCenter(
+                                fac.AntdTitle(
+                                    'Footer Demo',
+                                    level=2,
+                                    style={'margin': '0'},
+                                ),
+                                style={
+                                    'height': '100%',
+                                },
+                            ),
+                            style={
+                                'backgroundColor': 'rgb(193, 193, 193)',
+                                'height': '40px',
+                            },
+                        ),
+                    ]
+                ),
+            ],
+            style={'height': '100%'},
+        ),
+    ],
+    style={'height': '100vh'},
+)
+"""
+            }
+        ]

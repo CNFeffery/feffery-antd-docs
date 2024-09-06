@@ -1,0 +1,42 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdLayout",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "经典布局方案的重点在于用**AntdLayout**包裹嵌套其他经典布局组件，从而构建出常用的各种经典页面布局方案。": {
+            "en-us": "The classic layout solution is focused on wrapping other classic layout components in **AntdLayout**. This makes it easy to build common classic page layout solutions."
+        },
+        "右侧侧边栏": {
+            "en-us": "Right sidebar"
+        },
+        "侧边栏方位可调整。": {
+            "en-us": "The sidebar position can be adjusted."
+        },
+        "可折叠侧边栏": {
+            "en-us": "Collapsible sidebar"
+        },
+        "为**AntdSider**设置`collapsible=True`开启自带的侧边栏折叠功能。": {
+            "en-us": "Enable the collapsible feature of **AntdSider** by setting `collapsible=True`."
+        },
+        "响应式可折叠侧边栏": {
+            "en-us": "Responsive collapsible sidebar"
+        },
+        "侧边栏可以指定屏幕宽度断点为阈值进行自动折叠及展开。": {
+            "en-us": "The sidebar can be collapsed and expanded at different screen width breakpoints."
+        },
+        "可折叠侧边栏+导航菜单": {
+            "en-us": "Collapsible sidebar + navigation menu"
+        },
+        "侧边栏折叠可联动内部的导航菜单组件。": {
+            "en-us": "The sidebar can be linked to the inner navigation menu component."
+        },
+        "自定义折叠触发控件": {
+            "en-us": "Custom collapse trigger control"
+        },
+        "设置`trigger=None`后可自定义控件配合回调函数控制侧边栏折叠状态。": {
+            "en-us": "Set `trigger=None` to customize the control with callback function to control the sidebar collapse state."
+        }
+    }
+}
