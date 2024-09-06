@@ -193,7 +193,12 @@ def render() -> Component:
                                         'justifyContent': 'center',
                                     },
                                 ),
-                                span=6,
+                                xs=24,
+                                sm=24,
+                                md=12,
+                                lg=12,
+                                xl=12,
+                                xxl=6,
                             ),
                             fac.AntdCol(
                                 html.Div(
@@ -248,7 +253,12 @@ def render() -> Component:
                                         'justifyContent': 'center',
                                     },
                                 ),
-                                span=6,
+                                xs=24,
+                                sm=24,
+                                md=12,
+                                lg=12,
+                                xl=12,
+                                xxl=6,
                             ),
                             fac.AntdCol(
                                 html.Div(
@@ -314,7 +324,12 @@ def render() -> Component:
                                         'justifyContent': 'center',
                                     },
                                 ),
-                                span=6,
+                                xs=24,
+                                sm=24,
+                                md=12,
+                                lg=12,
+                                xl=12,
+                                xxl=6,
                             ),
                             fac.AntdCol(
                                 html.Div(
@@ -380,7 +395,12 @@ def render() -> Component:
                                         'justifyContent': 'center',
                                     },
                                 ),
-                                span=6,
+                                xs=24,
+                                sm=24,
+                                md=12,
+                                lg=12,
+                                xl=12,
+                                xxl=6,
                             ),
                             fac.AntdCol(
                                 html.Div(
@@ -451,7 +471,12 @@ def render() -> Component:
                                         'justifyContent': 'center',
                                     },
                                 ),
-                                span=6,
+                                xs=24,
+                                sm=24,
+                                md=12,
+                                lg=12,
+                                xl=12,
+                                xxl=6,
                             ),
                             fac.AntdCol(
                                 html.Div(
@@ -522,7 +547,12 @@ def render() -> Component:
                                         'justifyContent': 'center',
                                     },
                                 ),
-                                span=6,
+                                xs=24,
+                                sm=24,
+                                md=12,
+                                lg=12,
+                                xl=12,
+                                xxl=6,
                             ),
                             fac.AntdCol(
                                 html.Div(
@@ -577,7 +607,12 @@ def render() -> Component:
                                         'justifyContent': 'center',
                                     },
                                 ),
-                                span=6,
+                                xs=24,
+                                sm=24,
+                                md=12,
+                                lg=12,
+                                xl=12,
+                                xxl=6,
                             ),
                             fac.AntdCol(
                                 html.Div(
@@ -649,7 +684,12 @@ def render() -> Component:
                                         'justifyContent': 'center',
                                     },
                                 ),
-                                span=6,
+                                xs=24,
+                                sm=24,
+                                md=12,
+                                lg=12,
+                                xl=12,
+                                xxl=6,
                             ),
                         ],
                         gutter=[25, 25],
