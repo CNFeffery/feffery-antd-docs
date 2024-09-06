@@ -636,6 +636,9 @@
         },
         "用于在经典布局方案中构建侧边栏部分。": {
             "en-us": "Used in classic layout scheme to build sidebar."
+        },
+        "用于渲染页面内导航目录。": {
+            "en-us": "Used to render the navigation menu on the page."
         }
     }
 }
