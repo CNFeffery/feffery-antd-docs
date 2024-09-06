@@ -1,0 +1,18 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdCompact",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "基于**AntdCompact**对子元素进行排列，可以实现相邻紧贴元素边框线合并效果。": {
+            "en-us": "Based on **AntdCompact** to arrange the child elements, which combines the border lines of adjacent elements."
+        },
+        "经典用法": {
+            "en-us": "Classic usage"
+        },
+        "输入框搭配其他控件是紧凑排列经典使用场景。": {
+            "en-us": "The classic use scenario of input box with other controls is the compact arrangement."
+        }
+    }
+}

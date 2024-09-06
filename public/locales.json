@@ -615,6 +615,12 @@
         },
         "用于快捷对一组元素进行水平或竖直方向上的规整排列。": {
             "en-us": "Quickly arrange elements in the horizontal or vertical direction."
+        },
+        "用于对若干内部组件进行紧凑排列，并为相邻组件之间自动合并边框。": {
+            "en-us": "Compactly arrange several inner components and automatically merge the borders between adjacent components."
+        },
+        "注：目前支持进行紧凑布局的组件有AntdButton、AntdCascader、AntdDatePicker、AntdInput、AntdSelect、AntdTimePicker、AntdTreeSelect": {
+            "en-us": "Note: Currently supported compact layout components are AntdButton、AntdCascader、AntdDatePicker、AntdInput、AntdSelect、AntdTimePicker、AntdTreeSelect"
         }
     }
 }
