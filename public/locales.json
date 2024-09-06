@@ -633,6 +633,9 @@
         },
         "用于在经典布局方案中构建页尾部分。": {
             "en-us": "Used in classic layout scheme to build page footer."
+        },
+        "用于在经典布局方案中构建侧边栏部分。": {
+            "en-us": "Used in classic layout scheme to build sidebar."
         }
     }
 }

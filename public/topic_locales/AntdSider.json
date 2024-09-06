@@ -1,0 +1,9 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdSider",
+    "contents": {
+        "注：**AntdSider**使用需配合**AntdLayout**，请前往[AntdLayout文档页](/AntdLayout)查看具体使用示例。": {
+            "en-us": "Note: **AntdSider** is used with **AntdLayout**. Please refer to the [AntdLayout documentation page](/AntdLayout) for detailed usage examples."
+        }
+    }
+}
