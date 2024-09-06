@@ -7,6 +7,7 @@ from . import (
     show_less_items,  # noqa: F401
     pagination_simple_mode,  # noqa: F401
     pagination_size,  # noqa: F401
+    align,  # noqa: F401
     basic_callbacks,  # noqa: F401
 )
 from components import demos_render
@@ -41,6 +42,11 @@ demos_config = [
         'path': 'pagination_size',
         'title': '迷你模式',
         'description': "设置参数`size='small'`开启迷你模式。",
+    },
+    {
+        'path': 'align',
+        'title': '对齐方式',
+        'description': '设置参数`align`控制分页控件对齐方式。',
     },
     {
         'path': 'basic_callbacks',
