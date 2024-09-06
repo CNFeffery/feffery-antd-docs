@@ -49,6 +49,11 @@ def render() -> Component:
                 'month': 8,
                 'content': fac.AntdTag(content='暑假', color='volcano'),
             },
+            {
+                'type': 'date',
+                'date': 6,
+                'content': fac.AntdTag(content='每月6号', color='red'),
+            },
         ],
         value='2024-08-12',
     )
@@ -101,6 +106,11 @@ fac.AntdCalendar(
             'type': 'month',
             'month': 8,
             'content': fac.AntdTag(content='暑假', color='volcano'),
+        },
+        {
+            'type': 'date',
+            'date': 6,
+            'content': fac.AntdTag(content='每月6号', color='red'),
         },
     ],
     value='2024-08-12',

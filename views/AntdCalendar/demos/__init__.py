@@ -23,7 +23,7 @@ demos_config = [
     {
         'path': 'custom_cells',
         'title': '自定义单元格内容',
-        'description': '通过参数`customCells`为指定模式下的指定日期单元格添加自定义内容。',
+        'description': '通过参数`customCells`为指定模式下的指定日期单元格添加自定义内容，未填写条件的部分将视作通配规则。',
     },
     {
         'path': 'basic_callbacks',
