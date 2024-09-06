@@ -6,6 +6,7 @@ from . import (
     vertical_layout,  # noqa: F401
     column,  # noqa: F401
     item_span,  # noqa: F401
+    extra,  # noqa: F401
 )
 from components import demos_render
 
@@ -34,6 +35,11 @@ demos_config = [
         'path': 'item_span',
         'title': '控制子项所占单位宽度',
         'description': '通过参数`span`控制子项所占单位宽度。',
+    },
+    {
+        'path': 'extra',
+        'title': '额外内容',
+        'description': '通过参数`extra`添加额外内容。',
     },
 ]
 
