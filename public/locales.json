@@ -639,6 +639,9 @@
         },
         "用于渲染页面内导航目录。": {
             "en-us": "Used to render the navigation menu on the page."
+        },
+        "用于展示当前页面在系统层级结构中的位置。": {
+            "en-us": "Used to display the location of the current page in the system hierarchy."
         }
     }
 }

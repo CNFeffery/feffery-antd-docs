@@ -1,62 +1,128 @@
 import feffery_antd_components as fac
 from dash.dependencies import Component
 
+from i18n import get_current_locale
+
 
 def render() -> Component:
     """渲染当前演示用例"""
 
-    # 构造演示用例相关内容
-    demo_contents = fac.AntdBreadcrumb(
-        items=[
-            {
-                'title': 'feffery-components仓库主页',
-                'href': 'https://github.com/CNFeffery/feffery-dash-components',
-                'target': '_blank',
-                'icon': 'antd-github',
-            },
-            {
-                'title': 'feffery-antd-components文档首页',
-                'href': '/',
-                'target': '_blank',
-                'icon': 'antd-home',
-            },
-            {
-                'title': 'AntdBreadcrumb文档页',
-                'href': '/AntdBreadcrumb',
-                'target': '_blank',
-                'icon': 'fc-approval',
-            },
-        ]
-    )
+    current_locale = get_current_locale()
+
+    if current_locale == 'zh-cn':
+        # 构造演示用例相关内容
+        demo_contents = fac.AntdBreadcrumb(
+            items=[
+                {
+                    'title': 'awesome-feffery-dash仓库主页',
+                    'href': 'https://github.com/CNFeffery/awesome-feffery-dash',
+                    'target': '_blank',
+                    'icon': 'antd-github',
+                },
+                {
+                    'title': 'feffery-antd-components文档首页',
+                    'href': '/',
+                    'target': '_blank',
+                    'icon': 'antd-home',
+                },
+                {
+                    'title': 'AntdBreadcrumb文档页',
+                    'href': '/AntdBreadcrumb',
+                    'target': '_blank',
+                    'icon': 'fc-approval',
+                },
+            ]
+        )
+
+    elif current_locale == 'en-us':
+        # construct demo contents
+        demo_contents = fac.AntdBreadcrumb(
+            items=[
+                {
+                    'title': 'awesome-feffery-dash',
+                    'href': 'https://github.com/CNFeffery/awesome-feffery-dash',
+                    'target': '_blank',
+                    'icon': 'antd-github',
+                },
+                {
+                    'title': 'feffery-antd-components',
+                    'href': '/',
+                    'target': '_blank',
+                    'icon': 'antd-home',
+                },
+                {
+                    'title': 'AntdBreadcrumb doc',
+                    'href': '/AntdBreadcrumb',
+                    'target': '_blank',
+                    'icon': 'fc-approval',
+                },
+            ]
+        )
 
     return demo_contents
 
 
-code_string = [
-    {
-        'code': """
+def code_string() -> list:
+    """返回当前语种对应的演示代码"""
+
+    current_locale = get_current_locale()
+
+    if current_locale == 'zh-cn':
+        return [
+            {
+                'code': """
 fac.AntdBreadcrumb(
     items=[
         {
-            'title': 'feffery-components仓库主页',
-            'href': 'https://github.com/CNFeffery/feffery-dash-components',
+            'title': 'awesome-feffery-dash仓库主页',
+            'href': 'https://github.com/CNFeffery/awesome-feffery-dash',
             'target': '_blank',
-            'icon': 'antd-github'
+            'icon': 'antd-github',
         },
         {
             'title': 'feffery-antd-components文档首页',
             'href': '/',
             'target': '_blank',
-            'icon': 'antd-home'
+            'icon': 'antd-home',
         },
         {
             'title': 'AntdBreadcrumb文档页',
             'href': '/AntdBreadcrumb',
             'target': '_blank',
-            'icon': 'fc-approval'
-        }
+            'icon': 'fc-approval',
+        },
     ]
 )
 """
-    }
-]
+            }
+        ]
+
+    elif current_locale == 'en-us':
+        return [
+            {
+                'code': """
+fac.AntdBreadcrumb(
+    items=[
+        {
+            'title': 'awesome-feffery-dash',
+            'href': 'https://github.com/CNFeffery/awesome-feffery-dash',
+            'target': '_blank',
+            'icon': 'antd-github',
+        },
+        {
+            'title': 'feffery-antd-components',
+            'href': '/',
+            'target': '_blank',
+            'icon': 'antd-home',
+        },
+        {
+            'title': 'AntdBreadcrumb doc',
+            'href': '/AntdBreadcrumb',
+            'target': '_blank',
+            'icon': 'fc-approval',
+        },
+    ]
+)
+"""
+            }
+        ]

@@ -1,0 +1,36 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdBreadcrumb",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "最基础的面包屑。": {
+            "en-us": "The basic breadcrumb."
+        },
+        "添加链接跳转功能": {
+            "en-us": "Add link jump function"
+        },
+        "设置参数`href`添加链接跳转功能。": {
+            "en-us": "Set the parameter `href` to add the link jump function."
+        },
+        "添加前缀图标": {
+            "en-us": "Add prefix icon"
+        },
+        "通过参数`icon`，可基于图标代号直接使用**AntdIcon**中的各种图标作为节点的前缀图标。": {
+            "en-us": "With the parameter `icon`, you can use the various icons in **AntdIcon** directly as the prefix icon of the node."
+        },
+        "节点添加悬浮菜单": {
+            "en-us": "Add floating menu to the node"
+        },
+        "在面包屑的节点添加悬浮菜单。": {
+            "en-us": "Add floating menus to the nodes in the breadcrumb."
+        },
+        "回调监听": {
+            "en-us": "Callback listener"
+        },
+        "通过`clickedItem`进行面包屑节点点击事件的监听。": {
+            "en-us": "Listen to the click event of the breadcrumb node through `clickedItem`."
+        }
+    }
+}
