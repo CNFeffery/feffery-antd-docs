@@ -1,44 +1,84 @@
 import feffery_antd_components as fac
 from dash.dependencies import Component
 
+from i18n import get_current_locale
+
 
 def render() -> Component:
     """渲染当前演示用例"""
 
-    # 构造演示用例相关内容
-    demo_contents = fac.AntdSpace(
-        [
-            fac.AntdDropdown(
-                title=placement,
-                arrow=True,
-                placement=placement,
-                menuItems=[
-                    {'title': '子页面1'},
-                    {'title': '子页面2'},
-                    {'isDivider': True},
-                    {'title': '子页面3-1'},
-                    {'title': '子页面3-2'},
-                ],
-            )
-            for placement in [
-                'bottomLeft',
-                'bottomCenter',
-                'bottomRight',
-                'topLeft',
-                'topCenter',
-                'topRight',
-            ]
-        ],
-        size=20,
-        wrap=True
-    )
+    current_locale = get_current_locale()
+
+    if current_locale == 'zh-cn':
+        # 构造演示用例相关内容
+        demo_contents = fac.AntdSpace(
+            [
+                fac.AntdDropdown(
+                    title=placement,
+                    arrow=True,
+                    placement=placement,
+                    menuItems=[
+                        {'title': '子页面1'},
+                        {'title': '子页面2'},
+                        {'isDivider': True},
+                        {'title': '子页面3-1'},
+                        {'title': '子页面3-2'},
+                    ],
+                )
+                for placement in [
+                    'bottomLeft',
+                    'bottomCenter',
+                    'bottomRight',
+                    'topLeft',
+                    'topCenter',
+                    'topRight',
+                ]
+            ],
+            size=20,
+            wrap=True,
+        )
+
+    elif current_locale == 'en-us':
+        # construct demo contents
+        demo_contents = fac.AntdSpace(
+            [
+                fac.AntdDropdown(
+                    title=placement,
+                    arrow=True,
+                    placement=placement,
+                    menuItems=[
+                        {'title': 'Option1'},
+                        {'title': 'Option2'},
+                        {'isDivider': True},
+                        {'title': 'Option3-1'},
+                        {'title': 'Option3-2'},
+                    ],
+                )
+                for placement in [
+                    'bottomLeft',
+                    'bottomCenter',
+                    'bottomRight',
+                    'topLeft',
+                    'topCenter',
+                    'topRight',
+                ]
+            ],
+            size=20,
+            wrap=True,
+        )
 
     return demo_contents
 
 
-code_string = [
-    {
-        'code': """
+def code_string() -> list:
+    """返回当前语种对应的演示代码"""
+
+    current_locale = get_current_locale()
+
+    if current_locale == 'zh-cn':
+        return [
+            {
+                'code': """
 fac.AntdSpace(
     [
         fac.AntdDropdown(
@@ -46,30 +86,59 @@ fac.AntdSpace(
             arrow=True,
             placement=placement,
             menuItems=[
-                {
-                    'title': '子页面1'
-                },
-                {
-                    'title': '子页面2'
-                },
-                {
-                    'isDivider': True
-                },
-                {
-                    'title': '子页面3-1'
-                },
-                {
-                    'title': '子页面3-2'
-                }
-            ]
+                {'title': '子页面1'},
+                {'title': '子页面2'},
+                {'isDivider': True},
+                {'title': '子页面3-1'},
+                {'title': '子页面3-2'},
+            ],
         )
         for placement in [
-            'bottomLeft', 'bottomCenter', 'bottomRight',
-            'topLeft', 'topCenter', 'topRight']
+            'bottomLeft',
+            'bottomCenter',
+            'bottomRight',
+            'topLeft',
+            'topCenter',
+            'topRight',
+        ]
     ],
     size=20,
-    wrap=True
+    wrap=True,
 )
 """
-    }
-]
+            }
+        ]
+
+    elif current_locale == 'en-us':
+        return [
+            {
+                'code': """
+fac.AntdSpace(
+    [
+        fac.AntdDropdown(
+            title=placement,
+            arrow=True,
+            placement=placement,
+            menuItems=[
+                {'title': 'Option1'},
+                {'title': 'Option2'},
+                {'isDivider': True},
+                {'title': 'Option3-1'},
+                {'title': 'Option3-2'},
+            ],
+        )
+        for placement in [
+            'bottomLeft',
+            'bottomCenter',
+            'bottomRight',
+            'topLeft',
+            'topCenter',
+            'topRight',
+        ]
+    ],
+    size=20,
+    wrap=True,
+)
+"""
+            }
+        ]

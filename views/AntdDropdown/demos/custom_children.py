@@ -1,56 +1,97 @@
 import feffery_antd_components as fac
 from dash.dependencies import Component
 
+from i18n import get_current_locale
+
 
 def render() -> Component:
     """渲染当前演示用例"""
 
-    # 构造演示用例相关内容
-    demo_contents = fac.AntdDropdown(
-        fac.AntdAvatar(
-            icon='antd-user',
-            size='large',
-            style={'background': '#1890ff', 'cursor': 'pointer'},
-        ),
-        menuItems=[
-            {
-                'title': fac.AntdSpace(
-                    [
-                        fac.AntdAvatar(
-                            text='我',
-                            mode='text',
-                            style={'background': '#2f54eb'},
-                        ),
-                        fac.AntdSpace(
-                            [
-                                '用户示例',
-                                fac.AntdTag(content='vip', color='red'),
-                            ],
-                            direction='vertical',
-                            size=0,
-                        ),
-                    ]
-                )
-            }
-        ],
-        trigger='hover',
-        placement='bottomRight',
-    )
+    current_locale = get_current_locale()
+
+    if current_locale == 'zh-cn':
+        # 构造演示用例相关内容
+        demo_contents = fac.AntdDropdown(
+            fac.AntdAvatar(
+                icon='antd-user',
+                size='large',
+                style={'background': '#1890ff', 'cursor': 'pointer'},
+            ),
+            menuItems=[
+                {
+                    'title': fac.AntdSpace(
+                        [
+                            fac.AntdAvatar(
+                                text='我',
+                                mode='text',
+                                style={'background': '#2f54eb'},
+                            ),
+                            fac.AntdSpace(
+                                [
+                                    '用户示例',
+                                    fac.AntdTag(content='vip', color='red'),
+                                ],
+                                direction='vertical',
+                                size=0,
+                            ),
+                        ]
+                    )
+                }
+            ],
+            trigger='hover',
+            placement='bottomRight',
+        )
+
+    elif current_locale == 'en-us':
+        # construct demo contents
+        demo_contents = fac.AntdDropdown(
+            fac.AntdAvatar(
+                icon='antd-user',
+                size='large',
+                style={'background': '#1890ff', 'cursor': 'pointer'},
+            ),
+            menuItems=[
+                {
+                    'title': fac.AntdSpace(
+                        [
+                            fac.AntdAvatar(
+                                text='Me',
+                                mode='text',
+                                style={'background': '#2f54eb'},
+                            ),
+                            fac.AntdSpace(
+                                [
+                                    'User example',
+                                    fac.AntdTag(content='vip', color='red'),
+                                ],
+                                direction='vertical',
+                                size=0,
+                            ),
+                        ]
+                    )
+                }
+            ],
+            trigger='hover',
+            placement='bottomRight',
+        )
 
     return demo_contents
 
 
-code_string = [
-    {
-        'code': """
+def code_string() -> list:
+    """返回当前语种对应的演示代码"""
+
+    current_locale = get_current_locale()
+
+    if current_locale == 'zh-cn':
+        return [
+            {
+                'code': """
 fac.AntdDropdown(
     fac.AntdAvatar(
         icon='antd-user',
         size='large',
-        style={
-            'background': '#1890ff',
-            'cursor': 'pointer'
-        }
+        style={'background': '#1890ff', 'cursor': 'pointer'},
     ),
     menuItems=[
         {
@@ -59,28 +100,61 @@ fac.AntdDropdown(
                     fac.AntdAvatar(
                         text='我',
                         mode='text',
-                        style={
-                            'background': '#2f54eb'
-                        }
+                        style={'background': '#2f54eb'},
                     ),
                     fac.AntdSpace(
                         [
                             '用户示例',
-                            fac.AntdTag(
-                                content='vip',
-                                color='red'
-                            )
+                            fac.AntdTag(content='vip', color='red'),
                         ],
                         direction='vertical',
-                        size=0
-                    )
+                        size=0,
+                    ),
                 ]
             )
         }
     ],
     trigger='hover',
-    placement='bottomRight'
+    placement='bottomRight',
 )
 """
-    }
-]
+            }
+        ]
+
+    elif current_locale == 'en-us':
+        return [
+            {
+                'code': """
+fac.AntdDropdown(
+    fac.AntdAvatar(
+        icon='antd-user',
+        size='large',
+        style={'background': '#1890ff', 'cursor': 'pointer'},
+    ),
+    menuItems=[
+        {
+            'title': fac.AntdSpace(
+                [
+                    fac.AntdAvatar(
+                        text='Me',
+                        mode='text',
+                        style={'background': '#2f54eb'},
+                    ),
+                    fac.AntdSpace(
+                        [
+                            'User example',
+                            fac.AntdTag(content='vip', color='red'),
+                        ],
+                        direction='vertical',
+                        size=0,
+                    ),
+                ]
+            )
+        }
+    ],
+    trigger='hover',
+    placement='bottomRight',
+)
+"""
+            }
+        ]

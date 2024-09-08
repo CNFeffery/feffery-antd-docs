@@ -642,6 +642,9 @@
         },
         "用于展示当前页面在系统层级结构中的位置。": {
             "en-us": "Used to display the location of the current page in the system hierarchy."
+        },
+        "用于展示具有若干选项或链接的向下弹出的列表。": {
+            "en-us": "Used to display a list with multiple options or links that is popped down."
         }
     }
 }

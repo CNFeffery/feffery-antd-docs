@@ -1,0 +1,66 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdDropdown",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "最基础的下拉菜单。": {
+            "en-us": "The basic dropdown menu."
+        },
+        "按钮模式": {
+            "en-us": "Button mode"
+        },
+        "设置参数`buttonMode=True`后触发点显示为按钮样式。": {
+            "en-us": "Set the parameter `buttonMode=True` to trigger point displays as button styles."
+        },
+        "自定义按钮样式": {
+            "en-us": "Custom button style"
+        },
+        "按钮模式时自定义按钮的样式。": {
+            "en-us": "Custom button style in button mode."
+        },
+        "自由位置模式": {
+            "en-us": "Free position mode"
+        },
+        "自由位置模式的最典型应用场景是配合`fuc.FefferyDiv`的右键事件监听功能，实现监听区域内鼠标右键触发自定义右键菜单。": {
+            "en-us": "The typical scenario of the free position mode is to listen to the right click event of the `fuc.FefferyDiv` to trigger the custom right-click menu in the area of interest."
+        },
+        "点击触发方式": {
+            "en-us": "Click trigger mode"
+        },
+        "设置参数`trigger='click'`后通过点击才可触发下拉菜单。": {
+            "en-us": "Set the parameter `trigger='click'` to trigger the dropdown menu by clicking."
+        },
+        "添加箭头": {
+            "en-us": "Add arrow"
+        },
+        "设置参数`arrow=True`为展开的下拉菜单渲染连接箭头。": {
+            "en-us": "Set the parameter `arrow=True` to render the connection arrow in the expanded dropdown menu."
+        },
+        "不同的弹出方位": {
+            "en-us": "Different popup positions"
+        },
+        "设置参数`placement`控制下拉菜单的展开方向。": {
+            "en-us": "Set the parameter `placement` to control the direction of the dropdown menu."
+        },
+        "自定义锚点元素": {
+            "en-us": "Custom anchor element"
+        },
+        "设置参数`children`自定义下拉菜单锚点元素，支持单个或多个组件。": {
+            "en-us": "Set the parameter `children` to customize the dropdown menu anchor element, which supports single or multiple components."
+        },
+        "菜单可选选择": {
+            "en-us": "Menu selectable"
+        },
+        "设置参数`selectable=True`开启菜单选择能力，默认为单选模式，当额外设置参数`multiple=True`可以开启多选模式。": {
+            "en-us": "Set the parameter `selectable=True` to enable the menu selection capability. The default is single selection mode. When the parameter `multiple=True` is set, it can enable multiple selection mode."
+        },
+        "回调监听": {
+            "en-us": "Callback listener"
+        },
+        "通过`nClicks`、`clickedKey`进行下拉菜单项点击事件的监听。": {
+            "en-us": "Listen to the click event of the dropdown menu items through `nClicks` and `clickedKey`."
+        }
+    }
+}
