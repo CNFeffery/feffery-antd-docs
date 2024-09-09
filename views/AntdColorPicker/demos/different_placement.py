@@ -28,17 +28,19 @@ code_string = [
     {
         'code': """
 fac.AntdSpace(
-        [
-            fac.AntdColorPicker(placement=placement)
-            for placement in [
-                'top',
-                'topLeft',
-                'topRight',
-                'bottom',
-                'bottomLeft',
-                'bottomRight',
-            ]
+    [
+        fac.AntdColorPicker(placement=placement)
+        for placement in [
+            'top',
+            'topLeft',
+            'topRight',
+            'bottom',
+            'bottomLeft',
+            'bottomRight',
         ]
+    ],
+    wrap=True,
+)
 """
     }
 ]
