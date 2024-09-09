@@ -645,6 +645,9 @@
         },
         "用于展示具有若干选项或链接的向下弹出的列表。": {
             "en-us": "Used to display a list with multiple options or links that is popped down."
+        },
+        "导航菜单用于引导用户在不同层级的页面之间进行跳转，一般分为顶部导航和侧边导航，顶部导航提供全局性的类目和功能，侧边导航提供多级结构来收纳和排列网站架构。": {
+            "en-us": "Navigation menus are used to guide users in navigating between different levels of pages. They are generally divided into top navigation and sidebar navigation. Top navigation provides global categories and functions, while sidebar navigation offers a multi-level structure to accommodate and arrange the website architecture."
         }
     }
 }

@@ -1,0 +1,96 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdMenu",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "基础的导航菜单。": {
+            "en-us": "The basic navigation menu."
+        },
+        "显示模式": {
+            "en-us": "Display mode"
+        },
+        "导航菜单具有三种显示模式，其中`horizontal`模式会在宽度受限时自动呈现省略状态。": {
+            "en-us": "The navigation menu has three display modes, where `horizontal` mode is automatically displayed when the width is restricted."
+        },
+        "组件型菜单项": {
+            "en-us": "Component type menu item"
+        },
+        "配合参数`menuItemKeyToTitle`可以将指定的菜单项标题用组件元素代替。": {
+            "en-us": "With the parameter `menuItemKeyToTitle`, you can replace the title of the specified menu item with a component element."
+        },
+        "暗黑主题": {
+            "en-us": "Dark theme"
+        },
+        "内置的暗黑主题风格。": {
+            "en-us": "Built-in dark theme style."
+        },
+        "设置默认展开项": {
+            "en-us": "Set the default expanded item"
+        },
+        "为导航菜单设置初始化时就处于展开状态的子菜单节点。": {
+            "en-us": "Set the sub-menu nodes of the navigation menu to be expanded when the navigation menu is initialized."
+        },
+        "设置默认选中项": {
+            "en-us": "Set the default selected item"
+        },
+        "为导航菜单设置初始化时就处于选中状态的菜单项节点。": {
+            "en-us": "Set the menu item nodes of the navigation menu to be selected when the navigation menu is initialized."
+        },
+        "前缀图标": {
+            "en-us": "Prefix icon"
+        },
+        "为各菜单项快捷设置前缀图标。": {
+            "en-us": "Set the prefix icon for each menu item."
+        },
+        "菜单项链接跳转": {
+            "en-us": "Menu item link jump"
+        },
+        "菜单项节点可设置对应的跳转链接地址。": {
+            "en-us": "The menu item node can set the corresponding jump link address."
+        },
+        "内置折叠状态控制": {
+            "en-us": "Built-in collapse status control"
+        },
+        "使用导航菜单内置的折叠状态控制功能。": {
+            "en-us": "Use the built-in collapse status control function in the navigation menu."
+        },
+        "配合侧边栏自定义控制折叠": {
+            "en-us": "Customize the control collapse with the sidebar"
+        },
+        "配合侧边栏组件**AntdSider**可实现针对导航菜单更灵活的折叠控制。": {
+            "en-us": "With the **AntdSider** component of the sidebar, you can control the collapse of the navigation menu with the sidebar."
+        },
+        "调整子菜单缩进宽度": {
+            "en-us": "Adjust the sub-menu indent width"
+        },
+        "子菜单逐级缩进的像素宽度可调整。": {
+            "en-us": "The sub-menu indent width in pixels can be adjusted at each level."
+        },
+        "自定义子菜单展开图标": {
+            "en-us": "Customize the sub-menu expand icon"
+        },
+        "设置参数`expandIcon`自定义树节点的展开/折叠图标。": {
+            "en-us": "Set the parameter `expandIcon` to customize the tree node's expand/collapse icon."
+        },
+        "控制子菜单展开触发行为": {
+            "en-us": "Control the sub-menu expand trigger behavior"
+        },
+        "设置参数`triggerSubMenuAction='click'`控制子菜单展开触发行为为“点击”。": {
+            "en-us": "Set the parameter `triggerSubMenuAction='click'` to control the sub-menu expand trigger behavior to click."
+        },
+        "回调监听": {
+            "en-us": "Callback listener"
+        },
+        "通过回调监听当前选中的菜单项。": {
+            "en-us": "Listen to the selected menu item through the callback listener."
+        },
+        "进阶回调监听": {
+            "en-us": "Advanced callback listener"
+        },
+        "通过回调监听参数`currentItem`、`currentKeyPath`、`currentItemPath`获取更多选中项相关信息。": {
+            "en-us": "Listen to the parameter `currentItem`、`currentKeyPath`、`currentItemPath` to get more selected item information."
+        }
+    }
+}
