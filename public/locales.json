@@ -648,6 +648,9 @@
         },
         "导航菜单用于引导用户在不同层级的页面之间进行跳转，一般分为顶部导航和侧边导航，顶部导航提供全局性的类目和功能，侧边导航提供多级结构来收纳和排列网站架构。": {
             "en-us": "Navigation menus are used to guide users in navigating between different levels of pages. They are generally divided into top navigation and sidebar navigation. Top navigation provides global categories and functions, while sidebar navigation offers a multi-level structure to accommodate and arrange the website architecture."
+        },
+        "页头位于页容器顶部，起到内容概览和引导页级操作的作用。": {
+            "en-us": "The page header is located at the top of the page container and serves as an overview and guide page level operations."
         }
     }
 }

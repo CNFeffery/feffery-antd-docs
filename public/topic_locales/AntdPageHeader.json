@@ -1,0 +1,24 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdPageHeader",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "最基础的页头包含了自带浏览器后退功能的返回按钮、主标题及副标题信息。": {
+            "en-us": "The basic page header contains the browser back button, main title and subtitle information."
+        },
+        "传入子元素": {
+            "en-us": "Pass in child elements"
+        },
+        "自定义嵌套的子元素。": {
+            "en-us": "Custom nested child elements."
+        },
+        "回调监听": {
+            "en-us": "Callback listener"
+        },
+        "可用于单纯监听返回按钮的点击事件。": {
+            "en-us": "Can be used to listen to the click event of the return button."
+        }
+    }
+}

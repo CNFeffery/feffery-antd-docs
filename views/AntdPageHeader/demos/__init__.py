@@ -1,3 +1,4 @@
+from functools import partial
 from dash.dependencies import Component
 
 from . import (
@@ -7,23 +8,31 @@ from . import (
 )
 from components import demos_render
 
-demos_config = [
-    {
-        'path': 'basic_usage',
-        'title': '基础使用',
-        'description': '最基础的页头包含了自带浏览器后退功能的返回按钮、主标题及副标题信息。',
-    },
-    {
-        'path': 'custom_children',
-        'title': '传入子元素',
-        'description': '自定义嵌套的子元素。',
-    },
-    {
-        'path': 'basic_callbacks',
-        'title': '回调监听',
-        'description': '可用于单纯监听返回按钮的点击事件。',
-    },
-]
+# 国际化
+from i18n import translator
+
+
+def demos_config() -> list:
+    t = partial(translator.t, locale_topic='AntdPageHeader')
+    return [
+        {
+            'path': 'basic_usage',
+            'title': t('基础使用'),
+            'description': t(
+                '最基础的页头包含了自带浏览器后退功能的返回按钮、主标题及副标题信息。'
+            ),
+        },
+        {
+            'path': 'custom_children',
+            'title': t('传入子元素'),
+            'description': t('自定义嵌套的子元素。'),
+        },
+        {
+            'path': 'basic_callbacks',
+            'title': t('回调监听'),
+            'description': t('可用于单纯监听返回按钮的点击事件。'),
+        },
+    ]
 
 
 def render(component: Component, section_name: str = None) -> Component:
