@@ -1,0 +1,81 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdSteps",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "基础的静态步骤条。": {
+            "en-us": "The basic static step bar."
+        },
+        "带说明信息的步骤条": {
+            "en-us": "Step bar with description"
+        },
+        "步骤条节点可额外设置副标题及描述信息。": {
+            "en-us": "Step bar nodes can set additional subtitles and descriptions."
+        },
+        "自定义图标": {
+            "en-us": "Custom icon"
+        },
+        "步骤图标可传入任意组件型内容。": {
+            "en-us": "Step icons can be passed in any component type content."
+        },
+        "当前步骤环状进度": {
+            "en-us": "Current step circular progress"
+        },
+        "通过设置参数`percent`控制当前步骤的环状进度显示效果。": {
+            "en-us": "Set the parameter `percent` to control the current step circular progress display effect."
+        },
+        "设置当前所在步骤": {
+            "en-us": "Set the current step"
+        },
+        "通过参数`current`可控制当前步骤条所在步骤。": {
+            "en-us": "By the parameter `current`, you can control the current step in the step bar."
+        },
+        "垂直步骤条": {
+            "en-us": "Vertical step bar"
+        },
+        "从上往下垂直展示步骤条信息。": {
+            "en-us": "Display step bar information vertically from top to bottom."
+        },
+        "垂直展示步骤条信息": {
+            "en-us": "Vertical display of step bar information"
+        },
+        "通过参数`labelPlacement`可控制步骤条额外信息的展示形式。": {
+            "en-us": "By the parameter `labelPlacement`, you can control the display format of step bar extra information."
+        },
+        "点状步骤条": {
+            "en-us": "Dotted step bar"
+        },
+        "简洁风格的点状步骤条。": {
+            "en-us": "A step bar with a simple style."
+        },
+        "尺寸规格": {
+            "en-us": "Size specification"
+        },
+        "不同尺寸的步骤条。": {
+            "en-us": "Different sizes of step bars."
+        },
+        "控制当前步骤状态": {
+            "en-us": "Control the current step status"
+        },
+        "导航风格步骤条": {
+            "en-us": "Navigation style step bar"
+        },
+        "内联风格步骤条": {
+            "en-us": "Inline style step bar"
+        },
+        "允许点击切换步骤": {
+            "en-us": "Allow step switching"
+        },
+        "设置参数`allowClick=True`后可直接点击步骤进行步骤切换。": {
+            "en-us": "Set the parameter `allowClick=True` to allow direct step switching."
+        },
+        "回调监听": {
+            "en-us": "Callback listener"
+        },
+        "通过回调函数监听并控制步骤条功能。": {
+            "en-us": "Listen to the callback function and control the functionality of the step bar."
+        }
+    }
+}

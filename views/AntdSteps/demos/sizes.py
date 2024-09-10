@@ -1,45 +1,86 @@
 import feffery_antd_components as fac
 from dash.dependencies import Component
 
+from i18n import get_current_locale
+
 
 def render() -> Component:
     """渲染当前演示用例"""
 
-    # 构造演示用例相关内容
-    demo_contents = fac.AntdSpace(
-        [
-            fac.AntdSteps(
-                steps=[
-                    {
-                        'title': f'步骤{i + 1}的title',
-                        'subTitle': f'步骤{i + 1}的subTitle',
-                        'description': f'步骤{i + 1}的description',
-                    }
-                    for i in range(3)
-                ]
-            ),
-            fac.AntdSteps(
-                steps=[
-                    {
-                        'title': f'步骤{i + 1}的title',
-                        'subTitle': f'步骤{i + 1}的subTitle',
-                        'description': f'步骤{i + 1}的description',
-                    }
-                    for i in range(3)
-                ],
-                size='small',
-            ),
-        ],
-        direction='vertical',
-        style={'width': '100%'},
-    )
+    current_locale = get_current_locale()
+
+    if current_locale == 'zh-cn':
+        # 构造演示用例相关内容
+        demo_contents = fac.AntdSpace(
+            [
+                fac.AntdSteps(
+                    steps=[
+                        {
+                            'title': f'步骤{i + 1}的title',
+                            'subTitle': f'步骤{i + 1}的subTitle',
+                            'description': f'步骤{i + 1}的description',
+                        }
+                        for i in range(3)
+                    ]
+                ),
+                fac.AntdSteps(
+                    steps=[
+                        {
+                            'title': f'步骤{i + 1}的title',
+                            'subTitle': f'步骤{i + 1}的subTitle',
+                            'description': f'步骤{i + 1}的description',
+                        }
+                        for i in range(3)
+                    ],
+                    size='small',
+                ),
+            ],
+            direction='vertical',
+            style={'width': '100%'},
+        )
+
+    elif current_locale == 'en-us':
+        # construct demo contents
+        demo_contents = fac.AntdSpace(
+            [
+                fac.AntdSteps(
+                    steps=[
+                        {
+                            'title': f'Step {i + 1} title',
+                            'subTitle': f'Step {i + 1} subTitle',
+                            'description': f'Step {i + 1} description',
+                        }
+                        for i in range(3)
+                    ]
+                ),
+                fac.AntdSteps(
+                    steps=[
+                        {
+                            'title': f'Step {i + 1} title',
+                            'subTitle': f'Step {i + 1} subTitle',
+                            'description': f'Step {i + 1} description',
+                        }
+                        for i in range(3)
+                    ],
+                    size='small',
+                ),
+            ],
+            direction='vertical',
+            style={'width': '100%'},
+        )
 
     return demo_contents
 
 
-code_string = [
-    {
-        'code': """
+def code_string() -> list:
+    """返回当前语种对应的演示代码"""
+
+    current_locale = get_current_locale()
+
+    if current_locale == 'zh-cn':
+        return [
+            {
+                'code': """
 fac.AntdSpace(
     [
         fac.AntdSteps(
@@ -68,5 +109,40 @@ fac.AntdSpace(
     style={'width': '100%'},
 )
 """
-    }
-]
+            }
+        ]
+
+    elif current_locale == 'en-us':
+        return [
+            {
+                'code': """
+fac.AntdSpace(
+    [
+        fac.AntdSteps(
+            steps=[
+                {
+                    'title': f'Step {i + 1} title',
+                    'subTitle': f'Step {i + 1} subTitle',
+                    'description': f'Step {i + 1} description',
+                }
+                for i in range(3)
+            ]
+        ),
+        fac.AntdSteps(
+            steps=[
+                {
+                    'title': f'Step {i + 1} title',
+                    'subTitle': f'Step {i + 1} subTitle',
+                    'description': f'Step {i + 1} description',
+                }
+                for i in range(3)
+            ],
+            size='small',
+        ),
+    ],
+    direction='vertical',
+    style={'width': '100%'},
+)
+"""
+            }
+        ]

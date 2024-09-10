@@ -654,6 +654,9 @@
         },
         "采用分页的形式分隔长列表，每次只加载单页内容。": {
             "en-us": "Use paging to divide long lists, each time only load a single page of content."
+        },
+        "用于引导用户按照流程完成一系列连贯的步骤。": {
+            "en-us": "Used to guide users to complete a series of sequential steps."
         }
     }
 }
