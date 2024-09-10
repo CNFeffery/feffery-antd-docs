@@ -1,0 +1,54 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdPagination",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "最基础的分页。": {
+            "en-us": "The basic pagination."
+        },
+        "单页自动隐藏": {
+            "en-us": "Single page auto hide"
+        },
+        "设置参数`hideOnSinglePage=True`，仅有1页时自动隐藏分页组件。": {
+            "en-us": "Set the parameter `hideOnSinglePage=True` to automatically hide the pagination component when there is only 1 page."
+        },
+        "添加更多功能": {
+            "en-us": "Add more function"
+        },
+        "设置快速跳页、每页记录数选择器、前后缀信息等功能。": {
+            "en-us": "Set quick jump page, page number selection, prefix information, etc. function."
+        },
+        "展示较少的跳页按钮": {
+            "en-us": "Show less jump page buttons"
+        },
+        "设置参数`showLessItems=True`时会展示较少的跳页按钮。": {
+            "en-us": "Set the parameter `showLessItems=True` to show less jump page buttons."
+        },
+        "极简模式": {
+            "en-us": "Simplified mode"
+        },
+        "设置参数`simple=True`开启极简模式。": {
+            "en-us": "Set the parameter `simple=True` to enable the simplified mode."
+        },
+        "迷你模式": {
+            "en-us": "Mini mode"
+        },
+        "设置参数`size='small'`开启迷你模式。": {
+            "en-us": "Set the parameter `size='small'` to enable the mini mode."
+        },
+        "对齐方式": {
+            "en-us": "Alignment"
+        },
+        "设置参数`align`控制分页控件对齐方式。": {
+            "en-us": "Set the parameter `align` to control the alignment of the pagination control."
+        },
+        "回调监听": {
+            "en-us": "Callback listener"
+        },
+        "可用于监听分页相关事件。": {
+            "en-us": "Used to listen to pagination related events."
+        }
+    }
+}

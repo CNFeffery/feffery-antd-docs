@@ -651,6 +651,9 @@
         },
         "页头位于页容器顶部，起到内容概览和引导页级操作的作用。": {
             "en-us": "The page header is located at the top of the page container and serves as an overview and guide page level operations."
+        },
+        "采用分页的形式分隔长列表，每次只加载单页内容。": {
+            "en-us": "Use paging to divide long lists, each time only load a single page of content."
         }
     }
 }
