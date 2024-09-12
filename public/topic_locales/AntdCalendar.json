@@ -1,0 +1,36 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdCalendar",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "最基础的日历。": {
+            "en-us": "The basic calendar."
+        },
+        "不同的尺寸规格": {
+            "en-us": "Different size specifications"
+        },
+        "设置参数`size`调整日历的尺寸规格。": {
+            "en-us": "Set the parameter `size` to adjust the size of the calendar."
+        },
+        "自定义单元格内容": {
+            "en-us": "Custom cell content"
+        },
+        "通过参数`customCells`为指定模式下的指定日期单元格添加自定义内容，未填写条件的部分将视作通配规则。": {
+            "en-us": "Add custom content to the specified mode and specified date cell in the parameter `customCells` when the condition is not filled."
+        },
+        "回调监听": {
+            "en-us": "Callback listener"
+        },
+        "用于监听日历的点击事件。": {
+            "en-us": "Listen to the click event of the calendar."
+        },
+        "监听日期单元格点击事件": {
+            "en-us": "Listen to the click event of the date cell"
+        },
+        "通过监听属性`cellClickEvent`变化来获取日期单元格的点击事件。": {
+            "en-us": "Get the click event of the date cell by listening to the property `cellClickEvent`."
+        }
+    }
+}
