@@ -1,50 +1,34 @@
-
-
 - children (a list of or a singular dash component, string or number; optional):
-    当前悬浮按钮组内悬浮按钮.
-
+  Component type, embedded element within the button.
 - id (string; optional):
-    组件唯一id.
-
+  Unique identifier for the component.
 - className (string | dict; optional):
-    当前组件css类名，支持[动态css](/advanced-classname).
-
+  CSS class name for the current component, supports [dynamic CSS](/advanced-classname).
 - description (a list of or a singular dash component, string or number; optional):
-    描述内容.
-
+  Description content
 - icon (a list of or a singular dash component, string or number; optional):
-    图标元素.
-
+  Component type, prefix icon element nested within the button.
 - key (string; optional):
-    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
-
+  Updating the `key` value of the current component can force a redraw of the component.
 - loading_state (dict; optional)
 
-    `loading_state` is a dict with keys:
+  `loading_state` is a dict with keys:
 
-    - component_name (string; optional):
-        Holds the name of the component that is loading.
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
+  - component_name (string; optional):
+    Holds the name of the component that is loading.
+  - is_loading (boolean; optional):
+    Determines if the component is loading or not.
+  - prop_name (string; optional):
+    Holds which property is loading.
 - open (boolean; optional):
-    设置或监听当前悬浮按钮组展开状态.
-
+  Set or listen to the open state of the current component.
 - shape (a value equal to: 'circle', 'square'; default 'circle'):
-    内部各悬浮按钮形状，可选项有`'circle'`、`'square'`  默认值：`'circle'`.
-
+  Shape of the button, options include `'circle'`, `'square'`. Default value: `'circle'`.
 - style (dict; optional):
-    当前组件css样式.
-
+  CSS styles for the current component.
 - tooltip (a list of or a singular dash component, string or number; optional):
-    气泡卡片内容.
-
+  Component type, additional tooltip content for the button.
 - trigger (a value equal to: 'click', 'hover'; optional):
-    菜单展开模式触发方式，可选项有`'click'`、`'hover'`.
-
+  The trigger method for menu expansion mode. options include `'click'` , `'hover'`.
 - type (a value equal to: 'default', 'primary'; default 'default'):
-    按钮类型，可选项有`'default'`、`'primary'`  默认值：`'default'`.
+  Type of the button, options include `'default'`, `'primary'`. Default value: `'default'`.
