@@ -1,0 +1,90 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdCascader",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "默认参数下，**AntdCascader**以单选的模式，供用户进行末端叶节点的选择。": {
+            "en-us": "In the default parameters, **AntdCascader** is used as a single choice mode to select the end leaf node."
+        },
+        "悬浮层展开方位": {
+            "en-us": "The expansion direction of the floating layer"
+        },
+        "设置参数`placement`控制悬浮层展开方位。": {
+            "en-us": "Set the parameter `placement` to control the expansion direction of the floating layer."
+        },
+        "移入展开": {
+            "en-us": "When moving into the expansion"
+        },
+        "设置参数`expandTrigger='hover'`鼠标悬停触发子选项展开。": {
+            "en-us": "Set the parameter `expandTrigger='hover'` to trigger the sub-option expansion on mouse hover."
+        },
+        "多选模式": {
+            "en-us": "Multiple choice mode"
+        },
+        "设置参数`multiple=True`开启多选模式。": {
+            "en-us": "Set the parameter `multiple=True` to enable multiple choice mode."
+        },
+        "选择非末端节点": {
+            "en-us": "Select non-leaf nodes"
+        },
+        "设置参数`changeOnSelect=True`后当任意节点被选择时均对value进行更新。": {
+            "en-us": "Set the parameter `changeOnSelect=True` to update the value when any node is selected."
+        },
+        "扁平options模式": {
+            "en-us": "Flat options mode"
+        },
+        "设置参数`optionsMode='flat'`开启扁平options模式。": {
+            "en-us": "Set the parameter `optionsMode='flat'` to enable flat options mode."
+        },
+        "禁用状态": {
+            "en-us": "Disabled status"
+        },
+        "设置参数`disabled=True`开启禁用状态。": {
+            "en-us": "Set the parameter `disabled=True` to enable the disabled status."
+        },
+        "已选项回填策略": {
+            "en-us": "Selected item backfill strategy"
+        },
+        "设置参数`showCheckedStrategy`控制已选项回填策略。": {
+            "en-us": "Set the parameter `showCheckedStrategy` to control the selected item backfill strategy."
+        },
+        "只读状态": {
+            "en-us": "Readonly status"
+        },
+        "设置参数`readOnly=True`开启只读状态。": {
+            "en-us": "Set the parameter `readOnly=True` to enable the readonly status."
+        },
+        "强制状态渲染": {
+            "en-us": "Force status rendering"
+        },
+        "设置参数`status`强制状态渲染。": {
+            "en-us": "Set the parameter `status` to force status rendering."
+        },
+        "自定义选项label": {
+            "en-us": "Custom option label"
+        },
+        "设置参数`optionsNodeKeyToLabel`，针对级联结构中的指定节点，定义作为标题的组件型内容。": {
+            "en-us": "Set the parameter `optionsNodeKeyToLabel` to define the component type content as the title for the specified node in the cascade structure."
+        },
+        "关键词搜索": {
+            "en-us": "Keyword search"
+        },
+        "设置参数`optionFilterProp`指定选项关键词搜索时的目标字段。": {
+            "en-us": "Set the parameter `optionFilterProp` to specify the target field when the option keyword search is performed."
+        },
+        "面板模式": {
+            "en-us": "Panel mode"
+        },
+        "设置参数`panelMode=True`开启面板模式，适用于一些需要内嵌适用的场景。": {
+            "en-us": "Set the parameter `panelMode=True` to enable the panel mode, which is suitable for scenarios requiring embedded applicable."
+        },
+        "回调监听": {
+            "en-us": "Callback listener"
+        },
+        "用于监听级联选择的选择事件。": {
+            "en-us": "Listen to the selection event of the cascade selection."
+        }
+    }
+}

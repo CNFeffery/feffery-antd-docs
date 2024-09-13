@@ -660,6 +660,9 @@
         },
         "用于渲染可交互的日历。": {
             "en-us": "Used to render an interactive calendar."
+        },
+        "用于为用户提供一组具有层级信息的选项进行选择。": {
+            "en-us": "Used to provide a group of options with hierarchical information for users to choose."
         }
     }
 }
