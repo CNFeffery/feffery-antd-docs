@@ -1467,7 +1467,13 @@ class AppConfig:
                                     'href': '/changelog-' + version,
                                 },
                             }
-                            for version in ['0.3.1', '0.3.2', '0.3.3', '0.3.4']
+                            for version in [
+                                '0.3.1',
+                                '0.3.2',
+                                '0.3.3',
+                                '0.3.4',
+                                '0.3.5',
+                            ]
                         ],
                     }
                 ],
