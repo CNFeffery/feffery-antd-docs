@@ -24,6 +24,7 @@ from . import (
     tree_search,  # noqa: F401
     node_favorited,  # noqa: F401
     node_scroll,  # noqa: F401
+    async_load_node,  # noqa: F401
 )
 from components import demos_render
 
@@ -142,6 +143,11 @@ demos_config = [
         'path': 'node_scroll',
         'title': '节点滚动动作',
         'description': '基于参数`scrollTarget`针对已展开的节点进行节点滚动动作。',
+    },
+    {
+        'path': 'async_load_node',
+        'title': '异步加载节点',
+        'description': '设置参数`enableAsyncLoad=True`后，对于未设置`isLeaf`为`True`且无`children`属性的节点，可通过回调监听节点展开信息，从而实现异步更新树结构。',
     },
 ]
 
