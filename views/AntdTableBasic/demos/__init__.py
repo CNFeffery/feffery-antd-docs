@@ -6,6 +6,7 @@ from . import (
     numeric_column_width,  # noqa: F401
     css_column_width,  # noqa: F401
     max_height_usage,  # noqa: F401
+    scroll_to_first_row_on_change,  # noqa: F401
     max_width_usage,  # noqa: F401
     fixed_columns,  # noqa: F401
     bordered,  # noqa: F401
@@ -42,6 +43,11 @@ demos_config = [
         'path': 'max_height_usage',
         'title': 'maxHeight的使用',
         'description': '设置参数`maxHeight`后，当表格实际像素高度超出`maxHeight`所设定值时，会自动渲染垂直滚动条。',
+    },
+    {
+        'path': 'scroll_to_first_row_on_change',
+        'title': 'scrollToFirstRowOnChange的使用',
+        'description': '设置参数`scrollToFirstRowOnChange=False`后，翻页等操作后表格将不会自动滚回当页第一行。',
     },
     {
         'path': 'max_width_usage',
