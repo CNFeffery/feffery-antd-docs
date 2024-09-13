@@ -71,7 +71,7 @@ def render() -> Component:
                     'value': [f'2023-01-0{i}' for i in range(1, 10)],
                 }
             ],
-            defaultPickerValue='2023-01-01',
+            pickerValue='2023-01-01',
         ),
         fac.AntdDivider(
             "mode='not-in-enumerate-dates'", innerTextOrientation='left'
@@ -85,7 +85,7 @@ def render() -> Component:
                     'value': [f'2023-01-0{i}' for i in range(1, 10)],
                 }
             ],
-            defaultPickerValue='2023-01-01',
+            pickerValue='2023-01-01',
         ),
         fac.AntdDivider("target='specific-date'", innerTextOrientation='left'),
         fac.AntdDatePicker(
@@ -94,7 +94,7 @@ def render() -> Component:
             disabledDatesStrategy=[
                 {'mode': 'lt', 'target': 'specific-date', 'value': '2023-01-15'}
             ],
-            defaultPickerValue='2023-01-01',
+            pickerValue='2023-01-01',
         ),
     ]
 
@@ -169,7 +169,7 @@ code_string = [
                 'value': [f'2023-01-0{i}' for i in range(1, 10)],
             }
         ],
-        defaultPickerValue='2023-01-01',
+        pickerValue='2023-01-01',
     ),
     fac.AntdDivider(
         "mode='not-in-enumerate-dates'", innerTextOrientation='left'
@@ -183,7 +183,7 @@ code_string = [
                 'value': [f'2023-01-0{i}' for i in range(1, 10)],
             }
         ],
-        defaultPickerValue='2023-01-01',
+        pickerValue='2023-01-01',
     ),
     fac.AntdDivider("target='specific-date'", innerTextOrientation='left'),
     fac.AntdDatePicker(
@@ -192,7 +192,7 @@ code_string = [
         disabledDatesStrategy=[
             {'mode': 'lt', 'target': 'specific-date', 'value': '2023-01-15'}
         ],
-        defaultPickerValue='2023-01-01',
+        pickerValue='2023-01-01',
     ),
 ]
 """

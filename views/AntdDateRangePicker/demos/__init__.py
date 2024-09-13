@@ -9,7 +9,7 @@ from . import (
     disabled,  # noqa: F401
     read_only,  # noqa: F401
     render_status,  # noqa: F401
-    default_picker_value,  # noqa: F401
+    picker_value,  # noqa: F401
     disabled_dates,  # noqa: F401
     extra_footer,  # noqa: F401
     custom_cells,  # noqa: F401
@@ -59,8 +59,8 @@ demos_config = [
         'description': '设置参数`status`强制状态渲染。',
     },
     {
-        'path': 'default_picker_value',
-        'title': '初始化日期停留位置',
+        'path': 'picker_value',
+        'title': '控制面板停留位置',
         'description': None,
     },
     {

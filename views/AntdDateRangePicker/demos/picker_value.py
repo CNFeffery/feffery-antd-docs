@@ -8,14 +8,14 @@ def render() -> Component:
     # 构造演示用例相关内容
     demo_contents = fac.AntdSpace(
         [
-            fac.AntdDatePicker(
-                defaultPickerValue='1999-12-31', style={'width': 175}
+            fac.AntdDateRangePicker(
+                pickerValue='1999-12-31', style={'width': 300}
             ),
-            fac.AntdDatePicker(
-                placeholder='配合自定义format',
-                defaultPickerValue='1999年12月31日',
+            fac.AntdDateRangePicker(
+                placeholder=['配合自定义format', ''],
+                pickerValue='1999年12月31日',
                 format='YYYY年MM月DD日',
-                style={'width': 175},
+                style={'width': 300},
             ),
         ],
         direction='vertical',
@@ -29,14 +29,14 @@ code_string = [
         'code': """
 fac.AntdSpace(
     [
-        fac.AntdDatePicker(
-            defaultPickerValue='1999-12-31', style={'width': 175}
+        fac.AntdDateRangePicker(
+            pickerValue='1999-12-31', style={'width': 300}
         ),
-        fac.AntdDatePicker(
-            placeholder='配合自定义format',
-            defaultPickerValue='1999年12月31日',
+        fac.AntdDateRangePicker(
+            placeholder=['配合自定义format', ''],
+            pickerValue='1999年12月31日',
             format='YYYY年MM月DD日',
-            style={'width': 175},
+            style={'width': 300},
         ),
     ],
     direction='vertical',
