@@ -14,6 +14,7 @@ from . import (
     extra_footer,  # noqa: F401
     custom_cells,  # noqa: F401
     basic_callbacks,  # noqa: F401
+    listen_picker_value,  # noqa: F401
 )
 from components import demos_render
 
@@ -82,6 +83,11 @@ demos_config = [
         'path': 'basic_callbacks',
         'title': '回调监听',
         'description': None,
+    },
+    {
+        'path': 'listen_picker_value',
+        'title': '监听面板停留位置',
+        'description': '通过回调函数监听`pickerValue`的变化，获取当前面板停留位置。',
     },
 ]
 
