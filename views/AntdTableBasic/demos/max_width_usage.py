@@ -7,17 +7,29 @@ def render() -> Component:
     """渲染当前演示用例"""
 
     # 构造演示用例相关内容
-    demo_contents = html.Div(
+    demo_contents = [
+        html.Div(
+            fac.AntdTable(
+                columns=[
+                    {'title': f'字段{i}', 'dataIndex': f'字段{i}'}
+                    for i in range(1, 6)
+                ],
+                data=[{f'字段{i}': '示例内容' for i in range(1, 6)}] * 3,
+                maxWidth=900,
+                title='maxWidth=900',
+            ),
+            style={'maxWidth': 700, 'margin': '0 auto'},
+        ),
         fac.AntdTable(
             columns=[
                 {'title': f'字段{i}', 'dataIndex': f'字段{i}'}
                 for i in range(1, 6)
             ],
-            data=[{f'字段{i}': '示例内容' for i in range(1, 6)}] * 3,
-            maxWidth=900,
+            data=[{f'字段{i}': '示例内容' * 4 for i in range(1, 6)}] * 3,
+            maxWidth='max-content',
+            title='maxWidth="max-content"',
         ),
-        style={'maxWidth': 700, 'margin': '0 auto'},
-    )
+    ]
 
     return demo_contents
 
@@ -25,17 +37,29 @@ def render() -> Component:
 code_string = [
     {
         'code': """
-html.Div(
+[
+    html.Div(
+        fac.AntdTable(
+            columns=[
+                {'title': f'字段{i}', 'dataIndex': f'字段{i}'}
+                for i in range(1, 6)
+            ],
+            data=[{f'字段{i}': '示例内容' for i in range(1, 6)}] * 3,
+            maxWidth=900,
+            title='maxWidth=900',
+        ),
+        style={'maxWidth': 700, 'margin': '0 auto'},
+    ),
     fac.AntdTable(
         columns=[
             {'title': f'字段{i}', 'dataIndex': f'字段{i}'}
             for i in range(1, 6)
         ],
-        data=[{f'字段{i}': '示例内容' for i in range(1, 6)}] * 3,
-        maxWidth=900,
+        data=[{f'字段{i}': '示例内容' * 4 for i in range(1, 6)}] * 3,
+        maxWidth='max-content',
+        title='maxWidth="max-content"',
     ),
-    style={'maxWidth': 700, 'margin': '0 auto'},
-)
+]
 """
     }
 ]
