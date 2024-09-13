@@ -16,6 +16,7 @@ from . import (
     custom_cells,  # noqa: F401
     basic_callbacks,  # noqa: F401
     dynamic_disabled_dates,  # noqa: F401
+    listen_picker_value,  # noqa: F401
 )
 from components import demos_render
 
@@ -94,6 +95,11 @@ demos_config = [
         'path': 'dynamic_disabled_dates',
         'title': '基于回调的动态日期禁用',
         'description': '通过回调函数实现基于当前日期时间的动态禁用策略，以“只允许选择未来7天内日期”为例。',
+    },
+    {
+        'path': 'listen_picker_value',
+        'title': '监听面板停留位置',
+        'description': '通过回调函数监听`pickerValue`的变化，获取当前面板停留位置。',
     },
 ]
 
