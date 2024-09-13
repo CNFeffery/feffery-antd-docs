@@ -18,6 +18,7 @@ from . import (
     show_checked_strategy,  # noqa: F401
     multiple_mode_search,  # noqa: F401
     basic_callbacks,  # noqa: F401
+    async_load_node,  # noqa: F401
 )
 from components import demos_render
 
@@ -106,6 +107,11 @@ demos_config = [
         'path': 'basic_callbacks',
         'title': '回调监听',
         'description': None,
+    },
+    {
+        'path': 'async_load_node',
+        'title': '异步加载节点',
+        'description': '设置参数`enableAsyncLoad=True`后，对于未设置`isLeaf`为`True`且无`children`属性的节点，可通过回调监听节点展开信息，从而实现异步更新树结构。',
     },
 ]
 
