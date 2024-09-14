@@ -663,6 +663,9 @@
         },
         "用于为用户提供一组具有层级信息的选项进行选择。": {
             "en-us": "Used to provide a group of options with hierarchical information for users to choose."
+        },
+        "用于在两种状态之间进行切换。": {
+            "en-us": "Used to switch between two states."
         }
     }
 }

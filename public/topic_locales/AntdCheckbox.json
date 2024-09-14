@@ -1,0 +1,27 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdCheckbox",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "半选中状态": {
+            "en-us": "Half checked status"
+        },
+        "开启半选中状态后，仅改变勾选框显示样式，与实际勾选状态无关。": {
+            "en-us": "Enable the half checked status to change the checkbox display style only, and it is independent of the actual checked status."
+        },
+        "禁用状态": {
+            "en-us": "Disabled status"
+        },
+        "只读状态": {
+            "en-us": "Readonly status"
+        },
+        "只读状态适用于单纯的数据展示场景。": {
+            "en-us": "Readonly status is suitable for displaying data only."
+        },
+        "回调监听": {
+            "en-us": "Callback listening"
+        }
+    }
+}
