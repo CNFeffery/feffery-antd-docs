@@ -666,6 +666,9 @@
         },
         "用于在两种状态之间进行切换。": {
             "en-us": "Used to switch between two states."
+        },
+        "由若干选择框组成，用于在一组可选项中进行多项选择。": {
+            "en-us": "Composed of multiple selection boxes, used to select multiple items from a group of options."
         }
     }
 }
