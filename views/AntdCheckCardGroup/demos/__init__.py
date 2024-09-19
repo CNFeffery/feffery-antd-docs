@@ -1,3 +1,4 @@
+from functools import partial
 from dash.dependencies import Component
 
 from . import (
@@ -11,43 +12,51 @@ from . import (
 )
 from components import demos_render
 
-demos_config = [
-    {
-        'path': 'basic_usage',
-        'title': '基础使用',
-        'description': None,
-    },
-    {
-        'path': 'multiple',
-        'title': '多选模式',
-        'description': None,
-    },
-    {
-        'path': 'disabled',
-        'title': '禁用状态',
-        'description': None,
-    },
-    {
-        'path': 'read_only',
-        'title': '只读状态',
-        'description': '只读状态适用于单纯的数据展示场景。',
-    },
-    {
-        'path': 'allow_no_value',
-        'title': '限制必须有选中值',
-        'description': '设置`allowNoValue=False`后，将会阻止用户对唯一选中值的取消选择行为。',
-    },
-    {
-        'path': 'custom_style',
-        'title': '自定义选项样式',
-        'description': None,
-    },
-    {
-        'path': 'basic_callbacks',
-        'title': '回调监听',
-        'description': '通过回调监听已选中卡片对应值。',
-    },
-]
+# 国际化
+from i18n import translator
+
+
+def demos_config() -> list:
+    t = partial(translator.t, locale_topic='AntdCheckCardGroup')
+    return [
+        {
+            'path': 'basic_usage',
+            'title': t('基础使用'),
+            'description': None,
+        },
+        {
+            'path': 'multiple',
+            'title': t('多选模式'),
+            'description': None,
+        },
+        {
+            'path': 'disabled',
+            'title': t('禁用状态'),
+            'description': None,
+        },
+        {
+            'path': 'read_only',
+            'title': t('只读状态'),
+            'description': t('只读状态适用于单纯的数据展示场景。'),
+        },
+        {
+            'path': 'allow_no_value',
+            'title': t('限制必须有选中值'),
+            'description': t(
+                '设置`allowNoValue=False`后，将会阻止用户对唯一选中值的取消选择行为。'
+            ),
+        },
+        {
+            'path': 'custom_style',
+            'title': t('自定义选项样式'),
+            'description': None,
+        },
+        {
+            'path': 'basic_callbacks',
+            'title': t('回调监听'),
+            'description': t('通过回调监听已选中卡片对应值。'),
+        },
+    ]
 
 
 def render(component: Component, section_name: str = None) -> Component:

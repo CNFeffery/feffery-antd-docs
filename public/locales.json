@@ -672,6 +672,9 @@
         },
         "用于渲染具有状态切换功能的内容卡片。": {
             "en-us": "Used to render content cards with state switching functions."
+        },
+        "用于监听一组选择卡片的选择情况。": {
+            "en-us": "Used to monitor the selection status of a group of selection cards."
         }
     }
 }

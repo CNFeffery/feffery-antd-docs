@@ -1,0 +1,36 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdCheckCardGroup",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "多选模式": {
+            "en-us": "Multiple mode"
+        },
+        "禁用状态": {
+            "en-us": "Disabled state"
+        },
+        "只读状态": {
+            "en-us": "Readonly status"
+        },
+        "只读状态适用于单纯的数据展示场景。": {
+            "en-us": "Readonly status is suitable for displaying data only."
+        },
+        "限制必须有选中值": {
+            "en-us": "Limit the number of selected values"
+        },
+        "设置`allowNoValue=False`后，将会阻止用户对唯一选中值的取消选择行为。": {
+            "en-us": "Set `allowNoValue=False` to prevent the user from canceling the selection of the unique selected value."
+        },
+        "自定义选项样式": {
+            "en-us": "Custom option style"
+        },
+        "回调监听": {
+            "en-us": "Callback listener"
+        },
+        "通过回调监听已选中卡片对应值。": {
+            "en-us": "Listen to the corresponding value of the selected card through the callback listener."
+        }
+    }
+}
