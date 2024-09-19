@@ -157,19 +157,26 @@ conda activate dash-apps""",
                                     src='/assets/imgs/pycafe_logo.png',
                                     height=28,
                                 ),
-                                fac.AntdButton(
-                                    (
-                                        '在Py.Cafe中实时编辑'
-                                        if current_locale == 'zh-cn'
-                                        else 'Edit live on Py.Cafe'
+                                fac.AntdTooltip(
+                                    fac.AntdButton(
+                                        (
+                                            '在Py.Cafe中实时编辑'
+                                            if current_locale == 'zh-cn'
+                                            else 'Edit live on Py.Cafe'
+                                        ),
+                                        type='link',
+                                        href=(
+                                            'https://py.cafe/CNFeffery/fac-getting-started-demo-zh-cn'
+                                            if current_locale == 'zh-cn'
+                                            else 'https://py.cafe/CNFeffery/fac-getting-started-demo-en-us'
+                                        ),
+                                        style={'padding': '4px 2px'},
                                     ),
-                                    type='link',
-                                    href=(
-                                        'https://py.cafe/CNFeffery/fac-getting-started-demo-zh-cn'
+                                    title=(
+                                        '国内用户建议开启代理，以加速访问Py.Cafe'
                                         if current_locale == 'zh-cn'
-                                        else 'https://py.cafe/CNFeffery/fac-getting-started-demo-en-us'
+                                        else None
                                     ),
-                                    style={'padding': '4px 2px'},
                                 ),
                             ],
                             size=0,
