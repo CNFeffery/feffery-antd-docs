@@ -669,6 +669,9 @@
         },
         "由若干选择框组成，用于在一组可选项中进行多项选择。": {
             "en-us": "Composed of multiple selection boxes, used to select multiple items from a group of options."
+        },
+        "用于渲染具有状态切换功能的内容卡片。": {
+            "en-us": "Used to render content cards with state switching functions."
         }
     }
 }

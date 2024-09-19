@@ -1,3 +1,4 @@
+from functools import partial
 from dash.dependencies import Component
 
 from . import (
@@ -9,33 +10,39 @@ from . import (
 )
 from components import demos_render
 
-demos_config = [
-    {
-        'path': 'basic_usage',
-        'title': '基础使用',
-        'description': '选择卡片中可以放入任何组件型内容。',
-    },
-    {
-        'path': 'disabled',
-        'title': '禁用状态',
-        'description': None,
-    },
-    {
-        'path': 'read_only',
-        'title': '只读状态',
-        'description': '只读状态适用于单纯的数据展示场景。',
-    },
-    {
-        'path': 'sizes',
-        'title': '尺寸规格',
-        'description': None,
-    },
-    {
-        'path': 'basic_callbacks',
-        'title': '回调监听',
-        'description': None,
-    },
-]
+# 国际化
+from i18n import translator
+
+
+def demos_config() -> list:
+    t = partial(translator.t, locale_topic='AntdCheckCard')
+    return [
+        {
+            'path': 'basic_usage',
+            'title': t('基础使用'),
+            'description': t('选择卡片中可以放入任何组件型内容。'),
+        },
+        {
+            'path': 'disabled',
+            'title': t('禁用状态'),
+            'description': None,
+        },
+        {
+            'path': 'read_only',
+            'title': t('只读状态'),
+            'description': t('只读状态适用于单纯的数据展示场景。'),
+        },
+        {
+            'path': 'sizes',
+            'title': t('尺寸规格'),
+            'description': None,
+        },
+        {
+            'path': 'basic_callbacks',
+            'title': t('回调监听'),
+            'description': None,
+        },
+    ]
 
 
 def render(component: Component, section_name: str = None) -> Component:

@@ -1,0 +1,27 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdCheckCard",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "选择卡片中可以放入任何组件型内容。": {
+            "en-us": "The card can contain any component type content."
+        },
+        "禁用状态": {
+            "en-us": "Disabled state"
+        },
+        "只读状态": {
+            "en-us": "Readonly status"
+        },
+        "只读状态适用于单纯的数据展示场景。": {
+            "en-us": "Readonly status is suitable for displaying data only."
+        },
+        "尺寸规格": {
+            "en-us": "Size specification"
+        },
+        "回调监听": {
+            "en-us": "Callback listener"
+        }
+    }
+}
