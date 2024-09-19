@@ -7,6 +7,7 @@ import feffery_markdown_components as fmc
 from dash.dependencies import Component
 
 import utils
+from config import AppConfig
 from components import contributors_avatar
 from utils.doc_renderer import MarkdownRenderer
 
@@ -35,11 +36,13 @@ def render(
         # 若当前文档页尚未翻译完成，则更新相应的参与翻译贡献提示信息
         i18n_modal = fac.AntdModal(
             markdown_renderer.render(
-                'The English version of the current component documentation page has not been completed yet. If you are interested in participating in the English translation of this document, please read the [Contribution Guide](https://github.com/CNFeffery/feffery-antd-docs/issues/166).'
+                'The **English** version of the current component documentation page has not been completed yet. If you are interested in participating in the **English translation** of this document, please read the [Contribution Guide](%s).'
+                % AppConfig.i18n_guide_link
             ),
             title='Notice',
             transitionType='fade',
             visible=True,
+            width=600,
         )
 
     return fac.AntdRow(

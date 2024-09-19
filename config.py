@@ -56,6 +56,11 @@ class AppConfig:
     # 文档贡献者信息
     doc_contributors = json.load(open('./public/contributors.json'))
 
+    # 项目国际化指南地址
+    i18n_guide_link = (
+        'https://github.com/CNFeffery/feffery-antd-docs/issues/166'
+    )
+
     @staticmethod
     def side_menu_items() -> list:
         # 侧边菜单栏数据结构
