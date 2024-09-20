@@ -3,6 +3,7 @@ from dash.dependencies import Component
 
 from . import (
     basic_usage,  # noqa: F401
+    auto_style_with_config_provider,  # noqa: F401
 )
 from components import demos_render
 
@@ -17,7 +18,14 @@ def demos_config() -> list:
             'path': 'basic_usage',
             'title': t('基础使用'),
             'description': t('常规居中与行内居中。'),
-        }
+        },
+        {
+            'path': 'auto_style_with_config_provider',
+            'title': t('样式自动联动参数配置组件'),
+            'description': t(
+                '背景色、字体尺寸、文字颜色默认值自动联动上层的[参数配置组件](/AntdConfigProvider)相关设定。'
+            ),
+        },
     ]
 
 
