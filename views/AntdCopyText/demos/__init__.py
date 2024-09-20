@@ -4,6 +4,7 @@ from . import (
     basic_usage,  # noqa: F401
     custom_addon,  # noqa: F401
     tooltips,  # noqa: F401
+    _format,  # noqa: F401
     basic_callbacks,  # noqa: F401
 )
 from components import demos_render
@@ -23,6 +24,11 @@ demos_config = [
         'path': 'tooltips',
         'title': '控制提示信息',
         'description': '通过参数`tooltips`控制复制操作前后的额外提示信息行为。',
+    },
+    {
+        'path': '_format',
+        'title': '控制复制内容格式',
+        'description': '通过参数`format`控制复制内容对应的`Mime Type`，你可以将不同的复制内容粘贴到**excel**中查看效果。',
     },
     {
         'path': 'basic_callbacks',
