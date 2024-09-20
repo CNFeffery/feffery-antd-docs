@@ -3,6 +3,7 @@ from dash.dependencies import Component
 from . import (
     basic_usage,  # noqa: F401
     custom_addon,  # noqa: F401
+    tooltips,  # noqa: F401
     basic_callbacks,  # noqa: F401
 )
 from components import demos_render
@@ -17,6 +18,11 @@ demos_config = [
         'path': 'custom_addon',
         'title': '自定义复制前后渲染内容',
         'description': '可自定义设置复制前后的渲染内容，可传入任意Dash组件。',
+    },
+    {
+        'path': 'tooltips',
+        'title': '控制提示信息',
+        'description': '通过参数`tooltips`控制复制操作前后的额外提示信息行为。',
     },
     {
         'path': 'basic_callbacks',
