@@ -1,0 +1,72 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdColorPicker",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "在展开的选择面板中完成颜色值的选择。": {
+            "en-us": "Complete the color value selection in the expanded selection panel."
+        },
+        "尺寸规格": {
+            "en-us": "Sizes"
+        },
+        "不同尺寸的颜色选择触发器。": {
+            "en-us": "Different sizes of color selection triggers."
+        },
+        "禁用状态": {
+            "en-us": "Disabled"
+        },
+        "设置参数`disabled=True`开启禁用状态。": {
+            "en-us": "Set the parameter `disabled=True` to enable the disabled state."
+        },
+        "允许清空值": {
+            "en-us": "Allow clear value"
+        },
+        "设置参数`allowClear=True`允许用户清空已选颜色值。": {
+            "en-us": "Set the parameter `allowClear=True` to allow the user to clear the selected color value."
+        },
+        "允许选择透明度": {
+            "en-us": "Allow transparency selection"
+        },
+        "设置参数`disabledAlpha=False`允许用户额外选择透明度值。": {
+            "en-us": "Set the parameter `disabledAlpha=False` to allow the user to select the transparency value."
+        },
+        "悬浮层展开方位": {
+            "en-us": "Floating layer expansion direction"
+        },
+        "设置参数`placement`控制悬浮层展开方位。": {
+            "en-us": "Set the parameter `placement` to control the floating layer expansion direction."
+        },
+        "颜色选择模式": {
+            "en-us": "Color selection mode"
+        },
+        "设置参数`mode`控制颜色选择模式。": {
+            "en-us": "Set the parameter `mode` to control the color selection mode."
+        },
+        "显示颜色值文本": {
+            "en-us": "Show color value text"
+        },
+        "设置参数`showText=True`显示颜色值文本。": {
+            "en-us": "Set the parameter `showText=True` to show the color value text."
+        },
+        "悬浮层展开触发方式": {
+            "en-us": "Floating layer expansion trigger mode"
+        },
+        "设置参数`trigger`控制悬浮层展开触发方式。": {
+            "en-us": "Set the parameter `trigger` to control the floating layer expansion trigger mode."
+        },
+        "预设颜色组": {
+            "en-us": "Preset color group"
+        },
+        "设置参数`presets`自定义添加预设颜色选项组。": {
+            "en-us": "Set the parameter `presets` to add custom preset color options groups."
+        },
+        "回调监听": {
+            "en-us": "Callback listener"
+        },
+        "监听颜色值选择。": {
+            "en-us": "Listen to the color value selection."
+        }
+    }
+}

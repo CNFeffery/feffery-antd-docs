@@ -1,3 +1,4 @@
+from functools import partial
 from dash.dependencies import Component
 
 from . import (
@@ -15,63 +16,73 @@ from . import (
 )
 from components import demos_render
 
-demos_config = [
-    {
-        'path': 'basic_usage',
-        'title': '基础使用',
-        'description': '在展开的选择面板中完成颜色值的选择。',
-    },
-    {
-        'path': 'sizes',
-        'title': '尺寸规格',
-        'description': '不同尺寸的颜色选择触发器。',
-    },
-    {
-        'path': 'disabled',
-        'title': '禁用状态',
-        'description': '设置参数`disabled=True`开启禁用状态。',
-    },
-    {
-        'path': 'allow_clear',
-        'title': '允许清空值',
-        'description': '设置参数`allowClear=True`允许用户清空已选颜色值。',
-    },
-    {
-        'path': 'enable_alpha',
-        'title': '允许选择透明度',
-        'description': '设置参数`disabledAlpha=False`允许用户额外选择透明度值。',
-    },
-    {
-        'path': 'different_placement',
-        'title': '悬浮层展开方位',
-        'description': '设置参数`placement`控制悬浮层展开方位。',
-    },
-    {
-        'path': 'mode',
-        'title': '颜色选择模式',
-        'description': '设置参数`mode`控制颜色选择模式。',
-    },
-    {
-        'path': 'show_text',
-        'title': '显示颜色值文本',
-        'description': '设置参数`showText=True`显示颜色值文本。',
-    },
-    {
-        'path': 'trigger',
-        'title': '悬浮层展开触发方式',
-        'description': '设置参数`trigger`控制悬浮层展开触发方式。',
-    },
-    {
-        'path': 'presets',
-        'title': '预设颜色组',
-        'description': '设置参数`presets`自定义添加预设颜色选项组。',
-    },
-    {
-        'path': 'basic_callbacks',
-        'title': '回调监听',
-        'description': '监听颜色值选择。',
-    },
-]
+# 国际化
+from i18n import translator
+
+
+def demos_config() -> list:
+    t = partial(translator.t, locale_topic='AntdColorPicker')
+    return [
+        {
+            'path': 'basic_usage',
+            'title': t('基础使用'),
+            'description': t('在展开的选择面板中完成颜色值的选择。'),
+        },
+        {
+            'path': 'sizes',
+            'title': t('尺寸规格'),
+            'description': t('不同尺寸的颜色选择触发器。'),
+        },
+        {
+            'path': 'disabled',
+            'title': t('禁用状态'),
+            'description': t('设置参数`disabled=True`开启禁用状态。'),
+        },
+        {
+            'path': 'allow_clear',
+            'title': t('允许清空值'),
+            'description': t(
+                '设置参数`allowClear=True`允许用户清空已选颜色值。'
+            ),
+        },
+        {
+            'path': 'enable_alpha',
+            'title': t('允许选择透明度'),
+            'description': t(
+                '设置参数`disabledAlpha=False`允许用户额外选择透明度值。'
+            ),
+        },
+        {
+            'path': 'different_placement',
+            'title': t('悬浮层展开方位'),
+            'description': t('设置参数`placement`控制悬浮层展开方位。'),
+        },
+        {
+            'path': 'mode',
+            'title': t('颜色选择模式'),
+            'description': t('设置参数`mode`控制颜色选择模式。'),
+        },
+        {
+            'path': 'show_text',
+            'title': t('显示颜色值文本'),
+            'description': t('设置参数`showText=True`显示颜色值文本。'),
+        },
+        {
+            'path': 'trigger',
+            'title': t('悬浮层展开触发方式'),
+            'description': t('设置参数`trigger`控制悬浮层展开触发方式。'),
+        },
+        {
+            'path': 'presets',
+            'title': t('预设颜色组'),
+            'description': t('设置参数`presets`自定义添加预设颜色选项组。'),
+        },
+        {
+            'path': 'basic_callbacks',
+            'title': t('回调监听'),
+            'description': t('监听颜色值选择。'),
+        },
+    ]
 
 
 def render(component: Component, section_name: str = None) -> Component:

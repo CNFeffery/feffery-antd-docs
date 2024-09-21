@@ -675,6 +675,9 @@
         },
         "用于监听一组选择卡片的选择情况。": {
             "en-us": "Used to monitor the selection status of a group of selection cards."
+        },
+        "提供颜色值选择功能。": {
+            "en-us": "Provides color value selection function."
         }
     }
 }
