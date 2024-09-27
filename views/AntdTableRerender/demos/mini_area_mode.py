@@ -13,7 +13,6 @@ def render() -> Component:
                 'title': 'mini-area示例1',
                 'dataIndex': 'mini-area示例1',
                 'renderOptions': {'renderType': 'mini-area'},
-                'width': '50%',
             },
             {
                 'title': 'mini-area示例2',
@@ -22,18 +21,24 @@ def render() -> Component:
                     'renderType': 'mini-area',
                     'tooltipCustomContent': """(x, data) => `数值：${data[0]?.data?.y.toFixed(3)}`""",
                 },
-                'width': '50%',
+            },
+            {
+                'title': '自定义颜色示例',
+                'dataIndex': '自定义颜色示例',
+                'renderOptions': {'renderType': 'mini-area'},
             },
         ],
         data=[
             {
                 'mini-area示例1': [np.random.rand() for i in range(25)],
                 'mini-area示例2': [np.random.rand() for i in range(25)],
+                '自定义颜色示例': [np.random.rand() for i in range(25)],
             }
         ]
         * 3,
         bordered=True,
-        style={'width': 300},
+        tableLayout='fixed',
+        style={'width': 400},
     )
 
     return demo_contents
@@ -48,7 +53,6 @@ fac.AntdTable(
             'title': 'mini-area示例1',
             'dataIndex': 'mini-area示例1',
             'renderOptions': {'renderType': 'mini-area'},
-            'width': '50%',
         },
         {
             'title': 'mini-area示例2',
@@ -57,18 +61,24 @@ fac.AntdTable(
                 'renderType': 'mini-area',
                 'tooltipCustomContent': """(x, data) => `数值：${data[0]?.data?.y.toFixed(3)}`""",
             },
-            'width': '50%',
+        },
+        {
+            'title': '自定义颜色示例',
+            'dataIndex': '自定义颜色示例',
+            'renderOptions': {'renderType': 'mini-area'},
         },
     ],
     data=[
         {
             'mini-area示例1': [np.random.rand() for i in range(25)],
             'mini-area示例2': [np.random.rand() for i in range(25)],
+            '自定义颜色示例': [np.random.rand() for i in range(25)],
         }
     ]
     * 3,
     bordered=True,
-    style={'width': 300},
+    tableLayout='fixed',
+    style={'width': 400},
 )
 '''
     }

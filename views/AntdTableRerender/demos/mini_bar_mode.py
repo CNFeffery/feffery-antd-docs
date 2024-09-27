@@ -41,7 +41,7 @@ def render() -> Component:
         * 3,
         bordered=True,
         tableLayout='fixed',
-        style={'width': 300},
+        style={'width': 400},
     )
 
     return demo_contents
@@ -84,7 +84,7 @@ fac.AntdTable(
     * 3,
     bordered=True,
     tableLayout='fixed',
-    style={'width': 300},
+    style={'width': 400},
 )
 '''
     }
