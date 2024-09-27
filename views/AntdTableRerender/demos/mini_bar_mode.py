@@ -13,7 +13,6 @@ def render() -> Component:
                 'title': 'mini-bar示例1',
                 'dataIndex': 'mini-bar示例1',
                 'renderOptions': {'renderType': 'mini-bar'},
-                'width': '50%',
             },
             {
                 'title': 'mini-bar示例2',
@@ -22,17 +21,26 @@ def render() -> Component:
                     'renderType': 'mini-bar',
                     'tooltipCustomContent': """(x, data) => `数值：${data[0]?.data?.y.toFixed(3)}`""",
                 },
-                'width': '50%',
+            },
+            {
+                'title': '自定义颜色示例',
+                'dataIndex': '自定义颜色示例',
+                'renderOptions': {
+                    'renderType': 'mini-bar',
+                    'miniChartColor': '#ff7875',
+                },
             },
         ],
         data=[
             {
                 'mini-bar示例1': [np.random.rand() for i in range(25)],
                 'mini-bar示例2': [np.random.rand() for i in range(25)],
+                '自定义颜色示例': [np.random.rand() for i in range(25)],
             }
         ]
         * 3,
         bordered=True,
+        tableLayout='fixed',
         style={'width': 300},
     )
 
@@ -48,7 +56,6 @@ fac.AntdTable(
             'title': 'mini-bar示例1',
             'dataIndex': 'mini-bar示例1',
             'renderOptions': {'renderType': 'mini-bar'},
-            'width': '50%',
         },
         {
             'title': 'mini-bar示例2',
@@ -57,17 +64,26 @@ fac.AntdTable(
                 'renderType': 'mini-bar',
                 'tooltipCustomContent': """(x, data) => `数值：${data[0]?.data?.y.toFixed(3)}`""",
             },
-            'width': '50%',
+        },
+        {
+            'title': '自定义颜色示例',
+            'dataIndex': '自定义颜色示例',
+            'renderOptions': {
+                'renderType': 'mini-bar',
+                'miniChartColor': '#ff7875',
+            },
         },
     ],
     data=[
         {
             'mini-bar示例1': [np.random.rand() for i in range(25)],
             'mini-bar示例2': [np.random.rand() for i in range(25)],
+            '自定义颜色示例': [np.random.rand() for i in range(25)],
         }
     ]
     * 3,
     bordered=True,
+    tableLayout='fixed',
     style={'width': 300},
 )
 '''
