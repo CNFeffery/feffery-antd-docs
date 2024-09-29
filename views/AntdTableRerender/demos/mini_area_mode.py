@@ -25,7 +25,10 @@ def render() -> Component:
             {
                 'title': '自定义颜色示例',
                 'dataIndex': '自定义颜色示例',
-                'renderOptions': {'renderType': 'mini-area'},
+                'renderOptions': {
+                    'renderType': 'mini-area',
+                    'miniChartColor': '#ff7875',
+                },
             },
         ],
         data=[
@@ -65,7 +68,10 @@ fac.AntdTable(
         {
             'title': '自定义颜色示例',
             'dataIndex': '自定义颜色示例',
-            'renderOptions': {'renderType': 'mini-area'},
+            'renderOptions': {
+                'renderType': 'mini-area',
+                'miniChartColor': '#ff7875',
+            },
         },
     ],
     data=[
