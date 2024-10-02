@@ -678,6 +678,9 @@
         },
         "提供颜色值选择功能。": {
             "en-us": "Provides color value selection function."
+        },
+        "在表单中构建单个表单项。": {
+            "en-us": "Build a single form item in the form."
         }
     }
 }

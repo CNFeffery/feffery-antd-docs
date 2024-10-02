@@ -32,7 +32,7 @@ def render(
     # 处理函数型catalog
     if not isinstance(catalog, list) and catalog:
         catalog = catalog()
-    elif get_current_locale() == 'en-us':
+    elif catalog and get_current_locale() == 'en-us':
         # 若当前文档页尚未翻译完成，则更新相应的参与翻译贡献提示信息
         i18n_modal = fac.AntdModal(
             markdown_renderer.render(
