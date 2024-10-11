@@ -1,0 +1,12 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdSplitter",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "默认情况下，每个子项会自动均等分所在分隔面板容器。": {
+            "en-us": "By default, each child item will be evenly divided in the container of the split panel."
+        }
+    }
+}

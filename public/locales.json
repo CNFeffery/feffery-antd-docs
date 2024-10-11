@@ -112,6 +112,9 @@
         "AntdSider 侧边栏": {
             "en-us": "AntdSider"
         },
+        "AntdSplitter 分隔面板": {
+            "en-us": "AntdSplitter"
+        },
         "导航": {
             "en-us": "Navigation"
         },
@@ -684,6 +687,9 @@
         },
         "通过嵌套若干AntdFormItem的方式构建现代化表单。": {
             "en-us": "Build a modernized form by nesting multiple AntdFormItem components."
+        },
+        "对指定区域进行切分，并添加交互性的尺寸调整。": {
+            "en-us": "Divide the specified area and add interactive size adjustment to it."
         }
     }
 }

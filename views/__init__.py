@@ -18,6 +18,7 @@ from . import (
     AntdContent,  # noqa: F401
     AntdFooter,  # noqa: F401
     AntdSider,  # noqa: F401
+    AntdSplitter,  # noqa: F401
     AntdAnchor,  # noqa: F401
     AntdBreadcrumb,  # noqa: F401
     AntdDropdown,  # noqa: F401

@@ -324,6 +324,17 @@ class AppConfig:
                                     },
                                 ],
                             },
+                            {
+                                'component': 'Item',
+                                'props': {
+                                    'key': '/AntdSplitter',
+                                    'name': '/AntdSplitter',
+                                    'title': translator.t(
+                                        'AntdSplitter 分隔面板'
+                                    ),
+                                    'href': '/AntdSplitter',
+                                },
+                            },
                         ],
                     },
                     {
@@ -1508,6 +1519,7 @@ class AppConfig:
         '/AntdContent': ['布局', '布局/经典布局'],
         '/AntdFooter': ['布局', '布局/经典布局'],
         '/AntdSider': ['布局', '布局/经典布局'],
+        '/AntdSplitter': ['布局'],
         '/AntdAnchor': ['导航'],
         '/AntdBreadcrumb': ['导航'],
         '/AntdDropdown': ['导航'],
