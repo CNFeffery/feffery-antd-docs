@@ -3,6 +3,7 @@ from dash.dependencies import Component
 
 from . import (
     basic_usage,  # noqa: F401
+    vertical,  # noqa: F401
 )
 from components import demos_render
 
@@ -19,6 +20,11 @@ def demos_config() -> list:
             'description': t(
                 '默认情况下，每个子项会自动均等分所在分隔面板容器。'
             ),
+        },
+        {
+            'path': 'vertical',
+            'title': t('垂直布局'),
+            'description': t("设置参数`layout='vertical'`启用垂直布局。"),
         },
     ]
 
