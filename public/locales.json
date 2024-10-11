@@ -681,6 +681,9 @@
         },
         "在表单中构建单个表单项。": {
             "en-us": "Build a single form item in the form."
+        },
+        "通过嵌套若干AntdFormItem的方式构建现代化表单。": {
+            "en-us": "Build a modernized form by nesting multiple AntdFormItem components."
         }
     }
 }

@@ -1,0 +1,84 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdForm",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "常规居中与行内居中。": {
+            "en-us": "Regular centering and inline centering."
+        },
+        "其他布局方式": {
+            "en-us": "Other layout methods"
+        },
+        "设置参数`layout`控制表单布局方式。": {
+            "en-us": "Set the `layout` parameter to control the form layout method."
+        },
+        "基于flex布局分配宽度": {
+            "en-us": "Flex-based width distribution"
+        },
+        "基于参数`labelCol`、`wrapperCol`的`flex`子参数，实现对表单标签、控件部分宽度的更灵活分配。": {
+            "en-us": "By setting the `labelCol` and `wrapperCol` `flex` subparameters, implement a more flexible distribution of the width of the form label and control part."
+        },
+        "表单项标签左对齐": {
+            "en-us": "Form item label left-aligned"
+        },
+        "设置参数`labelAlign`控制表单项标签对齐方式。": {
+            "en-us": "Set the `labelAlign` parameter to control the alignment of the form item label."
+        },
+        "表单项标签超长换行": {
+            "en-us": "Form item label wrap"
+        },
+        "设置参数`labelWrap`控制表单项标签是否超长换行。": {
+            "en-us": "Set the `labelWrap` parameter to control whether the form item label is wrapped."
+        },
+        "表单项添加必填标识": {
+            "en-us": "Form item add required mark"
+        },
+        "设置参数`required`控制表单项标签是否额外添加必填标识。": {
+            "en-us": "Set the `required` parameter to control whether the form item label is added with a required mark."
+        },
+        "表单项额外提示信息": {
+            "en-us": "Form item extra information"
+        },
+        "设置参数`tooltip`为表单项标签添加额外提示信息。": {
+            "en-us": "Set the `tooltip` parameter to add extra information to the form item label."
+        },
+        "校验状态": {
+            "en-us": "Validation status"
+        },
+        "设置参数`validateStatus`为表单项设置不同的校验状态。": {
+            "en-us": "Set the `validateStatus` parameter to set different validation status for the form item."
+        },
+        "批量控制帮助信息": {
+            "en-us": "Batch control help information"
+        },
+        "为具有有效`id`的表单设置参数`enableBatchControl=True`后，可通过参数`helps`批量控制内部各表单项的帮助信息。": {
+            "en-us": "After setting the parameter `enableBatchControl=True` on the form with a valid `id`, you can batch control the help information of each form item through the parameter `helps`."
+        },
+        "批量控制校验状态": {
+            "en-us": "Batch control validation status"
+        },
+        "为具有有效`id`的表单设置参数`enableBatchControl=True`后，可通过参数`validateStatuses`批量控制内部各表单项的校验状态。": {
+            "en-us": "After setting the parameter `enableBatchControl=True` on the form with a valid `id`, you can batch control the validation status of each form item through the parameter `validateStatuses`."
+        },
+        "批量控制表单值": {
+            "en-us": "Batch control form value"
+        },
+        "为具有有效`id`的表单设置参数`enableBatchControl=True`后，可通过参数`values`批量控制内部各表单项的值。": {
+            "en-us": "After setting the parameter `enableBatchControl=True` on the form with a valid `id`, you can batch control the value of each form item through the parameter `values`."
+        },
+        "回调控制表单验证": {
+            "en-us": "Callback control form validation"
+        },
+        "配合回调函数，对表单中的各个表单项进行精细化的验证控制。": {
+            "en-us": "With the callback function, refine the validation control of each form item in the form."
+        },
+        "回调批量监听表单值": {
+            "en-us": "Callback batch listen form value"
+        },
+        "配合回调函数，对开启批量值控制的表单值进行快捷监听。": {
+            "en-us": "With the callback function, quickly listen to the form value opened with batch value control."
+        }
+    }
+}
