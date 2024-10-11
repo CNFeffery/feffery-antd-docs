@@ -13,6 +13,12 @@
         },
         "设置参数`layout='vertical'`启用垂直布局。": {
             "en-us": "Enable vertical layout by setting the `layout='vertical'` parameter."
+        },
+        "默认尺寸": {
+            "en-us": "Default size"
+        },
+        "为子项设置默认尺寸。": {
+            "en-us": "Set the default size of the child item."
         }
     }
 }

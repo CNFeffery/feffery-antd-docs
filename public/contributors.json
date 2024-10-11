@@ -153,6 +153,9 @@
         ],
         "AntdModal": [
             "DreamGery"
+        ],
+        "AntdSplitter": [
+            "insistence"
         ]
     }
 }

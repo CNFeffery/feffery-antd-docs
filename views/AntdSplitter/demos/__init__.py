@@ -4,6 +4,7 @@ from dash.dependencies import Component
 from . import (
     basic_usage,  # noqa: F401
     vertical,  # noqa: F401
+    default_size,  # noqa: F401
 )
 from components import demos_render
 
@@ -25,6 +26,11 @@ def demos_config() -> list:
             'path': 'vertical',
             'title': t('垂直布局'),
             'description': t("设置参数`layout='vertical'`启用垂直布局。"),
+        },
+        {
+            'path': 'default_size',
+            'title': t('默认尺寸'),
+            'description': t('为子项设置默认尺寸。'),
         },
     ]
 
