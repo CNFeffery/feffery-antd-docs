@@ -5,6 +5,7 @@ from . import (
     basic_usage,  # noqa: F401
     vertical,  # noqa: F401
     default_size,  # noqa: F401
+    size_limit,  # noqa: F401
 )
 from components import demos_render
 
@@ -31,6 +32,13 @@ def demos_config() -> list:
             'path': 'default_size',
             'title': t('默认尺寸'),
             'description': t('为子项设置默认尺寸。'),
+        },
+        {
+            'path': 'size_limit',
+            'title': t('限制尺寸调整范围'),
+            'description': t(
+                '为子项设置允许调整的尺寸范围，支持数值像素或百分比格式。'
+            ),
         },
     ]
 

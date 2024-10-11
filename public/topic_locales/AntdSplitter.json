@@ -19,6 +19,12 @@
         },
         "为子项设置默认尺寸。": {
             "en-us": "Set the default size of the child item."
+        },
+        "限制尺寸调整范围": {
+            "en-us": "Limit the size adjustment range"
+        },
+        "为子项设置允许调整的尺寸范围，支持数值像素或百分比格式。": {
+            "en-us": "Set the range of the size adjustment of the child item, which supports numeric pixel or percentage format."
         }
     }
 }
