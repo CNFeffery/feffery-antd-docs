@@ -1,5 +1,6 @@
 import json
 import feffery_antd_components as fac
+from feffery_antd_components._icons import all_icons
 
 # 国际化
 from i18n import translator
@@ -1621,4 +1622,4 @@ class DemosConfig:
     示例所需特殊参数配置
     """
 
-    all_icons = json.load(open('./public/icons.json'))
+    all_icons = all_icons
