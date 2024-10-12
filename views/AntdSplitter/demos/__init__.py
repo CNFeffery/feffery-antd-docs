@@ -6,6 +6,7 @@ from . import (
     vertical,  # noqa: F401
     default_size,  # noqa: F401
     size_limit,  # noqa: F401
+    collapsible,  # noqa: F401
 )
 from components import demos_render
 
@@ -39,6 +40,11 @@ def demos_config() -> list:
             'description': t(
                 '为子项设置允许调整的尺寸范围，支持数值像素或百分比格式。'
             ),
+        },
+        {
+            'path': 'collapsible',
+            'title': t('可折叠'),
+            'description': t('控制子项区域开启快捷折叠功能。'),
         },
     ]
 

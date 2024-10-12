@@ -25,6 +25,12 @@
         },
         "为子项设置允许调整的尺寸范围，支持数值像素或百分比格式。": {
             "en-us": "Set the range of the size adjustment of the child item, which supports numeric pixel or percentage format."
+        },
+        "可折叠": {
+            "en-us": "Collapsible"
+        },
+        "控制子项区域开启快捷折叠功能。": {
+            "en-us": "Enable the collapsible feature of the child item region."
         }
     }
 }
