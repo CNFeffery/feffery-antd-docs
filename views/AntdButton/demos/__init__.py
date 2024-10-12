@@ -5,6 +5,7 @@ from . import (
     basic_usage,  # noqa: F401
     button_types,  # noqa: F401
     sizes,  # noqa: F401
+    color_and_variant,  # noqa: F401
     disabled_status,  # noqa: F401
     danger_status,  # noqa: F401
     ghost_background,  # noqa: F401
@@ -43,6 +44,13 @@ def demos_config() -> list:
             'path': 'sizes',
             'title': t('尺寸规格'),
             'description': t('不同尺寸的按钮。'),
+        },
+        {
+            'path': 'color_and_variant',
+            'title': t('颜色与变体'),
+            'description': t(
+                '通过参数`color`和`variant`实现不同预设颜色主题与形态变体的组合。'
+            ),
         },
         {
             'path': 'disabled_status',

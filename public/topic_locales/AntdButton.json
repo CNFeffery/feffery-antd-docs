@@ -20,6 +20,12 @@
         "不同尺寸的按钮。": {
             "en-us": "Different sizes of buttons."
         },
+        "颜色与变体": {
+            "en-us": "Color and variant"
+        },
+        "通过参数`color`和`variant`实现不同预设颜色主题与形态变体的组合。": {
+            "en-us": "Using the parameter `color` and `variant` to combine different preset color themes and shape variants."
+        },
         "禁用状态": {
             "en-us": "Disabled"
         },
