@@ -2,6 +2,7 @@ from dash.dependencies import Component
 
 from . import (
     basic_usage,  # noqa: F401
+    vertical,  # noqa: F401
     block,  # noqa: F401
     size,  # noqa: F401
     icon,  # noqa: F401
@@ -16,6 +17,11 @@ demos_config = [
         'path': 'basic_usage',
         'title': '基础使用',
         'description': '最简单的用法。',
+    },
+    {
+        'path': 'vertical',
+        'title': '垂直展示',
+        'description': '设置参数`vertical=True`开启垂直展示模式。',
     },
     {
         'path': 'block',
