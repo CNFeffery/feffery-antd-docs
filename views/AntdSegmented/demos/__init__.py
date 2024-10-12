@@ -6,6 +6,7 @@ from . import (
     block,  # noqa: F401
     size,  # noqa: F401
     icon,  # noqa: F401
+    only_icon,  # noqa: F401
     custom_render,  # noqa: F401
     disabled,  # noqa: F401
     basic_callbacks,  # noqa: F401
@@ -36,7 +37,12 @@ demos_config = [
     {
         'path': 'icon',
         'title': '设置图标',
-        'description': '为选项添加前缀图标。',
+        'description': '为选项添加图标。',
+    },
+    {
+        'path': 'only_icon',
+        'title': '仅展示图标',
+        'description': '仅为选项设置图标。',
     },
     {
         'path': 'custom_render',
