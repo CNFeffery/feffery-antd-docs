@@ -4,6 +4,7 @@ from . import (
     basic_usage,  # noqa: F401
     direction,  # noqa: F401
     button_mode,  # noqa: F401
+    block,  # noqa: F401
     disabled_status,  # noqa: F401
     read_only_status,  # noqa: F401
     sizes,  # noqa: F401
@@ -28,6 +29,11 @@ demos_config = [
         'path': 'button_mode',
         'title': '按钮模式',
         'description': "设置参数`optionType='button'`时选项的渲染为按钮形式。",
+    },
+    {
+        'path': 'block',
+        'title': '撑满父容器',
+        'description': '设置参数`block=True`后单选框整体宽度将撑满父容器。',
     },
     {
         'path': 'disabled_status',
