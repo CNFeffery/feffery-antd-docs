@@ -4,6 +4,7 @@ from dash.dependencies import Component
 from . import (
     basic_usage,  # noqa: F401
     menu_mode,  # noqa: F401
+    menu_placement,  # noqa: F401
     basic_callbacks,  # noqa: F401
 )
 from components import demos_render
@@ -27,6 +28,12 @@ def demos_config() -> list:
             'description': t(
                 '设置参数`trigger`开启不同触发方式对应的菜单模式。'
             ),
+            'iframe': True,
+        },
+        {
+            'path': 'menu_placement',
+            'title': t('菜单展开方向'),
+            'description': t('设置参数`placement`控制不同的菜单展开方向。'),
             'iframe': True,
         },
         {
