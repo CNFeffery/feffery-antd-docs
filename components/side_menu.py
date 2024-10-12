@@ -49,6 +49,7 @@ def render(locale: str = 'zh-cn'):
                                             'AntdFloatButtonGroup 悬浮按钮组'
                                         ),
                                         translator.t('AntdFlex 弹性布局'),
+                                        translator.t('AntdSplitter 分隔面板'),
                                         translator.t(
                                             'AntdColorPicker 颜色选择'
                                         ),
