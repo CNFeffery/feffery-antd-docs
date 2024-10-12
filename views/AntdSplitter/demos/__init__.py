@@ -7,6 +7,7 @@ from . import (
     default_size,  # noqa: F401
     size_limit,  # noqa: F401
     collapsible,  # noqa: F401
+    nested,  # noqa: F401
 )
 from components import demos_render
 
@@ -45,6 +46,11 @@ def demos_config() -> list:
             'path': 'collapsible',
             'title': t('可折叠'),
             'description': t('控制子项区域开启快捷折叠功能。'),
+        },
+        {
+            'path': 'nested',
+            'title': t('嵌套组合'),
+            'description': t('通过嵌套组合分隔面板组件，实现更复杂的布局。'),
         },
     ]
 
