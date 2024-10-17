@@ -36,7 +36,26 @@ def code_string() -> list:
     return [
         {
             'code': """
-fac.AntdButton('按钮示例')
+fac.AntdSpace(
+    [
+        fac.AntdSpace(
+            [
+                fac.AntdButton(variant, color=color, variant=variant)
+                for variant in [
+                    'outlined',
+                    'dashed',
+                    'solid',
+                    'filled',
+                    'text',
+                    'link',
+                ]
+            ],
+            wrap=True,
+        )
+        for color in ['default', 'primary', 'danger']
+    ],
+    direction='vertical',
+)
 """
         },
     ]
