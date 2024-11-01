@@ -11,6 +11,7 @@ from . import (
     tab_animation,  # noqa: F401
     different_type,  # noqa: F401
     extra_content,  # noqa: F401
+    placeholder,  # noqa: F401
     basic_callbacks,  # noqa: F401
     tab_add_delete,  # noqa: F401
     tab_context_menu,  # noqa: F401
@@ -67,6 +68,11 @@ demos_config = [
         'path': 'extra_content',
         'title': '添加额外内容',
         'description': '设置参数`tabBarLeftExtraContent`、`tabBarRightExtraContent`添加额外内容。',
+    },
+    {
+        'path': 'placeholder',
+        'title': 'items为空时的占位内容',
+        'description': '通过参数`placeholder`设置当`items`为空时，取而代之显示的内容。',
     },
     {
         'path': 'basic_callbacks',
