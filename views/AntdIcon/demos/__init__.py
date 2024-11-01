@@ -4,6 +4,7 @@ from dash.dependencies import Component
 from . import (
     basic_usage,  # noqa: F401
     basic_callbacks,  # noqa: F401
+    use_iconfont,  # noqa: F401
 )
 from components import demos_render
 
@@ -24,6 +25,13 @@ def demos_config() -> list:
             'title': t('回调监听'),
             'description': t(
                 '通过`nClicks`进行图标点击事件的监听，特别地，在有效设置参数`debounceWait`后，将针对点击事件进行防抖监听，避免过于频繁的触发。'
+            ),
+        },
+        {
+            'path': 'use_iconfont',
+            'title': t('配合iconfont图标资源'),
+            'description': t(
+                "设置参数`mode='iconfont'`后可使用参数`scriptUrl`引用单个或多个基于[iconfont](https://www.iconfont.cn/)项目导出的图标资源。"
             ),
         },
     ]

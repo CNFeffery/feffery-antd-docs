@@ -13,6 +13,12 @@
         },
         "通过`nClicks`进行图标点击事件的监听，特别地，在有效设置参数`debounceWait`后，将针对点击事件进行防抖监听，避免过于频繁的触发。": {
             "en-us": "Listening to the icon click event through `nClicks`. Specifically, after setting the parameter `debounceWait` effectively, a debounced listening will be applied to the click event to prevent it from being triggered too frequently."
+        },
+        "配合iconfont图标资源": {
+            "en-us": "Iconfont icon resource"
+        },
+        "设置参数`mode='iconfont'`后可使用参数`scriptUrl`引用单个或多个基于[iconfont](https://www.iconfont.cn/)项目导出的图标资源。": {
+            "en-us": "Set the parameter `mode='iconfont'` to use the parameter `scriptUrl` to reference a single or multiple icons from the iconfont project [iconfont](https://www.iconfont.cn/)."
         }
     }
 }
