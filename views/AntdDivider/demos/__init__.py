@@ -6,6 +6,7 @@ from . import (
     inner_text,  # noqa: F401
     vertical,  # noqa: F401
     variant,  # noqa: F401
+    plain,  # noqa: F401
 )
 from components import demos_render
 
@@ -35,6 +36,11 @@ def demos_config() -> list:
             'path': 'variant',
             'title': t('形态变体'),
             'description': t('设置参数`variant`使用不同的形态变体。'),
+        },
+        {
+            'path': 'plain',
+            'title': t('plain参数的使用'),
+            'description': t('通过参数`plain`控制内嵌文字是否呈现正文形式。'),
         },
     ]
 
