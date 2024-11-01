@@ -8,6 +8,12 @@
         "最基础的下拉菜单。": {
             "en-us": "The basic dropdown menu."
         },
+        "选项额外内容": {
+            "en-us": "Option extra content"
+        },
+        "为各选项设置额外内容。": {
+            "en-us": "Set extra content for each option."
+        },
         "按钮模式": {
             "en-us": "Button mode"
         },

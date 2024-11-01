@@ -3,6 +3,7 @@ from dash.dependencies import Component
 
 from . import (
     basic_usage,  # noqa: F401
+    extra,  # noqa: F401
     button_mode,  # noqa: F401
     custom_button_style,  # noqa: F401
     free_position_mode,  # noqa: F401
@@ -26,6 +27,11 @@ def demos_config() -> list:
             'path': 'basic_usage',
             'title': t('基础使用'),
             'description': t('最基础的下拉菜单。'),
+        },
+        {
+            'path': 'extra',
+            'title': t('选项额外内容'),
+            'description': t('为各选项设置额外内容。'),
         },
         {
             'path': 'button_mode',
