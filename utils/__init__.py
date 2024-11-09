@@ -51,7 +51,8 @@ def parse_component_props(component: Component) -> str:
                 item
                 for item in part['children']
                 if not re.match(
-                    '^loading_state', item['children'][0]['children'][0]['raw']
+                    '^loading_state',
+                    item['children'][0]['children'][0].get('raw', ''),
                 )
             ]
 
