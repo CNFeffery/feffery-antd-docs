@@ -13,6 +13,7 @@ from . import (
     border,  # noqa: F401
     disabled,  # noqa: F401
     read_only,  # noqa: F401
+    prefix,  # noqa: F401
     status,  # noqa: F401
     allow_clear,  # noqa: F401
     show_count,  # noqa: F401
@@ -76,6 +77,11 @@ demos_config = [
         'path': 'read_only',
         'title': '只读状态',
         'description': '通过参数`readOnly`控制下拉选择框是否呈现只读状态。',
+    },
+    {
+        'path': 'prefix',
+        'title': '内嵌前缀内容',
+        'description': '通过参数`prefix`设置选择框内嵌前缀内容。',
     },
     {
         'path': 'status',
