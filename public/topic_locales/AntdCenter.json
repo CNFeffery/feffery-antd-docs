@@ -11,8 +11,8 @@
         "样式自动联动参数配置组件": {
             "en-us": "Style automatically linked parameter configuration component"
         },
-        "背景色、字体尺寸、文字颜色默认值自动联动上层的[参数配置组件](/AntdConfigProvider)相关设定。": {
-            "en-us": "Background color, font size, and text color default values automatically linked to the [parameter configuration component](/AntdConfigProvider) in the upper layer."
+        "设置`inheritStyleToken=True`后，背景色、字体尺寸、文字颜色默认值自动联动上层的[参数配置组件](/AntdConfigProvider)相关设定。": {
+            "en-us": "Set `inheritStyleToken=True` to automatically link background color, font size, and text color default values to the [parameter configuration component](/AntdConfigProvider) in the upper layer."
         }
     }
 }

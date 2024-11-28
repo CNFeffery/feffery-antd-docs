@@ -8,9 +8,12 @@ def render() -> Component:
     # 构造演示用例相关内容
     demo_contents = fac.AntdConfigProvider(
         [
-            fac.AntdCenter('demo1', style={'height': 200}),
+            fac.AntdCenter(
+                'demo1', inheritStyleToken=True, style={'height': 200}
+            ),
             fac.AntdCenter(
                 'demo2',
+                inheritStyleToken=True,
                 style={'height': 200, 'fontSize': 24, 'color': '#ffffb8'},
             ),
         ],
@@ -26,9 +29,12 @@ code_string = [
         'code': """
 fac.AntdConfigProvider(
     [
-        fac.AntdCenter('demo1', style={'height': 200}),
+        fac.AntdCenter(
+            'demo1', inheritStyleToken=True, style={'height': 200}
+        ),
         fac.AntdCenter(
             'demo2',
+            inheritStyleToken=True,
             style={'height': 200, 'fontSize': 24, 'color': '#ffffb8'},
         ),
     ],
