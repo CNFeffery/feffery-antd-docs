@@ -7,6 +7,7 @@ from . import (
     custom_format,  # noqa: F401
     disabled,  # noqa: F401
     read_only,  # noqa: F401
+    prefix,  # noqa: F401
     status,  # noqa: F401
     time_step,  # noqa: F401
     _12_hours,  # noqa: F401
@@ -45,6 +46,11 @@ demos_config = [
         'path': 'read_only',
         'title': '只读状态',
         'description': '设置参数`readOnly=True`开启只读状态。',
+    },
+    {
+        'path': 'prefix',
+        'title': '内嵌前缀内容',
+        'description': '通过参数`prefix`设置选择框内嵌前缀内容。',
     },
     {
         'path': 'status',
