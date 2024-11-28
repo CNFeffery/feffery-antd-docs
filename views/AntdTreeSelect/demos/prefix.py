@@ -24,7 +24,7 @@ def render() -> Component:
             {'key': '节点2', 'value': '2', 'title': '节点2'},
         ],
         placeholder='请选择',
-        prefix=fac.AntdIcon(icon='antd-lock'),
+        prefix=fac.AntdIcon(icon='antd-user'),
         style={'width': 256},
     )
 
@@ -52,7 +52,7 @@ fac.AntdTreeSelect(
         {'key': '节点2', 'value': '2', 'title': '节点2'},
     ],
     placeholder='请选择',
-    prefix=fac.AntdIcon(icon='antd-lock'),
+    prefix=fac.AntdIcon(icon='antd-user'),
     style={'width': 256},
 )
 """

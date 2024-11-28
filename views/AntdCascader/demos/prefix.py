@@ -39,7 +39,7 @@ def render() -> Component:
                 },
             ],
             value=[['节点1', '节点1-1']],
-            prefix=fac.AntdText('prefix', type='secondary'),
+            prefix=fac.AntdIcon(icon='antd-user'),
         )
 
     elif current_locale == 'en-us':
@@ -72,7 +72,7 @@ def render() -> Component:
                 },
             ],
             value=[['Node 1', 'Node 1-1']],
-            prefix=fac.AntdText('prefix', type='secondary'),
+            prefix=fac.AntdIcon(icon='antd-user'),
         )
 
     return demo_contents
@@ -132,7 +132,7 @@ fac.AntdCascader(
     value=[
         ['节点1', '节点1-1']
     ],
-    prefix=fac.AntdText('prefix', type='secondary'),
+    prefix=fac.AntdIcon(icon='antd-user'),
 )
 """
             }
@@ -170,7 +170,7 @@ fac.AntdCascader(
         },
     ],
     value=[['Node 1', 'Node 1-1']],
-    prefix=fac.AntdText('prefix', type='secondary'),
+    prefix=fac.AntdIcon(icon='antd-user'),
 )
 """
             }
