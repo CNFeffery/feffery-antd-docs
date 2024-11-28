@@ -9,6 +9,7 @@ from . import (
     multiple,  # noqa: F401
     max_tag_placeholder,  # noqa: F401
     max_tag_text_length,  # noqa: F401
+    prefix,  # noqa: F401
     suffix_icon,  # noqa: F401
     switcher_icon,  # noqa: F401
     multiple_checkable,  # noqa: F401
@@ -62,6 +63,11 @@ demos_config = [
         'path': 'max_tag_text_length',
         'title': '已选值最大显示文本长度',
         'description': '多选模式下，设置参数`maxTagTextLength`控制最大显示的已选值tag文本长度。',
+    },
+    {
+        'path': 'prefix',
+        'title': '内嵌前缀内容',
+        'description': '通过参数`prefix`设置选择框内嵌前缀内容。',
     },
     {
         'path': 'suffix_icon',
