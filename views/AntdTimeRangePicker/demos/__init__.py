@@ -7,6 +7,7 @@ from . import (
     disabled,  # noqa: F401
     read_only,  # noqa: F401
     prefix,  # noqa: F401
+    suffix_icon,  # noqa: F401
     status,  # noqa: F401
     time_step,  # noqa: F401
     _12_hours,  # noqa: F401
@@ -45,6 +46,11 @@ demos_config = [
         'path': 'prefix',
         'title': '内嵌前缀内容',
         'description': '通过参数`prefix`设置选择框内嵌前缀内容。',
+    },
+    {
+        'path': 'suffix_icon',
+        'title': '内嵌后缀图标',
+        'description': '通过参数`suffixIcon`设置选择框内嵌后缀图标。',
     },
     {
         'path': 'status',
