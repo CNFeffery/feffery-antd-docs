@@ -56,6 +56,12 @@
         "设置参数`readOnly=True`开启只读状态。": {
             "en-us": "Set the parameter `readOnly=True` to enable the readonly status."
         },
+        "内嵌前缀内容": {
+            "en-us": "Embedded prefix content"
+        },
+        "通过参数`prefix`设置选择框内嵌前缀内容。": {
+            "en-us": "Set the selection box with embedded prefix content through the parameter `prefix`."
+        },
         "强制状态渲染": {
             "en-us": "Force status rendering"
         },
