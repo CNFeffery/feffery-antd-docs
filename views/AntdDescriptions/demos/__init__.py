@@ -6,6 +6,7 @@ from . import (
     vertical_layout,  # noqa: F401
     column,  # noqa: F401
     item_span,  # noqa: F401
+    span_filled,  # noqa: F401
     extra,  # noqa: F401
 )
 from components import demos_render
@@ -35,6 +36,11 @@ demos_config = [
         'path': 'item_span',
         'title': '控制子项所占单位宽度',
         'description': '通过参数`span`控制子项所占单位宽度。',
+    },
+    {
+        'path': 'span_filled',
+        'title': '子项自动填充剩余宽度',
+        'description': "为子项设置参数`span`为`'filled'`后，子项将自动填充当前行剩余宽度。",
     },
     {
         'path': 'extra',
