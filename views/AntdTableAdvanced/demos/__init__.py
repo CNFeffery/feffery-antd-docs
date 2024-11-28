@@ -30,6 +30,7 @@ from . import (
     summary_basic,  # noqa: F401
     summary_fixed_bottom,  # noqa: F401
     summary_fixed_top,  # noqa: F401
+    summary_multiple,  # noqa: F401
     conditional_style,  # noqa: F401
     expand_basic,  # noqa: F401
     expand_default,  # noqa: F401
@@ -182,6 +183,11 @@ demos_config = [
         'path': 'summary_fixed_top',
         'title': '总结栏：固定在顶部',
         'description': '将总结栏固定在表格顶部。',
+    },
+    {
+        'path': 'summary_multiple',
+        'title': '总结栏：多行',
+        'description': '配置多行总结栏。',
     },
     {
         'path': 'conditional_style',
