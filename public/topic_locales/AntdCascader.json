@@ -62,6 +62,12 @@
         "通过参数`prefix`设置选择框内嵌前缀内容。": {
             "en-us": "Set the selection box with embedded prefix content through the parameter `prefix`."
         },
+        "内嵌后缀图标": {
+            "en-us": "Embedded suffix icon"
+        },
+        "通过参数`suffixIcon`设置选择框内嵌后缀图标。": {
+            "en-us": "Set the selection box with embedded suffix icon through the parameter `suffixIcon`."
+        },
         "强制状态渲染": {
             "en-us": "Force status rendering"
         },
