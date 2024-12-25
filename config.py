@@ -1637,4 +1637,5 @@ class DocsConfig:
         'AntdTree',
         'AntdTreeSelect',
         'AntdCascader',
+        'AntdMenu',
     ]
