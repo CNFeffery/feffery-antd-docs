@@ -129,18 +129,13 @@ setTimeout(() => {
                             ],
                             flex='auto',
                         ),
+                        # 组件文档页侧边示例目录
                         (
                             fac.AntdCol(
                                 fac.AntdAnchor(
-                                    linkDict=[
-                                        {
-                                            'title': item['title'],
-                                            'href': '#'
-                                            + 'demo-container-'
-                                            + item['path'],
-                                        }
-                                        for item in catalog
-                                    ],
+                                    linkDict=utils.get_doc_anchor_link_dict(
+                                        catalog
+                                    ),
                                     id='doc-anchor',
                                     className='light-scroll-bar',
                                     offsetTop=70,

@@ -2,6 +2,7 @@ import os
 import re
 import mistune
 from flask import request
+from itertools import groupby
 from mistune.core import BlockState
 from dash.dependencies import Component
 from mistune.renderers.markdown import MarkdownRenderer
@@ -11,6 +12,44 @@ from i18n import translator
 
 markdown_parser = mistune.create_markdown(renderer='ast')
 markdown_renderer = MarkdownRenderer()
+
+
+def get_doc_anchor_link_dict(catalog: list):
+    """将原始catalog数据结构转换为适用于AntdAnchor的多层linkDict"""
+
+    result = []
+
+    for key, group in groupby(
+        [
+            {**item, 'group': item.get('group', i)}
+            for i, item in enumerate(catalog)
+        ],
+        key=lambda x: x['group'],
+    ):
+        items = list(group)
+        if isinstance(key, str):
+            result.append(
+                {
+                    'title': key,
+                    'href': '#' + 'demo-container-' + items[0]['path'],
+                    'children': [
+                        {
+                            'title': item['title'],
+                            'href': '#' + 'demo-container-' + item['path'],
+                        }
+                        for item in items
+                    ],
+                }
+            )
+        else:
+            result.append(
+                {
+                    'title': items[0]['title'],
+                    'href': '#' + 'demo-container-' + items[0]['path'],
+                }
+            )
+
+    return result
 
 
 def get_extra_api_descriptions(component: Component) -> str:

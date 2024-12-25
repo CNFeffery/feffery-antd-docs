@@ -73,11 +73,13 @@ demos_config = [
         'path': 'editable',
         'title': '可编辑单元格',
         'description': '在参数`columns`中控制字段的`editable`以开启字段单元格可编辑功能。',
+        'group': '可编辑',
     },
     {
         'path': 'listen_edit_event',
         'title': '监听单元格编辑事件',
         'description': '在回调函数中监听属性`recentlyChangedRow`、`recentlyChangedColumn`获知最近一次单元格编辑事件相关信息。',
+        'group': '可编辑',
     },
     {
         'path': 'sizes',
