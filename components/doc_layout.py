@@ -251,7 +251,7 @@ setTimeout(() => {
                                                     'paddingRight': 12,
                                                 },
                                             ),
-                                            title='特殊参数说明',
+                                            title=translator.t('特殊参数说明'),
                                             ghost=True,
                                             isOpen=False,
                                             className='tip-collapse',

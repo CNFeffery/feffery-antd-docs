@@ -1633,4 +1633,4 @@ class DocsConfig:
     """
 
     # 具有额外参数说明的组件
-    components_with_extra_params = ['AntdTree']
+    components_with_extra_params = ['AntdTree', 'AntdTreeSelect']
