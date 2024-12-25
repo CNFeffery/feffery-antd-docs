@@ -1,5 +1,3 @@
-Here is the translation of the provided text into English:
-
 - id (string; optional):
     The unique id of the component.
 
