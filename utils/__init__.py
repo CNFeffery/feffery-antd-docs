@@ -13,6 +13,34 @@ markdown_parser = mistune.create_markdown(renderer='ast')
 markdown_renderer = MarkdownRenderer()
 
 
+def get_extra_api_descriptions(component: Component) -> str:
+    """尝试获取指定组件额外的API说明"""
+
+    # 若当前组件存在额外API说明文件
+    if f'{component.__name__}.md' in os.listdir(
+        './public/extra_api_descriptions'
+    ):
+        # 获取当前国际化语种
+        current_locale = request.cookies.get(translator.cookie_name, 'zh-cn')
+
+        if current_locale == 'zh-cn':
+            with open(
+                './public/extra_api_descriptions/{}.md'.format(
+                    component.__name__
+                ),
+                encoding='utf-8',
+            ) as f:
+                return f.read()
+        elif current_locale == 'en-us':
+            with open(
+                './public/extra_api_descriptions/en_us/{}.md'.format(
+                    component.__name__
+                ),
+                encoding='utf-8',
+            ) as f:
+                return f.read()
+
+
 def parse_component_props(component: Component) -> str:
     """解析转换指定组件的参数说明"""
 

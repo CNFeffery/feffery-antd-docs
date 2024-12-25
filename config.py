@@ -1625,3 +1625,12 @@ class DemosConfig:
     """
 
     all_icons = all_icons
+
+
+class DocsConfig:
+    """
+    文档所需特殊参数配置
+    """
+
+    # 具有额外参数说明的组件
+    components_with_extra_params = ['AntdTree']

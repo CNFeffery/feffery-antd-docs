@@ -7,7 +7,7 @@ import feffery_markdown_components as fmc
 from dash.dependencies import Component
 
 import utils
-from config import AppConfig
+from config import AppConfig, DocsConfig
 from components import contributors_avatar
 from utils.doc_renderer import MarkdownRenderer
 
@@ -237,6 +237,31 @@ setTimeout(() => {
                                     # 关键词搜索状态存储
                                     dcc.Store(
                                         id='side-props-markdown-search-status'
+                                    ),
+                                    # 针对部分特殊组件渲染额外API说明文档
+                                    *(
+                                        fac.AntdCollapse(
+                                            fmc.FefferyMarkdown(
+                                                id='side-props-extra-markdown',
+                                                markdownStr=utils.get_extra_api_descriptions(
+                                                    component
+                                                ),
+                                                style={
+                                                    'paddingLeft': 12,
+                                                    'paddingRight': 12,
+                                                },
+                                            ),
+                                            title='特殊参数说明',
+                                            ghost=True,
+                                            isOpen=False,
+                                            className='tip-collapse',
+                                        )
+                                        # 若当前组件具有额外API说明文档
+                                        if (
+                                            component.__name__
+                                            in DocsConfig.components_with_extra_params
+                                        )
+                                        else None,
                                     ),
                                     fmc.FefferyMarkdown(
                                         id='side-props-markdown',

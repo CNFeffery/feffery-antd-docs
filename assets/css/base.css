@@ -163,3 +163,17 @@ html::-webkit-scrollbar {
 #side-props-markdown ul {
     padding-left: 15px;
 }
+
+#side-props-extra-markdown li::marker {
+    content: '▍';
+    color: #1890ff;
+    font-size: 0.9em;
+}
+
+#side-props-extra-markdown li p {
+    color: #1F2328;
+}
+
+#side-props-extra-markdown ul {
+    padding-left: 15px;
+}
