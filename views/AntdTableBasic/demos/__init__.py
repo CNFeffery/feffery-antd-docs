@@ -28,16 +28,19 @@ demos_config = [
         'path': 'percentage_column_width',
         'title': '百分比列宽',
         'description': '使用百分比形式控制列宽。',
+        'group': '列宽控制',
     },
     {
         'path': 'numeric_column_width',
         'title': '数值型列宽',
         'description': '默认情况下，为各字段设置数值型列宽后，会自动计算转换为比例，作为各个字段的百分比列宽。',
+        'group': '列宽控制',
     },
     {
         'path': 'css_column_width',
         'title': 'css控制列宽',
         'description': '基于**CSS**实现更为灵活的列宽控制。',
+        'group': '列宽控制',
     },
     {
         'path': 'max_height_usage',
