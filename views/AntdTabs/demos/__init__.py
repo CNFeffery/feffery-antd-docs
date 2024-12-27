@@ -10,6 +10,7 @@ from . import (
     tab_bar_gutter,  # noqa: F401
     tab_animation,  # noqa: F401
     different_type,  # noqa: F401
+    icon,  # noqa: F401
     extra_content,  # noqa: F401
     placeholder,  # noqa: F401
     basic_callbacks,  # noqa: F401
@@ -63,6 +64,11 @@ demos_config = [
         'path': 'different_type',
         'title': '标签页类型',
         'description': '设置参数`type`控制标签页类型。',
+    },
+    {
+        'path': 'icon',
+        'title': '添加图标元素',
+        'description': '为标签页添加图标元素。',
     },
     {
         'path': 'extra_content',
