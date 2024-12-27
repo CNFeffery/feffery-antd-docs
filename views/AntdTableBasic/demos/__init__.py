@@ -18,6 +18,7 @@ from . import (
     listen_edit_event,  # noqa: F401
     sizes,  # noqa: F401
     group_columns,  # noqa: F401
+    loading,  # noqa: F401
 )
 from components import demos_render
 
@@ -113,6 +114,11 @@ demos_config = [
         'path': 'group_columns',
         'title': '多层表头',
         'description': '在参数`columns`中控制字段的`group`以渲染具有相应多层表头的表格。',
+    },
+    {
+        'path': 'loading',
+        'title': '自带的加载中效果',
+        'description': '通过参数`loading`控制是否开启表格自带的加载中效果。',
     },
 ]
 
