@@ -12,6 +12,7 @@ from . import (
     bordered,  # noqa: F401
     column_content_align,  # noqa: F401
     editable,  # noqa: F401
+    nested_editable,  # noqa: F401
     listen_edit_event,  # noqa: F401
     sizes,  # noqa: F401
     group_columns,  # noqa: F401
@@ -76,6 +77,12 @@ demos_config = [
         'path': 'editable',
         'title': '可编辑单元格',
         'description': '在参数`columns`中控制字段的`editable`以开启字段单元格可编辑功能。',
+        'group': '可编辑',
+    },
+    {
+        'path': 'nested_editable',
+        'title': '嵌套可编辑单元格',
+        'description': '为各数据记录行妥善设置唯一识别`key`后，嵌套数据结构下同样支持字段单元格可编辑功能。',
         'group': '可编辑',
     },
     {
