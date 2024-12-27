@@ -12,6 +12,7 @@ from . import (
     bordered,  # noqa: F401
     column_content_align,  # noqa: F401
     editable,  # noqa: F401
+    editable_disabled_keys,  # noqa: F401
     nested_editable,  # noqa: F401
     listen_edit_event,  # noqa: F401
     sizes,  # noqa: F401
@@ -77,6 +78,12 @@ demos_config = [
         'path': 'editable',
         'title': '可编辑单元格',
         'description': '在参数`columns`中控制字段的`editable`以开启字段单元格可编辑功能。',
+        'group': '可编辑',
+    },
+    {
+        'path': 'editable_disabled_keys',
+        'title': '禁用部分单元格不可编辑',
+        'description': '为各数据记录行妥善设置唯一识别`key`后，可禁用部分单元格不可编辑。',
         'group': '可编辑',
     },
     {
