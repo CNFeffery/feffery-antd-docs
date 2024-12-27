@@ -9,6 +9,7 @@ from . import (
     centered,  # noqa: F401
     tab_bar_gutter,  # noqa: F401
     tab_animation,  # noqa: F401
+    tab_bar_style,  # noqa: F401
     different_type,  # noqa: F401
     icon,  # noqa: F401
     extra_content,  # noqa: F401
@@ -64,6 +65,11 @@ demos_config = [
         'path': 'different_type',
         'title': '标签页类型',
         'description': '设置参数`type`控制标签页类型。',
+    },
+    {
+        'path': 'tab_bar_style',
+        'title': '自定义标签头区域样式',
+        'description': '设置参数`tabBarStyle`控制标签头区域整体样式。',
     },
     {
         'path': 'icon',
