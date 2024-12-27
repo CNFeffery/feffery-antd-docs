@@ -11,6 +11,7 @@ from . import (
     fixed_columns,  # noqa: F401
     bordered,  # noqa: F401
     column_content_align,  # noqa: F401
+    column_header_align,  # noqa: F401
     editable,  # noqa: F401
     editable_disabled_keys,  # noqa: F401
     nested_editable,  # noqa: F401
@@ -73,6 +74,11 @@ demos_config = [
         'path': 'column_content_align',
         'title': '字段内容对齐方式',
         'description': '在参数`columns`中控制字段的`align`以控制字段内容对齐方式。',
+    },
+    {
+        'path': 'column_header_align',
+        'title': '字段标题对齐方式',
+        'description': '在参数`columns`中控制字段的`headerAlign`以控制字段标题对齐方式。',
     },
     {
         'path': 'editable',
