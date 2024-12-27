@@ -22,6 +22,7 @@ from . import (
     multiple,  # noqa: F401
     tags,  # noqa: F401
     max_tag_count,  # noqa: F401
+    max_count,  # noqa: F401
     short_options,  # noqa: F401
     color_select,  # noqa: F401
     group,  # noqa: F401
@@ -103,6 +104,11 @@ demos_config = [
         'path': 'max_tag_count',
         'title': '已选项最大显示数量',
         'description': '通过参数`maxTagCount`控制下拉选择组件的最大可选项数。',
+    },
+    {
+        'path': 'max_count',
+        'title': '限制最多可选项数量',
+        'description': '通过参数`maxCount`控制下拉选择组件的最大可选项数。',
     },
     {
         'path': 'options_label',
