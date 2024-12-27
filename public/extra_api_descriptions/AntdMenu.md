@@ -28,10 +28,6 @@
 
     当前节点跳转链接地址
 
-  - target (string; optional):
-
-    当前节点跳转链接打开方式
-
   - icon (string; optional):
 
     当前节点前缀图标类型，`iconRenderer`为`'AntdIcon'`时同`AntdIcon`同名参数，`iconRenderer`为`'fontawesome'`时为css类名

@@ -28,10 +28,6 @@ In the default mode, the `menuItems` parameter is freely nested through the `chi
 
     The link address for the current node.
 
-  - target (string; optional):
-
-    The opening method for the link of the current node.
-
   - icon (string; optional):
 
     The type of prefix icon for the current node. When `iconRenderer` is `'AntdIcon'`, it corresponds to the same parameter in `AntdIcon`. When `iconRenderer` is `'fontawesome'`, it is the CSS class name.
