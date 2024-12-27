@@ -32,6 +32,7 @@ from . import (
     summary_fixed_top,  # noqa: F401
     summary_multiple,  # noqa: F401
     summary_blank_columns,  # noqa: F401
+    summary_with_multi_level_header,  # noqa: F401
     conditional_style,  # noqa: F401
     expand_basic,  # noqa: F401
     expand_default,  # noqa: F401
@@ -219,6 +220,12 @@ demos_config = [
         'path': 'summary_blank_columns',
         'title': '空列占位',
         'description': '通过参数`summaryRowBlankColumns`为总结行设置前缀占位空列数量，适用于行选择功能开启等场景。',
+        'group': '总结栏',
+    },
+    {
+        'path': 'summary_with_multi_level_header',
+        'title': '配合多层表头',
+        'description': '配合多层表头使用总结栏。',
         'group': '总结栏',
     },
     {
