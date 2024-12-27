@@ -19,6 +19,7 @@ from . import (
     sizes,  # noqa: F401
     group_columns,  # noqa: F401
     loading,  # noqa: F401
+    row_class_name,  # noqa: F401
 )
 from components import demos_render
 
@@ -119,6 +120,11 @@ demos_config = [
         'path': 'loading',
         'title': '自带的加载中效果',
         'description': '通过参数`loading`控制是否开启表格自带的加载中效果。',
+    },
+    {
+        'path': 'row_class_name',
+        'title': '自定义行样式',
+        'description': '通过参数`rowClassName`添加额外行样式。',
     },
 ]
 
