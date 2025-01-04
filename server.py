@@ -3,6 +3,7 @@ import dash
 from flask import request, abort
 
 from config import DeployConfig, AppConfig
+from utils.api_descriptions import get_components_docs
 
 
 class CustomDash(dash.Dash):
@@ -102,3 +103,18 @@ def upload():
     filename = request.files['file'].filename
 
     return {'filename': filename}
+
+
+@app.server.route('/get-docs')
+def get_docs():
+    """获取所声明组件参数文档的开放接口"""
+
+    components = request.args.get('components')
+
+    if components:
+        # 解析本次请求的组件名称列表
+        components = components.split(',')
+
+        return get_components_docs(components)
+
+    return '无效的请求，正确请求范例：/get-docs?components=AntdButton、/get-docs?components=AntdButton,AntdAlert、/get-docs?components=all'
