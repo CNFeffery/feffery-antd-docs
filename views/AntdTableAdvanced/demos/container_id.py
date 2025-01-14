@@ -21,7 +21,7 @@ def render() -> Component:
                             ],
                             data=[
                                 {
-                                    f'字段{j}': np.random.randint(1, 5)
+                                    f'字段{j}': np.random.choice(list('abc'))
                                     for j in range(1, 6)
                                 }
                                 for i in range(10)
@@ -30,7 +30,7 @@ def render() -> Component:
                                 '字段1': {'filterMode': 'keyword'},
                                 '字段3': {
                                     'filterMode': 'checkbox',
-                                    'filterCustomItems': [1, 2, 3],
+                                    'filterCustomItems': ['a', 'b', 'c'],
                                 },
                             },
                         ),
@@ -52,7 +52,7 @@ def render() -> Component:
                             ],
                             data=[
                                 {
-                                    f'字段{j}': np.random.randint(1, 5)
+                                    f'字段{j}': np.random.choice(list('abc'))
                                     for j in range(1, 6)
                                 }
                                 for i in range(10)
@@ -61,7 +61,7 @@ def render() -> Component:
                                 '字段1': {'filterMode': 'keyword'},
                                 '字段3': {
                                     'filterMode': 'checkbox',
-                                    'filterCustomItems': [1, 2, 3],
+                                    'filterCustomItems': ['a', 'b', 'c'],
                                 },
                             },
                             containerId='containerId-container-demo',
@@ -101,7 +101,7 @@ code_string = [
                         ],
                         data=[
                             {
-                                f'字段{j}': np.random.randint(1, 5)
+                                f'字段{j}': np.random.choice(list('abc'))
                                 for j in range(1, 6)
                             }
                             for i in range(10)
@@ -110,7 +110,7 @@ code_string = [
                             '字段1': {'filterMode': 'keyword'},
                             '字段3': {
                                 'filterMode': 'checkbox',
-                                'filterCustomItems': [1, 2, 3],
+                                'filterCustomItems': ['a', 'b', 'c'],
                             },
                         },
                     ),
@@ -132,7 +132,7 @@ code_string = [
                         ],
                         data=[
                             {
-                                f'字段{j}': np.random.randint(1, 5)
+                                f'字段{j}': np.random.choice(list('abc'))
                                 for j in range(1, 6)
                             }
                             for i in range(10)
@@ -141,7 +141,7 @@ code_string = [
                             '字段1': {'filterMode': 'keyword'},
                             '字段3': {
                                 'filterMode': 'checkbox',
-                                'filterCustomItems': [1, 2, 3],
+                                'filterCustomItems': ['a', 'b', 'c'],
                             },
                         },
                         containerId='containerId-container-demo',
