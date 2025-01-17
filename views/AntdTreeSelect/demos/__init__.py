@@ -7,6 +7,7 @@ from . import (
     status,  # noqa: F401
     different_placement,  # noqa: F401
     multiple,  # noqa: F401
+    maxCount,  # noqa: F401
     max_tag_placeholder,  # noqa: F401
     max_tag_text_length,  # noqa: F401
     prefix,  # noqa: F401
@@ -53,6 +54,11 @@ demos_config = [
         'path': 'multiple',
         'title': '多选模式',
         'description': '设置参数`multiple=True`开启多选模式。',
+    },
+    {
+        'path': 'maxCount',
+        'title': '限制最多可选项数量',
+        'description': '通过参数`maxCount`控制树选择组件的最大可选项数。',
     },
     {
         'path': 'max_tag_placeholder',
