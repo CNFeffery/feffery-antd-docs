@@ -4,6 +4,7 @@ from . import (
     basic_usage,  # noqa: F401
     accordion_off,  # noqa: F401
     default_active_key,  # noqa: F401
+    size,  # noqa: F401
     expand_icon_right,  # noqa: F401
     extra,  # noqa: F401
     ghost,  # noqa: F401
@@ -26,6 +27,11 @@ demos_config = [
         'path': 'default_active_key',
         'title': '设置默认展开项',
         'description': '设置参数`defaultActiveKey`控制默认展开项。',
+    },
+    {
+        'path': 'size',
+        'title': '不同的尺寸规格',
+        'description': '设置参数`size`控制尺寸规格。',
     },
     {
         'path': 'expand_icon_right',
