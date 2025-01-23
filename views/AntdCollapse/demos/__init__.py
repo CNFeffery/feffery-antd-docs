@@ -4,6 +4,7 @@ from . import (
     basic_usage,  # noqa: F401
     is_open,  # noqa: F401
     non_bordered,  # noqa: F401
+    size,  # noqa: F401
     ghost,  # noqa: F401
     collapsible,  # noqa: F401
     force_render,  # noqa: F401
@@ -26,6 +27,11 @@ demos_config = [
         'path': 'non_bordered',
         'title': '无边框模式',
         'description': '设置参数`bordered=False`开启无边框模式。',
+    },
+    {
+        'path': 'size',
+        'title': '不同的尺寸规格',
+        'description': '设置参数`size`控制尺寸规格。',
     },
     {
         'path': 'ghost',
