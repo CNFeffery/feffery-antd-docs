@@ -6,6 +6,7 @@ from . import (
     closable,  # noqa: F401
     description,  # noqa: F401
     icon,  # noqa: F401
+    custom_icon,  # noqa: F401
     top_notice,  # noqa: F401
     loop,  # noqa: F401
     marquee,  # noqa: F401
@@ -39,6 +40,11 @@ demos_config = [
         'path': 'icon',
         'title': '图标',
         'description': '合适的图标让信息类型更加醒目。',
+    },
+    {
+        'path': 'custom_icon',
+        'title': '自定义图标',
+        'description': '通过`icon`参数自定义图标元素。',
     },
     {
         'path': 'top_notice',
