@@ -96,6 +96,14 @@ setTimeout(() => {
                                             [
                                                 html.A(
                                                     translator.t(
+                                                        'fact: 数据可视化组件库'
+                                                    ),
+                                                    href='https://fact.feffery.tech/',
+                                                    target='_blank',
+                                                    className='more-components-link',
+                                                ),
+                                                html.A(
+                                                    translator.t(
                                                         'fuc: 实用工具组件库'
                                                     ),
                                                     href='https://fuc.feffery.tech/',
