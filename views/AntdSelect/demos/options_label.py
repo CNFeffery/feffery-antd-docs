@@ -39,8 +39,26 @@ code_string = [
         'code': """
 fac.AntdSelect(
     options=[
-        {'label': f'选项{i}', 'value': f'选项{i}'} for i in range(1, 6)
+        {
+            'label': fac.AntdFlex(
+                [
+                    fac.AntdAvatar(text=f'{i}', mode='text', size='small'),
+                    fac.AntdTag(
+                        content=f'选项{i}',
+                        color=['blue', 'green', 'purple', 'orange', 'cyan'][
+                            i - 1
+                        ],
+                    ),
+                ],
+                justify='flex-start',
+                align='center',
+                gap=5,
+            ),
+            'value': f'选项{i}',
+        }
+        for i in range(1, 6)
     ],
+    size='large',
     style={'width': 350},
 )
 """
