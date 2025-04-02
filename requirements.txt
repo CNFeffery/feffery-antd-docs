@@ -1,4 +1,4 @@
-dash>=2.18.1
+dash==2.18.2
 diskcache
 Faker
 feffery_antd_components==0.3.15

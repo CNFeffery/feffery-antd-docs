@@ -147,6 +147,9 @@ def parse_component_props(component: Component) -> str:
             'a value equal to: ', '可选项有：'
         )
 
+    # 确保docstring双引号正确显示
+    raw_docstring = raw_docstring.replace('&quot;', '"')
+
     return raw_docstring
 
 
