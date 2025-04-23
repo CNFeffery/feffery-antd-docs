@@ -46,7 +46,38 @@ def transfer_multiple_mode_search_demo(value):
 code_string = [
     {
         'code': """
+fac.AntdSpace(
+    [
+        fac.AntdRadioGroup(
+            id='transfer-multiple-mode-search-demo-switch-mode',
+            options=[
+                {'label': mode, 'value': mode}
+                for mode in ['case-insensitive', 'case-sensitive', 'regex']
+            ],
+            defaultValue='case-insensitive',
+            optionType='button',
+        ),
+        fac.AntdTransfer(
+            id='transfer-multiple-mode-search-demo',
+            dataSource=[
+                {'key': i, 'title': f'选项{i}'} for i in list('AbCdEf')
+            ],
+            targetKeys=[],
+            showSearch=True,
+        ),
+    ],
+    direction='vertical',
+    style={'width': '100%'},
+)
 
+...
+
+@app.callback(
+    Output('transfer-multiple-mode-search-demo', 'optionFilterMode'),
+    Input('transfer-multiple-mode-search-demo-switch-mode', 'value'),
+)
+def transfer_multiple_mode_search_demo(value):
+    return value
 """
     }
 ]
