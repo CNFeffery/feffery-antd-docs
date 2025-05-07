@@ -189,9 +189,48 @@ def root_router(pathname, trigger, search):
                         icon=fac.AntdIcon(icon='antd-bug'),
                         tooltip=translator.t('问题反馈'),
                         href=AppConfig.library_repo + '/issues/new',
-                    )
+                    ),
+                    fac.AntdFloatButton(
+                        id='open-preferences-modal',
+                        icon=fac.AntdIcon(icon='antd-setting'),
+                        tooltip=translator.t('偏好设置'),
+                    ),
                 ],
                 style={'right': 100, 'bottom': 100},
+            ),
+            # 注入偏好设置模态框
+            fac.AntdModal(
+                fac.AntdSpace(
+                    [
+                        fac.AntdFormItem(
+                            fac.AntdRadioGroup(
+                                id='preferences-search-panel-open-mode',
+                                options=[
+                                    {
+                                        'label': translator.t('新页面'),
+                                        'value': 'new',
+                                    },
+                                    {
+                                        'label': translator.t('当前页'),
+                                        'value': 'current',
+                                    },
+                                ],
+                                defaultValue='new',
+                                persistence=True,
+                            ),
+                            label=translator.t('搜索面板跳转方式'),
+                            style={'margin': 0},
+                        )
+                    ],
+                    style={'paddingTop': 15},
+                ),
+                id='preferences-modal',
+                title=fac.AntdSpace(
+                    [
+                        fac.AntdIcon(icon='antd-setting'),
+                        translator.t('偏好设置'),
+                    ]
+                ),
             ),
             # 注入快捷搜索面板
             fuc.FefferyShortcutPanel(
@@ -471,6 +510,38 @@ app.clientside_callback(
     Input('open-global-search-panel', 'n_clicks'),
     prevent_initial_call=True,
 )
+
+app.clientside_callback(
+    # 打开偏好设置模态框
+    '(nClicks) => true',
+    Output('preferences-modal', 'visible'),
+    Input('open-preferences-modal', 'nClicks'),
+    prevent_initial_call=True,
+)
+
+
+app.clientside_callback(
+    # 调整搜索面板新页面打开方式
+    """(value, origin) => {
+
+    return origin.map(
+        (item) => {
+            return {
+                ...item,
+                handler: (
+                    value === 'new' ?
+                    item.handler.replace('window.location.replace', 'window.open') :
+                    item.handler.replace('window.open', 'window.location.replace')
+                ),
+            }
+        }
+    )
+}""",
+    Output('global-search-panel', 'data'),
+    Input('preferences-search-panel-open-mode', 'value'),
+    State('global-search-panel', 'data'),
+)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

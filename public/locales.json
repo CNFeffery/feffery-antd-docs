@@ -13,6 +13,18 @@
         "问题反馈": {
             "en-us": "Bug report"
         },
+        "偏好设置": {
+            "en-us": "Preferences"
+        },
+        "搜索面板跳转方式": {
+            "en-us": "Search panel jump mode"
+        },
+        "新页面": {
+            "en-us": "New page"
+        },
+        "当前页": {
+            "en-us": "Current page"
+        },
         "输入你想要搜索的组件...": {
             "en-us": "Input the component you want to search..."
         },
