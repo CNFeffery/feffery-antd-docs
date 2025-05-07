@@ -196,6 +196,7 @@ def root_router(pathname, trigger, search):
                         tooltip=translator.t('偏好设置'),
                     ),
                 ],
+                shape='square',
                 style={'right': 100, 'bottom': 100},
             ),
             # 注入偏好设置模态框
