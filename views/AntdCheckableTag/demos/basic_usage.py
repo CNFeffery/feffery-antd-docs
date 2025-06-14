@@ -27,7 +27,7 @@ code_string = [
         'code': """
 fac.AntdSpace(
     [
-        fac.AntdTag(
+        fac.AntdCheckableTag(
             content=f'标签{i}',
         )
         for i in range(1, 6)
