@@ -18,7 +18,6 @@ def render() -> Component:
                 {
                     'title': column,
                     'dataIndex': column,
-                    'width': 'calc(100% / {})'.format(demo_df.shape[0]),
                 }
                 for column in demo_df.columns
             ],
@@ -42,6 +41,7 @@ def render() -> Component:
                     'filterSearch': True,
                 },
             },
+            tableLayout='fixed',
         ),
         text='数据加载中',
         size='small',
@@ -138,7 +138,6 @@ fac.AntdSpin(
             {
                 'title': column,
                 'dataIndex': column,
-                'width': 'calc(100% / {})'.format(demo_df.shape[0]),
             }
             for column in demo_df.columns
         ],
@@ -162,6 +161,7 @@ fac.AntdSpin(
                 'filterSearch': True,
             },
         },
+        tableLayout='fixed',
     ),
     text='数据加载中',
     size='small',
