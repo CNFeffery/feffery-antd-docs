@@ -126,9 +126,8 @@ def root_router(pathname, trigger, search):
                 fuc.FefferyStyle(
                     rawStyle="""
 /* 隐藏debug模式工具图标 */
-.dash-debug-menu,
-.dash-debug-menu__outer--closed {
-    display: none;
+.dash-debug-menu__outer {
+    display: none !important;
 }
 """
                 ),
