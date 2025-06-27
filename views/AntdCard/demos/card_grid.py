@@ -30,9 +30,11 @@ def render() -> Component:
                 [fac.AntdCardGrid(f'内容{i}') for i in range(1, 16)],
                 title='调整各类样式以实现紧凑的网格内容区',
                 bordered=False,
-                bodyStyle={'padding': '0px 1px 0px 0px', 'border': 0},
-                headStyle={'border': '1px solid #f0f0f0'},
                 style={'borderRadius': '8px 8px 0 0'},
+                styles={
+                    'body': {'padding': '0px 1px 0px 0px', 'border': 0},
+                    'header': {'border': '1px solid #f0f0f0'},
+                },
             ),
             fac.AntdDivider('关闭悬停阴影效果', innerTextOrientation='left'),
             fac.AntdCard(
@@ -76,9 +78,11 @@ fac.AntdSpace(
             [fac.AntdCardGrid(f'内容{i}') for i in range(1, 16)],
             title='调整各类样式以实现紧凑的网格内容区',
             bordered=False,
-            bodyStyle={'padding': '0px 1px 0px 0px', 'border': 0},
-            headStyle={'border': '1px solid #f0f0f0'},
             style={'borderRadius': '8px 8px 0 0'},
+            styles={
+                'body': {'padding': '0px 1px 0px 0px', 'border': 0},
+                'header': {'border': '1px solid #f0f0f0'},
+            },
         ),
         fac.AntdDivider('关闭悬停阴影效果', innerTextOrientation='left'),
         fac.AntdCard(

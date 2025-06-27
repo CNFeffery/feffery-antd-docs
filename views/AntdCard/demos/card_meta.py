@@ -55,8 +55,10 @@ def render() -> Component:
                     'alt': 'demo pictrue',
                     'src': 'https://images.pexels.com/photos/18664364/pexels-photo-18664364/free-photo-of-rock-formation-on-sea-shore-in-greece.jpeg',
                 },
-                bodyStyle={'flex-direction': 'column'},
-                headStyle={'display': 'none'},
+                styles={
+                    'body': {'flexDirection': 'column'},
+                    'head': {'display': 'none'},
+                },
                 hoverable=True,
             ),
             fac.AntdDivider(
@@ -157,8 +159,10 @@ fac.AntdSpace(
                 'alt': 'demo pictrue',
                 'src': 'https://images.pexels.com/photos/18664364/pexels-photo-18664364/free-photo-of-rock-formation-on-sea-shore-in-greece.jpeg',
             },
-            bodyStyle={'flex-direction': 'column'},
-            headStyle={'display': 'none'},
+            styles={
+                'body': {'flexDirection': 'column'},
+                'head': {'display': 'none'},
+            },
             hoverable=True,
         ),
         fac.AntdDivider(
