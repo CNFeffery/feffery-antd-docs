@@ -101,12 +101,12 @@ def generate_tag_colors(font_color):
         r, g, b = colorsys.hsv_to_rgb(__h, __s, __b)
         _h, _l, _s = colorsys.rgb_to_hls(r, g, b)
         # 转换为hsl格式供web使用
-        font_color = f'hsl({_h*360}, {_s*100.0:.2f}%, {_l*100.0:.2f}%)'
+        font_color = f'hsl({_h * 360}, {_s * 100.0:.2f}%, {_l * 100.0:.2f}%)'
     else:
         return None
 
-    background_hsl = f'hsl({_h*360:.0f}, 100%, 95%)'
-    border_hsl = f'hsl({_h*360:.0f}, 100%, 70%)'
+    background_hsl = f'hsl({_h * 360:.0f}, 100%, 95%)'
+    border_hsl = f'hsl({_h * 360:.0f}, 100%, 70%)'
 
     return {
         'color': font_color,
@@ -120,6 +120,8 @@ def generate_tag_colors(font_color):
     Input('tag-color-picker-demo', 'value'),
 )
 def callback_func(value):
+    value = value or '#1677ff'
+
     return generate_tag_colors(value)
 
 
@@ -236,6 +238,8 @@ def generate_tag_colors(font_color):
     Input('tag-color-picker-demo', 'value'),
 )
 def callback_func(value):
+    value = value or '#1677ff'
+
     return generate_tag_colors(value)
 
 '''
