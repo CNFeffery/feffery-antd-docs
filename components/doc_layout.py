@@ -60,11 +60,15 @@ setTimeout(() => {
         let scrollTarget = document.getElementById(hashTarget)
         if ( scrollTarget ) {
             window.location.hash = '';
-            window.location.hash = '#' + hashTarget;
-            window.scrollBy(0, -80);
+            requestAnimationFrame(() => {
+                window.location.hash = '#' + hashTarget;
+                requestAnimationFrame(() => {
+                    window.scrollBy(0, -80);
+                });
+            });
         }
     }
-}, 500)
+}, 500);
 """
             ),
             fac.AntdCol(
