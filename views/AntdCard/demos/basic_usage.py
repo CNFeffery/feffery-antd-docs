@@ -41,7 +41,7 @@ def render() -> Component:
 英特纳雄耐尔就一定要实现。
 """,
                     title='无边框卡片示例',
-                    bordered=False,
+                    variant='borderless',
                     style={'width': 300, 'marginBottom': 10},
                 ),
                 style={'background': 'rgb(240, 242, 245)', 'padding': 20},
@@ -90,7 +90,7 @@ fac.AntdSpace(
 英特纳雄耐尔就一定要实现。
 ''',
             title='无边框卡片示例',
-            bordered=False,
+            variant='borderless',
             style={'width': 300, 'marginBottom': 10},
         ),
     ],

@@ -29,7 +29,7 @@ def render() -> Component:
             fac.AntdCard(
                 [fac.AntdCardGrid(f'内容{i}') for i in range(1, 16)],
                 title='调整各类样式以实现紧凑的网格内容区',
-                bordered=False,
+                variant='borderless',
                 style={'borderRadius': '8px 8px 0 0'},
                 styles={
                     'body': {'padding': '0px 1px 0px 0px', 'border': 0},
@@ -77,7 +77,7 @@ fac.AntdSpace(
         fac.AntdCard(
             [fac.AntdCardGrid(f'内容{i}') for i in range(1, 16)],
             title='调整各类样式以实现紧凑的网格内容区',
-            bordered=False,
+            variant='borderless',
             style={'borderRadius': '8px 8px 0 0'},
             styles={
                 'body': {'padding': '0px 1px 0px 0px', 'border': 0},
