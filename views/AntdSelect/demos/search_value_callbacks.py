@@ -35,7 +35,7 @@ def render() -> Component:
             ),
             fac.AntdCard(
                 id='select-search-value-demo-output',
-                headStyle={'display': 'none'},
+                styles={'header': {'display': 'none'}},
             ),
         ],
         direction='vertical',
@@ -103,7 +103,7 @@ fac.AntdSpace(
         ),
         fac.AntdCard(
             id='select-search-value-demo-output',
-            headStyle={'display': 'none'},
+            styles={'header': {'display': 'none'}},
         ),
     ],
     direction='vertical',

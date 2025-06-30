@@ -47,7 +47,8 @@ def render() -> Component:
                 },
             ),
             fac.AntdCard(
-                id='tag-draggable-output-demo', headStyle={'display': 'none'}
+                id='tag-draggable-output-demo',
+                styles={'header': {'display': 'none'}},
             ),
         ],
         direction='vertical',
@@ -107,7 +108,8 @@ fac.AntdSpace(
             },
         ),
         fac.AntdCard(
-            id='tag-draggable-output-demo', headStyle={'display': 'none'}
+            id='tag-draggable-output-demo',
+            styles={'header': {'display': 'none'}},
         ),
     ],
     direction='vertical',

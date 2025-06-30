@@ -15,7 +15,7 @@ def render() -> Component:
             ),
             fac.AntdCard(
                 id='checkable-tag-single-demo-output',
-                headStyle={'display': 'none'},
+                styles={'header': {'display': 'none'}},
             ),
             fac.AntdDivider('多标签回调', innerTextOrientation='left'),
             fac.AntdSpace(
@@ -28,7 +28,8 @@ def render() -> Component:
                 ]
             ),
             fac.AntdCard(
-                id='checkable-tag-output-demo', headStyle={'display': 'none'}
+                id='checkable-tag-output-demo',
+                styles={'header': {'display': 'none'}},
             ),
         ],
         direction='vertical',
@@ -67,7 +68,7 @@ fac.AntdSpace(
         ),
         fac.AntdCard(
             id='checkable-tag-single-demo-output',
-            headStyle={'display': 'none'},
+            styles={'header': {'display': 'none'}},
         ),
         fac.AntdDivider('多标签回调', innerTextOrientation='left'),
         fac.AntdSpace(
@@ -80,7 +81,8 @@ fac.AntdSpace(
             ]
         ),
         fac.AntdCard(
-            id='checkable-tag-output-demo', headStyle={'display': 'none'}
+            id='checkable-tag-output-demo',
+            styles={'header': {'display': 'none'}},
         ),
     ],
     direction='vertical',

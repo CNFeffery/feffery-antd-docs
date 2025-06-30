@@ -21,8 +21,7 @@ def render() -> Component:
                 '#004b50',
             ]
         ],
-        maxCount=3,
-        maxPopoverTrigger='click',
+        max={'count': 3, 'popover': {'trigger': 'click'}},
     )
 
     return demo_contents
@@ -46,8 +45,7 @@ fac.AntdAvatarGroup(
             '#004b50',
         ]
     ],
-    maxCount=3,
-    maxPopoverTrigger='click',
+    max={'count': 3, 'popover': {'trigger': 'click'}},
 )
 """
     }

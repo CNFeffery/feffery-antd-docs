@@ -24,7 +24,8 @@ def render() -> Component:
                 style={'width': '100%'},
             ),
             fac.AntdCard(
-                id='select-demo-output', headStyle={'display': 'none'}
+                id='select-demo-output',
+                styles={'header': {'display': 'none'}},
             ),
         ],
         direction='vertical',
@@ -73,7 +74,8 @@ fac.AntdSpace(
             style={'width': '100%'},
         ),
         fac.AntdCard(
-            id='select-demo-output', headStyle={'display': 'none'}
+            id='select-demo-output',
+            styles={'header': {'display': 'none'}},
         ),
     ],
     direction='vertical',

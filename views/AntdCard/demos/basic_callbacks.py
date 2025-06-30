@@ -17,9 +17,9 @@ def render() -> Component:
                     fac.AntdCard(
                         f'卡片{i}',
                         id={'type': 'card-click-demo', 'index': i},
-                        headStyle={'display': 'none'},
                         # 设置鼠标悬浮指针为点击样式
                         style={'cursor': 'pointer'},
+                        styles={'header': {'display': 'none'}},
                     )
                     for i in range(1, 4)
                 ],
@@ -39,8 +39,8 @@ def render() -> Component:
                     )
                     for i in range(1, 4)
                 ],
-                headStyle={'display': 'none'},
                 style={'width': 300, 'marginBottom': 10},
+                styles={'header': {'display': 'none'}},
             ),
             html.Div('未点击卡片网格', id='card-grid-click-demo-output'),
         ],
@@ -59,7 +59,7 @@ def render() -> Component:
 def card_click_callback(nClicks):
     nClicks = [i for i in nClicks if i is not None]
     num = sum(nClicks)
-    current_card = f"卡片{dash.ctx.triggered_id['index']}"
+    current_card = f'卡片{dash.ctx.triggered_id["index"]}'
     return f'卡片已点击{num}次，当前点击的是：{current_card}'
 
 
@@ -72,7 +72,7 @@ def card_click_callback(nClicks):
 def card_grid_click_callback(nClicks):
     nClicks = [i for i in nClicks if i is not None]
     num = sum(nClicks)
-    current_card = f"卡片网格{dash.ctx.triggered_id['index']}"
+    current_card = f'卡片网格{dash.ctx.triggered_id["index"]}'
     return f'卡片网格已点击{num}次，当前点击的是：{current_card}'
 
 
@@ -87,9 +87,9 @@ fac.AntdSpace(
                 fac.AntdCard(
                     f'卡片{i}',
                     id={'type': 'card-click-demo', 'index': i},
-                    headStyle={'display': 'none'},
                     # 设置鼠标悬浮指针为点击样式
                     style={'cursor': 'pointer'},
+                    styles={'header': {'display': 'none'}},
                 )
                 for i in range(1, 4)
             ],
@@ -109,8 +109,8 @@ fac.AntdSpace(
                 )
                 for i in range(1, 4)
             ],
-            headStyle={'display': 'none'},
             style={'width': 300, 'marginBottom': 10},
+            styles={'header': {'display': 'none'}},
         ),
         html.Div('未点击卡片网格', id='card-grid-click-demo-output'),
     ],

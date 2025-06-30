@@ -12,13 +12,13 @@ def render() -> Component:
             fac.AntdCard(
                 '隐藏标题栏示例',
                 title='卡片示例',
-                headStyle={'display': 'none'},
+                styles={'header': {'display': 'none'}},
             ),
             fac.AntdDivider('设置标题栏背景示例', innerTextOrientation='left'),
             fac.AntdCard(
                 '设置标题栏背景示例',
                 title='标题',
-                headStyle={'background': 'rgba(0, 0, 0, 0.3)'},
+                styles={'header': {'background': 'rgba(0, 0, 0, 0.3)'}},
             ),
         ],
         direction='vertical',
@@ -37,13 +37,13 @@ fac.AntdSpace(
         fac.AntdCard(
             '隐藏标题栏示例',
             title='卡片示例',
-            headStyle={'display': 'none'},
+            styles={'header': {'display': 'none'}},
         ),
         fac.AntdDivider('设置标题栏背景示例', innerTextOrientation='left'),
         fac.AntdCard(
             '设置标题栏背景示例',
             title='标题',
-            headStyle={'background': 'rgba(0, 0, 0, 0.3)'},
+            styles={'header': {'background': 'rgba(0, 0, 0, 0.3)'}},
         ),
     ],
     direction='vertical',

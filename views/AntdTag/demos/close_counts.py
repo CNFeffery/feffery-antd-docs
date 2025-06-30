@@ -18,7 +18,7 @@ def render() -> Component:
             fac.AntdCard(
                 '当前未点击标签关闭按钮',
                 id='tag-close-counts-output-demo',
-                headStyle={'display': 'none'},
+                styles={'header': {'display': 'none'}},
             ),
         ],
         direction='vertical',
@@ -53,9 +53,8 @@ fac.AntdSpace(
         fac.AntdCard(
             '当前未点击标签关闭按钮',
             id='tag-close-counts-output-demo',
-            headStyle={'display': 'none'},
+            styles={'header': {'display': 'none'}},
         ),
-        
     ],
     direction='vertical',
     style={

@@ -40,7 +40,7 @@ def render() -> Component:
                     html.Div(id='select-debounce-demo-output'),
                 ],
                 styles={
-                    'head': {'display': 'none'},
+                    'header': {'display': 'none'},
                     'body': {'flexDirection': 'column'},
                 },
             ),
@@ -111,7 +111,7 @@ fac.AntdSpace(
                 html.Div(id='select-debounce-demo-output'),
             ],
             styles={
-                'head': {'display': 'none'},
+                'header': {'display': 'none'},
                 'body': {'flexDirection': 'column'},
             },
         ),

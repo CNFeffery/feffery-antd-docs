@@ -58,7 +58,7 @@ demos_config = [
     {
         'path': 'rail_style',
         'title': '滑轨样式',
-        'description': '设置参数`railStyle`自定义滑轨样式。',
+        'description': '设置参数`styles`自定义滑轨样式。',
     },
     {
         'path': 'basic_callbacks',

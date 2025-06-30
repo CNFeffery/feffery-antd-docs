@@ -21,7 +21,7 @@ def render() -> Component:
                 '#004b50',
             ]
         ],
-        maxCount=3,
+        max={'count': 3},
     )
 
     return demo_contents
@@ -45,7 +45,7 @@ fac.AntdAvatarGroup(
             '#004b50',
         ]
     ],
-    maxCount=3,
+    max={'count': 3},
 )
 """
     }

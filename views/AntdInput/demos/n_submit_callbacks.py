@@ -15,7 +15,8 @@ def render() -> Component:
                 placeholder='聚焦于此后按下enter',
             ),
             fac.AntdCard(
-                id='input-enter-demo-output', headStyle={'display': 'none'}
+                id='input-enter-demo-output',
+                styles={'header': {'display': 'none'}},
             ),
             fac.AntdDivider('模拟登录示例', innerTextOrientation='left'),
             fac.AntdCard(
@@ -61,7 +62,7 @@ def render() -> Component:
                     direction='vertical',
                     style={'width': '100%'},
                 ),
-                headStyle={'display': 'none'},
+                styles={'header': {'display': 'none'}},
             ),
         ],
         direction='vertical',
@@ -98,7 +99,7 @@ def input_enter_dmeo_login(nClicks1, nSubmit1, nSubmit2):
     if nSubmit2 is None:
         nSubmit2 = 0
 
-    return f'登录次数：{nClicks1+nSubmit1+nSubmit2}'
+    return f'登录次数：{nClicks1 + nSubmit1 + nSubmit2}'
 
 
 code_string = [
@@ -112,7 +113,8 @@ fac.AntdSpace(
             placeholder='聚焦于此后按下enter',
         ),
         fac.AntdCard(
-            id='input-enter-demo-output', headStyle={'display': 'none'}
+            id='input-enter-demo-output',
+            styles={'header': {'display': 'none'}},
         ),
         fac.AntdDivider('模拟登录示例', innerTextOrientation='left'),
         fac.AntdCard(
@@ -158,7 +160,7 @@ fac.AntdSpace(
                 direction='vertical',
                 style={'width': '100%'},
             ),
-            headStyle={'display': 'none'},
+            styles={'header': {'display': 'none'}},
         ),
     ],
     direction='vertical',

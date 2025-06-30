@@ -24,8 +24,8 @@ def render() -> Component:
                     'alt': 'demo pictrue',
                     'src': 'https://images.pexels.com/photos/18664364/pexels-photo-18664364/free-photo-of-rock-formation-on-sea-shore-in-greece.jpeg',
                 },
-                headStyle={'display': 'none'},
                 hoverable=True,
+                styles={'header': {'display': 'none'}},
             ),
             fac.AntdDivider(
                 'AntdCardMeta可与其他组件自由组合', innerTextOrientation='left'
@@ -57,7 +57,7 @@ def render() -> Component:
                 },
                 styles={
                     'body': {'flexDirection': 'column'},
-                    'head': {'display': 'none'},
+                    'header': {'display': 'none'},
                 },
                 hoverable=True,
             ),
@@ -98,8 +98,8 @@ def render() -> Component:
                     'alt': 'demo pictrue',
                     'src': 'https://images.pexels.com/photos/18664364/pexels-photo-18664364/free-photo-of-rock-formation-on-sea-shore-in-greece.jpeg',
                 },
-                headStyle={'display': 'none'},
                 hoverable=True,
+                styles={'header': {'display': 'none'}},
             ),
         ],
         direction='vertical',
@@ -128,8 +128,8 @@ fac.AntdSpace(
                 'alt': 'demo pictrue',
                 'src': 'https://images.pexels.com/photos/18664364/pexels-photo-18664364/free-photo-of-rock-formation-on-sea-shore-in-greece.jpeg',
             },
-            headStyle={'display': 'none'},
             hoverable=True,
+            styles={'header': {'display': 'none'}},
         ),
         fac.AntdDivider(
             'AntdCardMeta可与其他组件自由组合', innerTextOrientation='left'
@@ -161,7 +161,7 @@ fac.AntdSpace(
             },
             styles={
                 'body': {'flexDirection': 'column'},
-                'head': {'display': 'none'},
+                'header': {'display': 'none'},
             },
             hoverable=True,
         ),
@@ -202,8 +202,8 @@ fac.AntdSpace(
                 'alt': 'demo pictrue',
                 'src': 'https://images.pexels.com/photos/18664364/pexels-photo-18664364/free-photo-of-rock-formation-on-sea-shore-in-greece.jpeg',
             },
-            headStyle={'display': 'none'},
             hoverable=True,
+            styles={'header': {'display': 'none'}},
         ),
     ],
     direction='vertical',

@@ -13,7 +13,7 @@ def render() -> Component:
             fac.AntdSwitch(id='switch-callback-demo'),
             fac.AntdCard(
                 id='switch-callback-output-demo',
-                headStyle={'display': 'none'},
+                styles={'header': {'display': 'none'}},
             ),
             fac.AntdDivider('简单用例', innerTextOrientation='left'),
             fac.AntdFlex(
@@ -70,7 +70,7 @@ fac.AntdSpace(
         fac.AntdSwitch(id='switch-callback-demo'),
         fac.AntdCard(
             id='switch-callback-output-demo',
-            headStyle={'display': 'none'},
+            styles={'header': {'display': 'none'}},
         ),
         fac.AntdDivider('简单用例', innerTextOrientation='left'),
         fac.AntdFlex(

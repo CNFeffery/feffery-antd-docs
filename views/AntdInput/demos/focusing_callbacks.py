@@ -14,7 +14,8 @@ def render() -> Component:
                 placeholder='尝试聚焦于此输入框',
             ),
             fac.AntdCard(
-                id='input-focusing-demo-output', headStyle={'display': 'none'}
+                id='input-focusing-demo-output',
+                styles={'header': {'display': 'none'}},
             ),
         ],
         direction='vertical',
@@ -42,7 +43,8 @@ fac.AntdSpace(
             placeholder='尝试聚焦于此输入框',
         ),
         fac.AntdCard(
-            id='input-focusing-demo-output', headStyle={'display': 'none'}
+            id='input-focusing-demo-output', 
+            styles={'header': {'display': 'none'}},
         ),
     ],
     direction='vertical',
