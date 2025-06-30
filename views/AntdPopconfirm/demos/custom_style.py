@@ -10,7 +10,7 @@ def render() -> Component:
         fac.AntdButton('触发'),
         title='确认继续',
         description='内容示例' * 10,
-        overlayStyle={'width': 400},
+        styles={'root': {'width': 400}},
     )
 
     return demo_contents
@@ -23,7 +23,7 @@ fac.AntdPopconfirm(
     fac.AntdButton('触发'),
     title='确认继续',
     description='内容示例' * 10,
-    overlayStyle={'width': 400},
+    styles={'root': {'width': 400}},
 )
 """
     }

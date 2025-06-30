@@ -10,8 +10,10 @@ def render() -> Component:
         fac.AntdButton('锚点示例'),
         title='气泡卡片示例',
         content='内容示例' * 50,
-        overlayStyle={'width': 250},
-        overlayInnerStyle={'maxHeight': 150, 'overflowY': 'auto'},
+        styles={
+            'root': {'width': 250},
+            'body': {'maxHeight': 150, 'overflowY': 'auto'},
+        },
     )
 
     return demo_contents
@@ -24,8 +26,10 @@ fac.AntdPopover(
     fac.AntdButton('锚点示例'),
     title='气泡卡片示例',
     content='内容示例' * 50,
-    overlayStyle={'width': 250},
-    overlayInnerStyle={'maxHeight': 150, 'overflowY': 'auto'},
+    styles={
+        'root': {'width': 250},
+        'body': {'maxHeight': 150, 'overflowY': 'auto'},
+    },
 )
 """
     }
