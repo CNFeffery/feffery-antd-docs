@@ -32,7 +32,7 @@ def render() -> Component:
             },
         ],
         title='描述列表示例',
-        labelStyle={'fontWeight': 'bold'},
+        styles={'label': {'fontWeight': 'bold'}},
         bordered=True,
         extra=fac.AntdButton(
             '额外内容',
@@ -71,7 +71,7 @@ fac.AntdDescriptions(
         },
     ],
     title='描述列表示例',
-    labelStyle={'fontWeight': 'bold'},
+    styles={'label': {'fontWeight': 'bold'}},
     bordered=True,
     extra=fac.AntdButton(
         '额外内容',

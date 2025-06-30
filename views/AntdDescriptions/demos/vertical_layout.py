@@ -34,7 +34,7 @@ def render() -> Component:
         title='描述列表示例',
         bordered=True,
         layout='vertical',
-        labelStyle={'fontWeight': 'bold'},
+        styles={'label': {'fontWeight': 'bold'}},
     )
 
     return demo_contents
@@ -70,7 +70,7 @@ fac.AntdDescriptions(
     title='描述列表示例',
     bordered=True,
     layout='vertical',
-    labelStyle={'fontWeight': 'bold'},
+    styles={'label': {'fontWeight': 'bold'}},
 )
 """
     }

@@ -35,7 +35,7 @@ def render() -> Component:
                 ),
             ],
             title='描述列表示例',
-            labelStyle={'fontWeight': 'bold'},
+            styles={'label': {'fontWeight': 'bold'}},
         ),
         fac.AntdDivider('添加边框', innerTextOrientation='left'),
         fac.AntdDescriptions(
@@ -65,7 +65,7 @@ def render() -> Component:
             ],
             title='描述列表示例',
             bordered=True,
-            labelStyle={'fontWeight': 'bold'},
+            styles={'label': {'fontWeight': 'bold'}},
         ),
     ]
 
@@ -103,7 +103,7 @@ code_string = [
             ),
         ],
         title='描述列表示例',
-        labelStyle={'fontWeight': 'bold'},
+        styles={'label': {'fontWeight': 'bold'}},
     ),
     fac.AntdDivider('添加边框', innerTextOrientation='left'),
     fac.AntdDescriptions(
@@ -133,7 +133,7 @@ code_string = [
         ],
         title='描述列表示例',
         bordered=True,
-        labelStyle={'fontWeight': 'bold'},
+        styles={'label': {'fontWeight': 'bold'}},
     ),
 ]
 """
