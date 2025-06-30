@@ -9,7 +9,7 @@ def render() -> Component:
     demo_contents = fac.AntdEmpty(
         image='/assets/imgs/components/AntdEmpty/自定义占位图.png',
         description=fac.AntdText('当前页面开发中...', type='secondary'),
-        imageStyle={'height': 250},
+        styles={'image': {'height': 250}},
     )
 
     return demo_contents
@@ -21,7 +21,7 @@ code_string = [
 fac.AntdEmpty(
     image='/assets/imgs/components/AntdEmpty/自定义占位图.png',
     description=fac.AntdText('当前页面开发中...', type='secondary'),
-    imageStyle={'height': 250},
+    styles={'image': {'height': 250}},
 )
 """
     }

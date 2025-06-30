@@ -28,7 +28,7 @@ demos_config = [
     {
         'path': 'image_style',
         'title': '占位图样式',
-        'description': '设置参数`imageStyle`控制占位图样式。',
+        'description': '配置参数`styles`控制占位图样式。',
     },
     {
         'path': 'hide_description',

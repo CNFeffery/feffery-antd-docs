@@ -14,7 +14,7 @@ def render() -> Component:
         emptyContent=fac.AntdEmpty(
             image='/assets/imgs/components/AntdEmpty/自定义占位图.png',
             description=fac.AntdText('没有数据哦~', type='secondary'),
-            imageStyle={'height': 150},
+            styles={'image': {'height': 150}},
         ),
     )
 
@@ -32,7 +32,7 @@ fac.AntdTable(
     emptyContent=fac.AntdEmpty(
         image='/assets/imgs/AntdEmpty/自定义占位图.png',
         description=fac.AntdText('没有数据哦~', type='secondary'),
-        imageStyle={'height': 150},
+        styles={'image': {'height': 150}},
     ),
 )
 """
