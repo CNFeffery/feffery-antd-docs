@@ -14,7 +14,7 @@ def render() -> Component:
                 id='config-provider-locale',
                 options=[
                     {'label': locale, 'value': locale}
-                    for locale in ['zh-cn', 'en-us', 'de-de']
+                    for locale in ['zh-cn', 'en-us', 'de-de', 'ru-ru']
                 ],
                 optionType='button',
                 defaultValue='zh-cn',
@@ -95,7 +95,7 @@ code_string = [
             id='config-provider-locale',
             options=[
                 {'label': locale, 'value': locale}
-                for locale in ['zh-cn', 'en-us', 'de-de']
+                for locale in ['zh-cn', 'en-us', 'de-de', 'ru-ru']
             ],
             optionType='button',
             defaultValue='zh-cn',
