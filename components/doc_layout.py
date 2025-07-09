@@ -59,16 +59,11 @@ setTimeout(() => {
         let hashTarget = window.location.hash.substring(1)
         let scrollTarget = document.getElementById(hashTarget)
         if ( scrollTarget ) {
-            window.location.hash = '';
-            requestAnimationFrame(() => {
-                window.location.hash = '#' + hashTarget;
-                requestAnimationFrame(() => {
-                    window.scrollBy(0, -80);
-                });
-            });
+            window.location.href = window.location.origin + window.location.pathname + '#' + hashTarget;
+            window.scrollBy(0, -80);
         }
     }
-}, 500);
+}, 500)
 """
             ),
             fac.AntdCol(
