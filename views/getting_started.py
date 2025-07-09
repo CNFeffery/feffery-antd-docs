@@ -25,7 +25,7 @@ def render() -> Component:
                     fac.AntdParagraph(
                         md_renderer.render(
                             t(
-                                '在基于**Dash**和**fac**进行应用开发之前，我们需要先搭建好所需的环境，推荐使用**conda**或**mamba**作为环境管理工具，这里以Python 3.9版本为例，在终端执行下列命令进行相关环境的创建及激活：'
+                                '在基于**Dash**和**fac**进行应用开发之前，我们需要先搭建好所需的环境，推荐使用**conda**或**mamba**作为环境管理工具，这里以Python 3.10版本为例，在终端执行下列命令进行相关环境的创建及激活：'
                             )
                         ),
                         style={'textIndent': '2rem'},
@@ -50,7 +50,7 @@ def render() -> Component:
                                 'children': html.Div(
                                     [
                                         fmc.FefferySyntaxHighlighter(
-                                            codeString="""conda create -n dash-apps python=3.9 -y
+                                            codeString="""conda create -n dash-apps python=3.10 -y
 conda activate dash-apps""",
                                             language='bash',
                                             showCopyButton=True,
@@ -66,7 +66,7 @@ conda activate dash-apps""",
                                         'children': html.Div(
                                             [
                                                 fmc.FefferySyntaxHighlighter(
-                                                    codeString="""conda create -n dash-apps python=3.9 -c https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main -y
+                                                    codeString="""conda create -n dash-apps python=3.10 -c https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main -y
 conda activate dash-apps""",
                                                     language='bash',
                                                     showCopyButton=True,

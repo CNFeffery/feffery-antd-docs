@@ -5,8 +5,8 @@
         "环境搭建": {
             "en-us": "Environment setup"
         },
-        "在基于**Dash**和**fac**进行应用开发之前，我们需要先搭建好所需的环境，推荐使用**conda**或**mamba**作为环境管理工具，这里以Python 3.9版本为例，在终端执行下列命令进行相关环境的创建及激活：": {
-            "en-us": "Before starting application development with **Dash** and **fac**, we need to set up the required environment first. It is recommended to use **conda** or **mamba** as the environment management tool. Here, we take Python 3.9 as an example and execute the following commands in the terminal to create and activate the relevant environment:"
+        "在基于**Dash**和**fac**进行应用开发之前，我们需要先搭建好所需的环境，推荐使用**conda**或**mamba**作为环境管理工具，这里以Python 3.10版本为例，在终端执行下列命令进行相关环境的创建及激活：": {
+            "en-us": "Before starting application development with **Dash** and **fac**, we need to set up the required environment first. It is recommended to use **conda** or **mamba** as the environment management tool. Here, we take Python 3.10 as an example and execute the following commands in the terminal to create and activate the relevant environment:"
         },
         "默认方式": {
             "en-us": "Default method"
