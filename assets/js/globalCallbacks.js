@@ -106,7 +106,8 @@ window.dash_clientside = Object.assign({}, window.dash_clientside, {
                         null
                     ]
                 } else {
-                    return window.dash_clientside.no_update;
+                    // return window.dash_clientside.no_update;
+                    throw window.dash_clientside.PreventUpdate;
                 }
             }
             // 若先前处于显示状态
@@ -263,7 +264,8 @@ window.dash_clientside = Object.assign({}, window.dash_clientside, {
                     )
                 }
             }
-            return window.dash_clientside.no_update;
+            // return window.dash_clientside.no_update;
+            throw window.dash_clientside.PreventUpdate;
         }
     }
 });

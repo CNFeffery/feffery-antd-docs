@@ -63,7 +63,7 @@ app.clientside_callback(
                 !checked && value.length > 0 && value.length < options.length ? true : false
             ]
         }
-        return dash_clientside.no_update;
+        throw window.dash_clientside.PreventUpdate;
     }""",
     [
         Output('checkbox-demo-client-side', 'checked'),
@@ -121,7 +121,7 @@ app.clientside_callback(
                 !checked && value.length > 0 && value.length < options.length ? true : false
             ]
         }
-        return dash_clientside.no_update;
+        throw window.dash_clientside.PreventUpdate;
     }""",
     [
         Output('checkbox-demo-client-side', 'checked'),
@@ -177,7 +177,7 @@ app.clientside_callback(
                 !checked && value.length > 0 && value.length < options.length ? true : false
             ]
         }
-        return dash_clientside.no_update;
+        throw window.dash_clientside.PreventUpdate;
     }""",
     [
         Output('checkbox-demo-client-side', 'checked'),
