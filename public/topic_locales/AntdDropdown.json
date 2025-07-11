@@ -14,6 +14,12 @@
         "为各选项设置额外内容。": {
             "en-us": "Set extra content for each option."
         },
+        "按钮模式设置图标元素": {
+            "en-us": "Button mode set icon element"
+        },
+        "按钮模式下设置额外的图标元素。": {
+            "en-us": "Set extra icon elements in button mode."
+        },
         "按钮模式": {
             "en-us": "Button mode"
         },

@@ -5,6 +5,7 @@ from . import (
     basic_usage,  # noqa: F401
     extra,  # noqa: F401
     button_mode,  # noqa: F401
+    button_icon,  # noqa: F401
     custom_button_style,  # noqa: F401
     free_position_mode,  # noqa: F401
     dropdown_trigger,  # noqa: F401
@@ -39,6 +40,11 @@ def demos_config() -> list:
             'description': t(
                 '设置参数`buttonMode=True`后触发点显示为按钮样式。'
             ),
+        },
+        {
+            'path': 'button_icon',
+            'title': t('按钮模式设置图标元素'),
+            'description': t('按钮模式下设置额外的图标元素。'),
         },
         {
             'path': 'custom_button_style',
