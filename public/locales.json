@@ -331,6 +331,9 @@
         "AntdCountdown 倒计时": {
             "en-us": "AntdCountdown"
         },
+        "AntdCountup 正计时": {
+            "en-us": "AntdCountup"
+        },
         "AntdTable 表格": {
             "en-us": "AntdTable"
         },

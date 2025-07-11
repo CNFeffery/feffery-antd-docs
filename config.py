@@ -1023,6 +1023,15 @@ class AppConfig:
                                 },
                             },
                             {
+                                'component': 'Item',
+                                'props': {
+                                    'key': '/AntdCountup',
+                                    'name': '/AntdCountup',
+                                    'title': translator.t('AntdCountup 正计时'),
+                                    'href': '/AntdCountup',
+                                },
+                            },
+                            {
                                 'component': 'SubMenu',
                                 'props': {
                                     'key': '/AntdTable',
@@ -1615,6 +1624,7 @@ class AppConfig:
         '/AntdSpoiler': ['数据展示'],
         '/AntdStatistic': ['数据展示'],
         '/AntdCountdown': ['数据展示'],
+        '/AntdCountup': ['数据展示'],
         '/AntdTable-basic': ['数据展示', '/AntdTable'],
         '/AntdTable-advanced': ['数据展示', '/AntdTable'],
         '/AntdTable-server-side-mode': ['数据展示', '/AntdTable'],

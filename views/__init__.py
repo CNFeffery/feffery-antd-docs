@@ -86,6 +86,7 @@ from . import (
     AntdSpoiler,  # noqa: F401
     AntdStatistic,  # noqa: F401
     AntdCountdown,  # noqa: F401
+    AntdCountup,  # noqa: F401
     AntdTableBasic,  # noqa: F401
     AntdTableAdvanced,  # noqa: F401
     AntdTableServerSideMode,  # noqa: F401
