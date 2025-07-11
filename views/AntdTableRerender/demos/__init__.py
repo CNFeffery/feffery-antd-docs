@@ -19,6 +19,7 @@ from . import (
     mini_progress_mode,  # noqa: F401
     mini_ring_progress_mode,  # noqa: F401
     button_mode_and_callbacks,  # noqa: F401
+    button_mode_color,  # noqa: F401
     checkbox_mode_and_callbacks,  # noqa: F401
     switch_mode_and_callbacks,  # noqa: F401
     dropdown_mode_and_callbacks,  # noqa: F401
@@ -117,6 +118,13 @@ demos_config = [
         'path': 'button_mode_and_callbacks',
         'title': 'button按钮模式及回调监听',
         'description': '将单元格内容快捷渲染为按钮形式，并通过回调监听相关事件。',
+        'group': 'button按钮模式',
+    },
+    {
+        'path': 'button_mode_color',
+        'title': '控制按钮形态',
+        'description': '配合`color`与`variant`参数渲染具有不同颜色和形态的按钮。',
+        'group': 'button按钮模式',
     },
     {
         'path': 'checkbox_mode_and_callbacks',
