@@ -20,6 +20,7 @@ from . import (
     mini_ring_progress_mode,  # noqa: F401
     button_mode_and_callbacks,  # noqa: F401
     button_mode_color,  # noqa: F401
+    button_mode_independent_add_popconfirm,  # noqa: F401
     checkbox_mode_and_callbacks,  # noqa: F401
     switch_mode_and_callbacks,  # noqa: F401
     dropdown_mode_and_callbacks,  # noqa: F401
@@ -124,6 +125,12 @@ demos_config = [
         'path': 'button_mode_color',
         'title': '控制按钮形态',
         'description': '配合`color`与`variant`参数渲染具有不同颜色和形态的按钮。',
+        'group': 'button按钮模式',
+    },
+    {
+        'path': 'button_mode_independent_add_popconfirm',
+        'title': '独立控制按钮是否添加气泡确认框',
+        'description': '同一单元格中的每个按钮都可以单独控制是否添加气泡确认框。',
         'group': 'button按钮模式',
     },
     {
