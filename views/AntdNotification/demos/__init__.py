@@ -5,6 +5,7 @@ from . import (
     type,  # noqa: F401
     placement,  # noqa: F401
     duration,  # noqa: F401
+    show_progress,  # noqa: F401
 )
 from components import demos_render
 
@@ -28,6 +29,11 @@ demos_config = [
         'path': 'duration',
         'title': '修改延时',
         'description': '通过参数`duration`控制通知提醒框的显示时长。',
+    },
+    {
+        'path': 'show_progress',
+        'title': '显示关闭进度条',
+        'description': '设置参数`showProgress=True`显示关闭进度条。',
     },
 ]
 
