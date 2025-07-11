@@ -6,6 +6,7 @@ from . import (
     placement,  # noqa: F401
     duration,  # noqa: F401
     show_progress,  # noqa: F401
+    stack,  # noqa: F401
 )
 from components import demos_render
 
@@ -34,6 +35,11 @@ demos_config = [
         'path': 'show_progress',
         'title': '显示关闭进度条',
         'description': '设置参数`showProgress=True`显示关闭进度条。',
+    },
+    {
+        'path': 'stack',
+        'title': '堆叠模式',
+        'description': '设置参数`stack=True`启用堆叠模式。',
     },
 ]
 
