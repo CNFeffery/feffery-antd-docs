@@ -10,6 +10,7 @@ from . import (
     show_arrows,  # noqa: F401
     slides_to_show,  # noqa: F401
     slides_to_scroll,  # noqa: F401
+    dot_duration,  # noqa: F401
 )
 from components import demos_render
 
@@ -58,6 +59,11 @@ demos_config = [
         'path': 'slides_to_scroll',
         'title': '轮播划过的子项数量',
         'description': '通过参数`slidesToScroll`控制每次轮播划过的子项数量。',
+    },
+    {
+        'path': 'dot_duration',
+        'title': '开启指示器倒计时动画',
+        'description': '配置`autoplay`参数开启指示器倒计时动画。',
     },
 ]
 
