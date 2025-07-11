@@ -1,0 +1,30 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "version_migration_guide",
+    "contents": {
+        "从0.3到0.4版本": {
+            "en-us": "From 0.3 to 0.4 version"
+        },
+        "`fac`从`0.3`版本迁移到`0.4`版本，除了新增的大量功能外，还需要注意少量组件的参数调整情况，具体如下：": {
+            "en-us": "From `0.3` version to `0.4` version, besides the addition of a large number of functions, there are also some adjustments to the parameters of some components, as follows:"
+        },
+        "AntdCard移除bordered参数": {
+            "en-us": "AntdCard removes the bordered parameter"
+        },
+        "跟随底层`Antd`框架的变化，`AntdCard`移除了`bordered`参数，请改为设置`variant='borderless'`代替。": {
+            "en-us": "Follow the changes of the underlying `Antd` framework, `AntdCard` removes the `bordered` parameter, please set `variant='borderless'` instead."
+        },
+        "部分组件xxxStyle、xxxClassName格式参数重构到styles、classNames参数中": {
+            "en-us": "Some components xxxStyle and xxxClassName format parameters are reconstructed into styles and classNames parameters"
+        },
+        "跟随底层`Antd`框架的变化，相关参数重构至语义化结构参数`styles`、`classNames`对应字段中，具体涉及组件及参数见[0.4.0更新日志](/changelog-0.4.0)中的**变化**章节。": {
+            "en-us": "Following updates in the underlying Antd framework, related parameters have been refactored into the semantic structure parameters `styles` and `classNames`. For specific components and parameters affected, refer to the **Changes** section in the [0.4.0 Changelog](/changelog-0.4.0)."
+        },
+        "AntdAvatarGroup部分参数重构到max参数中": {
+            "en-us": "AntdAvatarGroup partial parameters are reconstructed into max parameters"
+        },
+        "跟随底层`Antd`框架的变化，AntdAvatarGroup部分参数重构至`max`参数中，具体涉及组件及参数见[0.4.0更新日志](/changelog-0.4.0)中的**变化**章节。": {
+            "en-us": "Following updates in the underlying Antd framework, certain parameters of AntdAvatarGroup have been consolidated into the `max` parameter. For specific components and parameters affected, refer to the **Changes** section in the [0.4.0 Changelog](/changelog-0.4.0)."
+        }
+    }
+}

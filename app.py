@@ -18,6 +18,7 @@ import views.AntdTableServerSideMode
 import views.advanced_usage
 import views.getting_started
 import views.what_is_fac
+import views.version_migration_guide
 
 # 国际化
 from i18n import translator
@@ -279,6 +280,9 @@ def doc_layout_router(pathname):
 
     elif pathname == '/getting-started':
         doc_layout = views.getting_started.render()
+
+    elif pathname == '/version-migration-guide':
+        doc_layout = views.version_migration_guide.render()
 
     # elif pathname == '/advanced-classname':
     #     doc_layout = views.advanced_usage.advanced_classname.render()

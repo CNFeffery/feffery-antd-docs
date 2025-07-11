@@ -88,6 +88,15 @@ class AppConfig:
                             'title': translator.t('Dash+fac快速上手'),
                         },
                     },
+                    {
+                        'component': 'Item',
+                        'props': {
+                            'key': '/version-migration-guide',
+                            'name': '/version-migration-guide',
+                            'href': '/version-migration-guide',
+                            'title': translator.t('版本迁移指南'),
+                        },
+                    },
                 ],
             },
             {'component': 'Divider', 'props': {'dashed': True}},
@@ -1471,6 +1480,27 @@ class AppConfig:
                     {
                         'component': 'SubMenu',
                         'props': {
+                            'key': '0.4.x版本',
+                            'title': '0.4.x',
+                        },
+                        'children': [
+                            {
+                                'component': 'Item',
+                                'props': {
+                                    'key': '/changelog-' + version,
+                                    'name': '/changelog-' + version,
+                                    'title': version,
+                                    'href': '/changelog-' + version,
+                                },
+                            }
+                            for version in [
+                                '0.4.0',
+                            ]
+                        ],
+                    },
+                    {
+                        'component': 'SubMenu',
+                        'props': {
                             'key': '0.3.x版本',
                             'title': '0.3.x',
                         },
@@ -1500,7 +1530,7 @@ class AppConfig:
                                 '0.3.15',
                             ]
                         ],
-                    }
+                    },
                 ],
             },
         ]
