@@ -9,6 +9,7 @@ from . import (
     only_icon,  # noqa: F401
     custom_render,  # noqa: F401
     disabled,  # noqa: F401
+    shape,  # noqa: F401
     basic_callbacks,  # noqa: F401
 )
 from components import demos_render
@@ -53,6 +54,11 @@ demos_config = [
         'path': 'disabled',
         'title': '禁用状态',
         'description': '设置参数`disabled=True`禁用当前分段控制器。',
+    },
+    {
+        'path': 'shape',
+        'title': '不同的形状',
+        'description': '设置参数`shape`渲染不同的形状。',
     },
     {
         'path': 'basic_callbacks',
