@@ -2,6 +2,7 @@ from dash.dependencies import Component
 
 from . import (
     basic_usage,  # noqa: F401
+    quickly_set_options,  # noqa: F401
     vertical,  # noqa: F401
     block,  # noqa: F401
     size,  # noqa: F401
@@ -19,6 +20,11 @@ demos_config = [
         'path': 'basic_usage',
         'title': '基础使用',
         'description': '最简单的用法。',
+    },
+    {
+        'path': 'quickly_set_options',
+        'title': '快捷设置options参数',
+        'description': '针对`options`参数的快捷设置方式。',
     },
     {
         'path': 'vertical',
