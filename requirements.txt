@@ -1,5 +1,4 @@
 dash==2.18.2
-diskcache
 Faker
 feffery_antd_components==0.3.15
 feffery_dash_utils>=0.1.4

@@ -11,7 +11,6 @@ from . import (
     gradient_color,  # noqa: F401
     multi_step,  # noqa: F401
     remaining_color,  # noqa: F401
-    basic_callback,  # noqa: F401
 )
 from components import demos_render
 
@@ -66,13 +65,6 @@ demos_config = [
         'title': '分段line型进度条',
         'description': '可设置分段型进度条，并通过[fuc.FefferyStyle](https://fuc.feffery.tech/FefferyStyle)组件来自定义分段宽度。',
     },
-    # {
-    #     'path': 'basic_callback',
-    #     'title': '回调实时更新进度条',
-    #     'description': fac.AntdParagraph(
-    #         '使用浏览器端回调，在耗时任务中实时更新进度条。'
-    #     ),
-    # },
 ]
 
 

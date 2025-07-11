@@ -1,3 +1,2 @@
 pipreqs==0.4.13
 flask-compress
-dash[diskcache]
