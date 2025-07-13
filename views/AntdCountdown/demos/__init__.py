@@ -4,6 +4,7 @@ from . import (
     basic_usage,  # noqa: F401
     unit,  # noqa: F401
     title_tooltip,  # noqa: F401
+    basic_callbacks,  # noqa: F401
 )
 from components import demos_render
 
@@ -22,6 +23,11 @@ demos_config = [
         'path': 'title_tooltip',
         'title': '标题额外信息提示',
         'description': '通过设置参数`titleTooltip`为标题添加额外信息提示。',
+    },
+    {
+        'path': 'basic_callbacks',
+        'title': '基础回调',
+        'description': '通过`finishEvent`监听倒计时结束事件。',
     },
 ]
 
