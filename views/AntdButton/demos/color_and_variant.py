@@ -10,19 +10,39 @@ def render() -> Component:
         [
             fac.AntdSpace(
                 [
-                    fac.AntdButton(variant, color=color, variant=variant)
-                    for variant in [
-                        'outlined',
-                        'dashed',
-                        'solid',
-                        'filled',
-                        'text',
-                        'link',
-                    ]
+                    f'color: {color}',
+                    *[
+                        fac.AntdButton(variant, color=color, variant=variant)
+                        for variant in [
+                            'outlined',
+                            'dashed',
+                            'solid',
+                            'filled',
+                            'text',
+                            'link',
+                        ]
+                    ],
                 ],
                 wrap=True,
             )
-            for color in ['default', 'primary', 'danger']
+            for color in [
+                'default',
+                'primary',
+                'danger',
+                'blue',
+                'purple',
+                'cyan',
+                'green',
+                'magenta',
+                'pink',
+                'red',
+                'orange',
+                'yellow',
+                'volcano',
+                'geekblue',
+                'lime',
+                'gold',
+            ]
         ],
         direction='vertical',
     )
@@ -40,19 +60,39 @@ fac.AntdSpace(
     [
         fac.AntdSpace(
             [
-                fac.AntdButton(variant, color=color, variant=variant)
-                for variant in [
-                    'outlined',
-                    'dashed',
-                    'solid',
-                    'filled',
-                    'text',
-                    'link',
-                ]
+                f'color: {color}',
+                *[
+                    fac.AntdButton(variant, color=color, variant=variant)
+                    for variant in [
+                        'outlined',
+                        'dashed',
+                        'solid',
+                        'filled',
+                        'text',
+                        'link',
+                    ]
+                ],
             ],
             wrap=True,
         )
-        for color in ['default', 'primary', 'danger']
+        for color in [
+            'default',
+            'primary',
+            'danger',
+            'blue',
+            'purple',
+            'cyan',
+            'green',
+            'magenta',
+            'pink',
+            'red',
+            'orange',
+            'yellow',
+            'volcano',
+            'geekblue',
+            'lime',
+            'gold',
+        ]
     ],
     direction='vertical',
 )
