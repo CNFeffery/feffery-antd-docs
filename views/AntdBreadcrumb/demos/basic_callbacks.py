@@ -20,7 +20,20 @@ def render() -> Component:
                 items=[
                     {'title': '首页', 'key': '首页'},
                     {'title': '下属页面1', 'key': '下属页面1'},
-                    {'title': '下属页面1-1', 'key': '下属页面1-1'},
+                    {
+                        'title': '下属页面1-1',
+                        'key': '下属页面1-1',
+                        'menuItems': [
+                            {
+                                'key': '菜单项节点1',
+                                'title': '菜单项节点1',
+                            },
+                            {
+                                'key': '菜单项节点2',
+                                'title': '菜单项节点2',
+                            },
+                        ],
+                    },
                 ],
             ),
             html.Pre(id='breadcrumnb-demo-output'),
@@ -34,7 +47,20 @@ def render() -> Component:
                 items=[
                     {'title': 'Home', 'key': 'Home'},
                     {'title': 'Subpage1', 'key': 'Subpage1'},
-                    {'title': 'Subpage1-1', 'key': 'Subpage1-1'},
+                    {
+                        'title': 'Subpage1-1',
+                        'key': 'Subpage1-1',
+                        'menuItems': [
+                            {
+                                'key': 'Menu item node1',
+                                'title': 'Menu item node1',
+                            },
+                            {
+                                'key': 'Menu item node2',
+                                'title': 'Menu item node2',
+                            },
+                        ],
+                    },
                 ],
             ),
             html.Pre(id='breadcrumnb-demo-output'),
@@ -69,7 +95,20 @@ def code_string() -> list:
         items=[
             {'title': '首页', 'key': '首页'},
             {'title': '下属页面1', 'key': '下属页面1'},
-            {'title': '下属页面1-1', 'key': '下属页面1-1'},
+            {
+                'title': '下属页面1-1',
+                'key': '下属页面1-1',
+                'menuItems': [
+                    {
+                        'key': '菜单项节点1',
+                        'title': '菜单项节点1',
+                    },
+                    {
+                        'key': '菜单项节点2',
+                        'title': '菜单项节点2',
+                    },
+                ],
+            },
         ],
     ),
     html.Pre(id='breadcrumnb-demo-output'),
@@ -107,7 +146,20 @@ def breadcrumb_callback_demo(clickedItem):
         items=[
             {'title': 'Home', 'key': 'Home'},
             {'title': 'Subpage1', 'key': 'Subpage1'},
-            {'title': 'Subpage1-1', 'key': 'Subpage1-1'},
+            {
+                'title': 'Subpage1-1',
+                'key': 'Subpage1-1',
+                'menuItems': [
+                    {
+                        'key': 'Menu item node1',
+                        'title': 'Menu item node1',
+                    },
+                    {
+                        'key': 'Menu item node2',
+                        'title': 'Menu item node2',
+                    },
+                ],
+            },
         ],
     ),
     html.Pre(id='breadcrumnb-demo-output'),
