@@ -5,6 +5,7 @@ from . import (
     render_footer,  # noqa: F401
     custom_footer_button,  # noqa: F401
     width,  # noqa: F401
+    responsive_width,  # noqa: F401
     centered,  # noqa: F401
     loading,  # noqa: F401
     confirm_loading,  # noqa: F401
@@ -32,6 +33,11 @@ demos_config = [
         'path': 'width',
         'title': '控制对话框宽度',
         'description': '通过参数`width`控制对话框宽度。',
+    },
+    {
+        'path': 'responsive_width',
+        'title': '响应式对话框宽度',
+        'description': '参数`width`支持传入字典型，以设置不同页面宽度断点下的响应式对话框宽度。',
     },
     {
         'path': 'centered',
