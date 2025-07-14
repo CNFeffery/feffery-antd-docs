@@ -31,6 +31,12 @@
         },
         "通过参数`plain`控制内嵌文字是否呈现正文形式。": {
             "en-us": "By setting the parameter `plain` control whether to display plain text."
+        },
+        "不同的间距大小": {
+            "en-us": "Different spacing size"
+        },
+        "针对水平分割线，可通过参数`size`控制间距大小。": {
+            "en-us": "For horizontal lines, you can control the spacing size through the parameter `size`."
         }
     }
 }

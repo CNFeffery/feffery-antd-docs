@@ -7,6 +7,7 @@ from . import (
     vertical,  # noqa: F401
     variant,  # noqa: F401
     plain,  # noqa: F401
+    size,  # noqa: F401
 )
 from components import demos_render
 
@@ -41,6 +42,11 @@ def demos_config() -> list:
             'path': 'plain',
             'title': t('plain参数的使用'),
             'description': t('通过参数`plain`控制内嵌文字是否呈现正文形式。'),
+        },
+        {
+            'path': 'size',
+            'title': t('不同的间距大小'),
+            'description': t('针对水平分割线，可通过参数`size`控制间距大小。'),
         },
     ]
 
