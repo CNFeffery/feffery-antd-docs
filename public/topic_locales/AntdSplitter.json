@@ -31,6 +31,12 @@
         },
         "控制子项区域开启快捷折叠功能。": {
             "en-us": "Enable the collapsible feature of the child item region."
+        },
+        "延迟渲染模式": {
+            "en-us": "Deferred rendering mode"
+        },
+        "设置`lazy=True`启用延迟渲染模式，即在每次拖拽调整结束后才会更新布局。": {
+            "en-us": "Enable the deferred rendering mode by setting `lazy=True`, that is, the layout will be updated only after the drag adjustment ends."
         }
     }
 }

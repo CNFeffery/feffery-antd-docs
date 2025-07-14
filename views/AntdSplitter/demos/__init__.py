@@ -8,6 +8,7 @@ from . import (
     size_limit,  # noqa: F401
     collapsible,  # noqa: F401
     nested,  # noqa: F401
+    lazy,  # noqa: F401
 )
 from components import demos_render
 
@@ -51,6 +52,13 @@ def demos_config() -> list:
             'path': 'nested',
             'title': t('嵌套组合'),
             'description': t('通过嵌套组合分隔面板组件，实现更复杂的布局。'),
+        },
+        {
+            'path': 'lazy',
+            'title': t('延迟渲染模式'),
+            'description': t(
+                '设置`lazy=True`启用延迟渲染模式，即在每次拖拽调整结束后才会更新布局。'
+            ),
         },
     ]
 
