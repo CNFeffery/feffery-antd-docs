@@ -10,6 +10,7 @@ from . import (
     disabled_status,  # noqa: F401
     read_only_status,  # noqa: F401
     rail_style,  # noqa: F401
+    editable,  # noqa: F401
     basic_callbacks,  # noqa: F401
 )
 from components import demos_render
@@ -59,6 +60,11 @@ demos_config = [
         'path': 'rail_style',
         'title': '滑轨样式',
         'description': '设置参数`styles`自定义滑轨样式。',
+    },
+    {
+        'path': 'editable',
+        'title': '范围多节点可编辑',
+        'description': '针对参数`range`传入字典型参数，进行范围内多节点可编辑功能的配置使用。',
     },
     {
         'path': 'basic_callbacks',
