@@ -64,7 +64,7 @@ demos_config = [
     {
         'path': 'editable',
         'title': '范围多节点可编辑',
-        'description': '针对参数`range`传入字典型参数，进行范围内多节点可编辑功能的配置使用。',
+        'description': '针对参数`range`传入字典型参数，进行范围内多节点可编辑功能的配置使用，该模式下，可通过选中节点后快速拽出或按键盘`delete`键进行删除。',
     },
     {
         'path': 'basic_callbacks',
