@@ -24,6 +24,12 @@ def render() -> Component:
                 style={'width': '100%'},
             ),
             fac.AntdSelect(
+                variant='underlined',
+                placeholder='variant="underlined"',
+                options=[f'选项{i}' for i in range(1, 6)],
+                style={'width': '100%'},
+            ),
+            fac.AntdSelect(
                 variant='borderless',
                 placeholder='variant="borderless"',
                 options=[f'选项{i}' for i in range(1, 6)],
@@ -50,6 +56,13 @@ def render() -> Component:
                 variant='borderless',
                 mode='multiple',
                 placeholder='variant="borderless"',
+                options=[f'选项{i}' for i in range(1, 6)],
+                style={'width': '100%'},
+            ),
+            fac.AntdSelect(
+                variant='underlined',
+                mode='multiple',
+                placeholder='variant="underlined"',
                 options=[f'选项{i}' for i in range(1, 6)],
                 style={'width': '100%'},
             ),
@@ -82,6 +95,12 @@ fac.AntdSpace(
             style={'width': '100%'},
         ),
         fac.AntdSelect(
+            variant='underlined',
+            placeholder='variant="underlined"',
+            options=[f'选项{i}' for i in range(1, 6)],
+            style={'width': '100%'},
+        ),
+        fac.AntdSelect(
             variant='borderless',
             placeholder='variant="borderless"',
             options=[f'选项{i}' for i in range(1, 6)],
@@ -108,6 +127,13 @@ fac.AntdSpace(
             variant='borderless',
             mode='multiple',
             placeholder='variant="borderless"',
+            options=[f'选项{i}' for i in range(1, 6)],
+            style={'width': '100%'},
+        ),
+        fac.AntdSelect(
+            variant='underlined',
+            mode='multiple',
+            placeholder='variant="underlined"',
             options=[f'选项{i}' for i in range(1, 6)],
             style={'width': '100%'},
         ),
