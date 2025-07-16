@@ -13,7 +13,7 @@ def render() -> Component:
                 placeholder=f'variant="{variant}"',
                 style={'width': 200},
             )
-            for variant in ['outlined', 'borderless', 'filled']
+            for variant in ['outlined', 'borderless', 'filled', 'underlined']
         ],
         direction='vertical',
         style={'width': '100%'},
@@ -32,7 +32,7 @@ fac.AntdSpace(
             placeholder=f'variant="{variant}"',
             style={'width': 200},
         )
-        for variant in ['outlined', 'borderless', 'filled']
+        for variant in ['outlined', 'borderless', 'filled', 'underlined']
     ],
     direction='vertical',
     style={'width': '100%'},
