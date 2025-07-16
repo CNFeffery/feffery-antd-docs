@@ -15,6 +15,9 @@ def render() -> Component:
             fac.AntdInput(
                 variant='borderless', placeholder='variant="borderless"'
             ),
+            fac.AntdInput(
+                variant='underlined', placeholder='variant="underlined"'
+            ),
         ],
         direction='vertical',
         style={'width': '350px'},
@@ -34,6 +37,9 @@ fac.AntdSpace(
         fac.AntdInput(variant='filled', placeholder='variant="filled"'),
         fac.AntdInput(
             variant='borderless', placeholder='variant="borderless"'
+        ),
+        fac.AntdInput(
+            variant='underlined', placeholder='variant="underlined"'
         ),
     ],
     direction='vertical',
