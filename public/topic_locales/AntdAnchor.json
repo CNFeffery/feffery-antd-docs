@@ -7,6 +7,12 @@
         },
         "最基础的锚点。": {
             "en-us": "The basic anchor."
+        },
+        "水平锚点": {
+            "en-us": "Horizontal anchor"
+        },
+        "设置参数`direction='horizontal'`启用水平方向锚点，注意此模式下锚点不支持嵌套。": {
+            "en-us": "Set the parameter `direction='horizontal'` to enable horizontal anchor, note that this mode does not support nested anchors."
         }
     }
 }
