@@ -18,6 +18,10 @@ def render() -> Component:
             fac.AntdOTP(variant='borderless'),
             fac.AntdDivider('variant="filled"', innerTextOrientation='left'),
             fac.AntdOTP(variant='filled'),
+            fac.AntdDivider(
+                'variant="underlined"', innerTextOrientation='left'
+            ),
+            fac.AntdOTP(variant='underlined'),
         ],
         direction='vertical',
         style={'width': '100%'},
@@ -41,6 +45,10 @@ fac.AntdSpace(
         fac.AntdOTP(variant='borderless'),
         fac.AntdDivider('variant="filled"', innerTextOrientation='left'),
         fac.AntdOTP(variant='filled'),
+        fac.AntdDivider(
+            'variant="underlined"', innerTextOrientation='left'
+        ),
+        fac.AntdOTP(variant='underlined'),
     ],
     direction='vertical',
     style={'width': '100%'},
