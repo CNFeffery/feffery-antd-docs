@@ -9,9 +9,6 @@ import feffery_antd_components as fac
 import feffery_utils_components as fuc
 from dash.dependencies import Input, Output, State, MATCH, ClientsideFunction
 
-# 导入Dash Hooks
-from dash_console_filter_plugin import setup_console_filter_plugin
-
 import views
 from server import app, server  # noqa: F401
 from components import page_header, side_menu, changelog_render
@@ -25,9 +22,6 @@ import views.version_migration_guide
 
 # 国际化
 from i18n import translator
-
-# 启用相关Dash Hooks
-setup_console_filter_plugin(keywords=['Warning:'])
 
 # 记录应用最近启动时间
 boot_datetime = datetime.now().strftime('%Y-%m-%d')
@@ -544,4 +538,4 @@ app.clientside_callback(
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
