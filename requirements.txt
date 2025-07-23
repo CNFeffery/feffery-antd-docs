@@ -9,3 +9,5 @@ numpy
 palettable==3.3.3
 pandas
 peewee
+dash_change_cdn_plugin==0.1.1
+dash_console_filter_plugin==0.1.1

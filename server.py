@@ -8,8 +8,11 @@ from dash_console_filter_plugin import setup_console_filter_plugin
 from config import AppConfig
 from utils.api_descriptions import get_components_docs
 
-# 启用相关Dash Hooks
+# 启用相关Dash Hooks插件
+
+# 更换默认CDN到npmmirror
 setup_change_cdn_plugin()
+# 屏蔽浏览器控制台无关报错信息
 setup_console_filter_plugin(keywords=['Warning:'])
 
 
