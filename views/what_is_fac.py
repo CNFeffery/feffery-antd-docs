@@ -805,11 +805,10 @@ def render() -> Component:
                                 html.Div(
                                     fac.AntdImage(
                                         src=app.get_asset_url(
-                                            'imgs/index/玩转dash公众号.jpg'
+                                            'imgs/index/玩转dash公众号.png'
                                         ),
                                         style={
                                             'height': '300px',
-                                            'width': '300px',
                                             'boxShadow': '0 6px 16px rgb(107 147 224 / 14%)',
                                             'borderRadius': '5px',
                                         },
