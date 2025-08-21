@@ -21,6 +21,7 @@ from . import (
     mini_progress_percent_position,  # noqa: F401
     mini_progress_percent_precision,  # noqa: F401
     mini_progress_round,  # noqa: F401
+    mini_progress_size,  # noqa: F401
     mini_ring_progress_mode,  # noqa: F401
     button_mode_and_callbacks,  # noqa: F401
     button_mode_color,  # noqa: F401
@@ -138,6 +139,12 @@ demos_config = [
         'path': 'mini_progress_round',
         'title': '圆角矩形风格',
         'description': '基于配置项`progressStrokeLinecap`控制进度条风格。',
+        'group': 'mini-progress迷你进度图模式',
+    },
+    {
+        'path': 'mini_progress_size',
+        'title': '控制进度条尺寸',
+        'description': '基于配置项`progressSize`控制进度条像素尺寸。',
         'group': 'mini-progress迷你进度图模式',
     },
     {
