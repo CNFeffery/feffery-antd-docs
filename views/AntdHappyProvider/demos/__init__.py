@@ -3,6 +3,7 @@ from dash.dependencies import Component
 
 from . import (
     basic_usage,  # noqa: F401
+    other_effects,  # noqa: F401
 )
 from components import demos_render
 
@@ -18,6 +19,13 @@ def demos_config() -> list:
             'title': t('基础使用'),
             'description': t(
                 '快乐工作特效组件内部的所有`AntdButton`组件，在点击时会附带额外的特效。'
+            ),
+        },
+        {
+            'path': 'other_effects',
+            'title': t('其他效果'),
+            'description': t(
+                '快乐工作特效组件内部其他类型基础组件的交互效果。'
             ),
         },
     ]

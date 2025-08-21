@@ -7,6 +7,12 @@
         },
         "快乐工作特效组件内部的所有`AntdButton`组件，在点击时会附带额外的特效。": {
             "en-us": "All `AntdButton` components inside the `AntdHappyProvider` component will have extra effects when clicked."
+        },
+        "其他效果": {
+            "en-us": "Other effects"
+        },
+        "快乐工作特效组件内部其他类型基础组件的交互效果。": {
+            "en-us": "Interactive effects of other types of basic components inside the `AntdHappyProvider` component."
         }
     }
 }
