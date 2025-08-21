@@ -34,14 +34,8 @@
         "English / 中文": {
             "en-us": "中文 / English"
         },
-        "0.3.x版本新增组件": {
-            "en-us": "0.3.x version added components"
-        },
         "特殊参数说明": {
             "en-us": "Special parameter description"
-        },
-        "实验性质组件": {
-            "en-us": "Experimental components"
         },
         "快速入门": {
             "en-us": "Quick start"
