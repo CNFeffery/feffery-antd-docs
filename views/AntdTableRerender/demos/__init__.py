@@ -19,6 +19,7 @@ from . import (
     mini_progress_mode,  # noqa: F401
     mini_progress_show_percent,  # noqa: F401
     mini_progress_percent_position,  # noqa: F401
+    mini_progress_percent_precision,  # noqa: F401
     mini_ring_progress_mode,  # noqa: F401
     button_mode_and_callbacks,  # noqa: F401
     button_mode_color,  # noqa: F401
@@ -124,6 +125,12 @@ demos_config = [
         'path': 'mini_progress_percent_position',
         'title': '调整进度数值位置',
         'description': '基于配置项`progressPercentPosition`调整进度数值位置。',
+        'group': 'mini-progress迷你进度图模式',
+    },
+    {
+        'path': 'mini_progress_percent_precision',
+        'title': '控制进度数值小数位数',
+        'description': '基于配置项`progressPercentPrecision`控制进度数值小数位数。',
         'group': 'mini-progress迷你进度图模式',
     },
     {
