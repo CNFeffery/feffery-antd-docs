@@ -21,6 +21,7 @@ from . import (
     button_mode_and_callbacks,  # noqa: F401
     button_mode_color,  # noqa: F401
     button_mode_independent_add_popconfirm,  # noqa: F401
+    button_mode_independent_add_tooltip,  # noqa: F401
     checkbox_mode_and_callbacks,  # noqa: F401
     switch_mode_and_callbacks,  # noqa: F401
     dropdown_mode_and_callbacks,  # noqa: F401
@@ -131,6 +132,12 @@ demos_config = [
         'path': 'button_mode_independent_add_popconfirm',
         'title': '独立控制按钮是否添加气泡确认框',
         'description': '同一单元格中的每个按钮都可以单独控制是否添加气泡确认框。',
+        'group': 'button按钮模式',
+    },
+    {
+        'path': 'button_mode_independent_add_tooltip',
+        'title': '独立控制按钮是否添加文字提示框',
+        'description': '同一单元格中的每个按钮都可以单独控制是否添加文字提示框。',
         'group': 'button按钮模式',
     },
     {
