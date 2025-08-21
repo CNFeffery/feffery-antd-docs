@@ -1504,6 +1504,7 @@ class AppConfig:
                             }
                             for version in [
                                 '0.4.0',
+                                '0.4.2',
                             ]
                         ],
                     },
