@@ -17,6 +17,7 @@ from . import (
     mini_bar_mode,  # noqa: F401
     mini_area_mode,  # noqa: F401
     mini_progress_mode,  # noqa: F401
+    mini_progress_show_percent,  # noqa: F401
     mini_ring_progress_mode,  # noqa: F401
     button_mode_and_callbacks,  # noqa: F401
     button_mode_color,  # noqa: F401
@@ -108,8 +109,15 @@ demos_config = [
     },
     {
         'path': 'mini_progress_mode',
-        'title': 'mini-progress迷你进度图模式',
+        'title': '迷你进度图模式基础使用',
         'description': '将单元格内容快捷渲染为迷你进度图形式。',
+        'group': 'mini-progress迷你进度图模式',
+    },
+    {
+        'path': 'mini_progress_show_percent',
+        'title': '显示进度数值',
+        'description': '基于配置项`progressShowPercent`控制是否显示进度数值。',
+        'group': 'mini-progress迷你进度图模式',
     },
     {
         'path': 'mini_ring_progress_mode',
