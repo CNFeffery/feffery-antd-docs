@@ -161,6 +161,9 @@
         ],
         "AntdSplitter": [
             "insistence"
+        ],
+        "AntdHappyProvider": [
+            "insistence"
         ]
     }
 }

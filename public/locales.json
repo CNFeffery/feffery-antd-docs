@@ -433,6 +433,9 @@
         "AntdConfigProvider 参数配置": {
             "en-us": "AntdConfigProvider"
         },
+        "AntdHappyProvider 快乐工作特效": {
+            "en-us": "AntdHappyProvider"
+        },
         "Fragment 空节点": {
             "en-us": "Fragment"
         },
@@ -708,6 +711,9 @@
         },
         "对指定区域进行切分，并添加交互性的尺寸调整。": {
             "en-us": "Divide the specified area and add interactive size adjustment to it."
+        },
+        "为内部组件添加有趣的额外交互特效。": {
+            "en-us": "Add interesting interactive effects to internal components."
         }
     }
 }

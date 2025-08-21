@@ -1379,6 +1379,17 @@ class AppConfig:
                             {
                                 'component': 'Item',
                                 'props': {
+                                    'key': '/AntdHappyProvider',
+                                    'name': '/AntdHappyProvider',
+                                    'title': translator.t(
+                                        'AntdHappyProvider 快乐工作特效'
+                                    ),
+                                    'href': '/AntdHappyProvider',
+                                },
+                            },
+                            {
+                                'component': 'Item',
+                                'props': {
                                     'key': '/Fragment',
                                     'name': '/Fragment',
                                     'title': translator.t('Fragment 空节点'),
@@ -1657,6 +1668,7 @@ class AppConfig:
         '/AntdTour': ['其他'],
         '/AntdWatermark': ['其他'],
         '/AntdConfigProvider': ['其他'],
+        '/AntdHappyProvider': ['其他'],
         '/Fragment': ['其他'],
         '/AntdDraggablePanel': ['复杂交互'],
         '/AntdEditorLayout': ['复杂交互'],

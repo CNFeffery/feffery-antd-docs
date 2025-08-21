@@ -1,0 +1,12 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdHappyProvider",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "快乐工作特效组件内部的所有`AntdButton`组件，在点击时会附带额外的特效。": {
+            "en-us": "All `AntdButton` components inside the `AntdHappyProvider` component will have extra effects when clicked."
+        }
+    }
+}
