@@ -10,6 +10,7 @@ from . import (
     loading,  # noqa: F401
     confirm_loading,  # noqa: F401
     basic_callbacks,  # noqa: F401
+    prevent_close,  # noqa: F401
 )
 from components import demos_render
 
@@ -58,6 +59,11 @@ demos_config = [
         'path': 'basic_callbacks',
         'title': '回调监听',
         'description': '通过回调函数监听对话框常用事件。',
+    },
+    {
+        'path': 'prevent_close',
+        'title': '阻止默认关闭行为',
+        'description': '设置参数`preventClose=True`后，对话框将不会被用户手动操作关闭，可基于此实现模态框关闭二次确认。',
     },
 ]
 
