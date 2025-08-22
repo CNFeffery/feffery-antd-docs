@@ -49,7 +49,7 @@ fac.AntdTable(
             'dataIndex': 'mini-progress示例1',
             'renderOptions': {
                 'renderType': 'mini-progress',
-                'progressSize': 24,
+                'progressColor': '#f08c00',
             },
         },
         {
@@ -57,9 +57,10 @@ fac.AntdTable(
             'dataIndex': 'mini-progress示例2',
             'renderOptions': {
                 'renderType': 'mini-progress',
-                'progressShowPercent': True,
-                'progressStrokeLinecap': 'round',
-                'progressSize': 24,
+                'progressColor': {
+                    'from': '#4c83ff',
+                    'to': '#2afadf',
+                },
             },
         },
     ],
