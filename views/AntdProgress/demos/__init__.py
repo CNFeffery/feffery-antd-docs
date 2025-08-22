@@ -3,6 +3,7 @@ from dash.dependencies import Component
 from . import (
     basic_usage,  # noqa: F401
     mini,  # noqa: F401
+    mini_circle,  # noqa: F401
     finish_style,  # noqa: F401
     force_status,  # noqa: F401
     dashboard_gap,  # noqa: F401
@@ -21,6 +22,16 @@ demos_config = [
         'description': '基础的进度条使用。',
     },
     {
+        'path': 'mini',
+        'title': '迷你尺寸进度条',
+        'description': '针对**line**型进度条可设置迷你尺寸规格。',
+    },
+    {
+        'path': 'mini_circle',
+        'title': '迷你尺寸进度圈',
+        'description': '针对**circle**型进度条，当尺寸宽度小于`20`时将自动显示为迷你进度圈形式。',
+    },
+    {
         'path': 'finish_style',
         'title': '100%状态样式',
         'description': '设置进度条100%状态的样式。',
@@ -29,11 +40,6 @@ demos_config = [
         'path': 'force_status',
         'title': '强制状态类型',
         'description': '强制设置进度条为不同状态的样式。',
-    },
-    {
-        'path': 'mini',
-        'title': '迷你尺寸进度条',
-        'description': '针对**line**型进度条可设置迷你尺寸规格。',
     },
     {
         'path': 'custom_percent_content',
