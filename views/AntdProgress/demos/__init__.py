@@ -12,6 +12,7 @@ from . import (
     gradient_color,  # noqa: F401
     multi_step,  # noqa: F401
     remaining_color,  # noqa: F401
+    percent_position,  # noqa: F401
 )
 from components import demos_render
 
@@ -70,6 +71,11 @@ demos_config = [
         'path': 'step_line',
         'title': '分段line型进度条',
         'description': '可设置分段型进度条，并通过[fuc.FefferyStyle](https://fuc.feffery.tech/FefferyStyle)组件来自定义分段宽度。',
+    },
+    {
+        'path': 'percent_position',
+        'title': '控制进度数值位置',
+        'description': '针对**line**型进度条，基于参数`percentPosition`可控制进度数值的位置。',
     },
 ]
 
