@@ -714,6 +714,9 @@
         },
         "为内部组件添加有趣的额外交互特效。": {
             "en-us": "Add interesting interactive effects to internal components."
+        },
+        "表格组件主要基础功能示例。": {
+            "en-us": "Basic usage examples of table component."
         }
     }
 }
