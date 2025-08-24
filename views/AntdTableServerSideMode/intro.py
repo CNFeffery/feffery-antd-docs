@@ -26,17 +26,17 @@ def render() -> Component:
             fac.AntdParagraph(
                 [
                     translator.t("本页文档展示了"),
-                    fac.AntdText("AntdTable", strong=True),
+                    fac.AntdText(" AntdTable ", strong=True),
                     translator.t(
                         "组件基于服务端数据加载模式，对大量数据的展示需求进行性能优化，本质上是在设置参数"
                     ),
                     fac.AntdText('mode="server-side"', code=True),
                     translator.t("后，通过监听"),
-                    fac.AntdText("AntdTable", strong=True),
+                    fac.AntdText(" AntdTable ", strong=True),
                     translator.t(
                         "中翻页、排序、筛选等常见交互行为对应的监听参数变化，进而通过回调函数传递到后端进行对应数据帧的生成，并传回"
                     ),
-                    fac.AntdText("AntdTable", strong=True),
+                    fac.AntdText(" AntdTable ", strong=True),
                     translator.t(
                         "中进行展示，相当于任意时刻下，表格中实际加载的数据只有用户所看到的当页数据"
                     ),
@@ -47,11 +47,11 @@ def render() -> Component:
                 [
                     fac.AntdText(translator.t("注意"), strong=True),
                     translator.t("，本页文档后续所有与"),
-                    fac.AntdText("demo_df", code=True),
+                    fac.AntdText(" demo_df ", code=True),
                     translator.t("有关的示例中，"),
-                    fac.AntdText("demo_df", code=True),
+                    fac.AntdText(" demo_df ", code=True),
                     translator.t("均为同一个"),
-                    fac.AntdText("pandas", strong=True),
+                    fac.AntdText(" pandas ", strong=True),
                     translator.t("数据框，由下列代码生成："),
                 ],
                 style={"textIndent": "2rem", "marginBottom": 0},
