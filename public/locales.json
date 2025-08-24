@@ -720,6 +720,9 @@
         },
         "表格组件主要进阶功能示例。": {
             "en-us": "Advanced usage examples of table component."
+        },
+        "表格组件中使用不同的再渲染模式。": {
+            "en-us": "Use different re-rendering modes in the table component."
         }
     }
 }
