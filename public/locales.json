@@ -717,6 +717,9 @@
         },
         "表格组件主要基础功能示例。": {
             "en-us": "Basic usage examples of table component."
+        },
+        "表格组件主要进阶功能示例。": {
+            "en-us": "Advanced usage examples of table component."
         }
     }
 }
