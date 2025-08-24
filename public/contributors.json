@@ -23,6 +23,10 @@
         "shenjinwei": {
             "url": "https://github.com/shenjinwei",
             "avatar": "https://avatars.githubusercontent.com/u/128457732?s=40&v=4"
+        },
+        "GhaziXX": {
+            "url": "https://github.com/GhaziXX",
+            "avatar": "https://avatars.githubusercontent.com/u/24620184?v=4"
         }
     },
     "components": {
@@ -164,6 +168,18 @@
         ],
         "AntdHappyProvider": [
             "insistence"
+        ],
+        "AntdTableBasic": [
+            "GhaziXX"
+        ],
+        "AntdTableAdvanced": [
+            "GhaziXX"
+        ],
+        "AntdTableRerender": [
+            "GhaziXX"
+        ],
+        "AntdTableServerSideMode": [
+            "GhaziXX"
         ]
     }
 }

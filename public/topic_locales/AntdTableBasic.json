@@ -1,0 +1,132 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdTableBasic",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic Usage"
+        },
+        "基础数据表格。": {
+            "en-us": "Basic data table."
+        },
+        "百分比列宽": {
+            "en-us": "Percentage Column Width"
+        },
+        "使用百分比形式控制列宽。": {
+            "en-us": "Control column width using percentages."
+        },
+        "数值型列宽": {
+            "en-us": "Numeric Column Width"
+        },
+        "默认情况下，为各字段设置数值型列宽后，会自动计算转换为比例，作为各个字段的百分比列宽。": {
+            "en-us": "By default, after setting numeric column widths for fields, they are automatically converted to proportions as percentage column widths."
+        },
+        "列宽控制": {
+            "en-us": "Column Width Control"
+        },
+        "css控制列宽": {
+            "en-us": "CSS Controlled Column Width"
+        },
+        "基于**CSS**实现更为灵活的列宽控制。": {
+            "en-us": "Implement more flexible column width control using **CSS**."
+        },
+        "maxHeight的使用": {
+            "en-us": "Usage of maxHeight"
+        },
+        "设置参数`maxHeight`后，当表格实际像素高度超出`maxHeight`所设定值时，会自动渲染垂直滚动条。": {
+            "en-us": "After setting maxHeight, if the actual table height exceeds maxHeight, a vertical scrollbar is rendered automatically."
+        },
+        "scrollToFirstRowOnChange的使用": {
+            "en-us": "Usage of scrollToFirstRowOnChange"
+        },
+        "设置参数`scrollToFirstRowOnChange=False`后，翻页等操作后表格将不会自动滚回当页第一行。": {
+            "en-us": "After setting scrollToFirstRowOnChange=False, pagination and other operations will not automatically scroll back to the first row."
+        },
+        "maxWidth的使用": {
+            "en-us": "Usage of maxWidth"
+        },
+        "设置参数`maxWidth`后，当表格实际像素宽度超出`maxWidth`所设定值时，会自动渲染水平滚动条。": {
+            "en-us": "After setting maxWidth, if the actual table width exceeds maxWidth, a horizontal scrollbar is rendered automatically."
+        },
+        "冻结部分列": {
+            "en-us": "Freeze Some Columns"
+        },
+        "在参数`columns`中控制字段的`fixed`以实现冻结部分列的功能。": {
+            "en-us": "Control the 'fixed' property in columns to freeze some columns."
+        },
+        "添加边框线": {
+            "en-us": "Add Border Lines"
+        },
+        "设置参数`bordered=True`为表格添加边框线。": {
+            "en-us": "Set bordered=True to add border lines to the table."
+        },
+        "字段内容对齐方式": {
+            "en-us": "Alignment of Column Content"
+        },
+        "在参数`columns`中控制字段的`align`以控制字段内容对齐方式。": {
+            "en-us": "Control the 'align' property in columns to set the alignment of column content."
+        },
+        "字段标题对齐方式": {
+            "en-us": "Alignment of Column Header"
+        },
+        "在参数`columns`中控制字段的`headerAlign`以控制字段标题对齐方式。": {
+            "en-us": "Control the 'headerAlign' property in columns to set the alignment of column headers."
+        },
+        "可编辑单元格": {
+            "en-us": "Editable Cells"
+        },
+        "在参数`columns`中控制字段的`editable`以开启字段单元格可编辑功能。": {
+            "en-us": "Control the 'editable' property in columns to enable editable cells."
+        },
+        "可编辑": {
+            "en-us": "Editable"
+        },
+        "禁用部分单元格不可编辑": {
+            "en-us": "Disable Editing for Some Cells"
+        },
+        "为各数据记录行妥善设置唯一识别`key`后，可禁用部分单元格不可编辑。": {
+            "en-us": "After properly setting a unique key for each row, some cells can be disabled from being edited."
+        },
+        "嵌套可编辑单元格": {
+            "en-us": "Nested Editable Cells"
+        },
+        "为各数据记录行妥善设置唯一识别`key`后，嵌套数据结构下同样支持字段单元格可编辑功能。": {
+            "en-us": "After properly setting a unique key for each row, nested data structures also support editable cells."
+        },
+        "监听单元格编辑事件": {
+            "en-us": "Listen to Cell Edit Events"
+        },
+        "在回调函数中监听属性`recentlyChangedRow`、`recentlyChangedColumn`获知最近一次单元格编辑事件相关信息。": {
+            "en-us": "Listen to the properties 'recentlyChangedRow' and 'recentlyChangedColumn' in callback functions to know details about the latest cell edit event."
+        },
+        "表格尺寸规格": {
+            "en-us": "Table Size Specifications"
+        },
+        "设置参数`size`控制表格尺寸规格。": {
+            "en-us": "Set the 'size' property to control table size specifications."
+        },
+        "多层表头": {
+            "en-us": "Multi-level Header"
+        },
+        "在参数`columns`中控制字段的`group`以渲染具有相应多层表头的表格。": {
+            "en-us": "Control the 'group' property in columns to render a table with multi-level headers."
+        },
+        "自带的加载中效果": {
+            "en-us": "Built-in Loading Effect"
+        },
+        "通过参数`loading`控制是否开启表格自带的加载中效果。": {
+            "en-us": "Use the 'loading' property to enable the built-in loading effect."
+        },
+        "自定义行样式": {
+            "en-us": "Custom Row Style"
+        },
+        "通过参数`rowClassName`添加额外行样式。": {
+            "en-us": "Add extra row styles using the 'rowClassName' property."
+        },
+        "动态控制自定义行样式": {
+            "en-us": "Dynamically Control Custom Row Style"
+        },
+        "参数`rowClassName`支持基于动态`javascript`函数的行自定义css类控制。": {
+            "en-us": "The 'rowClassName' property supports dynamic JavaScript functions for custom CSS class control."
+        }
+    }
+}

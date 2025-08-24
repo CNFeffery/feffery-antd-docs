@@ -1,0 +1,258 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdTableAdvanced",
+    "contents": {
+        "单选模式": {
+            "en-us": "Single Selection Mode"
+        },
+        "单选型行选择功能。": {
+            "en-us": "Single-selection row selection feature."
+        },
+        "行选择": {
+            "en-us": "Row Selection"
+        },
+        "多选模式": {
+            "en-us": "Multiple Selection Mode"
+        },
+        "多选型行选择功能。": {
+            "en-us": "Multiple-selection row selection feature."
+        },
+        "回调监听": {
+            "en-us": "Callback Listener"
+        },
+        "在回调函数中监听行选择相关事件。": {
+            "en-us": "Listen to row selection–related events in callback functions."
+        },
+        "同步数据变化": {
+            "en-us": "Sync Data Changes"
+        },
+        "设置参数`selectedRowsSyncWithData=True`后，针对表格数据源的更新会根据当前的`selectedRowKeys`状态，对`selectedRows`信息进行同步刷新（使用此项功能时请确保原始输入数据源各行记录手动设置了键值对key）。": {
+            "en-us": "After setting `selectedRowsSyncWithData=True`, updates to the table’s data source will synchronize `selectedRows` based on the current `selectedRowKeys`. (When using this feature, ensure each original row has a unique `key`.)"
+        },
+        "粘性表头": {
+            "en-us": "Sticky Header"
+        },
+        "设置参数`sticky=True`后，针对高度超过视口高度的表格，将在浏览表格时自动进行恰当的表头吸顶。": {
+            "en-us": "When `sticky=True` is set, tables taller than the viewport will automatically keep the header affixed while scrolling."
+        },
+        "字段标题添加额外信息": {
+            "en-us": "Field Title Extra Information"
+        },
+        "通过参数`titlePopoverInfo`为对应字段快捷添加额外说明信息。": {
+            "en-us": "Quickly add extra explanatory information for a field using `titlePopoverInfo`."
+        },
+        "编辑模式格式校验": {
+            "en-us": "Edit Mode Format Validation"
+        },
+        "通过参数`columnsFormatConstraint`为对应字段配合单元格编辑模式下的内容校验正则表达式规则。": {
+            "en-us": "Use `columnsFormatConstraint` to apply regex validation rules for fields in cell edit mode."
+        },
+        "文本域编辑模式": {
+            "en-us": "Text Area Edit Mode"
+        },
+        "文本域编辑模式下，`enter`键的按下将不会退出当前输入框，而是会进行换行。": {
+            "en-us": "In text area edit mode, pressing `enter` does not exit the input but inserts a newline."
+        },
+        "单字段": {
+            "en-us": "Single Field"
+        },
+        "基于单个字段进行排序。": {
+            "en-us": "Sort based on a single field."
+        },
+        "多字段组合": {
+            "en-us": "Combination of Multiple Fields"
+        },
+        "基于多个字段的固定顺序进行组合排序。": {
+            "en-us": "Sort based on a fixed-order combination of multiple fields."
+        },
+        "多字段动态组合": {
+            "en-us": "Dynamic Combination of Multiple Fields"
+        },
+        "设置参数'multiple': 'auto'后，多字段组合排序的字段优先级顺序将动态遵循用户的排序点击顺序。": {
+            "en-us": "After setting `'multiple': 'auto'`, the priority order for multi-field combination sorting dynamically follows the user’s click sequence."
+        },
+        "额外信息提示": {
+            "en-us": "Extra Information Tooltip"
+        },
+        "通过参数`showSorterTooltip`、`showSorterTooltipTarget`控制可排序字段表头的额外信息提示。": {
+            "en-us": "Control extra information tooltips for sortable column headers using `showSorterTooltip` and `showSorterTooltipTarget`."
+        },
+        "通过回调函数监听排序事件。": {
+            "en-us": "Listen to sorting events via callback functions."
+        },
+        "字段排序": {
+            "en-us": "Field Sorting"
+        },
+        "勾选模式": {
+            "en-us": "Checkbox Mode"
+        },
+        "通过勾选选项进行字段筛选。": {
+            "en-us": "Filter fields by selecting checkboxes."
+        },
+        "默认选中项": {
+            "en-us": "Default Selected Items"
+        },
+        "为字段筛选功能设置默认选中项。": {
+            "en-us": "Set default selected options for field filtering."
+        },
+        "搜索模式": {
+            "en-us": "Search Mode"
+        },
+        "通过关键词搜索进行字段筛选。": {
+            "en-us": "Filter fields by searching with keywords."
+        },
+        "字段筛选": {
+            "en-us": "Field Filtering"
+        },
+        "控件位置": {
+            "en-us": "Control Position"
+        },
+        "分页控件的不同显示位置。": {
+            "en-us": "Different display positions for pagination controls."
+        },
+        "每页记录数": {
+            "en-us": "Records per Page"
+        },
+        "控制每页显示的最大记录数量。": {
+            "en-us": "Control the maximum number of records displayed per page."
+        },
+        "允许用户调整每页记录数": {
+            "en-us": "Allow User to Adjust Records per Page"
+        },
+        "渲染控件供用户调整每页显示的最大记录数量。": {
+            "en-us": "Render controls to allow users to adjust the maximum records per page."
+        },
+        "开启快捷跳页功能": {
+            "en-us": "Enable Quick Page Jump"
+        },
+        "渲染控件供用户输入页码进行快捷跳页。": {
+            "en-us": "Render controls for quick page jumping by entering a page number."
+        },
+        "显示较少的跳页按钮": {
+            "en-us": "Show Fewer Page Jump Buttons"
+        },
+        "优先显示数量更少的跳页按钮。": {
+            "en-us": "Display fewer page jump buttons."
+        },
+        "单页自动隐藏控件": {
+            "en-us": "Auto Hide Controls on Single Page"
+        },
+        "单页数据时自动隐藏分页相关控件。": {
+            "en-us": "Automatically hide pagination controls when there is only one page."
+        },
+        "简洁模式": {
+            "en-us": "Simple Mode"
+        },
+        "渲染简洁风格的分页控件。": {
+            "en-us": "Render pagination controls in a simple style."
+        },
+        "禁用状态": {
+            "en-us": "Disabled State"
+        },
+        "以禁用状态显示分页控件。": {
+            "en-us": "Display pagination controls in a disabled state."
+        },
+        "关闭分页功能": {
+            "en-us": "Disable Pagination"
+        },
+        "设置参数`pagination=False`关闭分页功能。": {
+            "en-us": "Disable pagination by setting `pagination=False`."
+        },
+        "分页": {
+            "en-us": "Pagination"
+        },
+        "基础使用": {
+            "en-us": "Basic Usage"
+        },
+        "在表格底部渲染总结栏。": {
+            "en-us": "Render a summary bar at the bottom of the table."
+        },
+        "固定在底部": {
+            "en-us": "Fixed at Bottom"
+        },
+        "将总结栏固定在表格底部。": {
+            "en-us": "Fix the summary bar at the bottom of the table."
+        },
+        "固定在顶部": {
+            "en-us": "Fixed at Top"
+        },
+        "将总结栏固定在表格顶部。": {
+            "en-us": "Fix the summary bar at the top of the table."
+        },
+        "多行": {
+            "en-us": "Multiple Rows"
+        },
+        "配置多行总结栏。": {
+            "en-us": "Configure a multi-row summary bar."
+        },
+        "空列占位": {
+            "en-us": "Empty Column Placeholder"
+        },
+        "通过参数`summaryRowBlankColumns`为总结行设置前缀占位空列数量，适用于行选择功能开启等场景。": {
+            "en-us": "Use `summaryRowBlankColumns` to set leading empty columns for the summary row; useful when row selection is enabled."
+        },
+        "配合多层表头": {
+            "en-us": "Use with Multi-level Header"
+        },
+        "配合多层表头使用总结栏。": {
+            "en-us": "Use the summary bar with multi-level headers."
+        },
+        "总结栏": {
+            "en-us": "Summary Bar"
+        },
+        "单元格条件样式": {
+            "en-us": "Conditional Cell Style"
+        },
+        "通过参数`conditionalStyleFuncs`对指定字段进行单元格条件样式渲染规则控制。": {
+            "en-us": "Apply conditional cell style rules for specific fields using `conditionalStyleFuncs`."
+        },
+        "通过参数`expandedRowKeyToContent`为指定行渲染行展开内容。": {
+            "en-us": "Render row expansion content for specified rows via `expandedRowKeyToContent`."
+        },
+        "初始化展开行": {
+            "en-us": "Initialize Expanded Rows"
+        },
+        "通过参数`defaultExpandedRowKeys`控制初始化需要处于展开状态的行展开内容。": {
+            "en-us": "Control which rows are expanded by default using `defaultExpandedRowKeys`."
+        },
+        "点击整行触发展开": {
+            "en-us": "Expand on Row Click"
+        },
+        "设置参数`expandRowByClick=True`后，点击整行即可触发行展开。": {
+            "en-us": "When `expandRowByClick=True` is set, clicking the entire row will trigger expansion."
+        },
+        "行展开": {
+            "en-us": "Row Expansion"
+        },
+        "监听单元格点击事件": {
+            "en-us": "Listen to Cell Click Events"
+        },
+        "通过参数`enableCellClickListenColumns`设置需要启用单元格点击事件监听的字段。": {
+            "en-us": "Enable cell click event listening for specific fields using `enableCellClickListenColumns`."
+        },
+        "监听鼠标移入事件": {
+            "en-us": "Listen to Mouse Enter Events"
+        },
+        "设置参数`enableHoverListen=True`后开启表格内部鼠标移入事件监听。": {
+            "en-us": "Enable mouse enter event listening within the table by setting `enableHoverListen=True`."
+        },
+        "自定义空内容": {
+            "en-us": "Custom Empty Content"
+        },
+        "设置参数`emptyContent`自定义空数据提示内容。": {
+            "en-us": "Customize the empty data prompt using `emptyContent`."
+        },
+        "局部容器内悬浮层显示矫正": {
+            "en-us": "Adjust Floating Layer Display in Local Containers"
+        },
+        "与表格部分功能有关的悬浮层控件，譬如字段筛选对应的下拉菜单等，默认是以页面根节点为滚动事件参考容器，因此当表格置于局部容器内时，已展开的悬浮层控件会不跟随局部容器滑轮滚动事件移动，这种情况下可以设置参数`containerId='局部容器id'`来进行优化。": {
+            "en-us": "Floating layer controls related to table features (e.g., dropdown menus for field filtering) use the page root as the default scroll container. When the table is inside a local container, opened floating layers won’t follow the local scroll. In this case, set `containerId='localContainerId'` to correct the positioning."
+        },
+        "行数据嵌套": {
+            "en-us": "Nested Row Data"
+        },
+        "在定义参数`data`时可通过键值对属性`children`向下嵌套展示行记录。": {
+            "en-us": "Display nested row records using the `children` property when defining `data`."
+        }
+    }
+}
