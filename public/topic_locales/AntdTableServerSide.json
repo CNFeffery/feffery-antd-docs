@@ -37,6 +37,12 @@
         },
         "此例展示了在服务端数据加载模式下，针对数据库表格，联动表格翻页+字段筛选相关事件实现远程数据加载。": {
             "en-us": "In server-side data loading mode, for a database table, perform remote data loading in response to pagination plus field filtering events."
+        },
+        "数据库示例": {
+            "en-us": "Database Examples"
+        },
+        "pandas示例": {
+            "en-us": "Pandas Examples"
         }
     }
 }
