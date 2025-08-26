@@ -128,19 +128,19 @@ def demos_config() -> list:
             "path": "mini_progress_mode",
             "title": t("迷你进度图模式基础使用"),
             "description": t("将单元格内容快捷渲染为迷你进度图形式。"),
-            "group": "mini-progress迷你进度图模式",
+            "group": t("mini-progress迷你进度图模式"),
         },
         {
             "path": "mini_progress_show_percent",
             "title": t("显示进度数值"),
             "description": t("基于配置项`progressShowPercent`控制是否显示进度数值。"),
-            "group": "mini-progress迷你进度图模式",
+            "group": t("mini-progress迷你进度图模式"),
         },
         {
             "path": "mini_progress_percent_position",
             "title": t("调整进度数值位置"),
             "description": t("基于配置项`progressPercentPosition`调整进度数值位置。"),
-            "group": "mini-progress迷你进度图模式",
+            "group": t("mini-progress迷你进度图模式"),
         },
         {
             "path": "mini_progress_percent_precision",
@@ -148,25 +148,25 @@ def demos_config() -> list:
             "description": t(
                 "基于配置项`progressPercentPrecision`控制进度数值小数位数。"
             ),
-            "group": "mini-progress迷你进度图模式",
+            "group": t("mini-progress迷你进度图模式"),
         },
         {
             "path": "mini_progress_round",
             "title": t("圆角矩形风格"),
             "description": t("基于配置项`progressStrokeLinecap`控制进度条风格。"),
-            "group": "mini-progress迷你进度图模式",
+            "group": t("mini-progress迷你进度图模式"),
         },
         {
             "path": "mini_progress_size",
             "title": t("控制进度条尺寸"),
             "description": t("基于配置项`progressSize`控制进度条像素尺寸。"),
-            "group": "mini-progress迷你进度图模式",
+            "group": t("mini-progress迷你进度图模式"),
         },
         {
             "path": "mini_progress_color",
             "title": t("控制进度条颜色"),
             "description": t("基于配置项`progressColor`控制进度条颜色，支持渐变色。"),
-            "group": "mini-progress迷你进度图模式",
+            "group": t("mini-progress迷你进度图模式"),
         },
         {
             "path": "mini_ring_progress_mode",
@@ -179,7 +179,7 @@ def demos_config() -> list:
             "description": t(
                 "将单元格内容快捷渲染为按钮形式，并通过回调监听相关事件。"
             ),
-            "group": "button按钮模式",
+            "group": t("button按钮模式"),
         },
         {
             "path": "button_mode_color",
@@ -187,7 +187,7 @@ def demos_config() -> list:
             "description": t(
                 "配合`color`与`variant`参数渲染具有不同颜色和形态的按钮。"
             ),
-            "group": "button按钮模式",
+            "group": t("button按钮模式"),
         },
         {
             "path": "button_mode_independent_add_popconfirm",
@@ -195,7 +195,7 @@ def demos_config() -> list:
             "description": t(
                 "同一单元格中的每个按钮都可以单独控制是否添加气泡确认框。"
             ),
-            "group": "button按钮模式",
+            "group": t("button按钮模式"),
         },
         {
             "path": "button_mode_independent_add_tooltip",
@@ -203,7 +203,7 @@ def demos_config() -> list:
             "description": t(
                 "同一单元格中的每个按钮都可以单独控制是否添加文字提示框。"
             ),
-            "group": "button按钮模式",
+            "group": t("button按钮模式"),
         },
         {
             "path": "checkbox_mode_and_callbacks",

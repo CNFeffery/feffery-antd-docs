@@ -140,6 +140,12 @@
         "将单元格内容快捷渲染为迷你环形进度图形式。": {
             "en-us": "Quickly render cell content as a mini ring progress chart."
         },
+        "button按钮模式": {
+            "en-us": "Button Mode"
+        },
+        "mini-progress迷你进度图模式": {
+            "en-us": "Mini Progress Mode"
+        },
         "button按钮模式及回调监听": {
             "en-us": "Button Mode & Callbacks"
         },
