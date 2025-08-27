@@ -1,0 +1,48 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdTableServerSide",
+    "contents": {
+        "翻页驱动": {
+            "en-us": "Pagination Driven"
+        },
+        "此例展示了在服务端数据加载模式下，针对**pandas**数据框，联动表格翻页相关事件实现远程数据加载。": {
+            "en-us": "In server-side data loading mode, for a **pandas** DataFrame, perform remote data loading in response to table pagination events."
+        },
+        "翻页+单字段排序驱动": {
+            "en-us": "Pagination + Single-Field Sort Driven"
+        },
+        "此例展示了在服务端数据加载模式下，针对**pandas**数据框，联动表格翻页+单字段排序相关事件实现远程数据加载。": {
+            "en-us": "In server-side data loading mode, for a **pandas** DataFrame, perform remote data loading in response to pagination plus single-field sort events."
+        },
+        "翻页+组合排序驱动": {
+            "en-us": "Pagination + Combined Sort Driven"
+        },
+        "此例展示了在服务端数据加载模式下，针对**pandas**多字段组合排序相关事件实现远程数据加载。": {
+            "en-us": "In server-side data loading mode, perform remote data loading in response to **pandas** multi-field combined sorting events."
+        },
+        "翻页+筛选驱动": {
+            "en-us": "Pagination + Filter Driven"
+        },
+        "此例展示了在服务端数据加载模式下，针对**pandas**数据框，联动表格翻页+字段筛选相关事件实现远程数据加载。": {
+            "en-us": "In server-side data loading mode, for a **pandas** DataFrame, perform remote data loading in response to pagination plus field filtering events."
+        },
+        "此例展示了在服务端数据加载模式下，针对数据库表格，联动表格翻页相关事件实现远程数据加载。": {
+            "en-us": "In server-side data loading mode, for a database table, perform remote data loading in response to pagination events."
+        },
+        "此例展示了在服务端数据加载模式下，针对数据库表格，联动表格翻页+单字段排序相关事件实现远程数据加载。": {
+            "en-us": "In server-side data loading mode, for a database table, perform remote data loading in response to pagination plus single-field sort events."
+        },
+        "此例展示了在服务端数据加载模式下，针对数据库表格，联动表格翻页+多字段组合排序相关事件实现远程数据加载。": {
+            "en-us": "In server-side data loading mode, for a database table, perform remote data loading in response to pagination plus multi-field combined sorting events."
+        },
+        "此例展示了在服务端数据加载模式下，针对数据库表格，联动表格翻页+字段筛选相关事件实现远程数据加载。": {
+            "en-us": "In server-side data loading mode, for a database table, perform remote data loading in response to pagination plus field filtering events."
+        },
+        "数据库示例": {
+            "en-us": "Database Examples"
+        },
+        "pandas示例": {
+            "en-us": "Pandas Examples"
+        }
+    }
+}
