@@ -17,7 +17,7 @@ def render() -> Component:
             ],
             style={'marginBottom': 8},
         ),
-        fac.AntdTitle('AntdTable 表格', level=2),
+        fac.AntdTitle(translator.t('AntdTable 表格'), level=2),
         *[
             fac.AntdParagraph(
                 translator.t('表格组件适用于大数据场景的服务端数据加载模式。')
