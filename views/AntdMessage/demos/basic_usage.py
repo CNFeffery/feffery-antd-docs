@@ -25,7 +25,9 @@ def render() -> Component:
     prevent_initial_call=True,
 )
 def message_basic_demo(nClicks):
-    return fac.AntdMessage(content='Hello, feffery-antd-components!', type='info')
+    return fac.AntdMessage(
+        content='Hello, feffery-antd-components!', type='info'
+    )
 
 
 code_string = [

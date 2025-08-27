@@ -9,24 +9,24 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
-        title = lambda i: f"字段{i}"
-        data_key = lambda i: f"字段{i}"
-        cell_value = "示例内容"
+    if current_locale == 'zh-cn':
+        title = lambda i: f'字段{i}'
+        data_key = lambda i: f'字段{i}'
+        cell_value = '示例内容'
         divider_label = lambda placement: f'位置="{placement}"'
     else:  # en-us fallback
-        title = lambda i: f"Field {i}"
-        data_key = lambda i: f"Field {i}"
-        cell_value = "Sample Content"
+        title = lambda i: f'Field {i}'
+        data_key = lambda i: f'Field {i}'
+        cell_value = 'Sample Content'
         divider_label = lambda placement: f'placement="{placement}"'
 
     placements = [
-        "topLeft",
-        "topCenter",
-        "topRight",
-        "bottomLeft",
-        "bottomCenter",
-        "bottomRight",
+        'topLeft',
+        'topCenter',
+        'topRight',
+        'bottomLeft',
+        'bottomCenter',
+        'bottomRight',
     ]
 
     demo_contents = fac.AntdSpace(
@@ -34,28 +34,28 @@ def render() -> Component:
             fac.AntdSpace(
                 [
                     fac.AntdDivider(
-                        divider_label(placement), innerTextOrientation="left"
+                        divider_label(placement), innerTextOrientation='left'
                     ),
                     fac.AntdTable(
                         columns=[
                             {
-                                "title": title(i),
-                                "dataIndex": data_key(i),
-                                "width": "20%",
+                                'title': title(i),
+                                'dataIndex': data_key(i),
+                                'width': '20%',
                             }
                             for i in range(1, 6)
                         ],
                         data=[{data_key(i): cell_value for i in range(1, 6)}],
-                        pagination={"position": placement},
+                        pagination={'position': placement},
                     ),
                 ],
-                direction="vertical",
-                style={"width": "100%"},
+                direction='vertical',
+                style={'width': '100%'},
             )
             for placement in placements
         ],
-        direction="vertical",
-        style={"width": "100%"},
+        direction='vertical',
+        style={'width': '100%'},
     )
 
     return demo_contents
@@ -66,10 +66,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         fac.AntdSpace(
@@ -101,7 +101,7 @@ fac.AntdSpace(
     else:  # en-us
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         fac.AntdSpace(

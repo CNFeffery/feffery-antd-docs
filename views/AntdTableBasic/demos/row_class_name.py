@@ -12,7 +12,7 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         demo_contents = [
             fuc.FefferyStyle(
                 rawStyle="""
@@ -24,25 +24,25 @@ def render() -> Component:
             ),
             fac.AntdTable(
                 columns=[
-                    {"title": "int型示例", "dataIndex": "int型示例"},
-                    {"title": "float型示例", "dataIndex": "float型示例"},
-                    {"title": "str型示例", "dataIndex": "str型示例"},
-                    {"title": "日期时间示例", "dataIndex": "日期时间示例"},
+                    {'title': 'int型示例', 'dataIndex': 'int型示例'},
+                    {'title': 'float型示例', 'dataIndex': 'float型示例'},
+                    {'title': 'str型示例', 'dataIndex': 'str型示例'},
+                    {'title': '日期时间示例', 'dataIndex': '日期时间示例'},
                 ],
                 data=[
                     {
-                        "int型示例": 123,
-                        "float型示例": 1.23,
-                        "str型示例": "示例字符",
-                        "日期时间示例": datetime.now(),
+                        'int型示例': 123,
+                        'float型示例': 1.23,
+                        'str型示例': '示例字符',
+                        '日期时间示例': datetime.now(),
                     }
                 ]
                 * 3,
-                rowClassName="table-row-class-name-demo",
+                rowClassName='table-row-class-name-demo',
             ),
         ]
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         demo_contents = [
             fuc.FefferyStyle(
                 rawStyle="""
@@ -54,22 +54,25 @@ def render() -> Component:
             ),
             fac.AntdTable(
                 columns=[
-                    {"title": "int Example", "dataIndex": "int Example"},
-                    {"title": "float Example", "dataIndex": "float Example"},
-                    {"title": "str Example", "dataIndex": "str Example"},
-                    {"title": "Datetime Example", "dataIndex": "Datetime Example"},
+                    {'title': 'int Example', 'dataIndex': 'int Example'},
+                    {'title': 'float Example', 'dataIndex': 'float Example'},
+                    {'title': 'str Example', 'dataIndex': 'str Example'},
+                    {
+                        'title': 'Datetime Example',
+                        'dataIndex': 'Datetime Example',
+                    },
                 ],
                 data=[
                     {
-                        "int Example": 123,
-                        "float Example": 1.23,
-                        "str Example": "Example string",
-                        "Datetime Example": datetime.now(),
+                        'int Example': 123,
+                        'float Example': 1.23,
+                        'str Example': 'Example string',
+                        'Datetime Example': datetime.now(),
                     }
                 ]
                 * 3,
-                rowClassName="table-row-class-name-demo",
-                locale="en-us",
+                rowClassName='table-row-class-name-demo',
+                locale='en-us',
             ),
         ]
 
@@ -81,10 +84,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": '''
+                'code': '''
 [
     fuc.FefferyStyle(
         rawStyle="""
@@ -117,10 +120,10 @@ def code_string() -> list:
             }
         ]
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         return [
             {
-                "code": '''
+                'code': '''
 [
     fuc.FefferyStyle(
         rawStyle="""

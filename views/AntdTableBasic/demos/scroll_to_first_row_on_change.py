@@ -10,63 +10,68 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         demo_contents = fac.AntdSpace(
             [
                 fac.AntdFormItem(
                     fac.AntdSwitch(
-                        id="control-table-scroll-to-first-row-on-change-demo",
+                        id='control-table-scroll-to-first-row-on-change-demo',
                         checked=True,
                     ),
-                    label="scrollToFirstRowOnChange",
+                    label='scrollToFirstRowOnChange',
                 ),
                 fac.AntdTable(
-                    id="table-scroll-to-first-row-on-change-demo",
+                    id='table-scroll-to-first-row-on-change-demo',
                     columns=[
-                        {"title": f"字段{i}", "dataIndex": f"字段{i}"}
+                        {'title': f'字段{i}', 'dataIndex': f'字段{i}'}
                         for i in range(1, 6)
                     ],
-                    data=[{f"字段{i}": "示例内容" for i in range(1, 6)}] * 50,
+                    data=[{f'字段{i}': '示例内容' for i in range(1, 6)}] * 50,
                     maxHeight=150,
                     scrollToFirstRowOnChange=False,
                 ),
             ],
-            direction="vertical",
-            style={"width": "100%"},
+            direction='vertical',
+            style={'width': '100%'},
         )
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         demo_contents = fac.AntdSpace(
             [
                 fac.AntdFormItem(
                     fac.AntdSwitch(
-                        id="control-table-scroll-to-first-row-on-change-demo",
+                        id='control-table-scroll-to-first-row-on-change-demo',
                         checked=True,
                     ),
-                    label="scrollToFirstRowOnChange",
+                    label='scrollToFirstRowOnChange',
                 ),
                 fac.AntdTable(
-                    id="table-scroll-to-first-row-on-change-demo",
+                    id='table-scroll-to-first-row-on-change-demo',
                     columns=[
-                        {"title": f"Field {i}", "dataIndex": f"Field {i}"}
+                        {'title': f'Field {i}', 'dataIndex': f'Field {i}'}
                         for i in range(1, 6)
                     ],
-                    data=[{f"Field {i}": "Example Content" for i in range(1, 6)}] * 50,
+                    data=[
+                        {f'Field {i}': 'Example Content' for i in range(1, 6)}
+                    ]
+                    * 50,
                     maxHeight=150,
                     scrollToFirstRowOnChange=False,
-                    locale="en-us",
+                    locale='en-us',
                 ),
             ],
-            direction="vertical",
-            style={"width": "100%"},
+            direction='vertical',
+            style={'width': '100%'},
         )
 
     return demo_contents
 
 
 @app.callback(
-    Output("table-scroll-to-first-row-on-change-demo", "scrollToFirstRowOnChange"),
-    Input("control-table-scroll-to-first-row-on-change-demo", "checked"),
+    Output(
+        'table-scroll-to-first-row-on-change-demo', 'scrollToFirstRowOnChange'
+    ),
+    Input('control-table-scroll-to-first-row-on-change-demo', 'checked'),
 )
 def control_table_scroll_to_first_row_on_change(checked):
     return checked
@@ -77,10 +82,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         fac.AntdFormItem(
@@ -119,10 +124,10 @@ def control_table_scroll_to_first_row_on_change(checked):
             }
         ]
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         fac.AntdFormItem(

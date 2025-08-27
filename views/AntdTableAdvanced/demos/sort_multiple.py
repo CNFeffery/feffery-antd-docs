@@ -11,15 +11,18 @@ def render() -> Component:
 
     locale = get_current_locale()
 
-    if locale == "zh-cn":
-        label = lambda i: f"字段{i}"
+    if locale == 'zh-cn':
+        label = lambda i: f'字段{i}'
     else:  # en-us fallback
-        label = lambda i: f"Field {i}"
+        label = lambda i: f'Field {i}'
 
     columns = [
-        {"title": label(i), "dataIndex": label(i), "width": "20%"} for i in range(1, 6)
+        {'title': label(i), 'dataIndex': label(i), 'width': '20%'}
+        for i in range(1, 6)
     ]
-    data = [{label(j): random.randint(1, 4) for j in range(1, 6)} for _ in range(10)]
+    data = [
+        {label(j): random.randint(1, 4) for j in range(1, 6)} for _ in range(10)
+    ]
     sort_data_indexes = [label(1), label(2), label(4), label(5)]
 
     demo_contents = fac.AntdTable(
@@ -27,8 +30,8 @@ def render() -> Component:
         data=data,
         bordered=True,
         sortOptions={
-            "sortDataIndexes": sort_data_indexes,
-            "multiple": True,
+            'sortDataIndexes': sort_data_indexes,
+            'multiple': True,
         },
     )
 
@@ -40,10 +43,10 @@ def code_string() -> list:
 
     locale = get_current_locale()
 
-    if locale == "zh-cn":
+    if locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 import random
 import feffery_antd_components as fac
 
@@ -68,7 +71,7 @@ fac.AntdTable(
     else:  # en-us
         return [
             {
-                "code": """
+                'code': """
 import random
 import feffery_antd_components as fac
 

@@ -9,30 +9,30 @@ def render() -> Component:
 
     locale = get_current_locale()
 
-    if locale == "zh-cn":
-        col_title = "文本域编辑示例"
-        data_key = "文本域编辑示例"
-        sample_value = "内容示例"
+    if locale == 'zh-cn':
+        col_title = '文本域编辑示例'
+        data_key = '文本域编辑示例'
+        sample_value = '内容示例'
     else:  # en-us fallback
-        col_title = "Text Area Edit Example"
-        data_key = "Text Area Edit Example"
-        sample_value = "Content Example"
+        col_title = 'Text Area Edit Example'
+        data_key = 'Text Area Edit Example'
+        sample_value = 'Content Example'
 
     demo_contents = fac.AntdTable(
         columns=[
             {
-                "title": col_title,
-                "dataIndex": data_key,
-                "editable": True,
-                "editOptions": {
-                    "mode": "text-area",  # text-area edit mode
-                    "autoSize": {"minRows": 1, "maxRows": 3},
+                'title': col_title,
+                'dataIndex': data_key,
+                'editable': True,
+                'editOptions': {
+                    'mode': 'text-area',  # text-area edit mode
+                    'autoSize': {'minRows': 1, 'maxRows': 3},
                 },
             }
         ],
         data=[{data_key: sample_value}] * 3,
         bordered=True,
-        style={"width": 200},
+        style={'width': 200},
     )
 
     return demo_contents
@@ -42,10 +42,10 @@ def code_string() -> list:
     """返回当前语种对应的演示代码 / Return demo code for the current locale"""
     locale = get_current_locale()
 
-    if locale == "zh-cn":
+    if locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdTable(
     columns=[
         {
@@ -68,7 +68,7 @@ fac.AntdTable(
     else:  # en-us
         return [
             {
-                "code": """
+                'code': """
 fac.AntdTable(
     columns=[
         {

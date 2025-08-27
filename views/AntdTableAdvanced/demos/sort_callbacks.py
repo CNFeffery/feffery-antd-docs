@@ -14,38 +14,41 @@ def render() -> Component:
 
     locale = get_current_locale()
 
-    if locale == "zh-cn":
-        label = lambda i: f"字段{i}"
+    if locale == 'zh-cn':
+        label = lambda i: f'字段{i}'
         sort_keys = [label(1), label(2), label(4), label(5)]
     else:  # en-us fallback
-        label = lambda i: f"Field {i}"
+        label = lambda i: f'Field {i}'
         sort_keys = [label(1), label(2), label(4), label(5)]
 
     columns = [
-        {"title": label(i), "dataIndex": label(i), "width": "20%"} for i in range(1, 6)
+        {'title': label(i), 'dataIndex': label(i), 'width': '20%'}
+        for i in range(1, 6)
     ]
-    data = [{label(j): random.randint(1, 4) for j in range(1, 6)} for _ in range(10)]
+    data = [
+        {label(j): random.randint(1, 4) for j in range(1, 6)} for _ in range(10)
+    ]
 
     demo_contents = [
         fac.AntdTable(
-            id="table-sort-demo",
+            id='table-sort-demo',
             columns=columns,
             data=data,
             bordered=True,
             sortOptions={
-                "sortDataIndexes": sort_keys,
-                "multiple": True,
+                'sortDataIndexes': sort_keys,
+                'multiple': True,
             },
         ),
-        html.Pre(id="table-sort-demo-output"),
+        html.Pre(id='table-sort-demo-output'),
     ]
 
     return demo_contents
 
 
 @app.callback(
-    Output("table-sort-demo-output", "children"),
-    Input("table-sort-demo", "sorter"),
+    Output('table-sort-demo-output', 'children'),
+    Input('table-sort-demo', 'sorter'),
     prevent_initial_call=True,
 )
 def table_sort_demo(sorter):
@@ -57,10 +60,10 @@ def code_string() -> list:
 
     locale = get_current_locale()
 
-    if locale == "zh-cn":
+    if locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 [
     fac.AntdTable(
         id='table-sort-demo',
@@ -96,7 +99,7 @@ def table_sort_demo(sorter):
     else:  # en-us
         return [
             {
-                "code": """
+                'code': """
 [
     fac.AntdTable(
         id='table-sort-demo',

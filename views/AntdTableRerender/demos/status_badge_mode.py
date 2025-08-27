@@ -9,50 +9,53 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         demo_contents = fac.AntdTable(
             columns=[
                 {
-                    "title": "状态徽标示例",
-                    "dataIndex": "状态徽标示例",
-                    "renderOptions": {"renderType": "status-badge"},
+                    'title': '状态徽标示例',
+                    'dataIndex': '状态徽标示例',
+                    'renderOptions': {'renderType': 'status-badge'},
                 }
             ],
             data=[
                 {
-                    "key": i,
-                    "状态徽标示例": {"status": status, "text": status + "状态示例"},
-                }
-                for i, status in enumerate(
-                    ["success", "processing", "default", "error", "warning"]
-                )
-            ],
-            style={"width": "250px"},
-        )
-
-    elif current_locale == "en-us":
-        demo_contents = fac.AntdTable(
-            locale="en-us",
-            columns=[
-                {
-                    "title": "Status Badge Example",
-                    "dataIndex": "Status Badge Example",
-                    "renderOptions": {"renderType": "status-badge"},
-                }
-            ],
-            data=[
-                {
-                    "key": i,
-                    "Status Badge Example": {
-                        "status": status,
-                        "text": status.capitalize() + " status example",
+                    'key': i,
+                    '状态徽标示例': {
+                        'status': status,
+                        'text': status + '状态示例',
                     },
                 }
                 for i, status in enumerate(
-                    ["success", "processing", "default", "error", "warning"]
+                    ['success', 'processing', 'default', 'error', 'warning']
                 )
             ],
-            style={"width": "250px"},
+            style={'width': '250px'},
+        )
+
+    elif current_locale == 'en-us':
+        demo_contents = fac.AntdTable(
+            locale='en-us',
+            columns=[
+                {
+                    'title': 'Status Badge Example',
+                    'dataIndex': 'Status Badge Example',
+                    'renderOptions': {'renderType': 'status-badge'},
+                }
+            ],
+            data=[
+                {
+                    'key': i,
+                    'Status Badge Example': {
+                        'status': status,
+                        'text': status.capitalize() + ' status example',
+                    },
+                }
+                for i, status in enumerate(
+                    ['success', 'processing', 'default', 'error', 'warning']
+                )
+            ],
+            style={'width': '250px'},
         )
 
     return demo_contents
@@ -63,10 +66,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdTable(
     columns=[
         {
@@ -90,10 +93,10 @@ fac.AntdTable(
             }
         ]
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdTable(
     locale="en-us",
     columns=[

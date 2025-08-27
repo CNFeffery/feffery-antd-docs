@@ -9,33 +9,33 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         demo_contents = fac.AntdTable(
             columns=[
                 {
-                    "title": "copyable示例",
-                    "dataIndex": "copyable示例",
-                    "renderOptions": {"renderType": "copyable"},
+                    'title': 'copyable示例',
+                    'dataIndex': 'copyable示例',
+                    'renderOptions': {'renderType': 'copyable'},
                 }
             ],
-            data=[{"copyable示例": "可复制内容"}],
+            data=[{'copyable示例': '可复制内容'}],
             bordered=True,
-            style={"width": 200},
+            style={'width': 200},
         )
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         demo_contents = fac.AntdTable(
-            locale="en-us",
+            locale='en-us',
             columns=[
                 {
-                    "title": "Copyable Example",
-                    "dataIndex": "Copyable Example",
-                    "renderOptions": {"renderType": "copyable"},
+                    'title': 'Copyable Example',
+                    'dataIndex': 'Copyable Example',
+                    'renderOptions': {'renderType': 'copyable'},
                 }
             ],
-            data=[{"Copyable Example": "Copyable Content"}],
+            data=[{'Copyable Example': 'Copyable Content'}],
             bordered=True,
-            style={"width": 200},
+            style={'width': 200},
         )
 
     return demo_contents
@@ -46,10 +46,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdTable(
     columns=[
         {
@@ -66,10 +66,10 @@ fac.AntdTable(
             }
         ]
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdTable(
     locale='en-us',
     columns=[

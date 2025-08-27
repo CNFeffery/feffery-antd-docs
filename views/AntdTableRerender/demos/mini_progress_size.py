@@ -9,64 +9,65 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         demo_contents = fac.AntdTable(
             columns=[
                 {
-                    "title": "mini-progress示例1",
-                    "dataIndex": "mini-progress示例1",
-                    "renderOptions": {
-                        "renderType": "mini-progress",
-                        "progressSize": 24,
+                    'title': 'mini-progress示例1',
+                    'dataIndex': 'mini-progress示例1',
+                    'renderOptions': {
+                        'renderType': 'mini-progress',
+                        'progressSize': 24,
                     },
                 },
                 {
-                    "title": "mini-progress示例2",
-                    "dataIndex": "mini-progress示例2",
-                    "renderOptions": {
-                        "renderType": "mini-progress",
-                        "progressShowPercent": True,
-                        "progressStrokeLinecap": "round",
-                        "progressSize": 24,
+                    'title': 'mini-progress示例2',
+                    'dataIndex': 'mini-progress示例2',
+                    'renderOptions': {
+                        'renderType': 'mini-progress',
+                        'progressShowPercent': True,
+                        'progressStrokeLinecap': 'round',
+                        'progressSize': 24,
                     },
                 },
             ],
             data=[
-                {"mini-progress示例1": x, "mini-progress示例2": x} for x in [0, 0.66, 1]
-            ],
-            bordered=True,
-            tableLayout="fixed",
-        )
-
-    elif current_locale == "en-us":
-        demo_contents = fac.AntdTable(
-            locale="en-us",
-            columns=[
-                {
-                    "title": "mini-progress Example 1",
-                    "dataIndex": "mini-progress Example 1",
-                    "renderOptions": {
-                        "renderType": "mini-progress",
-                        "progressSize": 24,
-                    },
-                },
-                {
-                    "title": "mini-progress Example 2",
-                    "dataIndex": "mini-progress Example 2",
-                    "renderOptions": {
-                        "renderType": "mini-progress",
-                        "progressShowPercent": True,
-                        "progressStrokeLinecap": "round",
-                        "progressSize": 24,
-                    },
-                },
-            ],
-            data=[
-                {"mini-progress Example 1": x, "mini-progress Example 2": x}
+                {'mini-progress示例1': x, 'mini-progress示例2': x}
                 for x in [0, 0.66, 1]
             ],
             bordered=True,
-            tableLayout="fixed",
+            tableLayout='fixed',
+        )
+
+    elif current_locale == 'en-us':
+        demo_contents = fac.AntdTable(
+            locale='en-us',
+            columns=[
+                {
+                    'title': 'mini-progress Example 1',
+                    'dataIndex': 'mini-progress Example 1',
+                    'renderOptions': {
+                        'renderType': 'mini-progress',
+                        'progressSize': 24,
+                    },
+                },
+                {
+                    'title': 'mini-progress Example 2',
+                    'dataIndex': 'mini-progress Example 2',
+                    'renderOptions': {
+                        'renderType': 'mini-progress',
+                        'progressShowPercent': True,
+                        'progressStrokeLinecap': 'round',
+                        'progressSize': 24,
+                    },
+                },
+            ],
+            data=[
+                {'mini-progress Example 1': x, 'mini-progress Example 2': x}
+                for x in [0, 0.66, 1]
+            ],
+            bordered=True,
+            tableLayout='fixed',
         )
 
     return demo_contents
@@ -77,10 +78,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdTable(
     columns=[
         {
@@ -113,10 +114,10 @@ fac.AntdTable(
             }
         ]
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdTable(
     locale="en-us",
     columns=[

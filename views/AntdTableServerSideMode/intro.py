@@ -10,58 +10,58 @@ def render() -> Component:
     return [
         fac.AntdBreadcrumb(
             items=[
-                {"title": translator.t("组件介绍")},
-                {"title": translator.t("数据展示")},
-                {"title": translator.t("AntdTable 表格")},
-                {"title": translator.t("服务端数据加载模式")},
+                {'title': translator.t('组件介绍')},
+                {'title': translator.t('数据展示')},
+                {'title': translator.t('AntdTable 表格')},
+                {'title': translator.t('服务端数据加载模式')},
             ],
-            style={"marginBottom": 8},
+            style={'marginBottom': 8},
         ),
-        fac.AntdTitle("AntdTable 表格", level=2),
+        fac.AntdTitle('AntdTable 表格', level=2),
         *[
             fac.AntdParagraph(
-                translator.t("表格组件适用于大数据场景的服务端数据加载模式。")
+                translator.t('表格组件适用于大数据场景的服务端数据加载模式。')
             ),
             fac.AntdDivider(isDashed=True),
             fac.AntdParagraph(
                 [
-                    translator.t("本页文档展示了"),
-                    fac.AntdText(" AntdTable ", strong=True),
+                    translator.t('本页文档展示了'),
+                    fac.AntdText(' AntdTable ', strong=True),
                     translator.t(
-                        "组件基于服务端数据加载模式，对大量数据的展示需求进行性能优化，本质上是在设置参数"
+                        '组件基于服务端数据加载模式，对大量数据的展示需求进行性能优化，本质上是在设置参数'
                     ),
                     fac.AntdText('mode="server-side"', code=True),
-                    translator.t("后，通过监听"),
-                    fac.AntdText(" AntdTable ", strong=True),
+                    translator.t('后，通过监听'),
+                    fac.AntdText(' AntdTable ', strong=True),
                     translator.t(
-                        "中翻页、排序、筛选等常见交互行为对应的监听参数变化，进而通过回调函数传递到后端进行对应数据帧的生成，并传回"
+                        '中翻页、排序、筛选等常见交互行为对应的监听参数变化，进而通过回调函数传递到后端进行对应数据帧的生成，并传回'
                     ),
-                    fac.AntdText(" AntdTable ", strong=True),
+                    fac.AntdText(' AntdTable ', strong=True),
                     translator.t(
-                        "中进行展示，相当于任意时刻下，表格中实际加载的数据只有用户所看到的当页数据"
+                        '中进行展示，相当于任意时刻下，表格中实际加载的数据只有用户所看到的当页数据'
                     ),
                 ],
-                style={"textIndent": "2rem"},
+                style={'textIndent': '2rem'},
             ),
             fac.AntdParagraph(
                 [
-                    fac.AntdText(translator.t("注意"), strong=True),
-                    translator.t("，本页文档后续所有与"),
-                    fac.AntdText(" demo_df ", code=True),
-                    translator.t("有关的示例中，"),
-                    fac.AntdText(" demo_df ", code=True),
-                    translator.t("均为同一个"),
-                    fac.AntdText(" pandas ", strong=True),
-                    translator.t("数据框，由下列代码生成："),
+                    fac.AntdText(translator.t('注意'), strong=True),
+                    translator.t('，本页文档后续所有与'),
+                    fac.AntdText(' demo_df ', code=True),
+                    translator.t('有关的示例中，'),
+                    fac.AntdText(' demo_df ', code=True),
+                    translator.t('均为同一个'),
+                    fac.AntdText(' pandas ', strong=True),
+                    translator.t('数据框，由下列代码生成：'),
                 ],
-                style={"textIndent": "2rem", "marginBottom": 0},
+                style={'textIndent': '2rem', 'marginBottom': 0},
             ),
             fac.AntdCollapse(
                 fmc.FefferySyntaxHighlighter(
                     showCopyButton=True,
                     showLineNumbers=True,
-                    language="python",
-                    codeTheme="coy-without-shadows",
+                    language='python',
+                    codeTheme='coy-without-shadows',
                     codeString="""
 import pandas as pd
 
@@ -97,29 +97,29 @@ demo_df = (
 """,
                 ),
                 isOpen=False,
-                title=translator.t("演示用数据框生成代码"),
+                title=translator.t('演示用数据框生成代码'),
                 ghost=True,
             ),
             fac.AntdParagraph(
                 [
-                    translator.t("本页文档后续所有与"),
-                    fac.AntdText("DemoTable", code=True),
-                    translator.t("有关的示例中，"),
-                    fac.AntdText("DemoTable", code=True),
-                    translator.t("均为同一个基于"),
-                    fac.AntdText("peewee", strong=True),
-                    translator.t("定义的"),
-                    fac.AntdText("ORM", strong=True),
-                    translator.t("模型类，由下列代码定义："),
+                    translator.t('本页文档后续所有与'),
+                    fac.AntdText('DemoTable', code=True),
+                    translator.t('有关的示例中，'),
+                    fac.AntdText('DemoTable', code=True),
+                    translator.t('均为同一个基于'),
+                    fac.AntdText('peewee', strong=True),
+                    translator.t('定义的'),
+                    fac.AntdText('ORM', strong=True),
+                    translator.t('模型类，由下列代码定义：'),
                 ],
-                style={"textIndent": "2rem", "marginBottom": 0},
+                style={'textIndent': '2rem', 'marginBottom': 0},
             ),
             fac.AntdCollapse(
                 fmc.FefferySyntaxHighlighter(
                     showCopyButton=True,
                     showLineNumbers=True,
-                    language="python",
-                    codeTheme="coy-without-shadows",
+                    language='python',
+                    codeTheme='coy-without-shadows',
                     codeString="""
 from peewee import (
     SqliteDatabase,
@@ -175,7 +175,7 @@ with db.atomic():
 """,
                 ),
                 isOpen=False,
-                title=translator.t("演示用数据库表模型生成代码"),
+                title=translator.t('演示用数据库表模型生成代码'),
                 ghost=True,
             ),
         ],

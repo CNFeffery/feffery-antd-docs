@@ -9,43 +9,56 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
-        titles = ["基础示例", "自定义选项", "单选模式", "启用搜索框", "树形筛选"]
-        keys = titles
-    elif current_locale == "en-us":
+    if current_locale == 'zh-cn':
         titles = [
-            "Basic Example",
-            "Custom Options",
-            "Single Selection",
-            "Enable Search Box",
-            "Tree Filter",
+            '基础示例',
+            '自定义选项',
+            '单选模式',
+            '启用搜索框',
+            '树形筛选',
+        ]
+        keys = titles
+    elif current_locale == 'en-us':
+        titles = [
+            'Basic Example',
+            'Custom Options',
+            'Single Selection',
+            'Enable Search Box',
+            'Tree Filter',
         ]
         keys = titles
     else:
-        titles = ["基础示例", "自定义选项", "单选模式", "启用搜索框", "树形筛选"]
+        titles = [
+            '基础示例',
+            '自定义选项',
+            '单选模式',
+            '启用搜索框',
+            '树形筛选',
+        ]
         keys = titles
 
     columns = [
-        {"title": t, "dataIndex": k, "width": "20%"} for t, k in zip(titles, keys)
+        {'title': t, 'dataIndex': k, 'width': '20%'}
+        for t, k in zip(titles, keys)
     ]
     data = [
         {keys[0]: s, keys[1]: s, keys[2]: s, keys[3]: s, keys[4]: s}
-        for s in list("abced")
+        for s in list('abced')
     ]
     filter_options = {
         keys[0]: {},
-        keys[1]: {"filterCustomItems": list("abcdefghijk")},
-        keys[2]: {"filterMultiple": False},
-        keys[3]: {"filterSearch": True},
+        keys[1]: {'filterCustomItems': list('abcdefghijk')},
+        keys[2]: {'filterMultiple': False},
+        keys[3]: {'filterSearch': True},
         keys[4]: {
-            "filterMode": "tree",
-            "filterCustomTreeItems": [
+            'filterMode': 'tree',
+            'filterCustomTreeItems': [
                 {
-                    "text": "a-c",
-                    "children": [{"text": s, "value": s} for s in list("abc")],
+                    'text': 'a-c',
+                    'children': [{'text': s, 'value': s} for s in list('abc')],
                 },
-                {"text": "d", "value": "d"},
-                {"text": "e", "value": "e"},
+                {'text': 'd', 'value': 'd'},
+                {'text': 'e', 'value': 'e'},
             ],
         },
     }
@@ -62,10 +75,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdTable(
     columns=[
         {'title': '基础示例', 'dataIndex': '基础示例', 'width': '20%'},
@@ -102,10 +115,10 @@ fac.AntdTable(
 """
             }
         ]
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdTable(
     columns=[
         {'title': 'Basic Example', 'dataIndex': 'Basic Example', 'width': '20%'},

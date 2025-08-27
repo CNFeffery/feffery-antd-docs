@@ -13,71 +13,71 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         demo_contents = [
             fac.AntdTable(
-                id="table-rerender-checkbox-demo",
+                id='table-rerender-checkbox-demo',
                 columns=[
                     {
-                        "title": "checkbox示例",
-                        "dataIndex": "checkbox示例",
-                        "renderOptions": {"renderType": "checkbox"},
+                        'title': 'checkbox示例',
+                        'dataIndex': 'checkbox示例',
+                        'renderOptions': {'renderType': 'checkbox'},
                     }
                 ],
                 data=[
                     {
-                        "checkbox示例": {
-                            "checked": i % 2 == 0,
-                            "label": f"选项{i}",
-                            "custom": "balabalabalabala",
+                        'checkbox示例': {
+                            'checked': i % 2 == 0,
+                            'label': f'选项{i}',
+                            'custom': 'balabalabalabala',
                         }
                     }
                     for i in range(1, 4)
                 ],
                 bordered=True,
-                style={"width": 200},
+                style={'width': 200},
             ),
-            html.Pre(id="table-rerender-checkbox-demo-output"),
+            html.Pre(id='table-rerender-checkbox-demo-output'),
         ]
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         demo_contents = [
             fac.AntdTable(
-                id="table-rerender-checkbox-demo",
-                locale="en-us",
+                id='table-rerender-checkbox-demo',
+                locale='en-us',
                 columns=[
                     {
-                        "title": "Checkbox Example",
-                        "dataIndex": "Checkbox Example",
-                        "renderOptions": {"renderType": "checkbox"},
+                        'title': 'Checkbox Example',
+                        'dataIndex': 'Checkbox Example',
+                        'renderOptions': {'renderType': 'checkbox'},
                     }
                 ],
                 data=[
                     {
-                        "Checkbox Example": {
-                            "checked": i % 2 == 0,
-                            "label": f"Option {i}",
-                            "custom": "balabalabalabala",
+                        'Checkbox Example': {
+                            'checked': i % 2 == 0,
+                            'label': f'Option {i}',
+                            'custom': 'balabalabalabala',
                         }
                     }
                     for i in range(1, 4)
                 ],
                 bordered=True,
-                style={"width": 200},
+                style={'width': 200},
             ),
-            html.Pre(id="table-rerender-checkbox-demo-output"),
+            html.Pre(id='table-rerender-checkbox-demo-output'),
         ]
 
     return demo_contents
 
 
 @app.callback(
-    Output("table-rerender-checkbox-demo-output", "children"),
+    Output('table-rerender-checkbox-demo-output', 'children'),
     [
-        Input("table-rerender-checkbox-demo", "recentlyCheckedLabel"),
-        Input("table-rerender-checkbox-demo", "recentlyCheckedDataIndex"),
-        Input("table-rerender-checkbox-demo", "recentlyCheckedStatus"),
-        Input("table-rerender-checkbox-demo", "recentlyCheckedRow"),
+        Input('table-rerender-checkbox-demo', 'recentlyCheckedLabel'),
+        Input('table-rerender-checkbox-demo', 'recentlyCheckedDataIndex'),
+        Input('table-rerender-checkbox-demo', 'recentlyCheckedStatus'),
+        Input('table-rerender-checkbox-demo', 'recentlyCheckedRow'),
     ],
     prevent_initial_call=True,
 )
@@ -104,10 +104,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 [
     fac.AntdTable(
         id='table-rerender-checkbox-demo',
@@ -166,10 +166,10 @@ def table_rerender_checkbox_demo(
             }
         ]
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         return [
             {
-                "code": """
+                'code': """
 [
     fac.AntdTable(
         id='table-rerender-checkbox-demo',

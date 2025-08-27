@@ -12,46 +12,49 @@ def render() -> Component:
     current_locale = get_current_locale()
 
     # Locale-dependent labels and keys
-    if current_locale == "zh-cn":
-        title_text = "左例（未设置） 右例（设置containerId参数）"
-        column_label = lambda i: f"字段{i}"
-        data_key = lambda j: f"字段{j}"
-        filter_key1 = "字段1"
-        filter_key3 = "字段3"
-    elif current_locale == "en-us":
-        title_text = "Left (unset)  Right (set containerId parameter)"
-        column_label = lambda i: f"Field {i}"
-        data_key = lambda j: f"Field {j}"
-        filter_key1 = "Field 1"
-        filter_key3 = "Field 3"
+    if current_locale == 'zh-cn':
+        title_text = '左例（未设置） 右例（设置containerId参数）'
+        column_label = lambda i: f'字段{i}'
+        data_key = lambda j: f'字段{j}'
+        filter_key1 = '字段1'
+        filter_key3 = '字段3'
+    elif current_locale == 'en-us':
+        title_text = 'Left (unset)  Right (set containerId parameter)'
+        column_label = lambda i: f'Field {i}'
+        data_key = lambda j: f'Field {j}'
+        filter_key1 = 'Field 1'
+        filter_key3 = 'Field 3'
     else:
         # Fallback to Chinese
-        title_text = "左例（未设置） 右例（设置containerId参数）"
-        column_label = lambda i: f"字段{i}"
-        data_key = lambda j: f"字段{j}"
-        filter_key1 = "字段1"
-        filter_key3 = "字段3"
+        title_text = '左例（未设置） 右例（设置containerId参数）'
+        column_label = lambda i: f'字段{i}'
+        data_key = lambda j: f'字段{j}'
+        filter_key1 = '字段1'
+        filter_key3 = '字段3'
 
     def make_table(with_container: bool) -> Component:
         base = dict(
             columns=[
-                {"title": column_label(i), "dataIndex": column_label(i)}
+                {'title': column_label(i), 'dataIndex': column_label(i)}
                 for i in range(1, 6)
             ],
             data=[
-                {data_key(j): np.random.choice(list("abc")) for j in range(1, 6)}
+                {
+                    data_key(j): np.random.choice(list('abc'))
+                    for j in range(1, 6)
+                }
                 for _ in range(10)
             ],
             filterOptions={
-                filter_key1: {"filterMode": "keyword"},
+                filter_key1: {'filterMode': 'keyword'},
                 filter_key3: {
-                    "filterMode": "checkbox",
-                    "filterCustomItems": ["a", "b", "c"],
+                    'filterMode': 'checkbox',
+                    'filterCustomItems': ['a', 'b', 'c'],
                 },
             },
         )
         if with_container:
-            base["containerId"] = "containerId-container-demo"
+            base['containerId'] = 'containerId-container-demo'
         return fac.AntdTable(**base)
 
     demo_contents = [
@@ -61,31 +64,31 @@ def render() -> Component:
                 html.Div(
                     [
                         make_table(with_container=False),
-                        html.Div(style={"height": "400px"}),
+                        html.Div(style={'height': '400px'}),
                     ],
                     style={
-                        "flex": "1",
-                        "padding": "20px",
-                        "maxHeight": "400px",
-                        "overflowY": "auto",
+                        'flex': '1',
+                        'padding': '20px',
+                        'maxHeight': '400px',
+                        'overflowY': 'auto',
                     },
                 ),
                 html.Div(
                     [
                         make_table(with_container=True),
-                        html.Div(style={"height": "400px"}),
+                        html.Div(style={'height': '400px'}),
                     ],
-                    id="containerId-container-demo",
+                    id='containerId-container-demo',
                     style={
-                        "flex": "1",
-                        "padding": "20px",
-                        "maxHeight": "400px",
-                        "overflowY": "auto",
-                        "position": "relative",
+                        'flex': '1',
+                        'padding': '20px',
+                        'maxHeight': '400px',
+                        'overflowY': 'auto',
+                        'position': 'relative',
                     },
                 ),
             ],
-            style={"display": "flex"},
+            style={'display': 'flex'},
         ),
     ]
 
@@ -97,10 +100,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 [
     fac.AntdTitle('左例（未设置） 右例（设置containerId参数）', level=5),
     html.Div(
@@ -177,10 +180,10 @@ def code_string() -> list:
 """
             }
         ]
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         return [
             {
-                "code": """
+                'code': """
 [
     fac.AntdTitle('Left (unset)  Right (set containerId parameter)', level=5),
     html.Div(

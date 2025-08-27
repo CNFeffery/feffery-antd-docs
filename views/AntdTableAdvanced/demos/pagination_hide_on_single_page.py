@@ -9,22 +9,22 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
-        title = lambda i: f"字段{i}"
-        data_key = lambda i: f"字段{i}"
-        cell_value = "示例内容"
+    if current_locale == 'zh-cn':
+        title = lambda i: f'字段{i}'
+        data_key = lambda i: f'字段{i}'
+        cell_value = '示例内容'
     else:  # en-us fallback
-        title = lambda i: f"Field {i}"
-        data_key = lambda i: f"Field {i}"
-        cell_value = "Sample Content"
+        title = lambda i: f'Field {i}'
+        data_key = lambda i: f'Field {i}'
+        cell_value = 'Sample Content'
 
     demo_contents = fac.AntdTable(
         columns=[
-            {"title": title(i), "dataIndex": data_key(i), "width": "20%"}
+            {'title': title(i), 'dataIndex': data_key(i), 'width': '20%'}
             for i in range(1, 6)
         ],
         data=[{data_key(i): cell_value for i in range(1, 6)}] * 3,
-        pagination={"pageSize": 10, "hideOnSinglePage": True},
+        pagination={'pageSize': 10, 'hideOnSinglePage': True},
     )
 
     return demo_contents
@@ -35,10 +35,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdTable(
     columns=[
         {'title': f'字段{i}', 'dataIndex': f'字段{i}', 'width': '20%'}
@@ -53,7 +53,7 @@ fac.AntdTable(
     else:  # en-us
         return [
             {
-                "code": """
+                'code': """
 fac.AntdTable(
     columns=[
         {'title': f'Field {i}', 'dataIndex': f'Field {i}', 'width': '20%'}

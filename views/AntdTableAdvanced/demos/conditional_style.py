@@ -10,25 +10,37 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         # 构造演示用例相关内容
         demo_contents = fac.AntdTable(
             columns=[
-                {"title": "示例字段1", "dataIndex": "示例字段1", "width": "100"},
-                {"title": "示例字段2", "dataIndex": "示例字段2", "width": "100"},
-                {"title": "示例字段3", "dataIndex": "示例字段3", "width": "100"},
+                {
+                    'title': '示例字段1',
+                    'dataIndex': '示例字段1',
+                    'width': '100',
+                },
+                {
+                    'title': '示例字段2',
+                    'dataIndex': '示例字段2',
+                    'width': '100',
+                },
+                {
+                    'title': '示例字段3',
+                    'dataIndex': '示例字段3',
+                    'width': '100',
+                },
             ],
             data=[
                 {
-                    "示例字段1": i,
-                    "示例字段2": i,
-                    "示例字段3": round(np.random.rand(), 3),
+                    '示例字段1': i,
+                    '示例字段2': i,
+                    '示例字段3': round(np.random.rand(), 3),
                 }
                 for i in range(10)
             ],
             bordered=True,
             conditionalStyleFuncs={
-                "示例字段1": """
+                '示例字段1': """
 (record, index) => {
     if ( index % 2 === 1 ) {
         return {
@@ -39,7 +51,7 @@ def render() -> Component:
     }
 }
 """,
-                "示例字段2": """
+                '示例字段2': """
 (record, index) => {
     if ( index % 2 === 1 ) {
         return {
@@ -50,7 +62,7 @@ def render() -> Component:
     }
 }
 """,
-                "示例字段3": """
+                '示例字段3': """
 (record, index) => {
     if ( record['示例字段3'] <= 0.5 ) {
         return {
@@ -71,37 +83,37 @@ def render() -> Component:
             },
         )
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         # construct demo contents (dataIndex translated too)
         demo_contents = fac.AntdTable(
             columns=[
                 {
-                    "title": "Example Field 1",
-                    "dataIndex": "Example Field 1",
-                    "width": "100",
+                    'title': 'Example Field 1',
+                    'dataIndex': 'Example Field 1',
+                    'width': '100',
                 },
                 {
-                    "title": "Example Field 2",
-                    "dataIndex": "Example Field 2",
-                    "width": "100",
+                    'title': 'Example Field 2',
+                    'dataIndex': 'Example Field 2',
+                    'width': '100',
                 },
                 {
-                    "title": "Example Field 3",
-                    "dataIndex": "Example Field 3",
-                    "width": "100",
+                    'title': 'Example Field 3',
+                    'dataIndex': 'Example Field 3',
+                    'width': '100',
                 },
             ],
             data=[
                 {
-                    "Example Field 1": i,
-                    "Example Field 2": i,
-                    "Example Field 3": round(np.random.rand(), 3),
+                    'Example Field 1': i,
+                    'Example Field 2': i,
+                    'Example Field 3': round(np.random.rand(), 3),
                 }
                 for i in range(10)
             ],
             bordered=True,
             conditionalStyleFuncs={
-                "Example Field 1": """
+                'Example Field 1': """
 (record, index) => {
     if ( index % 2 === 1 ) {
         return {
@@ -112,7 +124,7 @@ def render() -> Component:
     }
 }
 """,
-                "Example Field 2": """
+                'Example Field 2': """
 (record, index) => {
     if ( index % 2 === 1 ) {
         return {
@@ -123,7 +135,7 @@ def render() -> Component:
     }
 }
 """,
-                "Example Field 3": """
+                'Example Field 3': """
 (record, index) => {
     if ( record['Example Field 3'] <= 0.5 ) {
         return {
@@ -152,10 +164,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": '''
+                'code': '''
 import numpy as np
 fac.AntdTable(
     columns=[
@@ -207,10 +219,10 @@ fac.AntdTable(
             }
         ]
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         return [
             {
-                "code": '''
+                'code': '''
 import numpy as np
 fac.AntdTable(
     columns=[

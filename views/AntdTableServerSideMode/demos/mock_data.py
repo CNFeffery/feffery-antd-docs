@@ -6,14 +6,18 @@ from peewee import CharField, IntegerField, Model, SqliteDatabase, fn
 demo_df = (
     pd.DataFrame(
         {
-            "id": list(range(1, 100001)),
-            "字段1": np.random.choice(
-                [f"{s}{n}" for s in list("abcdefghij") for n in range(1, 10001)],
+            'id': list(range(1, 100001)),
+            '字段1': np.random.choice(
+                [
+                    f'{s}{n}'
+                    for s in list('abcdefghij')
+                    for n in range(1, 10001)
+                ],
                 100000,
                 replace=False,
             ),
-            "字段2": np.random.choice(
-                [f"类型{t}" for t in range(1, 11) for n in range(10000)],
+            '字段2': np.random.choice(
+                [f'类型{t}' for t in range(1, 11) for n in range(10000)],
                 100000,
                 replace=False,
             ),
@@ -25,7 +29,7 @@ demo_df = (
 
 
 # 构造演示用数据库表模型类，基于sqlite+peewee
-db = SqliteDatabase("./demo_table.db")
+db = SqliteDatabase('./demo_table.db')
 
 
 class DemoTable(Model):
@@ -36,7 +40,7 @@ class DemoTable(Model):
     字段2 = CharField()
 
     class Meta:
-        table_name = "demo_table"
+        table_name = 'demo_table'
         database = db
 
 
@@ -50,8 +54,8 @@ with db.atomic():
         for batch in range(10):
             (
                 DemoTable.insert_many(
-                    demo_df.iloc[batch * 10000 : (batch + 1) * 10000, :].to_dict(
-                        "records"
-                    )
+                    demo_df.iloc[
+                        batch * 10000 : (batch + 1) * 10000, :
+                    ].to_dict('records')
                 ).execute()
             )

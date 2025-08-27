@@ -10,101 +10,101 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         demo_contents = fac.AntdSpace(
             [
                 fac.AntdSpace(
                     [
-                        "align:",
+                        'align:',
                         fac.AntdRadioGroup(
-                            id="table-mini-progress-percent-position-demo-align",
-                            options=["start", "center", "end"],
-                            value="end",
+                            id='table-mini-progress-percent-position-demo-align',
+                            options=['start', 'center', 'end'],
+                            value='end',
                         ),
                     ]
                 ),
                 fac.AntdSpace(
                     [
-                        "type:",
+                        'type:',
                         fac.AntdRadioGroup(
-                            id="table-mini-progress-percent-position-demo-type",
-                            options=["inner", "outer"],
-                            value="inner",
+                            id='table-mini-progress-percent-position-demo-type',
+                            options=['inner', 'outer'],
+                            value='inner',
                         ),
                     ]
                 ),
                 fac.AntdTable(
-                    id="table-mini-progress-percent-position-demo",
+                    id='table-mini-progress-percent-position-demo',
                     columns=[
                         {
-                            "dataIndex": "mini-progress示例",
-                            "title": "mini-progress示例",
-                            "renderOptions": {
-                                "renderType": "mini-progress",
-                                "progressShowPercent": True,
-                                "progressPercentPosition": {
-                                    "align": "end",
-                                    "type": "inner",
+                            'dataIndex': 'mini-progress示例',
+                            'title': 'mini-progress示例',
+                            'renderOptions': {
+                                'renderType': 'mini-progress',
+                                'progressShowPercent': True,
+                                'progressPercentPosition': {
+                                    'align': 'end',
+                                    'type': 'inner',
                                 },
                             },
                         },
                     ],
-                    data=[{"mini-progress示例": x} for x in [0, 0.66, 1]],
+                    data=[{'mini-progress示例': x} for x in [0, 0.66, 1]],
                     bordered=True,
                 ),
             ],
-            direction="vertical",
-            size="small",
-            style={"width": "100%"},
+            direction='vertical',
+            size='small',
+            style={'width': '100%'},
         )
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         demo_contents = fac.AntdSpace(
             [
                 fac.AntdSpace(
                     [
-                        "align:",
+                        'align:',
                         fac.AntdRadioGroup(
-                            id="table-mini-progress-percent-position-demo-align",
-                            options=["start", "center", "end"],
-                            value="end",
+                            id='table-mini-progress-percent-position-demo-align',
+                            options=['start', 'center', 'end'],
+                            value='end',
                         ),
                     ]
                 ),
                 fac.AntdSpace(
                     [
-                        "type:",
+                        'type:',
                         fac.AntdRadioGroup(
-                            id="table-mini-progress-percent-position-demo-type",
-                            options=["inner", "outer"],
-                            value="inner",
+                            id='table-mini-progress-percent-position-demo-type',
+                            options=['inner', 'outer'],
+                            value='inner',
                         ),
                     ]
                 ),
                 fac.AntdTable(
-                    id="table-mini-progress-percent-position-demo",
-                    locale="en-us",
+                    id='table-mini-progress-percent-position-demo',
+                    locale='en-us',
                     columns=[
                         {
-                            "dataIndex": "mini-progress Example",
-                            "title": "mini-progress Example",
-                            "renderOptions": {
-                                "renderType": "mini-progress",
-                                "progressShowPercent": True,
-                                "progressPercentPosition": {
-                                    "align": "end",
-                                    "type": "inner",
+                            'dataIndex': 'mini-progress Example',
+                            'title': 'mini-progress Example',
+                            'renderOptions': {
+                                'renderType': 'mini-progress',
+                                'progressShowPercent': True,
+                                'progressPercentPosition': {
+                                    'align': 'end',
+                                    'type': 'inner',
                                 },
                             },
                         },
                     ],
-                    data=[{"mini-progress Example": x} for x in [0, 0.66, 1]],
+                    data=[{'mini-progress Example': x} for x in [0, 0.66, 1]],
                     bordered=True,
                 ),
             ],
-            direction="vertical",
-            size="small",
-            style={"width": "100%"},
+            direction='vertical',
+            size='small',
+            style={'width': '100%'},
         )
 
     return demo_contents
@@ -129,10 +129,10 @@ app.clientside_callback(
     ];
 }
 """,
-    Output("table-mini-progress-percent-position-demo", "columns"),
+    Output('table-mini-progress-percent-position-demo', 'columns'),
     [
-        Input("table-mini-progress-percent-position-demo-align", "value"),
-        Input("table-mini-progress-percent-position-demo-type", "value"),
+        Input('table-mini-progress-percent-position-demo-align', 'value'),
+        Input('table-mini-progress-percent-position-demo-type', 'value'),
     ],
     prevent_initial_call=True,
 )
@@ -143,10 +143,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         fac.AntdSpace(
@@ -226,10 +226,10 @@ app.clientside_callback(
             }
         ]
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         fac.AntdSpace(

@@ -10,81 +10,83 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         demo_contents = fac.AntdTable(
             columns=[
                 {
-                    "title": "mini-bar示例1",
-                    "dataIndex": "mini-bar示例1",
-                    "renderOptions": {"renderType": "mini-bar"},
+                    'title': 'mini-bar示例1',
+                    'dataIndex': 'mini-bar示例1',
+                    'renderOptions': {'renderType': 'mini-bar'},
                 },
                 {
-                    "title": "mini-bar示例2",
-                    "dataIndex": "mini-bar示例2",
-                    "renderOptions": {
-                        "renderType": "mini-bar",
-                        "tooltipCustomContent": """(x, data) => `数值：${data[0]?.data?.y.toFixed(3)}`""",
+                    'title': 'mini-bar示例2',
+                    'dataIndex': 'mini-bar示例2',
+                    'renderOptions': {
+                        'renderType': 'mini-bar',
+                        'tooltipCustomContent': """(x, data) => `数值：${data[0]?.data?.y.toFixed(3)}`""",
                     },
                 },
                 {
-                    "title": "自定义颜色示例",
-                    "dataIndex": "自定义颜色示例",
-                    "renderOptions": {
-                        "renderType": "mini-bar",
-                        "miniChartColor": "#ff7875",
+                    'title': '自定义颜色示例',
+                    'dataIndex': '自定义颜色示例',
+                    'renderOptions': {
+                        'renderType': 'mini-bar',
+                        'miniChartColor': '#ff7875',
                     },
                 },
             ],
             data=[
                 {
-                    "mini-bar示例1": [np.random.rand() for i in range(25)],
-                    "mini-bar示例2": [np.random.rand() for i in range(25)],
-                    "自定义颜色示例": [np.random.rand() for i in range(25)],
+                    'mini-bar示例1': [np.random.rand() for i in range(25)],
+                    'mini-bar示例2': [np.random.rand() for i in range(25)],
+                    '自定义颜色示例': [np.random.rand() for i in range(25)],
                 }
             ]
             * 3,
             bordered=True,
-            tableLayout="fixed",
-            style={"width": 400},
+            tableLayout='fixed',
+            style={'width': 400},
         )
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         demo_contents = fac.AntdTable(
-            locale="en-us",
+            locale='en-us',
             columns=[
                 {
-                    "title": "mini-bar Example 1",
-                    "dataIndex": "mini-bar Example 1",
-                    "renderOptions": {"renderType": "mini-bar"},
+                    'title': 'mini-bar Example 1',
+                    'dataIndex': 'mini-bar Example 1',
+                    'renderOptions': {'renderType': 'mini-bar'},
                 },
                 {
-                    "title": "mini-bar Example 2",
-                    "dataIndex": "mini-bar Example 2",
-                    "renderOptions": {
-                        "renderType": "mini-bar",
-                        "tooltipCustomContent": """(x, data) => `Value: ${data[0]?.data?.y.toFixed(3)}`""",
+                    'title': 'mini-bar Example 2',
+                    'dataIndex': 'mini-bar Example 2',
+                    'renderOptions': {
+                        'renderType': 'mini-bar',
+                        'tooltipCustomContent': """(x, data) => `Value: ${data[0]?.data?.y.toFixed(3)}`""",
                     },
                 },
                 {
-                    "title": "Custom Color Example",
-                    "dataIndex": "Custom Color Example",
-                    "renderOptions": {
-                        "renderType": "mini-bar",
-                        "miniChartColor": "#ff7875",
+                    'title': 'Custom Color Example',
+                    'dataIndex': 'Custom Color Example',
+                    'renderOptions': {
+                        'renderType': 'mini-bar',
+                        'miniChartColor': '#ff7875',
                     },
                 },
             ],
             data=[
                 {
-                    "mini-bar Example 1": [np.random.rand() for i in range(25)],
-                    "mini-bar Example 2": [np.random.rand() for i in range(25)],
-                    "Custom Color Example": [np.random.rand() for i in range(25)],
+                    'mini-bar Example 1': [np.random.rand() for i in range(25)],
+                    'mini-bar Example 2': [np.random.rand() for i in range(25)],
+                    'Custom Color Example': [
+                        np.random.rand() for i in range(25)
+                    ],
                 }
             ]
             * 3,
             bordered=True,
-            tableLayout="fixed",
-            style={"width": 400},
+            tableLayout='fixed',
+            style={'width': 400},
         )
 
     return demo_contents
@@ -95,10 +97,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": '''
+                'code': '''
 fac.AntdTable(
     columns=[
         {
@@ -139,10 +141,10 @@ fac.AntdTable(
             }
         ]
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         return [
             {
-                "code": '''
+                'code': '''
 fac.AntdTable(
     locale="en-us",
     columns=[

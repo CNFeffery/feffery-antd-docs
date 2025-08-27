@@ -14,5 +14,7 @@ def render() -> Component:
             style={'marginBottom': 8},
         ),
         fac.AntdTitle('AntdQRCode 二维码', level=2),
-        fac.AntdParagraph('能够将文本转换生成二维码的组件，支持自定义配色和 Logo 配置。'),
+        fac.AntdParagraph(
+            '能够将文本转换生成二维码的组件，支持自定义配色和 Logo 配置。'
+        ),
     ]

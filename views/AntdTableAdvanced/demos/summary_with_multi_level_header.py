@@ -9,42 +9,42 @@ def render() -> Component:
 
     locale = get_current_locale()
 
-    if locale == "zh-cn":
-        col = lambda i: f"字段{i}"
-        grp = "组1"
-        cell = lambda i: f"示例内容{i}"
+    if locale == 'zh-cn':
+        col = lambda i: f'字段{i}'
+        grp = '组1'
+        cell = lambda i: f'示例内容{i}'
         summary = [
-            {"content": "第1列总结", "align": "center"},
-            {"content": "第2到3列总结", "colSpan": 2, "align": "center"},
-            {"content": "第4列总结", "align": "center"},
-            {"content": "第5到6列总结", "colSpan": 2, "align": "center"},
-            {"content": "xxx", "align": "center"},
-            {"content": "xxx", "colSpan": 2, "align": "center"},
-            {"content": "xxx", "align": "center"},
-            {"content": "xxx", "colSpan": 2, "align": "center"},
+            {'content': '第1列总结', 'align': 'center'},
+            {'content': '第2到3列总结', 'colSpan': 2, 'align': 'center'},
+            {'content': '第4列总结', 'align': 'center'},
+            {'content': '第5到6列总结', 'colSpan': 2, 'align': 'center'},
+            {'content': 'xxx', 'align': 'center'},
+            {'content': 'xxx', 'colSpan': 2, 'align': 'center'},
+            {'content': 'xxx', 'align': 'center'},
+            {'content': 'xxx', 'colSpan': 2, 'align': 'center'},
         ]
     else:  # en-us fallback
-        col = lambda i: f"Field {i}"
-        grp = "Group 1"
-        cell = lambda i: f"Sample Content {i}"
+        col = lambda i: f'Field {i}'
+        grp = 'Group 1'
+        cell = lambda i: f'Sample Content {i}'
         summary = [
-            {"content": "Summary of Col 1", "align": "center"},
-            {"content": "Summary of Cols 2–3", "colSpan": 2, "align": "center"},
-            {"content": "Summary of Col 4", "align": "center"},
-            {"content": "Summary of Cols 5–6", "colSpan": 2, "align": "center"},
-            {"content": "xxx", "align": "center"},
-            {"content": "xxx", "colSpan": 2, "align": "center"},
-            {"content": "xxx", "align": "center"},
-            {"content": "xxx", "colSpan": 2, "align": "center"},
+            {'content': 'Summary of Col 1', 'align': 'center'},
+            {'content': 'Summary of Cols 2–3', 'colSpan': 2, 'align': 'center'},
+            {'content': 'Summary of Col 4', 'align': 'center'},
+            {'content': 'Summary of Cols 5–6', 'colSpan': 2, 'align': 'center'},
+            {'content': 'xxx', 'align': 'center'},
+            {'content': 'xxx', 'colSpan': 2, 'align': 'center'},
+            {'content': 'xxx', 'align': 'center'},
+            {'content': 'xxx', 'colSpan': 2, 'align': 'center'},
         ]
 
     columns = [
-        {"title": col(1), "dataIndex": col(1)},
-        {"title": col(2), "dataIndex": col(2)},
-        {"title": col(3), "dataIndex": col(3), "group": grp},
-        {"title": col(4), "dataIndex": col(4), "group": grp},
-        {"title": col(5), "dataIndex": col(5)},
-        {"title": col(6), "dataIndex": col(6)},
+        {'title': col(1), 'dataIndex': col(1)},
+        {'title': col(2), 'dataIndex': col(2)},
+        {'title': col(3), 'dataIndex': col(3), 'group': grp},
+        {'title': col(4), 'dataIndex': col(4), 'group': grp},
+        {'title': col(5), 'dataIndex': col(5)},
+        {'title': col(6), 'dataIndex': col(6)},
     ]
 
     data = [{col(i): cell(i) for i in range(1, 7)}] * 5
@@ -63,10 +63,10 @@ def code_string() -> list:
     """返回当前语种对应的演示代码 / Return demo code for the current locale"""
     locale = get_current_locale()
 
-    if locale == "zh-cn":
+    if locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdTable(
     columns=[
         {'title': '字段1', 'dataIndex': '字段1'},
@@ -95,7 +95,7 @@ fac.AntdTable(
     else:  # en-us
         return [
             {
-                "code": """
+                'code': """
 fac.AntdTable(
     columns=[
         {'title': 'Field 1', 'dataIndex': 'Field 1'},

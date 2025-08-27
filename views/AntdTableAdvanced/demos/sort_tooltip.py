@@ -10,36 +10,36 @@ def render() -> Component:
 
     locale = get_current_locale()
 
-    if locale == "zh-cn":
+    if locale == 'zh-cn':
         label = {
-            "int": "int型示例",
-            "float": "float型示例",
-            "str": "str型示例",
-            "dt": "日期时间示例",
+            'int': 'int型示例',
+            'float': 'float型示例',
+            'str': 'str型示例',
+            'dt': '日期时间示例',
         }
-        sample_str = lambda i: f"示例字符{i}"
+        sample_str = lambda i: f'示例字符{i}'
     else:  # en-us fallback
         label = {
-            "int": "Integer Example",
-            "float": "Float Example",
-            "str": "String Example",
-            "dt": "Datetime Example",
+            'int': 'Integer Example',
+            'float': 'Float Example',
+            'str': 'String Example',
+            'dt': 'Datetime Example',
         }
-        sample_str = lambda i: f"Sample Text {i}"
+        sample_str = lambda i: f'Sample Text {i}'
 
     columns = [
-        {"title": label["int"], "dataIndex": label["int"], "width": "25%"},
-        {"title": label["float"], "dataIndex": label["float"], "width": "25%"},
-        {"title": label["str"], "dataIndex": label["str"], "width": "25%"},
-        {"title": label["dt"], "dataIndex": label["dt"], "width": "25%"},
+        {'title': label['int'], 'dataIndex': label['int'], 'width': '25%'},
+        {'title': label['float'], 'dataIndex': label['float'], 'width': '25%'},
+        {'title': label['str'], 'dataIndex': label['str'], 'width': '25%'},
+        {'title': label['dt'], 'dataIndex': label['dt'], 'width': '25%'},
     ]
 
     data = [
         {
-            label["int"]: i,
-            label["float"]: round(i * 0.1, 1),
-            label["str"]: sample_str(i),
-            label["dt"]: f"2099-01-0{i}",
+            label['int']: i,
+            label['float']: round(i * 0.1, 1),
+            label['str']: sample_str(i),
+            label['dt']: f'2099-01-0{i}',
         }
         for i in [4, 2, 1, 5, 3]
     ]
@@ -48,39 +48,39 @@ def render() -> Component:
         [
             fac.AntdFormItem(
                 fac.AntdSwitch(
-                    id="table-sort-tooltip-demo-show-sorter-tooltip",
+                    id='table-sort-tooltip-demo-show-sorter-tooltip',
                     checked=True,
                 ),
-                label="showSorterTooltip",
-                layout="horizontal",
-                style={"margin": 0},
+                label='showSorterTooltip',
+                layout='horizontal',
+                style={'margin': 0},
             ),
             fac.AntdFormItem(
                 fac.AntdRadioGroup(
-                    id="table-sort-tooltip-demo-show-sorter-tooltip-target",
-                    options=["full-header", "sorter-icon"],
-                    value="full-header",
+                    id='table-sort-tooltip-demo-show-sorter-tooltip-target',
+                    options=['full-header', 'sorter-icon'],
+                    value='full-header',
                 ),
-                label="showSorterTooltipTarget",
-                layout="horizontal",
-                style={"margin": 0},
+                label='showSorterTooltipTarget',
+                layout='horizontal',
+                style={'margin': 0},
             ),
             fac.AntdTable(
-                id="table-sort-tooltip-demo",
+                id='table-sort-tooltip-demo',
                 columns=columns,
                 data=data,
                 sortOptions={
-                    "sortDataIndexes": [
-                        label["int"],
-                        label["float"],
-                        label["str"],
-                        label["dt"],
+                    'sortDataIndexes': [
+                        label['int'],
+                        label['float'],
+                        label['str'],
+                        label['dt'],
                     ]
                 },
             ),
         ],
-        direction="vertical",
-        style={"width": "100%"},
+        direction='vertical',
+        style={'width': '100%'},
     )
 
     return demo_contents
@@ -89,12 +89,12 @@ def render() -> Component:
 app.clientside_callback(
     """(showSorterTooltip, showSorterTooltipTarget) => [showSorterTooltip, showSorterTooltipTarget]""",
     [
-        Output("table-sort-tooltip-demo", "showSorterTooltip"),
-        Output("table-sort-tooltip-demo", "showSorterTooltipTarget"),
+        Output('table-sort-tooltip-demo', 'showSorterTooltip'),
+        Output('table-sort-tooltip-demo', 'showSorterTooltipTarget'),
     ],
     [
-        Input("table-sort-tooltip-demo-show-sorter-tooltip", "checked"),
-        Input("table-sort-tooltip-demo-show-sorter-tooltip-target", "value"),
+        Input('table-sort-tooltip-demo-show-sorter-tooltip', 'checked'),
+        Input('table-sort-tooltip-demo-show-sorter-tooltip-target', 'value'),
     ],
 )
 
@@ -105,10 +105,10 @@ def code_string() -> list:
 
     locale = get_current_locale()
 
-    if locale == "zh-cn":
+    if locale == 'zh-cn':
         return [
             {
-                "code": '''
+                'code': '''
 fac.AntdSpace(
     [
         fac.AntdFormItem(
@@ -173,7 +173,7 @@ app.clientside_callback(
     else:  # en-us
         return [
             {
-                "code": '''
+                'code': '''
 fac.AntdSpace(
     [
         fac.AntdFormItem(

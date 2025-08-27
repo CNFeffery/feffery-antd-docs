@@ -13,39 +13,39 @@ def render() -> Component:
 
     locale = get_current_locale()
 
-    if locale == "zh-cn":
-        title = lambda i: f"字段{i}"
-        key = lambda i: f"字段{i}"
-        cell = "示例内容"
+    if locale == 'zh-cn':
+        title = lambda i: f'字段{i}'
+        key = lambda i: f'字段{i}'
+        cell = '示例内容'
     else:  # en-us fallback
-        title = lambda i: f"Field {i}"
-        key = lambda i: f"Field {i}"
-        cell = "Sample Content"
+        title = lambda i: f'Field {i}'
+        key = lambda i: f'Field {i}'
+        cell = 'Sample Content'
 
-    columns = [{"title": title(i), "dataIndex": key(i)} for i in range(1, 4)]
+    columns = [{'title': title(i), 'dataIndex': key(i)} for i in range(1, 4)]
     data = [
-        {**{key(i): cell for i in range(1, 4)}, "key": f"row-{row+1}"}
+        {**{key(i): cell for i in range(1, 4)}, 'key': f'row-{row + 1}'}
         for row in range(3)
     ]
 
     demo_contents = [
         fac.AntdTable(
-            id="table-row-selection-demo",
+            id='table-row-selection-demo',
             columns=columns,
             data=data,
-            rowSelectionType="checkbox",
+            rowSelectionType='checkbox',
         ),
-        html.Pre(id="table-row-selection-demo-output"),
+        html.Pre(id='table-row-selection-demo-output'),
     ]
 
     return demo_contents
 
 
 @app.callback(
-    Output("table-row-selection-demo-output", "children"),
+    Output('table-row-selection-demo-output', 'children'),
     [
-        Input("table-row-selection-demo", "selectedRowKeys"),
-        Input("table-row-selection-demo", "selectedRows"),
+        Input('table-row-selection-demo', 'selectedRowKeys'),
+        Input('table-row-selection-demo', 'selectedRows'),
     ],
     prevent_initial_call=True,
 )
@@ -61,10 +61,10 @@ def code_string() -> list:
     """返回当前语种对应的演示代码 / Return demo code for the current locale"""
     locale = get_current_locale()
 
-    if locale == "zh-cn":
+    if locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 [
     fac.AntdTable(
         id='table-row-selection-demo',
@@ -106,7 +106,7 @@ def table_row_selection_demo(selectedRowKeys, selectedRows):
     else:  # en-us
         return [
             {
-                "code": """
+                'code': """
 [
     fac.AntdTable(
         id='table-row-selection-demo',

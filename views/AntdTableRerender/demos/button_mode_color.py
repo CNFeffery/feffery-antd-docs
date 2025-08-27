@@ -9,107 +9,107 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         demo_contents = fac.AntdTable(
             columns=[
                 {
-                    "dataIndex": "variant参数值",
-                    "title": "variant参数值",
+                    'dataIndex': 'variant参数值',
+                    'title': 'variant参数值',
                 },
                 {
-                    "dataIndex": "渲染效果",
-                    "title": "渲染效果",
-                    "renderOptions": {"renderType": "button"},
+                    'dataIndex': '渲染效果',
+                    'title': '渲染效果',
+                    'renderOptions': {'renderType': 'button'},
                 },
             ],
             data=[
                 {
-                    "variant参数值": variant,
-                    "渲染效果": [
-                        {"content": color, "color": color, "variant": variant}
+                    'variant参数值': variant,
+                    '渲染效果': [
+                        {'content': color, 'color': color, 'variant': variant}
                         for color in [
-                            "default",
-                            "primary",
-                            "danger",
-                            "blue",
-                            "purple",
-                            "cyan",
-                            "green",
-                            "magenta",
-                            "pink",
-                            "red",
-                            "orange",
-                            "yellow",
-                            "volcano",
-                            "geekblue",
-                            "lime",
-                            "gold",
+                            'default',
+                            'primary',
+                            'danger',
+                            'blue',
+                            'purple',
+                            'cyan',
+                            'green',
+                            'magenta',
+                            'pink',
+                            'red',
+                            'orange',
+                            'yellow',
+                            'volcano',
+                            'geekblue',
+                            'lime',
+                            'gold',
                         ]
                     ],
                 }
                 for variant in [
-                    "outlined",
-                    "dashed",
-                    "solid",
-                    "filled",
-                    "text",
-                    "link",
+                    'outlined',
+                    'dashed',
+                    'solid',
+                    'filled',
+                    'text',
+                    'link',
                 ]
             ],
             bordered=True,
-            tableLayout="fixed",
+            tableLayout='fixed',
         )
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         demo_contents = fac.AntdTable(
-            locale="en-us",
+            locale='en-us',
             columns=[
                 {
-                    "dataIndex": "Variant Value",
-                    "title": "Variant Value",
+                    'dataIndex': 'Variant Value',
+                    'title': 'Variant Value',
                 },
                 {
-                    "dataIndex": "Render Effect",
-                    "title": "Render Effect",
-                    "renderOptions": {"renderType": "button"},
+                    'dataIndex': 'Render Effect',
+                    'title': 'Render Effect',
+                    'renderOptions': {'renderType': 'button'},
                 },
             ],
             data=[
                 {
-                    "Variant Value": variant,
-                    "Render Effect": [
-                        {"content": color, "color": color, "variant": variant}
+                    'Variant Value': variant,
+                    'Render Effect': [
+                        {'content': color, 'color': color, 'variant': variant}
                         for color in [
-                            "default",
-                            "primary",
-                            "danger",
-                            "blue",
-                            "purple",
-                            "cyan",
-                            "green",
-                            "magenta",
-                            "pink",
-                            "red",
-                            "orange",
-                            "yellow",
-                            "volcano",
-                            "geekblue",
-                            "lime",
-                            "gold",
+                            'default',
+                            'primary',
+                            'danger',
+                            'blue',
+                            'purple',
+                            'cyan',
+                            'green',
+                            'magenta',
+                            'pink',
+                            'red',
+                            'orange',
+                            'yellow',
+                            'volcano',
+                            'geekblue',
+                            'lime',
+                            'gold',
                         ]
                     ],
                 }
                 for variant in [
-                    "outlined",
-                    "dashed",
-                    "solid",
-                    "filled",
-                    "text",
-                    "link",
+                    'outlined',
+                    'dashed',
+                    'solid',
+                    'filled',
+                    'text',
+                    'link',
                 ]
             ],
             bordered=True,
-            tableLayout="fixed",
+            tableLayout='fixed',
         )
 
     return demo_contents
@@ -120,10 +120,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdTable(
     columns=[
         {
@@ -177,10 +177,10 @@ fac.AntdTable(
             }
         ]
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdTable(
     locale='en-us',
     columns=[

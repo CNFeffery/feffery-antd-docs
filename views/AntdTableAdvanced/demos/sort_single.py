@@ -9,36 +9,36 @@ def render() -> Component:
 
     locale = get_current_locale()
 
-    if locale == "zh-cn":
+    if locale == 'zh-cn':
         label = {
-            "int": "int型示例",
-            "float": "float型示例",
-            "str": "str型示例",
-            "dt": "日期时间示例",
+            'int': 'int型示例',
+            'float': 'float型示例',
+            'str': 'str型示例',
+            'dt': '日期时间示例',
         }
-        sample_str = lambda i: f"示例字符{i}"
+        sample_str = lambda i: f'示例字符{i}'
     else:  # en-us fallback
         label = {
-            "int": "Integer Example",
-            "float": "Float Example",
-            "str": "String Example",
-            "dt": "Datetime Example",
+            'int': 'Integer Example',
+            'float': 'Float Example',
+            'str': 'String Example',
+            'dt': 'Datetime Example',
         }
-        sample_str = lambda i: f"Sample Text {i}"
+        sample_str = lambda i: f'Sample Text {i}'
 
     columns = [
-        {"title": label["int"], "dataIndex": label["int"], "width": "25%"},
-        {"title": label["float"], "dataIndex": label["float"], "width": "25%"},
-        {"title": label["str"], "dataIndex": label["str"], "width": "25%"},
-        {"title": label["dt"], "dataIndex": label["dt"], "width": "25%"},
+        {'title': label['int'], 'dataIndex': label['int'], 'width': '25%'},
+        {'title': label['float'], 'dataIndex': label['float'], 'width': '25%'},
+        {'title': label['str'], 'dataIndex': label['str'], 'width': '25%'},
+        {'title': label['dt'], 'dataIndex': label['dt'], 'width': '25%'},
     ]
 
     data = [
         {
-            label["int"]: i,
-            label["float"]: round(i * 0.1, 1),
-            label["str"]: sample_str(i),
-            label["dt"]: f"2099-01-0{i}",
+            label['int']: i,
+            label['float']: round(i * 0.1, 1),
+            label['str']: sample_str(i),
+            label['dt']: f'2099-01-0{i}',
         }
         for i in [4, 2, 1, 5, 3]
     ]
@@ -47,7 +47,12 @@ def render() -> Component:
         columns=columns,
         data=data,
         sortOptions={
-            "sortDataIndexes": [label["int"], label["float"], label["str"], label["dt"]]
+            'sortDataIndexes': [
+                label['int'],
+                label['float'],
+                label['str'],
+                label['dt'],
+            ]
         },
     )
 
@@ -59,10 +64,10 @@ def code_string() -> list:
 
     locale = get_current_locale()
 
-    if locale == "zh-cn":
+    if locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdTable(
     columns=[
         {'title': 'int型示例', 'dataIndex': 'int型示例', 'width': '25%'},
@@ -89,7 +94,7 @@ fac.AntdTable(
     else:  # en-us
         return [
             {
-                "code": """
+                'code': """
 fac.AntdTable(
     columns=[
         {'title': 'Integer Example', 'dataIndex': 'Integer Example', 'width': '25%'},

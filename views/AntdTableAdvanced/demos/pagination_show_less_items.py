@@ -9,36 +9,37 @@ def render() -> Component:
 
     locale = get_current_locale()
 
-    if locale == "zh-cn":
-        div_top = "showLessItems=False（默认）"
-        div_bottom = "showLessItems=True"
-        title = lambda i: f"字段{i}"
-        key = lambda i: f"字段{i}"
-        cell = "示例内容"
+    if locale == 'zh-cn':
+        div_top = 'showLessItems=False（默认）'
+        div_bottom = 'showLessItems=True'
+        title = lambda i: f'字段{i}'
+        key = lambda i: f'字段{i}'
+        cell = '示例内容'
     else:  # en-us fallback
-        div_top = "showLessItems=False (default)"
-        div_bottom = "showLessItems=True"
-        title = lambda i: f"Field {i}"
-        key = lambda i: f"Field {i}"
-        cell = "Sample Content"
+        div_top = 'showLessItems=False (default)'
+        div_bottom = 'showLessItems=True'
+        title = lambda i: f'Field {i}'
+        key = lambda i: f'Field {i}'
+        cell = 'Sample Content'
 
     table_cols = [
-        {"title": title(i), "dataIndex": key(i), "width": "20%"} for i in range(1, 6)
+        {'title': title(i), 'dataIndex': key(i), 'width': '20%'}
+        for i in range(1, 6)
     ]
     table_data = [{key(i): cell for i in range(1, 6)}] * 20
 
     demo_contents = [
-        fac.AntdDivider(div_top, innerTextOrientation="left"),
+        fac.AntdDivider(div_top, innerTextOrientation='left'),
         fac.AntdTable(
             columns=table_cols,
             data=table_data,
-            pagination={"pageSize": 2, "current": 5},
+            pagination={'pageSize': 2, 'current': 5},
         ),
-        fac.AntdDivider(div_bottom, innerTextOrientation="left"),
+        fac.AntdDivider(div_bottom, innerTextOrientation='left'),
         fac.AntdTable(
             columns=table_cols,
             data=table_data,
-            pagination={"pageSize": 2, "showLessItems": True, "current": 5},
+            pagination={'pageSize': 2, 'showLessItems': True, 'current': 5},
         ),
     ]
 
@@ -49,10 +50,10 @@ def code_string() -> list:
     """返回当前语种对应的演示代码 / Return demo code for the current locale"""
     locale = get_current_locale()
 
-    if locale == "zh-cn":
+    if locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 [
     fac.AntdDivider('showLessItems=False（默认）', innerTextOrientation='left'),
     fac.AntdTable(
@@ -79,7 +80,7 @@ def code_string() -> list:
     else:  # en-us
         return [
             {
-                "code": """
+                'code': """
 [
     fac.AntdDivider('showLessItems=False (default)', innerTextOrientation='left'),
     fac.AntdTable(

@@ -9,28 +9,28 @@ def render() -> Component:
 
     locale = get_current_locale()
 
-    if locale == "zh-cn":
-        title = lambda i: f"字段{i}"
-        key = lambda i: f"字段{i}"
-        cell = "示例内容"
+    if locale == 'zh-cn':
+        title = lambda i: f'字段{i}'
+        key = lambda i: f'字段{i}'
+        cell = '示例内容'
         summary = [
-            {"content": "第1列总结"},
-            {"content": "第2到4列总结", "colSpan": 3, "align": "center"},
-            {"content": "第5列总结", "align": "right"},
+            {'content': '第1列总结'},
+            {'content': '第2到4列总结', 'colSpan': 3, 'align': 'center'},
+            {'content': '第5列总结', 'align': 'right'},
         ]
     else:  # en-us fallback
-        title = lambda i: f"Field {i}"
-        key = lambda i: f"Field {i}"
-        cell = "Sample Content"
+        title = lambda i: f'Field {i}'
+        key = lambda i: f'Field {i}'
+        cell = 'Sample Content'
         summary = [
-            {"content": "Summary of Col 1"},
-            {"content": "Summary of Cols 2–4", "colSpan": 3, "align": "center"},
-            {"content": "Summary of Col 5", "align": "right"},
+            {'content': 'Summary of Col 1'},
+            {'content': 'Summary of Cols 2–4', 'colSpan': 3, 'align': 'center'},
+            {'content': 'Summary of Col 5', 'align': 'right'},
         ]
 
     demo_contents = fac.AntdTable(
         columns=[
-            {"title": title(i), "dataIndex": key(i), "width": "20%"}
+            {'title': title(i), 'dataIndex': key(i), 'width': '20%'}
             for i in range(1, 6)
         ],
         data=[{key(i): cell for i in range(1, 6)}] * 10,
@@ -47,10 +47,10 @@ def code_string() -> list:
     """返回当前语种对应的演示代码 / Return demo code for the current locale"""
     locale = get_current_locale()
 
-    if locale == "zh-cn":
+    if locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdTable(
     columns=[
         {'title': f'字段{i}', 'dataIndex': f'字段{i}', 'width': '20%'}
@@ -72,7 +72,7 @@ fac.AntdTable(
     else:  # en-us
         return [
             {
-                "code": """
+                'code': """
 fac.AntdTable(
     columns=[
         {'title': f'Field {i}', 'dataIndex': f'Field {i}', 'width': '20%'}

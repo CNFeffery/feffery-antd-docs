@@ -9,24 +9,24 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         demo_contents = fac.AntdTable(
             columns=[
                 {
-                    "dataIndex": "按钮示例",
-                    "title": "按钮示例",
-                    "renderOptions": {"renderType": "button"},
+                    'dataIndex': '按钮示例',
+                    'title': '按钮示例',
+                    'renderOptions': {'renderType': 'button'},
                 },
             ],
             data=[
                 {
-                    "按钮示例": [
+                    '按钮示例': [
                         {
-                            "content": "带tooltip",
-                            "tooltip": {"title": "tooltip示例"},
+                            'content': '带tooltip',
+                            'tooltip': {'title': 'tooltip示例'},
                         },
                         {
-                            "content": "不带tooltip",
+                            'content': '不带tooltip',
                         },
                     ]
                 }
@@ -34,25 +34,25 @@ def render() -> Component:
             bordered=True,
         )
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         demo_contents = fac.AntdTable(
-            locale="en-us",
+            locale='en-us',
             columns=[
                 {
-                    "dataIndex": "Button Example",
-                    "title": "Button Example",
-                    "renderOptions": {"renderType": "button"},
+                    'dataIndex': 'Button Example',
+                    'title': 'Button Example',
+                    'renderOptions': {'renderType': 'button'},
                 },
             ],
             data=[
                 {
-                    "Button Example": [
+                    'Button Example': [
                         {
-                            "content": "With tooltip",
-                            "tooltip": {"title": "Tooltip Example"},
+                            'content': 'With tooltip',
+                            'tooltip': {'title': 'Tooltip Example'},
                         },
                         {
-                            "content": "Without tooltip",
+                            'content': 'Without tooltip',
                         },
                     ]
                 }
@@ -68,10 +68,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdTable(
     columns=[
         {
@@ -99,10 +99,10 @@ fac.AntdTable(
             }
         ]
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdTable(
     locale='en-us',
     columns=[

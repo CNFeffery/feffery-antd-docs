@@ -10,114 +10,129 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         demo_contents = [
-            fac.AntdDivider("冻结在左侧", innerTextOrientation="left"),
+            fac.AntdDivider('冻结在左侧', innerTextOrientation='left'),
             html.Div(
                 fac.AntdTable(
                     columns=[
                         {
-                            "title": f"字段{i}",
-                            "dataIndex": f"字段{i}",
-                            "fixed": "left" if i == 1 else None,
+                            'title': f'字段{i}',
+                            'dataIndex': f'字段{i}',
+                            'fixed': 'left' if i == 1 else None,
                         }
                         for i in range(1, 6)
                     ],
-                    data=[{f"字段{i}": "示例内容" for i in range(1, 6)}] * 3,
+                    data=[{f'字段{i}': '示例内容' for i in range(1, 6)}] * 3,
                     maxWidth=900,
                 ),
-                style={"maxWidth": 700, "margin": "0 auto"},
+                style={'maxWidth': 700, 'margin': '0 auto'},
             ),
-            fac.AntdDivider("冻结在右侧", innerTextOrientation="left"),
+            fac.AntdDivider('冻结在右侧', innerTextOrientation='left'),
             html.Div(
                 fac.AntdTable(
                     columns=[
                         {
-                            "title": f"字段{i}",
-                            "dataIndex": f"字段{i}",
-                            "fixed": "right" if i == 5 else None,
+                            'title': f'字段{i}',
+                            'dataIndex': f'字段{i}',
+                            'fixed': 'right' if i == 5 else None,
                         }
                         for i in range(1, 6)
                     ],
-                    data=[{f"字段{i}": "示例内容" for i in range(1, 6)}] * 3,
+                    data=[{f'字段{i}': '示例内容' for i in range(1, 6)}] * 3,
                     maxWidth=900,
                 ),
-                style={"maxWidth": 700, "margin": "0 auto"},
+                style={'maxWidth': 700, 'margin': '0 auto'},
             ),
-            fac.AntdDivider("双侧同时冻结", innerTextOrientation="left"),
+            fac.AntdDivider('双侧同时冻结', innerTextOrientation='left'),
             html.Div(
                 fac.AntdTable(
                     columns=[
                         {
-                            "title": f"字段{i}",
-                            "dataIndex": f"字段{i}",
-                            "fixed": (
-                                "left" if i == 1 else ("right" if i == 5 else None)
+                            'title': f'字段{i}',
+                            'dataIndex': f'字段{i}',
+                            'fixed': (
+                                'left'
+                                if i == 1
+                                else ('right' if i == 5 else None)
                             ),
                         }
                         for i in range(1, 6)
                     ],
-                    data=[{f"字段{i}": "示例内容" for i in range(1, 6)}] * 3,
+                    data=[{f'字段{i}': '示例内容' for i in range(1, 6)}] * 3,
                     maxWidth=900,
                 ),
-                style={"maxWidth": 700, "margin": "0 auto"},
+                style={'maxWidth': 700, 'margin': '0 auto'},
             ),
         ]
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         demo_contents = [
-            fac.AntdDivider("Frozen on the Left", innerTextOrientation="left"),
+            fac.AntdDivider('Frozen on the Left', innerTextOrientation='left'),
             html.Div(
                 fac.AntdTable(
                     columns=[
                         {
-                            "title": f"Field {i}",
-                            "dataIndex": f"Field {i}",
-                            "fixed": "left" if i == 1 else None,
+                            'title': f'Field {i}',
+                            'dataIndex': f'Field {i}',
+                            'fixed': 'left' if i == 1 else None,
                         }
                         for i in range(1, 6)
                     ],
-                    data=[{f"Field {i}": "Example Content" for i in range(1, 6)}] * 3,
+                    data=[
+                        {f'Field {i}': 'Example Content' for i in range(1, 6)}
+                    ]
+                    * 3,
                     maxWidth=900,
-                    locale="en-us",
+                    locale='en-us',
                 ),
-                style={"maxWidth": 700, "margin": "0 auto"},
+                style={'maxWidth': 700, 'margin': '0 auto'},
             ),
-            fac.AntdDivider("Frozen on the Right", innerTextOrientation="left"),
+            fac.AntdDivider('Frozen on the Right', innerTextOrientation='left'),
             html.Div(
                 fac.AntdTable(
                     columns=[
                         {
-                            "title": f"Field {i}",
-                            "dataIndex": f"Field {i}",
-                            "fixed": "right" if i == 5 else None,
+                            'title': f'Field {i}',
+                            'dataIndex': f'Field {i}',
+                            'fixed': 'right' if i == 5 else None,
                         }
                         for i in range(1, 6)
                     ],
-                    data=[{f"Field {i}": "Example Content" for i in range(1, 6)}] * 3,
-                    locale="en-us",
+                    data=[
+                        {f'Field {i}': 'Example Content' for i in range(1, 6)}
+                    ]
+                    * 3,
+                    locale='en-us',
                     maxWidth=900,
                 ),
-                style={"maxWidth": 700, "margin": "0 auto"},
+                style={'maxWidth': 700, 'margin': '0 auto'},
             ),
-            fac.AntdDivider("Frozen on Both Sides", innerTextOrientation="left"),
+            fac.AntdDivider(
+                'Frozen on Both Sides', innerTextOrientation='left'
+            ),
             html.Div(
                 fac.AntdTable(
                     columns=[
                         {
-                            "title": f"Field {i}",
-                            "dataIndex": f"Field {i}",
-                            "fixed": (
-                                "left" if i == 1 else ("right" if i == 5 else None)
+                            'title': f'Field {i}',
+                            'dataIndex': f'Field {i}',
+                            'fixed': (
+                                'left'
+                                if i == 1
+                                else ('right' if i == 5 else None)
                             ),
                         }
                         for i in range(1, 6)
                     ],
-                    data=[{f"Field {i}": "Example Content" for i in range(1, 6)}] * 3,
+                    data=[
+                        {f'Field {i}': 'Example Content' for i in range(1, 6)}
+                    ]
+                    * 3,
                     maxWidth=900,
-                    locale="en-us",
+                    locale='en-us',
                 ),
-                style={"maxWidth": 700, "margin": "0 auto"},
+                style={'maxWidth': 700, 'margin': '0 auto'},
             ),
         ]
 
@@ -129,10 +144,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 [
     fac.AntdDivider('冻结在左侧', innerTextOrientation='left'),
     html.Div(
@@ -189,10 +204,10 @@ def code_string() -> list:
             }
         ]
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         return [
             {
-                "code": """
+                'code': """
 [
     fac.AntdDivider('Frozen on the Left', innerTextOrientation='left'),
     html.Div(

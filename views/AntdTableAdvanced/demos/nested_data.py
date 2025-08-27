@@ -9,31 +9,35 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
-        title = lambda i: f"字段{i}"
-        data_key = lambda i: f"字段{i}"
-        level1 = "第一层"
-        level2 = "第二层"
+    if current_locale == 'zh-cn':
+        title = lambda i: f'字段{i}'
+        data_key = lambda i: f'字段{i}'
+        level1 = '第一层'
+        level2 = '第二层'
     else:  # en-us fallback
-        title = lambda i: f"Field {i}"
-        data_key = lambda i: f"Field {i}"
-        level1 = "First Level"
-        level2 = "Second Level"
+        title = lambda i: f'Field {i}'
+        data_key = lambda i: f'Field {i}'
+        level1 = 'First Level'
+        level2 = 'Second Level'
 
     demo_contents = fac.AntdTable(
         columns=[
-            {"title": title(i), "dataIndex": data_key(i), "width": "calc(100% / 3)"}
+            {
+                'title': title(i),
+                'dataIndex': data_key(i),
+                'width': 'calc(100% / 3)',
+            }
             for i in range(1, 4)
         ],
         data=[
             {
-                "key": f"row-{i}",
+                'key': f'row-{i}',
                 data_key(1): level1,
                 data_key(2): level1,
                 data_key(3): level1,
-                "children": [
+                'children': [
                     {
-                        "key": f"row-{i}{j}",
+                        'key': f'row-{i}{j}',
                         data_key(1): level2,
                         data_key(2): level2,
                         data_key(3): level2,
@@ -54,10 +58,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdTable(
     columns=[
         {'title': f'字段{i}', 'dataIndex': f'字段{i}', 'width': 'calc(100% / 3)'}
@@ -89,7 +93,7 @@ fac.AntdTable(
     else:  # en-us
         return [
             {
-                "code": """
+                'code': """
 fac.AntdTable(
     columns=[
         {'title': f'Field {i}', 'dataIndex': f'Field {i}', 'width': 'calc(100% / 3)'}

@@ -13,72 +13,72 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         demo_contents = [
             fac.AntdTable(
-                id="table-rerender-switch-demo",
+                id='table-rerender-switch-demo',
                 columns=[
                     {
-                        "title": "switch示例",
-                        "dataIndex": "switch示例",
-                        "renderOptions": {"renderType": "switch"},
+                        'title': 'switch示例',
+                        'dataIndex': 'switch示例',
+                        'renderOptions': {'renderType': 'switch'},
                     }
                 ],
                 data=[
                     {
-                        "switch示例": {
-                            "checked": i % 2 == 0,
-                            "checkedChildren": "开",
-                            "unCheckedChildren": "关",
-                            "custom": "balabalabalabala",
+                        'switch示例': {
+                            'checked': i % 2 == 0,
+                            'checkedChildren': '开',
+                            'unCheckedChildren': '关',
+                            'custom': 'balabalabalabala',
                         }
                     }
                     for i in range(1, 4)
                 ],
                 bordered=True,
-                style={"width": 200},
+                style={'width': 200},
             ),
-            html.Pre(id="table-rerender-switch-demo-output"),
+            html.Pre(id='table-rerender-switch-demo-output'),
         ]
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         demo_contents = [
             fac.AntdTable(
-                id="table-rerender-switch-demo",
-                locale="en-us",
+                id='table-rerender-switch-demo',
+                locale='en-us',
                 columns=[
                     {
-                        "title": "Switch Example",
-                        "dataIndex": "Switch Example",
-                        "renderOptions": {"renderType": "switch"},
+                        'title': 'Switch Example',
+                        'dataIndex': 'Switch Example',
+                        'renderOptions': {'renderType': 'switch'},
                     }
                 ],
                 data=[
                     {
-                        "Switch Example": {
-                            "checked": i % 2 == 0,
-                            "checkedChildren": "On",
-                            "unCheckedChildren": "Off",
-                            "custom": "balabalabalabala",
+                        'Switch Example': {
+                            'checked': i % 2 == 0,
+                            'checkedChildren': 'On',
+                            'unCheckedChildren': 'Off',
+                            'custom': 'balabalabalabala',
                         }
                     }
                     for i in range(1, 4)
                 ],
                 bordered=True,
-                style={"width": 200},
+                style={'width': 200},
             ),
-            html.Pre(id="table-rerender-switch-demo-output"),
+            html.Pre(id='table-rerender-switch-demo-output'),
         ]
 
     return demo_contents
 
 
 @app.callback(
-    Output("table-rerender-switch-demo-output", "children"),
+    Output('table-rerender-switch-demo-output', 'children'),
     [
-        Input("table-rerender-switch-demo", "recentlySwitchDataIndex"),
-        Input("table-rerender-switch-demo", "recentlySwitchStatus"),
-        Input("table-rerender-switch-demo", "recentlySwitchRow"),
+        Input('table-rerender-switch-demo', 'recentlySwitchDataIndex'),
+        Input('table-rerender-switch-demo', 'recentlySwitchStatus'),
+        Input('table-rerender-switch-demo', 'recentlySwitchRow'),
     ],
     prevent_initial_call=True,
 )
@@ -101,10 +101,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 [
     fac.AntdTable(
         id='table-rerender-switch-demo',
@@ -159,10 +159,10 @@ def table_rerender_switch_demo(
             }
         ]
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         return [
             {
-                "code": """
+                'code': """
 [
     fac.AntdTable(
         id='table-rerender-switch-demo',

@@ -10,13 +10,17 @@ def render() -> Component:
         [
             fac.AntdSpace(
                 [
-                    fac.AntdQRCode(value='https://fac.feffery.tech/', bordered=True),
+                    fac.AntdQRCode(
+                        value='https://fac.feffery.tech/', bordered=True
+                    ),
                     fac.AntdText('bordered：True'),
                 ]
             ),
             fac.AntdSpace(
                 [
-                    fac.AntdQRCode(value='https://fac.feffery.tech/', bordered=False),
+                    fac.AntdQRCode(
+                        value='https://fac.feffery.tech/', bordered=False
+                    ),
                     fac.AntdText('bordered：False'),
                 ]
             ),

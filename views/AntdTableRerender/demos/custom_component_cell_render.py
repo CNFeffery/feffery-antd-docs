@@ -12,23 +12,27 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         # 中文演示
         demo_contents = fac.AntdTable(
-            columns=[{"title": "自定义元素示例", "dataIndex": "自定义元素示例"}],
+            columns=[
+                {'title': '自定义元素示例', 'dataIndex': '自定义元素示例'}
+            ],
             data=[
                 {
-                    "自定义元素示例": html.Div(
-                        fac.AntdText("示例内容" * 100, style={"textIndent": "2rem"}),
+                    '自定义元素示例': html.Div(
+                        fac.AntdText(
+                            '示例内容' * 100, style={'textIndent': '2rem'}
+                        ),
                         style={
-                            "maxHeight": 50,
-                            "overflowY": "auto",
-                            "textAlign": "left",
+                            'maxHeight': 50,
+                            'overflowY': 'auto',
+                            'textAlign': 'left',
                         },
                     )
                 },
                 {
-                    "自定义元素示例": fmc.FefferyMarkdown(
+                    '自定义元素示例': fmc.FefferyMarkdown(
                         markdownStr="""
 ```python
 import numpy as np
@@ -39,37 +43,42 @@ import feffery_markdown_components as fmc
 """
                     )
                 },
-                {"自定义元素示例": fuc.FefferyQRCode(value="FefferyQRCode示例")},
+                {
+                    '自定义元素示例': fuc.FefferyQRCode(
+                        value='FefferyQRCode示例'
+                    )
+                },
             ],
             bordered=True,
-            style={"width": "100%"},
+            style={'width': '100%'},
         )
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         # English demo
         demo_contents = fac.AntdTable(
-            locale="en-us",
+            locale='en-us',
             columns=[
                 {
-                    "title": "Custom Component Example",
-                    "dataIndex": "Custom Component Example",
+                    'title': 'Custom Component Example',
+                    'dataIndex': 'Custom Component Example',
                 }
             ],
             data=[
                 {
-                    "Custom Component Example": html.Div(
+                    'Custom Component Example': html.Div(
                         fac.AntdText(
-                            "Example content" * 100, style={"textIndent": "2rem"}
+                            'Example content' * 100,
+                            style={'textIndent': '2rem'},
                         ),
                         style={
-                            "maxHeight": 50,
-                            "overflowY": "auto",
-                            "textAlign": "left",
+                            'maxHeight': 50,
+                            'overflowY': 'auto',
+                            'textAlign': 'left',
                         },
                     )
                 },
                 {
-                    "Custom Component Example": fmc.FefferyMarkdown(
+                    'Custom Component Example': fmc.FefferyMarkdown(
                         markdownStr="""
 ```python
 import numpy as np
@@ -81,13 +90,13 @@ import feffery_markdown_components as fmc
                     )
                 },
                 {
-                    "Custom Component Example": fuc.FefferyQRCode(
-                        value="FefferyQRCode example"
+                    'Custom Component Example': fuc.FefferyQRCode(
+                        value='FefferyQRCode example'
                     )
                 },
             ],
             bordered=True,
-            style={"width": "100%"},
+            style={'width': '100%'},
         )
 
     return demo_contents
@@ -98,10 +107,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": '''
+                'code': '''
 fac.AntdTable(
     columns=[{'title': '自定义元素示例', 'dataIndex': '自定义元素示例'}],
     data=[
@@ -138,10 +147,10 @@ import feffery_markdown_components as fmc
             }
         ]
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         return [
             {
-                "code": '''
+                'code': '''
 fac.AntdTable(
     locale='en-us',
     columns=[{'title': 'Custom Component Example', 'dataIndex': 'Custom Component Example'}],

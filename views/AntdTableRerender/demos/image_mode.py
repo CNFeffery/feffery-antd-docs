@@ -9,69 +9,69 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         demo_contents = fac.AntdTable(
             columns=[
                 {
-                    "title": "交互式图片",
-                    "dataIndex": "交互式图片",
-                    "renderOptions": {"renderType": "image"},
+                    'title': '交互式图片',
+                    'dataIndex': '交互式图片',
+                    'renderOptions': {'renderType': 'image'},
                 },
                 {
-                    "title": "静态图片",
-                    "dataIndex": "静态图片",
-                    "renderOptions": {"renderType": "image"},
+                    'title': '静态图片',
+                    'dataIndex': '静态图片',
+                    'renderOptions': {'renderType': 'image'},
                 },
             ],
             data=[
                 {
-                    "交互式图片": {
-                        "src": "/assets/imgs/fac-logo.svg",
-                        "height": "75px",
+                    '交互式图片': {
+                        'src': '/assets/imgs/fac-logo.svg',
+                        'height': '75px',
                     },
-                    "静态图片": {
-                        "src": "/assets/imgs/fac-logo.svg",
-                        "height": "75px",
-                        "preview": False,
+                    '静态图片': {
+                        'src': '/assets/imgs/fac-logo.svg',
+                        'height': '75px',
+                        'preview': False,
                     },
                 }
                 for i in range(5)
             ],
             bordered=True,
-            style={"width": "300px"},
+            style={'width': '300px'},
         )
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         demo_contents = fac.AntdTable(
-            locale="en-us",
+            locale='en-us',
             columns=[
                 {
-                    "title": "Interactive Image",
-                    "dataIndex": "Interactive Image",
-                    "renderOptions": {"renderType": "image"},
+                    'title': 'Interactive Image',
+                    'dataIndex': 'Interactive Image',
+                    'renderOptions': {'renderType': 'image'},
                 },
                 {
-                    "title": "Static Image",
-                    "dataIndex": "Static Image",
-                    "renderOptions": {"renderType": "image"},
+                    'title': 'Static Image',
+                    'dataIndex': 'Static Image',
+                    'renderOptions': {'renderType': 'image'},
                 },
             ],
             data=[
                 {
-                    "Interactive Image": {
-                        "src": "/assets/imgs/fac-logo.svg",
-                        "height": "75px",
+                    'Interactive Image': {
+                        'src': '/assets/imgs/fac-logo.svg',
+                        'height': '75px',
                     },
-                    "Static Image": {
-                        "src": "/assets/imgs/fac-logo.svg",
-                        "height": "75px",
-                        "preview": False,
+                    'Static Image': {
+                        'src': '/assets/imgs/fac-logo.svg',
+                        'height': '75px',
+                        'preview': False,
                     },
                 }
                 for i in range(5)
             ],
             bordered=True,
-            style={"width": "300px"},
+            style={'width': '300px'},
         )
 
     return demo_contents
@@ -82,10 +82,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdTable(
     columns=[
         {
@@ -120,10 +120,10 @@ fac.AntdTable(
             }
         ]
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdTable(
     locale='en-us',
     columns=[

@@ -9,61 +9,61 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         demo_contents = fac.AntdTable(
-            size="small",
+            size='small',
             columns=[
                 {
-                    "title": "角标模式",
-                    "dataIndex": "角标模式",
-                    "renderOptions": {"renderType": "corner-mark"},
+                    'title': '角标模式',
+                    'dataIndex': '角标模式',
+                    'renderOptions': {'renderType': 'corner-mark'},
                 }
             ],
             data=[
                 {
-                    "key": i,
-                    "角标模式": {
-                        "content": "角标模式",
-                        "color": ["red", "blue", "green"][i],
-                        "offsetX": -7.5,
-                        "offsetY": -8.5,
-                        "placement": "top-left",
-                        "hide": [False, True, False][i],
+                    'key': i,
+                    '角标模式': {
+                        'content': '角标模式',
+                        'color': ['red', 'blue', 'green'][i],
+                        'offsetX': -7.5,
+                        'offsetY': -8.5,
+                        'placement': 'top-left',
+                        'hide': [False, True, False][i],
                     },
                 }
                 for i in range(3)
             ],
             bordered=True,
-            style={"width": "200px"},
+            style={'width': '200px'},
         )
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         demo_contents = fac.AntdTable(
-            locale="en-us",
-            size="small",
+            locale='en-us',
+            size='small',
             columns=[
                 {
-                    "title": "Corner Mark Mode",
-                    "dataIndex": "Corner Mark Mode",
-                    "renderOptions": {"renderType": "corner-mark"},
+                    'title': 'Corner Mark Mode',
+                    'dataIndex': 'Corner Mark Mode',
+                    'renderOptions': {'renderType': 'corner-mark'},
                 }
             ],
             data=[
                 {
-                    "key": i,
-                    "Corner Mark Mode": {
-                        "content": "Corner Mark",
-                        "color": ["red", "blue", "green"][i],
-                        "offsetX": -7.5,
-                        "offsetY": -8.5,
-                        "placement": "top-left",
-                        "hide": [False, True, False][i],
+                    'key': i,
+                    'Corner Mark Mode': {
+                        'content': 'Corner Mark',
+                        'color': ['red', 'blue', 'green'][i],
+                        'offsetX': -7.5,
+                        'offsetY': -8.5,
+                        'placement': 'top-left',
+                        'hide': [False, True, False][i],
                     },
                 }
                 for i in range(3)
             ],
             bordered=True,
-            style={"width": "200px"},
+            style={'width': '200px'},
         )
 
     return demo_contents
@@ -74,10 +74,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdTable(
     size='small',
     columns=[
@@ -108,10 +108,10 @@ fac.AntdTable(
             }
         ]
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdTable(
     locale='en-us',
     size='small',

@@ -9,38 +9,38 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         demo_contents = fac.AntdTable(
             columns=[
                 {
-                    "title": "dropdown-links示例1",
-                    "dataIndex": "dropdown-links示例1",
-                    "renderOptions": {"renderType": "dropdown-links"},
-                    "width": "30%",
+                    'title': 'dropdown-links示例1',
+                    'dataIndex': 'dropdown-links示例1',
+                    'renderOptions': {'renderType': 'dropdown-links'},
+                    'width': '30%',
                 },
                 {
-                    "title": "dropdown-links示例2",
-                    "dataIndex": "dropdown-links示例2",
-                    "renderOptions": {
-                        "renderType": "dropdown-links",
-                        "dropdownProps": {"title": "更多"},
+                    'title': 'dropdown-links示例2',
+                    'dataIndex': 'dropdown-links示例2',
+                    'renderOptions': {
+                        'renderType': 'dropdown-links',
+                        'dropdownProps': {'title': '更多'},
                     },
-                    "width": "70%",
+                    'width': '70%',
                 },
             ],
             data=[
                 {
-                    "dropdown-links示例1": [
+                    'dropdown-links示例1': [
                         {
-                            "title": f"image示例{i}.png",
-                            "href": f"assets/imgs/image示例{i}.png",
+                            'title': f'image示例{i}.png',
+                            'href': f'assets/imgs/image示例{i}.png',
                         }
                         for i in range(1, 8)
                     ],
-                    "dropdown-links示例2": [
+                    'dropdown-links示例2': [
                         {
-                            "title": f"image示例{i}.png",
-                            "href": f"assets/imgs/image示例{i}.png",
+                            'title': f'image示例{i}.png',
+                            'href': f'assets/imgs/image示例{i}.png',
                         }
                         for i in range(1, 8)
                     ],
@@ -48,42 +48,42 @@ def render() -> Component:
             ]
             * 3,
             bordered=True,
-            style={"width": 400},
+            style={'width': 400},
         )
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         demo_contents = fac.AntdTable(
-            locale="en-us",
+            locale='en-us',
             columns=[
                 {
-                    "title": "Dropdown Links Example 1",
-                    "dataIndex": "Dropdown Links Example 1",
-                    "renderOptions": {"renderType": "dropdown-links"},
-                    "width": "30%",
+                    'title': 'Dropdown Links Example 1',
+                    'dataIndex': 'Dropdown Links Example 1',
+                    'renderOptions': {'renderType': 'dropdown-links'},
+                    'width': '30%',
                 },
                 {
-                    "title": "Dropdown Links Example 2",
-                    "dataIndex": "Dropdown Links Example 2",
-                    "renderOptions": {
-                        "renderType": "dropdown-links",
-                        "dropdownProps": {"title": "More"},
+                    'title': 'Dropdown Links Example 2',
+                    'dataIndex': 'Dropdown Links Example 2',
+                    'renderOptions': {
+                        'renderType': 'dropdown-links',
+                        'dropdownProps': {'title': 'More'},
                     },
-                    "width": "70%",
+                    'width': '70%',
                 },
             ],
             data=[
                 {
-                    "Dropdown Links Example 1": [
+                    'Dropdown Links Example 1': [
                         {
-                            "title": f"image-example-{i}.png",
-                            "href": f"assets/imgs/image-example-{i}.png",
+                            'title': f'image-example-{i}.png',
+                            'href': f'assets/imgs/image-example-{i}.png',
                         }
                         for i in range(1, 8)
                     ],
-                    "Dropdown Links Example 2": [
+                    'Dropdown Links Example 2': [
                         {
-                            "title": f"image-example-{i}.png",
-                            "href": f"assets/imgs/image-example-{i}.png",
+                            'title': f'image-example-{i}.png',
+                            'href': f'assets/imgs/image-example-{i}.png',
                         }
                         for i in range(1, 8)
                     ],
@@ -91,7 +91,7 @@ def render() -> Component:
             ]
             * 3,
             bordered=True,
-            style={"width": 400},
+            style={'width': 400},
         )
 
     return demo_contents
@@ -102,10 +102,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdTable(
     columns=[
         {
@@ -150,10 +150,10 @@ fac.AntdTable(
             }
         ]
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdTable(
     locale='en-us',
     columns=[

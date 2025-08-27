@@ -10,54 +10,61 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         demo_contents = [
             html.Div(
                 fac.AntdTable(
                     columns=[
-                        {"title": f"字段{i}", "dataIndex": f"字段{i}"}
+                        {'title': f'字段{i}', 'dataIndex': f'字段{i}'}
                         for i in range(1, 6)
                     ],
-                    data=[{f"字段{i}": "示例内容" for i in range(1, 6)}] * 3,
+                    data=[{f'字段{i}': '示例内容' for i in range(1, 6)}] * 3,
                     maxWidth=900,
-                    title="maxWidth=900",
+                    title='maxWidth=900',
                 ),
-                style={"maxWidth": 700, "margin": "0 auto"},
+                style={'maxWidth': 700, 'margin': '0 auto'},
             ),
             fac.AntdTable(
                 columns=[
-                    {"title": f"字段{i}", "dataIndex": f"字段{i}"} for i in range(1, 6)
+                    {'title': f'字段{i}', 'dataIndex': f'字段{i}'}
+                    for i in range(1, 6)
                 ],
-                data=[{f"字段{i}": "示例内容" * 4 for i in range(1, 6)}] * 3,
-                maxWidth="max-content",
+                data=[{f'字段{i}': '示例内容' * 4 for i in range(1, 6)}] * 3,
+                maxWidth='max-content',
                 title='maxWidth="max-content"',
             ),
         ]
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         demo_contents = [
             html.Div(
                 fac.AntdTable(
                     columns=[
-                        {"title": f"Field {i}", "dataIndex": f"Field {i}"}
+                        {'title': f'Field {i}', 'dataIndex': f'Field {i}'}
                         for i in range(1, 6)
                     ],
-                    data=[{f"Field {i}": "Example Content" for i in range(1, 6)}] * 3,
+                    data=[
+                        {f'Field {i}': 'Example Content' for i in range(1, 6)}
+                    ]
+                    * 3,
                     maxWidth=900,
-                    title="maxWidth=900",
-                    locale="en-us",
+                    title='maxWidth=900',
+                    locale='en-us',
                 ),
-                style={"maxWidth": 700, "margin": "0 auto"},
+                style={'maxWidth': 700, 'margin': '0 auto'},
             ),
             fac.AntdTable(
                 columns=[
-                    {"title": f"Field {i}", "dataIndex": f"Field {i}"}
+                    {'title': f'Field {i}', 'dataIndex': f'Field {i}'}
                     for i in range(1, 6)
                 ],
-                data=[{f"Field {i}": "Example Content" * 4 for i in range(1, 6)}] * 3,
-                maxWidth="max-content",
+                data=[
+                    {f'Field {i}': 'Example Content' * 4 for i in range(1, 6)}
+                ]
+                * 3,
+                maxWidth='max-content',
                 title='maxWidth="max-content"',
-                locale="en-us",
+                locale='en-us',
             ),
         ]
 
@@ -69,10 +76,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 [
     html.Div(
         fac.AntdTable(
@@ -100,10 +107,10 @@ def code_string() -> list:
             }
         ]
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         return [
             {
-                "code": """
+                'code': """
 [
     html.Div(
         fac.AntdTable(

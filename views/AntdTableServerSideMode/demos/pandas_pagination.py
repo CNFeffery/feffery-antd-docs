@@ -12,7 +12,9 @@ from .mock_data import demo_df
 
 def _en_title(name: str) -> str:
     return (
-        f"Field {name[2:]}" if name.startswith("字段") and name[2:].isdigit() else name
+        f'Field {name[2:]}'
+        if name.startswith('字段') and name[2:].isdigit()
+        else name
     )
 
 
@@ -21,75 +23,77 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         demo_contents = fac.AntdSpin(
             fac.AntdTable(
-                id="table-server-side-mode-pagination-demo-pandas",
+                id='table-server-side-mode-pagination-demo-pandas',
                 columns=[
-                    {"title": column, "dataIndex": column} for column in demo_df.columns
+                    {'title': column, 'dataIndex': column}
+                    for column in demo_df.columns
                 ],
                 bordered=True,
-                mode="server-side",
+                mode='server-side',
                 pagination={
-                    "total": demo_df.shape[0],
-                    "current": 1,
-                    "pageSize": 5,
-                    "showSizeChanger": True,
-                    "pageSizeOptions": [5, 10],
-                    "position": "topCenter",
-                    "showQuickJumper": True,
+                    'total': demo_df.shape[0],
+                    'current': 1,
+                    'pageSize': 5,
+                    'showSizeChanger': True,
+                    'pageSizeOptions': [5, 10],
+                    'position': 'topCenter',
+                    'showQuickJumper': True,
                 },
-                tableLayout="fixed",
+                tableLayout='fixed',
             ),
-            text="数据加载中",
-            size="small",
+            text='数据加载中',
+            size='small',
         )
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         demo_contents = fac.AntdSpin(
             fac.AntdTable(
-                id="table-server-side-mode-pagination-demo-pandas",
-                locale="en-us",
+                id='table-server-side-mode-pagination-demo-pandas',
+                locale='en-us',
                 # translate titles; keep dataIndex as original keys
                 columns=[
-                    {"title": _en_title(col), "dataIndex": col}
+                    {'title': _en_title(col), 'dataIndex': col}
                     for col in demo_df.columns
                 ],
                 bordered=True,
-                mode="server-side",
+                mode='server-side',
                 pagination={
-                    "total": demo_df.shape[0],
-                    "current": 1,
-                    "pageSize": 5,
-                    "showSizeChanger": True,
-                    "pageSizeOptions": [5, 10],
-                    "position": "topCenter",
-                    "showQuickJumper": True,
+                    'total': demo_df.shape[0],
+                    'current': 1,
+                    'pageSize': 5,
+                    'showSizeChanger': True,
+                    'pageSizeOptions': [5, 10],
+                    'position': 'topCenter',
+                    'showQuickJumper': True,
                 },
-                tableLayout="fixed",
+                tableLayout='fixed',
             ),
-            text="Loading data",
-            size="small",
+            text='Loading data',
+            size='small',
         )
 
     return demo_contents
 
 
 @app.callback(
-    Output("table-server-side-mode-pagination-demo-pandas", "data"),
-    Input("table-server-side-mode-pagination-demo-pandas", "pagination"),
+    Output('table-server-side-mode-pagination-demo-pandas', 'data'),
+    Input('table-server-side-mode-pagination-demo-pandas', 'pagination'),
 )
 def table_server_side_mode_pagination_demo_pandas(pagination):
     if pagination:
         data_frame = demo_df.iloc[
-            (pagination["current"] - 1)
-            * pagination["pageSize"] : pagination["current"]
-            * pagination["pageSize"],
+            (pagination['current'] - 1) * pagination['pageSize'] : pagination[
+                'current'
+            ]
+            * pagination['pageSize'],
             :,
         ]
 
         time.sleep(0.5)  # 渲染加载动画更好看 ^_^
-        return data_frame.to_dict("records")
+        return data_frame.to_dict('records')
 
     return dash.no_update
 
@@ -99,10 +103,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpin(
     fac.AntdTable(
         id='table-server-side-mode-pagination-demo-pandas',
@@ -151,10 +155,10 @@ def table_server_side_mode_pagination_demo_pandas(pagination):
 """
             }
         ]
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpin(
     fac.AntdTable(
         id='table-server-side-mode-pagination-demo-pandas',

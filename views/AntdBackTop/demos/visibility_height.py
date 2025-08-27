@@ -33,7 +33,7 @@ def render() -> Component:
             + [
                 fac.AntdSpace(
                     [
-                        f'已滚动{(i - 4)*(22.5+8) if i > 4 else 0}px'
+                        f'已滚动{(i - 4) * (22.5 + 8) if i > 4 else 0}px'
                         for i in range(200)
                     ],
                     direction='vertical',

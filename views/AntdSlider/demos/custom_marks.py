@@ -10,7 +10,7 @@ def render() -> Component:
         min=0,
         max=100,
         defaultValue=50,
-        marks={i * 10: f'{i*10}%' for i in range(0, 11)},
+        marks={i * 10: f'{i * 10}%' for i in range(0, 11)},
         style={'width': 300},
     )
 

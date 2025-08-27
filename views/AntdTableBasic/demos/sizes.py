@@ -11,79 +11,101 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         demo_contents = fac.AntdSpace(
             [
                 fac.AntdSpace(
                     [
-                        fac.AntdDivider(f'size="{size}"', innerTextOrientation="left"),
+                        fac.AntdDivider(
+                            f'size="{size}"', innerTextOrientation='left'
+                        ),
                         fac.AntdTable(
                             columns=[
-                                {"title": "int型示例", "dataIndex": "int型示例"},
-                                {"title": "float型示例", "dataIndex": "float型示例"},
-                                {"title": "str型示例", "dataIndex": "str型示例"},
-                                {"title": "日期时间示例", "dataIndex": "日期时间示例"},
+                                {
+                                    'title': 'int型示例',
+                                    'dataIndex': 'int型示例',
+                                },
+                                {
+                                    'title': 'float型示例',
+                                    'dataIndex': 'float型示例',
+                                },
+                                {
+                                    'title': 'str型示例',
+                                    'dataIndex': 'str型示例',
+                                },
+                                {
+                                    'title': '日期时间示例',
+                                    'dataIndex': '日期时间示例',
+                                },
                             ],
                             data=[
                                 {
-                                    "int型示例": 123,
-                                    "float型示例": 1.23,
-                                    "str型示例": "示例字符",
-                                    "日期时间示例": datetime.now(),
+                                    'int型示例': 123,
+                                    'float型示例': 1.23,
+                                    'str型示例': '示例字符',
+                                    '日期时间示例': datetime.now(),
                                 }
                             ],
                             size=size,
                             bordered=True,
                         ),
                     ],
-                    direction="vertical",
-                    style={"width": "100%"},
+                    direction='vertical',
+                    style={'width': '100%'},
                 )
-                for size in ["small", "middle", "large"]
+                for size in ['small', 'middle', 'large']
             ],
-            direction="vertical",
-            style={"width": "100%"},
+            direction='vertical',
+            style={'width': '100%'},
         )
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         demo_contents = fac.AntdSpace(
             [
                 fac.AntdSpace(
                     [
-                        fac.AntdDivider(f'size="{size}"', innerTextOrientation="left"),
+                        fac.AntdDivider(
+                            f'size="{size}"', innerTextOrientation='left'
+                        ),
                         fac.AntdTable(
                             columns=[
-                                {"title": "int Example", "dataIndex": "int Example"},
                                 {
-                                    "title": "float Example",
-                                    "dataIndex": "float Example",
+                                    'title': 'int Example',
+                                    'dataIndex': 'int Example',
                                 },
-                                {"title": "str Example", "dataIndex": "str Example"},
                                 {
-                                    "title": "Datetime Example",
-                                    "dataIndex": "Datetime Example",
+                                    'title': 'float Example',
+                                    'dataIndex': 'float Example',
+                                },
+                                {
+                                    'title': 'str Example',
+                                    'dataIndex': 'str Example',
+                                },
+                                {
+                                    'title': 'Datetime Example',
+                                    'dataIndex': 'Datetime Example',
                                 },
                             ],
                             data=[
                                 {
-                                    "int Example": 123,
-                                    "float Example": 1.23,
-                                    "str Example": "Example string",
-                                    "Datetime Example": datetime.now(),
+                                    'int Example': 123,
+                                    'float Example': 1.23,
+                                    'str Example': 'Example string',
+                                    'Datetime Example': datetime.now(),
                                 }
                             ],
                             size=size,
                             bordered=True,
-                            locale="en-us",
+                            locale='en-us',
                         ),
                     ],
-                    direction="vertical",
-                    style={"width": "100%"},
+                    direction='vertical',
+                    style={'width': '100%'},
                 )
-                for size in ["small", "middle", "large"]
+                for size in ['small', 'middle', 'large']
             ],
-            direction="vertical",
-            style={"width": "100%"},
+            direction='vertical',
+            style={'width': '100%'},
         )
 
     return demo_contents
@@ -94,10 +116,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         fac.AntdSpace(
@@ -142,10 +164,10 @@ fac.AntdSpace(
             }
         ]
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         fac.AntdSpace(

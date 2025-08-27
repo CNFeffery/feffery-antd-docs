@@ -9,13 +9,13 @@ def render() -> Component:
     return [
         fac.AntdBreadcrumb(
             items=[
-                {"title": translator.t("组件介绍")},
-                {"title": translator.t("数据展示")},
-                {"title": translator.t("AntdTable 表格")},
-                {"title": translator.t("再渲染模式")},
+                {'title': translator.t('组件介绍')},
+                {'title': translator.t('数据展示')},
+                {'title': translator.t('AntdTable 表格')},
+                {'title': translator.t('再渲染模式')},
             ],
-            style={"marginBottom": 8},
+            style={'marginBottom': 8},
         ),
-        fac.AntdTitle(translator.t("AntdTable 表格"), level=2),
-        fac.AntdParagraph(translator.t("表格组件中使用不同的再渲染模式。")),
+        fac.AntdTitle(translator.t('AntdTable 表格'), level=2),
+        fac.AntdParagraph(translator.t('表格组件中使用不同的再渲染模式。')),
     ]
