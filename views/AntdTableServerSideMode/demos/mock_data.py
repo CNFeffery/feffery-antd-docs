@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from peewee import SqliteDatabase, CharField, IntegerField, Model, fn
+from peewee import CharField, IntegerField, Model, SqliteDatabase, fn
 
 # 生成演示用数据框
 demo_df = (

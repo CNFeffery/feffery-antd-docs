@@ -32,8 +32,7 @@ def render() -> Component:
 
 
 @app.callback(
-    Output('slider-demo-output', 'children'), 
-    Input('slider-demo', 'value')
+    Output('slider-demo-output', 'children'), Input('slider-demo', 'value')
 )
 def slider_demo(value):
     return f'value: {value}'

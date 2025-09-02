@@ -1,45 +1,88 @@
 import feffery_antd_components as fac
 from dash.dependencies import Component
 
+from i18n import get_current_locale
+
 
 def render() -> Component:
-    """渲染当前演示用例"""
+    """渲染当前演示用例 / Render the current demo"""
 
-    # 构造演示用例相关内容
-    demo_contents = fac.AntdTable(
-        columns=[
-            {
-                'title': 'mini-ring-progress示例1',
-                'dataIndex': 'mini-ring-progress示例1',
-                'renderOptions': {'renderType': 'mini-ring-progress'},
-                'width': '50%',
-            },
-            {
-                'title': 'mini-ring-progress示例2',
-                'dataIndex': 'mini-ring-progress示例2',
-                'renderOptions': {
-                    'renderType': 'mini-ring-progress',
-                    'progressOneHundredPercentColor': '#f08c00',
-                    'ringProgressFontSize': 8,
+    current_locale = get_current_locale()
+
+    if current_locale == 'zh-cn':
+        demo_contents = fac.AntdTable(
+            columns=[
+                {
+                    'title': 'mini-ring-progress示例1',
+                    'dataIndex': 'mini-ring-progress示例1',
+                    'renderOptions': {'renderType': 'mini-ring-progress'},
+                    'width': '50%',
                 },
-                'width': '50%',
-            },
-        ],
-        data=[
-            {'mini-ring-progress示例1': x, 'mini-ring-progress示例2': x}
-            for x in [0, 0.66, 1]
-        ],
-        bordered=True,
-        miniChartHeight=75,
-        style={'width': 300},
-    )
+                {
+                    'title': 'mini-ring-progress示例2',
+                    'dataIndex': 'mini-ring-progress示例2',
+                    'renderOptions': {
+                        'renderType': 'mini-ring-progress',
+                        'progressOneHundredPercentColor': '#f08c00',
+                        'ringProgressFontSize': 8,
+                    },
+                    'width': '50%',
+                },
+            ],
+            data=[
+                {'mini-ring-progress示例1': x, 'mini-ring-progress示例2': x}
+                for x in [0, 0.66, 1]
+            ],
+            bordered=True,
+            miniChartHeight=75,
+            style={'width': 300},
+        )
+
+    elif current_locale == 'en-us':
+        demo_contents = fac.AntdTable(
+            locale='en-us',
+            columns=[
+                {
+                    'title': 'mini-ring-progress Example 1',
+                    'dataIndex': 'mini-ring-progress Example 1',
+                    'renderOptions': {'renderType': 'mini-ring-progress'},
+                    'width': '50%',
+                },
+                {
+                    'title': 'mini-ring-progress Example 2',
+                    'dataIndex': 'mini-ring-progress Example 2',
+                    'renderOptions': {
+                        'renderType': 'mini-ring-progress',
+                        'progressOneHundredPercentColor': '#f08c00',
+                        'ringProgressFontSize': 8,
+                    },
+                    'width': '50%',
+                },
+            ],
+            data=[
+                {
+                    'mini-ring-progress Example 1': x,
+                    'mini-ring-progress Example 2': x,
+                }
+                for x in [0, 0.66, 1]
+            ],
+            bordered=True,
+            miniChartHeight=75,
+            style={'width': 300},
+        )
 
     return demo_contents
 
 
-code_string = [
-    {
-        'code': """
+def code_string() -> list:
+    """返回当前语种对应的演示代码 / Return demo code for the current locale"""
+
+    current_locale = get_current_locale()
+
+    if current_locale == 'zh-cn':
+        return [
+            {
+                'code': """
 fac.AntdTable(
     columns=[
         {
@@ -68,5 +111,41 @@ fac.AntdTable(
     style={'width': 300},
 )
 """
-    }
-]
+            }
+        ]
+
+    elif current_locale == 'en-us':
+        return [
+            {
+                'code': """
+fac.AntdTable(
+    locale="en-us",
+    columns=[
+        {
+            'title': 'mini-ring-progress Example 1',
+            'dataIndex': 'mini-ring-progress Example 1',
+            'renderOptions': {'renderType': 'mini-ring-progress'},
+            'width': '50%',
+        },
+        {
+            'title': 'mini-ring-progress Example 2',
+            'dataIndex': 'mini-ring-progress Example 2',
+            'renderOptions': {
+                'renderType': 'mini-ring-progress',
+                'progressOneHundredPercentColor': '#f08c00',
+                'ringProgressFontSize': 8,
+            },
+            'width': '50%',
+        },
+    ],
+    data=[
+        {'mini-ring-progress Example 1': x, 'mini-ring-progress Example 2': x}
+        for x in [0, 0.66, 1]
+    ],
+    bordered=True,
+    miniChartHeight=75,
+    style={'width': 300},
+)
+"""
+            }
+        ]

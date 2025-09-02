@@ -16,7 +16,7 @@ def render() -> Component:
             step=5,
             defaultValue=20,
             tooltipVisible=False,
-            marks={i * 5: f'{i*5}px' for i in range(1, 13)},
+            marks={i * 5: f'{i * 5}px' for i in range(1, 13)},
         ),
         fac.AntdTabs(
             id='tabs-gutter-demo',

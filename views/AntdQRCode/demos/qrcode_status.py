@@ -14,7 +14,7 @@ def render() -> Component:
             fac.AntdQRCode(value='https://fac.feffery.tech/', status='scanned'),
         ],
         gap='middle',
-        wrap='wrap'
+        wrap='wrap',
     )
 
     return demo_contents

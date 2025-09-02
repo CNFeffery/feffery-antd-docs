@@ -1,0 +1,204 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdTableCellRender",
+    "contents": {
+        "link链接模式": {
+            "en-us": "Link Mode"
+        },
+        "将单元格内容快捷渲染为链接形式。": {
+            "en-us": "Quickly render cell content as links."
+        },
+        "ellipsis长内容省略模式": {
+            "en-us": "Ellipsis (Long Text) Mode"
+        },
+        "将单元格内容快捷渲染为长内容省略形式。": {
+            "en-us": "Quickly render cell content as truncated with an ellipsis."
+        },
+        "copyable可复制模式": {
+            "en-us": "Copyable Mode"
+        },
+        "将单元格内容快捷渲染为可复制形式。": {
+            "en-us": "Quickly render cell content as copyable."
+        },
+        "ellipsis-copyable长内容省略+可复制模式": {
+            "en-us": "Ellipsis + Copyable Mode"
+        },
+        "将单元格内容快捷渲染为长内容省略+可复制形式。": {
+            "en-us": "Quickly render cell content as truncated with an ellipsis and copyable."
+        },
+        "tags标签模式": {
+            "en-us": "Tags Mode"
+        },
+        "将单元格内容快捷渲染为标签形式。": {
+            "en-us": "Quickly render cell content as tags."
+        },
+        "status-badge状态徽标模式": {
+            "en-us": "Status Badge Mode"
+        },
+        "将单元格内容快捷渲染为状态徽标形式。": {
+            "en-us": "Quickly render cell content as status badges."
+        },
+        "image图片模式": {
+            "en-us": "Image Mode"
+        },
+        "将单元格内容快捷渲染为图片形式。": {
+            "en-us": "Quickly render cell content as images."
+        },
+        "custom-format自定义格式模式": {
+            "en-us": "Custom Format Mode"
+        },
+        "在这个例子中，数值测试1与数值测试2字段本质上都是数值型，但在`custom-format`模式下，可通过参数`customFormatFuncs`自定义的js函数来改变单元格中所渲染出的内容格式。": {
+            "en-us": "In this example, both “Numeric Test 1” and “Numeric Test 2” are numeric fields, but in `custom-format` mode you can use JS functions provided via `customFormatFuncs` to change how the content is rendered in the cell."
+        },
+        "corner-mark角标模式": {
+            "en-us": "Corner Mark Mode"
+        },
+        "将单元格内容快捷渲染为角标形式。": {
+            "en-us": "Quickly render cell content with a corner mark."
+        },
+        "row-merge跨行单元格合并模式": {
+            "en-us": "Row Merge Mode"
+        },
+        "将单元格内容快捷渲染为跨行单元格合并形式。": {
+            "en-us": "Quickly render cells merged across rows."
+        },
+        "dropdown-links下拉链接菜单模式": {
+            "en-us": "Dropdown Links Mode"
+        },
+        "将单元格内容快捷渲染为下拉链接菜单形式。": {
+            "en-us": "Quickly render cell content as a dropdown link menu."
+        },
+        "image-avatar图片型头像模式": {
+            "en-us": "Image Avatar Mode"
+        },
+        "将单元格内容快捷渲染为图片型头像形式。": {
+            "en-us": "Quickly render cell content as image avatars."
+        },
+        "mini-line迷你折线图模式": {
+            "en-us": "Mini Line Chart Mode"
+        },
+        "将单元格内容快捷渲染为迷你折线图形式。": {
+            "en-us": "Quickly render cell content as a mini line chart."
+        },
+        "mini-bar迷你柱状图模式": {
+            "en-us": "Mini Bar Chart Mode"
+        },
+        "将单元格内容快捷渲染为迷你柱状图形式。": {
+            "en-us": "Quickly render cell content as a mini bar chart."
+        },
+        "mini-area迷你面积图模式": {
+            "en-us": "Mini Area Chart Mode"
+        },
+        "将单元格内容快捷渲染为迷你面积图形式。": {
+            "en-us": "Quickly render cell content as a mini area chart."
+        },
+        "迷你进度图模式基础使用": {
+            "en-us": "Mini Progress — Basic Usage"
+        },
+        "将单元格内容快捷渲染为迷你进度图形式。": {
+            "en-us": "Quickly render cell content as a mini progress bar."
+        },
+        "显示进度数值": {
+            "en-us": "Show Percentage"
+        },
+        "基于配置项`progressShowPercent`控制是否显示进度数值。": {
+            "en-us": "Use `progressShowPercent` to control whether the percentage value is shown."
+        },
+        "调整进度数值位置": {
+            "en-us": "Adjust Percentage Position"
+        },
+        "基于配置项`progressPercentPosition`调整进度数值位置。": {
+            "en-us": "Use `progressPercentPosition` to adjust where the percentage is displayed."
+        },
+        "控制进度数值小数位数": {
+            "en-us": "Control Percentage Precision"
+        },
+        "基于配置项`progressPercentPrecision`控制进度数值小数位数。": {
+            "en-us": "Use `progressPercentPrecision` to control the decimal places of the percentage."
+        },
+        "圆角矩形风格": {
+            "en-us": "Rounded Rectangle Style"
+        },
+        "基于配置项`progressStrokeLinecap`控制进度条风格。": {
+            "en-us": "Use `progressStrokeLinecap` to control the style of the progress bar."
+        },
+        "控制进度条尺寸": {
+            "en-us": "Control Progress Bar Size"
+        },
+        "基于配置项`progressSize`控制进度条像素尺寸。": {
+            "en-us": "Use `progressSize` to control the pixel size of the progress bar."
+        },
+        "控制进度条颜色": {
+            "en-us": "Control Progress Bar Color"
+        },
+        "基于配置项`progressColor`控制进度条颜色，支持渐变色。": {
+            "en-us": "Use `progressColor` to control the progress bar color, including gradients."
+        },
+        "mini-ring-progress迷你环形进度图模式": {
+            "en-us": "Mini Ring Progress Mode"
+        },
+        "将单元格内容快捷渲染为迷你环形进度图形式。": {
+            "en-us": "Quickly render cell content as a mini ring progress chart."
+        },
+        "button按钮模式": {
+            "en-us": "Button Mode"
+        },
+        "mini-progress迷你进度图模式": {
+            "en-us": "Mini Progress Mode"
+        },
+        "button按钮模式及回调监听": {
+            "en-us": "Button Mode & Callbacks"
+        },
+        "将单元格内容快捷渲染为按钮形式，并通过回调监听相关事件。": {
+            "en-us": "Quickly render cell content as buttons and listen for related events via callbacks."
+        },
+        "控制按钮形态": {
+            "en-us": "Control Button Appearance"
+        },
+        "配合`color`与`variant`参数渲染具有不同颜色和形态的按钮。": {
+            "en-us": "Use the `color` and `variant` parameters to render buttons with different colors and styles."
+        },
+        "独立控制按钮是否添加气泡确认框": {
+            "en-us": "Independently Add Popconfirm per Button"
+        },
+        "同一单元格中的每个按钮都可以单独控制是否添加气泡确认框。": {
+            "en-us": "Each button in the same cell can independently control whether to include a popconfirm."
+        },
+        "独立控制按钮是否添加文字提示框": {
+            "en-us": "Independently Add Tooltip per Button"
+        },
+        "同一单元格中的每个按钮都可以单独控制是否添加文字提示框。": {
+            "en-us": "Each button in the same cell can independently control whether to include a tooltip."
+        },
+        "checkbox勾选框模式及回调监听": {
+            "en-us": "Checkbox Mode & Callbacks"
+        },
+        "将单元格内容快捷渲染为勾选框形式，并通过回调监听相关事件。": {
+            "en-us": "Quickly render cell content as checkboxes and listen for related events via callbacks."
+        },
+        "switch开关模式及回调监听": {
+            "en-us": "Switch Mode & Callbacks"
+        },
+        "将单元格内容快捷渲染为开关形式，并通过回调监听相关事件。": {
+            "en-us": "Quickly render cell content as switches and listen for related events via callbacks."
+        },
+        "dropdown下拉菜单模式及回调监听": {
+            "en-us": "Dropdown Mode & Callbacks"
+        },
+        "将单元格内容快捷渲染为下拉菜单形式，并通过回调监听相关事件。": {
+            "en-us": "Quickly render cell content as dropdown menus and listen for related events via callbacks."
+        },
+        "select下拉选择模式及回调监听": {
+            "en-us": "Select Mode & Callbacks"
+        },
+        "将单元格内容快捷渲染为下拉选择形式，并通过回调监听相关事件。": {
+            "en-us": "Quickly render cell content as select controls and listen for related events via callbacks."
+        },
+        "自定义单元格元素": {
+            "en-us": "Custom Cell Element"
+        },
+        "目前已有的快捷再渲染模式满足不了你的需求？没关系，任何组件元素都可以作为单元格值被传入😉！（此特性建议仅用作静态展示使用）": {
+            "en-us": "The built-in quick render modes don’t cover your use case? No problem—any component can be passed as a cell value 😉 (recommended for static display only)."
+        }
+    }
+}

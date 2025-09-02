@@ -63,10 +63,10 @@ def tabs_add_delete_demo(nClicks, latestDeletePane, origin_items, activeKey):
             [
                 *origin_items,
                 {
-                    'label': f'标签页{origin_max_key+1}',
+                    'label': f'标签页{origin_max_key + 1}',
                     'key': str(origin_max_key + 1),
                     'children': fac.AntdCenter(
-                        f'标签页{origin_max_key+1}',
+                        f'标签页{origin_max_key + 1}',
                         style={
                             'height': 200,
                             'fontSize': 28,
