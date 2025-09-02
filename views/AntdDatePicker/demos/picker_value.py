@@ -1,30 +1,55 @@
 import feffery_antd_components as fac
 from dash.dependencies import Component
 
+from i18n import get_current_locale
+
 
 def render() -> Component:
-    """渲染当前演示用例"""
+    """渲染当前演示用例 / Render the current demo"""
 
-    # 构造演示用例相关内容
-    demo_contents = fac.AntdSpace(
-        [
-            fac.AntdDatePicker(pickerValue='1999-12-31', style={'width': 175}),
-            fac.AntdDatePicker(
-                placeholder='配合自定义format',
-                pickerValue='1999年12月31日',
-                format='YYYY年MM月DD日',
-                style={'width': 175},
-            ),
-        ],
-        direction='vertical',
-    )
+    locale = get_current_locale()
+
+    if locale == "zh-cn":
+        demo_contents = fac.AntdSpace(
+            [
+                fac.AntdDatePicker(pickerValue="1999-12-31", style={"width": 175}),
+                fac.AntdDatePicker(
+                    placeholder="配合自定义format",
+                    pickerValue="1999年12月31日",
+                    format="YYYY年MM月DD日",
+                    style={"width": 175},
+                ),
+            ],
+            direction="vertical",
+        )
+    else:
+        demo_contents = fac.AntdSpace(
+            [
+                fac.AntdDatePicker(
+                    pickerValue="1999-12-31", style={"width": 175}, locale="en-us"
+                ),
+                fac.AntdDatePicker(
+                    placeholder="With custom format",
+                    pickerValue="1999-12-31",
+                    format="YYYY-MM-DD",
+                    style={"width": 175},
+                    locale="en-us",
+                ),
+            ],
+            direction="vertical",
+        )
 
     return demo_contents
 
 
-code_string = [
-    {
-        'code': """
+def code_string() -> list:
+    """返回当前语种对应的演示代码 / Return demo code for the current locale"""
+    locale = get_current_locale()
+
+    if locale == "zh-cn":
+        return [
+            {
+                "code": """
 fac.AntdSpace(
     [
         fac.AntdDatePicker(
@@ -40,5 +65,27 @@ fac.AntdSpace(
     direction='vertical',
 )
 """
-    }
-]
+            }
+        ]
+    else:
+        return [
+            {
+                "code": """
+fac.AntdSpace(
+    [
+        fac.AntdDatePicker(
+            pickerValue='1999-12-31', style={'width': 175}, locale='en-us'
+        ),
+        fac.AntdDatePicker(
+            placeholder='With custom format',
+            pickerValue='1999-12-31',
+            format='YYYY-MM-DD',
+            style={'width': 175},
+            locale='en-us',
+        ),
+    ],
+    direction='vertical',
+)
+"""
+            }
+        ]
