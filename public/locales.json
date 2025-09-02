@@ -714,6 +714,9 @@
         },
         "为内部组件添加有趣的额外交互特效。": {
             "en-us": "Add interesting interactive effects to internal components."
+        },
+        "提供常见的日期选择相关功能。": {
+            "en-us": "Provides common date selection related functions."
         }
     }
 }
