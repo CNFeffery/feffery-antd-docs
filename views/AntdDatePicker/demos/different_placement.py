@@ -3,30 +3,32 @@ from dash.dependencies import Component
 
 
 def render() -> Component:
-    """渲染当前演示用例"""
+    """渲染当前演示用例 / Render the current demo"""
 
-    # 构造演示用例相关内容
     demo_contents = fac.AntdSpace(
         [
             fac.AntdDatePicker(
                 placement=placement, placeholder=f'placement="{placement}"'
             )
             for placement in [
-                'bottomLeft',
-                'bottomRight',
-                'topLeft',
-                'topRight',
+                "bottomLeft",
+                "bottomRight",
+                "topLeft",
+                "topRight",
             ]
         ],
-        direction='vertical',
+        direction="vertical",
     )
 
     return demo_contents
 
 
-code_string = [
-    {
-        'code': """
+def code_string() -> list:
+    """返回当前语种对应的演示代码 / Return demo code for the current locale"""
+
+    return [
+        {
+            "code": """
 fac.AntdSpace(
     [
         fac.AntdDatePicker(
@@ -42,5 +44,5 @@ fac.AntdSpace(
     direction='vertical',
 )
 """
-    }
-]
+        }
+    ]

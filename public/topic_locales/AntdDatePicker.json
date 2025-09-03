@@ -1,0 +1,108 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdDatePicker",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "最基础的日期选择、日期时间选择。": {
+            "en-us": "The most basic date picker and date-time picker."
+        },
+        "隐藏今天按钮": {
+            "en-us": "Hide the Today button"
+        },
+        "隐藏“今天”快捷选择按钮。": {
+            "en-us": "Hide the “Today” quick selection button."
+        },
+        "设置自动选定的时间值": {
+            "en-us": "Set the auto-selected time value"
+        },
+        "由参数`showTime.defaultValue`设定的默认值，将会在用户初次选中日期后，在时间选择面板中被自动选中。": {
+            "en-us": "The default value set via `showTime.defaultValue` will be auto-selected in the time panel after the user selects a date for the first time."
+        },
+        "悬浮层展开方位": {
+            "en-us": "Overlay placement"
+        },
+        "设置参数`placement`控制悬浮层展开方位。": {
+            "en-us": "Use the `placement` parameter to control where the overlay opens."
+        },
+        "不同的日期选择粒度": {
+            "en-us": "Different selection granularities"
+        },
+        "设置参数`picker`选择不同的日期选择粒度。": {
+            "en-us": "Use the `picker` parameter to choose different date selection granularities."
+        },
+        "自定义format": {
+            "en-us": "Custom format"
+        },
+        "设置参数`format`以实现不同粒度设置下适合的已选内容回填格式化。": {
+            "en-us": "Use the `format` parameter to format the filled value appropriately for different granularities."
+        },
+        "禁用状态": {
+            "en-us": "Disabled"
+        },
+        "设置参数`disabled=True`开启禁用状态。": {
+            "en-us": "Set `disabled=True` to enable the disabled state."
+        },
+        "只读状态": {
+            "en-us": "Read-only"
+        },
+        "设置参数`readOnly=True`开启只读状态。": {
+            "en-us": "Set `readOnly=True` to enable the read-only state."
+        },
+        "内嵌前缀内容": {
+            "en-us": "Embedded prefix content"
+        },
+        "通过参数`prefix`设置选择框内嵌前缀内容。": {
+            "en-us": "Use the `prefix` parameter to set embedded prefix content in the picker."
+        },
+        "内嵌后缀图标": {
+            "en-us": "Embedded suffix icon"
+        },
+        "通过参数`suffixIcon`设置选择框内嵌后缀图标。": {
+            "en-us": "Use the `suffixIcon` parameter to set an embedded suffix icon for the picker."
+        },
+        "强制状态渲染": {
+            "en-us": "Force status rendering"
+        },
+        "设置参数`status`强制状态渲染。": {
+            "en-us": "Use the `status` parameter to force status rendering."
+        },
+        "控制面板停留位置": {
+            "en-us": "Control the panel anchor position"
+        },
+        "自定义日期禁用策略": {
+            "en-us": "Custom date disabling strategy"
+        },
+        "设置参数`disabledDatesStrategy`控制需要禁止用户选中的日期。": {
+            "en-us": "Use `disabledDatesStrategy` to control which dates are forbidden to select."
+        },
+        "底部添加额外内容": {
+            "en-us": "Add extra footer content"
+        },
+        "通过参数`extraFooter`自定义选择面板底部额外的内容。": {
+            "en-us": "Use `extraFooter` to customize extra content at the bottom of the panel."
+        },
+        "控制指定日期单元格样式": {
+            "en-us": "Style specific date cells"
+        },
+        "通过参数`customCells`对指定规则对应的日期单元格添加额外样式，未填写条件的部分将视作通配规则。": {
+            "en-us": "Use `customCells` to add extra styles to date cells that match specific rules; unspecified parts are treated as wildcards."
+        },
+        "回调监听": {
+            "en-us": "Callback listeners"
+        },
+        "基于回调的动态日期禁用": {
+            "en-us": "Dynamically disable dates via callbacks"
+        },
+        "通过回调函数实现基于当前日期时间的动态禁用策略，以“只允许选择未来7天内日期”为例。": {
+            "en-us": "Implement dynamic disabling based on the current date and time via callbacks—for example, “only allow selecting dates within the next 7 days.”"
+        },
+        "监听面板停留位置": {
+            "en-us": "Listen to the panel anchor position"
+        },
+        "通过回调函数监听`pickerValue`的变化，获取当前面板停留位置。": {
+            "en-us": "Listen to changes in `pickerValue` via a callback to get the panel’s current anchor position."
+        }
+    }
+}
