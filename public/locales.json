@@ -777,6 +777,9 @@
         },
         "演示用数据库表模型生成代码": {
             "en-us": "Demo database table model generation code"
+        },
+        "用于为用户提供一组选项进行选择。": {
+            "en-us": "Used to provide a set of options for users to choose from."
         }
     }
 }
