@@ -180,6 +180,12 @@
         ],
         "AntdTableServerSideMode": [
             "GhaziXX"
+        ],
+        "AntdDatePicker": [
+            "GhaziXX"
+        ],
+        "AntdAccordion": [
+            "GhaziXX"
         ]
     }
 }
