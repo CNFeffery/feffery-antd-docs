@@ -1,0 +1,51 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdAccordion",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "默认的手风琴模式下，最多只能展开一个面板。": {
+            "en-us": "In default accordion mode, at most one panel can be expanded."
+        },
+        "关闭手风琴模式": {
+            "en-us": "Turn off accordion mode"
+        },
+        "设置参数`accordion=False`关闭手风琴模式。": {
+            "en-us": "Set `accordion=False` to turn off accordion mode."
+        },
+        "设置默认展开项": {
+            "en-us": "Set default expanded item"
+        },
+        "设置参数`defaultActiveKey`控制默认展开项。": {
+            "en-us": "Use `defaultActiveKey` to control the default expanded item."
+        },
+        "不同的尺寸规格": {
+            "en-us": "Different sizes"
+        },
+        "设置参数`size`控制尺寸规格。": {
+            "en-us": "Use the `size` parameter to control the size."
+        },
+        "展开图标靠右": {
+            "en-us": "Expand icon on the right"
+        },
+        "设置参数`expandIconPosition='right'`控制展开图标靠右。": {
+            "en-us": "Set `expandIconPosition='right'` to place the expand icon on the right."
+        },
+        "子项额外内容": {
+            "en-us": "Extra content for items"
+        },
+        "为子项设置参数`extra`添加额外内容。": {
+            "en-us": "Set the `extra` parameter on items to add extra content."
+        },
+        "透明面板模式": {
+            "en-us": "Transparent panel mode"
+        },
+        "设置参数`ghost=True`开启透明面板格式。": {
+            "en-us": "Set `ghost=True` to enable the transparent panel mode."
+        },
+        "回调监听": {
+            "en-us": "Callback listening"
+        }
+    }
+}

@@ -1,0 +1,210 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdSelect",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "基础的使用示例。": {
+            "en-us": "A basic usage example."
+        },
+        "多选模式": {
+            "en-us": "Multiple selection mode"
+        },
+        "可以多选的下拉选择使用示例。": {
+            "en-us": "Example of a dropdown select with multiple selection enabled."
+        },
+        "自由新增模式": {
+            "en-us": "Tags mode"
+        },
+        "自由新增模式下，在输入框中输入内容后按下`enter`键、`tab`键，或点击下拉框中的选项、使下拉选择框失焦等，都可以进行新选项的添加。": {
+            "en-us": "In tags mode, after entering content in the input box, pressing the `enter` key, `tab` key, clicking an option in the dropdown, or blurring the select box will add a new option."
+        },
+        "尺寸规格": {
+            "en-us": "Sizes"
+        },
+        "通过参数`size`控制下拉选择组件的尺寸规格。": {
+            "en-us": "Control the size of the select component with the `size` parameter."
+        },
+        "形态变体": {
+            "en-us": "Variants"
+        },
+        "通过参数`variant`控制下拉选择组件的形态变体。": {
+            "en-us": "Control the variant of the select component with the `variant` parameter."
+        },
+        "设置边框": {
+            "en-us": "Border setting"
+        },
+        "通过参数`bordered`控制是否渲染下拉选择组件的边框。": {
+            "en-us": "Control whether to render the border of the select component with the `bordered` parameter."
+        },
+        "禁用状态": {
+            "en-us": "Disabled state"
+        },
+        "通过参数`disabled`控制是否禁用当前组件。": {
+            "en-us": "Control whether to disable the component with the `disabled` parameter."
+        },
+        "只读状态": {
+            "en-us": "Read-only state"
+        },
+        "通过参数`readOnly`控制下拉选择框是否呈现只读状态。": {
+            "en-us": "Control whether the select box is read-only with the `readOnly` parameter."
+        },
+        "内嵌前缀内容": {
+            "en-us": "Prefix content"
+        },
+        "通过参数`prefix`设置选择框内嵌前缀内容。": {
+            "en-us": "Set embedded prefix content in the select box with the `prefix` parameter."
+        },
+        "内嵌后缀图标": {
+            "en-us": "Suffix icon"
+        },
+        "通过参数`suffixIcon`设置选择框内嵌后缀图标。": {
+            "en-us": "Set the suffix icon in the select box with the `suffixIcon` parameter."
+        },
+        "强制渲染校验状态": {
+            "en-us": "Force validation state"
+        },
+        "通过参数`status`控制下拉选择框强制校验状态显示。": {
+            "en-us": "Control forced validation state display with the `status` parameter."
+        },
+        "一键清空已选项": {
+            "en-us": "Clear selected items"
+        },
+        "通过参数`allowClear`控制是否允许清空已选项。": {
+            "en-us": "Control whether clearing selected items is allowed with the `allowClear` parameter."
+        },
+        "已选项最大显示数量": {
+            "en-us": "Max displayed selected items"
+        },
+        "通过参数`maxTagCount`控制下拉选择组件的最大可选项数。": {
+            "en-us": "Control the maximum number of displayed selected items with the `maxTagCount` parameter."
+        },
+        "限制最多可选项数量": {
+            "en-us": "Limit maximum selected items"
+        },
+        "通过参数`maxCount`控制下拉选择组件的最大可选项数。": {
+            "en-us": "Control the maximum number of selectable items with the `maxCount` parameter."
+        },
+        "自定义选项标签": {
+            "en-us": "Custom option label"
+        },
+        "选项的`label`支持传入自定义组件。": {
+            "en-us": "The option `label` supports custom components."
+        },
+        "禁用选项": {
+            "en-us": "Disabled options"
+        },
+        "选项的`disabled`可用于控制是否禁用对应选项。": {
+            "en-us": "The option `disabled` can be used to control whether the option is disabled."
+        },
+        "简写选项": {
+            "en-us": "Short options"
+        },
+        "参数`options`可直接传入可选值数组快捷构建常规下拉选择功能。": {
+            "en-us": "The `options` parameter can directly take an array of values to quickly build a standard select."
+        },
+        "色带选择模式": {
+            "en-us": "Color band select mode"
+        },
+        "特殊的色带选择模式": {
+            "en-us": "A special color band select mode."
+        },
+        "下拉选项分组": {
+            "en-us": "Grouped options"
+        },
+        "下拉选项可分组。": {
+            "en-us": "Dropdown options can be grouped."
+        },
+        "下拉菜单扩展": {
+            "en-us": "Dropdown addon"
+        },
+        "为下拉菜单设置额外的顶部或底部扩展组件型内容": {
+            "en-us": "Set additional top or bottom addon content for the dropdown menu."
+        },
+        "自定义无选项提示内容": {
+            "en-us": "Custom empty content"
+        },
+        "可自定义下拉选择框无选项时的提示内容。": {
+            "en-us": "Customize the prompt when the select has no options."
+        },
+        "下拉选择菜单高度": {
+            "en-us": "Dropdown menu height"
+        },
+        "设置下拉选择菜单的像素高度。": {
+            "en-us": "Set the height of the dropdown menu in pixels."
+        },
+        "悬浮层展开方向": {
+            "en-us": "Placement"
+        },
+        "可设置不同的下拉选择菜单悬浮层展开方向。": {
+            "en-us": "Set the direction in which the dropdown menu expands."
+        },
+        "下拉选择菜单是否与选择框同宽": {
+            "en-us": "Match select width"
+        },
+        "可设置下拉选择菜单是否与选择框同宽，默认为`True`。设置为`False`时，下拉选择菜单将关闭虚拟滚动功能。在数据量较大的情况下，性能可能会有所下降。": {
+            "en-us": "Control whether the dropdown menu matches the width of the select (default `True`). When `False`, virtual scrolling is disabled, which may affect performance with large datasets."
+        },
+        "悬浮层锚定策略": {
+            "en-us": "Popup container strategy"
+        },
+        "可设置下拉选择菜单悬浮展开层在文档流中锚定的位置。设置为`'body'`时，下拉选择菜单将被渲染到body元素下，设置为`'parent'`时，下拉选择菜单将被渲染到下拉选择框的元素下。默认值：`'body'`。关于该参数的更多说明详见：[弹出层容器设置](/popup-container)。": {
+            "en-us": "Set where the dropdown menu is anchored in the document flow. `'body'` renders to the body element, `'parent'` renders under the select element. Default: `'body'`. See [popup container settings](/popup-container) for details."
+        },
+        "自带搜索选项功能": {
+            "en-us": "Built-in search"
+        },
+        "所有下拉选择框自带搜索选项的功能。": {
+            "en-us": "All select boxes have built-in search functionality."
+        },
+        "选中后自动清空搜索框内容": {
+            "en-us": "Auto clear search value"
+        },
+        "控制选中后自动清空搜索框内容。": {
+            "en-us": "Control whether the search box is automatically cleared after selecting an item."
+        },
+        "搜索匹配模式": {
+            "en-us": "Search match mode"
+        },
+        "内置的多种搜索匹配模式。": {
+            "en-us": "Multiple built-in search match modes."
+        },
+        "搜索目标属性": {
+            "en-us": "Search target property"
+        },
+        "指定选项搜索目标字段": {
+            "en-us": "Specify the target field for option search."
+        },
+        "选项监听回调": {
+            "en-us": "Option change callback"
+        },
+        "可监听已选项值的变化情况，触发回调。": {
+            "en-us": "Listen to changes in selected values and trigger callbacks."
+        },
+        "搜索内容监听回调": {
+            "en-us": "Search value callback"
+        },
+        "可监听搜索框输入值，触发回调。": {
+            "en-us": "Listen to search box input values and trigger callbacks."
+        },
+        "搜索内容防抖监听回调": {
+            "en-us": "Debounced search value callback"
+        },
+        "通过回调监听属性`debounceValue`实现防抖版本的已输入搜索内容监听。": {
+            "en-us": "Listen to the `debounceValue` property to implement a debounced version of search value listening."
+        },
+        "配合autoSpin实现远程加载": {
+            "en-us": "Remote loading with autoSpin"
+        },
+        "基于回调函数实现远程选项搜索加载功能。": {
+            "en-us": "Use callbacks to implement remote option loading with autoSpin."
+        },
+        "回调实现多选框选项互斥": {
+            "en-us": "Mutually exclusive options"
+        },
+        "基于回调函数实现多选框选项互斥功能。": {
+            "en-us": "Use callbacks to implement mutually exclusive options in multiple select."
+        }
+    }
+}

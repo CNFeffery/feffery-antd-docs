@@ -87,7 +87,8 @@
             "GhaziXX"
         ],
         "AntdSelect": [
-            "Wangnov"
+            "Wangnov",
+            "GhaziXX"
         ],
         "AntdTreeSelect": [
             "insistence"
@@ -180,6 +181,12 @@
             "GhaziXX"
         ],
         "AntdTableServerSideMode": [
+            "GhaziXX"
+        ],
+        "AntdDatePicker": [
+            "GhaziXX"
+        ],
+        "AntdAccordion": [
             "GhaziXX"
         ]
     }
