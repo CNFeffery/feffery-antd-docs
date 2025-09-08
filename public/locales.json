@@ -783,6 +783,9 @@
         },
         "用于为用户提供一组选项进行选择。": {
             "en-us": "Used to provide a set of options for users to choose from."
+        },
+        "使用开关在两种状态之间切换。": {
+            "en-us": "Use the switch to toggle between two states."
         }
     }
 }

@@ -1,0 +1,48 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdSwitch",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "最简单的用法。": {
+            "en-us": "The simplest usage."
+        },
+        "自定义开关标签": {
+            "en-us": "Custom switch labels"
+        },
+        "通过给`checkedChildren`和`unCheckedChildren`属性传入组件型参数，可以自定义开关标签。": {
+            "en-us": "By passing component-type parameters to the `checkedChildren` and `unCheckedChildren` properties, you can customize the switch labels."
+        },
+        "不同大小": {
+            "en-us": "Different sizes"
+        },
+        "通过`size`设置开关的尺寸。": {
+            "en-us": "Set the size of the switch using the `size` parameter."
+        },
+        "禁用状态": {
+            "en-us": "Disabled"
+        },
+        "可设置是否禁用开关。": {
+            "en-us": "You can configure whether the switch is disabled."
+        },
+        "只读状态": {
+            "en-us": "Read-only"
+        },
+        "可设置开关状态为只读。": {
+            "en-us": "You can configure the switch to be in a read-only state."
+        },
+        "加载中状态": {
+            "en-us": "Loading state"
+        },
+        "可设置开关状态为加载中。": {
+            "en-us": "You can configure the switch to display a loading state."
+        },
+        "回调监听": {
+            "en-us": "Callback listening"
+        },
+        "通过`checked`实现对开关状态切换的监听。": {
+            "en-us": "Use the `checked` property to listen for changes in the switch state."
+        }
+    }
+}
