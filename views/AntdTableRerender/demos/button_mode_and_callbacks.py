@@ -204,11 +204,69 @@ def code_string() -> list:
                 },
             },
         ],
-        data=[ ... ],
+        data=[
+            {
+                'button示例1': {
+                    'content': f'按钮1-{i}',
+                    'type': 'link',
+                    'custom': 'balabalabalabala',
+                },
+                'button示例2': [
+                    {
+                        'content': f'按钮2-{i}-{j}',
+                        'type': 'primary',
+                        'custom': 'balabalabalabala',
+                    }
+                    for j in range(1, 3)
+                ],
+                'button示例3': [
+                    {
+                        'content': f'按钮3-{i}-{j}',
+                        'type': 'dashed',
+                        'danger': True,
+                        'custom': 'balabalabalabala',
+                    }
+                    for j in range(1, 3)
+                ],
+            }
+            for i in range(1, 4)
+        ],
         bordered=True,
     ),
     html.Pre(id='table-rerender-button-demo-output'),
 ]
+
+...
+
+@app.callback(
+    Output('table-rerender-button-demo-output', 'children'),
+    Input('table-rerender-button-demo', 'nClicksButton'),
+    [
+        State('table-rerender-button-demo', 'clickedContent'),
+        State('table-rerender-button-demo', 'clickedCustom'),
+        State('table-rerender-button-demo', 'recentlyButtonClickedDataIndex'),
+        State('table-rerender-button-demo', 'recentlyButtonClickedRow'),
+    ],
+    prevent_initial_call=True,
+)
+def table_rerender_button_demo(
+    nClicksButton,
+    clickedContent,
+    clickedCustom,
+    recentlyButtonClickedDataIndex,
+    recentlyButtonClickedRow,
+):
+    return json.dumps(
+        dict(
+            nClicksButton=nClicksButton,
+            clickedContent=clickedContent,
+            clickedCustom=clickedCustom,
+            recentlyButtonClickedDataIndex=recentlyButtonClickedDataIndex,
+            recentlyButtonClickedRow=recentlyButtonClickedRow,
+        ),
+        indent=4,
+        ensure_ascii=False,
+    )
 """
             }
         ]
@@ -220,7 +278,7 @@ def code_string() -> list:
 [
     fac.AntdTable(
         id='table-rerender-button-demo',
-        locale='en-us',  # 👈 added
+        locale='en-us',
         columns=[
             {
                 'title': 'Button Example 1',
@@ -245,11 +303,69 @@ def code_string() -> list:
                 },
             },
         ],
-        data=[ ... ],
+        data=[
+            {
+                'Button Example 1': {
+                    'content': f'Button1-{i}',
+                    'type': 'link',
+                    'custom': 'balabalabalabala',
+                },
+                'Button Example 2': [
+                    {
+                        'content': f'Button2-{i}-{j}',
+                        'type': 'primary',
+                        'custom': 'balabalabalabala',
+                    }
+                    for j in range(1, 3)
+                ],
+                'Button Example 3': [
+                    {
+                        'content': f'Button3-{i}-{j}',
+                        'type': 'dashed',
+                        'danger': True,
+                        'custom': 'balabalabalabala',
+                    }
+                    for j in range(1, 3)
+                ],
+            }
+            for i in range(1, 4)
+        ],
         bordered=True,
     ),
     html.Pre(id='table-rerender-button-demo-output'),
 ]
+
+...
+
+@app.callback(
+    Output('table-rerender-button-demo-output', 'children'),
+    Input('table-rerender-button-demo', 'nClicksButton'),
+    [
+        State('table-rerender-button-demo', 'clickedContent'),
+        State('table-rerender-button-demo', 'clickedCustom'),
+        State('table-rerender-button-demo', 'recentlyButtonClickedDataIndex'),
+        State('table-rerender-button-demo', 'recentlyButtonClickedRow'),
+    ],
+    prevent_initial_call=True,
+)
+def table_rerender_button_demo(
+    nClicksButton,
+    clickedContent,
+    clickedCustom,
+    recentlyButtonClickedDataIndex,
+    recentlyButtonClickedRow,
+):
+    return json.dumps(
+        dict(
+            nClicksButton=nClicksButton,
+            clickedContent=clickedContent,
+            clickedCustom=clickedCustom,
+            recentlyButtonClickedDataIndex=recentlyButtonClickedDataIndex,
+            recentlyButtonClickedRow=recentlyButtonClickedRow,
+        ),
+        indent=4,
+        ensure_ascii=False,
+    )
 """
             }
         ]
