@@ -1,5 +1,4 @@
 import time
-
 import dash
 import feffery_antd_components as fac
 from dash.dependencies import Component, Input, Output, State
@@ -212,6 +211,81 @@ fac.AntdSpin(
     text='数据加载中',
     size='small',
 )
+
+...
+
+@app.callback(
+    [
+        Output('table-server-side-mode-pagination+filter-demo-pandas', 'data'),
+        Output(
+            'table-server-side-mode-pagination+filter-demo-pandas', 'pagination'
+        ),
+    ],
+    [
+        Input(
+            'table-server-side-mode-pagination+filter-demo-pandas', 'pagination'
+        ),
+        Input('table-server-side-mode-pagination+filter-demo-pandas', 'filter'),
+    ],
+    State(
+        'table-server-side-mode-pagination+filter-demo-pandas', 'filterOptions'
+    ),
+)
+def table_server_side_mode_pagination_filter_demo_pandas(
+    pagination, filter_, filterOptions
+):
+    if pagination:
+        time.sleep(0.5)  # 渲染加载动画更好看 ^_^
+
+        if filter_ and any([value for value in filter_.values()]):
+            valid_filters = [
+                (key, value) for key, value in filter_.items() if value
+            ]
+
+            filter_conditions = (
+                f'`{valid_filters[0][0]}` == {valid_filters[0][1]}'
+                if filterOptions[valid_filters[0][0]].get('filterMode')
+                != 'keyword'
+                else f'`{valid_filters[0][0]}`.str.contains("{valid_filters[0][1][0]}")'
+            )
+
+            for valid_filter in valid_filters[1:]:
+                filter_conditions += ' and '
+                filter_conditions += (
+                    f'`{valid_filter[0]}` == {valid_filter[1]}'
+                    if filterOptions[valid_filter[0]].get('filterMode')
+                    != 'keyword'
+                    else f'`{valid_filter[0]}`.str.contains("{valid_filter[1][0]}")'
+                )
+
+            match_records_count = demo_df.query(filter_conditions).shape[0]
+
+            data_frame = demo_df.query(filter_conditions).iloc[
+                (pagination['current'] - 1)
+                * pagination['pageSize'] : pagination['current']
+                * pagination['pageSize'],
+                :,
+            ]
+
+            return [
+                data_frame.to_dict('records'),
+                {**pagination, 'total': match_records_count},
+            ]
+
+        data_frame = demo_df.iloc[
+            (pagination['current'] - 1) * pagination['pageSize'] : pagination[
+                'current'
+            ]
+            * pagination['pageSize'],
+            :,
+        ]
+
+        return [
+            data_frame.to_dict('records'),
+            {**pagination, 'total': demo_df.shape[0]},
+        ]
+
+    return dash.no_update
 """
             }
         ]
@@ -255,6 +329,81 @@ fac.AntdSpin(
     text='Loading data',
     size='small',
 )
+
+...
+
+@app.callback(
+    [
+        Output('table-server-side-mode-pagination+filter-demo-pandas', 'data'),
+        Output(
+            'table-server-side-mode-pagination+filter-demo-pandas', 'pagination'
+        ),
+    ],
+    [
+        Input(
+            'table-server-side-mode-pagination+filter-demo-pandas', 'pagination'
+        ),
+        Input('table-server-side-mode-pagination+filter-demo-pandas', 'filter'),
+    ],
+    State(
+        'table-server-side-mode-pagination+filter-demo-pandas', 'filterOptions'
+    ),
+)
+def table_server_side_mode_pagination_filter_demo_pandas(
+    pagination, filter_, filterOptions
+):
+    if pagination:
+        time.sleep(0.5)  # 渲染加载动画更好看 ^_^
+
+        if filter_ and any([value for value in filter_.values()]):
+            valid_filters = [
+                (key, value) for key, value in filter_.items() if value
+            ]
+
+            filter_conditions = (
+                f'`{valid_filters[0][0]}` == {valid_filters[0][1]}'
+                if filterOptions[valid_filters[0][0]].get('filterMode')
+                != 'keyword'
+                else f'`{valid_filters[0][0]}`.str.contains("{valid_filters[0][1][0]}")'
+            )
+
+            for valid_filter in valid_filters[1:]:
+                filter_conditions += ' and '
+                filter_conditions += (
+                    f'`{valid_filter[0]}` == {valid_filter[1]}'
+                    if filterOptions[valid_filter[0]].get('filterMode')
+                    != 'keyword'
+                    else f'`{valid_filter[0]}`.str.contains("{valid_filter[1][0]}")'
+                )
+
+            match_records_count = demo_df.query(filter_conditions).shape[0]
+
+            data_frame = demo_df.query(filter_conditions).iloc[
+                (pagination['current'] - 1)
+                * pagination['pageSize'] : pagination['current']
+                * pagination['pageSize'],
+                :,
+            ]
+
+            return [
+                data_frame.to_dict('records'),
+                {**pagination, 'total': match_records_count},
+            ]
+
+        data_frame = demo_df.iloc[
+            (pagination['current'] - 1) * pagination['pageSize'] : pagination[
+                'current'
+            ]
+            * pagination['pageSize'],
+            :,
+        ]
+
+        return [
+            data_frame.to_dict('records'),
+            {**pagination, 'total': demo_df.shape[0]},
+        ]
+
+    return dash.no_update
 """
             }
         ]
