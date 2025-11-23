@@ -1,4 +1,4 @@
-dash==3.2.0
+dash==3.3.0
 Faker
 feffery_antd_components==0.4.2
 feffery_dash_utils>=0.2.6
