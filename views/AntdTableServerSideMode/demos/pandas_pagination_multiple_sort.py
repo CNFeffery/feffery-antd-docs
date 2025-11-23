@@ -19,7 +19,7 @@ def _en_title(name: str) -> str:
 
 
 def render() -> Component:
-    """渲染当前演示用例 / Render the current demo"""
+    """渲染当前演示用例"""
 
     current_locale = get_current_locale()
 
@@ -164,6 +164,49 @@ fac.AntdSpin(
     text='数据加载中',
     size='small',
 )
+
+...
+
+@app.callback(
+    Output('table-server-side-mode-pagination+multi-sort-demo-pandas', 'data'),
+    [
+        Input(
+            'table-server-side-mode-pagination+multi-sort-demo-pandas',
+            'pagination',
+        ),
+        Input(
+            'table-server-side-mode-pagination+multi-sort-demo-pandas', 'sorter'
+        ),
+    ],
+)
+def table_server_side_mode_pagination_multi_sort_demo_pandas(
+    pagination, sorter
+):
+    if pagination:
+        time.sleep(0.5)
+
+        if sorter and sorter.get('columns'):
+            data_frame = demo_df.sort_values(
+                sorter['columns'],
+                ascending=[item == 'ascend' for item in sorter['orders']],
+            ).iloc[
+                (pagination['current'] - 1)
+                * pagination['pageSize'] : pagination['current']
+                * pagination['pageSize'],
+                :,
+            ]
+            return data_frame.to_dict('records')
+
+        data_frame = demo_df.iloc[
+            (pagination['current'] - 1) * pagination['pageSize'] : pagination[
+                'current'
+            ]
+            * pagination['pageSize'],
+            :,
+        ]
+        return data_frame.to_dict('records')
+
+    return dash.no_update
 """
             }
         ]
@@ -202,6 +245,49 @@ fac.AntdSpin(
     text='Loading data',
     size='small',
 )
+
+...
+
+@app.callback(
+    Output('table-server-side-mode-pagination+multi-sort-demo-pandas', 'data'),
+    [
+        Input(
+            'table-server-side-mode-pagination+multi-sort-demo-pandas',
+            'pagination',
+        ),
+        Input(
+            'table-server-side-mode-pagination+multi-sort-demo-pandas', 'sorter'
+        ),
+    ],
+)
+def table_server_side_mode_pagination_multi_sort_demo_pandas(
+    pagination, sorter
+):
+    if pagination:
+        time.sleep(0.5)
+
+        if sorter and sorter.get('columns'):
+            data_frame = demo_df.sort_values(
+                sorter['columns'],
+                ascending=[item == 'ascend' for item in sorter['orders']],
+            ).iloc[
+                (pagination['current'] - 1)
+                * pagination['pageSize'] : pagination['current']
+                * pagination['pageSize'],
+                :,
+            ]
+            return data_frame.to_dict('records')
+
+        data_frame = demo_df.iloc[
+            (pagination['current'] - 1) * pagination['pageSize'] : pagination[
+                'current'
+            ]
+            * pagination['pageSize'],
+            :,
+        ]
+        return data_frame.to_dict('records')
+
+    return dash.no_update
 """
             }
         ]
