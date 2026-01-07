@@ -1428,15 +1428,15 @@ class AppConfig:
                 'component': 'ItemGroup',
                 'props': {'key': '进阶使用', 'title': translator.t('进阶使用')},
                 'children': [
-                    # {
-                    #     'component': 'Item',
-                    #     'props': {
-                    #         'key': '/advanced-classname',
-                    #         'name': '/advanced-classname',
-                    #         'title': translator.t('进阶className的使用'),
-                    #         'href': '/advanced-classname',
-                    #     },
-                    # },
+                    {
+                        'component': 'Item',
+                        'props': {
+                            'key': '/advanced-classname',
+                            'name': '/advanced-classname',
+                            'title': translator.t('进阶className的使用'),
+                            'href': '/advanced-classname',
+                        },
+                    },
                     {
                         'component': 'Item',
                         'props': {

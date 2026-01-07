@@ -284,8 +284,8 @@ def doc_layout_router(pathname):
     elif pathname == '/version-migration-guide':
         doc_layout = views.version_migration_guide.render()
 
-    # elif pathname == '/advanced-classname':
-    #     doc_layout = views.advanced_usage.advanced_classname.render()
+    elif pathname == '/advanced-classname':
+        doc_layout = views.advanced_usage.advanced_classname.render()
 
     elif pathname == '/popup-container':
         doc_layout = views.advanced_usage.popup_container.render()
