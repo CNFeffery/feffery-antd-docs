@@ -9,53 +9,53 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         demo_contents = fac.AntdSpace(
             [
                 # 直接传入字符串
-                fac.AntdSwitch(checkedChildren="开", unCheckedChildren="关"),
+                fac.AntdSwitch(checkedChildren='开', unCheckedChildren='关'),
                 # 传入AntdIcon组件
                 fac.AntdSwitch(
-                    checkedChildren=fac.AntdIcon(icon="antd-check"),
-                    unCheckedChildren=fac.AntdIcon(icon="antd-close"),
+                    checkedChildren=fac.AntdIcon(icon='antd-check'),
+                    unCheckedChildren=fac.AntdIcon(icon='antd-close'),
                     checked=True,
                 ),
                 # 传入任意适宜静态展示的组件并配合style属性自定义样式，以AntdText为例
                 fac.AntdSwitch(
                     checkedChildren=fac.AntdText(
-                        "checked", strong=True, style={"color": "yellow"}
+                        'checked', strong=True, style={'color': 'yellow'}
                     ),
                     unCheckedChildren=fac.AntdText(
-                        "unChecked", strong=True, style={"color": "black"}
+                        'unChecked', strong=True, style={'color': 'black'}
                     ),
                 ),
             ],
-            direction="vertical",
-            style={"width": "100%"},
+            direction='vertical',
+            style={'width': '100%'},
         )
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         demo_contents = fac.AntdSpace(
             [
                 # Pass plain strings directly
-                fac.AntdSwitch(checkedChildren="On", unCheckedChildren="Off"),
+                fac.AntdSwitch(checkedChildren='On', unCheckedChildren='Off'),
                 # Pass an AntdIcon component
                 fac.AntdSwitch(
-                    checkedChildren=fac.AntdIcon(icon="antd-check"),
-                    unCheckedChildren=fac.AntdIcon(icon="antd-close"),
+                    checkedChildren=fac.AntdIcon(icon='antd-check'),
+                    unCheckedChildren=fac.AntdIcon(icon='antd-close'),
                     checked=True,
                 ),
                 # Pass any component suitable for static display and customize styles via style prop; AntdText as an example
                 fac.AntdSwitch(
                     checkedChildren=fac.AntdText(
-                        "checked", strong=True, style={"color": "yellow"}
+                        'checked', strong=True, style={'color': 'yellow'}
                     ),
                     unCheckedChildren=fac.AntdText(
-                        "unChecked", strong=True, style={"color": "black"}
+                        'unChecked', strong=True, style={'color': 'black'}
                     ),
                 ),
             ],
-            direction="vertical",
-            style={"width": "100%"},
+            direction='vertical',
+            style={'width': '100%'},
         )
 
     return demo_contents
@@ -66,10 +66,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         # 直接传入字符串
@@ -99,10 +99,10 @@ fac.AntdSpace(
 """
             }
         ]
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         # Pass plain strings directly

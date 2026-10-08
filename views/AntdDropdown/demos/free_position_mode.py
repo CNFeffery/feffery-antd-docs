@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import uuid
 from dash import html
 import feffery_antd_components as fac
@@ -62,6 +63,7 @@ def render() -> Component:
     Input('dropdown-free-position-demo-trigger', 'contextMenuEvent'),
     prevent_initial_call=True,
 )
+@localized_callback(('children',))
 def dropdown_free_position_demo(contextMenuEvent):
     if contextMenuEvent:
         current_locale = get_current_locale()

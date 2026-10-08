@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import dash
 import feffery_antd_components as fac
 from dash.dependencies import Component, Input, Output, State
@@ -54,6 +55,7 @@ def render() -> Component:
         State('tabs-add-delete-demo', 'activeKey'),
     ],
 )
+@localized_callback(('items', 'activeKey'))
 def tabs_add_delete_demo(nClicks, latestDeletePane, origin_items, activeKey):
     if dash.ctx.triggered_id == 'tabs-add-delete-demo-add':
         # 提取已有items中的最大key值
@@ -92,6 +94,7 @@ def tabs_add_delete_demo(nClicks, latestDeletePane, origin_items, activeKey):
     State('tabs-add-delete-demo', 'tabCloseCounts'),
     prevent_initial_call=True,
 )
+@localized_callback(('children',))
 def tabs_add_delete_demo_tab_count(tabCount, tabCloseCounts):
     return fac.AntdMessage(
         content=f'标签页自由增删示例 tabCount: {tabCount}，标签页关闭次数：{tabCloseCounts}',

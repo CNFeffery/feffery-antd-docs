@@ -11,82 +11,82 @@ def render() -> Component:
 
     locale = get_current_locale()
 
-    if locale == "zh-cn":
+    if locale == 'zh-cn':
         demo_contents = fac.AntdSpace(
             [
-                "精确日期匹配：明天",
+                '精确日期匹配：明天',
                 fac.AntdDatePicker(
                     customCells=[
                         {
-                            "year": datetime.now().year,
-                            "month": datetime.now().month,
-                            "date": (datetime.now() + timedelta(days=1)).day,
-                            "style": {"border": "1px dashed #595959"},
+                            'year': datetime.now().year,
+                            'month': datetime.now().month,
+                            'date': (datetime.now() + timedelta(days=1)).day,
+                            'style': {'border': '1px dashed #595959'},
                         }
                     ]
                 ),
-                "年份通配：每年的本月第10天",
+                '年份通配：每年的本月第10天',
                 fac.AntdDatePicker(
                     customCells=[
                         {
-                            "month": datetime.now().month,
-                            "date": 10,
-                            "style": {"border": "1px dashed #595959"},
+                            'month': datetime.now().month,
+                            'date': 10,
+                            'style': {'border': '1px dashed #595959'},
                         }
                     ]
                 ),
-                "年份+月份通配：每月的第10天",
+                '年份+月份通配：每月的第10天',
                 fac.AntdDatePicker(
                     customCells=[
                         {
-                            "date": 10,
-                            "style": {"border": "1px dashed #595959"},
+                            'date': 10,
+                            'style': {'border': '1px dashed #595959'},
                         }
                     ]
                 ),
             ],
-            direction="vertical",
-            style={"width": "100%"},
+            direction='vertical',
+            style={'width': '100%'},
         )
     else:
         demo_contents = fac.AntdSpace(
             [
-                "Exact date match: tomorrow",
+                'Exact date match: tomorrow',
                 fac.AntdDatePicker(
                     customCells=[
                         {
-                            "year": datetime.now().year,
-                            "month": datetime.now().month,
-                            "date": (datetime.now() + timedelta(days=1)).day,
-                            "style": {"border": "1px dashed #595959"},
+                            'year': datetime.now().year,
+                            'month': datetime.now().month,
+                            'date': (datetime.now() + timedelta(days=1)).day,
+                            'style': {'border': '1px dashed #595959'},
                         }
                     ],
-                    locale="en-us",
+                    locale='en-us',
                 ),
-                "Year wildcard: the 10th day of this month each year",
+                'Year wildcard: the 10th day of this month each year',
                 fac.AntdDatePicker(
                     customCells=[
                         {
-                            "month": datetime.now().month,
-                            "date": 10,
-                            "style": {"border": "1px dashed #595959"},
+                            'month': datetime.now().month,
+                            'date': 10,
+                            'style': {'border': '1px dashed #595959'},
                         }
                     ],
-                    locale="en-us",
+                    locale='en-us',
                 ),
-                "Year+month wildcard: the 10th day of each month",
+                'Year+month wildcard: the 10th day of each month',
                 fac.AntdDatePicker(
                     customCells=[
                         {
-                            "date": 10,
-                            "style": {"border": "1px dashed #595959"},
+                            'date': 10,
+                            'style': {'border': '1px dashed #595959'},
                         }
                     ],
-                    locale="en-us",
+                    locale='en-us',
                 ),
             ],
-            direction="vertical",
-            style={"width": "100%"},
+            direction='vertical',
+            style={'width': '100%'},
         )
 
     return demo_contents
@@ -97,10 +97,10 @@ def code_string() -> list:
 
     locale = get_current_locale()
 
-    if locale == "zh-cn":
+    if locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         '精确日期匹配：明天',
@@ -149,7 +149,7 @@ fac.AntdSpace(
     else:
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         'Exact date match: tomorrow',

@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import feffery_antd_components as fac
 from dash.dependencies import Component, Input, Output, ALL
 from server import app
@@ -44,6 +45,7 @@ def render() -> Component:
     Output('checkable-tag-single-demo-output', 'children'),
     Input('checkable-tag-single-demo', 'checked'),
 )
+@localized_callback(('children',))
 def checkable_tag_single_demo(checked):
     return f'checked: {checked}'
 
@@ -53,6 +55,7 @@ def checkable_tag_single_demo(checked):
     Output('checkable-tag-output-demo', 'children'),
     Input({'type': 'checkable-tag-demo', 'index': ALL}, 'checked'),
 )
+@localized_callback(('children',))
 def checkable_tag_demo(checked_list):
     return f'checked_list: {checked_list}'
 

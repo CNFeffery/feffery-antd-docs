@@ -1,14 +1,17 @@
-- children (a list of or a singular dash component, string or number; optional):
-    Component type, for nested elements.
-
 - id (string; optional):
     Unique identifier for the component.
 
-- aria-* (string; optional):
-    Wildcard for `aria-*` format attributes.
+- key (string; optional):
+    Update the component’s `key` to force it to remount.
+
+- children (a list of or a singular dash component, string or number; optional):
+    Component type, embedded elements.
 
 - className (string | dict; optional):
-    Current component's CSS class name, supports [dynamic CSS](/advanced-classname).
+    CSS class name of the component. Supports [dynamic CSS classes](/advanced-classname).
+
+- locale (a value equal to: 'zh-cn', 'en-us', 'de-de', 'ru-ru', 'fr-fr'; default 'zh-cn'):
+    Component language: `'zh-cn'` (Simplified Chinese), `'en-us'` (English), `'de-de'` (German), `'fr-fr'` (French), or `'ru-ru'` (Russian). Default: `'zh-cn'`.
 
 - code (boolean; optional):
     Whether to render in code format.
@@ -16,58 +19,40 @@
 - copyable (boolean; optional):
     Whether to enable the quick copy feature.
 
-- data-* (string; optional):
-    Wildcard for `data-*` format attributes.
+- strikethrough (boolean; optional):
+    Whether to render in strikethrough format.
 
 - disabled (boolean; optional):
     Whether to render in a disabled state.
 
-- ellipsis (dict; default False):
-    Configuration for content truncation features, set to `False` to disable. Default value: `False`.
-
-    `ellipsis` can be a boolean or a dict with keys:
-
-    - suffix (string; optional):
-        Custom suffix for content after truncation.
-
-- italic (boolean; optional):
-    Whether to render in italic format.
-
-- key (string; optional):
-    Update the `key` value of the current component to force a redraw of the component.
-
-- keyboard (boolean; optional):
-    Whether to render in keyboard format.
-
-- loading_state (dict; optional):
-    `loading_state` is a dict with keys:
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading.
-
-    - is_loading (boolean; optional):
-        Determines if the component is in a loading state.
-
-    - prop_name (string; optional):
-        Holds which property is currently loading.
-
-- locale (a value equal to: 'zh-cn', 'en-us'; default 'zh-cn'):
-    Component's text language, options include `'zh-cn'`, `'en-us'`. Default value: `'zh-cn'`.
-
 - mark (boolean; optional):
     Whether to render in highlighted format.
-
-- strikethrough (boolean; optional):
-    Whether to render with a strikethrough.
 
 - strong (boolean; optional):
     Whether to render in bold format.
 
-- style (dict; optional):
-    CSS styles for the current component.
-
-- type (a value equal to: 'secondary', 'success', 'warning', 'danger'; optional):
-    Set the special state of the content, options include `'secondary'`, `'success'`, `'warning'`, `'danger'`.
+- italic (boolean; optional):
+    Whether to render in italic format.
 
 - underline (boolean; optional):
-    Whether to render with an underline.
+    Whether to render in underline format.
+
+- keyboard (boolean; optional):
+    Whether to render in keyboard format.
+
+- type (a value equal to: 'secondary', 'success', 'warning', 'danger'; optional):
+    Set special state format for content, options include `'secondary'`, `'success'`, `'warning'`, `'danger'`.
+
+- ellipsis (dict; default False):
+    Content ellipsis settings. Set to `False` to disable ellipsis. Default: `False`.
+
+    `ellipsis` is a boolean | dict with keys:
+
+    - suffix (string; optional):
+        Custom suffix for content after truncation.
+
+- data-* (string; optional):
+    Wildcard support for `data-*` attributes.
+
+- aria-* (string; optional):
+    Wildcard support for `aria-*` attributes.

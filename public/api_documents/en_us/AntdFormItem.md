@@ -1,17 +1,14 @@
 - id (string; optional):
-    The unique identifier for the component.
+    Unique identifier for the component.
 
 - key (string; optional):
-    Updates the `key` value of the current component, which can force a redraw of the current component.
+    Update the component’s `key` to force it to remount.
 
 - children (a list of or a singular dash component, string or number; optional):
     The component type, embedding common form input components.
 
-- style (dict; optional):
-    The CSS style of the current component.
-
 - className (string | dict; optional):
-    The CSS class name of the current component, supporting [dynamic CSS](/advanced-classname).
+    CSS class name of the component. Supports [dynamic CSS classes](/advanced-classname).
 
 - required (boolean; default False):
     Whether to display an additional asterisk (*) indicating a required field. Default value: `False`.
@@ -51,8 +48,7 @@
     The component type, the content of the current form item label.
 
 - labelAlign (a value equal to: 'left', 'right'; optional):
-    The text alignment of the label part of the form item, with options `'left'`, `'right'`, and higher priority than the `labelAlign` parameter in the parent `AntdForm`.
-    Default value: `'right'`.
+    The text alignment of the label part of the form item, with options `'left'`, `'right'`, and higher priority than the `labelAlign` parameter in the parent `AntdForm`. Default value: `'right'`.
 
 - tooltip (a list of or a singular dash component, string or number; optional):
     The component type, additional text prompt information after the current form item label content.
@@ -70,26 +66,13 @@
     The component type, additional explanatory content consistent with the `validateStatus` status.
 
 - hidden (boolean; default False):
-    Whether to hide the current field. Default value: `False`.
+    Whether to hide the column. Default: `False`.
 
 - layout (a value equal to: 'horizontal', 'vertical'; optional):
     The layout mode of the form item, with options `'horizontal'`, `'vertical'`.
 
 - data-* (string; optional):
-    Wildcard for `data-*` format attributes.
+    Wildcard support for `data-*` attributes.
 
 - aria-* (string; optional):
-    Wildcard for `aria-*` format attributes.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading.
+    Wildcard support for `aria-*` attributes.

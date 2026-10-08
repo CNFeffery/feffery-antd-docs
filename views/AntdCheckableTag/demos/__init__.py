@@ -1,3 +1,5 @@
+from functools import partial
+from i18n import translator
 from dash.dependencies import Component
 
 from . import (
@@ -7,23 +9,26 @@ from . import (
 )
 from components import demos_render
 
-demos_config = [
-    {
-        'path': 'basic_usage',
-        'title': '基础使用',
-        'description': '基本的使用示例。',
-    },
-    {
-        'path': 'checked_unchecked_content',
-        'title': '不同状态下的组件内容',
-        'description': '可设置选中状态下和未选中状态下的组件内容。',
-    },
-    {
-        'path': 'basic_callbacks',
-        'title': '回调监听',
-        'description': '监听标签的选择状态。',
-    },
-]
+
+def demos_config() -> list:
+    t = partial(translator.t, locale_topic='AntdCheckableTag')
+    return [
+        {
+            'path': 'basic_usage',
+            'title': t('基础使用'),
+            'description': t('基本的使用示例。'),
+        },
+        {
+            'path': 'checked_unchecked_content',
+            'title': t('不同状态下的组件内容'),
+            'description': t('可设置选中状态下和未选中状态下的组件内容。'),
+        },
+        {
+            'path': 'basic_callbacks',
+            'title': t('回调监听'),
+            'description': t('监听标签的选择状态。'),
+        },
+    ]
 
 
 def render(component: Component, section_name: str = None) -> Component:

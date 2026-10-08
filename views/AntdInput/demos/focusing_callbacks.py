@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import feffery_antd_components as fac
 from dash.dependencies import Component, Input, Output
 from server import app
@@ -29,6 +30,7 @@ def render() -> Component:
     Output('input-focusing-demo-output', 'children'),
     Input('input-focusing-demo', 'focusing'),
 )
+@localized_callback(('children',))
 def input_focusing_dmeo(focusing):
     return f'focusing: {focusing}'
 

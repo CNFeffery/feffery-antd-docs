@@ -1,3 +1,4 @@
+from i18n import translator
 import feffery_antd_components as fac
 from dash.dependencies import Component
 
@@ -7,12 +8,14 @@ def render() -> Component:
     return [
         fac.AntdBreadcrumb(
             items=[
-                {'title': '组件介绍'},
-                {'title': '数据录入'},
-                {'title': 'AntdInput 输入框'},
+                {'title': translator.t('组件介绍')},
+                {'title': translator.t('数据录入')},
+                {'title': translator.t('AntdInput 输入框')},
             ],
             style={'marginBottom': 8},
         ),
-        fac.AntdTitle('AntdInput 输入框', level=2),
-        fac.AntdParagraph('为用户提供不同形式的文本信息录入功能。'),
+        fac.AntdTitle(translator.t('AntdInput 输入框'), level=2),
+        fac.AntdParagraph(
+            translator.t('为用户提供不同形式的文本信息录入功能。')
+        ),
     ]

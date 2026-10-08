@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import feffery_antd_components as fac
 from dash.dependencies import Component, Input, Output
 
@@ -36,6 +37,7 @@ def render() -> Component:
     Output('page-header-demo', 'children'),
     Input('page-header-demo', 'backClicks'),
 )
+@localized_callback(('children',))
 def page_header_demo_callback(backClicks):
     return [fac.AntdText('backClicks: ', strong=True), fac.AntdText(backClicks)]
 

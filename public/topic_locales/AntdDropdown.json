@@ -69,7 +69,7 @@
             "en-us": "Set the parameter `selectable=True` to enable the menu selection capability. The default is single selection mode. When the parameter `multiple=True` is set, it can enable multiple selection mode."
         },
         "回调监听": {
-            "en-us": "Callback listener"
+            "en-us": "Callbacks"
         },
         "通过`nClicks`、`clickedKey`进行下拉菜单项点击事件的监听。": {
             "en-us": "Listen to the click event of the dropdown menu items through `nClicks` and `clickedKey`."

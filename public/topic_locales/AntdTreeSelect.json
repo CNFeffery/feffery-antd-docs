@@ -1,0 +1,120 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdTreeSelect",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "禁用状态": {
+            "en-us": "Disabled state"
+        },
+        "设置参数`disabled=True`开启禁用状态。": {
+            "en-us": "Set `disabled=True` to disable the component."
+        },
+        "只读状态": {
+            "en-us": "Read-only state"
+        },
+        "设置参数`readOnly=True`开启只读状态。": {
+            "en-us": "Set `readOnly=True` for the read-only state."
+        },
+        "强制状态渲染": {
+            "en-us": "Force status rendering"
+        },
+        "设置参数`status`进行强制状态渲染。": {
+            "en-us": "Use `status` to force a status style."
+        },
+        "不同的悬浮层展开方位": {
+            "en-us": "Popup placement"
+        },
+        "设置参数`placement`控制悬浮层展开方位。": {
+            "en-us": "Use `placement` to set the popup placement."
+        },
+        "多选模式": {
+            "en-us": "Multiple selection"
+        },
+        "设置参数`multiple=True`开启多选模式。": {
+            "en-us": "Set `multiple=True` to enable multiple selection."
+        },
+        "限制最多可选项数量": {
+            "en-us": "Maximum selection count"
+        },
+        "通过参数`maxCount`控制树选择组件的最大可选项数。": {
+            "en-us": "Use `maxCount` to limit selections in the tree selector."
+        },
+        "隐藏已选值时显示内容": {
+            "en-us": "Hidden selection placeholder"
+        },
+        "多选模式下，设置参数`maxTagPlaceholder`控制隐藏已选值tag时显示的内容。": {
+            "en-us": "Use `maxTagPlaceholder` in multiple selection mode to customize the hidden selection placeholder."
+        },
+        "已选值最大显示文本长度": {
+            "en-us": "Maximum selected-tag text length"
+        },
+        "多选模式下，设置参数`maxTagTextLength`控制最大显示的已选值tag文本长度。": {
+            "en-us": "Use `maxTagTextLength` in multiple selection mode to limit selected-tag text length."
+        },
+        "内嵌前缀内容": {
+            "en-us": "Embedded prefix content"
+        },
+        "通过参数`prefix`设置选择框内嵌前缀内容。": {
+            "en-us": "Use `prefix` to embed prefix content in the selection input."
+        },
+        "自定义选择框后缀图标": {
+            "en-us": "Custom selection suffix icon"
+        },
+        "设置参数`suffixIcon`自定义选择框后缀图标。": {
+            "en-us": "Use `suffixIcon` to customize the selection input's suffix icon."
+        },
+        "自定义树节点的展开/折叠图标": {
+            "en-us": "Custom node expand/collapse icons"
+        },
+        "设置参数`switcherIcon`自定义树节点的展开/折叠图标。": {
+            "en-us": "Use `switcherIcon` to customize tree node expand/collapse icons."
+        },
+        "带勾选框的多选模式": {
+            "en-us": "Multiple selection with checkboxes"
+        },
+        "多选模式下设置参数`treeCheckable=True`为节点添加勾选框。": {
+            "en-us": "Set `treeCheckable=True` in multiple selection mode to add node checkboxes."
+        },
+        "扁平treeData模式": {
+            "en-us": "Flat treeData"
+        },
+        "设置参数`treeDataMode='flat'`后可传入扁平结构`treeData`进行树结构定义。": {
+            "en-us": "Set `treeDataMode='flat'` and provide flat `treeData` to define the tree."
+        },
+        "添加连接线": {
+            "en-us": "Connecting lines"
+        },
+        "设置参数`treeLine=True`开启连接线。": {
+            "en-us": "Set `treeLine=True` to show connecting lines."
+        },
+        "父子节点独立选择": {
+            "en-us": "Independent parent/child selection"
+        },
+        "设置参数`treeCheckStrictly=True`后父子节点选择行为彼此独立。": {
+            "en-us": "Set `treeCheckStrictly=True` to make parent and child selection independent."
+        },
+        "已选项回填显示策略": {
+            "en-us": "Selected item display strategies"
+        },
+        "设置参数`showCheckedStrategy`控制已选项回填显示策略。": {
+            "en-us": "Use `showCheckedStrategy` to control how selected items are displayed."
+        },
+        "多模式搜索": {
+            "en-us": "Search modes"
+        },
+        "设置参数`treeNodeFilterMode`控制搜索模式。": {
+            "en-us": "Use `treeNodeFilterMode` to choose the search mode."
+        },
+        "回调监听": {
+            "en-us": "Callbacks"
+        },
+        "异步加载节点": {
+            "en-us": "Load nodes asynchronously"
+        },
+        "设置参数`enableAsyncLoad=True`后，对于未设置`isLeaf`为`True`且无`children`属性的节点，可通过回调监听节点展开信息，从而实现异步更新树结构。": {
+            "en-us": "Set `enableAsyncLoad=True` to monitor expansion of nodes that have no `children` and do not set `isLeaf` to `True`, then update the tree asynchronously through callbacks."
+        }
+    }
+}

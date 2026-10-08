@@ -2,19 +2,19 @@
     Unique identifier for the component.
 
 - key (string; optional):
-    Updates the `key` value of the current component to force a redraw.
+    Update the component’s `key` to force it to remount.
 
 - children (a list of or a singular dash component, string or number; optional):
     Component type, containing several `AntdCheckCard` related components.
 
-- style (dict; optional):
-    CSS styles for the current component.
-
 - className (string | dict; optional):
-    CSS class name for the current component, supports [dynamic CSS](/advanced-classname).
+    CSS class name of the component. Supports [dynamic CSS classes](/advanced-classname).
 
 - name (string; optional):
-    Used in conjunction with the `AntdForm` form for batch value collection and control, serving as the field name for the current form item, with `id` as the default value.
+    Used with `AntdForm` for batch value collection/control, serving as the field name of the current form item, with `id` as the default value.
+
+- enableBatchControl (boolean; default True):
+    Controls whether the current component participates in the effective `AntdForm` batch value collection/control feature. Default: `True`.
 
 - multiple (boolean; default False):
     Whether to enable multiple selection. Default value: `False`.
@@ -32,38 +32,25 @@
     Initializes the value of the selected card(s).
 
 - disabled (boolean; default False):
-    Whether to disable the current component. Default value: `False`.
+    Whether to disable the current component. Default: `False`.
 
 - size (a value equal to: 'small', 'default', 'large'; default 'default'):
     The size specification of the current component, with options `'small'`, `'default'`, `'large'`. Default value: `'default'`.
 
 - readOnly (boolean; default False):
-    Whether to render as read-only. Default value: `False`.
+    Whether to render as read-only. Default: `False`.
 
 - data-* (string; optional):
-    Wildcard for `data-*` format attributes.
+    Wildcard support for `data-*` attributes.
 
 - aria-* (string; optional):
-    Wildcard for `aria-*` format attributes.
-
-- loading_state (dict; optional):
-    `loading_state` is a dictionary with keys:
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading.
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
+    Wildcard support for `aria-*` attributes.
 
 - persistence (boolean | string | number; optional):
     Whether to enable [property persistence](/prop-persistence).
 
-- persisted_props (list of a value equal to: 'value's; default ['value']):
-    The names of several properties that are enabled for property persistence, with the option `'value'`. Default value: `['value']`.
+- persisted_props (list of a value equal to: 'value's; optional):
+    Several property names for which the persistence feature is enabled. Options are `'value'`. Default: `['value']`.
 
-- persistence_type (a value equal to: 'local', 'session', 'memory'; default 'local'):
-    The storage type for property persistence, with options `'local'` (local persistence), `'session'` (session persistence), `'memory'` (memory persistence).
-    Default value: `'local'`.
+- persistence_type (a value equal to: 'local', 'session', 'memory'; optional):
+    Type of persistent storage for properties. Options are `'local'` (local persistence), `'session'` (session persistence), `'memory'` (in-memory persistence) Default: `'local'`.

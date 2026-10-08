@@ -1,0 +1,66 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdModal",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "常规的通过回调触发对话框的弹出。": {
+            "en-us": "Open a dialog from a callback."
+        },
+        "渲染底部操作区": {
+            "en-us": "Footer actions"
+        },
+        "设置参数`renderFooter=True`后，会在对话框底部渲染自带的操作按钮。": {
+            "en-us": "Set `renderFooter=True` to display the dialog's built-in footer buttons."
+        },
+        "调整底部操作按钮": {
+            "en-us": "Footer button settings"
+        },
+        "通过相关的一系列参数对底部操作区的取消、确认按钮进行自定义调整。": {
+            "en-us": "Customize the footer's Cancel and Confirm buttons through the related settings."
+        },
+        "控制对话框宽度": {
+            "en-us": "Dialog width"
+        },
+        "通过参数`width`控制对话框宽度。": {
+            "en-us": "Use `width` to set the dialog width."
+        },
+        "响应式对话框宽度": {
+            "en-us": "Responsive dialog width"
+        },
+        "参数`width`支持传入字典型，以设置不同页面宽度断点下的响应式对话框宽度。": {
+            "en-us": "Pass a dictionary to `width` to configure responsive dialog widths at different viewport breakpoints."
+        },
+        "垂直居中": {
+            "en-us": "Vertical centering"
+        },
+        "设置参数`centered=True`后，对话框将垂直居中显示。": {
+            "en-us": "Set `centered=True` to center the dialog vertically."
+        },
+        "加载中状态": {
+            "en-us": "Loading state"
+        },
+        "设置参数`loading=True`为对话框内容区开启加载中状态。": {
+            "en-us": "Set `loading=True` to show the dialog content as loading."
+        },
+        "确认按钮加载中状态": {
+            "en-us": "Loading confirmation button"
+        },
+        "设置参数`confirmAutoSpin=True`后，确认按钮每次被点击后都会自动进入加载中状态，此特性适合配合具有一定计算耗时的回调函数，回调完成后通过更新参数`confirmLoading=False`来还原确认按钮的状态。": {
+            "en-us": "Set `confirmAutoSpin=True` to put the confirmation button into a loading state after each click. For callbacks that take time, restore it with `confirmLoading=False` after completion."
+        },
+        "回调监听": {
+            "en-us": "Callbacks"
+        },
+        "通过回调函数监听对话框常用事件。": {
+            "en-us": "Monitor common dialog events through callbacks."
+        },
+        "阻止默认关闭行为": {
+            "en-us": "Prevent automatic closing"
+        },
+        "设置参数`preventClose=True`后，对话框将不会被用户手动操作关闭，可基于此实现模态框关闭二次确认。": {
+            "en-us": "Set `preventClose=True` to prevent manual dialog closing, for example to implement a confirmation step before closing."
+        }
+    }
+}

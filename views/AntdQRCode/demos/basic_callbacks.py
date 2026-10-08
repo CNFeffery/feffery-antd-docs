@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import dash
 from dash import html, dcc
 import feffery_antd_components as fac
@@ -34,6 +35,7 @@ def render() -> Component:
     Input('qrcode-callbacks', 'refreshClicks'),
     prevent_initial_call=True,
 )
+@localized_callback(('children', 'status'))
 def qrcode_callback_demo(refreshClicks):
     if refreshClicks:
         return [f'refreshClicks: {refreshClicks}', 'active']

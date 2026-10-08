@@ -1,0 +1,66 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdTag",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "基本的标签用法，向标签的`content`属性传入标签内容。": {
+            "en-us": "Pass tag content through the `content` property."
+        },
+        "无边框标签": {
+            "en-us": "Borderless tags"
+        },
+        "可设置是否渲染边框。": {
+            "en-us": "Control whether a border is shown."
+        },
+        "标签颜色": {
+            "en-us": "Tag colors"
+        },
+        "自定义标签颜色，可使用内置的11种色彩主题，色彩主题会配置好`color`、`background-color`、`border-color`三种CSS属性。而直接传入CSS颜色值则会令文字颜色为白色，背景颜色为传入的CSS颜色。": {
+            "en-us": "Use one of the 11 built-in tag color themes, which set `color`, `background-color`, and `border-color`. A custom CSS color produces white text on a background of that color."
+        },
+        "扩展预设颜色": {
+            "en-us": "Extend preset colors"
+        },
+        "可以自行设计算法，实现近似内置色彩主题的效果。": {
+            "en-us": "Implement a custom algorithm to produce effects similar to the built-in color themes."
+        },
+        "标签内前缀图标": {
+            "en-us": "Tag prefix icon"
+        },
+        "可设置标签内的前置图标，如需将图标设置在其他位置，仍需以组件形式传入`content`属性。": {
+            "en-us": "Add a prefix icon inside a tag. To position an icon elsewhere, pass a component through `content`."
+        },
+        "关闭标签按钮": {
+            "en-us": "Close button"
+        },
+        "可设置是否渲染标签内部右侧的关闭按钮。": {
+            "en-us": "Control whether the tag shows a close button on its right edge."
+        },
+        "关闭标签按钮监听回调": {
+            "en-us": "Close button callbacks"
+        },
+        "通过监听关闭标签按钮的点击数量来触发回调。": {
+            "en-us": "Monitor close button clicks to trigger callbacks."
+        },
+        "充当链接使用": {
+            "en-us": "Use as a link"
+        },
+        "可设置`href`和`target`属性，将标签作为链接使用。": {
+            "en-us": "Set `href` and `target` to use a tag as a link."
+        },
+        "动态增删标签示例": {
+            "en-us": "Add and remove tags"
+        },
+        "通过设置新增按钮和监听`closeCounts`回调，实现动态增删标签。配合[fuc.FefferyAutoAnimate](https://fuc.feffery.tech/FefferyAutoAnimate)可实现增删动画效果。": {
+            "en-us": "Add a button and monitor `closeCounts` to add and remove tags dynamically. Use [fuc.FefferyAutoAnimate](https://fuc.feffery.tech/FefferyAutoAnimate) to animate these changes."
+        },
+        "可拖拽标签组示例": {
+            "en-us": "Draggable tag groups"
+        },
+        "配合**fuc.FefferySortable**组件，实现可拖拽的标签组效果。": {
+            "en-us": "Use **fuc.FefferySortable** to create draggable tag groups."
+        }
+    }
+}

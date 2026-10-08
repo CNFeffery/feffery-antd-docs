@@ -9,15 +9,15 @@ def render() -> Component:
 
     locale = get_current_locale()
 
-    if locale == "zh-cn":
+    if locale == 'zh-cn':
         demo_contents = fac.AntdDatePicker(
-            value="2024-01-01", suffixIcon=fac.AntdIcon(icon="antd-user")
+            value='2024-01-01', suffixIcon=fac.AntdIcon(icon='antd-user')
         )
     else:
         demo_contents = fac.AntdDatePicker(
-            value="2024-01-01",
-            suffixIcon=fac.AntdIcon(icon="antd-user"),
-            locale="en-us",
+            value='2024-01-01',
+            suffixIcon=fac.AntdIcon(icon='antd-user'),
+            locale='en-us',
         )
 
     return demo_contents
@@ -27,10 +27,10 @@ def code_string() -> list:
     """返回当前语种对应的演示代码 / Return demo code for the current locale"""
     locale = get_current_locale()
 
-    if locale == "zh-cn":
+    if locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdDatePicker(
     value='2024-01-01', suffixIcon=fac.AntdIcon(icon='antd-user')
 )
@@ -40,7 +40,7 @@ fac.AntdDatePicker(
     else:
         return [
             {
-                "code": """
+                'code': """
 fac.AntdDatePicker(
     value='2024-01-01',
     suffixIcon=fac.AntdIcon(icon='antd-user'),

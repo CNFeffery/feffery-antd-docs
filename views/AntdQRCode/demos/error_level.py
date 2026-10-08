@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import feffery_antd_components as fac
 from dash import html
 from dash.dependencies import Component, Input, Output
@@ -33,6 +34,7 @@ def render() -> Component:
     Output('qrcode-error-level-demo-output', 'children'),
     Input('qrcode-error-level-demo-segmented', 'value'),
 )
+@localized_callback(('children',))
 def qrcode_custom_render_type_demo_input_callback(input_value):
     return fac.AntdQRCode(
         errorLevel=input_value,

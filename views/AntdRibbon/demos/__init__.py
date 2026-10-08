@@ -1,3 +1,5 @@
+from functools import partial
+from i18n import translator
 from dash.dependencies import Component
 
 from . import (
@@ -5,13 +7,16 @@ from . import (
 )
 from components import demos_render
 
-demos_config = [
-    {
-        'path': 'basic_usage',
-        'title': '基础使用',
-        'description': '最基础的缎带。',
-    },
-]
+
+def demos_config() -> list:
+    t = partial(translator.t, locale_topic='AntdRibbon')
+    return [
+        {
+            'path': 'basic_usage',
+            'title': t('基础使用'),
+            'description': t('最基础的缎带。'),
+        },
+    ]
 
 
 def render(component: Component, section_name: str = None) -> Component:

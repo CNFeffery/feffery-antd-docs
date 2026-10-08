@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import time
 import feffery_antd_components as fac
 from dash.dependencies import Component, Input, Output
@@ -36,6 +37,7 @@ def render() -> Component:
     Input('skeleton-include-demo-trigger1', 'nClicks'),
     prevent_initial_call=True,
 )
+@localized_callback(('children',))
 def skeleton_include_demo1(nClicks):
     time.sleep(1)
 
@@ -47,6 +49,7 @@ def skeleton_include_demo1(nClicks):
     Input('skeleton-include-demo-trigger2', 'nClicks'),
     prevent_initial_call=True,
 )
+@localized_callback(('children',))
 def skeleton_include_demo2(nClicks):
     time.sleep(1)
 

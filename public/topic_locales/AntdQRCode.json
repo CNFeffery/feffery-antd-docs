@@ -1,0 +1,78 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdQRCode",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "基本用法。": {
+            "en-us": "Basic usage."
+        },
+        "带图片的例子": {
+            "en-us": "With images"
+        },
+        "带图片的二维码。": {
+            "en-us": "A QR code with an embedded image."
+        },
+        "二维码中图片大小": {
+            "en-us": "Embedded image size"
+        },
+        "通过设置`iconSize`调整二维码中图片的大小。": {
+            "en-us": "Use `iconSize` to set the size of the QR code's embedded image."
+        },
+        "边框": {
+            "en-us": "Border"
+        },
+        "通过设置`bordered`显示或隐藏边框。": {
+            "en-us": "Use `bordered` to show or hide the border."
+        },
+        "不同的状态": {
+            "en-us": "States"
+        },
+        "通过参数`status`控制二维码的状态。": {
+            "en-us": "Use `status` to set the QR code status."
+        },
+        "自定义渲染类型": {
+            "en-us": "Custom rendering type"
+        },
+        "通过参数`type`控制二维码的渲染类型。": {
+            "en-us": "Use `type` to choose the QR code renderer."
+        },
+        "自定义颜色": {
+            "en-us": "Custom colors"
+        },
+        "通过参数`color`和`bgColor`来控制二维码的颜色和背景色。": {
+            "en-us": "Use `color` and `bgColor` to set the QR code foreground and background colors."
+        },
+        "自定义尺寸": {
+            "en-us": "Custom size"
+        },
+        "自定义尺寸。": {
+            "en-us": "Customize the size."
+        },
+        "纠错比例": {
+            "en-us": "Error correction level"
+        },
+        "通过设置`errorLevel`调整不同的容错等级。": {
+            "en-us": "Use `errorLevel` to set the QR code error correction level."
+        },
+        "下载二维码": {
+            "en-us": "Download the QR code"
+        },
+        "下载二维码的简单实现。": {
+            "en-us": "A simple way to download a QR code."
+        },
+        "自动进入加载中状态": {
+            "en-us": "Automatic loading state"
+        },
+        "通过设置`autoSpin`控制在`value`处于回调更新中时，是否自动切换为`loading`状态。": {
+            "en-us": "Use `autoSpin` to control whether updating `value` through a callback automatically enables the `loading` state."
+        },
+        "回调监听": {
+            "en-us": "Callbacks"
+        },
+        "监听当前“点击刷新”按钮累计点击次数，仅在`status`为`'expired'`时有效。": {
+            "en-us": "Monitor cumulative refresh button clicks. Only applies when `status` is `'expired'`."
+        }
+    }
+}

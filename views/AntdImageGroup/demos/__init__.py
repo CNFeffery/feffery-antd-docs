@@ -1,3 +1,5 @@
+from functools import partial
+from i18n import translator
 from dash.dependencies import Component
 
 from . import (
@@ -6,18 +8,25 @@ from . import (
 )
 from components import demos_render
 
-demos_config = [
-    {
-        'path': 'basic_usage',
-        'title': '基础使用',
-        'description': '图片组会自动识别内部元素中的所有**AntdImage**组件，并组合成一个图片组。',
-    },
-    {
-        'path': 'items',
-        'title': '使用items定义组内图片',
-        'description': '可基于参数`items`定义组内图片，并通过嵌套单个**AntdImage**作为触发相册的入口。',
-    },
-]
+
+def demos_config() -> list:
+    t = partial(translator.t, locale_topic='AntdImageGroup')
+    return [
+        {
+            'path': 'basic_usage',
+            'title': t('基础使用'),
+            'description': t(
+                '图片组会自动识别内部元素中的所有**AntdImage**组件，并组合成一个图片组。'
+            ),
+        },
+        {
+            'path': 'items',
+            'title': t('使用items定义组内图片'),
+            'description': t(
+                '可基于参数`items`定义组内图片，并通过嵌套单个**AntdImage**作为触发相册的入口。'
+            ),
+        },
+    ]
 
 
 def render(component: Component, section_name: str = None) -> Component:

@@ -18,8 +18,8 @@ def render() -> Component:
         col = lambda i: f'Field {i}'
         cell = 'Sample Content'
         pop_title = lambda i: f'About Field {i}'
-        pop_content = (
-            lambda i: f'This is a description for Field {i} (placeholder).'
+        pop_content = lambda i: (
+            f'This is a description for Field {i} (placeholder).'
         )
 
     columns = [{'title': col(i), 'dataIndex': col(i)} for i in range(1, 6)]

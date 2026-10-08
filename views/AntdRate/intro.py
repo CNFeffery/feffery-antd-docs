@@ -1,3 +1,4 @@
+from i18n import translator
 import feffery_antd_components as fac
 from dash.dependencies import Component
 
@@ -7,12 +8,12 @@ def render() -> Component:
     return [
         fac.AntdBreadcrumb(
             items=[
-                {'title': '组件介绍'},
-                {'title': '数据录入'},
-                {'title': 'AntdRate 评分'},
+                {'title': translator.t('组件介绍')},
+                {'title': translator.t('数据录入')},
+                {'title': translator.t('AntdRate 评分')},
             ],
             style={'marginBottom': 8},
         ),
-        fac.AntdTitle('AntdRate 评分', level=2),
-        fac.AntdParagraph('用于为用户提供美观的星级打分功能。'),
+        fac.AntdTitle(translator.t('AntdRate 评分'), level=2),
+        fac.AntdParagraph(translator.t('用于为用户提供美观的星级打分功能。')),
     ]

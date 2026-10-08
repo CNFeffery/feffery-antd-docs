@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import time
 
 import feffery_antd_components as fac
@@ -86,6 +87,7 @@ def render() -> Component:
         'debounceSearchValue',
     ),
 )
+@localized_callback(('options',))
 def select_auto_spin_remote_load_options_demo(debounceSearchValue):
     if debounceSearchValue:
         time.sleep(1)
@@ -103,6 +105,7 @@ def select_auto_spin_remote_load_options_demo(debounceSearchValue):
     Output('select-auto-spin-remote-load-options', 'options'),
     Input('select-auto-spin-remote-load-options', 'debounceSearchValue'),
 )
+@localized_callback(('options',))
 def select_auto_spin_remote_load_options_custom_content_demo(
     debounceSearchValue,
 ):

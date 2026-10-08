@@ -1,3 +1,4 @@
+from i18n import translate_visible_text
 import feffery_antd_components as fac
 from dash.dependencies import Component, Input, Output
 
@@ -26,7 +27,7 @@ def render() -> Component:
     Output('copy-text-output', 'text'), Input('copy-text-input', 'value')
 )
 def copy_text_callback(value):
-    return value or '无内容'
+    return value or translate_visible_text('无内容')
 
 
 code_string = [

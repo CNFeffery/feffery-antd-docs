@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import json
 import feffery_antd_components as fac
 from dash.dependencies import Component
@@ -30,6 +31,7 @@ def render() -> Component:
     Input('countdown-create-new', 'nClicks'),
     prevent_initial_call=True,
 )
+@localized_callback(('children',))
 def create_new_countdown(nClicks):
     return fac.AntdSpace(
         [

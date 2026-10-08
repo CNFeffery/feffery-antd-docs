@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import feffery_antd_components as fac
 from dash.dependencies import Component, Input, Output
 
@@ -31,6 +32,7 @@ def render() -> Component:
     Input('float-button-group-basic-event', 'open'),
     prevent_initial_call=True,
 )
+@localized_callback(('children',))
 def float_button_group_basic_event(open):
     return f'open: {open}'
 

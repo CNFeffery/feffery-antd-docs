@@ -1,0 +1,30 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdCountdown",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "倒计时组件。": {
+            "en-us": "A countdown component."
+        },
+        "单位": {
+            "en-us": "Units"
+        },
+        "通过前缀和后缀添加单位。": {
+            "en-us": "Add units using prefixes and suffixes."
+        },
+        "标题额外信息提示": {
+            "en-us": "Title tooltips"
+        },
+        "通过设置参数`titleTooltip`为标题添加额外信息提示。": {
+            "en-us": "Use `titleTooltip` to add a tooltip to the title."
+        },
+        "基础回调": {
+            "en-us": "Basic callbacks"
+        },
+        "通过`finishEvent`监听倒计时结束事件。": {
+            "en-us": "Use `finishEvent` to monitor countdown completion."
+        }
+    }
+}

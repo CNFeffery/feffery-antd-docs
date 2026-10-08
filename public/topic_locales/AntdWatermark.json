@@ -1,0 +1,24 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdWatermark",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "基础的水印用法。": {
+            "en-us": "Basic watermark usage."
+        },
+        "多行文本水印": {
+            "en-us": "Multiline text watermarks"
+        },
+        "使用多行文本作为水印内容。": {
+            "en-us": "Use multiple lines of text as a watermark."
+        },
+        "图片型水印": {
+            "en-us": "Image watermarks"
+        },
+        "使用图片作为水印内容。": {
+            "en-us": "Use an image as a watermark."
+        }
+    }
+}

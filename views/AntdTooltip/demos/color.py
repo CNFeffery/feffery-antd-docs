@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
 from dash.dependencies import Component, Input, Output
@@ -32,6 +33,7 @@ def render() -> Component:
     ],
     Input('tooltip-color-demo-input', 'color'),
 )
+@localized_callback(('color', 'title'))
 def tooltip_color_demo(color):
     return [
         color,

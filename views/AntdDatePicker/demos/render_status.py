@@ -9,23 +9,27 @@ def render() -> Component:
 
     locale = get_current_locale()
 
-    if locale == "zh-cn":
+    if locale == 'zh-cn':
         demo_contents = fac.AntdSpace(
             [
-                fac.AntdDatePicker(placeholder=f'status="{status}"', status=status)
-                for status in ["warning", "error"]
+                fac.AntdDatePicker(
+                    placeholder=f'status="{status}"', status=status
+                )
+                for status in ['warning', 'error']
             ],
-            direction="vertical",
+            direction='vertical',
         )
     else:
         demo_contents = fac.AntdSpace(
             [
                 fac.AntdDatePicker(
-                    placeholder=f'status="{status}"', status=status, locale="en-us"
+                    placeholder=f'status="{status}"',
+                    status=status,
+                    locale='en-us',
                 )
-                for status in ["warning", "error"]
+                for status in ['warning', 'error']
             ],
-            direction="vertical",
+            direction='vertical',
         )
 
     return demo_contents
@@ -35,10 +39,10 @@ def code_string() -> list:
     """返回当前语种对应的演示代码 / Return demo code for the current locale"""
     locale = get_current_locale()
 
-    if locale == "zh-cn":
+    if locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         fac.AntdDatePicker(placeholder=f'status="{status}"', status=status)
@@ -52,7 +56,7 @@ fac.AntdSpace(
     else:
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         fac.AntdDatePicker(

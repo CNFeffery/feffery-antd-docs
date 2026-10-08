@@ -1,0 +1,30 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdTour",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "最简单的用法。": {
+            "en-us": "Basic usage."
+        },
+        "设置遮罩层": {
+            "en-us": "Mask settings"
+        },
+        "可对遮罩层的样式进行修改，或设置为非模态引导（即无遮罩，同时为了强调引导本身，建议与`type='primary'`配合使用）。": {
+            "en-us": "Customize the mask or disable it for a non-modal tour. Consider `type='primary'` to emphasize a tour without a mask."
+        },
+        "设置引导弹框位置和箭头": {
+            "en-us": "Tour popup placement and arrows"
+        },
+        "可设置引导弹框相对于元素的位置，以及箭头的方向及是否指向中心。": {
+            "en-us": "Set the tour popup's position relative to its target, the arrow direction, and whether the arrow points to the center."
+        },
+        "设置上一步和下一步按钮": {
+            "en-us": "Previous and next buttons"
+        },
+        "可传入任意组件设置为上一步和下一步按钮的内容。": {
+            "en-us": "Use any component as the content of the Previous and Next buttons."
+        }
+    }
+}

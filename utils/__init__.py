@@ -1,14 +1,14 @@
 import os
 import re
 import mistune
-from flask import request
 from itertools import groupby
 from mistune.core import BlockState
 from dash.dependencies import Component
 from mistune.renderers.markdown import MarkdownRenderer
 
 # 国际化
-from i18n import translator
+from i18n import translator, get_current_locale
+from utils.api_doc_sources import get_component_docstring
 
 markdown_parser = mistune.create_markdown(renderer='ast')
 markdown_renderer = MarkdownRenderer()
@@ -60,7 +60,7 @@ def get_extra_api_descriptions(component: Component) -> str:
         './public/extra_api_descriptions'
     ):
         # 获取当前国际化语种
-        current_locale = request.cookies.get(translator.cookie_name, 'zh-cn')
+        current_locale = get_current_locale()
 
         if current_locale == 'zh-cn':
             with open(
@@ -84,10 +84,10 @@ def parse_component_props(component: Component) -> str:
     """解析转换指定组件的参数说明"""
 
     # 获取当前国际化语种
-    current_locale = request.cookies.get(translator.cookie_name, 'zh-cn')
+    current_locale = get_current_locale()
 
     if current_locale == 'zh-cn':
-        raw_docstring = component.__doc__ + '\n'
+        raw_docstring = get_component_docstring(component) + '\n'
     elif current_locale == 'en-us':
         # 检查目标英文文档文件是否存在
         if f'{component.__name__}.md' in os.listdir(
@@ -99,11 +99,11 @@ def parse_component_props(component: Component) -> str:
             ) as f:
                 raw_docstring = f.read()
         else:
-            raw_docstring = component.__doc__ + '\n'
+            raw_docstring = get_component_docstring(component) + '\n'
 
     # 去除开头多余内容
     raw_docstring = re.sub(
-        '^.*?Keyword arguments\:',
+        '^.*?Keyword arguments:',
         '',
         raw_docstring,
         flags=re.S,

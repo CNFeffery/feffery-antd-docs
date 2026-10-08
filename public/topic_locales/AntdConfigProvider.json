@@ -1,0 +1,48 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdConfigProvider",
+    "contents": {
+        "主题色配置": {
+            "en-us": "Primary theme color"
+        },
+        "通过参数`primaryColor`对**AntdConfigProvider**内部元素的主题色进行快捷设置。": {
+            "en-us": "Use `primaryColor` to set the primary color of components within **AntdConfigProvider**."
+        },
+        "禁用状态配置": {
+            "en-us": "Disabled state configuration"
+        },
+        "通过参数`componentDisabled`对**AntdConfigProvider**内部相关元素的禁用状态进行快捷设置。": {
+            "en-us": "Use `componentDisabled` to set the disabled state of components within **AntdConfigProvider**."
+        },
+        "尺寸规格配置": {
+            "en-us": "Size configuration"
+        },
+        "通过参数`componentSize`对**AntdConfigProvider**内部相关元素的尺寸规格进行快捷设置。": {
+            "en-us": "Use `componentSize` to set the size of components within **AntdConfigProvider**."
+        },
+        "国际化配置": {
+            "en-us": "Internationalization settings"
+        },
+        "通过参数`locale`对**AntdConfigProvider**内部相关元素的国际化语种进行快捷切换。": {
+            "en-us": "Use `locale` to switch the language of components within **AntdConfigProvider**."
+        },
+        "使用主题样式算法": {
+            "en-us": "Theme algorithms"
+        },
+        "通过参数`algorithm`对**AntdConfigProvider**内部相关元素应用内置的主题样式算法。": {
+            "en-us": "Use `algorithm` to apply built-in theme algorithms to components within **AntdConfigProvider**."
+        },
+        "禁用水波纹动效": {
+            "en-us": "Disable ripple effects"
+        },
+        "设置参数`wavesDisabled=True`对**AntdConfigProvider**内部相关元素的水波纹交互动效进行禁用，典型如**AntdButton**。": {
+            "en-us": "Set `wavesDisabled=True` to disable ripple effects on components within **AntdConfigProvider**, such as **AntdButton**."
+        },
+        "使用旧版主题样式": {
+            "en-us": "Legacy theme styles"
+        },
+        "通过参数`useOldTheme`对**AntdConfigProvider**内部相关元素应用内置的`fac<0.3.0`旧版本主题样式算法。": {
+            "en-us": "Use `useOldTheme` to apply the legacy `fac<0.3.0` theme algorithm to components within **AntdConfigProvider**."
+        }
+    }
+}

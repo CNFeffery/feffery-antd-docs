@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import feffery_antd_components as fac
 from dash.dependencies import Component
 from dash import html
@@ -40,6 +41,7 @@ def render() -> Component:
     Output('back-top-demo-text', 'children'),
     Input('back-top-callback-demo', 'nClicks'),
 )
+@localized_callback(('children',))
 def back_top_demo_text(nClicks):
     if nClicks is not None:
         return f'nClicks: {nClicks}'

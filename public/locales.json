@@ -786,6 +786,222 @@
         },
         "使用开关在两种状态之间切换。": {
             "en-us": "Use the switch to toggle between two states."
+        },
+        "确保内部元素原有位置在被用户滚动出视口后，仍然可以在视口范围内保持可见状态。": {
+            "en-us": "Keep an element visible in the viewport after scrolling past its original position."
+        },
+        "用于渲染不同状态类型的警告提示信息。": {
+            "en-us": "Display alerts with different status types."
+        },
+        "用于渲染图标、文字或图片形式的头像。": {
+            "en-us": "Display an avatar as an icon, text, or an image."
+        },
+        "AntdAvatarGroup 头像组": {
+            "en-us": "AntdAvatarGroup Avatar group"
+        },
+        "用于妥善展示一组头像。": {
+            "en-us": "Display a group of avatars."
+        },
+        "用于帮助用户在长页面中快速回到顶部。": {
+            "en-us": "Help users return to the top of a long page."
+        },
+        "AntdBadge 徽标数": {
+            "en-us": "AntdBadge Badge"
+        },
+        "一般出现在通知图标或头像的右上角，用于显示需要处理的消息条数，通过醒目视觉形式吸引用户处理。": {
+            "en-us": "Usually displayed in the upper-right corner of a notification icon or avatar to highlight the number of messages requiring attention."
+        },
+        "用于构建美观的内容展示卡片。": {
+            "en-us": "Display content inside a card."
+        },
+        "用于构建内嵌的网格布局卡片。": {
+            "en-us": "Build cards with an embedded grid layout."
+        },
+        "用于为卡片添加结构化展示信息。": {
+            "en-us": "Add structured information to a card."
+        },
+        "轮播一组同级内容。": {
+            "en-us": "Cycle through a group of sibling content items."
+        },
+        "可以点击切换选中状态的标签。": {
+            "en-us": "A tag whose selected state can be toggled by clicking."
+        },
+        "可折叠展开的特殊容器。": {
+            "en-us": "A container that can be expanded and collapsed."
+        },
+        "构建常用的用户评论相关功能。": {
+            "en-us": "Build user comment interfaces."
+        },
+        "用于对所包裹内容的主题色、尺寸规格、禁用状态、国际化等进行统一强制设置。": {
+            "en-us": "Apply shared theme colors, sizes, disabled states, and languages to nested components."
+        },
+        "用于帮助用户快速复制指定文本内容。": {
+            "en-us": "Copy specified text quickly."
+        },
+        "用于渲染实时刷新的倒计时信息卡片。": {
+            "en-us": "Display a countdown that updates in real time."
+        },
+        "用于渲染实时刷新的正计时信息卡片。": {
+            "en-us": "Display elapsed time that updates in real time."
+        },
+        "用于自由设计骨架屏加载中内容。": {
+            "en-us": "Design custom skeleton loading placeholders."
+        },
+        "提供常见的日期范围选择相关功能。": {
+            "en-us": "Select a date range."
+        },
+        "在描述列表中构建单个描述列表子项。": {
+            "en-us": "An individual item within a description list."
+        },
+        "用于配合AntdDescriptionItem进行一组属性的展示。": {
+            "en-us": "Display a group of properties using AntdDescriptionItem."
+        },
+        "构造可拖拽或点击触发文件上传的区域。": {
+            "en-us": "An upload area that accepts clicks and dragged files."
+        },
+        "从页面指定方位弹出可交互的额外容器。": {
+            "en-us": "An interactive container that slides out from an edge of the page."
+        },
+        "用于在信息缺失时起到占位说明的作用。": {
+            "en-us": "Display a placeholder when content is missing."
+        },
+        "用于展示单张或一组图片。": {
+            "en-us": "Display a single image or multiple images."
+        },
+        "AntdImageGroup 图片组": {
+            "en-us": "AntdImageGroup Image group"
+        },
+        "用于灵活整合一系列图片。": {
+            "en-us": "Combine images into a group."
+        },
+        "为用户提供不同形式的文本信息录入功能。": {
+            "en-us": "Text inputs for different user input needs."
+        },
+        "专门提供数值输入功能的输入框。": {
+            "en-us": "An input dedicated to numeric values."
+        },
+        "用于实现在输入内容中对不同角色进行提及的功能，常用于构建论坛、协同办公等平台中的评论功能。": {
+            "en-us": "Mention users or other targets within text, commonly used in forum and collaboration comments."
+        },
+        "用于全局展示操作反馈信息。": {
+            "en-us": "Display global action feedback messages."
+        },
+        "用于渲染弹出式对话框。": {
+            "en-us": "Display a modal dialog."
+        },
+        "用于全局展示通知提醒信息。": {
+            "en-us": "Display global notifications."
+        },
+        "用于提供验证码等一次性固定位数密码输入功能。": {
+            "en-us": "Enter fixed-length one-time passwords, such as verification codes."
+        },
+        "专门的图片上传功能。": {
+            "en-us": "A dedicated image upload component."
+        },
+        "用于实现二次确认功能，相较于对话框更加简便。": {
+            "en-us": "Request confirmation through a lightweight popup."
+        },
+        "用于为指定元素添加额外说明信息。": {
+            "en-us": "Add explanatory content to a specified element."
+        },
+        "用于以弹出式卡片的形式展现内容。": {
+            "en-us": "Display content in a popup card."
+        },
+        "用于渲染常用形式的进度条。": {
+            "en-us": "Display common types of progress indicators."
+        },
+        "能够将文本转换生成二维码的组件，支持自定义配色和 Logo 配置。": {
+            "en-us": "Generate QR codes from text, with custom colors and an optional logo."
+        },
+        "用于供用户在一组选项中进行唯一项选择。": {
+            "en-us": "Select a single item from a set of options."
+        },
+        "用于为用户提供美观的星级打分功能。": {
+            "en-us": "Provide star ratings."
+        },
+        "用于为用户提供不同场景下的状态提示。": {
+            "en-us": "Display status messages for different situations."
+        },
+        "用于为容器类元素添加点缀作用的缎带。": {
+            "en-us": "Add a decorative ribbon to a container."
+        },
+        "用于展示多个选项并允许用户选择其中单个选项。": {
+            "en-us": "Display several options and let the user select one."
+        },
+        "用于配合数据可视化进行分段着色控制，或作为静态的图例进行展示。": {
+            "en-us": "Control segment colors for data visualization or display a static legend."
+        },
+        "用于为正在加载中的内容添加骨架屏加载动画。": {
+            "en-us": "Show animated skeleton placeholders for content being loaded."
+        },
+        "用于在自定义骨架屏中构建头像占位相关内容。": {
+            "en-us": "An avatar placeholder for custom skeletons."
+        },
+        "用于在自定义骨架屏中构建按钮占位相关内容。": {
+            "en-us": "A button placeholder for custom skeletons."
+        },
+        "用于在自定义骨架屏中构建图片占位相关内容。": {
+            "en-us": "An image placeholder for custom skeletons."
+        },
+        "用于在自定义骨架屏中构建输入框占位相关内容。": {
+            "en-us": "An input placeholder for custom skeletons."
+        },
+        "用于为用户提供基于滑动交互的单值或范围设置功能。": {
+            "en-us": "Select a single value or a range using a slider."
+        },
+        "用于为正在加载中的内容添加加载动画。": {
+            "en-us": "Show a loading indicator for content being loaded."
+        },
+        "用于实现对指定内容的展开收起效果。": {
+            "en-us": "Expand and collapse specified content."
+        },
+        "用于构建漂亮的统计数值展示。": {
+            "en-us": "Display statistical values."
+        },
+        "标签页 AntdTabs": {
+            "en-us": "AntdTabs Tabs"
+        },
+        "用于构建多标签页。": {
+            "en-us": "Build interfaces with multiple tabs."
+        },
+        "用于渲染美观的小标签。": {
+            "en-us": "Display compact tags."
+        },
+        "用于渲染美观的时间轴内容。": {
+            "en-us": "Display events on a timeline."
+        },
+        "提供常用的时间选择功能。": {
+            "en-us": "Select a time."
+        },
+        "提供常用的时间范围选择功能。": {
+            "en-us": "Select a time range."
+        },
+        "AntdTooltip 信息提示": {
+            "en-us": "AntdTooltip Tooltip"
+        },
+        "用于为指定元素添加额外信息提示。": {
+            "en-us": "Add a tooltip to a specified element."
+        },
+        "用于分步引导用户了解产品功能的气泡组件。": {
+            "en-us": "Guide users through product features step by step using popups."
+        },
+        "用于以直观的方式在两栏中移动选项，帮助用户完成选择行为。": {
+            "en-us": "Move options between two panels to make selections."
+        },
+        "用于渲染展示树形数据结构，并支持丰富的交互功能。": {
+            "en-us": "Display tree data with a range of interactive features."
+        },
+        "提供在树形结构中选择若干项的功能。": {
+            "en-us": "Select items from a tree structure."
+        },
+        "提供点击按钮触发的通用文件上传功能。": {
+            "en-us": "Upload files by clicking a button."
+        },
+        "用于在指定内容上叠加水印内容。": {
+            "en-us": "Overlay a watermark on specified content."
+        },
+        "承载内部元素且本身不渲染占用DOM节点。": {
+            "en-us": "Groups child elements without adding a DOM node."
         }
     }
 }

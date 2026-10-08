@@ -12,31 +12,33 @@ def render() -> Component:
 
     locale = get_current_locale()
 
-    if locale == "zh-cn":
-        demo_contents = fac.AntdDatePicker(id="date-picker-dynamic-forbidden-demo")
+    if locale == 'zh-cn':
+        demo_contents = fac.AntdDatePicker(
+            id='date-picker-dynamic-forbidden-demo'
+        )
     else:
         demo_contents = fac.AntdDatePicker(
-            id="date-picker-dynamic-forbidden-demo", locale="en-us"
+            id='date-picker-dynamic-forbidden-demo', locale='en-us'
         )
 
     return demo_contents
 
 
 @app.callback(
-    Output("date-picker-dynamic-forbidden-demo", "disabledDatesStrategy"),
-    Input("date-picker-dynamic-forbidden-demo", "id"),
+    Output('date-picker-dynamic-forbidden-demo', 'disabledDatesStrategy'),
+    Input('date-picker-dynamic-forbidden-demo', 'id'),
 )
 def date_picker_dynamic_forbidden_demo(_):
     return [
         {
-            "mode": "lt",
-            "target": "specific-date",
-            "value": datetime.now().strftime("%Y-%m-%d"),
+            'mode': 'lt',
+            'target': 'specific-date',
+            'value': datetime.now().strftime('%Y-%m-%d'),
         },
         {
-            "mode": "gt",
-            "target": "specific-date",
-            "value": (datetime.now() + timedelta(days=7)).strftime("%Y-%m-%d"),
+            'mode': 'gt',
+            'target': 'specific-date',
+            'value': (datetime.now() + timedelta(days=7)).strftime('%Y-%m-%d'),
         },
     ]
 
@@ -46,7 +48,7 @@ def code_string() -> list:
 
     return [
         {
-            "code": """
+            'code': """
 from datetime import datetime, timedelta
 
 ...

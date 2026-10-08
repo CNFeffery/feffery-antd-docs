@@ -1,53 +1,47 @@
 - id (string; optional):
     Unique identifier for the component.
 
-- affix (boolean; default True):
-    Whether to enable the affix mode. Default value: `True`.
-
-- align (a value equal to: 'left', 'right'; default 'right'):
-    The position of the anchor point, with options `left` or `right`. Default value: `right`.
-
-- aria-* (string; optional):
-    Wildcard for `aria-*` formatted attributes.
-
-- bounds (number; default 5):
-    The pixel margin for the anchor point. Default value: `5`.
+- key (string; optional):
+    Update the component’s `key` to force it to remount.
 
 - className (string | dict; optional):
-    The CSS class name for the current component, supporting [dynamic CSS class names](/advanced-classname).
-
-- clickedLink (dict; optional):
-    Listens for click events on the anchor point node.
-
-- containerId (string; optional):
-    The ID of the target container for the anchor point.
-
-- data-* (string; optional):
-    Wildcard for `data-*` formatted attributes.
-
-- key (string; optional):
-    Updates the `key` value for the current component, which can force a redraw of the component.
+    CSS class name of the component. Supports [dynamic CSS classes](/advanced-classname).
 
 - linkDict (optional):
     Hierarchical data structure for the directory.
 
-- loading_state (dict; optional):
-    `loading_state` is a dictionary with keys:
+- direction (a value equal to: 'vertical', 'horizontal'; default 'vertical'):
+    Navigation direction. Subdirectories are not supported in `'horizontal'` mode. Supported values: `'vertical'`, `'horizontal'`. Default: `'vertical'`.
 
-    - component_name (string; optional):
-        Holds the name of the component that is loading.
+- align (a value equal to: 'left', 'right'; default 'right'):
+    Anchor placement. Supported values: `'left'`, `'right'`. Default: `'right'`.
 
-    - is_loading (boolean; optional):
-        Determines if the component is currently loading.
+- containerId (string; optional):
+    The ID of the target container for the anchor point.
 
-    - prop_name (string; optional):
-        Holds which property is currently loading.
+- targetOffset (number; optional):
+    The offset for the anchor point. Default is the same as the parameter offsetTop.
+
+- affix (boolean; default True):
+    Whether to enable the affix mode. Default value: `True`.
+
+- bounds (number; default 5):
+    The pixel margin for the anchor point. Default value: `5`.
 
 - offsetTop (number; optional):
     Sets the specified pixel offset from the top of the window to trigger the anchoring effect.
 
-- style (dict; optional):
-    The CSS styles for the current component.
+- replace (boolean; default False):
+    When `True`, browser back/forward navigation does not jump to the anchor. Default: `False`.
 
-- targetOffset (number; optional):
-    The offset for the anchor point. Default is the same as the parameter offsetTop.
+- currentAnchor (string; optional):
+    Override the currently highlighted anchor link.
+
+- clickedLink (dict; optional):
+    Listens for click events on the anchor point node.
+
+- data-* (string; optional):
+    Wildcard support for `data-*` attributes.
+
+- aria-* (string; optional):
+    Wildcard support for `aria-*` attributes.

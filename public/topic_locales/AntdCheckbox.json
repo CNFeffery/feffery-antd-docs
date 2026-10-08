@@ -12,16 +12,16 @@
             "en-us": "Enable the half checked status to change the checkbox display style only, and it is independent of the actual checked status."
         },
         "禁用状态": {
-            "en-us": "Disabled status"
+            "en-us": "Disabled state"
         },
         "只读状态": {
-            "en-us": "Readonly status"
+            "en-us": "Read-only state"
         },
         "只读状态适用于单纯的数据展示场景。": {
             "en-us": "Readonly status is suitable for displaying data only."
         },
         "回调监听": {
-            "en-us": "Callback listening"
+            "en-us": "Callbacks"
         }
     }
 }

@@ -12,13 +12,13 @@
             "en-us": "Row Selection"
         },
         "多选模式": {
-            "en-us": "Multiple Selection Mode"
+            "en-us": "Multiple selection"
         },
         "多选型行选择功能。": {
             "en-us": "Multiple-selection row selection feature."
         },
         "回调监听": {
-            "en-us": "Callback Listener"
+            "en-us": "Callbacks"
         },
         "在回调函数中监听行选择相关事件。": {
             "en-us": "Listen to row selection–related events in callback functions."
@@ -147,7 +147,7 @@
             "en-us": "Render pagination controls in a simple style."
         },
         "禁用状态": {
-            "en-us": "Disabled State"
+            "en-us": "Disabled state"
         },
         "以禁用状态显示分页控件。": {
             "en-us": "Display pagination controls in a disabled state."
@@ -162,7 +162,7 @@
             "en-us": "Pagination"
         },
         "基础使用": {
-            "en-us": "Basic Usage"
+            "en-us": "Basic usage"
         },
         "在表格底部渲染总结栏。": {
             "en-us": "Render a summary bar at the bottom of the table."

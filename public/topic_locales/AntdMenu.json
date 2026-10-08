@@ -81,7 +81,7 @@
             "en-us": "Set the parameter `triggerSubMenuAction='click'` to control the sub-menu expand trigger behavior to click."
         },
         "回调监听": {
-            "en-us": "Callback listener"
+            "en-us": "Callbacks"
         },
         "通过回调监听当前选中的菜单项。": {
             "en-us": "Listen to the selected menu item through the callback listener."

@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import feffery_antd_components as fac
 from dash.dependencies import Component
 from dash import html
@@ -61,6 +62,7 @@ def render() -> Component:
     ],
     Input('back-top-visibility-height-slider-demo', 'value'),
 )
+@localized_callback(('visibilityHeight', 'children'))
 def update_duration(value):
     return value, f'向下滚动{value}px出现按钮'
 

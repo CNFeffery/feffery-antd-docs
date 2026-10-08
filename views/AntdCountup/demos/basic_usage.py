@@ -1,3 +1,4 @@
+from i18n import get_current_locale
 import feffery_antd_components as fac
 from dash.dependencies import Component
 from datetime import datetime, timedelta
@@ -30,7 +31,11 @@ def render() -> Component:
                 fac.AntdCountup(
                     title='Day Level',
                     value=start_time.strftime('%Y-%m-%d %H:%M:%S:%f'),
-                    format='D 天 H 时 m 分 s 秒',
+                    format=(
+                        'D [days] H [hours] m [minutes] s [seconds]'
+                        if get_current_locale() == 'en-us'
+                        else 'D 天 H 时 m 分 s 秒'
+                    ),
                 ),
                 span=24,
             ),
@@ -41,9 +46,10 @@ def render() -> Component:
     return demo_contents
 
 
-code_string = [
-    {
-        'code': """
+def code_string():
+    codes = [
+        {
+            'code': """
 start_time = datetime.now() - timedelta(seconds=2 * 24 * 60 * 60 + 30)
 
 ...
@@ -76,6 +82,14 @@ fac.AntdRow(
     ],
     gutter=16,
 )
-"""
-    }
-]
+    """
+        }
+    ]
+
+    if get_current_locale() == 'en-us':
+        for item in codes:
+            item['code'] = item['code'].replace(
+                'D 天 H 时 m 分 s 秒',
+                'D [days] H [hours] m [minutes] s [seconds]',
+            )
+    return codes

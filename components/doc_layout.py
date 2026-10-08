@@ -9,12 +9,9 @@ from dash.dependencies import Component
 import utils
 from config import AppConfig, DocsConfig
 from components import contributors_avatar
-from utils.doc_renderer import MarkdownRenderer
 
 # 国际化
-from i18n import translator, get_current_locale
-
-markdown_renderer = MarkdownRenderer()
+from i18n import translator
 
 
 def render(
@@ -26,24 +23,9 @@ def render(
 ) -> Component:
     """渲染组件文档页"""
 
-    # 待国际化翻译文档页提示信息
-    i18n_modal = None
-
     # 处理函数型catalog
     if not isinstance(catalog, list) and catalog:
         catalog = catalog()
-    elif catalog and get_current_locale() == 'en-us':
-        # 若当前文档页尚未翻译完成，则更新相应的参与翻译贡献提示信息
-        i18n_modal = fac.AntdModal(
-            markdown_renderer.render(
-                'The **English** version of the current component documentation page has not been completed yet. If you are interested in participating in the **English translation** of this document, please read the [Contribution Guide](%s).'
-                % AppConfig.i18n_guide_link
-            ),
-            title='Notice',
-            transitionType='fade',
-            visible=True,
-            width=600,
-        )
 
     return fac.AntdRow(
         [
@@ -59,7 +41,7 @@ setTimeout(() => {
         let hashTarget = window.location.hash.substring(1)
         let scrollTarget = document.getElementById(hashTarget)
         if ( scrollTarget ) {
-            window.location.href = window.location.origin + window.location.pathname + '#' + hashTarget;
+            window.location.href = window.location.origin + window.location.pathname + window.location.search + '#' + hashTarget;
             window.scrollBy(0, -80);
         }
     }
@@ -336,7 +318,6 @@ setTimeout(() => {
                 flex='none',
             ),
             fac.AntdBackTop(id='doc-layout-back-top', duration=0.5),
-            i18n_modal,
         ],
         key=str(uuid.uuid4()),  # 强制刷新
         wrap=False,

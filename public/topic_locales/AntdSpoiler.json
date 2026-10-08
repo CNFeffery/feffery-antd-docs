@@ -1,0 +1,24 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdSpoiler",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "最简单的展开收起。": {
+            "en-us": "Basic expand/collapse behavior."
+        },
+        "展开收起按钮位置": {
+            "en-us": "Expand/collapse button position"
+        },
+        "通过设置参数`labelPosition`控制展开收起按钮的位置。": {
+            "en-us": "Use `labelPosition` to position the expand/collapse button."
+        },
+        "动画时长": {
+            "en-us": "Animation duration"
+        },
+        "通过设置参数`transitionDuration`控制动画时长。": {
+            "en-us": "Use `transitionDuration` to set the animation duration."
+        }
+    }
+}

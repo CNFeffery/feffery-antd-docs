@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import feffery_antd_components as fac
 from dash import html
 from dash.dependencies import Component, Input, Output
@@ -24,6 +25,7 @@ def render() -> Component:
     Input('notification-stack-demo-new', 'nClicks'),
     prevent_initial_call=True,
 )
+@localized_callback(('children',))
 def notification_stack_demo(nClicks):
     return fac.AntdNotification(
         message='Notification Title',

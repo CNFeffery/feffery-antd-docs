@@ -9,46 +9,46 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         demo_contents = fac.AntdSpace(
             [
                 fac.AntdAccordion(
                     items=[
                         {
-                            "title": f"{size}手风琴项示例{i}",
-                            "key": i,
-                            "children": fac.AntdText(f"{size}手风琴项示例{i}"),
+                            'title': f'{size}手风琴项示例{i}',
+                            'key': i,
+                            'children': fac.AntdText(f'{size}手风琴项示例{i}'),
                         }
                         for i in range(1, 3)
                     ],
                     size=size,
                 )
-                for size in ["small", "middle", "large"]
+                for size in ['small', 'middle', 'large']
             ],
-            direction="vertical",
-            style={"width": "100%"},
+            direction='vertical',
+            style={'width': '100%'},
         )
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         demo_contents = fac.AntdSpace(
             [
                 fac.AntdAccordion(
                     items=[
                         {
-                            "title": f"{size} accordion item example {i}",
-                            "key": i,
-                            "children": fac.AntdText(
-                                f"{size} accordion item example {i}"
+                            'title': f'{size} accordion item example {i}',
+                            'key': i,
+                            'children': fac.AntdText(
+                                f'{size} accordion item example {i}'
                             ),
                         }
                         for i in range(1, 3)
                     ],
                     size=size,
                 )
-                for size in ["small", "middle", "large"]
+                for size in ['small', 'middle', 'large']
             ],
-            direction="vertical",
-            style={"width": "100%"},
+            direction='vertical',
+            style={'width': '100%'},
         )
 
     return demo_contents
@@ -59,10 +59,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         fac.AntdAccordion(
@@ -84,10 +84,10 @@ fac.AntdSpace(
 """
             }
         ]
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         fac.AntdAccordion(

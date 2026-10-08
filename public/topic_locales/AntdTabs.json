@@ -1,0 +1,102 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdTabs",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "使用参数`items`构造各标签页。": {
+            "en-us": "Use `items` to define tabs."
+        },
+        "自定义标签页标题": {
+            "en-us": "Custom tab titles"
+        },
+        "标签页标题内容支持自由的组件型定义。": {
+            "en-us": "Use components freely in tab titles."
+        },
+        "禁用部分标签页": {
+            "en-us": "Disable specific tabs"
+        },
+        "对各标签页进行禁用的不同方式。": {
+            "en-us": "Different ways to disable specific tabs."
+        },
+        "不同的标签页显示方位": {
+            "en-us": "Tab placement"
+        },
+        "设置参数`tabPosition`控制标签页显示方位。": {
+            "en-us": "Use `tabPosition` to position the tab controls."
+        },
+        "标签页尺寸规格": {
+            "en-us": "Tab sizes"
+        },
+        "设置参数`size`控制标签页尺寸规格。": {
+            "en-us": "Use `size` to control the tab size."
+        },
+        "标签栏居中": {
+            "en-us": "Centered tab controls"
+        },
+        "设置参数`centered=True`令标签栏居中。": {
+            "en-us": "Set `centered=True` to center the tab controls."
+        },
+        "控制标签栏间距": {
+            "en-us": "Tab spacing"
+        },
+        "设置参数`tabBarGutter`控制标签栏之间的间距。": {
+            "en-us": "Use `tabBarGutter` to set the gap between tabs."
+        },
+        "控制标签页动画": {
+            "en-us": "Tab animations"
+        },
+        "设置参数`inkBarAnimated`、`tabPaneAnimated`控制标签页切换动画效果。": {
+            "en-us": "Use `inkBarAnimated` and `tabPaneAnimated` to control tab transitions."
+        },
+        "标签页类型": {
+            "en-us": "Tab types"
+        },
+        "设置参数`type`控制标签页类型。": {
+            "en-us": "Use `type` to choose the tab type."
+        },
+        "自定义标签头区域样式": {
+            "en-us": "Custom tab header styles"
+        },
+        "设置参数`tabBarStyle`控制标签头区域整体样式。": {
+            "en-us": "Use `tabBarStyle` to customize the tab header area."
+        },
+        "添加图标元素": {
+            "en-us": "Add an icon"
+        },
+        "为标签页添加图标元素。": {
+            "en-us": "Add icons to tabs."
+        },
+        "添加额外内容": {
+            "en-us": "Additional content"
+        },
+        "设置参数`tabBarLeftExtraContent`、`tabBarRightExtraContent`添加额外内容。": {
+            "en-us": "Use `tabBarLeftExtraContent` and `tabBarRightExtraContent` to add content beside the tab controls."
+        },
+        "items为空时的占位内容": {
+            "en-us": "Placeholder for empty items"
+        },
+        "通过参数`placeholder`设置当`items`为空时，取而代之显示的内容。": {
+            "en-us": "Use `placeholder` to provide replacement content when `items` is empty."
+        },
+        "回调监听": {
+            "en-us": "Callbacks"
+        },
+        "属性`activeKey`对应当前激活的标签页。": {
+            "en-us": "`activeKey` identifies the currently active tab."
+        },
+        "标签页增删控制": {
+            "en-us": "Add and remove tabs"
+        },
+        "通过回调函数控制标签页的增删。": {
+            "en-us": "Add and remove tabs through callbacks."
+        },
+        "标签页右键菜单交互": {
+            "en-us": "Tab context menus"
+        },
+        "通过回调函数响应标签页标题的右键菜单交互事件。": {
+            "en-us": "Handle tab title context menu interactions through callbacks."
+        }
+    }
+}

@@ -1,3 +1,5 @@
+from functools import partial
+from i18n import translator
 from dash.dependencies import Component
 
 from . import (
@@ -12,48 +14,53 @@ from . import (
 )
 from components import demos_render
 
-demos_config = [
-    {
-        'path': 'basic_usage',
-        'title': '基础使用',
-        'description': '常规居中与行内居中。',
-    },
-    {
-        'path': 'is_open',
-        'title': '展开状态',
-        'description': '设置参数`isOpen`控制展开状态。',
-    },
-    {
-        'path': 'non_bordered',
-        'title': '无边框模式',
-        'description': '设置参数`bordered=False`开启无边框模式。',
-    },
-    {
-        'path': 'size',
-        'title': '不同的尺寸规格',
-        'description': '设置参数`size`控制尺寸规格。',
-    },
-    {
-        'path': 'ghost',
-        'title': '透明面板模式',
-        'description': '设置参数`ghost=True`开启透明面板模式。',
-    },
-    {
-        'path': 'collapsible',
-        'title': '不同的折叠触发策略',
-        'description': '设置参数`collapsible`使用不同的折叠触发策略。',
-    },
-    {
-        'path': 'force_render',
-        'title': '使用forceRender参数',
-        'description': '在设置参数`forceRender=True`后，即使折叠面板初始化时处于折叠状态，也会强制提前将内部元素渲染到页面中，从而便于一些初始化回调的正常赋值。',
-    },
-    {
-        'path': 'basic_callbacks',
-        'title': '回调监听',
-        'description': '通过回调监听面板的折叠状态。',
-    },
-]
+
+def demos_config() -> list:
+    t = partial(translator.t, locale_topic='AntdCollapse')
+    return [
+        {
+            'path': 'basic_usage',
+            'title': t('基础使用'),
+            'description': t('常规居中与行内居中。'),
+        },
+        {
+            'path': 'is_open',
+            'title': t('展开状态'),
+            'description': t('设置参数`isOpen`控制展开状态。'),
+        },
+        {
+            'path': 'non_bordered',
+            'title': t('无边框模式'),
+            'description': t('设置参数`bordered=False`开启无边框模式。'),
+        },
+        {
+            'path': 'size',
+            'title': t('不同的尺寸规格'),
+            'description': t('设置参数`size`控制尺寸规格。'),
+        },
+        {
+            'path': 'ghost',
+            'title': t('透明面板模式'),
+            'description': t('设置参数`ghost=True`开启透明面板模式。'),
+        },
+        {
+            'path': 'collapsible',
+            'title': t('不同的折叠触发策略'),
+            'description': t('设置参数`collapsible`使用不同的折叠触发策略。'),
+        },
+        {
+            'path': 'force_render',
+            'title': t('使用forceRender参数'),
+            'description': t(
+                '在设置参数`forceRender=True`后，即使折叠面板初始化时处于折叠状态，也会强制提前将内部元素渲染到页面中，从而便于一些初始化回调的正常赋值。'
+            ),
+        },
+        {
+            'path': 'basic_callbacks',
+            'title': t('回调监听'),
+            'description': t('通过回调监听面板的折叠状态。'),
+        },
+    ]
 
 
 def render(component: Component, section_name: str = None) -> Component:

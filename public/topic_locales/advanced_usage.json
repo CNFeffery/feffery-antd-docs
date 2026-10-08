@@ -1,0 +1,63 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "advanced_usage",
+    "contents": {
+        "配置提供器的语种设置优先于后代组件自身的 locale。为避免本官网页面外层的配置影响上述对比，示例分别使用中文和英文的嵌套配置提供器；没有配置提供器覆盖时，可以直接使用组件自身的 locale。": {
+            "en-us": "A provider's language takes precedence over its descendant components' own locale values. The comparison above uses nested Chinese and English providers so the website's outer configuration does not affect it. Without a provider override, set each component's locale directly."
+        },
+        "FAC 组件内置文案还支持 de-de（德语）、ru-ru（俄语）和 fr-fr（法语）。这些设置只控制组件内置文案，不会自动翻译传入的标题、说明和其他自定义内容。本官网的文档语种目前为中文和英文，页首语言按钮通过 Cookie 保存选择并重载页面，与示例中组件内置文案的语种设置相互独立。": {
+            "en-us": "FAC built-in component text also supports de-de (German), ru-ru (Russian), and fr-fr (French). These settings control built-in text and do not automatically translate custom titles, descriptions, or other content. This website currently provides Chinese and English documentation. Its header button saves the language in a cookie and reloads the page; this is separate from the language settings in component examples."
+        },
+        "**fac**中具有参数`persistence`、`persisted_props`、`persistence_type`的组件，可使用**属性持久化**功能，开启后可分别在不同生命周期内对目标组件的属性进行记忆，这可能听起来比较抽象，让我们从下面的例子中了解更多：": {
+            "en-us": "**fac** components with `persistence`, `persisted_props`, and `persistence_type` support **property persistence**. They can remember specified property values for different lifetimes. The following examples explain how this works."
+        },
+        "**fac**中的全部组件都具有参数`key`，对其进行更新可以实现对该组件的强制重载，譬如在下面的例子中，切换上面的类型，会对下方内容区的内容进行更新，但当类型发生切换后，先前的滚动条位置会残留：": {
+            "en-us": "Every **fac** component has a `key` property. Updating it forces the component to remount. In the example below, changing the type updates the content, but the previous scroll position remains."
+        },
+        "**fac**中针对部分组件，提供了**批量属性监听**支持，通过参数`batchPropsNames`声明的若干属性，可以在回调函数编排时，仅通过属性**batchPropsValues**进行监听和使用，以下方同时开启了节点选择、节点勾选、可拖拽、节点收藏等功能的树组件为例：": {
+            "en-us": "Some **fac** components support **batch property monitoring**. Declare properties with `batchPropsNames`, then monitor their values together through **batchPropsValues** in a callback. The following tree enables selection, checking, dragging, and node favorites."
+        },
+        "**fac**针对部分组件，具有切换组件自带文案信息语种的功能，基于相关组件的参数`locale`（默认为`\"zh-cn\"`，即简体中文），也可以设置为`\"en-us\"`切换到英文文案模式，典型例子如下：": {
+            "en-us": "Some **fac** components can change the language of their built-in text. Set `locale` to `\"zh-cn\"` (the default, Simplified Chinese) or `\"en-us\"` (English). Examples follow."
+        },
+        "`fac`对所有具有悬浮弹出层元素的组件的显示稳定性进行了优化，对于所有设计有参数`popupContainer`的组件，默认`popupContainer=\"body\"`，在此默认设定下相关组件悬浮弹出层的位置计算参照容器为页面根节点，此时如果我们在带有滚动条的局部容器内放置具有悬浮弹出层的组件，当悬浮弹出层处于显示状态时，在对应局部容器内进行滚动时，这些悬浮弹出层会出现不跟随滚动的问题，就像下面的例子一样：": {
+            "en-us": "`fac` optimizes popup positioning. Components with `popupContainer` default to `popupContainer=\"body\"`, which uses the page root as their positioning reference. In a scrollable local container, this can cause an open popup to remain in place instead of following its trigger as the container scrolls. The example below illustrates this behavior."
+        },
+        "下面是支持属性持久化特性的全部组件，你可以在各自的文档页参数说明中了解更多：": {
+            "en-us": "The following components support property persistence. See their API documentation for details."
+        },
+        "下面的示例输入框，已设置了`persistence=True`，即开启了默认的基于浏览器本地缓存的属性持久化功能，因此当我们在输入框内输入任意内容后，刷新页面，已输入的内容都会被记忆，因为`value`属性是输入框组件属性持久化默认作用的目标属性之一：": {
+            "en-us": "The input below uses `persistence=True`, enabling persistence in browser local storage. Enter some text and refresh the page: the text is retained because `value` is one of the input's default persisted properties."
+        },
+        "从`0.2.x`版本开始，**fac**为常用的`className`类参数全新引入“动态css类”的概念，使得我们可以以更加自由灵活的方式为组件配置css样式，具体用法说明如下：": {
+            "en-us": "Since version `0.2.x`, **fac** supports dynamic CSS classes in common `className` properties. This provides a flexible way to configure component styles, as shown below."
+        },
+        "内容示例内容示例内容示例内容示例内容示例内容示例内容示例内容示例内容示例内容示例内容示例内容示例内容示例内容示例内容示例内容示例内容示例内容示例内容示例内容示例": {
+            "en-us": "Example content. Example content. Example content. Example content. Example content. Example content. Example content. Example content. Example content. Example content."
+        },
+        "在之前版本的**fac**中，参数`className`只接受字符型输入，从而配合外部真实存在的css样式文件，或由`fuc.FefferyStyle`定义的临时css样式代码中所定义的css类名，实现更复杂丰富的样式效果。但从**fac**`0.2.x`版本开始，`className`参数新增字典型输入支持，最基础的用法可以像参数`style`一样直接设置css键值对属性，譬如我们如果想要为按钮添加渐变背景色：": {
+            "en-us": "Earlier **fac** versions accepted only strings for `className`, referring to classes in external stylesheets or temporary styles defined by `fuc.FefferyStyle`. Since **fac** `0.2.x`, `className` also accepts dictionaries. The simplest usage sets CSS properties directly, like `style`. For example, add a gradient background to a button:"
+        },
+        "注：此特性针对所有可接受dict型输入的className相关参数均可用": {
+            "en-us": "Note: this feature applies to all className-related properties that accept dictionaries."
+        },
+        "而对上面例子中的**AntdDropdown**设置`popupContainer=\"parent\"`后，即可在这个场景下保证下拉展开菜单显示正常：": {
+            "en-us": "Set `popupContainer=\"parent\"` on the **AntdDropdown** above to keep the expanded menu correctly positioned in this scenario."
+        },
+        "这时我们就可以使用`key`来辅助强制重置：": {
+            "en-us": "Use `key` to force a reset:"
+        },
+        "通过这种方式，我们也可以非常方便灵活地修改复杂组件内部某些构件元素的样式，以**AntdTable**的复杂定制化样式为例（表格组件本身由于底层原因暂不支持动态css类，但我们可以为其包裹其他支持动态css类的容器组件实现需要的效果）：": {
+            "en-us": "This approach also makes it possible to customize elements inside complex components. The following **AntdTable** example wraps the table in a container supporting dynamic CSS classes, since the table itself does not support them."
+        },
+        "除了上面介绍的局部滚动场景以外，其他与悬浮弹出层锚点相关的场景下，妥善使用参数`popupContainer`可以有效解决一些相关的显示问题，譬如在下面的“相对-绝对”经典布局中，由于其中的绝对定位容器设置了z-index，导致其内部放置的**AntdDropdown**组件附带的悬浮展开层显示异常：": {
+            "en-us": "`popupContainer` can also resolve other popup positioning issues. In the relative/absolute layout below, the absolutely positioned container has a z-index that causes the nested **AntdDropdown** popup to display incorrectly."
+        },
+        "除了常规的`import feffery_antd_components as fac`导入方式外，还可以使用`import feffery_antd_components.alias as fac`进行组件的按别名导入，从而省略各组件名的`Antd`前缀信息，譬如下面的示例代码：": {
+            "en-us": "Instead of `import feffery_antd_components as fac`, use `import feffery_antd_components.alias as fac` to import component aliases without the `Antd` prefix. For example:"
+        },
+        "面对这种情况，我们可以在悬浮弹出层所在的组件中，设置参数`popupContainer=\"parent\"`，同时确保对应容器css样式中的position为relative或absolute，从而将对应组件的悬浮弹出层参照容器从页面根节点，切换为这些组件各自的父容器，从而确保相关悬浮弹出层可以被正确计算位置变化：": {
+            "en-us": "Set `popupContainer=\"parent\"` on the component and give its container `position: relative` or `position: absolute`. The popup then uses its parent as the positioning reference instead of the page root, allowing its position to update correctly."
+        }
+    }
+}

@@ -1,0 +1,42 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdRate",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "最基础的评分组件。": {
+            "en-us": "A basic rating component."
+        },
+        "半星选择": {
+            "en-us": "Half-star ratings"
+        },
+        "设置参数`allowHalf=True`开启半星选择功能。": {
+            "en-us": "Set `allowHalf=True` to enable half-star ratings."
+        },
+        "文案展现": {
+            "en-us": "Display text"
+        },
+        "设置参数`tooltips`为评分组件加上文案展示。": {
+            "en-us": "Use `tooltips` to add text hints to the rating values."
+        },
+        "只读状态": {
+            "en-us": "Read-only state"
+        },
+        "设置参数`defaultValue`及`disabled=True`之后，即等价于只读模式，适合单纯的星级展示。": {
+            "en-us": "Set `defaultValue` and `disabled=True` for a read-only star rating display."
+        },
+        "清除": {
+            "en-us": "Clear"
+        },
+        "设置参数`allowClear`允许或者禁用清除。": {
+            "en-us": "Use `allowClear` to enable or disable clearing."
+        },
+        "回调监听": {
+            "en-us": "Callbacks"
+        },
+        "可用于监听评分组件的选择事件。": {
+            "en-us": "Monitor rating selections."
+        }
+    }
+}

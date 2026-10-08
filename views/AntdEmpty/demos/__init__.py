@@ -1,3 +1,5 @@
+from functools import partial
+from i18n import translator
 from dash.dependencies import Component
 
 from . import (
@@ -9,33 +11,40 @@ from . import (
 )
 from components import demos_render
 
-demos_config = [
-    {
-        'path': 'basic_usage',
-        'title': '基础使用',
-        'description': '默认的空状态。',
-    },
-    {
-        'path': 'simple',
-        'title': '简洁占位图',
-        'description': "设置参数`image='simple'`启用内置的简洁风格占位图。",
-    },
-    {
-        'path': 'custom_image',
-        'title': '自定义占位图',
-        'description': '向参数`image`传入合法的图片地址，进行占位图的自定义。',
-    },
-    {
-        'path': 'image_style',
-        'title': '占位图样式',
-        'description': '配置参数`styles`控制占位图样式。',
-    },
-    {
-        'path': 'hide_description',
-        'title': '隐藏描述内容',
-        'description': '设置参数`description=False`隐藏描述内容。',
-    },
-]
+
+def demos_config() -> list:
+    t = partial(translator.t, locale_topic='AntdEmpty')
+    return [
+        {
+            'path': 'basic_usage',
+            'title': t('基础使用'),
+            'description': t('默认的空状态。'),
+        },
+        {
+            'path': 'simple',
+            'title': t('简洁占位图'),
+            'description': t(
+                "设置参数`image='simple'`启用内置的简洁风格占位图。"
+            ),
+        },
+        {
+            'path': 'custom_image',
+            'title': t('自定义占位图'),
+            'description': t(
+                '向参数`image`传入合法的图片地址，进行占位图的自定义。'
+            ),
+        },
+        {
+            'path': 'image_style',
+            'title': t('占位图样式'),
+            'description': t('配置参数`styles`控制占位图样式。'),
+        },
+        {
+            'path': 'hide_description',
+            'title': t('隐藏描述内容'),
+            'description': t('设置参数`description=False`隐藏描述内容。'),
+        },
+    ]
 
 
 def render(component: Component, section_name: str = None) -> Component:

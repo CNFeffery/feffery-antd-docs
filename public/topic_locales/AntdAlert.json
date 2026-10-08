@@ -1,0 +1,69 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdAlert",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "最简单的用法，适用于简短的警告提示。": {
+            "en-us": "Basic usage for short alert messages."
+        },
+        "四种样式": {
+            "en-us": "Four styles"
+        },
+        "共有四种样式`success`、`warning`、`error`、`info`。": {
+            "en-us": "Four styles are available: `success`, `warning`, `error`, and `info`."
+        },
+        "可关闭的警告提示": {
+            "en-us": "Closable alerts"
+        },
+        "显示关闭按钮，点击可关闭警告提示。": {
+            "en-us": "Show a close button that dismisses the alert."
+        },
+        "含有辅助性文字介绍": {
+            "en-us": "Additional explanatory text"
+        },
+        "含有辅助性文字介绍的警告提示。": {
+            "en-us": "An alert with additional explanatory text."
+        },
+        "图标": {
+            "en-us": "Icons"
+        },
+        "合适的图标让信息类型更加醒目。": {
+            "en-us": "Use an appropriate icon to make the message type easier to recognize."
+        },
+        "自定义图标": {
+            "en-us": "Custom icons"
+        },
+        "通过`icon`参数自定义图标元素。": {
+            "en-us": "Use `icon` to customize the icon element."
+        },
+        "顶部公告": {
+            "en-us": "Top banner"
+        },
+        "页面顶部通告形式。": {
+            "en-us": "Display a banner at the top of the page."
+        },
+        "轮播模式": {
+            "en-us": "Carousel mode"
+        },
+        "当开启轮播模式时，参数`message`需要传入数组型以便进行轮播。": {
+            "en-us": "In carousel mode, pass an array to `message` so the messages can cycle."
+        },
+        "走马灯模式": {
+            "en-us": "Carousel mode"
+        },
+        "当开启走马灯模式时，参数`message`需要传入数组型以便进行轮播。": {
+            "en-us": "In marquee mode, pass an array to `message` so the messages can cycle."
+        },
+        "操作": {
+            "en-us": "Actions"
+        },
+        "可以在右上角自定义操作项。": {
+            "en-us": "Add custom actions in the upper-right corner."
+        },
+        "回调监听": {
+            "en-us": "Callbacks"
+        }
+    }
+}

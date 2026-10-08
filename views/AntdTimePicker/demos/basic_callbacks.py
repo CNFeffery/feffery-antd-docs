@@ -1,3 +1,4 @@
+from i18n import get_current_locale
 import feffery_antd_components as fac
 from dash.dependencies import Component, Input, Output
 
@@ -23,8 +24,16 @@ def render() -> Component:
                 [
                     fac.AntdTimePicker(
                         id='time-picker-format-demo',
-                        defaultValue='06时00分00秒',
-                        format='HH时mm分ss秒',
+                        defaultValue=(
+                            '06h00m00s'
+                            if get_current_locale() == 'en-us'
+                            else '06时00分00秒'
+                        ),
+                        format=(
+                            'HH[h]mm[m]ss[s]'
+                            if get_current_locale() == 'en-us'
+                            else 'HH时mm分ss秒'
+                        ),
                     ),
                     fac.AntdText(id='time-picker-format-demo-output'),
                 ],
@@ -54,9 +63,10 @@ def time_picker_format_demo(value):
     return f'value: {value}'
 
 
-code_string = [
-    {
-        'code': """
+def code_string():
+    codes = [
+        {
+            'code': """
 fac.AntdSpace(
     [
         fac.AntdSpace(
@@ -100,6 +110,14 @@ def time_picker_demo(value):
 )
 def time_picker_format_demo(value):
     return f'value: {value}'
-"""
-    }
-]
+    """
+        }
+    ]
+
+    if get_current_locale() == 'en-us':
+        for item in codes:
+            item['code'] = item['code'].replace(
+                'HH时mm分ss秒', 'HH[h]mm[m]ss[s]'
+            )
+            item['code'] = item['code'].replace('06时00分00秒', '06h00m00s')
+    return codes

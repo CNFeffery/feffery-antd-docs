@@ -1,35 +1,29 @@
 - id (string; optional):
     Unique identifier for the component.
 
-- aria-* (string; optional):
-    Wildcard for attributes in the `aria-*` format.
+- key (string; optional):
+    Update the component’s `key` to force it to remount.
 
 - className (string | dict; optional):
-    CSS class name for the current component, supports [dynamic CSS](/advanced-classname).
+    CSS class name of the component. Supports [dynamic CSS classes](/advanced-classname).
 
-- data-* (string; optional):
-    Wildcard for attributes in the `data-*` format.
-
-- debounceWait (number; default 0):
-    Debounce delay for the icon click event listener, in milliseconds. Default value: `0`.
+- mode (a value equal to: 'default', 'iconfont'; default 'default'):
+    Icon source: `'default'` for built-in icons or `'iconfont'` for Alibaba Iconfont. Default: `'default'`.
 
 - icon (string; optional):
-    Name of the icon.
+    Built-in icon name when `mode='default'`, or custom source icon name when `mode='iconfont'`.
 
-- key (string; optional):
-    Updating the `key` value of the current component can force a redraw of the component.
-
-- loading_state (dict; optional):
-    `loading_state` is a dictionary with keys:
-    - component_name (string; optional):
-        Holds the name of the component that is loading.
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-    - prop_name (string; optional):
-        Holds which property is loading.
+- scriptUrl (string | list of strings; optional):
+    One or more Alibaba Iconfont sources created on iconfont.cn when `mode='iconfont'`.
 
 - nClicks (number; default 0):
     Number of times the icon has been clicked, used to monitor icon click behavior. Default value: `0`.
 
-- style (dict; optional):
-    CSS styles for the current component.
+- debounceWait (number; default 0):
+    Debounce delay for the icon click event listener, in milliseconds. Default value: `0`.
+
+- data-* (string; optional):
+    Wildcard support for `data-*` attributes.
+
+- aria-* (string; optional):
+    Wildcard support for `aria-*` attributes.

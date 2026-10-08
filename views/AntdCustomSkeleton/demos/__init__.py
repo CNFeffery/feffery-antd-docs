@@ -1,3 +1,5 @@
+from functools import partial
+from i18n import translator
 from dash.dependencies import Component
 
 from . import (
@@ -5,13 +7,18 @@ from . import (
 )
 from components import demos_render
 
-demos_config = [
-    {
-        'path': 'basic_usage',
-        'title': '基础使用',
-        'description': '传入参数`skeletonContent`的任何组件内容都将作为骨架屏加载动画进行渲染。',
-    }
-]
+
+def demos_config() -> list:
+    t = partial(translator.t, locale_topic='AntdCustomSkeleton')
+    return [
+        {
+            'path': 'basic_usage',
+            'title': t('基础使用'),
+            'description': t(
+                '传入参数`skeletonContent`的任何组件内容都将作为骨架屏加载动画进行渲染。'
+            ),
+        }
+    ]
 
 
 def render(component: Component, section_name: str = None) -> Component:

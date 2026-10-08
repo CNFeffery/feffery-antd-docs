@@ -1,0 +1,72 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdSlider",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "基本滑动条。当`range=True`时，渲染为双滑块。": {
+            "en-us": "A basic slider. Set `range=True` to display two handles."
+        },
+        "垂直模式": {
+            "en-us": "Vertical mode"
+        },
+        "垂直方向的滑动条。": {
+            "en-us": "A vertical slider."
+        },
+        "滑动步长": {
+            "en-us": "Slider step size"
+        },
+        "设置参数`step`自定义滑动步长。": {
+            "en-us": "Use `step` to customize the slider step size."
+        },
+        "刻度标签": {
+            "en-us": "Tick marks"
+        },
+        "设置参数`marks`自定义刻度标签。": {
+            "en-us": "Use `marks` to customize tick labels."
+        },
+        "滑动提示内容显示策略": {
+            "en-us": "Slider tooltip visibility"
+        },
+        "设置参数`tooltipVisible`显示或者隐藏滑动提示内容。": {
+            "en-us": "Use `tooltipVisible` to show or hide slider value tooltips."
+        },
+        "滑动提示内容前后缀": {
+            "en-us": "Slider tooltip prefixes and suffixes"
+        },
+        "设置参数`tooltipPrefix`控制滑动提示内容前缀。设置参数`tooltipSuffix`控制滑动提示内容后缀。": {
+            "en-us": "Use `tooltipPrefix` and `tooltipSuffix` to customize slider value tooltips."
+        },
+        "禁用状态": {
+            "en-us": "Disabled state"
+        },
+        "设置参数`disabled=True`开启禁用状态。": {
+            "en-us": "Set `disabled=True` to disable the component."
+        },
+        "只读状态": {
+            "en-us": "Read-only state"
+        },
+        "设置参数`readOnly=True`开启只读状态。": {
+            "en-us": "Set `readOnly=True` for the read-only state."
+        },
+        "滑轨样式": {
+            "en-us": "Slider track styles"
+        },
+        "设置参数`styles`自定义滑轨样式。": {
+            "en-us": "Use `styles` to customize slider track styles."
+        },
+        "范围多节点可编辑": {
+            "en-us": "Editable range nodes"
+        },
+        "针对参数`range`传入字典型参数，进行范围内多节点可编辑功能的配置使用，该模式下，可通过选中节点后快速拽出或按键盘`delete`键进行删除。": {
+            "en-us": "Pass a dictionary to `range` to configure editable range nodes. Remove a selected node by dragging it out or pressing `delete`."
+        },
+        "回调监听": {
+            "en-us": "Callbacks"
+        },
+        "监听滑动条滑动事件。": {
+            "en-us": "Monitor slider changes."
+        }
+    }
+}

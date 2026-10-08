@@ -27,10 +27,10 @@
             "en-us": "Using the parameter `color` and `variant` to combine different preset color themes and shape variants."
         },
         "禁用状态": {
-            "en-us": "Disabled"
+            "en-us": "Disabled state"
         },
         "设置参数`disabled=True`开启禁用状态。": {
-            "en-us": "Set the parameter `disabled=True` to enable the disabled state."
+            "en-us": "Set `disabled=True` to disable the component."
         },
         "危险状态": {
             "en-us": "Danger status"
@@ -51,7 +51,7 @@
             "en-us": "Set the parameter `shape` to control the button shape."
         },
         "撑满父元素": {
-            "en-us": "Fill up the parent element"
+            "en-us": "Fill the parent element"
         },
         "设置参数`block=True`撑满父元素。": {
             "en-us": "Set the parameter `block=True` to fill up the parent element."
@@ -75,7 +75,7 @@
             "en-us": "Set the parameter `autoInsertSpace` to control whether to insert spaces automatically when the button content is two Chinese characters."
         },
         "加载中状态": {
-            "en-us": "Loading status"
+            "en-us": "Loading state"
         },
         "设置参数`loading`控制是否将按钮渲染为加载中状态。": {
             "en-us": "Set the parameter `loading` to control whether the button is rendered as loading status."
@@ -99,7 +99,7 @@
             "en-us": "Set the parameter `clickExecuteJsString` to set the javascript code that is triggered directly after each click in a simple scenario, to avoid writing callback functions."
         },
         "回调监听": {
-            "en-us": "Callback listening"
+            "en-us": "Callbacks"
         },
         "通过`nClicks`进行按钮点击事件的监听，特别地，在有效设置参数`debounceWait`后，将针对点击事件进行防抖监听，避免过于频繁的触发。": {
             "en-us": "Listen to the `nClicks` event of the button for special listeners when the parameter `debounceWait` is set, to avoid triggering too many clicks in a short time."

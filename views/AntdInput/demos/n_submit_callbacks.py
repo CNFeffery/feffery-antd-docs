@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import feffery_antd_components as fac
 from dash.dependencies import Component, Input, Output
 from server import app
@@ -77,6 +78,7 @@ def render() -> Component:
     Output('input-enter-demo-output', 'children'),
     Input('input-enter-demo', 'nSubmit'),
 )
+@localized_callback(('children',))
 def input_enter_dmeo(nSubmit):
     return f'nSubmit: {nSubmit}'
 
@@ -91,6 +93,7 @@ def input_enter_dmeo(nSubmit):
     ],
     prevent_initial_call=True,
 )
+@localized_callback(('children',))
 def input_enter_dmeo_login(nClicks1, nSubmit1, nSubmit2):
     if nClicks1 is None:
         nClicks1 = 0

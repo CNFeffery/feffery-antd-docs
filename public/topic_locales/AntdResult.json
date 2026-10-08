@@ -1,0 +1,36 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdResult",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "使用参数`title`、`subTitle`配置基础的结果提示信息。": {
+            "en-us": "Use `title` and `subTitle` to configure the result message."
+        },
+        "不同的状态类型": {
+            "en-us": "Status types"
+        },
+        "通过参数`status`显示不同的状态类型。": {
+            "en-us": "Use `status` to show different status types."
+        },
+        "自定义图标": {
+            "en-us": "Custom icons"
+        },
+        "使用`icon`参数和**fac.AntdIcon**组件设置自定义图标。": {
+            "en-us": "Use `icon` and **fac.AntdIcon** to provide custom icons."
+        },
+        "额外内容": {
+            "en-us": "Additional content"
+        },
+        "通过参数`extra`设置额外内容。": {
+            "en-us": "Use `extra` to set extra content."
+        },
+        "更复杂的使用": {
+            "en-us": "Advanced usage"
+        },
+        "使用组件型参数如`title`、`subTitle`添加更丰富的操作。": {
+            "en-us": "Use component-valued properties such as `title` and `subTitle` for richer content and actions."
+        }
+    }
+}

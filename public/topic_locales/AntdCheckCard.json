@@ -12,16 +12,16 @@
             "en-us": "Disabled state"
         },
         "只读状态": {
-            "en-us": "Readonly status"
+            "en-us": "Read-only state"
         },
         "只读状态适用于单纯的数据展示场景。": {
             "en-us": "Readonly status is suitable for displaying data only."
         },
         "尺寸规格": {
-            "en-us": "Size specification"
+            "en-us": "Sizes"
         },
         "回调监听": {
-            "en-us": "Callback listener"
+            "en-us": "Callbacks"
         }
     }
 }

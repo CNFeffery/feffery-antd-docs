@@ -1,32 +1,17 @@
-- children (a list of or a singular dash component, string or number; optional):
-    Component type, for embedded elements.
-
 - id (string; optional):
-    The unique identifier for the component.
-
-- aria-* (string; optional):
-    Wildcard for `aria-*` attribute format.
-
-- className (string | dict; optional):
-    The CSS class name for the current component, supports [dynamic CSS](/advanced-classname).
-
-- data-* (string; optional):
-    Wildcard for `data-*` attribute format.
+    Unique identifier for the component.
 
 - key (string; optional):
-    Updates the `key` value of the current component, which can force a re-rendering of the component.
+    Update the component’s `key` to force it to remount.
 
-- loading_state (dict; optional):
-    `loading_state` is a dictionary with the following keys:
+- children (a list of or a singular dash component, string or number; optional):
+    Component type, embedded elements.
 
-    - component_name (string; optional):
-        Holds the name of the component that is currently loading.
+- className (string | dict; optional):
+    CSS class name of the component. Supports [dynamic CSS classes](/advanced-classname).
 
-    - is_loading (boolean; optional):
-        Indicates whether the component is in a loading state or not.
+- data-* (string; optional):
+    Wildcard support for `data-*` attributes.
 
-    - prop_name (string; optional):
-        Indicates which property of the component is currently loading.
-
-- style (dict; optional):
-    The CSS styles for the current component.
+- aria-* (string; optional):
+    Wildcard support for `aria-*` attributes.

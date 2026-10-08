@@ -1,0 +1,60 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdSegmentedColoring",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "最简单的分段着色。": {
+            "en-us": "Basic segment coloring."
+        },
+        "不同的尺寸规格": {
+            "en-us": "Sizes"
+        },
+        "设置参数`size`控制尺寸规格。": {
+            "en-us": "Use `size` to control the component size."
+        },
+        "边框": {
+            "en-us": "Border"
+        },
+        "设置参数`bordered`显示或隐藏边框。": {
+            "en-us": "Use `bordered` to show or hide the border."
+        },
+        "辅助按钮": {
+            "en-us": "Helper buttons"
+        },
+        "设置参数`controls`显示或隐藏数字输入框右侧内部辅助快捷增减按钮。": {
+            "en-us": "Use `controls` to show or hide the input's increment/decrement buttons."
+        },
+        "禁用状态": {
+            "en-us": "Disabled state"
+        },
+        "设置参数`disabled=True`开启禁用状态。": {
+            "en-us": "Set `disabled=True` to disable the component."
+        },
+        "只读状态": {
+            "en-us": "Read-only state"
+        },
+        "设置参数`readOnly=True`开启只读状态。": {
+            "en-us": "Set `readOnly=True` for the read-only state."
+        },
+        "颜色块位置": {
+            "en-us": "Color block position"
+        },
+        "设置参数`colorBlockPosition`控制颜色块位置。": {
+            "en-us": "Use `colorBlockPosition` to position the color block."
+        },
+        "回调监听": {
+            "en-us": "Callbacks"
+        },
+        "可用于监听当前的各分段断点值。": {
+            "en-us": "Monitor the current segment breakpoint values."
+        },
+        "监听色块点击事件": {
+            "en-us": "Color block click callbacks"
+        },
+        "通过监听属性`colorBlockClickEvent`变化来获取色块点击事件。": {
+            "en-us": "Monitor `colorBlockClickEvent` for color block click events."
+        }
+    }
+}

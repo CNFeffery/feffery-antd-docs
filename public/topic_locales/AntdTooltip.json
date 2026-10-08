@@ -1,0 +1,48 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdTooltip",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "为子元素添加信息提示。": {
+            "en-us": "Add a tooltip to a child element."
+        },
+        "隐藏附带箭头": {
+            "en-us": "Hide the arrow"
+        },
+        "控制参数`arrow`隐藏信息提示附带的箭头。": {
+            "en-us": "Use `arrow` to hide the tooltip arrow."
+        },
+        "悬浮层展开方向": {
+            "en-us": "Popup placement"
+        },
+        "控制参数`placement`设置不同的悬浮层展开方向。": {
+            "en-us": "Use `placement` to set the popup direction."
+        },
+        "自定义背景色": {
+            "en-us": "Custom background color"
+        },
+        "控制参数`color`设置不同的背景色。": {
+            "en-us": "Use `color` to set the background color."
+        },
+        "自定义样式": {
+            "en-us": "Custom styles"
+        },
+        "控制不用部分的样式。": {
+            "en-us": "Customize styles for individual areas."
+        },
+        "展开状态受控": {
+            "en-us": "Controlled expanded state"
+        },
+        "信息提示的展开状态可通过回调进行控制。": {
+            "en-us": "Control tooltip visibility through callbacks."
+        },
+        "常见问题：配合绝对定位": {
+            "en-us": "FAQ: absolute positioning"
+        },
+        "当直接将**AntdTooltip**施加于具有绝对定位样式的元素之上时，可能会遇到悬浮层位置显示异常的问题，推荐的稳定做法是为对应的**AntdTooltip**添加一层**Span**父元素，并将原先的绝对定位相关样式转而施加于此父元素之上。": {
+            "en-us": "Applying **AntdTooltip** directly to an absolutely positioned element may produce incorrect popup placement. Wrap it in a **Span** and apply the absolute positioning styles to that wrapper."
+        }
+    }
+}

@@ -1,29 +1,29 @@
-- children (a list of or a singular dash component, string or number; optional):
-    Component type, child elements within the divider.
-
 - id (string; optional):
     Unique identifier for the component.
 
-- aria-* (string; optional):
-    Wildcard for `aria-*` formatted attributes.
+- key (string; optional):
+    Update the component’s `key` to force it to remount.
+
+- children (a list of or a singular dash component, string or number; optional):
+    Component type, child elements within the divider.
 
 - className (string | dict; optional):
-    Current component CSS class name, supports [dynamic CSS class names](/advanced-classname).
+    CSS class name of the component. Supports [dynamic CSS classes](/advanced-classname).
 
-- data-* (string; optional):
-    Wildcard for `data-*` formatted attributes.
+- innerTextOrientation (a value equal to: 'left', 'center', 'right'; default 'center'):
+    Alignment of the child elements, options include `'left'`, `'center'`, `'right'`. Default value: `'center'`.
 
-- direction (a value equal to: "horizontal", "vertical"; default 'horizontal'):
+- isDashed (boolean; default False):
+    Whether to render as a dashed line. Default value: `False`.
+
+- direction (a value equal to: 'horizontal', 'vertical'; default 'horizontal'):
     Direction of the divider, options include `'horizontal'`, `'vertical'`. Default value: `'horizontal'`.
-
-- fontColor (string; optional):
-    Font color of the child elements.
-
-- fontFamily (string; optional):
-    Font of the child elements.
 
 - fontSize (string | number; optional):
     Font size of the child elements.
+
+- lineColor (string; optional):
+    Color of the divider line.
 
 - fontStyle (string; optional):
     Font style of the child elements.
@@ -31,34 +31,23 @@
 - fontWeight (string; optional):
     Font weight of the child elements.
 
-- innerTextOrientation (a value equal to: "left", "center", "right"; default 'center'):
-    Alignment of the child elements, options include `'left'`, `'center'`, `'right'`. Default value: `'center'`.
+- fontFamily (string; optional):
+    Font of the child elements.
 
-- isDashed (boolean; default False):
-    Whether to render as a dashed line. Default value: `False`.
-
-- key (string; optional):
-    Updates the `key` value of the current component, which can force a redraw of the current component.
-
-- lineColor (string; optional):
-    Color of the divider line.
-
-- loading_state (dict; optional):
-
-    `loading_state` is a dictionary with keys:
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading.
-
-    - is_loading (boolean; optional):
-        Determines if the component is currently loading.
-
-    - prop_name (string; optional):
-        Holds which property is currently loading.
-
-- style (dict; optional):
-    CSS styles for the current component.
+- fontColor (string; optional):
+    Font color of the child elements.
 
 - variant (a value equal to: 'dashed', 'dotted', 'solid'; default 'solid'):
-    Variant of the divider, options include `'dashed'` (dashed line), `'dotted'` (dotted line), `'solid'` (solid line).
-    Default value: `'solid'`.
+    Variant of the divider, options include `'dashed'` (dashed line), `'dotted'` (dotted line), `'solid'` (solid line). Default value: `'solid'`.
+
+- plain (boolean; default True):
+    Whether the text is displayed as normal body text. Default: `True`.
+
+- size (a value equal to: 'small', 'middle', 'large'; optional):
+    Gap size. Only applies when ``direction='horizontal'``. Supported values: `'small'`, `'middle'`, `'large'`.
+
+- data-* (string; optional):
+    Wildcard support for `data-*` attributes.
+
+- aria-* (string; optional):
+    Wildcard support for `aria-*` attributes.

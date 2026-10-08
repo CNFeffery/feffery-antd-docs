@@ -1,3 +1,4 @@
+from i18n import translator
 import feffery_antd_components as fac
 from dash.dependencies import Component
 
@@ -7,12 +8,12 @@ def render() -> Component:
     return [
         fac.AntdBreadcrumb(
             items=[
-                {'title': '组件介绍'},
-                {'title': '反馈'},
-                {'title': 'AntdNotification 通知提醒框'},
+                {'title': translator.t('组件介绍')},
+                {'title': translator.t('反馈')},
+                {'title': translator.t('AntdNotification 通知提醒框')},
             ],
             style={'marginBottom': 8},
         ),
-        fac.AntdTitle('AntdNotification 通知提醒框', level=2),
-        fac.AntdParagraph('用于全局展示通知提醒信息。'),
+        fac.AntdTitle(translator.t('AntdNotification 通知提醒框'), level=2),
+        fac.AntdParagraph(translator.t('用于全局展示通知提醒信息。')),
     ]

@@ -10,7 +10,7 @@ def export_api_document(module_name):
     ) as md_file:
         md_file.write(
             re.sub(
-                '^.*?Keyword arguments\:',
+                '^.*?Keyword arguments:',
                 '',
                 module_doc,
                 flags=re.S,

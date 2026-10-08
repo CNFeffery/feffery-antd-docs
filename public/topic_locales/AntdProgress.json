@@ -1,0 +1,78 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdProgress",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "基础的进度条使用。": {
+            "en-us": "Basic progress bar usage."
+        },
+        "迷你尺寸进度条": {
+            "en-us": "Small progress bar"
+        },
+        "针对**line**型进度条可设置迷你尺寸规格。": {
+            "en-us": "Use a miniature size for **line** progress bars."
+        },
+        "迷你尺寸进度圈": {
+            "en-us": "Small circular progress"
+        },
+        "针对**circle**型进度条，当尺寸宽度小于`20`时将自动显示为迷你进度圈形式。": {
+            "en-us": "A **circle** progress indicator automatically uses its miniature form when its width is less than `20`."
+        },
+        "100%状态样式": {
+            "en-us": "100% state styles"
+        },
+        "设置进度条100%状态的样式。": {
+            "en-us": "Customize the completed progress style at 100%."
+        },
+        "强制状态类型": {
+            "en-us": "Force status type"
+        },
+        "强制设置进度条为不同状态的样式。": {
+            "en-us": "Force the progress bar to use different status styles."
+        },
+        "自定义百分比内容": {
+            "en-us": "Custom percentage content"
+        },
+        "可自定义设置进度条的百分比内容。": {
+            "en-us": "Customize the progress percentage content."
+        },
+        "设置渐变色": {
+            "en-us": "Gradient colors"
+        },
+        "支持使用渐变色设置进度条颜色。": {
+            "en-us": "Use a gradient for the progress bar color."
+        },
+        "多阶段进度条": {
+            "en-us": "Multiple progress stages"
+        },
+        "可为进度条设置多个阶段。": {
+            "en-us": "Define multiple progress stages."
+        },
+        "设置未完成部分颜色": {
+            "en-us": "Unfinished progress color"
+        },
+        "可为进度条设置未完成部分的颜色。": {
+            "en-us": "Set the color of unfinished progress."
+        },
+        "设置仪表盘缺口方向和角度": {
+            "en-us": "Dashboard gap position and angle"
+        },
+        "通过参数`gapPosition`和`gapDegree`可设置圆形仪表盘的缺口方向和缺口角度大小。": {
+            "en-us": "Use `gapPosition` and `gapDegree` to set the dashboard gap position and angle."
+        },
+        "分段line型进度条": {
+            "en-us": "Segmented line progress"
+        },
+        "可设置分段型进度条，并通过[fuc.FefferyStyle](https://fuc.feffery.tech/FefferyStyle)组件来自定义分段宽度。": {
+            "en-us": "Create a segmented progress bar and use [fuc.FefferyStyle](https://fuc.feffery.tech/FefferyStyle) to customize segment widths."
+        },
+        "控制进度数值位置": {
+            "en-us": "Progress value placement"
+        },
+        "针对**line**型进度条，基于参数`percentPosition`可控制进度数值的位置。": {
+            "en-us": "Use `percentPosition` to position numeric progress for **line** progress bars."
+        }
+    }
+}

@@ -1,0 +1,45 @@
+{
+    "fac_version": "0.4.6",
+    "source": "Installed FAC component docstrings and metadata.json in conda environment dash-demos; defaults and enumerations follow the generated parameter definitions.",
+    "corrections": {
+        "AntdColorPicker": {
+            "mode": {"zh-cn": "选择器模式，用于配置单色与渐变，可选项有`'single'`、`'gradient'`，支持单选项或多选项组合。默认值：`'single'`。", "reason": "Normalize the string default to match the parameter definition."},
+            "placement": {"zh-cn": "颜色选择面板展开方向，可选项有`'top'`、`'topLeft'`、`'topRight'`、`'bottom'`、`'bottomLeft'`、`'bottomRight'`。默认值：`'bottomLeft'`。", "reason": "The original prose says bottomRight, but metadata and the parameter definition default to bottomLeft."}
+        },
+        "AntdDateRangePicker": {
+            "disabled": {"zh-cn": "分别设置开始日期和结束日期输入框是否禁用。默认值：`[False, False]`。", "reason": "The original prose describes a scalar False; the declared property is an array of booleans."}
+        },
+        "AntdTimeRangePicker": {
+            "disabled": {"zh-cn": "分别设置开始时间和结束时间输入框是否禁用。默认值：`[False, False]`。", "reason": "The original prose describes a scalar False; the declared property is an array of booleans."}
+        },
+        "AntdInputNumber": {
+            "persisted_props": {"zh-cn": "开启属性持久化功能的属性名列表，可选项有`'value'`。默认值：`['value']`。", "reason": "The original prose names md5Value, which is not in this property's enumeration; metadata declares value."}
+        },
+        "AntdPopover": {
+            "placement": {"zh-cn": "气泡卡片展开方向，可选项有`'top'`、`'left'`、`'right'`、`'bottom'`、`'topLeft'`、`'topRight'`、`'bottomLeft'`、`'bottomRight'`、`'leftTop'`、`'leftBottom'`、`'rightTop'`、`'rightBottom'`。默认值：`'top'`。", "reason": "Repair the missing quote in the original default."}
+        },
+        "AntdPopupCard": {
+            "transitionType": {"zh-cn": "卡片显隐动画类型，可选项有`'none'`、`'fade'`、`'zoom'`、`'zoom-big'`、`'zoom-big-fast'`、`'slide-up'`、`'slide-down'`、`'slide-left'`、`'slide-right'`、`'move-up'`、`'move-down'`、`'move-left'`、`'move-right'`。默认值：`'fade'`。", "reason": "The original prose says zoom, but metadata and the parameter definition default to fade."}
+        },
+        "AntdSkeleton": {
+            "avatar": {"zh-cn": "配置头像占位图相关参数，设置为`False`时不显示。默认值：`False`。", "reason": "The original prose says True, but metadata and the parameter definition default to False."}
+        },
+        "AntdSlider": {
+            "autoFocus": {"zh-cn": "是否在组件挂载后自动获取焦点。默认值：`False`。", "reason": "The original prose incorrectly describes one-click clearing and says True; autoFocus controls focus and metadata defaults to False."},
+            "min": {"zh-cn": "滑动条最小值。默认值：`0`。", "reason": "The original prose says required, but metadata marks the property optional and supplies a default."},
+            "max": {"zh-cn": "滑动条最大值。默认值：`100`。", "reason": "The original prose says required, but metadata marks the property optional and supplies a default."}
+        },
+        "AntdTransfer": {
+            "operations": {"zh-cn": "左右移动操作按钮内容。默认值：`['', '']`。", "reason": "The original prose wraps the list default in extra string quotes."}
+        },
+        "AntdTree": {
+            "defaultExpandParent": {"zh-cn": "初始化时是否展开处于展开状态节点的父节点。默认值：`False`。", "reason": "The original prose says True, but metadata and the parameter definition default to False."}
+        },
+        "AntdForm": {
+            "colon": {"zh-cn": "当`layout='horizontal'`时，控制是否在表单项标签部分末尾添加冒号。默认值：`True`。", "reason": "The original prose misspells the existing layout property as layput."}
+        },
+        "AntdConfigProvider": {
+            "locale": {"zh-cn": "强制设置后代元素的内置文案语种，可选项有`'zh-cn'`（简体中文）、`'en-us'`（英语）、`'de-de'`（德语）、`'ru-ru'`（俄语）、`'fr-fr'`（法语）。此设置优先于后代组件自身的`locale`，不会自动翻译自定义内容。", "reason": "The original prose omits Russian although the enumeration includes ru-ru; clarify provider precedence and the custom-content boundary."}
+        }
+    }
+}

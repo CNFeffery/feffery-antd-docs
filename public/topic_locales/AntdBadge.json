@@ -1,0 +1,36 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdBadge",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "最基础的用法是为其包裹的`children`子元素添加角标形式的徽标数，常用于配合**AntdIcon**、**AntdAvatar**等组件。": {
+            "en-us": "Wrap `children` with a badge count. Commonly used with **AntdIcon** and **AntdAvatar**."
+        },
+        "尺寸规格": {
+            "en-us": "Sizes"
+        },
+        "设置参数`size='small'`显示小尺寸规格的徽标数。": {
+            "en-us": "Set `size='small'` for a small badge."
+        },
+        "颜色": {
+            "en-us": "Colors"
+        },
+        "设置参数`color`控制徽标数颜色。": {
+            "en-us": "Use `color` to set the badge color."
+        },
+        "独立使用徽标数": {
+            "en-us": "Standalone badge counts"
+        },
+        "徽标数可不依赖其包裹的子元素，独立显示。": {
+            "en-us": "Display a badge count independently, without a wrapped child element."
+        },
+        "动态数值变化": {
+            "en-us": "Animated value changes"
+        },
+        "通过回调函数动态修改徽标数数值时，会自动呈现动态数值变化效果。": {
+            "en-us": "Badge count changes made through callbacks are animated automatically."
+        }
+    }
+}

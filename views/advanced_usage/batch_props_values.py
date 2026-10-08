@@ -1,3 +1,4 @@
+from i18n import localized_output
 import json
 from dash import html
 import feffery_antd_components as fac
@@ -7,6 +8,7 @@ from dash.dependencies import Component, Input, Output
 from server import app
 
 
+@localized_output
 def render() -> Component:
     """渲染“属性批量监听”文档页"""
 

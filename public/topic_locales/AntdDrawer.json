@@ -1,0 +1,48 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdDrawer",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "通过对应的回调触发抽屉的弹出显示。": {
+            "en-us": "Show the drawer through a callback."
+        },
+        "抽屉弹出方位": {
+            "en-us": "Drawer placement"
+        },
+        "通过参数`placement`控制抽屉的弹出方位。": {
+            "en-us": "Use `placement` to position the drawer."
+        },
+        "设置底部内容": {
+            "en-us": "Footer content"
+        },
+        "通过参数`footer`为抽屉设置固定的底部内容。": {
+            "en-us": "Use `footer` to add a fixed drawer footer."
+        },
+        "设置额外区内容": {
+            "en-us": "Additional area content"
+        },
+        "通过参数`extra`为抽屉设置额外区内容。": {
+            "en-us": "Use `extra` to add content to the drawer's extra area."
+        },
+        "局部容器中展示抽屉": {
+            "en-us": "Drawer in a local container"
+        },
+        "配合**相对-绝对**定位，在局部容器中展示抽屉。": {
+            "en-us": "Use **relative and absolute positioning** to display a drawer inside a local container."
+        },
+        "更自由地指定局部容器": {
+            "en-us": "Custom local containers"
+        },
+        "基于参数`containerSelector`更自由地指定抽屉渲染的目标局部容器。": {
+            "en-us": "Use `containerSelector` to choose a custom local container for the drawer."
+        },
+        "加载中状态": {
+            "en-us": "Loading state"
+        },
+        "设置参数`loading=True`为抽屉内容区开启加载中状态。": {
+            "en-us": "Set `loading=True` to show the drawer content as loading."
+        }
+    }
+}

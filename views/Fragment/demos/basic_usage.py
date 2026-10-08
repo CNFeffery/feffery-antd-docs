@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import feffery_antd_components as fac
 from dash.dependencies import Component, Input, Output
 
@@ -21,6 +22,7 @@ def render() -> Component:
     Input('fragment-demo-trigger', 'nClicks'),
     prevent_initial_call=True,
 )
+@localized_callback(('children',))
 def fragment_demo(nClicks):
     return fac.AntdMessage(content=f'nClicks: {nClicks}', type='info')
 

@@ -9,7 +9,7 @@
             "en-us": "The basic calendar."
         },
         "不同的尺寸规格": {
-            "en-us": "Different size specifications"
+            "en-us": "Sizes"
         },
         "设置参数`size`调整日历的尺寸规格。": {
             "en-us": "Set the parameter `size` to adjust the size of the calendar."
@@ -21,7 +21,7 @@
             "en-us": "Add custom content to the specified mode and specified date cell in the parameter `customCells` when the condition is not filled."
         },
         "回调监听": {
-            "en-us": "Callback listener"
+            "en-us": "Callbacks"
         },
         "用于监听日历的点击事件。": {
             "en-us": "Listen to the click event of the calendar."

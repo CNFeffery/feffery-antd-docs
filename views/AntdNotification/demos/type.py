@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import feffery_antd_components as fac
 from dash import ctx, html, no_update
 from dash.dependencies import ALL, Component, Input, Output
@@ -50,6 +51,7 @@ def render() -> Component:
     Input({'type': 'trigger-notification', 'index': ALL}, 'nClicks'),
     prevent_initial_call=True,
 )
+@localized_callback(('children',))
 def notification_type_demo(nClicks):
     triggered_index = ctx.triggered_id.index
     if nClicks:

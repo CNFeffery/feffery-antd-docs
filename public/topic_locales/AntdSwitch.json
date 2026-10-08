@@ -6,7 +6,7 @@
             "en-us": "Basic usage"
         },
         "最简单的用法。": {
-            "en-us": "The simplest usage."
+            "en-us": "Basic usage."
         },
         "自定义开关标签": {
             "en-us": "Custom switch labels"
@@ -21,13 +21,13 @@
             "en-us": "Set the size of the switch using the `size` parameter."
         },
         "禁用状态": {
-            "en-us": "Disabled"
+            "en-us": "Disabled state"
         },
         "可设置是否禁用开关。": {
             "en-us": "You can configure whether the switch is disabled."
         },
         "只读状态": {
-            "en-us": "Read-only"
+            "en-us": "Read-only state"
         },
         "可设置开关状态为只读。": {
             "en-us": "You can configure the switch to be in a read-only state."
@@ -39,7 +39,7 @@
             "en-us": "You can configure the switch to display a loading state."
         },
         "回调监听": {
-            "en-us": "Callback listening"
+            "en-us": "Callbacks"
         },
         "通过`checked`实现对开关状态切换的监听。": {
             "en-us": "Use the `checked` property to listen for changes in the switch state."

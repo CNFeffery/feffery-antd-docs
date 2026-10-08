@@ -1,3 +1,4 @@
+from i18n import translator
 import feffery_antd_components as fac
 from dash.dependencies import Component
 
@@ -7,13 +8,15 @@ def render() -> Component:
     return [
         fac.AntdBreadcrumb(
             items=[
-                {'title': '组件介绍'},
-                {'title': '反馈'},
-                {'title': '骨架屏'},
-                {'title': 'AntdSkeleton 骨架屏'},
+                {'title': translator.t('组件介绍')},
+                {'title': translator.t('反馈')},
+                {'title': translator.t('骨架屏')},
+                {'title': translator.t('AntdSkeleton 骨架屏')},
             ],
             style={'marginBottom': 8},
         ),
-        fac.AntdTitle('AntdSkeleton 骨架屏', level=2),
-        fac.AntdParagraph('用于为正在加载中的内容添加骨架屏加载动画。'),
+        fac.AntdTitle(translator.t('AntdSkeleton 骨架屏'), level=2),
+        fac.AntdParagraph(
+            translator.t('用于为正在加载中的内容添加骨架屏加载动画。')
+        ),
     ]

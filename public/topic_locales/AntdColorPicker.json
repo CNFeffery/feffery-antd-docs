@@ -15,10 +15,10 @@
             "en-us": "Different sizes of color selection triggers."
         },
         "禁用状态": {
-            "en-us": "Disabled"
+            "en-us": "Disabled state"
         },
         "设置参数`disabled=True`开启禁用状态。": {
-            "en-us": "Set the parameter `disabled=True` to enable the disabled state."
+            "en-us": "Set `disabled=True` to disable the component."
         },
         "允许清空值": {
             "en-us": "Allow clear value"
@@ -33,10 +33,10 @@
             "en-us": "Set the parameter `disabledAlpha=False` to allow the user to select the transparency value."
         },
         "悬浮层展开方位": {
-            "en-us": "Floating layer expansion direction"
+            "en-us": "Popup placement"
         },
         "设置参数`placement`控制悬浮层展开方位。": {
-            "en-us": "Set the parameter `placement` to control the floating layer expansion direction."
+            "en-us": "Use `placement` to set the popup placement."
         },
         "颜色选择模式": {
             "en-us": "Color selection mode"
@@ -63,7 +63,7 @@
             "en-us": "Set the parameter `presets` to add custom preset color options groups."
         },
         "回调监听": {
-            "en-us": "Callback listener"
+            "en-us": "Callbacks"
         },
         "监听颜色值选择。": {
             "en-us": "Listen to the color value selection."

@@ -1,0 +1,54 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdCollapse",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "常规居中与行内居中。": {
+            "en-us": "Standard and inline centering."
+        },
+        "展开状态": {
+            "en-us": "Expanded state"
+        },
+        "设置参数`isOpen`控制展开状态。": {
+            "en-us": "Use `isOpen` to control the expanded state."
+        },
+        "无边框模式": {
+            "en-us": "Borderless mode"
+        },
+        "设置参数`bordered=False`开启无边框模式。": {
+            "en-us": "Set `bordered=False` for borderless mode."
+        },
+        "不同的尺寸规格": {
+            "en-us": "Sizes"
+        },
+        "设置参数`size`控制尺寸规格。": {
+            "en-us": "Use `size` to control the component size."
+        },
+        "透明面板模式": {
+            "en-us": "Transparent panel"
+        },
+        "设置参数`ghost=True`开启透明面板模式。": {
+            "en-us": "Set `ghost=True` for a transparent panel."
+        },
+        "不同的折叠触发策略": {
+            "en-us": "Collapse triggers"
+        },
+        "设置参数`collapsible`使用不同的折叠触发策略。": {
+            "en-us": "Use `collapsible` to choose the collapse trigger."
+        },
+        "使用forceRender参数": {
+            "en-us": "Using forceRender"
+        },
+        "在设置参数`forceRender=True`后，即使折叠面板初始化时处于折叠状态，也会强制提前将内部元素渲染到页面中，从而便于一些初始化回调的正常赋值。": {
+            "en-us": "Set `forceRender=True` to render panel content even when initially collapsed, allowing initialization callbacks to update its elements."
+        },
+        "回调监听": {
+            "en-us": "Callbacks"
+        },
+        "通过回调监听面板的折叠状态。": {
+            "en-us": "Monitor the panel's collapsed state through callbacks."
+        }
+    }
+}

@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import feffery_antd_components as fac
 from dash import html
 from dash.dependencies import Component, Input, Output
@@ -24,6 +25,7 @@ def render() -> Component:
     Input('message-duration-demo-new', 'nClicks'),
     prevent_initial_call=True,
 )
+@localized_callback(('children',))
 def message_duration_demo(nClicks):
     return fac.AntdMessage(
         content='这是一条成功提示消息，将在10s后自动消失',

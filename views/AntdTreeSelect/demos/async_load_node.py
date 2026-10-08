@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import time
 import feffery_antd_components as fac
 from feffery_dash_utils.tree_utils import TreeManager
@@ -43,6 +44,7 @@ def render() -> Component:
     State('tree-select-async-demo', 'treeData'),
     prevent_initial_call=True,
 )
+@localized_callback(('treeData',))
 def tree_select_async_demo(loadingNode, treeData):
     time.sleep(0.5)
     return TreeManager.update_tree_node(

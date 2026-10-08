@@ -8,9 +8,9 @@ def render() -> Component:
     demo_contents = fac.AntdSpace(
         [
             fac.AntdDatePicker(picker=picker, placeholder=f'picker="{picker}"')
-            for picker in ["date", "week", "month", "quarter", "year"]
+            for picker in ['date', 'week', 'month', 'quarter', 'year']
         ],
-        direction="vertical",
+        direction='vertical',
     )
 
     return demo_contents
@@ -21,7 +21,7 @@ def code_string() -> list:
 
     return [
         {
-            "code": """
+            'code': """
 fac.AntdSpace(
     [
         fac.AntdDatePicker(picker=picker, placeholder=f'picker="{picker}"')

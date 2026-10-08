@@ -1,0 +1,39 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdPictureUpload",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "点击触发图片文件上传功能。": {
+            "en-us": "Click to upload an image."
+        },
+        "禁用状态": {
+            "en-us": "Disabled state"
+        },
+        "设置参数`disabled=True`开启禁用状态。": {
+            "en-us": "Set `disabled=True` to disable the component."
+        },
+        "图片编辑功能": {
+            "en-us": "Image editing"
+        },
+        "设置参数`editable=True`后，可配合参数`editConfig`进行图片编辑相关功能的配置。": {
+            "en-us": "Set `editable=True` and use `editConfig` to configure image editing."
+        },
+        "删除前确认": {
+            "en-us": "Confirm before deleting"
+        },
+        "设置参数`confirmBeforeDelete=True`为已上传文件记录的删除操作添加二次确认功能。": {
+            "en-us": "Set `confirmBeforeDelete=True` to require confirmation before deleting an uploaded file."
+        },
+        "预览及删除图标的显隐": {
+            "en-us": "Preview and delete icon visibility"
+        },
+        "设置参数`showPreviewIcon`、`showRemoveIcon`控制已上传图片记录预览及删除图标的显隐。": {
+            "en-us": "Use `showPreviewIcon` and `showRemoveIcon` to control preview and delete icon visibility for uploaded images."
+        },
+        "回调监听": {
+            "en-us": "Callbacks"
+        }
+    }
+}

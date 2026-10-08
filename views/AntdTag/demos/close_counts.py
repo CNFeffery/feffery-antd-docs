@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import feffery_antd_components as fac
 from dash.dependencies import Component, Input, Output
 from server import app
@@ -35,6 +36,7 @@ def render() -> Component:
     Input('tag-close-counts-demo', 'closeCounts'),
     prevent_initial_call=True,
 )
+@localized_callback(('children',))
 def close_counts_callback(closeCounts):
     return f'当前标签关闭按钮点击次数为：{closeCounts}次'
 

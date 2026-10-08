@@ -1,9 +1,11 @@
+from i18n import localized_output, translator
 from dash import html
 import feffery_antd_components as fac
 import feffery_markdown_components as fmc
 from dash.dependencies import Component
 
 
+@localized_output
 def render() -> Component:
     """渲染“国际化”文档页"""
 
@@ -32,20 +34,30 @@ def render() -> Component:
                     fac.AntdForm(
                         [
                             fac.AntdFormItem(
-                                fac.AntdSpace(
-                                    [
-                                        fac.AntdDatePicker(),
-                                        fac.AntdDateRangePicker(),
-                                    ]
+                                fac.AntdConfigProvider(
+                                    fac.AntdSpace(
+                                        [
+                                            fac.AntdDatePicker(locale='zh-cn'),
+                                            fac.AntdDateRangePicker(
+                                                locale='zh-cn'
+                                            ),
+                                        ]
+                                    ),
+                                    locale='zh-cn',
                                 ),
                                 label='locale="zh-cn"（默认）',
                             ),
                             fac.AntdFormItem(
-                                fac.AntdSpace(
-                                    [
-                                        fac.AntdDatePicker(locale='en-us'),
-                                        fac.AntdDateRangePicker(locale='en-us'),
-                                    ]
+                                fac.AntdConfigProvider(
+                                    fac.AntdSpace(
+                                        [
+                                            fac.AntdDatePicker(locale='en-us'),
+                                            fac.AntdDateRangePicker(
+                                                locale='en-us'
+                                            ),
+                                        ]
+                                    ),
+                                    locale='en-us',
                                 ),
                                 label='locale="en-us"',
                             ),
@@ -61,25 +73,27 @@ def render() -> Component:
 fac.AntdForm(
     [
         fac.AntdFormItem(
-            fac.AntdSpace(
-                [
-                    fac.AntdDatePicker(),
-                    fac.AntdDateRangePicker()
-                ]
+            fac.AntdConfigProvider(
+                fac.AntdSpace(
+                    [
+                        fac.AntdDatePicker(locale='zh-cn'),
+                        fac.AntdDateRangePicker(locale='zh-cn')
+                    ]
+                ),
+                locale='zh-cn'
             ),
             label='locale="zh-cn"（默认）'
         ),
 
         fac.AntdFormItem(
-            fac.AntdSpace(
-                [
-                    fac.AntdDatePicker(
-                        locale='en-us'
-                    ),
-                    fac.AntdDateRangePicker(
-                        locale='en-us'
-                    )
-                ]
+            fac.AntdConfigProvider(
+                fac.AntdSpace(
+                    [
+                        fac.AntdDatePicker(locale='en-us'),
+                        fac.AntdDateRangePicker(locale='en-us')
+                    ]
+                ),
+                locale='en-us'
             ),
             label='locale="en-us"'
         )
@@ -87,6 +101,12 @@ fac.AntdForm(
     layout='vertical'
 )
 """,
+                    ),
+                    fac.AntdParagraph(
+                        translator.t(
+                            '配置提供器的语种设置优先于后代组件自身的 locale。为避免本官网页面外层的配置影响上述对比，示例分别使用中文和英文的嵌套配置提供器；没有配置提供器覆盖时，可以直接使用组件自身的 locale。',
+                            locale_topic='advanced_usage',
+                        )
                     ),
                     fac.AntdParagraph(
                         [
@@ -127,6 +147,12 @@ fac.AntdConfigProvider(
     locale='en-us'
 )
 """,
+                    ),
+                    fac.AntdParagraph(
+                        translator.t(
+                            'FAC 组件内置文案还支持 de-de（德语）、ru-ru（俄语）和 fr-fr（法语）。这些设置只控制组件内置文案，不会自动翻译传入的标题、说明和其他自定义内容。本官网的文档语种目前为中文和英文，页首语言按钮通过 Cookie 保存选择并重载页面，与示例中组件内置文案的语种设置相互独立。',
+                            locale_topic='advanced_usage',
+                        )
                     ),
                     html.Div(style={'height': '100px'}),
                 ],

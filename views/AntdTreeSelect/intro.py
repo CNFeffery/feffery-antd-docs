@@ -1,3 +1,4 @@
+from i18n import translator
 import feffery_antd_components as fac
 from dash.dependencies import Component
 
@@ -7,12 +8,12 @@ def render() -> Component:
     return [
         fac.AntdBreadcrumb(
             items=[
-                {'title': '组件介绍'},
-                {'title': '数据录入'},
-                {'title': 'AntdTreeSelect 树选择'},
+                {'title': translator.t('组件介绍')},
+                {'title': translator.t('数据录入')},
+                {'title': translator.t('AntdTreeSelect 树选择')},
             ],
             style={'marginBottom': 8},
         ),
-        fac.AntdTitle('AntdTreeSelect 树选择', level=2),
-        fac.AntdParagraph('提供在树形结构中选择若干项的功能。'),
+        fac.AntdTitle(translator.t('AntdTreeSelect 树选择'), level=2),
+        fac.AntdParagraph(translator.t('提供在树形结构中选择若干项的功能。')),
     ]

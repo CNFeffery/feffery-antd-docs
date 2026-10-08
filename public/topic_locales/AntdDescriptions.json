@@ -1,0 +1,48 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdDescriptions",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "基础的无边框、无边框描述列表。": {
+            "en-us": "Basic description lists."
+        },
+        "使用items定义子项": {
+            "en-us": "Define items with items"
+        },
+        "推荐使用参数`items`代替`children`进行子项的定义。": {
+            "en-us": "Use `items` instead of `children` to define items."
+        },
+        "垂直布局模式": {
+            "en-us": "Vertical layout"
+        },
+        "设置参数`layout='vertical'`开启垂直布局模式。": {
+            "en-us": "Set `layout='vertical'` for a vertical layout."
+        },
+        "控制每行宽度份数": {
+            "en-us": "Width units per row"
+        },
+        "通过参数`column`控制每行宽度份数。": {
+            "en-us": "Use `column` to set the width units per row."
+        },
+        "控制子项所占单位宽度": {
+            "en-us": "Item width units"
+        },
+        "通过参数`span`控制子项所占单位宽度。": {
+            "en-us": "Use `span` to set an item's width units."
+        },
+        "子项自动填充剩余宽度": {
+            "en-us": "Fill the remaining row width"
+        },
+        "为子项设置参数`span`为`'filled'`后，子项将自动填充当前行剩余宽度。": {
+            "en-us": "Set an item's `span` to `'filled'` to fill the remaining width in its row."
+        },
+        "额外内容": {
+            "en-us": "Additional content"
+        },
+        "通过参数`extra`添加额外内容。": {
+            "en-us": "Use `extra` to add extra content."
+        }
+    }
+}

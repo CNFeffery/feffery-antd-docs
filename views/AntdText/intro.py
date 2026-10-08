@@ -17,7 +17,7 @@ def render() -> Component:
             ],
             style={'marginBottom': 8},
         ),
-        fac.AntdTitle('AntdText 文字', level=2),
+        fac.AntdTitle(translator.t('AntdText 文字'), level=2),
         fac.AntdParagraph(
             translator.t('用于渲染具有丰富样式和功能的行内文字。')
         ),

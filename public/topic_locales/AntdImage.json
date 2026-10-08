@@ -1,0 +1,30 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdImage",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "默认情况下，可点击图片进入预览模式。": {
+            "en-us": "Click an image to open its preview by default."
+        },
+        "静态展示": {
+            "en-us": "Static display"
+        },
+        "设置参数`preview=False`关闭图片预览功能。": {
+            "en-us": "Set `preview=False` to disable image preview."
+        },
+        "展示一组图片": {
+            "en-us": "Image groups"
+        },
+        "参数`src`可接受一组图片资源地址实现展示一组图片，并配合参数`multiImageMode`控制显示模式。": {
+            "en-us": "Pass an array of image URLs to `src` to display multiple images, and use `multiImageMode` to control their layout."
+        },
+        "加载失败占位图": {
+            "en-us": "Fallback image"
+        },
+        "通过参数`fallback`控制图片加载失败时显示的占位图。": {
+            "en-us": "Use `fallback` to set the image shown when loading fails."
+        }
+    }
+}

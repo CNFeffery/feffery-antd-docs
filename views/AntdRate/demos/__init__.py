@@ -1,3 +1,5 @@
+from functools import partial
+from i18n import translator
 from dash.dependencies import Component
 
 from . import (
@@ -10,38 +12,43 @@ from . import (
 )
 from components import demos_render
 
-demos_config = [
-    {
-        'path': 'basic_usage',
-        'title': '基础使用',
-        'description': '最基础的评分组件。',
-    },
-    {
-        'path': 'half_star',
-        'title': '半星选择',
-        'description': '设置参数`allowHalf=True`开启半星选择功能。',
-    },
-    {
-        'path': 'star_tooltips',
-        'title': '文案展现',
-        'description': '设置参数`tooltips`为评分组件加上文案展示。',
-    },
-    {
-        'path': 'read_only_status',
-        'title': '只读状态',
-        'description': '设置参数`defaultValue`及`disabled=True`之后，即等价于只读模式，适合单纯的星级展示。',
-    },
-    {
-        'path': 'clear',
-        'title': '清除',
-        'description': '设置参数`allowClear`允许或者禁用清除。',
-    },
-    {
-        'path': 'basic_callbacks',
-        'title': '回调监听',
-        'description': '可用于监听评分组件的选择事件。',
-    },
-]
+
+def demos_config() -> list:
+    t = partial(translator.t, locale_topic='AntdRate')
+    return [
+        {
+            'path': 'basic_usage',
+            'title': t('基础使用'),
+            'description': t('最基础的评分组件。'),
+        },
+        {
+            'path': 'half_star',
+            'title': t('半星选择'),
+            'description': t('设置参数`allowHalf=True`开启半星选择功能。'),
+        },
+        {
+            'path': 'star_tooltips',
+            'title': t('文案展现'),
+            'description': t('设置参数`tooltips`为评分组件加上文案展示。'),
+        },
+        {
+            'path': 'read_only_status',
+            'title': t('只读状态'),
+            'description': t(
+                '设置参数`defaultValue`及`disabled=True`之后，即等价于只读模式，适合单纯的星级展示。'
+            ),
+        },
+        {
+            'path': 'clear',
+            'title': t('清除'),
+            'description': t('设置参数`allowClear`允许或者禁用清除。'),
+        },
+        {
+            'path': 'basic_callbacks',
+            'title': t('回调监听'),
+            'description': t('可用于监听评分组件的选择事件。'),
+        },
+    ]
 
 
 def render(component: Component, section_name: str = None) -> Component:

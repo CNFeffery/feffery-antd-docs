@@ -1,9 +1,11 @@
+from i18n import localized_output
 from dash import html
 import feffery_antd_components as fac
 import feffery_markdown_components as fmc
 from dash.dependencies import Component
 
 
+@localized_output
 def render() -> Component:
     """渲染“组件按别名导入”文档页"""
 

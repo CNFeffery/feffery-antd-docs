@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import feffery_antd_components as fac
 from dash.dependencies import Component, Input, Output
 
@@ -28,6 +29,7 @@ def render() -> Component:
 @app.callback(
     Output('collapse-demo-output', 'children'), Input('collapse-demo', 'isOpen')
 )
+@localized_callback(('children',))
 def collapse_demo(isOpen):
     return f'isOpen={isOpen}'
 

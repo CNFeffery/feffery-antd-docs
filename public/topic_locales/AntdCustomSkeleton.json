@@ -1,0 +1,12 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdCustomSkeleton",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "传入参数`skeletonContent`的任何组件内容都将作为骨架屏加载动画进行渲染。": {
+            "en-us": "Any components passed to `skeletonContent` are rendered as animated skeleton placeholders."
+        }
+    }
+}

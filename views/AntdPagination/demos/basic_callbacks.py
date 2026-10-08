@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import feffery_antd_components as fac
 from dash.dependencies import Component, Input, Output
 
@@ -44,6 +45,7 @@ def render() -> Component:
     Output('pagination-demo-output', 'children'),
     [Input('pagination-demo', 'current'), Input('pagination-demo', 'pageSize')],
 )
+@localized_callback(('children',))
 def pagination_callback_demo(current, pageSize):
     current_locale = get_current_locale()
 

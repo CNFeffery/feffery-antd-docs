@@ -1,0 +1,60 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdPopconfirm",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "为子元素添加气泡确认框。": {
+            "en-us": "Add a confirmation popup to a child element."
+        },
+        "自定义描述信息": {
+            "en-us": "Custom description"
+        },
+        "设置参数`description`控制描述信息内容。": {
+            "en-us": "Use `description` to set the description content."
+        },
+        "自定义图标": {
+            "en-us": "Custom icons"
+        },
+        "设置参数`icon`控制图标内容。": {
+            "en-us": "Use `icon` to set the icon content."
+        },
+        "隐藏附带箭头": {
+            "en-us": "Hide the arrow"
+        },
+        "控制参数`arrow`隐藏气泡确认框附带的箭头。": {
+            "en-us": "Use `arrow` to hide the confirmation popup arrow."
+        },
+        "悬浮层展开方向": {
+            "en-us": "Popup placement"
+        },
+        "控制参数`placement`设置不同的悬浮层展开方向。": {
+            "en-us": "Use `placement` to set the popup direction."
+        },
+        "自定义样式": {
+            "en-us": "Custom styles"
+        },
+        "控制不用部分的样式。": {
+            "en-us": "Customize styles for individual areas."
+        },
+        "展开状态受控": {
+            "en-us": "Controlled expanded state"
+        },
+        "气泡确认框的展开状态可通过回调进行控制。": {
+            "en-us": "Control confirmation popup visibility through callbacks."
+        },
+        "回调监听": {
+            "en-us": "Callbacks"
+        },
+        "通过回调函数监听确认、取消按钮的点击事件。": {
+            "en-us": "Monitor Confirm and Cancel button clicks through callbacks."
+        },
+        "常见问题：配合绝对定位": {
+            "en-us": "FAQ: absolute positioning"
+        },
+        "当直接将**AntdPopconfirm**施加于具有绝对定位样式的元素之上时，可能会遇到悬浮层位置显示异常的问题，推荐的稳定做法是为对应的**AntdPopconfirm**添加一层**Span**父元素，并将原先的绝对定位相关样式转而施加于此父元素之上。": {
+            "en-us": "Applying **AntdPopconfirm** directly to an absolutely positioned element may produce incorrect popup placement. Wrap it in a **Span** and apply the absolute positioning styles to that wrapper."
+        }
+    }
+}

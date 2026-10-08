@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import time
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
@@ -30,6 +31,7 @@ def render() -> Component:
     Input('spin-custom-demo-trigger', 'nClicks'),
     prevent_initial_call=True,
 )
+@localized_callback(('children',))
 def spin_custom_demo(nClicks):
     time.sleep(2)
 

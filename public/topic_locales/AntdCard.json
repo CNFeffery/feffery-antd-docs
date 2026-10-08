@@ -1,0 +1,78 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdCard",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "基本的使用示例。": {
+            "en-us": "A basic example."
+        },
+        "尺寸规格": {
+            "en-us": "Sizes"
+        },
+        "可设置两种不同大小：`'default'`、`'small'`、`'default'`": {
+            "en-us": "Available sizes: `'default'` and `'small'`."
+        },
+        "添加右上角链接": {
+            "en-us": "Upper-right link"
+        },
+        "可在卡片右上角添加自定义链接。": {
+            "en-us": "Add a custom link in the card's upper-right corner."
+        },
+        "添加右上角额外内容": {
+            "en-us": "Additional upper-right content"
+        },
+        "可在卡片右上角添加自定义组件，优先级比**extraLink**更高，所以设置的**extraLink**将不会生效。": {
+            "en-us": "Add a custom component in the card's upper-right corner. It takes precedence over **extraLink**, so the configured **extraLink** is not shown."
+        },
+        "悬停效果": {
+            "en-us": "Hover effects"
+        },
+        "可设置是否在鼠标悬停时显示特殊样式。": {
+            "en-us": "Control whether a special style appears on hover."
+        },
+        "标题栏CSS样式": {
+            "en-us": "Header CSS styles"
+        },
+        "可设置标题栏的CSS样式。": {
+            "en-us": "Customize the header's CSS styles."
+        },
+        "内容区CSS样式": {
+            "en-us": "Content area CSS styles"
+        },
+        "可设置内容区的CSS样式。": {
+            "en-us": "Customize the content area's CSS styles."
+        },
+        "添加封面图片": {
+            "en-us": "Cover image"
+        },
+        "可在卡片的标题栏与内容区之间插入封面图片。": {
+            "en-us": "Insert a cover image between the card header and body."
+        },
+        "卡片网格": {
+            "en-us": "Card grid"
+        },
+        "使用内嵌网格模式来分隔卡片内容。": {
+            "en-us": "Use an embedded grid to divide the card content."
+        },
+        "结构化卡片": {
+            "en-us": "Structured cards"
+        },
+        "用于为卡片添加结构化信息，如头像、标题、描述等，更灵活地展示卡片内容。": {
+            "en-us": "Add structured card content such as an avatar, title, and description."
+        },
+        "添加底部操作栏": {
+            "en-us": "Footer actions"
+        },
+        "可添加底部操作栏，实现更复杂的功能。": {
+            "en-us": "Add footer actions for more complex interactions."
+        },
+        "卡片点击回调监听": {
+            "en-us": "Card click callbacks"
+        },
+        "可监听卡片点击事件触发回调。": {
+            "en-us": "Trigger callbacks when the card is clicked."
+        }
+    }
+}

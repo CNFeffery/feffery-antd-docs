@@ -1,0 +1,57 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdDraggerUpload",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "点击目标区域或拖拽文件至目标区域触发文件上传功能。": {
+            "en-us": "Click the upload area or drag a file onto it to upload."
+        },
+        "禁用状态": {
+            "en-us": "Disabled state"
+        },
+        "设置参数`disabled=True`开启禁用状态。": {
+            "en-us": "Set `disabled=True` to disable the component."
+        },
+        "限制上传列表记录数量": {
+            "en-us": "Limit the upload list length"
+        },
+        "通过参数`fileListMaxLength`限制上传列表中的文件上传记录最大数量。": {
+            "en-us": "Use `fileListMaxLength` to limit the number of upload records in the file list."
+        },
+        "限制上传文件类型": {
+            "en-us": "Allowed file types"
+        },
+        "通过参数`fileTypes`限制可上传的文件类型。": {
+            "en-us": "Use `fileTypes` to restrict allowed upload file types."
+        },
+        "多文件上传": {
+            "en-us": "Multiple file uploads"
+        },
+        "设置参数`multiple=True`后可一次性上传多个文件。": {
+            "en-us": "Set `multiple=True` to upload multiple files at once."
+        },
+        "文件夹上传": {
+            "en-us": "Folder uploads"
+        },
+        "设置参数`directory=True`后可选择文件夹进行内部文件的批量上传。": {
+            "en-us": "Set `directory=True` to select a folder and upload its files in a batch."
+        },
+        "自定义失败文件提示": {
+            "en-us": "Custom upload failure messages"
+        },
+        "设置参数`failedTooltipInfo`进行上传失败文件的错误提示信息自定义。": {
+            "en-us": "Use `failedTooltipInfo` to customize upload failure messages."
+        },
+        "删除前确认": {
+            "en-us": "Confirm before deleting"
+        },
+        "设置参数`confirmBeforeDelete=True`为已上传文件记录的删除操作添加二次确认功能。": {
+            "en-us": "Set `confirmBeforeDelete=True` to require confirmation before deleting an uploaded file."
+        },
+        "回调监听": {
+            "en-us": "Callbacks"
+        }
+    }
+}

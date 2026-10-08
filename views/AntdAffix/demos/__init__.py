@@ -1,3 +1,5 @@
+from functools import partial
+from i18n import translator
 from dash.dependencies import Component
 
 from . import (
@@ -7,23 +9,30 @@ from . import (
 )
 from components import demos_render
 
-demos_config = [
-    {
-        'path': 'offset_top',
-        'title': '下滑锚定',
-        'description': '设置参数`offsetTop`用于控制下滑触发元素相对页面顶部锚定的像素距离阈值。',
-    },
-    {
-        'path': 'offset_bottom',
-        'title': '上滑锚定',
-        'description': '设置参数`offsetBottom`用于控制上滑触发元素相对页面底部锚定的像素距离阈值。',
-    },
-    {
-        'path': 'local_container',
-        'title': '局部容器内锚定',
-        'description': '设置参数`target`为固钉设置锚定参考的局部容器。',
-    },
-]
+
+def demos_config() -> list:
+    t = partial(translator.t, locale_topic='AntdAffix')
+    return [
+        {
+            'path': 'offset_top',
+            'title': t('下滑锚定'),
+            'description': t(
+                '设置参数`offsetTop`用于控制下滑触发元素相对页面顶部锚定的像素距离阈值。'
+            ),
+        },
+        {
+            'path': 'offset_bottom',
+            'title': t('上滑锚定'),
+            'description': t(
+                '设置参数`offsetBottom`用于控制上滑触发元素相对页面底部锚定的像素距离阈值。'
+            ),
+        },
+        {
+            'path': 'local_container',
+            'title': t('局部容器内锚定'),
+            'description': t('设置参数`target`为固钉设置锚定参考的局部容器。'),
+        },
+    ]
 
 
 def render(component: Component, section_name: str = None) -> Component:

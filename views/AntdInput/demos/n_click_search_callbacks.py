@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import feffery_antd_components as fac
 from dash.dependencies import Component, Input, Output
 from server import app
@@ -30,6 +31,7 @@ def render() -> Component:
     Output('input-search-demo-output', 'children'),
     Input('input-search-demo', 'nClicksSearch'),
 )
+@localized_callback(('children',))
 def input_search_dmeo(nClicksSearch):
     return f'nClicksSearch: {nClicksSearch}'
 

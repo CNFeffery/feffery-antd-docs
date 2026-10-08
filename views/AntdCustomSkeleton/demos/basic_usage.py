@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import time
 from dash import html
 from faker import Faker
@@ -72,6 +73,7 @@ def render() -> Component:
     Output('custom-skeleton-demo', 'children'),
     Input('skeleton-custom-demo-input', 'nClicks'),
 )
+@localized_callback(('children',))
 def skeleton_custom_callback_demo(nClicks):
     time.sleep(2)
 

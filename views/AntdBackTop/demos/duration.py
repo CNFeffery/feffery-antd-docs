@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import feffery_antd_components as fac
 from dash.dependencies import Component
 from dash import html
@@ -50,6 +51,7 @@ def render() -> Component:
     ],
     Input('back-top-duration-slider-demo', 'value'),
 )
+@localized_callback(('duration', 'children'))
 def update_duration(value):
     return value, f'向下滚动一段距离，点击按钮后{value}秒内滚动回顶部'
 

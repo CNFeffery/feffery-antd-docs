@@ -2,26 +2,25 @@
     Unique identifier for the component.
 
 - key (string; optional):
-    Update the `key` value of the current component to force a redraw of the component.
-
-- style (dict; optional):
-    CSS styles for the current component.
+    Update the component’s `key` to force it to remount.
 
 - className (string | dict; optional):
-    CSS class name for the current component, supports [dynamic CSS](/advanced-classname).
+    CSS class name of the component. Supports [dynamic CSS classes](/advanced-classname).
 
-- locale (a value equal to: 'zh-cn', 'en-us', 'de-de'; default 'zh-cn'):
-    Language of the component's text, options include `'zh-cn'` (Simplified Chinese), `'en-us'` (English), `'de-de'` (German).
-    Default value: `'zh-cn'`.
+- locale (a value equal to: 'zh-cn', 'en-us', 'de-de', 'ru-ru', 'fr-fr'; default 'zh-cn'):
+    Component language: `'zh-cn'` (Simplified Chinese), `'en-us'` (English), `'de-de'` (German), `'fr-fr'` (French), or `'ru-ru'` (Russian). Default: `'zh-cn'`.
 
 - name (string; optional):
-    Used in conjunction with the `AntdForm` form for batch value collection/control, serving as the field name for the current form item, with `id` as the default value.
+    Used with `AntdForm` for batch value collection/control, serving as the field name of the current form item, with `id` as the default value.
+
+- enableBatchControl (boolean; default True):
+    Controls whether the current component participates in the effective `AntdForm` batch value collection/control feature. Default: `True`.
 
 - allowClear (boolean; default False):
     Whether to allow clearing the selected color. Default value: `False`.
 
 - arrow (dict; optional):
-    Configure additional arrows for the color selection panel. Default value: `True`.
+    Arrow settings for the color picker panel. Default: `True`.
 
     `arrow` is a boolean | dict with keys:
 
@@ -38,11 +37,10 @@
     Listening to or setting the color format, options include `'rgb'`, `'hex'`, `'hsb'`. Default value: `'hex'`.
 
 - mode (a value equal to: 'single', 'gradient' | list of a value equal to: 'single', 'gradient's; default 'single'):
-    The selector mode, used to configure single color and gradient, options include `'single'`, `'gradient'`, supports single or multiple option combinations.
-    Default value: `single`.
+    Color mode: `'single'`, `'gradient'`, or a combination of modes. Default: `'single'`.
 
 - disabled (boolean; default False):
-    Whether to disable the current component. Default value: `False`.
+    Whether to disable the current component. Default: `False`.
 
 - disabledAlpha (boolean; default True):
     Whether to disable the transparency selection. Default value: `True`.
@@ -51,9 +49,10 @@
     Listening to or setting the expansion state of the color selection panel.
 
 - presets (list of dicts; optional):
-    Configure preset color selection options.
-
     `presets` is a list of dicts with keys:
+
+    - label (a list of or a singular dash component, string or number; optional):
+        Component type, the label content of the current preset.
 
     - colors (list of strings; optional):
         An array of color values included in the current preset.
@@ -61,12 +60,8 @@
     - defaultOpen (boolean; optional):
         Whether the current preset is expanded by default. Default value: `True`.
 
-    - label (a list of or a singular dash component, string or number; optional):
-        Component type, the label content of the current preset.
-
 - placement (a value equal to: 'top', 'topLeft', 'topRight', 'bottom', 'bottomLeft', 'bottomRight'; default 'bottomLeft'):
-    The expansion direction of the color selection panel, options include `'top'`, `'topLeft'`, `'topRight'`, `'bottom'`, `'bottomLeft'`, `'bottomRight'`.
-    Default value: `'bottomRight'`.
+    Color panel placement. Supported values: `'top'`, `'topLeft'`, `'topRight'`, `'bottom'`, `'bottomLeft'`, `'bottomRight'`. Default: `'bottomLeft'`.
 
 - showText (boolean; default False):
     Whether to display the color value text. Default value: `False`.
@@ -78,20 +73,7 @@
     The trigger method of the color selection panel, options include `'hover'`, `'click'`. Default value: `'click'`.
 
 - data-* (string; optional):
-    `data-*` format attribute wildcard.
+    Wildcard support for `data-*` attributes.
 
 - aria-* (string; optional):
-    `aria-*` format attribute wildcard.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading.
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
+    Wildcard support for `aria-*` attributes.

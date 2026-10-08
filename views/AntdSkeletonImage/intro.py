@@ -1,3 +1,4 @@
+from i18n import translator
 import feffery_antd_components as fac
 from dash.dependencies import Component
 
@@ -7,13 +8,15 @@ def render() -> Component:
     return [
         fac.AntdBreadcrumb(
             items=[
-                {'title': '组件介绍'},
-                {'title': '反馈'},
-                {'title': '骨架屏'},
-                {'title': 'AntdSkeletonImage 图片占位图'},
+                {'title': translator.t('组件介绍')},
+                {'title': translator.t('反馈')},
+                {'title': translator.t('骨架屏')},
+                {'title': translator.t('AntdSkeletonImage 图片占位图')},
             ],
             style={'marginBottom': 8},
         ),
-        fac.AntdTitle('AntdSkeletonImage 图片占位图', level=2),
-        fac.AntdParagraph('用于在自定义骨架屏中构建图片占位相关内容。'),
+        fac.AntdTitle(translator.t('AntdSkeletonImage 图片占位图'), level=2),
+        fac.AntdParagraph(
+            translator.t('用于在自定义骨架屏中构建图片占位相关内容。')
+        ),
     ]

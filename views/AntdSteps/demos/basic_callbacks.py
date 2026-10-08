@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import dash
 import feffery_antd_components as fac
 from dash.dependencies import Component, Input, Output, State
@@ -82,6 +83,7 @@ def steps_callback_demo_part1(go_next, go_last, restart, current):
     Input('steps-demo', 'current'),
     prevent_initial_call=True,
 )
+@localized_callback(('children',))
 def steps_callback_demo_part2(current):
     current_locale = get_current_locale()
     if current_locale == 'zh-cn':

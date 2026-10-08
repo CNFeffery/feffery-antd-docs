@@ -1,0 +1,132 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdInput",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "输入框可用的四种功能模式。": {
+            "en-us": "The four input modes."
+        },
+        "尺寸规格": {
+            "en-us": "Sizes"
+        },
+        "通过参数`size`控制输入框尺寸规格。": {
+            "en-us": "Use `size` to set the input size."
+        },
+        "形态变体": {
+            "en-us": "Variants"
+        },
+        "通过参数`variant`控制输入框形态变体。": {
+            "en-us": "Use `variant` to choose the input variant."
+        },
+        "设置边框": {
+            "en-us": "Border"
+        },
+        "通过参数`bordered`控制输入框是否渲染边框。": {
+            "en-us": "Use `bordered` to control whether the input has a border."
+        },
+        "禁用状态": {
+            "en-us": "Disabled state"
+        },
+        "通过参数`disabled`控制输入框是否呈现禁用状态。": {
+            "en-us": "Use `disabled` to control the input's disabled state."
+        },
+        "只读状态": {
+            "en-us": "Read-only state"
+        },
+        "通过参数`readOnly`控制输入框是否呈现只读状态。": {
+            "en-us": "Use `readOnly` to control the input's read-only state."
+        },
+        "强制渲染校验状态": {
+            "en-us": "Force validation status"
+        },
+        "通过参数`status`控制输入框显示强制校验状态。": {
+            "en-us": "Use `status` to force a validation status on the input."
+        },
+        "一键清空已输入值": {
+            "en-us": "Clear the input"
+        },
+        "通过参数`allowClear`控制输入框是否添加内容清空图标。": {
+            "en-us": "Use `allowClear` to control whether the input shows a clear icon."
+        },
+        "添加额外的前/后置元素": {
+            "en-us": "Before and after addons"
+        },
+        "通过参数`addonBefore`、`addonAfter`为输入框添加额外的前/后置元素。": {
+            "en-us": "Use `addonBefore` and `addonAfter` to add elements outside the input."
+        },
+        "添加内嵌的前/后置元素": {
+            "en-us": "Embedded prefixes and suffixes"
+        },
+        "通过参数`prefix`、`suffix`为输入框添加额外的内嵌前/后置元素。": {
+            "en-us": "Use `prefix` and `suffix` to embed elements inside the input."
+        },
+        "限制输入框最大内容长度": {
+            "en-us": "Maximum input length"
+        },
+        "通过参数`maxLength`控制输入框最大可输入内容长度。": {
+            "en-us": "Use `maxLength` to limit input text length."
+        },
+        "展示已输入字符数量": {
+            "en-us": "Character count"
+        },
+        "通过参数`showCount`控制是否展示已输入字符数量。": {
+            "en-us": "Use `showCount` to display the entered character count."
+        },
+        "自定义字符计数规则": {
+            "en-us": "Custom character counting"
+        },
+        "通过参数`countFormat`自定义已输入内容计数的正则表达式规则。": {
+            "en-us": "Use `countFormat` to define a custom regular expression for character counting."
+        },
+        "文本域输入框自适应高度": {
+            "en-us": "Automatic textarea height"
+        },
+        "通过参数`autoSize`控制文本域输入框的高度自适应相关功能。": {
+            "en-us": "Use `autoSize` to configure automatic textarea height."
+        },
+        "回调监听": {
+            "en-us": "Callbacks"
+        },
+        "通过回调函数监听输入框已输入内容。": {
+            "en-us": "Monitor input content through callbacks."
+        },
+        "防抖回调监听": {
+            "en-us": "Debounced callbacks"
+        },
+        "通过回调函数监听`debounceValue`变化，实现对已输入内容的防抖监听。": {
+            "en-us": "Monitor `debounceValue` for debounced input updates."
+        },
+        "md5加密回调监听": {
+            "en-us": "MD5 hash callbacks"
+        },
+        "通过回调函数监听`md5Value`变化，实现对已输入内容的**md5**加密监听。": {
+            "en-us": "Monitor `md5Value` for the **MD5** hash of the input content."
+        },
+        "enter按键回调监听": {
+            "en-us": "Enter key callbacks"
+        },
+        "通过回调函数监听`nSubmit`变化，实现对输入框内`enter`键事件的监听。": {
+            "en-us": "Monitor `nSubmit` for `enter` key events in the input."
+        },
+        "搜索按钮点击回调监听": {
+            "en-us": "Search button callbacks"
+        },
+        "通过回调函数监听`nClicksSearch`变化，实现对输入框搜索按钮点击事件的监听。": {
+            "en-us": "Monitor `nClicksSearch` for input search button clicks."
+        },
+        "监听是否聚焦": {
+            "en-us": "Focus callbacks"
+        },
+        "通过回调函数监听`focusing`变化，实现对输入框聚焦状态的监听。": {
+            "en-us": "Monitor `focusing` for input focus changes."
+        },
+        "使用空值代替None": {
+            "en-us": "Normalize empty values"
+        },
+        "通过参数`emptyAsNone`控制空内容的赋值策略。": {
+            "en-us": "Use `emptyAsNone` to control the value assigned for empty content."
+        }
+    }
+}

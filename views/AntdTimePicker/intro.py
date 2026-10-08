@@ -1,3 +1,4 @@
+from i18n import translator
 import feffery_antd_components as fac
 from dash.dependencies import Component
 
@@ -7,12 +8,12 @@ def render() -> Component:
     return [
         fac.AntdBreadcrumb(
             items=[
-                {'title': '组件介绍'},
-                {'title': '数据录入'},
-                {'title': 'AntdTimePicker 时间选择'},
+                {'title': translator.t('组件介绍')},
+                {'title': translator.t('数据录入')},
+                {'title': translator.t('AntdTimePicker 时间选择')},
             ],
             style={'marginBottom': 8},
         ),
-        fac.AntdTitle('AntdTimePicker 时间选择', level=2),
-        fac.AntdParagraph('提供常用的时间选择功能。'),
+        fac.AntdTitle(translator.t('AntdTimePicker 时间选择'), level=2),
+        fac.AntdParagraph(translator.t('提供常用的时间选择功能。')),
     ]

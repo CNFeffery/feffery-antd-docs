@@ -11,13 +11,13 @@ def render() -> Component:
                 placement=placement, placeholder=f'placement="{placement}"'
             )
             for placement in [
-                "bottomLeft",
-                "bottomRight",
-                "topLeft",
-                "topRight",
+                'bottomLeft',
+                'bottomRight',
+                'topLeft',
+                'topRight',
             ]
         ],
-        direction="vertical",
+        direction='vertical',
     )
 
     return demo_contents
@@ -28,7 +28,7 @@ def code_string() -> list:
 
     return [
         {
-            "code": """
+            'code': """
 fac.AntdSpace(
     [
         fac.AntdDatePicker(

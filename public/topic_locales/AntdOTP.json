@@ -1,0 +1,54 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdOTP",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "英文输入法下默认接收6位数字或字母输入。": {
+            "en-us": "By default, accepts six digits or letters using an English input method."
+        },
+        "输入框数量": {
+            "en-us": "Number of input boxes"
+        },
+        "设置参数`length`控制单体输入框的数量。": {
+            "en-us": "Use `length` to set the number of individual input boxes."
+        },
+        "尺寸规格": {
+            "en-us": "Sizes"
+        },
+        "设置参数`size`控制尺寸规格。": {
+            "en-us": "Use `size` to control the component size."
+        },
+        "形态变体": {
+            "en-us": "Variants"
+        },
+        "设置参数`variant`控制形态变体风格。": {
+            "en-us": "Use `variant` to choose the component variant."
+        },
+        "禁用状态": {
+            "en-us": "Disabled state"
+        },
+        "设置参数`disabled`控制是否禁用当前组件。": {
+            "en-us": "Use `disabled` to control whether the component is disabled."
+        },
+        "强制渲染校验状态": {
+            "en-us": "Force validation status"
+        },
+        "设置参数`status`控制强制校验状态渲染。": {
+            "en-us": "Use `status` to force a validation status."
+        },
+        "自定义遮罩字符": {
+            "en-us": "Custom masking character"
+        },
+        "设置参数`mask`自定义遮罩显示字符。": {
+            "en-us": "Use `mask` to customize the masking character."
+        },
+        "回调监听": {
+            "en-us": "Callbacks"
+        },
+        "**AntdOTP**的属性`value`将在全部输入框均输入完毕的情况下触发更新。": {
+            "en-us": "The **AntdOTP** `value` updates only after all input boxes have been filled."
+        }
+    }
+}

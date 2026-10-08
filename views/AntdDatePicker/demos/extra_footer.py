@@ -9,14 +9,16 @@ def render() -> Component:
 
     locale = get_current_locale()
 
-    if locale == "zh-cn":
+    if locale == 'zh-cn':
         demo_contents = fac.AntdSpace(
             [
-                fac.AntdDatePicker(extraFooter=fac.AntdText("底部额外内容示例")),
                 fac.AntdDatePicker(
-                    placeholder="请选择日期时间",
+                    extraFooter=fac.AntdText('底部额外内容示例')
+                ),
+                fac.AntdDatePicker(
+                    placeholder='请选择日期时间',
                     showTime=True,
-                    extraFooter=fac.AntdText("底部额外内容示例"),
+                    extraFooter=fac.AntdText('底部额外内容示例'),
                 ),
             ],
             wrap=True,
@@ -25,14 +27,14 @@ def render() -> Component:
         demo_contents = fac.AntdSpace(
             [
                 fac.AntdDatePicker(
-                    extraFooter=fac.AntdText("Example of extra footer content"),
-                    locale="en-us",
+                    extraFooter=fac.AntdText('Example of extra footer content'),
+                    locale='en-us',
                 ),
                 fac.AntdDatePicker(
-                    placeholder="Please select date & time",
+                    placeholder='Please select date & time',
                     showTime=True,
-                    extraFooter=fac.AntdText("Example of extra footer content"),
-                    locale="en-us",
+                    extraFooter=fac.AntdText('Example of extra footer content'),
+                    locale='en-us',
                 ),
             ],
             wrap=True,
@@ -46,10 +48,10 @@ def code_string() -> list:
 
     locale = get_current_locale()
 
-    if locale == "zh-cn":
+    if locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         fac.AntdDatePicker(extraFooter=fac.AntdText('底部额外内容示例')),
@@ -67,7 +69,7 @@ fac.AntdSpace(
     else:
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         fac.AntdDatePicker(extraFooter=fac.AntdText('Example of extra footer content'), locale="en-us"),

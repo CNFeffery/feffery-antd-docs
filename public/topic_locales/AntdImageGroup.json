@@ -1,0 +1,18 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdImageGroup",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "图片组会自动识别内部元素中的所有**AntdImage**组件，并组合成一个图片组。": {
+            "en-us": "The image group automatically collects nested **AntdImage** components into one group."
+        },
+        "使用items定义组内图片": {
+            "en-us": "Define group images with items"
+        },
+        "可基于参数`items`定义组内图片，并通过嵌套单个**AntdImage**作为触发相册的入口。": {
+            "en-us": "Define group images with `items` and use a nested **AntdImage** as the entry point for opening the gallery."
+        }
+    }
+}

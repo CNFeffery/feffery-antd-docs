@@ -1,21 +1,17 @@
 - id (string; optional):
-    The unique identifier for the component.
+    Unique identifier for the component.
 
 - key (string; optional):
-    Updates the `key` value of the current component, which can force a redraw of the component.
+    Update the component’s `key` to force it to remount.
 
 - children (a list of or a singular dash component, string or number; optional):
     The component type, embedding related `AntdFormItem` components or common form input components.
 
-- style (dict; optional):
-    The CSS style of the current component.
-
 - className (string | dict; optional):
-    The CSS class name of the current component, supporting [dynamic CSS](/advanced-classname).
+    CSS class name of the component. Supports [dynamic CSS classes](/advanced-classname).
 
 - layout (a value equal to: 'horizontal', 'vertical', 'inline'; default 'horizontal'):
-    The form layout mode, with options `'horizontal'`, `'vertical'`, `'inline'`.
-    Default value: `'horizontal'`.
+    The form layout mode, with options `'horizontal'`, `'vertical'`, `'inline'`. Default value: `'horizontal'`.
 
 - labelCol (dict; optional):
     Configures the label part of the form item.
@@ -46,7 +42,7 @@
         Similar to the flex property in CSS, used to more flexibly control the width occupied by the control part.
 
 - colon (boolean; default True):
-    When `layout='horizontal'`, controls whether to add a colon at the end of the label part of the form item.
+    Whether to append a colon to form labels when `layout='horizontal'`. Default: `True`.
 
 - labelAlign (a value equal to: 'left', 'right'; default 'right'):
     The text alignment of the label part of the form item, with options `'left'`, `'right'`. Default value: `'right'`.
@@ -66,21 +62,11 @@
 - helps (dict with strings as keys and values of type a list of or a singular dash component, string or number; optional):
     When `enableBatchControl=True`, can be used to uniformly set the `help` values of internal `AntdFormItem` components, with keys as the `label` values of the corresponding `AntdFormItem` components, with lower priority than the `help` values of each `AntdFormItem` component.
 
+- tooltips (dict with strings as keys and values of type a list of or a singular dash component, string or number; optional):
+    Default `tooltip` values for nested `AntdFormItem` components when `enableBatchControl=True`, keyed by each item's `label`. Individual item `tooltip` values take precedence.
+
 - data-* (string; optional):
-    Wildcard for `data-*` format attributes.
+    Wildcard support for `data-*` attributes.
 
 - aria-* (string; optional):
-    Wildcard for `aria-*` format attributes.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading.
+    Wildcard support for `aria-*` attributes.

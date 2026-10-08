@@ -9,12 +9,12 @@ def render() -> Component:
     return [
         fac.AntdBreadcrumb(
             items=[
-                {"title": translator.t("组件介绍")},
-                {"title": translator.t("数据录入")},
-                {"title": translator.t("AntdSelect 下拉选择")},
+                {'title': translator.t('组件介绍')},
+                {'title': translator.t('数据录入')},
+                {'title': translator.t('AntdSelect 下拉选择')},
             ],
-            style={"marginBottom": 8},
+            style={'marginBottom': 8},
         ),
-        fac.AntdTitle(translator.t("AntdSelect 下拉选择"), level=2),
-        fac.AntdParagraph(translator.t("用于为用户提供一组选项进行选择。")),
+        fac.AntdTitle(translator.t('AntdSelect 下拉选择'), level=2),
+        fac.AntdParagraph(translator.t('用于为用户提供一组选项进行选择。')),
     ]

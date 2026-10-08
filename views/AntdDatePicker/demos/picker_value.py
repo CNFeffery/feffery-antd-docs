@@ -9,34 +9,38 @@ def render() -> Component:
 
     locale = get_current_locale()
 
-    if locale == "zh-cn":
+    if locale == 'zh-cn':
         demo_contents = fac.AntdSpace(
             [
-                fac.AntdDatePicker(pickerValue="1999-12-31", style={"width": 175}),
                 fac.AntdDatePicker(
-                    placeholder="配合自定义format",
-                    pickerValue="1999年12月31日",
-                    format="YYYY年MM月DD日",
-                    style={"width": 175},
+                    pickerValue='1999-12-31', style={'width': 175}
+                ),
+                fac.AntdDatePicker(
+                    placeholder='配合自定义format',
+                    pickerValue='1999年12月31日',
+                    format='YYYY年MM月DD日',
+                    style={'width': 175},
                 ),
             ],
-            direction="vertical",
+            direction='vertical',
         )
     else:
         demo_contents = fac.AntdSpace(
             [
                 fac.AntdDatePicker(
-                    pickerValue="1999-12-31", style={"width": 175}, locale="en-us"
+                    pickerValue='1999-12-31',
+                    style={'width': 175},
+                    locale='en-us',
                 ),
                 fac.AntdDatePicker(
-                    placeholder="With custom format",
-                    pickerValue="1999-12-31",
-                    format="YYYY-MM-DD",
-                    style={"width": 175},
-                    locale="en-us",
+                    placeholder='With custom format',
+                    pickerValue='1999-12-31',
+                    format='YYYY-MM-DD',
+                    style={'width': 175},
+                    locale='en-us',
                 ),
             ],
-            direction="vertical",
+            direction='vertical',
         )
 
     return demo_contents
@@ -46,10 +50,10 @@ def code_string() -> list:
     """返回当前语种对应的演示代码 / Return demo code for the current locale"""
     locale = get_current_locale()
 
-    if locale == "zh-cn":
+    if locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         fac.AntdDatePicker(
@@ -70,7 +74,7 @@ fac.AntdSpace(
     else:
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         fac.AntdDatePicker(

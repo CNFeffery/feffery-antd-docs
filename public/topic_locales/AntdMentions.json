@@ -1,0 +1,48 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdMentions",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "输入子项菜单默认触发关键字`@`后可进行目标角色的选中和提及。": {
+            "en-us": "Type the default trigger keyword `@` to select and mention a target."
+        },
+        "自适应高度": {
+            "en-us": "Automatic height"
+        },
+        "设置参数`autoSize`控制自适应高度。": {
+            "en-us": "Use `autoSize` to control automatic height."
+        },
+        "子项菜单展开方向": {
+            "en-us": "Submenu placement"
+        },
+        "设置参数`placement`控制子项菜单展开方向。": {
+            "en-us": "Use `placement` to set the submenu direction."
+        },
+        "禁用状态": {
+            "en-us": "Disabled state"
+        },
+        "设置参数`disabled=True`开启禁用状态。": {
+            "en-us": "Set `disabled=True` to disable the component."
+        },
+        "强制状态渲染": {
+            "en-us": "Force status rendering"
+        },
+        "设置参数`status`强制状态渲染。": {
+            "en-us": "Use `status` to force a status style."
+        },
+        "触发关键字": {
+            "en-us": "Trigger keywords"
+        },
+        "设置参数`prefix`自定义触发选择菜单展开的关键字。": {
+            "en-us": "Use `prefix` to customize the keyword that opens the selection menu."
+        },
+        "回调监听": {
+            "en-us": "Callbacks"
+        },
+        "通过回调函数监听已输入内容、已提及目标项。": {
+            "en-us": "Monitor entered text and mentioned items through callbacks."
+        }
+    }
+}

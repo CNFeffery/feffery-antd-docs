@@ -9,10 +9,10 @@ def render() -> Component:
 
     locale = get_current_locale()
 
-    if locale == "zh-cn":
+    if locale == 'zh-cn':
         demo_contents = fac.AntdDatePicker(disabled=True)
     else:
-        demo_contents = fac.AntdDatePicker(disabled=True, locale="en-us")
+        demo_contents = fac.AntdDatePicker(disabled=True, locale='en-us')
 
     return demo_contents
 
@@ -22,7 +22,7 @@ def code_string() -> list:
 
     return [
         {
-            "code": """
+            'code': """
 fac.AntdDatePicker(disabled=True)
 """
         }

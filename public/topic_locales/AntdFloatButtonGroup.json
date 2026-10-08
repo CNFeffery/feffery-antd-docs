@@ -21,7 +21,7 @@
             "en-us": "Set the parameter `placement` to control the direction of the menu expansion."
         },
         "回调监听": {
-            "en-us": "Callback listener"
+            "en-us": "Callbacks"
         },
         "监听悬浮按钮组菜单模式下的展开状态。": {
             "en-us": "Listen to the expansion status of the menu mode of the floating button group."

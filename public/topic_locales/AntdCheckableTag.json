@@ -1,0 +1,24 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdCheckableTag",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "基本的使用示例。": {
+            "en-us": "A basic example."
+        },
+        "不同状态下的组件内容": {
+            "en-us": "Content in different states"
+        },
+        "可设置选中状态下和未选中状态下的组件内容。": {
+            "en-us": "Use different component content for selected and unselected states."
+        },
+        "回调监听": {
+            "en-us": "Callbacks"
+        },
+        "监听标签的选择状态。": {
+            "en-us": "Monitor the tag's selection state."
+        }
+    }
+}

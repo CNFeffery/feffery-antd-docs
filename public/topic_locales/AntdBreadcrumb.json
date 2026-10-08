@@ -27,7 +27,7 @@
             "en-us": "Add floating menus to the nodes in the breadcrumb."
         },
         "回调监听": {
-            "en-us": "Callback listener"
+            "en-us": "Callbacks"
         },
         "通过`clickedItem`进行面包屑节点点击事件的监听。": {
             "en-us": "Listen to the click event of the breadcrumb node through `clickedItem`."

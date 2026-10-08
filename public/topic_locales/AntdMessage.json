@@ -1,0 +1,36 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdMessage",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "全局提示的常规使用方式是通过回调向某个容器输出，每一次输出都会触发一条新的全局提示的新增。": {
+            "en-us": "Return a message component into a container from a callback. Each output adds a new global message."
+        },
+        "提示类型": {
+            "en-us": "Message types"
+        },
+        "通过参数`type`控制全局提示的类型。": {
+            "en-us": "Use `type` to choose the global message type."
+        },
+        "修改延时": {
+            "en-us": "Change the delay"
+        },
+        "通过参数`duration`控制全局提示的显示时长。": {
+            "en-us": "Use `duration` to set how long a global message is displayed."
+        },
+        "顶端最小距离": {
+            "en-us": "Minimum top offset"
+        },
+        "通过参数`top`控制全局提示的顶端最小像素距离。": {
+            "en-us": "Use `top` to set the global message's minimum top offset in pixels."
+        },
+        "提示消息数量": {
+            "en-us": "Maximum message count"
+        },
+        "通过参数`maxCount`控制同屏最大消息数。": {
+            "en-us": "Use `maxCount` to limit simultaneous messages."
+        }
+    }
+}

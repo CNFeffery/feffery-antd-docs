@@ -1,3 +1,4 @@
+from i18n import translator
 import feffery_antd_components as fac
 from dash.dependencies import Component
 
@@ -7,12 +8,14 @@ def render() -> Component:
     return [
         fac.AntdBreadcrumb(
             items=[
-                {'title': '组件介绍'},
-                {'title': '数据录入'},
-                {'title': 'AntdSlider 滑动输入条'},
+                {'title': translator.t('组件介绍')},
+                {'title': translator.t('数据录入')},
+                {'title': translator.t('AntdSlider 滑动输入条')},
             ],
             style={'marginBottom': 8},
         ),
-        fac.AntdTitle('AntdSlider 滑动输入条', level=2),
-        fac.AntdParagraph('用于为用户提供基于滑动交互的单值或范围设置功能。'),
+        fac.AntdTitle(translator.t('AntdSlider 滑动输入条'), level=2),
+        fac.AntdParagraph(
+            translator.t('用于为用户提供基于滑动交互的单值或范围设置功能。')
+        ),
     ]

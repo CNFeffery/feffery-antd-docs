@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import time
 
 import feffery_antd_components as fac
@@ -13,10 +14,10 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
-        tip_text = "点击切换后loading 3秒："
-    elif current_locale == "en-us":
-        tip_text = "After toggling, loading for 3 seconds:"
+    if current_locale == 'zh-cn':
+        tip_text = '点击切换后loading 3秒：'
+    elif current_locale == 'en-us':
+        tip_text = 'After toggling, loading for 3 seconds:'
 
     demo_contents = fac.AntdSpace(
         [
@@ -26,37 +27,38 @@ def render() -> Component:
             fac.AntdSwitch(
                 # 需要设置好checked参数，否则会无法避免初次加载
                 checked=False,
-                id="switch-loading-demo",
+                id='switch-loading-demo',
             ),
-            html.Div(id="switch-output-demo"),
+            html.Div(id='switch-output-demo'),
         ],
-        direction="vertical",
-        style={"width": "100%"},
+        direction='vertical',
+        style={'width': '100%'},
     )
 
     return demo_contents
 
 
 @app.callback(
-    Output("switch-output-demo", "children"),
-    Input("switch-loading-demo", "checked"),
+    Output('switch-output-demo', 'children'),
+    Input('switch-loading-demo', 'checked'),
     # 配合running参数，实现回调运行中和运行结束后设置loading状态的效果
-    running=[[Output("switch-loading-demo", "loading"), True, False]],
+    running=[[Output('switch-loading-demo', 'loading'), True, False]],
     prevent_initial_call=True,
 )
+@localized_callback(('children',))
 def callback_func(checked):
     # 模拟进行一些耗时的回调内操作
     time.sleep(3)
 
     locale = get_current_locale()
-    if locale == "zh-cn":
-        content = "已开启" if checked else "已关闭"
+    if locale == 'zh-cn':
+        content = '已开启' if checked else '已关闭'
     else:
-        content = "Turned on" if checked else "Turned off"
+        content = 'Turned on' if checked else 'Turned off'
 
     return fac.AntdMessage(
         content=content,
-        type="success" if checked else "warning",
+        type='success' if checked else 'warning',
     )
 
 
@@ -65,10 +67,10 @@ def code_string() -> list:
 
     locale = get_current_locale()
 
-    if locale == "zh-cn":
+    if locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         fac.AntdSwitch(loading=True),
@@ -104,10 +106,10 @@ def callback_func(checked):
 """
             }
         ]
-    elif locale == "en-us":
+    elif locale == 'en-us':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         fac.AntdSwitch(loading=True),

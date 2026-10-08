@@ -9,67 +9,67 @@ def render() -> Component:
 
     locale = get_current_locale()
 
-    if locale == "zh-cn":
+    if locale == 'zh-cn':
         demo_contents = fac.AntdSpace(
             [
                 fac.AntdDatePicker(
                     placeholder='picker="date"',
-                    format="YYYY年MM月DD日",
-                    style={"width": 175},
+                    format='YYYY年MM月DD日',
+                    style={'width': 175},
                 ),
                 fac.AntdDatePicker(
                     placeholder='picker="week"',
-                    picker="week",
-                    format="YYYY年第w周",
-                    style={"width": 175},
+                    picker='week',
+                    format='YYYY年第w周',
+                    style={'width': 175},
                 ),
                 fac.AntdDatePicker(
                     placeholder='picker="month"',
-                    picker="month",
-                    format="YYYY-MM",
-                    style={"width": 175},
+                    picker='month',
+                    format='YYYY-MM',
+                    style={'width': 175},
                 ),
                 fac.AntdDatePicker(
                     placeholder='picker="year"',
-                    picker="year",
-                    format="YYYY年",
-                    style={"width": 175},
+                    picker='year',
+                    format='YYYY年',
+                    style={'width': 175},
                 ),
             ],
-            direction="vertical",
+            direction='vertical',
         )
     else:
         demo_contents = fac.AntdSpace(
             [
                 fac.AntdDatePicker(
                     placeholder='picker="date"',
-                    format="YYYY-MM-DD",
-                    style={"width": 175},
-                    locale="en-us",
+                    format='YYYY-MM-DD',
+                    style={'width': 175},
+                    locale='en-us',
                 ),
                 fac.AntdDatePicker(
                     placeholder='picker="week"',
-                    picker="week",
-                    format="YYYY [Week] w",
-                    style={"width": 175},
-                    locale="en-us",
+                    picker='week',
+                    format='YYYY [Week] w',
+                    style={'width': 175},
+                    locale='en-us',
                 ),
                 fac.AntdDatePicker(
                     placeholder='picker="month"',
-                    picker="month",
-                    format="YYYY-MM",
-                    style={"width": 175},
-                    locale="en-us",
+                    picker='month',
+                    format='YYYY-MM',
+                    style={'width': 175},
+                    locale='en-us',
                 ),
                 fac.AntdDatePicker(
                     placeholder='picker="year"',
-                    picker="year",
-                    format="YYYY",
-                    style={"width": 175},
-                    locale="en-us",
+                    picker='year',
+                    format='YYYY',
+                    style={'width': 175},
+                    locale='en-us',
                 ),
             ],
-            direction="vertical",
+            direction='vertical',
         )
 
     return demo_contents
@@ -80,10 +80,10 @@ def code_string() -> list:
 
     locale = get_current_locale()
 
-    if locale == "zh-cn":
+    if locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         fac.AntdDatePicker(
@@ -118,7 +118,7 @@ fac.AntdSpace(
     else:
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         fac.AntdDatePicker(

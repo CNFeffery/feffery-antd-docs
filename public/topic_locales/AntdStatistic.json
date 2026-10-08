@@ -1,0 +1,54 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdStatistic",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "简单的展示。": {
+            "en-us": "A simple display."
+        },
+        "千分位分割符": {
+            "en-us": "Thousands separators"
+        },
+        "通过设置参数`showGroupSeparator`控制千分位分割符显隐。": {
+            "en-us": "Use `showGroupSeparator` to show or hide thousands separators."
+        },
+        "限制精度": {
+            "en-us": "Limit precision"
+        },
+        "通过设置参数`precision`控制显示精度。": {
+            "en-us": "Use `precision` to control displayed numeric precision."
+        },
+        "单位": {
+            "en-us": "Units"
+        },
+        "通过前缀和后缀添加单位。": {
+            "en-us": "Add units using prefixes and suffixes."
+        },
+        "标题额外信息提示": {
+            "en-us": "Title tooltips"
+        },
+        "通过设置参数`titleTooltip`为标题添加额外信息提示。": {
+            "en-us": "Use `titleTooltip` to add a tooltip to the title."
+        },
+        "动画效果": {
+            "en-us": "Animation effects"
+        },
+        "给数值添加动画进入效果，需要配合**fuc**的数字递增组件。": {
+            "en-us": "Animate numeric values with the number-increment component from **fuc**."
+        },
+        "在卡片中使用": {
+            "en-us": "Use inside a card"
+        },
+        "在卡片中展示统计数值。": {
+            "en-us": "Display statistics inside a card."
+        },
+        "回调监听": {
+            "en-us": "Callbacks"
+        },
+        "简单演示`AntdStatistic`在回调中的使用。": {
+            "en-us": "Use `AntdStatistic` in callbacks."
+        }
+    }
+}

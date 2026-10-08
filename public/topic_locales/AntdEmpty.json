@@ -1,0 +1,36 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdEmpty",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "默认的空状态。": {
+            "en-us": "The default empty state."
+        },
+        "简洁占位图": {
+            "en-us": "Simple placeholder"
+        },
+        "设置参数`image='simple'`启用内置的简洁风格占位图。": {
+            "en-us": "Set `image='simple'` to use the built-in simple placeholder."
+        },
+        "自定义占位图": {
+            "en-us": "Custom placeholder"
+        },
+        "向参数`image`传入合法的图片地址，进行占位图的自定义。": {
+            "en-us": "Pass a valid image URL to `image` to customize the placeholder."
+        },
+        "占位图样式": {
+            "en-us": "Placeholder styles"
+        },
+        "配置参数`styles`控制占位图样式。": {
+            "en-us": "Use `styles` to customize placeholder styles."
+        },
+        "隐藏描述内容": {
+            "en-us": "Hide the description"
+        },
+        "设置参数`description=False`隐藏描述内容。": {
+            "en-us": "Set `description=False` to hide the description."
+        }
+    }
+}

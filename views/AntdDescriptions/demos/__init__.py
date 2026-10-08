@@ -1,3 +1,5 @@
+from functools import partial
+from i18n import translator
 from dash.dependencies import Component
 
 from . import (
@@ -11,43 +13,50 @@ from . import (
 )
 from components import demos_render
 
-demos_config = [
-    {
-        'path': 'basic_usage',
-        'title': '基础使用',
-        'description': '基础的无边框、无边框描述列表。',
-    },
-    {
-        'path': 'use_items',
-        'title': '使用items定义子项',
-        'description': '推荐使用参数`items`代替`children`进行子项的定义。',
-    },
-    {
-        'path': 'vertical_layout',
-        'title': '垂直布局模式',
-        'description': "设置参数`layout='vertical'`开启垂直布局模式。",
-    },
-    {
-        'path': 'column',
-        'title': '控制每行宽度份数',
-        'description': '通过参数`column`控制每行宽度份数。',
-    },
-    {
-        'path': 'item_span',
-        'title': '控制子项所占单位宽度',
-        'description': '通过参数`span`控制子项所占单位宽度。',
-    },
-    {
-        'path': 'span_filled',
-        'title': '子项自动填充剩余宽度',
-        'description': "为子项设置参数`span`为`'filled'`后，子项将自动填充当前行剩余宽度。",
-    },
-    {
-        'path': 'extra',
-        'title': '额外内容',
-        'description': '通过参数`extra`添加额外内容。',
-    },
-]
+
+def demos_config() -> list:
+    t = partial(translator.t, locale_topic='AntdDescriptions')
+    return [
+        {
+            'path': 'basic_usage',
+            'title': t('基础使用'),
+            'description': t('基础的无边框、无边框描述列表。'),
+        },
+        {
+            'path': 'use_items',
+            'title': t('使用items定义子项'),
+            'description': t(
+                '推荐使用参数`items`代替`children`进行子项的定义。'
+            ),
+        },
+        {
+            'path': 'vertical_layout',
+            'title': t('垂直布局模式'),
+            'description': t("设置参数`layout='vertical'`开启垂直布局模式。"),
+        },
+        {
+            'path': 'column',
+            'title': t('控制每行宽度份数'),
+            'description': t('通过参数`column`控制每行宽度份数。'),
+        },
+        {
+            'path': 'item_span',
+            'title': t('控制子项所占单位宽度'),
+            'description': t('通过参数`span`控制子项所占单位宽度。'),
+        },
+        {
+            'path': 'span_filled',
+            'title': t('子项自动填充剩余宽度'),
+            'description': t(
+                "为子项设置参数`span`为`'filled'`后，子项将自动填充当前行剩余宽度。"
+            ),
+        },
+        {
+            'path': 'extra',
+            'title': t('额外内容'),
+            'description': t('通过参数`extra`添加额外内容。'),
+        },
+    ]
 
 
 def render(component: Component, section_name: str = None) -> Component:

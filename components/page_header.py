@@ -12,6 +12,31 @@ from i18n import translator
 def render(locale: str = 'zh-cn'):
     """渲染页首"""
 
+    def locale_switch(component_id, show_label=False):
+        return fac.AntdTooltip(
+            fac.AntdButton(
+                ('中文' if locale == 'en-us' else 'English')
+                if show_label
+                else None,
+                id=component_id,
+                icon=fac.AntdIcon(
+                    icon='md-translate',
+                    style={'fontSize': 18, 'verticalAlign': '-0.4em'},
+                ),
+                type='text',
+                clickExecuteJsString="""
+const nextLocale = '%s';
+document.cookie = `dash-i18n=${nextLocale}; path=/; max-age=31536000; SameSite=Lax`;
+if (document.cookie.split(';').some((item) => item.trim() === `dash-i18n=${nextLocale}`)) {
+    window.location.reload();
+}
+"""
+                % ('zh-cn' if locale == 'en-us' else 'en-us'),
+            ),
+            placement='bottom',
+            title=translator.t('English / 中文'),
+        )
+
     return fac.AntdRow(
         [
             # 文档页面响应式监听
@@ -84,32 +109,7 @@ def render(locale: str = 'zh-cn'):
             fac.AntdCol(
                 fac.AntdSpace(
                     [
-                        fac.AntdTooltip(
-                            fac.AntdButton(
-                                id='global-locale-switch',
-                                icon=fac.AntdIcon(
-                                    icon='md-translate',
-                                    style={
-                                        'fontSize': 18,
-                                        'verticalAlign': '-0.4em',
-                                    },
-                                ),
-                                type='text',
-                                clickExecuteJsString=(
-                                    """
-window.dash_clientside.set_props('global-locale', { value: '%s' })
-window.dash_clientside.set_props('global-reload', { reload: true })
-"""
-                                    % (
-                                        'zh-cn'
-                                        if locale == 'en-us'
-                                        else 'en-us'
-                                    )
-                                ),
-                            ),
-                            placement='bottom',
-                            title=translator.t('English / 中文'),
-                        ),
+                        locale_switch('global-locale-switch'),
                         html.Div(
                             style={
                                 'width': 1,
@@ -156,13 +156,21 @@ window.dash_clientside.set_props('global-reload', { reload: true })
             ),
             fac.AntdCol(
                 fac.AntdCenter(
-                    fac.AntdText(
-                        AppConfig.page_header_title,
-                        style={
-                            'color': '#000000d9',
-                            'fontWeight': 500,
-                            'fontSize': 'calc(min(4vw, 32px))',
-                        },
+                    fac.AntdSpace(
+                        [
+                            fac.AntdText(
+                                AppConfig.page_header_title,
+                                style={
+                                    'color': '#000000d9',
+                                    'fontWeight': 500,
+                                    'fontSize': 'calc(min(4vw, 32px))',
+                                },
+                            ),
+                            locale_switch(
+                                'global-locale-switch-mobile', show_label=True
+                            ),
+                        ],
+                        align='center',
                     ),
                     style={'height': '100%'},
                 ),

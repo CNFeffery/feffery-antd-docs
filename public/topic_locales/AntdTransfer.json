@@ -1,0 +1,66 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdTransfer",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "禁用状态": {
+            "en-us": "Disabled state"
+        },
+        "设置参数`disabled=True`开启禁用状态。": {
+            "en-us": "Set `disabled=True` to disable the component."
+        },
+        "只读状态": {
+            "en-us": "Read-only state"
+        },
+        "设置参数`readOnly=True`开启只读状态。": {
+            "en-us": "Set `readOnly=True` for the read-only state."
+        },
+        "强制状态渲染": {
+            "en-us": "Force status rendering"
+        },
+        "设置参数`status`进行强制状态渲染。": {
+            "en-us": "Use `status` to force a status style."
+        },
+        "自定义高度": {
+            "en-us": "Custom height"
+        },
+        "设置参数`height`自定义控制穿梭框整体高度。": {
+            "en-us": "Use `height` to set the transfer component's overall height."
+        },
+        "分页展示": {
+            "en-us": "Pagination"
+        },
+        "设置参数`pagination`启用分页功能。": {
+            "en-us": "Use `pagination` to enable pagination."
+        },
+        "自定义移项按钮内容": {
+            "en-us": "Custom transfer button labels"
+        },
+        "设置参数`operations`自定义移项按钮内容。": {
+            "en-us": "Use `operations` to customize transfer button labels."
+        },
+        "添加搜索框": {
+            "en-us": "Add a search input"
+        },
+        "设置参数`showSearch=True`启用选项搜索功能。": {
+            "en-us": "Set `showSearch=True` to enable option searching."
+        },
+        "多模式搜索": {
+            "en-us": "Search modes"
+        },
+        "设置参数`optionFilterMode`启用不同的选项搜索模式。": {
+            "en-us": "Use `optionFilterMode` to choose the option search mode."
+        },
+        "自定义两侧标题": {
+            "en-us": "Custom panel titles"
+        },
+        "设置参数`titles`自定义两侧标题内容。": {
+            "en-us": "Use `titles` to customize the two panel titles."
+        },
+        "回调监听": {
+            "en-us": "Callbacks"
+        }
+    }
+}

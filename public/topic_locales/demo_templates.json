@@ -1,0 +1,225 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "demo_templates",
+    "contents": {
+        "#章节{0}": {
+            "en-us": "#Chapter {0}"
+        },
+        "{0}仓库": {
+            "en-us": "{0} repository"
+        },
+        "{0}手风琴项示例{1}": {
+            "en-us": "{0} accordion item {1}"
+        },
+        "{0}模式value：{1}": {
+            "en-us": "{0} mode value: {1}"
+        },
+        "{0}模拟选项{1}": {
+            "en-us": "{0} example option {1}"
+        },
+        "{0}的弹框示例": {
+            "en-us": "{0} popup example"
+        },
+        "下拉子项{0}": {
+            "en-us": "Dropdown item {0}"
+        },
+        "位置=\"{0}\"": {
+            "en-us": "Position=\"{0}\""
+        },
+        "内容{0}": {
+            "en-us": "Content {0}"
+        },
+        "内容项{0}": {
+            "en-us": "Content item {0}"
+        },
+        "卡片{0}": {
+            "en-us": "Card {0}"
+        },
+        "卡片已点击{0}次，当前点击的是：{1}": {
+            "en-us": "Card clicked {0} times; current card: {1}"
+        },
+        "卡片网格{0}": {
+            "en-us": "Card grid {0}"
+        },
+        "卡片网格已点击{0}次，当前点击的是：{1}": {
+            "en-us": "Card grid clicked {0} times; current grid: {1}"
+        },
+        "右键菜单选项{0}": {
+            "en-us": "Context menu option {0}"
+        },
+        "向下滚动{0}px出现按钮": {
+            "en-us": "Show the button after scrolling down {0}px"
+        },
+        "向下滚动一段距离，点击按钮后{0}秒内滚动回顶部": {
+            "en-us": "Scroll down, then click the button to return to the top in {0} seconds"
+        },
+        "四川省-操作选项{0}": {
+            "en-us": "Sichuan - action {0}"
+        },
+        "图标{0}": {
+            "en-us": "Icon {0}"
+        },
+        "子菜单{0}": {
+            "en-us": "Submenu {0}"
+        },
+        "字段{0}": {
+            "en-us": "Field {0}"
+        },
+        "字段{0}第{1}行": {
+            "en-us": "Field {0}, row {1}"
+        },
+        "字段{0}说明": {
+            "en-us": "Field {0} description"
+        },
+        "已滚动{0}px": {
+            "en-us": "Scrolled {0}px"
+        },
+        "弹框相对元素位置：{0}": {
+            "en-us": "Popup placement relative to the target: {0}"
+        },
+        "当前标签关闭按钮点击次数为：{0}次": {
+            "en-us": "Tab close button clicked {0} times"
+        },
+        "当前步骤为：步骤{0}": {
+            "en-us": "Current step: step {0}"
+        },
+        "手风琴项示例{0}": {
+            "en-us": "Accordion item {0}"
+        },
+        "按钮1-{0}": {
+            "en-us": "Button 1-{0}"
+        },
+        "按钮1: {0}": {
+            "en-us": "Button 1: {0}"
+        },
+        "按钮2-{0}-{1}": {
+            "en-us": "Button 2-{0}-{1}"
+        },
+        "按钮2: {0}": {
+            "en-us": "Button 2: {0}"
+        },
+        "按钮3-{0}-{1}": {
+            "en-us": "Button 3-{0}-{1}"
+        },
+        "按钮{0}": {
+            "en-us": "Button {0}"
+        },
+        "操作选项{0}": {
+            "en-us": "Action {0}"
+        },
+        "标签{0}": {
+            "en-us": "Tag {0}"
+        },
+        "标签{0}-{1}": {
+            "en-us": "Tag {0}-{1}"
+        },
+        "标签页{0}": {
+            "en-us": "Tab {0}"
+        },
+        "标签页自由增删示例 tabCount: {0}，标签页关闭次数：{1}": {
+            "en-us": "Add/remove tabs: tabCount: {0}, closed tabs: {1}"
+        },
+        "步骤{0}": {
+            "en-us": "Step {0}"
+        },
+        "步骤{0}的description": {
+            "en-us": "Step {0} description"
+        },
+        "步骤{0}的subTitle": {
+            "en-us": "Step {0} subtitle"
+        },
+        "步骤{0}的title": {
+            "en-us": "Step {0} title"
+        },
+        "用户{0}": {
+            "en-us": "User {0}"
+        },
+        "登录次数：{0}": {
+            "en-us": "Login count: {0}"
+        },
+        "示例1-{0}-{1}": {
+            "en-us": "Example 1-{0}-{1}"
+        },
+        "示例2-{0}-{1}": {
+            "en-us": "Example 2-{0}-{1}"
+        },
+        "示例内容{0}": {
+            "en-us": "Example content {0}"
+        },
+        "示例字符{0}": {
+            "en-us": "Example text {0}"
+        },
+        "章节{0}": {
+            "en-us": "Chapter {0}"
+        },
+        "第{0}行展开内容示例": {
+            "en-us": "Expanded content for row {0}"
+        },
+        "等级{0}": {
+            "en-us": "Level {0}"
+        },
+        "类型{0}": {
+            "en-us": "Type {0}"
+        },
+        "节点1-{0}": {
+            "en-us": "Node 1-{0}"
+        },
+        "节点2-2-{0}": {
+            "en-us": "Node 2-2-{0}"
+        },
+        "节点{0}": {
+            "en-us": "Node {0}"
+        },
+        "节点{0}-{1}": {
+            "en-us": "Node {0}-{1}"
+        },
+        "菜单项{0}": {
+            "en-us": "Menu item {0}"
+        },
+        "菜单项{0}-{1}-{2}": {
+            "en-us": "Menu item {0}-{1}-{2}"
+        },
+        "菜单项分组{0}-{1}": {
+            "en-us": "Menu group {0}-{1}"
+        },
+        "表单项{0}": {
+            "en-us": "Form item {0}"
+        },
+        "这是字段{0}的说明巴拉巴拉巴拉": {
+            "en-us": "Description for field {0}"
+        },
+        "这是标签页{0}balabalabala": {
+            "en-us": "Tab {0} example"
+        },
+        "这是标签页{0}的内容示例": {
+            "en-us": "Example content for tab {0}"
+        },
+        "这是步骤{0}的描述": {
+            "en-us": "Description for step {0}"
+        },
+        "这是组件型description参数示例，上面的按钮被点了{0}次": {
+            "en-us": "Component description example: the button above was clicked {0} times"
+        },
+        "这是表单项{0}的帮助信息": {
+            "en-us": "Help text for form item {0}"
+        },
+        "这是表单项{0}的设定值": {
+            "en-us": "Configured value for form item {0}"
+        },
+        "选项1-{0}": {
+            "en-us": "Option 1-{0}"
+        },
+        "选项2-{0}": {
+            "en-us": "Option 2-{0}"
+        },
+        "选项{0}": {
+            "en-us": "Option {0}"
+        },
+        "选项{0}-{1}": {
+            "en-us": "Option {0}-{1}"
+        },
+        "重庆市-操作选项{0}": {
+            "en-us": "Chongqing - action {0}"
+        }
+    }
+}

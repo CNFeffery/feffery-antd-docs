@@ -1,3 +1,4 @@
+from i18n import localized_output
 from dash import html
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
@@ -5,6 +6,7 @@ import feffery_markdown_components as fmc
 from dash.dependencies import Component
 
 
+@localized_output
 def render() -> Component:
     """渲染“进阶className的使用”文档页"""
 

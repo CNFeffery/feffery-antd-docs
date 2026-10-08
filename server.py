@@ -7,6 +7,7 @@ from dash_console_filter_plugin import setup_console_filter_plugin
 
 from config import AppConfig
 from utils.api_descriptions import get_components_docs
+from i18n import get_current_locale
 
 # 启用相关Dash Hooks插件
 
@@ -72,4 +73,6 @@ def get_docs():
 
         return get_components_docs(components)
 
+    if get_current_locale() == 'en-us':
+        return 'Invalid request. Examples: /get-docs?components=AntdButton, /get-docs?components=AntdButton,AntdAlert, /get-docs?components=all'
     return '无效的请求，正确请求范例：/get-docs?components=AntdButton、/get-docs?components=AntdButton,AntdAlert、/get-docs?components=all'

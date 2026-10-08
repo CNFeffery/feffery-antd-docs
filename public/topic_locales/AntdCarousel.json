@@ -1,0 +1,66 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdCarousel",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "对一组平级的元素进行轮播切换。": {
+            "en-us": "Cycle through a group of sibling elements."
+        },
+        "自动轮播": {
+            "en-us": "Autoplay"
+        },
+        "设置参数`autoplay=True`开启自动轮播。": {
+            "en-us": "Set `autoplay=True` to enable automatic slide transitions."
+        },
+        "自动轮播速度": {
+            "en-us": "Autoplay speed"
+        },
+        "设置参数`autoplaySpeed`控制自动轮播间隔时长。": {
+            "en-us": "Use `autoplaySpeed` to set the autoplay interval."
+        },
+        "指示器位置": {
+            "en-us": "Indicator placement"
+        },
+        "设置参数`dotPosition`控制走马灯指示器位置。": {
+            "en-us": "Use `dotPosition` to position the carousel indicators."
+        },
+        "渐显切换效果": {
+            "en-us": "Fade transitions"
+        },
+        "设置参数`effect='fade'`启用渐显切换效果。": {
+            "en-us": "Set `effect='fade'` to use fade transitions."
+        },
+        "动画过渡时长": {
+            "en-us": "Transition duration"
+        },
+        "设置参数`speed`控制切换动画过程毫秒耗时。": {
+            "en-us": "Use `speed` to set the transition duration in milliseconds."
+        },
+        "显示切换箭头": {
+            "en-us": "Navigation arrows"
+        },
+        "设置参数`arrows=True`开启额外的切换用箭头。": {
+            "en-us": "Set `arrows=True` to show navigation arrows."
+        },
+        "同时展示的子项数量": {
+            "en-us": "Slides displayed at a time"
+        },
+        "通过参数`slidesToShow`控制同时展示的子项数量。": {
+            "en-us": "Use `slidesToShow` to set the number of simultaneously visible slides."
+        },
+        "轮播划过的子项数量": {
+            "en-us": "Slides advanced per transition"
+        },
+        "通过参数`slidesToScroll`控制每次轮播划过的子项数量。": {
+            "en-us": "Use `slidesToScroll` to set the number of slides advanced per transition."
+        },
+        "开启指示器倒计时动画": {
+            "en-us": "Indicator countdown animation"
+        },
+        "配置`autoplay`参数开启指示器倒计时动画。": {
+            "en-us": "Configure `autoplay` to enable indicator countdown animations."
+        }
+    }
+}

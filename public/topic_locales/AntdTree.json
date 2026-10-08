@@ -1,0 +1,150 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdTree",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "树形控件的基础使用。": {
+            "en-us": "Basic tree usage."
+        },
+        "初始化展开全部节点": {
+            "en-us": "Expand all nodes initially"
+        },
+        "设置参数`defaultExpandAll=True`后，初始化时将展开全部节点。": {
+            "en-us": "Set `defaultExpandAll=True` to expand all nodes initially."
+        },
+        "不显示连接线": {
+            "en-us": "Hide connecting lines"
+        },
+        "设置参数`showLine=False`后，将隐藏树内部的连接线。": {
+            "en-us": "Set `showLine=False` to hide tree connecting lines."
+        },
+        "节点前缀图标": {
+            "en-us": "Node prefix icons"
+        },
+        "设置参数`showIcon=True`后，将显示各节点所定义的前缀图标。": {
+            "en-us": "Set `showIcon=True` to show the prefix icons defined for nodes."
+        },
+        "自定义展开图标": {
+            "en-us": "Custom expand icon"
+        },
+        "通过参数`switcherIcon`可以传入**AntdIcon**中的`'antd-*'`类型图标组件，作为节点展开/收起控制图标。": {
+            "en-us": "Use `switcherIcon` with an **AntdIcon** `'antd-*'` icon component to control node expansion and collapse."
+        },
+        "自定义节点样式": {
+            "en-us": "Custom node styles"
+        },
+        "精确控制每个节点的样式。": {
+            "en-us": "Precisely control styles for individual nodes."
+        },
+        "节点添加信息提示": {
+            "en-us": "Node tooltips"
+        },
+        "各节点可自由添加随鼠标移入触发的信息提示内容。": {
+            "en-us": "Add a hover tooltip to any node."
+        },
+        "节点添加右键菜单": {
+            "en-us": "Node context menus"
+        },
+        "各节点可自由添加随鼠标右键触发的下拉菜单。": {
+            "en-us": "Add a context menu to any node."
+        },
+        "虚拟滚动": {
+            "en-us": "Virtual scrolling"
+        },
+        "设置参数`height`后将开启固定像素高度下的虚拟滚动功能，适用于数据量较大的场景。": {
+            "en-us": "Set `height` to enable virtual scrolling within a fixed pixel height, suitable for large datasets."
+        },
+        "多选模式": {
+            "en-us": "Multiple selection"
+        },
+        "设置参数`multiple=True`后将开启多选模式。": {
+            "en-us": "Set `multiple=True` to enable multiple selection."
+        },
+        "带勾选框的多选模式": {
+            "en-us": "Multiple selection with checkboxes"
+        },
+        "设置参数`checkable=True`后可为多选模式额外添加节点勾选框。": {
+            "en-us": "Set `checkable=True` to add node checkboxes in multiple selection mode."
+        },
+        "节点勾选状态样式": {
+            "en-us": "Checked node styles"
+        },
+        "控制节点在不同勾选状态下的额外样式。": {
+            "en-us": "Customize node styles for checked and unchecked states."
+        },
+        "节点勾选状态后缀": {
+            "en-us": "Checked node suffixes"
+        },
+        "控制节点在不同勾选状态下的额外后缀内容。": {
+            "en-us": "Customize node suffix content for checked and unchecked states."
+        },
+        "父子节点独立勾选": {
+            "en-us": "Independent parent/child checking"
+        },
+        "设置参数`checkStrictly=True`后，父子节点间的勾选行为将彼此独立。": {
+            "en-us": "Set `checkStrictly=True` to make parent and child checking independent."
+        },
+        "扁平treeData模式": {
+            "en-us": "Flat treeData"
+        },
+        "设置参数`treeDataMode='flat'`后，树结构应当传入扁平形式数据。": {
+            "en-us": "Set `treeDataMode='flat'` to provide the tree as flat data."
+        },
+        "树节点可拖拽": {
+            "en-us": "Draggable tree nodes"
+        },
+        "在参数`treeDataMode='tree'`的前提下，通过设置参数`draggable=True`可开启树节点拖拽功能。": {
+            "en-us": "Set `draggable=True` with `treeDataMode='tree'` to enable tree node dragging."
+        },
+        "限制仅允许同级拖拽": {
+            "en-us": "Restrict dragging to the same level"
+        },
+        "设置参数`dragInSameLevel=True`后，节点拖拽行为只允许在同一层级下进行。": {
+            "en-us": "Set `dragInSameLevel=True` to restrict node dragging to the same level."
+        },
+        "回调监听": {
+            "en-us": "Callbacks"
+        },
+        "通过回调函数监听常见的交互事件。": {
+            "en-us": "Monitor common interaction events through callbacks."
+        },
+        "节点拖拽回调监听": {
+            "en-us": "Node drag callbacks"
+        },
+        "通过回调函数监听节点拖拽事件。": {
+            "en-us": "Monitor node drag events through callbacks."
+        },
+        "节点右键菜单点击回调监听": {
+            "en-us": "Node context menu callbacks"
+        },
+        "通过回调函数监听节点右键菜单点击事件。": {
+            "en-us": "Monitor node context menu clicks through callbacks."
+        },
+        "快捷树搜索": {
+            "en-us": "Quick tree search"
+        },
+        "基于参数`searchKeyword`快捷构建树搜索功能。": {
+            "en-us": "Use `searchKeyword` to add quick tree search."
+        },
+        "节点收藏功能": {
+            "en-us": "Node favorites"
+        },
+        "快捷构建具有节点收藏功能的树形控件。": {
+            "en-us": "Build a tree with node favorites."
+        },
+        "节点滚动动作": {
+            "en-us": "Scroll to a node"
+        },
+        "基于参数`scrollTarget`针对已展开的节点进行节点滚动动作。": {
+            "en-us": "Use `scrollTarget` to scroll to an expanded node."
+        },
+        "异步加载节点": {
+            "en-us": "Load nodes asynchronously"
+        },
+        "设置参数`enableAsyncLoad=True`后，对于未设置`isLeaf`为`True`且无`children`属性的节点，可通过回调监听节点展开信息，从而实现异步更新树结构。": {
+            "en-us": "Set `enableAsyncLoad=True` to monitor expansion of nodes that have no `children` and do not set `isLeaf` to `True`, then update the tree asynchronously through callbacks."
+        }
+    }
+}

@@ -1,3 +1,4 @@
+from i18n import localized_callback, translate_visible_text
 import feffery_antd_components as fac
 import feffery_utils_components as fuc
 from dash.dependencies import Component, Input, Output, State, ALL
@@ -92,6 +93,7 @@ def render() -> Component:
     Input('tag-close-counts-add-btn-demo', 'nClicks'),
     prevent_initial_call=True,
 )
+@localized_callback(('children', 'style'))
 def add_tag_callback(nClicks):
     return fac.AntdInput(
         id='tag-close-counts-input-demo',
@@ -117,6 +119,7 @@ def add_tag_callback(nClicks):
     ],
     prevent_initial_call=True,
 )
+@localized_callback(('children', 'style'))
 def switch_show_add_btn_callback(focusing, nSubmit):
     if not focusing or nSubmit:
         return [], {}
@@ -166,7 +169,7 @@ def add_tag_add_btn_callback(focusing, nSubmit, value, children):
             html.Div(
                 [
                     fac.AntdButton(
-                        '新增标签',
+                        translate_visible_text('新增标签'),
                         icon=fac.AntdIcon(icon='antd-plus'),
                         type='dashed',
                         size='small',

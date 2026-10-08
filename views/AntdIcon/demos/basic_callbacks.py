@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import feffery_antd_components as fac
 from dash.dependencies import Component, Input, Output
 
@@ -86,6 +87,7 @@ def render() -> Component:
     Input('icon-basic-event', 'nClicks'),
     prevent_initial_call=True,
 )
+@localized_callback(('children',))
 def icon_basic_event(nClicks):
     return f'nClicks: {nClicks}'
 
@@ -95,6 +97,7 @@ def icon_basic_event(nClicks):
     Input('icon-debounce-event', 'nClicks'),
     prevent_initial_call=True,
 )
+@localized_callback(('children',))
 def icon_debounce_event(nClicks):
     return f'nClicks: {nClicks}'
 

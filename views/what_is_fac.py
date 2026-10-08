@@ -1,5 +1,4 @@
 from dash import html
-from flask import request
 from datetime import datetime
 import feffery_antd_components as fac
 from dash.dependencies import Component
@@ -7,7 +6,7 @@ from dash.dependencies import Component
 from server import app
 
 # 国际化
-from i18n import translator
+from i18n import translator, get_current_locale
 
 latest_deploy_datetime = datetime.today().strftime('%Y-%m-%d')
 
@@ -15,7 +14,7 @@ latest_deploy_datetime = datetime.today().strftime('%Y-%m-%d')
 def render() -> Component:
     """渲染“fac是什么”文档页"""
 
-    current_locale = request.cookies.get(translator.cookie_name, 'zh-cn')
+    current_locale = get_current_locale()
 
     return html.Div(
         [

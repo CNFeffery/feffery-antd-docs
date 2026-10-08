@@ -9,34 +9,38 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         # 构造演示用例相关内容
         demo_contents = fac.AntdAccordion(
             items=[
                 {
-                    "title": f"手风琴项示例{i}",
-                    "key": i,
-                    "children": fac.AntdText(f"手风琴项示例{i}"),
-                    "extra": fac.AntdButton("额外内容", type="link", size="small"),
+                    'title': f'手风琴项示例{i}',
+                    'key': i,
+                    'children': fac.AntdText(f'手风琴项示例{i}'),
+                    'extra': fac.AntdButton(
+                        '额外内容', type='link', size='small'
+                    ),
                 }
                 for i in range(1, 6)
             ],
-            collapsible="header",
+            collapsible='header',
         )
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         # construct demo contents
         demo_contents = fac.AntdAccordion(
             items=[
                 {
-                    "title": f"Accordion item example {i}",
-                    "key": i,
-                    "children": fac.AntdText(f"Accordion item example {i}"),
-                    "extra": fac.AntdButton("Extra content", type="link", size="small"),
+                    'title': f'Accordion item example {i}',
+                    'key': i,
+                    'children': fac.AntdText(f'Accordion item example {i}'),
+                    'extra': fac.AntdButton(
+                        'Extra content', type='link', size='small'
+                    ),
                 }
                 for i in range(1, 6)
             ],
-            collapsible="header",
+            collapsible='header',
         )
 
     return demo_contents
@@ -47,10 +51,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdAccordion(
     items=[
         {
@@ -67,10 +71,10 @@ fac.AntdAccordion(
             }
         ]
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdAccordion(
     items=[
         {

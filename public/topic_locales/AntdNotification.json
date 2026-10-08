@@ -1,0 +1,42 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdNotification",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "通知提醒框的常规使用方式是通过回调向某个容器输出，每一次输出都会触发一条新的通知提醒框的新增。": {
+            "en-us": "Return a notification component into a container from a callback. Each output adds a new notification."
+        },
+        "通知类型": {
+            "en-us": "Notification types"
+        },
+        "通过参数`type`控制通知提醒框的类型。": {
+            "en-us": "Use `type` to choose the notification type."
+        },
+        "弹出位置": {
+            "en-us": "Popup placement"
+        },
+        "通过参数`placement`控制通知提醒框的弹出位置。": {
+            "en-us": "Use `placement` to position notifications."
+        },
+        "修改延时": {
+            "en-us": "Change the delay"
+        },
+        "通过参数`duration`控制通知提醒框的显示时长。": {
+            "en-us": "Use `duration` to set how long a notification is displayed."
+        },
+        "显示关闭进度条": {
+            "en-us": "Close countdown progress"
+        },
+        "设置参数`showProgress=True`显示关闭进度条。": {
+            "en-us": "Set `showProgress=True` to display automatic close progress."
+        },
+        "堆叠模式": {
+            "en-us": "Stacked notifications"
+        },
+        "设置参数`stack=True`启用堆叠模式。": {
+            "en-us": "Set `stack=True` to enable stacked notifications."
+        }
+    }
+}

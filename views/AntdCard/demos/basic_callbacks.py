@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import feffery_antd_components as fac
 from dash.dependencies import Component, Input, Output, ALL
 from dash import html
@@ -56,6 +57,7 @@ def render() -> Component:
     Input({'type': 'card-click-demo', 'index': ALL}, 'nClicks'),
     prevent_initial_call=True,
 )
+@localized_callback(('children',))
 def card_click_callback(nClicks):
     nClicks = [i for i in nClicks if i is not None]
     num = sum(nClicks)
@@ -69,6 +71,7 @@ def card_click_callback(nClicks):
     Input({'type': 'card-grid-click-demo', 'index': ALL}, 'nClicks'),
     prevent_initial_call=True,
 )
+@localized_callback(('children',))
 def card_grid_click_callback(nClicks):
     nClicks = [i for i in nClicks if i is not None]
     num = sum(nClicks)

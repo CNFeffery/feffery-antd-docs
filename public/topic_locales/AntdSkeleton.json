@@ -1,0 +1,36 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdSkeleton",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "默认情况下，骨架屏会监听其内部的各个组件是否处于回调函数运算输出中状态，从而自动控制加载状态的切换。": {
+            "en-us": "By default, the skeleton monitors callback activity of its nested components and updates its loading state automatically."
+        },
+        "动态扫屏效果": {
+            "en-us": "Animated shimmer"
+        },
+        "设置参数`active=True`为骨架屏添加动态扫屏效果。": {
+            "en-us": "Set `active=True` to animate the skeleton with a shimmer effect."
+        },
+        "调整骨架屏不同部分": {
+            "en-us": "Skeleton element settings"
+        },
+        "对骨架屏中表达不同内容的部分进行灵活调整。": {
+            "en-us": "Adjust the skeleton placeholders for different types of content."
+        },
+        "排除监听模式": {
+            "en-us": "Exclude monitoring mode"
+        },
+        "设置参数`listenPropsMode='exclude'`开启排除监听模式，该模式下骨架屏将忽略监听参数`excludeProps`所定义的组件属性更新过程。": {
+            "en-us": "Set `listenPropsMode='exclude'` so the skeleton ignores updates to component properties listed in `excludeProps`."
+        },
+        "包含监听模式": {
+            "en-us": "Include monitoring mode"
+        },
+        "设置参数`listenPropsMode='include'`开启包含监听模式，该模式下骨架屏将只监听参数`includeProps`所定义的组件属性更新过程。": {
+            "en-us": "Set `listenPropsMode='include'` so the skeleton monitors only component properties listed in `includeProps`."
+        }
+    }
+}

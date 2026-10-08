@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import feffery_antd_components as fac
 from dash import html
 from dash.dependencies import Component, Input, Output
@@ -24,6 +25,7 @@ def render() -> Component:
     Input('message-basic-demo-new', 'nClicks'),
     prevent_initial_call=True,
 )
+@localized_callback(('children',))
 def message_basic_demo(nClicks):
     return fac.AntdMessage(
         content='Hello, feffery-antd-components!', type='info'

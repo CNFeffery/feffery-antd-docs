@@ -9,126 +9,130 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         demo_contents = fac.AntdSpace(
             [
                 fac.AntdDivider(
-                    "allowClear=True（默认值）", innerTextOrientation="left"
+                    'allowClear=True（默认值）', innerTextOrientation='left'
                 ),
                 fac.AntdSelect(
                     placeholder='mode="default"（默认）',
-                    options=[f"选项{i}" for i in range(1, 6)],
-                    value="选项1",
+                    options=[f'选项{i}' for i in range(1, 6)],
+                    value='选项1',
                     allowClear=True,
-                    style={"width": "100%"},
+                    style={'width': '100%'},
                 ),
                 fac.AntdSelect(
                     placeholder='mode="multiple"',
-                    mode="multiple",
-                    options=[f"选项{i}" for i in range(1, 6)],
-                    value=[f"选项{i}" for i in range(1, 3)],
+                    mode='multiple',
+                    options=[f'选项{i}' for i in range(1, 6)],
+                    value=[f'选项{i}' for i in range(1, 3)],
                     allowClear=True,
-                    style={"width": "100%"},
+                    style={'width': '100%'},
                 ),
                 fac.AntdSelect(
                     placeholder='mode="tags"',
-                    mode="tags",
-                    options=[f"选项{i}" for i in range(1, 6)],
-                    value=["选项1", "自由新增选项"],
+                    mode='tags',
+                    options=[f'选项{i}' for i in range(1, 6)],
+                    value=['选项1', '自由新增选项'],
                     allowClear=True,
-                    style={"width": "100%"},
+                    style={'width': '100%'},
                 ),
-                fac.AntdDivider("allowClear=False", innerTextOrientation="left"),
+                fac.AntdDivider(
+                    'allowClear=False', innerTextOrientation='left'
+                ),
                 fac.AntdSelect(
                     placeholder='mode="default"（默认）',
-                    options=[f"选项{i}" for i in range(1, 6)],
-                    value="选项1",
+                    options=[f'选项{i}' for i in range(1, 6)],
+                    value='选项1',
                     allowClear=False,
-                    style={"width": "100%"},
+                    style={'width': '100%'},
                 ),
                 fac.AntdSelect(
                     placeholder='mode="multiple"',
-                    mode="multiple",
-                    options=[f"选项{i}" for i in range(1, 6)],
-                    value=[f"选项{i}" for i in range(1, 3)],
+                    mode='multiple',
+                    options=[f'选项{i}' for i in range(1, 6)],
+                    value=[f'选项{i}' for i in range(1, 3)],
                     allowClear=False,
-                    style={"width": "100%"},
+                    style={'width': '100%'},
                 ),
                 fac.AntdSelect(
                     placeholder='mode="tags"',
-                    mode="tags",
-                    options=[f"选项{i}" for i in range(1, 6)],
-                    value=["选项1", "自由新增选项"],
+                    mode='tags',
+                    options=[f'选项{i}' for i in range(1, 6)],
+                    value=['选项1', '自由新增选项'],
                     allowClear=False,
-                    style={"width": "100%"},
+                    style={'width': '100%'},
                 ),
             ],
-            direction="vertical",
-            style={"width": 350},
+            direction='vertical',
+            style={'width': 350},
         )
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         demo_contents = fac.AntdSpace(
             [
                 fac.AntdDivider(
-                    "allowClear=True (default)", innerTextOrientation="left"
+                    'allowClear=True (default)', innerTextOrientation='left'
                 ),
                 fac.AntdSelect(
                     placeholder='mode="default" (default)',
-                    options=[f"Option {i}" for i in range(1, 6)],
-                    value="Option 1",
+                    options=[f'Option {i}' for i in range(1, 6)],
+                    value='Option 1',
                     allowClear=True,
-                    style={"width": "100%"},
-                    locale="en-us",
+                    style={'width': '100%'},
+                    locale='en-us',
                 ),
                 fac.AntdSelect(
                     placeholder='mode="multiple"',
-                    mode="multiple",
-                    options=[f"Option {i}" for i in range(1, 6)],
-                    value=[f"Option {i}" for i in range(1, 3)],
+                    mode='multiple',
+                    options=[f'Option {i}' for i in range(1, 6)],
+                    value=[f'Option {i}' for i in range(1, 3)],
                     allowClear=True,
-                    style={"width": "100%"},
-                    locale="en-us",
+                    style={'width': '100%'},
+                    locale='en-us',
                 ),
                 fac.AntdSelect(
                     placeholder='mode="tags"',
-                    mode="tags",
-                    options=[f"Option {i}" for i in range(1, 6)],
-                    value=["Option 1", "Newly added option"],
+                    mode='tags',
+                    options=[f'Option {i}' for i in range(1, 6)],
+                    value=['Option 1', 'Newly added option'],
                     allowClear=True,
-                    style={"width": "100%"},
-                    locale="en-us",
+                    style={'width': '100%'},
+                    locale='en-us',
                 ),
-                fac.AntdDivider("allowClear=False", innerTextOrientation="left"),
+                fac.AntdDivider(
+                    'allowClear=False', innerTextOrientation='left'
+                ),
                 fac.AntdSelect(
                     placeholder='mode="default" (default)',
-                    options=[f"Option {i}" for i in range(1, 6)],
-                    value="Option 1",
+                    options=[f'Option {i}' for i in range(1, 6)],
+                    value='Option 1',
                     allowClear=False,
-                    style={"width": "100%"},
-                    locale="en-us",
+                    style={'width': '100%'},
+                    locale='en-us',
                 ),
                 fac.AntdSelect(
                     placeholder='mode="multiple"',
-                    mode="multiple",
-                    options=[f"Option {i}" for i in range(1, 6)],
-                    value=[f"Option {i}" for i in range(1, 3)],
+                    mode='multiple',
+                    options=[f'Option {i}' for i in range(1, 6)],
+                    value=[f'Option {i}' for i in range(1, 3)],
                     allowClear=False,
-                    style={"width": "100%"},
-                    locale="en-us",
+                    style={'width': '100%'},
+                    locale='en-us',
                 ),
                 fac.AntdSelect(
                     placeholder='mode="tags"',
-                    mode="tags",
-                    options=[f"Option {i}" for i in range(1, 6)],
-                    value=["Option 1", "Newly added option"],
+                    mode='tags',
+                    options=[f'Option {i}' for i in range(1, 6)],
+                    value=['Option 1', 'Newly added option'],
                     allowClear=False,
-                    style={"width": "100%"},
-                    locale="en-us",
+                    style={'width': '100%'},
+                    locale='en-us',
                 ),
             ],
-            direction="vertical",
-            style={"width": 350},
+            direction='vertical',
+            style={'width': 350},
         )
 
     return demo_contents
@@ -139,10 +143,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         fac.AntdDivider('allowClear=True（默认值）', innerTextOrientation='left'),
@@ -200,10 +204,10 @@ fac.AntdSpace(
 """
             }
         ]
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         fac.AntdDivider('allowClear=True (default)', innerTextOrientation='left'),

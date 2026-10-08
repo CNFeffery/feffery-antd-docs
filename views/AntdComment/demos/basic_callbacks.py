@@ -1,3 +1,4 @@
+from i18n import translate_visible_text
 import dash
 import uuid
 from datetime import datetime
@@ -82,7 +83,7 @@ def comment_demo_add_children_callback(nClicks, deleteClicks, value, children):
                     'type': 'comment-demo-children',
                     'index': str(uuid.uuid4()),
                 },
-                authorName='dash学习者',
+                authorName=translate_visible_text('dash学习者'),
                 publishTime={
                     'value': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
                     'format': 'YYYY-MM-DD hh:mm:ss',
@@ -97,7 +98,7 @@ def comment_demo_add_children_callback(nClicks, deleteClicks, value, children):
                     'type': 'comment-demo-children',
                     'index': str(uuid.uuid4()),
                 },
-                authorName='dash学习者',
+                authorName=translate_visible_text('dash学习者'),
                 publishTime={
                     'value': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
                     'format': 'YYYY-MM-DD hh:mm:ss',

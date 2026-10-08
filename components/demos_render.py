@@ -11,11 +11,12 @@ from components import mock_browser
 from utils.doc_renderer import MarkdownRenderer
 
 # 国际化
-from i18n import translator
+from i18n import translator, localized_output
 
 description_renderer = MarkdownRenderer()
 
 
+@localized_output
 def render(
     component: Component,
     demos_config: Union[list, Callable],
@@ -40,7 +41,8 @@ def render(
                                     fuc.FefferyLazyLoad(
                                         html.Iframe(
                                             src='/~demo/{}/{}{}'.format(
-                                                component.__name__,
+                                                section_name
+                                                or component.__name__,
                                                 demo['path'],
                                                 '?'
                                                 + '&'.join(
@@ -223,9 +225,11 @@ def render(
                             }
                             # 兼容处理不同类型的code_string
                             for item in (
-                                lambda code_string: code_string
-                                if isinstance(code_string, list)
-                                else code_string()
+                                lambda code_string: (
+                                    code_string
+                                    if isinstance(code_string, list)
+                                    else code_string()
+                                )
                             )(
                                 (
                                     getattr(

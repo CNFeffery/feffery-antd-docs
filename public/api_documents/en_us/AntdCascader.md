@@ -1,119 +1,116 @@
 - id (string; optional):
-    The unique identifier for the component.
-
-- allowClear (boolean; default True):
-    Whether to allow one-click clearing of the selected value. Default value: `True`.
-
-- aria-* (string; optional):
-    Wildcard for `aria-*` format attributes.
-
-- autoFocus (boolean; default False):
-    Whether to automatically focus. Default value: `False`.
-
-- batchPropsNames (list of strings; optional):
-    A list of property names to include in [batch property listening](/batch-props-values).
-
-- batchPropsValues (dict; optional):
-    Listens to the values of several properties specified in `batchPropsNames`.
-
-- bordered (boolean; default True):
-    Whether to display a border, setting it to `True` is equivalent to `variant='outlined'`. Default value: `True`.
-
-- changeOnSelect (boolean; default False):
-    Whether to update the selected value when any node in the cascade selection is chosen. Default value: `False`.
-
-- className (string | dict; optional):
-    The current component's CSS class name, supports [dynamic CSS](/advanced-classname).
-
-- data-* (string; optional):
-    Wildcard for `data-*` format attributes.
-
-- defaultValue (list of string | numbers | list of list of string | numbers; optional):
-    The initial selected values.
-
-- disabled (boolean; default False):
-    Whether to disable the current component. Default value: `False`.
-
-- expandTrigger (a value equal to: 'click', 'hover'; default 'click'):
-    The trigger method for expanding the selection menu, options include `'click'`, `'hover'`. Default value: `'click'`.
+    Unique identifier for the component.
 
 - key (string; optional):
-    Updating the `key` value of the current component can force a redraw of the component.
+    Update the component’s `key` to force it to remount.
 
-- loading_state (dict; optional):
-    `loading_state` is a dictionary with keys:
-    - component_name (string; optional):
-        Holds the name of the component that is loading.
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-    - prop_name (string; optional):
-        Holds which property is loading.
+- className (string | dict; optional):
+    CSS class name of the component. Supports [dynamic CSS classes](/advanced-classname).
 
-- locale (a value equal to: 'zh-cn', 'en-us', 'de-de'; default 'zh-cn'):
-    The language of the component's text, options include `'zh-cn'` (Simplified Chinese), `'en-us'` (English), `'de-de'` (German). Default value: `'zh-cn'`.
-
-- maxTagCount (number | a value equal to: 'responsive'; optional):
-    The maximum number of selected values displayed when `multiple=True`.
-
-- multiple (boolean; default False):
-    Whether to enable multi-selection mode. Default value: `False`.
+- popupClassName (string; optional):
+    CSS class name for the expanded menu.
 
 - name (string; optional):
-    Used in conjunction with the `AntdForm` form batch value collection/control feature, serving as the field name for the current form item, with `id` as the default value.
+    Used with `AntdForm` for batch value collection/control, serving as the field name of the current form item, with `id` as the default value.
 
-- optionFilterProp (a value equal to: 'value', 'label'; default 'label'):
-    The target field for option keyword search, options include `'value'`, `'label'`. Default value: `'label'`.
+- enableBatchControl (boolean; default True):
+    Controls whether the current component participates in the effective `AntdForm` batch value collection/control feature. Default: `True`.
 
-- options (list; required):
-    Defines the data structure required for constructing cascade selection, consistent with `optionsMode`.
+- locale (a value equal to: 'zh-cn', 'en-us', 'de-de', 'ru-ru', 'fr-fr'; default 'zh-cn'):
+    Component language: `'zh-cn'` (Simplified Chinese), `'en-us'` (English), `'de-de'` (German), `'fr-fr'` (French), or `'ru-ru'` (Russian). Default: `'zh-cn'`.
 
 - optionsMode (a value equal to: 'tree', 'flat'; default 'tree'):
     The rendering mode corresponding to the `options` format, options include `'tree'` (tree mode), `'flat'` (flat mode). Default value: `'tree'`.
 
+- options (list; required):
+    Defines the data structure required for constructing cascade selection, consistent with `optionsMode`.
+
 - optionsNodeKeyToLabel (dict with strings as keys and values of type a list of or a singular dash component, string or number; optional):
     For specified nodes in the cascade structure, defines the component-type content that serves as the title, with higher priority than the corresponding `label` value in `options`.
+
+- optionFilterProp (a value equal to: 'value', 'label'; default 'label'):
+    The target field for option keyword search, options include `'value'`, `'label'`. Default value: `'label'`.
 
 - panelMode (boolean; default False):
     Whether to enable the embedded panel mode. Default value: `False`.
 
-- persisted_props (list of a value equal to: 'value's; default ['value']):
-    The names of several properties that enable attribute persistence, with the option of `'value'`. Default value: `['value']`.
+- disabled (boolean; default False):
+    Whether to disable the current component. Default: `False`.
 
-- persistence (boolean | string | number; optional):
-    Whether to enable [property persistence](/prop-persistence).
+- changeOnSelect (boolean; default False):
+    Whether to update the selected value when any node in the cascade selection is chosen. Default value: `False`.
 
-- persistence_type (a value equal to: 'local', 'session', 'memory'; default 'local'):
-    The storage type for property persistence, options include `'local'` (local persistence), `'session'` (session persistence), `'memory'` (memory persistence). Default value: `'local'`.
+- size (a value equal to: 'small', 'middle', 'large'; optional):
+    Current component size specification. Options are `'small'`, `'middle'`, `'large'`. Default: `'middle'`.
+
+- bordered (boolean; default True):
+    Whether to show the border. When set to `True`, it is equivalent to `variant='outlined'`. Default: `True`.
+
+- variant (a value equal to: 'outlined', 'borderless', 'filled', 'underlined'; optional):
+    Variant type. Options are `'outlined'`, `'borderless'`, `'filled'`, `'underlined'`. Among them, `'outlined'` is equivalent to `bordered=True`, but with higher priority.
 
 - placeholder (string; optional):
-    The placeholder text content of the input box.
+    Placeholder text content for the input box.
 
 - placement (a value equal to: 'bottomLeft', 'bottomRight', 'topLeft', 'topRight'; default 'bottomLeft'):
     The direction in which the selection menu expands, options include `'bottomLeft'`, `'bottomRight'`, `'topLeft'`, `'topRight'`. Default value: `'bottomLeft'`.
 
-- popupClassName (string; optional):
-    The CSS class name of the expanded menu.
+- value (list of string | numbers | list of list of string | numberss; optional):
+    Listen to or set the selected value(s).
 
-- popupContainer (a value equal to: 'parent', 'body'; default 'body'):
-    The anchoring strategy for the related expansion layer, options include `'parent'`, `'body'`. Default value: `'body'`.
+- defaultValue (list of string | numbers | list of list of string | numberss; optional):
+    Initial selected value(s).
 
-- readOnly (boolean; optional):
-    Whether to render in read-only state. Default value: `False`.
+- multiple (boolean; default False):
+    Whether to enable multi-selection mode. Default value: `False`.
+
+- maxTagCount (number | a value equal to: 'responsive'; optional):
+    The maximum number of selected values displayed when `multiple=True`.
+
+- expandTrigger (a value equal to: 'click', 'hover'; default 'click'):
+    The trigger method for expanding the selection menu, options include `'click'`, `'hover'`. Default value: `'click'`.
+
+- status (a value equal to: 'error', 'warning'; optional):
+    Control the validation state. Options are `'error'`, `'warning'`.
+
+- allowClear (boolean; default True):
+    Whether to allow one-click clearing of selected values. Default: `True`.
+
+- autoFocus (boolean; default False):
+    Whether to automatically gain focus. Default: `False`.
 
 - showCheckedStrategy (a value equal to: 'show-parent', 'show-child'; optional):
     The strategy for filling in the selected options, options include `'show-parent'`, `'show-child'`.
 
-- size (a value equal to: 'small', 'middle', 'large'; optional):
-    The size specification of the current component, options include `'small'`, `'middle'`, `'large'`. Default value: `'middle'`.
+- prefix (a list of or a singular dash component, string or number; optional):
+    Component type, embedded prefix content.
 
-- status (a value equal to: 'error', 'warning'; optional):
-    Controls the validation status, options include `'error'`, `'warning'`.
+- suffixIcon (a list of or a singular dash component, string or number; optional):
+    Custom suffix icon content for the selection box.
 
-- style (dict; optional):
-    The current component's CSS styles.
+- readOnly (boolean; optional):
+    Whether to render as read-only. Default: `False`.
 
-- value (list of string | numbers | list of list of string | numbers; optional):
-    Listens for or sets the selected values.
+- popupContainer (a value equal to: 'parent', 'body'; default 'body'):
+    Anchoring strategy for the related popup layer. Options are `'parent'`, `'body'`. Default: `'body'`.
 
-- variant (a value equal to: 'outlined', 'borderless', 'filled'; optional):
-    The variant type, options include `'outlined'`, `'borderless'`, `'filled'`. Where `'outlined'` is equivalent to `bordered=True`, but has higher priority.
+- batchPropsNames (list of strings; optional):
+    Property names to include in [batch property monitoring](/batch-props-values).
+
+- batchPropsValues (dict; optional):
+    Values of the properties specified by `batchPropsNames`.
+
+- data-* (string; optional):
+    Wildcard support for `data-*` attributes.
+
+- aria-* (string; optional):
+    Wildcard support for `aria-*` attributes.
+
+- persistence (boolean | string | number; optional):
+    Whether to enable [property persistence](/prop-persistence).
+
+- persisted_props (list of a value equal to: 'value's; optional):
+    Several property names for which the persistence feature is enabled. Options are `'value'`. Default: `['value']`.
+
+- persistence_type (a value equal to: 'local', 'session', 'memory'; optional):
+    Type of persistent storage for properties. Options are `'local'` (local persistence), `'session'` (session persistence), `'memory'` (in-memory persistence) Default: `'local'`.

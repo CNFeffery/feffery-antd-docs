@@ -9,22 +9,22 @@ def render() -> Component:
 
     locale = get_current_locale()
 
-    if locale == "zh-cn":
+    if locale == 'zh-cn':
         demo_contents = fac.AntdSpace(
             [
                 fac.AntdDatePicker(),
-                fac.AntdDatePicker(placeholder="请选择日期时间", showTime=True),
+                fac.AntdDatePicker(placeholder='请选择日期时间', showTime=True),
             ],
             wrap=True,
         )
     else:
         demo_contents = fac.AntdSpace(
             [
-                fac.AntdDatePicker(locale="en-us"),
+                fac.AntdDatePicker(locale='en-us'),
                 fac.AntdDatePicker(
-                    placeholder="Please select date & time",
+                    placeholder='Please select date & time',
                     showTime=True,
-                    locale="en-us",
+                    locale='en-us',
                 ),
             ],
             wrap=True,
@@ -38,10 +38,10 @@ def code_string() -> list:
 
     locale = get_current_locale()
 
-    if locale == "zh-cn":
+    if locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         fac.AntdDatePicker(),
@@ -55,7 +55,7 @@ fac.AntdSpace(
     else:
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         fac.AntdDatePicker(locale="en-us"),

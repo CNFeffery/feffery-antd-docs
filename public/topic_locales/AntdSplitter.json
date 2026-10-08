@@ -37,6 +37,12 @@
         },
         "设置`lazy=True`启用延迟渲染模式，即在每次拖拽调整结束后才会更新布局。": {
             "en-us": "Enable the deferred rendering mode by setting `lazy=True`, that is, the layout will be updated only after the drag adjustment ends."
+        },
+        "嵌套组合": {
+            "en-us": "Embedded Group"
+        },
+        "通过嵌套组合分隔面板组件，实现更复杂的布局。": {
+            "en-us": "More complex layouts are achieved by nesting partition components."
         }
     }
 }

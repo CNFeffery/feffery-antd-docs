@@ -1,3 +1,4 @@
+from i18n import translate_visible_text
 import feffery_antd_components as fac
 from dash.dependencies import Component, Input, Output
 from server import app
@@ -42,7 +43,11 @@ def render() -> Component:
 def input_mode_demo(*value_list):
     return fac.AntdSpace(
         [
-            fac.AntdText(f'{mode}模式value：{value_list[i]}')
+            fac.AntdText(
+                translate_visible_text('{0}模式value：{1}').format(
+                    mode, value_list[i]
+                )
+            )
             for i, mode in enumerate(
                 ['default', 'search', 'text-area', 'password']
             )

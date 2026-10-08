@@ -45,7 +45,7 @@
             "en-us": "Set the parameter `align` to control the alignment of the pagination control."
         },
         "回调监听": {
-            "en-us": "Callback listener"
+            "en-us": "Callbacks"
         },
         "可用于监听分页相关事件。": {
             "en-us": "Used to listen to pagination related events."

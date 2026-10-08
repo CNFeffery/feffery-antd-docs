@@ -1,0 +1,24 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdAffix",
+    "contents": {
+        "下滑锚定": {
+            "en-us": "Affix on downward scrolling"
+        },
+        "设置参数`offsetTop`用于控制下滑触发元素相对页面顶部锚定的像素距离阈值。": {
+            "en-us": "Use `offsetTop` to set the top offset threshold for affixing during downward scrolling."
+        },
+        "上滑锚定": {
+            "en-us": "Affix on upward scrolling"
+        },
+        "设置参数`offsetBottom`用于控制上滑触发元素相对页面底部锚定的像素距离阈值。": {
+            "en-us": "Use `offsetBottom` to set the bottom offset threshold for affixing during upward scrolling."
+        },
+        "局部容器内锚定": {
+            "en-us": "Affix in a local container"
+        },
+        "设置参数`target`为固钉设置锚定参考的局部容器。": {
+            "en-us": "Use `target` to set a local reference container for affixing."
+        }
+    }
+}

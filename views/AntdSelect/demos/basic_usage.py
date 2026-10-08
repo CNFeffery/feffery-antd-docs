@@ -9,19 +9,22 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
-        demo_contents = fac.AntdSelect(
-            options=[{"label": f"选项{i}", "value": f"选项{i}"} for i in range(1, 6)],
-            style={"width": 350},
-        )
-
-    elif current_locale == "en-us":
+    if current_locale == 'zh-cn':
         demo_contents = fac.AntdSelect(
             options=[
-                {"label": f"Option {i}", "value": f"Option {i}"} for i in range(1, 6)
+                {'label': f'选项{i}', 'value': f'选项{i}'} for i in range(1, 6)
             ],
-            style={"width": 350},
-            locale="en-us",
+            style={'width': 350},
+        )
+
+    elif current_locale == 'en-us':
+        demo_contents = fac.AntdSelect(
+            options=[
+                {'label': f'Option {i}', 'value': f'Option {i}'}
+                for i in range(1, 6)
+            ],
+            style={'width': 350},
+            locale='en-us',
         )
 
     return demo_contents
@@ -32,10 +35,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSelect(
     options=[
         {'label': f'选项{i}', 'value': f'选项{i}'} for i in range(1, 6)
@@ -46,10 +49,10 @@ fac.AntdSelect(
             }
         ]
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSelect(
     options=[
         {'label': f'Option {i}', 'value': f'Option {i}'} for i in range(1, 6)

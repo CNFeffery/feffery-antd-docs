@@ -1,3 +1,5 @@
+from functools import partial
+from i18n import translator
 from dash.dependencies import Component
 
 from . import (
@@ -14,58 +16,69 @@ from . import (
 )
 from components import demos_render
 
-demos_config = [
-    {
-        'path': 'basic_usage',
-        'title': '基础使用',
-        'description': '最简单的单选框。',
-    },
-    {
-        'path': 'direction',
-        'title': '选项排列方向',
-        'description': '设置参数`direction`控制单选框的选项排列方向。',
-    },
-    {
-        'path': 'button_mode',
-        'title': '按钮模式',
-        'description': "设置参数`optionType='button'`时选项的渲染为按钮形式。",
-    },
-    {
-        'path': 'block',
-        'title': '撑满父容器',
-        'description': '设置参数`block=True`后单选框整体宽度将撑满父容器。',
-    },
-    {
-        'path': 'disabled_status',
-        'title': '禁用状态',
-        'description': '设置参数`disabled=True`开启禁用状态。',
-    },
-    {
-        'path': 'read_only_status',
-        'title': '只读状态',
-        'description': '设置参数`readOnly=True`开启只读状态。',
-    },
-    {
-        'path': 'sizes',
-        'title': '不同的尺寸规格',
-        'description': "当`optionType='button'`时，设置参数`size`控制各选项按钮尺寸规格。",
-    },
-    {
-        'path': 'fast_options',
-        'title': '快捷定义options',
-        'description': '当`options`每个元素的`label`和`value`值相同时，可通过传入一个包含字符串或数字的列表快速定义`options`。',
-    },
-    {
-        'path': 'component_label',
-        'title': '组件型label',
-        'description': '`options`中各选项的`label`支持传入组件。',
-    },
-    {
-        'path': 'basic_callbacks',
-        'title': '回调监听',
-        'description': None,
-    },
-]
+
+def demos_config() -> list:
+    t = partial(translator.t, locale_topic='AntdRadioGroup')
+    return [
+        {
+            'path': 'basic_usage',
+            'title': t('基础使用'),
+            'description': t('最简单的单选框。'),
+        },
+        {
+            'path': 'direction',
+            'title': t('选项排列方向'),
+            'description': t('设置参数`direction`控制单选框的选项排列方向。'),
+        },
+        {
+            'path': 'button_mode',
+            'title': t('按钮模式'),
+            'description': t(
+                "设置参数`optionType='button'`时选项的渲染为按钮形式。"
+            ),
+        },
+        {
+            'path': 'block',
+            'title': t('撑满父容器'),
+            'description': t(
+                '设置参数`block=True`后单选框整体宽度将撑满父容器。'
+            ),
+        },
+        {
+            'path': 'disabled_status',
+            'title': t('禁用状态'),
+            'description': t('设置参数`disabled=True`开启禁用状态。'),
+        },
+        {
+            'path': 'read_only_status',
+            'title': t('只读状态'),
+            'description': t('设置参数`readOnly=True`开启只读状态。'),
+        },
+        {
+            'path': 'sizes',
+            'title': t('不同的尺寸规格'),
+            'description': t(
+                "当`optionType='button'`时，设置参数`size`控制各选项按钮尺寸规格。"
+            ),
+        },
+        {
+            'path': 'fast_options',
+            'title': t('快捷定义options'),
+            'description': t(
+                '当`options`每个元素的`label`和`value`值相同时，可通过传入一个包含字符串或数字的列表快速定义`options`。'
+            ),
+        },
+        {
+            'path': 'component_label',
+            'title': t('组件型label'),
+            'description': t('`options`中各选项的`label`支持传入组件。'),
+        },
+        {
+            'path': 'basic_callbacks',
+            'title': t('回调监听'),
+            'description': None,
+        },
+    ]
 
 
 def render(component: Component, section_name: str = None) -> Component:

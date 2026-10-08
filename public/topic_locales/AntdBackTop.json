@@ -1,0 +1,36 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdBackTop",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "滚动一定距离后出现按钮，点击可回到顶部。": {
+            "en-us": "The button appears after scrolling a certain distance. Click it to return to the top."
+        },
+        "设置滚动耗时": {
+            "en-us": "Scroll duration"
+        },
+        "设置回到顶部动作的持续时间，单位为秒。": {
+            "en-us": "Set the back-to-top animation duration in seconds."
+        },
+        "设置组件出现的滚动高度阈值": {
+            "en-us": "Scroll threshold for displaying the button"
+        },
+        "设置当滚动高度超过该阈值时，才会显示回到顶部按钮。": {
+            "en-us": "The back-to-top button appears only after the scroll distance exceeds this threshold."
+        },
+        "绑定在局部容器中": {
+            "en-us": "Use a local container"
+        },
+        "可使用`containerId`和`containerSelector`两种参数的方式设置绑定的局部容器，`containerId`接受组件的id，`containerSelector`接受完整的js代码字符串，如`document.querySelector('#container')`。": {
+            "en-us": "Use `containerId` to identify a local container by ID, or `containerSelector` to supply JavaScript such as `document.querySelector('#container')`."
+        },
+        "基础回调": {
+            "en-us": "Basic callbacks"
+        },
+        "监听点击事件": {
+            "en-us": "Monitor click events."
+        }
+    }
+}

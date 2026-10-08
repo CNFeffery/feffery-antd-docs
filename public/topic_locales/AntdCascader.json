@@ -9,10 +9,10 @@
             "en-us": "In the default parameters, **AntdCascader** is used as a single choice mode to select the end leaf node."
         },
         "悬浮层展开方位": {
-            "en-us": "The expansion direction of the floating layer"
+            "en-us": "Popup placement"
         },
         "设置参数`placement`控制悬浮层展开方位。": {
-            "en-us": "Set the parameter `placement` to control the expansion direction of the floating layer."
+            "en-us": "Use `placement` to set the popup placement."
         },
         "移入展开": {
             "en-us": "When moving into the expansion"
@@ -21,10 +21,10 @@
             "en-us": "Set the parameter `expandTrigger='hover'` to trigger the sub-option expansion on mouse hover."
         },
         "多选模式": {
-            "en-us": "Multiple choice mode"
+            "en-us": "Multiple selection"
         },
         "设置参数`multiple=True`开启多选模式。": {
-            "en-us": "Set the parameter `multiple=True` to enable multiple choice mode."
+            "en-us": "Set `multiple=True` to enable multiple selection."
         },
         "选择非末端节点": {
             "en-us": "Select non-leaf nodes"
@@ -39,10 +39,10 @@
             "en-us": "Set the parameter `optionsMode='flat'` to enable flat options mode."
         },
         "禁用状态": {
-            "en-us": "Disabled status"
+            "en-us": "Disabled state"
         },
         "设置参数`disabled=True`开启禁用状态。": {
-            "en-us": "Set the parameter `disabled=True` to enable the disabled status."
+            "en-us": "Set `disabled=True` to disable the component."
         },
         "已选项回填策略": {
             "en-us": "Selected item backfill strategy"
@@ -51,28 +51,28 @@
             "en-us": "Set the parameter `showCheckedStrategy` to control the selected item backfill strategy."
         },
         "只读状态": {
-            "en-us": "Readonly status"
+            "en-us": "Read-only state"
         },
         "设置参数`readOnly=True`开启只读状态。": {
-            "en-us": "Set the parameter `readOnly=True` to enable the readonly status."
+            "en-us": "Set `readOnly=True` for the read-only state."
         },
         "内嵌前缀内容": {
             "en-us": "Embedded prefix content"
         },
         "通过参数`prefix`设置选择框内嵌前缀内容。": {
-            "en-us": "Set the selection box with embedded prefix content through the parameter `prefix`."
+            "en-us": "Use `prefix` to embed prefix content in the selection input."
         },
         "内嵌后缀图标": {
             "en-us": "Embedded suffix icon"
         },
         "通过参数`suffixIcon`设置选择框内嵌后缀图标。": {
-            "en-us": "Set the selection box with embedded suffix icon through the parameter `suffixIcon`."
+            "en-us": "Use `suffixIcon` to embed a suffix icon in the selection input."
         },
         "强制状态渲染": {
             "en-us": "Force status rendering"
         },
         "设置参数`status`强制状态渲染。": {
-            "en-us": "Set the parameter `status` to force status rendering."
+            "en-us": "Use `status` to force a status style."
         },
         "自定义选项label": {
             "en-us": "Custom option label"
@@ -93,7 +93,7 @@
             "en-us": "Set the parameter `panelMode=True` to enable the panel mode, which is suitable for scenarios requiring embedded applicable."
         },
         "回调监听": {
-            "en-us": "Callback listener"
+            "en-us": "Callbacks"
         },
         "用于监听级联选择的选择事件。": {
             "en-us": "Listen to the selection event of the cascade selection."

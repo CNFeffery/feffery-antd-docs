@@ -1,34 +1,53 @@
-- children (a list of or a singular dash component, string or number; optional):
-  Component type, embedded element within the button.
 - id (string; optional):
-  Unique identifier for the component.
-- className (string | dict; optional):
-  CSS class name for the current component, supports [dynamic CSS](/advanced-classname).
-- description (a list of or a singular dash component, string or number; optional):
-  Description content
-- icon (a list of or a singular dash component, string or number; optional):
-  Component type, prefix icon element nested within the button.
+    Unique identifier for the component.
+
 - key (string; optional):
-  Updating the `key` value of the current component can force a redraw of the component.
-- loading_state (dict; optional)
+    Update the component’s `key` to force it to remount.
 
-  `loading_state` is a dict with keys:
+- children (a list of or a singular dash component, string or number; optional):
+    Floating buttons contained in this group.
 
-  - component_name (string; optional):
-    Holds the name of the component that is loading.
-  - is_loading (boolean; optional):
-    Determines if the component is loading or not.
-  - prop_name (string; optional):
-    Holds which property is loading.
-- open (boolean; optional):
-  Set or listen to the open state of the current component.
-- shape (a value equal to: 'circle', 'square'; default 'circle'):
-  Shape of the button, options include `'circle'`, `'square'`. Default value: `'circle'`.
-- style (dict; optional):
-  CSS styles for the current component.
-- tooltip (a list of or a singular dash component, string or number; optional):
-  Component type, additional tooltip content for the button.
-- trigger (a value equal to: 'click', 'hover'; optional):
-  The trigger method for menu expansion mode. options include `'click'` , `'hover'`.
+- className (string | dict; optional):
+    CSS class name of the component. Supports [dynamic CSS classes](/advanced-classname).
+
+- icon (a list of or a singular dash component, string or number; optional):
+    Icon component.
+
+- description (a list of or a singular dash component, string or number; optional):
+    Description content.
+
+- tooltip (dict; optional):
+    Popover content.
+
+    `tooltip` is a list of or a singular dash component, string or
+    number | dict with keys:
+
+    - title (a list of or a singular dash component, string or number; optional):
+        Popover content.
+
+    - color (string; optional):
+        Popover background color.
+
+    - placement (a value equal to: 'top', 'left', 'right', 'bottom', 'topLeft', 'topRight', 'bottomLeft', 'bottomRight', 'leftTop', 'leftBottom', 'rightTop', 'rightBottom'; optional):
+        Popover placement. Supported values: `'top'`, `'left'`, `'right'`, `'bottom'`, `'topLeft'`, `'topRight'`, `'bottomLeft'`, `'bottomRight'`, `'leftTop'`, `'leftBottom'`, `'rightTop'`, `'rightBottom'`.
+
 - type (a value equal to: 'default', 'primary'; default 'default'):
-  Type of the button, options include `'default'`, `'primary'`. Default value: `'default'`.
+    Type of the button, options include `'default'`, `'primary'`. Default value: `'default'`.
+
+- shape (a value equal to: 'circle', 'square'; default 'circle'):
+    Shape of the nested floating buttons. Supported values: `'circle'`, `'square'`. Default: `'circle'`.
+
+- trigger (a value equal to: 'click', 'hover'; optional):
+    Trigger for expanding the menu. Supported values: `'click'`, `'hover'`.
+
+- placement (a value equal to: 'top', 'right', 'bottom', 'left'; optional):
+    Menu placement. Supported values: `'top'`, `'right'`, `'bottom'`, `'left'`.
+
+- open (boolean; optional):
+    Set or monitor whether the floating button group is expanded.
+
+- data-* (string; optional):
+    Wildcard support for `data-*` attributes.
+
+- aria-* (string; optional):
+    Wildcard support for `aria-*` attributes.

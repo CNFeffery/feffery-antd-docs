@@ -1,8 +1,8 @@
+from i18n import localized_callback
 import re
 import os
 import dash
 import time
-from flask import request
 from dash import html, dcc
 from datetime import datetime
 import feffery_antd_components as fac
@@ -21,77 +21,95 @@ import views.what_is_fac
 import views.version_migration_guide
 
 # 国际化
-from i18n import translator
+from i18n import translator, get_current_locale
 
 # 记录应用最近启动时间
 boot_datetime = datetime.now().strftime('%Y-%m-%d')
 
 
 def render_layout():
-    return fuc.FefferyTopProgress(
-        [
-            # 根容器url监听
-            fuc.FefferyLocation(id='root-url'),
-            # 全局状态存储
-            fac.Fragment(
-                [
-                    # 国际化语种
-                    fuc.FefferyCookie(
-                        id='global-locale',
-                        expires=3600 * 24 * 365,
-                        cookieKey=translator.cookie_name,
-                    )
-                ]
-            ),
-            # 全局页面重载
-            fuc.FefferyReload(id='global-reload'),
-            # 国际化初始自动判断
-            fuc.FefferyExecuteJs(
-                jsString="""
+    return fac.AntdConfigProvider(
+        fuc.FefferyTopProgress(
+            [
+                # 根容器url监听
+                fuc.FefferyLocation(id='root-url'),
+                # 全局状态存储
+                fac.Fragment(
+                    [
+                        # 国际化语种
+                        fuc.FefferyCookie(
+                            id='global-locale',
+                            expires=3600 * 24 * 365,
+                            cookieKey=translator.cookie_name,
+                        )
+                    ]
+                ),
+                # 全局页面重载
+                fuc.FefferyReload(id='global-reload'),
+                # 国际化初始自动判断
+                fuc.FefferyExecuteJs(
+                    jsString="""
 // 初始化语种自动赋值策略
-if ( !document.cookie.includes('dash-i18n=') ) {
-    if ( !navigator.language.startsWith('zh-') ) {
-        window.dash_clientside.set_props('global-locale', { value: 'en-us' })
+const readLocaleCookie = () => document.cookie.split(';')
+    .map((item) => item.trim())
+    .find((item) => item.startsWith('dash-i18n='))
+    ?.slice('dash-i18n='.length);
+const savedLocale = readLocaleCookie();
+if ( !['zh-cn', 'en-us'].includes(savedLocale) ) {
+    const preferredLocale = savedLocale === undefined
+        && !(navigator.language || 'zh').toLowerCase().startsWith('zh')
+        ? 'en-us' : 'zh-cn';
+    document.cookie = `dash-i18n=${preferredLocale}; path=/; max-age=31536000; SameSite=Lax`;
+    // Cookie 被禁用时不重载，避免首次访问陷入无限刷新。
+    if ( preferredLocale === 'en-us' && readLocaleCookie() === preferredLocale ) {
+        window.location.reload();
     }
 }
+const isEnglish = readLocaleCookie() === 'en-us';
+document.documentElement.lang = isEnglish ? 'en' : 'zh-CN';
+document.title = isEnglish
+    ? 'feffery-antd-components Documentation'
+    : 'feffery-antd-components在线文档';
                 """
-            ),
-            # 页面根容器
-            html.Div(
-                id='root-container',
-            ),
-            # 辅助内容
-            fac.Fragment(
-                [
-                    # 内容区刷新辅助动画锚点
-                    fac.AntdSpin(
-                        html.Div(
-                            style={'position': 'fixed'},
+                ),
+                # 页面根容器
+                html.Div(
+                    id='root-container',
+                ),
+                # 辅助内容
+                fac.Fragment(
+                    [
+                        # 内容区刷新辅助动画锚点
+                        fac.AntdSpin(
+                            html.Div(
+                                style={'position': 'fixed'},
+                            ),
+                            id='global-spin-center',
+                            indicator=fuc.FefferyExtraSpinner(
+                                type='guard',
+                                color='#1890ff',
+                                style={
+                                    'position': 'fixed',
+                                    'top': '50%',
+                                    'left': '50%',
+                                    'width': 100,
+                                    'height': 100,
+                                    'transform': 'translate(-50%, -50%)',
+                                    'zIndex': 999,
+                                },
+                            ),
+                            manual=True,
                         ),
-                        id='global-spin-center',
-                        indicator=fuc.FefferyExtraSpinner(
-                            type='guard',
-                            color='#1890ff',
-                            style={
-                                'position': 'fixed',
-                                'top': '50%',
-                                'left': '50%',
-                                'width': 100,
-                                'height': 100,
-                                'transform': 'translate(-50%, -50%)',
-                                'zIndex': 999,
-                            },
-                        ),
-                        manual=True,
-                    ),
-                ]
-            ),
-        ],
-        listenPropsMode='include',
-        includeProps=[
-            'doc-layout-container.children',
-        ],
-        minimum=0.33,
+                    ]
+                ),
+            ],
+            listenPropsMode='include',
+            includeProps=[
+                'doc-layout-container.children',
+            ],
+            minimum=0.33,
+        ),
+        locale=get_current_locale(),
     )
 
 
@@ -108,13 +126,11 @@ app.layout = render_layout
     ],
     prevent_initial_call=True,
 )
+@localized_callback(('children',))
 def root_router(pathname, trigger, search):
     """根节点路由控制"""
 
-    current_locale = request.cookies.get(translator.cookie_name)
-
-    # 赋值默认国际化语种
-    current_locale = current_locale or 'zh-cn'
+    current_locale = get_current_locale()
 
     if pathname.startswith('/~demo/'):
         time.sleep(0.5)
@@ -262,6 +278,7 @@ def root_router(pathname, trigger, search):
     ],
     prevent_initial_call=True,
 )
+@localized_callback(('children',))
 def doc_layout_router(pathname):
     """路由控制"""
 
@@ -369,7 +386,7 @@ def update_side_menu_state(pathname):
         match_version = pathname.split('-')[-1]
         # 检查提取的版本号对应更新日志是否存在
         if match_version + '.md' in os.listdir('changelogs'):
-            return [[re.sub('\.\d+$', '', match_version) + '.x版本'], pathname]
+            return [[re.sub(r'\.\d+$', '', match_version) + '.x版本'], pathname]
 
     return [None, pathname]
 

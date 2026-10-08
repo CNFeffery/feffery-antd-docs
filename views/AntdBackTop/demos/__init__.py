@@ -1,3 +1,5 @@
+from functools import partial
+from i18n import translator
 from dash.dependencies import Component
 
 from . import (
@@ -9,38 +11,45 @@ from . import (
 )
 from components import demos_render
 
-demos_config = [
-    {
-        'path': 'basic_usage',
-        'title': '基础使用',
-        'description': '滚动一定距离后出现按钮，点击可回到顶部。',
-        'iframe': True,
-    },
-    {
-        'path': 'duration',
-        'title': '设置滚动耗时',
-        'description': '设置回到顶部动作的持续时间，单位为秒。',
-        'iframe': True,
-    },
-    {
-        'path': 'visibility_height',
-        'title': '设置组件出现的滚动高度阈值',
-        'description': '设置当滚动高度超过该阈值时，才会显示回到顶部按钮。',
-        'iframe': True,
-    },
-    {
-        'path': 'container',
-        'title': '绑定在局部容器中',
-        'description': "可使用`containerId`和`containerSelector`两种参数的方式设置绑定的局部容器，`containerId`接受组件的id，`containerSelector`接受完整的js代码字符串，如`document.querySelector('#container')`。",
-        'iframe': True,
-    },
-    {
-        'path': 'basic_callback',
-        'title': '基础回调',
-        'description': '监听点击事件',
-        'iframe': True,
-    },
-]
+
+def demos_config() -> list:
+    t = partial(translator.t, locale_topic='AntdBackTop')
+    return [
+        {
+            'path': 'basic_usage',
+            'title': t('基础使用'),
+            'description': t('滚动一定距离后出现按钮，点击可回到顶部。'),
+            'iframe': True,
+        },
+        {
+            'path': 'duration',
+            'title': t('设置滚动耗时'),
+            'description': t('设置回到顶部动作的持续时间，单位为秒。'),
+            'iframe': True,
+        },
+        {
+            'path': 'visibility_height',
+            'title': t('设置组件出现的滚动高度阈值'),
+            'description': t(
+                '设置当滚动高度超过该阈值时，才会显示回到顶部按钮。'
+            ),
+            'iframe': True,
+        },
+        {
+            'path': 'container',
+            'title': t('绑定在局部容器中'),
+            'description': t(
+                "可使用`containerId`和`containerSelector`两种参数的方式设置绑定的局部容器，`containerId`接受组件的id，`containerSelector`接受完整的js代码字符串，如`document.querySelector('#container')`。"
+            ),
+            'iframe': True,
+        },
+        {
+            'path': 'basic_callback',
+            'title': t('基础回调'),
+            'description': t('监听点击事件'),
+            'iframe': True,
+        },
+    ]
 
 
 def render(component: Component, section_name: str = None) -> Component:

@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import feffery_antd_components as fac
 from dash.dependencies import Component, Input, Output
 
@@ -35,6 +36,7 @@ def render() -> Component:
     Output('checkbox-demo-output', 'children'),
     Input('checkbox-demo', 'checked'),
 )
+@localized_callback(('children',))
 def checkbox_demo(checked):
     return f'checked: {checked}'
 

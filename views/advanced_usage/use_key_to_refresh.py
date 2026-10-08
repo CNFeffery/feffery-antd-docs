@@ -1,3 +1,4 @@
+from i18n import localized_callback, localized_output
 import uuid
 from dash import html
 import feffery_antd_components as fac
@@ -7,6 +8,7 @@ from dash.dependencies import Component, Input, Output
 from server import app
 
 
+@localized_output
 def render() -> Component:
     """渲染“强制刷新组件”文档页"""
 
@@ -216,6 +218,7 @@ def key_demo2(value):
 @app.callback(
     Output('key-demo1-output', 'children'), Input('key-demo1-type', 'value')
 )
+@localized_callback(('children',))
 def key_demo1(value):
     return value * 100
 
@@ -224,5 +227,6 @@ def key_demo1(value):
     [Output('key-demo2-output', 'children'), Output('key-demo2-output', 'key')],
     Input('key-demo2-type', 'value'),
 )
+@localized_callback(('children', 'key'))
 def key_demo2(value):
     return [value * 100, str(uuid.uuid4())]

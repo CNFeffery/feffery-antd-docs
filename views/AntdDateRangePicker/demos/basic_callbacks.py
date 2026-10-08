@@ -1,3 +1,4 @@
+from i18n import get_current_locale
 import feffery_antd_components as fac
 from dash.dependencies import Component, Input, Output
 
@@ -38,7 +39,11 @@ def render() -> Component:
                     fac.AntdDateRangePicker(
                         id='date-range-picker-demo3',
                         placeholder=['配合自定义format', ''],
-                        format='YYYY年MM月DD日',
+                        format=(
+                            'YYYY/MM/DD'
+                            if get_current_locale() == 'en-us'
+                            else 'YYYY年MM月DD日'
+                        ),
                         style={'width': 300},
                     ),
                     fac.AntdText(id='date-range-picker-demo3-output'),
@@ -76,9 +81,10 @@ def date_range_picker_demo3(value):
     return f'value: {value}'
 
 
-code_string = [
-    {
-        'code': """
+def code_string():
+    codes = [
+        {
+            'code': """
 fac.AntdSpace(
     [
         fac.AntdSpace(
@@ -144,6 +150,12 @@ def date_range_picker_demo2(value):
 )
 def date_range_picker_demo3(value):
     return f'value: {value}'
-"""
-    }
-]
+    """
+        }
+    ]
+
+    if get_current_locale() == 'en-us':
+        for item in codes:
+            item['code'] = item['code'].replace('YYYY年MM月DD日', 'YYYY/MM/DD')
+            item['code'] = item['code'].replace('YYYY年', 'YYYY')
+    return codes

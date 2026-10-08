@@ -1,0 +1,39 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdComment",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "最基础的单条评论信息。": {
+            "en-us": "A basic comment."
+        },
+        "自定义头像": {
+            "en-us": "Custom avatar"
+        },
+        "通过参数`avatarProps`进行头像的自定义配置。": {
+            "en-us": "Use `avatarProps` to customize the avatar."
+        },
+        "显示相对发布时间": {
+            "en-us": "Relative publication time"
+        },
+        "设置参数`fromNow=True`后，评论中的发布时间将以相对现在的时间形式进行展示。": {
+            "en-us": "Set `fromNow=True` to display the comment's publication time relative to now."
+        },
+        "嵌套评论": {
+            "en-us": "Nested comments"
+        },
+        "评论本身可以作为其他评论的子元素呈现出嵌套效果。": {
+            "en-us": "Nest a comment inside another comment."
+        },
+        "初始化点赞反对状态": {
+            "en-us": "Initial like/dislike state"
+        },
+        "设置参数`defaultAction`控制初始化时所处的的点赞反对状态。": {
+            "en-us": "Use `defaultAction` to set the initial like/dislike state."
+        },
+        "回调监听": {
+            "en-us": "Callbacks"
+        }
+    }
+}

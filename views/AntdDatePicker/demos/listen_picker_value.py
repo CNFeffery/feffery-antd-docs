@@ -10,25 +10,25 @@ def render() -> Component:
 
     locale = get_current_locale()
 
-    if locale == "zh-cn":
+    if locale == 'zh-cn':
         demo_contents = fac.AntdSpace(
             [
                 fac.AntdDatePicker(
-                    id="date-picker-listen-picker-value-demo",
-                    style={"width": 175},
+                    id='date-picker-listen-picker-value-demo',
+                    style={'width': 175},
                 ),
-                fac.AntdText(id="date-picker-listen-picker-value-demo-output"),
+                fac.AntdText(id='date-picker-listen-picker-value-demo-output'),
             ]
         )
     else:
         demo_contents = fac.AntdSpace(
             [
                 fac.AntdDatePicker(
-                    id="date-picker-listen-picker-value-demo",
-                    style={"width": 175},
-                    locale="en-us",
+                    id='date-picker-listen-picker-value-demo',
+                    style={'width': 175},
+                    locale='en-us',
                 ),
-                fac.AntdText(id="date-picker-listen-picker-value-demo-output"),
+                fac.AntdText(id='date-picker-listen-picker-value-demo-output'),
             ]
         )
 
@@ -36,21 +36,21 @@ def render() -> Component:
 
 
 @app.callback(
-    Output("date-picker-listen-picker-value-demo-output", "children"),
-    Input("date-picker-listen-picker-value-demo", "pickerValue"),
+    Output('date-picker-listen-picker-value-demo-output', 'children'),
+    Input('date-picker-listen-picker-value-demo', 'pickerValue'),
 )
 def show_picker_value(pickerValue):
-    return f"pickerValue: {pickerValue}"
+    return f'pickerValue: {pickerValue}'
 
 
 def code_string() -> list:
     """返回当前语种对应的演示代码 / Return demo code for the current locale"""
     locale = get_current_locale()
 
-    if locale == "zh-cn":
+    if locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         fac.AntdDatePicker(
@@ -75,7 +75,7 @@ def show_picker_value(pickerValue):
     else:
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         fac.AntdDatePicker(

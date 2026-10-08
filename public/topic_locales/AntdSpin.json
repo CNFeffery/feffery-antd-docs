@@ -1,0 +1,48 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdSpin",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "默认情况下，加载动画会监听其内部的各个组件是否处于回调函数运算输出中状态，从而自动控制加载状态的切换。": {
+            "en-us": "By default, the loading indicator monitors callback activity of its nested components and updates its loading state automatically."
+        },
+        "排除监听模式": {
+            "en-us": "Exclude monitoring mode"
+        },
+        "设置参数`listenPropsMode='exclude'`开启排除监听模式，该模式下加载动画将忽略监听参数`excludeProps`所定义的组件属性更新过程。": {
+            "en-us": "Set `listenPropsMode='exclude'` so the loading indicator ignores updates to component properties listed in `excludeProps`."
+        },
+        "包含监听模式": {
+            "en-us": "Include monitoring mode"
+        },
+        "设置参数`listenPropsMode='include'`开启包含监听模式，该模式下加载动画将只监听参数`includeProps`所定义的组件属性更新过程。": {
+            "en-us": "Set `listenPropsMode='include'` so the loading indicator monitors only component properties listed in `includeProps`."
+        },
+        "自定义加载动画": {
+            "en-us": "Custom loading indicator"
+        },
+        "设置参数`indicator`自定义充当加载动画的元素。": {
+            "en-us": "Use `indicator` to provide a custom loading indicator."
+        },
+        "环状进度动画": {
+            "en-us": "Circular progress animation"
+        },
+        "设置参数`percent`控制加载动画以环状进度图形式呈现。": {
+            "en-us": "Use `percent` to display the loading indicator as circular progress."
+        },
+        "全屏加载动画": {
+            "en-us": "Fullscreen loading indicator"
+        },
+        "设置参数`fullscreen=True`启用全屏遮罩形式的加载动画。": {
+            "en-us": "Set `fullscreen=True` to use a fullscreen loading mask."
+        },
+        "自定义包裹层css类名": {
+            "en-us": "Custom wrapper CSS class"
+        },
+        "通过参数`wrapperClassName`控制包裹层的**css**类名，来实现更丰富的样式控制，譬如此例中令高度撑满所在父容器。": {
+            "en-us": "Use `wrapperClassName` to set the wrapper's **CSS** class for richer style control, such as filling its parent's height."
+        }
+    }
+}

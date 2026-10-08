@@ -1,5 +1,5 @@
 import feffery_antd_components as fac
-from dash.dependencies import Component, Input, Output
+from dash.dependencies import Component, Input, Output, State
 
 from i18n import get_current_locale
 from server import app
@@ -112,21 +112,14 @@ def render() -> Component:
 
 app.clientside_callback(
     """
-(align, type) => {
-    return [
-        {
-            'dataIndex': 'mini-progress示例',
-            'title': 'mini-progress示例',
-            'renderOptions': {
-                'renderType': 'mini-progress',
-                'progressShowPercent': true,
-                'progressPercentPosition': {
-                    'align': align,
-                    'type': type,
-                },
-            },
+(align, type, columns) => {
+    return columns.map((column) => ({
+        ...column,
+        renderOptions: {
+            ...column.renderOptions,
+            progressPercentPosition: { align, type },
         },
-    ];
+    }));
 }
 """,
     Output('table-mini-progress-percent-position-demo', 'columns'),
@@ -134,6 +127,7 @@ app.clientside_callback(
         Input('table-mini-progress-percent-position-demo-align', 'value'),
         Input('table-mini-progress-percent-position-demo-type', 'value'),
     ],
+    State('table-mini-progress-percent-position-demo', 'columns'),
     prevent_initial_call=True,
 )
 
@@ -198,21 +192,14 @@ fac.AntdSpace(
 
 app.clientside_callback(
     \"""
-(align, type) => {
-    return [
-        {
-            'dataIndex': 'mini-progress示例',
-            'title': 'mini-progress示例',
-            'renderOptions': {
-                'renderType': 'mini-progress',
-                'progressShowPercent': true,
-                'progressPercentPosition': {
-                    'align': align,
-                    'type': type,
-                },
-            },
+(align, type, columns) => {
+    return columns.map((column) => ({
+        ...column,
+        renderOptions: {
+            ...column.renderOptions,
+            progressPercentPosition: { align, type },
         },
-    ];
+    }));
 }
 \""",
     Output('table-mini-progress-percent-position-demo', 'columns'),
@@ -220,6 +207,7 @@ app.clientside_callback(
         Input('table-mini-progress-percent-position-demo-align', 'value'),
         Input('table-mini-progress-percent-position-demo-type', 'value'),
     ],
+    State('table-mini-progress-percent-position-demo', 'columns'),
     prevent_initial_call=True,
 )
 """
@@ -282,21 +270,14 @@ fac.AntdSpace(
 
 app.clientside_callback(
     \"""
-(align, type) => {
-    return [
-        {
-            'dataIndex': 'mini-progress Example',
-            'title': 'mini-progress Example',
-            'renderOptions': {
-                'renderType': 'mini-progress',
-                'progressShowPercent': true,
-                'progressPercentPosition': {
-                    'align': align,
-                    'type': type,
-                },
-            },
+(align, type, columns) => {
+    return columns.map((column) => ({
+        ...column,
+        renderOptions: {
+            ...column.renderOptions,
+            progressPercentPosition: { align, type },
         },
-    ];
+    }));
 }
 \""",
     Output('table-mini-progress-percent-position-demo', 'columns'),
@@ -304,6 +285,7 @@ app.clientside_callback(
         Input('table-mini-progress-percent-position-demo-align', 'value'),
         Input('table-mini-progress-percent-position-demo-type', 'value'),
     ],
+    State('table-mini-progress-percent-position-demo', 'columns'),
     prevent_initial_call=True,
 )
 """

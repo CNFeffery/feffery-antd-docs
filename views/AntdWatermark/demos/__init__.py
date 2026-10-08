@@ -1,3 +1,5 @@
+from functools import partial
+from i18n import translator
 from dash.dependencies import Component
 
 from . import (
@@ -7,23 +9,26 @@ from . import (
 )
 from components import demos_render
 
-demos_config = [
-    {
-        'path': 'basic_usage',
-        'title': '基础使用',
-        'description': '基础的水印用法。',
-    },
-    {
-        'path': 'multiline_text',
-        'title': '多行文本水印',
-        'description': '使用多行文本作为水印内容。',
-    },
-    {
-        'path': 'image_watermark',
-        'title': '图片型水印',
-        'description': '使用图片作为水印内容。',
-    },
-]
+
+def demos_config() -> list:
+    t = partial(translator.t, locale_topic='AntdWatermark')
+    return [
+        {
+            'path': 'basic_usage',
+            'title': t('基础使用'),
+            'description': t('基础的水印用法。'),
+        },
+        {
+            'path': 'multiline_text',
+            'title': t('多行文本水印'),
+            'description': t('使用多行文本作为水印内容。'),
+        },
+        {
+            'path': 'image_watermark',
+            'title': t('图片型水印'),
+            'description': t('使用图片作为水印内容。'),
+        },
+    ]
 
 
 def render(component: Component, section_name: str = None) -> Component:

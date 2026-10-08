@@ -21,10 +21,10 @@
             "en-us": "Use `defaultActiveKey` to control the default expanded item."
         },
         "不同的尺寸规格": {
-            "en-us": "Different sizes"
+            "en-us": "Sizes"
         },
         "设置参数`size`控制尺寸规格。": {
-            "en-us": "Use the `size` parameter to control the size."
+            "en-us": "Use `size` to control the component size."
         },
         "展开图标靠右": {
             "en-us": "Expand icon on the right"
@@ -39,13 +39,13 @@
             "en-us": "Set the `extra` parameter on items to add extra content."
         },
         "透明面板模式": {
-            "en-us": "Transparent panel mode"
+            "en-us": "Transparent panel"
         },
         "设置参数`ghost=True`开启透明面板格式。": {
             "en-us": "Set `ghost=True` to enable the transparent panel mode."
         },
         "回调监听": {
-            "en-us": "Callback listening"
+            "en-us": "Callbacks"
         }
     }
 }

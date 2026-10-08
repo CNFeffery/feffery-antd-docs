@@ -1,0 +1,78 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdTimePicker",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "常规的时间选择。": {
+            "en-us": "Basic time selection."
+        },
+        "隐藏此刻按钮": {
+            "en-us": "Hide the Now button"
+        },
+        "设置参数`showNow=False`对选择面板中的“此刻”按钮进行隐藏。": {
+            "en-us": "Set `showNow=False` to hide the Now button in the selection panel."
+        },
+        "悬浮层展开方位": {
+            "en-us": "Popup placement"
+        },
+        "设置参数`placement`控制悬浮层展开方位。": {
+            "en-us": "Use `placement` to set the popup placement."
+        },
+        "自定义format": {
+            "en-us": "Custom format"
+        },
+        "设置参数`format`以实现不同粒度设置下适合的已选内容回填格式化。": {
+            "en-us": "Use `format` to customize the displayed selection for the chosen picker mode."
+        },
+        "禁用状态": {
+            "en-us": "Disabled state"
+        },
+        "设置参数`disabled=True`开启禁用状态。": {
+            "en-us": "Set `disabled=True` to disable the component."
+        },
+        "只读状态": {
+            "en-us": "Read-only state"
+        },
+        "设置参数`readOnly=True`开启只读状态。": {
+            "en-us": "Set `readOnly=True` for the read-only state."
+        },
+        "内嵌前缀内容": {
+            "en-us": "Embedded prefix content"
+        },
+        "通过参数`prefix`设置选择框内嵌前缀内容。": {
+            "en-us": "Use `prefix` to embed prefix content in the selection input."
+        },
+        "内嵌后缀图标": {
+            "en-us": "Embedded suffix icon"
+        },
+        "通过参数`suffixIcon`设置选择框内嵌后缀图标。": {
+            "en-us": "Use `suffixIcon` to embed a suffix icon in the selection input."
+        },
+        "强制状态渲染": {
+            "en-us": "Force status rendering"
+        },
+        "设置参数`status`强制状态渲染。": {
+            "en-us": "Use `status` to force a status style."
+        },
+        "控制各部分时间间隔": {
+            "en-us": "Time option intervals"
+        },
+        "设置参数`hourStep`、`minuteStep`、`secondStep`分别控制不同部分的时间间隔。": {
+            "en-us": "Use `hourStep`, `minuteStep`, and `secondStep` to set time option intervals."
+        },
+        "使用12小时制": {
+            "en-us": "12-hour clock"
+        },
+        "设置参数`use12Hours=True`开启12小时制。": {
+            "en-us": "Set `use12Hours=True` for a 12-hour clock."
+        },
+        "底部添加额外内容": {
+            "en-us": "Additional footer content"
+        },
+        "回调监听": {
+            "en-us": "Callbacks"
+        }
+    }
+}

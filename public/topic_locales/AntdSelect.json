@@ -9,7 +9,7 @@
             "en-us": "A basic usage example."
         },
         "多选模式": {
-            "en-us": "Multiple selection mode"
+            "en-us": "Multiple selection"
         },
         "可以多选的下拉选择使用示例。": {
             "en-us": "Example of a dropdown select with multiple selection enabled."
@@ -33,7 +33,7 @@
             "en-us": "Control the variant of the select component with the `variant` parameter."
         },
         "设置边框": {
-            "en-us": "Border setting"
+            "en-us": "Border"
         },
         "通过参数`bordered`控制是否渲染下拉选择组件的边框。": {
             "en-us": "Control whether to render the border of the select component with the `bordered` parameter."
@@ -51,19 +51,19 @@
             "en-us": "Control whether the select box is read-only with the `readOnly` parameter."
         },
         "内嵌前缀内容": {
-            "en-us": "Prefix content"
+            "en-us": "Embedded prefix content"
         },
         "通过参数`prefix`设置选择框内嵌前缀内容。": {
-            "en-us": "Set embedded prefix content in the select box with the `prefix` parameter."
+            "en-us": "Use `prefix` to embed prefix content in the selection input."
         },
         "内嵌后缀图标": {
-            "en-us": "Suffix icon"
+            "en-us": "Embedded suffix icon"
         },
         "通过参数`suffixIcon`设置选择框内嵌后缀图标。": {
-            "en-us": "Set the suffix icon in the select box with the `suffixIcon` parameter."
+            "en-us": "Use `suffixIcon` to embed a suffix icon in the selection input."
         },
         "强制渲染校验状态": {
-            "en-us": "Force validation state"
+            "en-us": "Force validation status"
         },
         "通过参数`status`控制下拉选择框强制校验状态显示。": {
             "en-us": "Control forced validation state display with the `status` parameter."
@@ -81,7 +81,7 @@
             "en-us": "Control the maximum number of displayed selected items with the `maxTagCount` parameter."
         },
         "限制最多可选项数量": {
-            "en-us": "Limit maximum selected items"
+            "en-us": "Maximum selection count"
         },
         "通过参数`maxCount`控制下拉选择组件的最大可选项数。": {
             "en-us": "Control the maximum number of selectable items with the `maxCount` parameter."
@@ -135,7 +135,7 @@
             "en-us": "Set the height of the dropdown menu in pixels."
         },
         "悬浮层展开方向": {
-            "en-us": "Placement"
+            "en-us": "Popup placement"
         },
         "可设置不同的下拉选择菜单悬浮层展开方向。": {
             "en-us": "Set the direction in which the dropdown menu expands."

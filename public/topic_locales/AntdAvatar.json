@@ -1,0 +1,48 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdAvatar",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "基础的图标、文字及图片类型头像。": {
+            "en-us": "Text, icon, and image avatars."
+        },
+        "背景色": {
+            "en-us": "Background color"
+        },
+        "通过设置参数`style`控制头像的背景色。": {
+            "en-us": "Use `style` to set the avatar background color."
+        },
+        "配合AntdIcon": {
+            "en-us": "Using AntdIcon"
+        },
+        "图标型头像直接使用**AntdIcon**中内置的大量图标。": {
+            "en-us": "Icon avatars use the built-in icons provided by **AntdIcon**."
+        },
+        "添加额外徽标": {
+            "en-us": "Add a badge"
+        },
+        "配合**AntdBadge**为头像添加额外徽标。": {
+            "en-us": "Use **AntdBadge** to add a badge to the avatar."
+        },
+        "尺寸规格": {
+            "en-us": "Sizes"
+        },
+        "头像可灵活地设置尺寸规格。": {
+            "en-us": "Configure avatar sizes flexibly."
+        },
+        "响应式尺寸规格": {
+            "en-us": "Responsive sizes"
+        },
+        "通过参数`size`可控制头像在不同屏幕宽度断点下的尺寸规格。": {
+            "en-us": "Use `size` to configure avatar sizes at different viewport breakpoints."
+        },
+        "方形头像": {
+            "en-us": "Square avatars"
+        },
+        "设置参数`shape='square'`渲染方形头像。": {
+            "en-us": "Set `shape='square'` for square avatars."
+        }
+    }
+}

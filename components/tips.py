@@ -1,7 +1,9 @@
 import feffery_antd_components as fac
 import feffery_markdown_components as fmc
+from i18n import localized_output
 
 
+@localized_output
 def render(tip_type: str):
     """渲染一些特殊的小贴士信息"""
 

@@ -9,46 +9,46 @@ def render() -> Component:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         demo_contents = fac.AntdSpace(
             [
                 fac.AntdSelect(
                     bordered=True,
-                    placeholder="bordered=True（默认）",
-                    options=[f"选项{i}" for i in range(1, 6)],
-                    style={"width": "100%"},
+                    placeholder='bordered=True（默认）',
+                    options=[f'选项{i}' for i in range(1, 6)],
+                    style={'width': '100%'},
                 ),
                 fac.AntdSelect(
                     bordered=False,
-                    placeholder="bordered=False",
-                    options=[f"选项{i}" for i in range(1, 6)],
-                    style={"width": "100%"},
+                    placeholder='bordered=False',
+                    options=[f'选项{i}' for i in range(1, 6)],
+                    style={'width': '100%'},
                 ),
             ],
-            direction="vertical",
-            style={"width": 350},
+            direction='vertical',
+            style={'width': 350},
         )
 
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         demo_contents = fac.AntdSpace(
             [
                 fac.AntdSelect(
                     bordered=True,
-                    placeholder="bordered=True (default)",
-                    options=[f"Option {i}" for i in range(1, 6)],
-                    style={"width": "100%"},
-                    locale="en-us",
+                    placeholder='bordered=True (default)',
+                    options=[f'Option {i}' for i in range(1, 6)],
+                    style={'width': '100%'},
+                    locale='en-us',
                 ),
                 fac.AntdSelect(
                     bordered=False,
-                    placeholder="bordered=False",
-                    options=[f"Option {i}" for i in range(1, 6)],
-                    style={"width": "100%"},
-                    locale="en-us",
+                    placeholder='bordered=False',
+                    options=[f'Option {i}' for i in range(1, 6)],
+                    style={'width': '100%'},
+                    locale='en-us',
                 ),
             ],
-            direction="vertical",
-            style={"width": 350},
+            direction='vertical',
+            style={'width': 350},
         )
 
     return demo_contents
@@ -59,10 +59,10 @@ def code_string() -> list:
 
     current_locale = get_current_locale()
 
-    if current_locale == "zh-cn":
+    if current_locale == 'zh-cn':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         fac.AntdSelect(
@@ -84,10 +84,10 @@ fac.AntdSpace(
 """
             }
         ]
-    elif current_locale == "en-us":
+    elif current_locale == 'en-us':
         return [
             {
-                "code": """
+                'code': """
 fac.AntdSpace(
     [
         fac.AntdSelect(

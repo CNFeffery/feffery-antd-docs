@@ -1,0 +1,72 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdSegmented",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "最简单的用法。": {
+            "en-us": "Basic usage."
+        },
+        "快捷设置options参数": {
+            "en-us": "Short-form options"
+        },
+        "针对`options`参数的快捷设置方式。": {
+            "en-us": "A short form for the `options` property."
+        },
+        "垂直展示": {
+            "en-us": "Vertical display"
+        },
+        "设置参数`vertical=True`开启垂直展示模式。": {
+            "en-us": "Set `vertical=True` for a vertical display."
+        },
+        "撑满父级元素宽度": {
+            "en-us": "Fill the parent width"
+        },
+        "设置参数`block=True`后分段控制器将撑满父元素宽度。": {
+            "en-us": "Set `block=True` to make the segmented control fill its parent width."
+        },
+        "不同的尺寸规格": {
+            "en-us": "Sizes"
+        },
+        "通过参数`size`控制分段控制器的尺寸规格。": {
+            "en-us": "Use `size` to set the segmented control size."
+        },
+        "设置图标": {
+            "en-us": "Set the icon"
+        },
+        "为选项添加图标。": {
+            "en-us": "Add icons to options."
+        },
+        "仅展示图标": {
+            "en-us": "Icon only"
+        },
+        "仅为选项设置图标。": {
+            "en-us": "Display options as icons only."
+        },
+        "自定义渲染": {
+            "en-us": "Custom rendering"
+        },
+        "选项的`label`参数可传入自定义组件。": {
+            "en-us": "Use a custom component as an option's `label`."
+        },
+        "禁用状态": {
+            "en-us": "Disabled state"
+        },
+        "设置参数`disabled=True`禁用当前分段控制器。": {
+            "en-us": "Set `disabled=True` to disable the segmented control."
+        },
+        "不同的形状": {
+            "en-us": "Shapes"
+        },
+        "设置参数`shape`渲染不同的形状。": {
+            "en-us": "Use `shape` to choose the shape."
+        },
+        "回调监听": {
+            "en-us": "Callbacks"
+        },
+        "监听当前所选项的值。": {
+            "en-us": "Monitor the current selected value."
+        }
+    }
+}

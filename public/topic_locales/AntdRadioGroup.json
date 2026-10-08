@@ -1,0 +1,63 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "AntdRadioGroup",
+    "contents": {
+        "基础使用": {
+            "en-us": "Basic usage"
+        },
+        "最简单的单选框。": {
+            "en-us": "A basic radio group."
+        },
+        "选项排列方向": {
+            "en-us": "Option layout direction"
+        },
+        "设置参数`direction`控制单选框的选项排列方向。": {
+            "en-us": "Use `direction` to set the radio option layout direction."
+        },
+        "按钮模式": {
+            "en-us": "Button mode"
+        },
+        "设置参数`optionType='button'`时选项的渲染为按钮形式。": {
+            "en-us": "Set `optionType='button'` to render options as buttons."
+        },
+        "撑满父容器": {
+            "en-us": "Fill the parent container"
+        },
+        "设置参数`block=True`后单选框整体宽度将撑满父容器。": {
+            "en-us": "Set `block=True` to make the radio group fill its parent width."
+        },
+        "禁用状态": {
+            "en-us": "Disabled state"
+        },
+        "设置参数`disabled=True`开启禁用状态。": {
+            "en-us": "Set `disabled=True` to disable the component."
+        },
+        "只读状态": {
+            "en-us": "Read-only state"
+        },
+        "设置参数`readOnly=True`开启只读状态。": {
+            "en-us": "Set `readOnly=True` for the read-only state."
+        },
+        "不同的尺寸规格": {
+            "en-us": "Sizes"
+        },
+        "当`optionType='button'`时，设置参数`size`控制各选项按钮尺寸规格。": {
+            "en-us": "When `optionType='button'`, use `size` to set the option button sizes."
+        },
+        "快捷定义options": {
+            "en-us": "Short-form options"
+        },
+        "当`options`每个元素的`label`和`value`值相同时，可通过传入一个包含字符串或数字的列表快速定义`options`。": {
+            "en-us": "When each option has the same `label` and `value`, pass a list of strings or numbers as a short form for `options`."
+        },
+        "组件型label": {
+            "en-us": "Component labels"
+        },
+        "`options`中各选项的`label`支持传入组件。": {
+            "en-us": "The `label` of each item in `options` can be a component."
+        },
+        "回调监听": {
+            "en-us": "Callbacks"
+        }
+    }
+}

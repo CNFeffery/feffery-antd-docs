@@ -1,3 +1,4 @@
+from i18n import localized_callback
 import feffery_antd_components as fac
 from dash.dependencies import Component, Input, Output
 
@@ -36,6 +37,7 @@ def render() -> Component:
     Input('alert-message-button-input', 'nClicks'),
     prevent_initial_call=True,
 )
+@localized_callback(('children',))
 def alert_message_description_callback_demo(nClicks):
     return f'这是组件型description参数示例，上面的按钮被点了{nClicks}次'
 
